@@ -103,6 +103,18 @@ LOGGING = {
     }
 }
 
+
+TRACKER_DOCS_ROOT = '/path/to/documents' # This is a directory for private documents
+TRACKER_PUBLIC_DEPLOY_ROOT = '/path/to/publicly/accessible/directory' # Used for publicly available things served by a webserver, such as ticket cache
+
+# Email configuration
+EMAIL_USE_SSL = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.example.com'
+DEFAULT_FROM_EMAIL = 'Tracker <tracker@example.com>'
+SERVER_EMAIL = 'Webmaster <webmaster@example.com>'
+
+FILE_UPLOAD_PERMISSIONS = 0664
 BASE_URL = 'https://example.com'
 
 # this imports almost everything from common settings
