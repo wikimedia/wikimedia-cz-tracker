@@ -288,7 +288,7 @@ class Ticket(CachedModel):
             total = sum([x.amount for x in self.expediture_set.filter(paid=True)], decimal.Decimal(0))
             reduced = total * self.rating_percentage / 100
             return reduced.quantize(decimal.Decimal('0.01'), rounding=decimal.ROUND_HALF_UP)
-    
+
     def watches(self, user, event):
         """Watches given user this ticket?"""
         return self.topic.watches(user, event) or (user.is_authenticated() and len(TicketWatcher.objects.filter(ticket=self, user=user, notification_type=event)) > 0)
@@ -537,7 +537,7 @@ class Topic(CachedModel):
             finance.add_ticket(ticket)
 
         return finance
-    
+
     def watches(self, user, event):
         """Watches given user this topic?"""
         return user.is_authenticated() and len(TopicWatcher.objects.filter(topic=self, user=user, notification_type=event)) > 0
@@ -698,7 +698,7 @@ class TrackerProfile(models.Model):
 
     def transactions(self):
         return Transaction.objects.filter(other=self.user).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
-    
+
     def get_muted_notifications(self):
         if self.muted_notifications == '': return []
         res = []
@@ -852,7 +852,7 @@ class TicketWatcher(models.Model):
 
     def __unicode__(self):
         return 'User %s is watching event %s on ticket %s' % (self.user, self.notification_type, self.ticket)
-    
+
     @staticmethod
     def get_users(ticket, notification_type):
         res = set()
@@ -869,7 +869,7 @@ class TopicWatcher(models.Model):
 
     def __unicode__(self):
         return 'User %s is watching event %s on topic %s' % (self.user, self.notification_type, self.topic)
-    
+
     @staticmethod
     def get_users(topic, notification_type):
         res = set()

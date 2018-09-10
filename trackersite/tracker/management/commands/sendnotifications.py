@@ -10,7 +10,7 @@ from datetime import date
 
 class Command(NoArgsCommand):
     help = 'Process pending notifications'
-    
+
     def handle_noargs(self, **options):
         translation.activate('cs_CZ')
         subject_c = Context({"date":date.today()})

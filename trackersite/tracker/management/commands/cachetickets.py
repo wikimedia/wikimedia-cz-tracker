@@ -7,7 +7,7 @@ from tracker.models import Ticket
 
 class Command(NoArgsCommand):
     help = 'Cache tickets'
-    
+
     def handle_noargs(self, **options):
         for langcode, langname in settings.LANGUAGES:
             with translation.override(langcode):
