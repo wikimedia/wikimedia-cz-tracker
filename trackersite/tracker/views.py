@@ -1246,7 +1246,7 @@ def importcsv(request):
                     expenses = line[header.index('expenses')]
                     description = line[header.index('description')]
                     form_description = line[header.index('form_description')]
-                    topic = Topic.objects.create(name=name, grant_id=grant, open_for_tickets=new_tickets, ticket_media=media, ticket_preexpenses=preexpenses, ticket_expenses=expenses, description=description, form_description=form_description)
+                    Topic.objects.create(name=name, grant_id=grant, open_for_tickets=new_tickets, ticket_media=media, ticket_preexpenses=preexpenses, ticket_expenses=expenses, description=description, form_description=form_description)
             elif request.POST['type'] == 'grant':
                 if not request.user.is_staff:
                      return HttpResponseForbidden(_('You must be staffer in order to be able import grants.'))
@@ -1259,7 +1259,7 @@ def importcsv(request):
                     short_name = line[header.index('short_name')]
                     slug = line[header.index('slug')]
                     description = line[header.index('description')]
-                    grant = Grant.objects.create(full_name=full_name, short_name=short_name, slug=slug, description=description)
+                    Grant.objects.create(full_name=full_name, short_name=short_name, slug=slug, description=description)
             elif request.POST['type'] == 'expense':
                 for line in reader:
                     imported += 1
@@ -1277,7 +1277,7 @@ def importcsv(request):
                         accounting_info = ''
                         paid = False
                     if ticket.can_edit(request.user) or request.user.is_staff:
-                        expediture = Expediture.objects.create(ticket=ticket, description=description, amount=amount, wage=wage, accounting_info=accounting_info, paid=paid)
+                        Expediture.objects.create(ticket=ticket, description=description, amount=amount, wage=wage, accounting_info=accounting_info, paid=paid)
                     else:
                         return HttpResponseForbidden(_("You can't add preexpenses to ticket that you did not created."))
             elif request.POST['type'] == 'preexpense':
@@ -1291,7 +1291,7 @@ def importcsv(request):
                     amount = line[header.index('amount')]
                     wage = line[header.index('wage')]
                     if ticket.can_edit(request.user) or request.user.is_staff:
-                        expediture = Preexpediture.objects.create(ticket=ticket, description=description, amount=amount, wage=wage)
+                        Preexpediture.objects.create(ticket=ticket, description=description, amount=amount, wage=wage)
                     else:
                         return HttpResponseForbidden(_("You can't add preexpenses to ticket that you did not created."))
             elif request.POST['type'] == 'media':
@@ -1310,7 +1310,7 @@ def importcsv(request):
                     else:
                         number = None
                     if ticket.can_edit(request.user) or request.user.is_staff:
-                        media = MediaInfo.objects.create(ticket=ticket, url=url, description=description, count=number)
+                        MediaInfo.objects.create(ticket=ticket, url=url, description=description, count=number)
                         ticket.save()
                     else:
                         return HttpResponseForbidden(_("You can't add media items to ticket that you did not created."))

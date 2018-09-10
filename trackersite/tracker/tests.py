@@ -821,7 +821,7 @@ class UserProfileTests(TestCase):
     def test_simple_create(self):
         user = User.objects.create(username='new_user')
         try:
-            profile = user.trackerprofile
+            user.trackerprofile
         except TrackerProfile.DoesNotExist:
             self.fail('Failed to create trackerprofile for new user')
 

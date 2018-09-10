@@ -718,7 +718,7 @@ def create_user_profile(sender, **kwargs):
         return
 
     user = kwargs['instance']
-    profile = TrackerProfile.objects.create(user=user)
+    TrackerProfile.objects.create(user=user)
 
 class Transaction(models.Model):
     """ One payment to or from the user. """
