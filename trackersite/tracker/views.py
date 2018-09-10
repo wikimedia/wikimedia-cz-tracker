@@ -668,7 +668,6 @@ def transaction_list(request):
     })
 
 
-
 def transactions_csv(request):
     response = HttpResponseCsv(
         ['DATE', 'OTHER PARTY', 'AMOUNT ' + unicode(settings.TRACKER_CURRENCY), 'DESCRIPTION', 'TICKETS', 'GRANTS', 'ACCOUNTING INFO']

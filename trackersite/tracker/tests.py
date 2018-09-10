@@ -877,7 +877,6 @@ class ImportTests(TestCase):
             for t in Preexpediture.objects.all():
                 t.delete()
 
-
     def test_access_rights(self):
         user = {'user': User.objects.create(username='user'), 'password':'pw1'}
         staffer = {'user': User.objects.create(username='staffer', is_staff=True), 'password':'pw2'}
@@ -976,7 +975,6 @@ class DocumentAccessTests(TestCase):
             self.assertEqual(''.join(response.streaming_content), self.doc['payload'])
         else:
             self.assertEqual(response.status_code, deny_code)
-
 
     def test_anonymous_user_access(self):
         self.check_user_access(user=None, can_see=False, can_edit=False)
