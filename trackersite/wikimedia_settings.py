@@ -24,6 +24,7 @@ CACHES = {
 }
 
 SECRET_KEY='42'
+PRODUCTION = False
 TRACKER_DOCS_ROOT = os.path.join(os.environ['DEPLOY_DIR'], 'docs')
 SITE_ID = 1
 ADMIN_MEDIA_PREFIX = '/static/admin/'

@@ -6,3 +6,6 @@ def currency(request):
 
 def base_url(request):
 	return {'BASE_URL': settings.BASE_URL}
+
+def production(request):
+	return {'PRODUCTION': settings.PRODUCTION}
