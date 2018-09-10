@@ -229,7 +229,7 @@ class Ticket(CachedModel):
     state_str.short_description = _('state')
 
     def __unicode__(self):
-        return '%s: %s' % (self.id , self.summary)
+        return '%s: %s' % (self.id, self.summary)
 
     @cached_getter
     def requested_by(self):
