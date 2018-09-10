@@ -668,7 +668,6 @@ class Document(models.Model):
             ("edit_all_docs", "Can edit all documents"),
         )
 
-from django.contrib.auth.models import User
 
 class TrackerProfile(models.Model):
     user = models.OneToOneField(User)
