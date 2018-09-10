@@ -823,7 +823,7 @@ class UserProfileTests(TestCase):
         try:
             profile = user.trackerprofile
         except TrackerProfile.DoesNotExist:
-            self.assertTrue(False)
+            self.fail('Failed to create trackerprofile for new user')
 
 class ImportTests(TestCase):
 
