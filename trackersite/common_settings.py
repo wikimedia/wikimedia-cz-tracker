@@ -27,9 +27,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.core.context_processors.request",
     "django.contrib.messages.context_processors.messages",
-    "tracker.context_processors.currency",
-    "tracker.context_processors.base_url",
-    "tracker.context_processors.production",
+    "tracker.context_processors.public_settings",
     "users.context_processors.wrapped_user",
 )
 

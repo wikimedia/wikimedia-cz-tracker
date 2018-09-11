@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
 
-def currency(request):
-	return {'CURRENCY': settings.TRACKER_CURRENCY}
-
-def base_url(request):
-	return {'BASE_URL': settings.BASE_URL}
-
-def production(request):
-	return {'PRODUCTION': settings.PRODUCTION}
+def public_settings(request):
+	return {
+		'CURRENCY': settings.TRACKER_CURRENCY,
+		'BASE_URL': settings.BASE_URL,
+		'PRODUCTION': settings.PRODUCTION,
+	}
