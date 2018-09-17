@@ -74,6 +74,8 @@ STATIC_ROOT = ''
 # Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_URL = '/static/'
 
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '{{ secret_key }}'
 
