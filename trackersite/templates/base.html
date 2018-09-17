@@ -57,7 +57,7 @@
     <div{% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissable"{% else %} class="alert alert-info alert-dismissable" {% endif %}><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ message }}</div>
 	{% endfor %}
 	{% if not PRODUCTION %}
-	<div class="alert alert-warning alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>{% trans "Warning" %}: {% trans "You are not in production." %}</div>
+	<div class="alert alert-warning">{% trans "Warning" %}: {% trans "You are not in production." %}</div>
 	{% endif %}
 </div>
 {% endif %}
