@@ -65,11 +65,13 @@
 </div>
 {% endif %}
 
+{% if ticket.enable_comments %}
 <div class="comments_add">
 <div class="hide-switch"><a href="#" class="unhide">{% trans "Add comment" %}</a>
 <div class="hiddencomment">
 <h3>{% trans "Add comment" %}</h3>
 {% url "ticket_detail" pk=ticket.id as next %}{% render_comment_form for ticket %}
 </div></div></div>
+{% endif %}
 
 {% endblock content %}

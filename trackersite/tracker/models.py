@@ -21,6 +21,7 @@ import re
 import json
 
 from users.models import UserWrapper
+from django_comments.moderation import CommentModerator, moderator
 
 PAYMENT_STATUS_CHOICES = (
     ('n_a', _('n/a')),
@@ -138,6 +139,7 @@ class Ticket(CachedModel):
     cluster = models.ForeignKey('Cluster', blank=True, null=True, on_delete=models.SET_NULL)
     payment_status = models.CharField(_('payment status'), max_length=20, default='n/a', choices=PAYMENT_STATUS_CHOICES)
     imported = models.BooleanField(_('imported'), default=False, help_text=_('Was this ticket imported from older Tracker version?'))
+    enable_comments = models.BooleanField(_('enable comments'), default=True, help_text=_('Can users comment on this ticket?'))
 
     @staticmethod
     def currency():
@@ -355,6 +357,11 @@ class Ticket(CachedModel):
         verbose_name = _('Ticket')
         verbose_name_plural = _('Tickets')
         ordering = ['-id']
+
+class TicketModerator(CommentModerator):
+    enable_field = 'enable_comments'
+
+moderator.register(Ticket, TicketModerator)
 
 class FinanceStatus(object):
     """ This is not a model, but rather a representation of topic finance status. """
