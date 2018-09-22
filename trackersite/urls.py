@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'', include(tracker.urls)), # tracker urls are included directly in web root
     url(r'^admin/', include(admin.site.urls)),
     url(r'^account/', include(users.urls)),
+    url(r'oauth/', include('social_django.urls', namespace='social')),
     url(r'^lang/$', TemplateView.as_view(template_name='choose_language.html'), name='choose_language'),
     url(r'^lang/set/$', 'django.views.i18n.set_language', name='set_language'),
     url(r'^js/i18n\.js$', 'django.views.i18n.javascript_catalog', js_info_dict),

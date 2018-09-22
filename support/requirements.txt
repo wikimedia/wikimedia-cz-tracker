@@ -5,6 +5,7 @@ django-recaptcha2==1.0.3
 django-contrib-comments==1.8.0
 django-widget-tweaks
 python-memcached
+social-auth-app-django
 
 # we'll presume MySQL as the database
 mysql-python

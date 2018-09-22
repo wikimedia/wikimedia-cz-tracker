@@ -13,6 +13,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 )
 
 TEMPLATE_DIRS = (
@@ -27,6 +28,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.core.context_processors.request",
     "django.contrib.messages.context_processors.messages",
+    'social_django.context_processors.backends',
+    'social_django.context_processors.login_redirect',
     "tracker.context_processors.public_settings",
     "users.context_processors.wrapped_user",
 )
@@ -54,6 +57,7 @@ INSTALLED_APPS = (
     'sendfile',
     'snowpenguin.django.recaptcha2',
     'widget_tweaks',
+    'social_django',
 )
 
 COMMENTS_APP = 'customcomments'
@@ -71,3 +75,10 @@ LANGUAGES = (
     ('en', _('English')),
     ('cs', _('Czech')),
 )
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.mediawiki.MediaWiki',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_MEDIAWIKI_CALLBACK = 'oob'

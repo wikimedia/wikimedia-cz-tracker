@@ -25,7 +25,8 @@
 
 <div style="margin-top: 25px;">
 <p>{% trans "Don't have an acount?" %} <a href="{% url "register" %}">{% trans "Register" %}</a><br />
-{% trans "Forgot password?" %} <a href="{% url "password_reset" %}">{% trans "Reset password" %}</a></p>
+{% trans "Forgot password?" %} <a href="{% url "password_reset" %}">{% trans "Reset password" %}</a><br>
+<a href="{% url 'social:begin' 'mediawiki' %}">{% trans "Login with Meta Wiki" %}</a></p>
 </div>
 
 {% endblock %}
