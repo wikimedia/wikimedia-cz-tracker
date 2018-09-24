@@ -983,7 +983,7 @@ def notify_media(sender, instance, created, raw, **kwargs):
             text = u'K tiketu <a href="%s%s">%s</a>  byla přidána média' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
         else:
             text = u'Média tiketu <a href="%s%s">%s</a> byla změněna' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
-        Notification.fire_notification(instance.ticket, text, "expeditures_change", None)
+        Notification.fire_notification(instance.ticket, text, "media_change", None)
 
 @receiver(post_delete, sender=MediaInfo)
 def notify_del_media(sender, instance, **kwargs):
