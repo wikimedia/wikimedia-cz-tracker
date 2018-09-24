@@ -980,9 +980,9 @@ def notify_del_expediture(sender, instance, **kwargs):
 def notify_media(sender, instance, created, raw, **kwargs):
     if len(Notification.objects.filter(ticket=instance.ticket, notification_type="ticket_new")) == 0:
         if created:
-            text = u'K tiketu <a href="%s%s">%s</a>  byly přidány média' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
+            text = u'K tiketu <a href="%s%s">%s</a>  byla přidána média' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
         else:
-            text = u'Média tiketu <a href="%s%s">%s</a> byl změněn' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
+            text = u'Média tiketu <a href="%s%s">%s</a> byla změněna' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
         Notification.fire_notification(instance.ticket, text, "expeditures_change", None)
 
 @receiver(post_delete, sender=MediaInfo)
