@@ -860,13 +860,6 @@ class TicketWatcher(models.Model):
     def __unicode__(self):
         return 'User %s is watching event %s on ticket %s' % (self.user, self.notification_type, self.ticket)
 
-    @staticmethod
-    def get_users(ticket, notification_type):
-        res = set()
-        for tw in TicketWatcher.objects.filter(ticket=ticket, notification_type=notification_type):
-            res.add(tw.user)
-        return res
-
 class TopicWatcher(models.Model):
     """User that watch given topic"""
     topic = models.ForeignKey('Topic')
@@ -876,13 +869,6 @@ class TopicWatcher(models.Model):
 
     def __unicode__(self):
         return 'User %s is watching event %s on topic %s' % (self.user, self.notification_type, self.topic)
-
-    @staticmethod
-    def get_users(topic, notification_type):
-        res = set()
-        for tw in TopicWatcher.objects.filter(topic=topic, notification_type=notification_type):
-            res.add(tw.user)
-        return res
 
 
 @receiver(comment_was_posted)
