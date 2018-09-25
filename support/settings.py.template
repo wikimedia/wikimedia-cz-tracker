@@ -122,6 +122,8 @@ SERVER_EMAIL = 'Webmaster <webmaster@example.com>'
 FILE_UPLOAD_PERMISSIONS = 0664
 BASE_URL = 'https://example.com'
 
+GOOGLE_ANALYTICS = None
+
 # this imports almost everything from common settings
 # something like "from common_settings import FOO, BAR, BAZ, ..."
 import common_settings as _common

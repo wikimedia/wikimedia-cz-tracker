@@ -6,4 +6,5 @@ def public_settings(request):
 		'CURRENCY': settings.TRACKER_CURRENCY,
 		'BASE_URL': settings.BASE_URL,
 		'PRODUCTION': settings.PRODUCTION,
+		'GOOGLE_ANALYTICS': settings.GOOGLE_ANALYTICS,
 	}
