@@ -17,7 +17,6 @@ from django.core.validators import RegexValidator
 from django.core.urlresolvers import NoReverseMatch
 from django.core.cache import cache
 from django import template
-from django.template.loader import get_template
 import re
 import json
 

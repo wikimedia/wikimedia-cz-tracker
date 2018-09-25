@@ -3,7 +3,6 @@ from django.conf.urls import patterns, include, url
 from django.http import HttpResponse
 from django.views.generic import RedirectView, TemplateView
 from django.contrib import admin
-from django.contrib.auth import views as auth
 
 import tracker.urls
 import users.urls

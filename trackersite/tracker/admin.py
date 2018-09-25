@@ -5,7 +5,7 @@ from django.conf.urls import patterns, url
 from django.contrib import admin
 from django import forms
 from tracker import models
-from django.utils.translation import ugettext, ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 from django.http import Http404, HttpResponse, HttpResponseNotAllowed
 from django.template import RequestContext
 from django.template.loader import get_template

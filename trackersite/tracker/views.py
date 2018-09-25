@@ -12,11 +12,9 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden, HttpResponseBadRequest, Http404
-from django.utils.functional import curry, lazy
+from django.utils.functional import curry
 from django.utils.translation import ugettext as _, ugettext_lazy
-from django.core import serializers
 from django.http import JsonResponse
-from django.contrib.humanize.templatetags.humanize import intcomma
 from django.views.generic import ListView, DetailView, FormView, DeleteView
 from django.contrib.admin import widgets as adminwidgets
 from django.conf import settings

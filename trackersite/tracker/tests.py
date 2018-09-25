@@ -10,14 +10,11 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User, Permission
 from django.contrib.contenttypes.models import ContentType
 from django.core.files.base import ContentFile
-from django.conf import settings
-import json
-from django.utils.encoding import force_text
 import StringIO
 import csv
 
 from users.models import UserWrapper
-from tracker.models import Ticket, Topic, FinanceStatus, Grant, MediaInfo, Expediture, TrackerProfile, Document, Cluster
+from tracker.models import Ticket, Topic, Grant, MediaInfo, Expediture, TrackerProfile, Document
 
 class SimpleTicketTest(TestCase):
     def setUp(self):
