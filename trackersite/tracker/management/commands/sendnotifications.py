@@ -28,6 +28,7 @@ class Command(NoArgsCommand):
                         "ticket_new_notifs": Notification.objects.filter(target_user=user, notification_type="ticket_new"),
                         "comment_notifs": Notification.objects.filter(target_user=user, notification_type="comment"),
                         "supervisor_notes_notifs": Notification.objects.filter(target_user=user, notification_type="supervisor_notes"),
+                        "BASE_URL": settings.BASE_URL,
                     }
                     c = Context(c_dict)
                     user.email_user(subject_text, strip_tags(html_template.render(c)), html_message=html_template.render(c))
