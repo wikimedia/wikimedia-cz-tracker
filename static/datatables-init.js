@@ -17,12 +17,14 @@ var dataTablesInit = function() {
         {
             ordering = JSON.parse(ordering)
         }
-        $('table').DataTable({
-            "pageLength": 25,
-            "order": ordering,
-            "language": {
-                "url": url,
-            }
+        $.get('/user/display_items', function(display_items) {
+            $('table').DataTable({
+                "pageLength": display_items,
+                "order": ordering,
+                "language": {
+                    "url": url,
+                }
+            });
         });
     }
 }

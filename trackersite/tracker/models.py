@@ -676,6 +676,7 @@ class TrackerProfile(models.Model):
     other_contact = models.CharField(_('Other contact'), max_length=120, blank=True, help_text=_('Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information'))
     other_identification = models.CharField(_('Other identification'), max_length=120, blank=True, help_text=_('Address, or other identification information, so we know who are we sending money to'))
     muted_notifications = models.CharField('Muted notifications', max_length=300, blank=True)
+    display_items = models.IntegerField(_('Display items'), help_text=_('How many items should we display in tables at once'), default=25)
 
     def get_absolute_url(self):
         return reverse('user_detail', kwargs={'username':self.user.username})
