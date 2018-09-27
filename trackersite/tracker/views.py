@@ -40,12 +40,18 @@ def display_items(request):
 def tickets(request, lang):
     tickets = []
     for ticket in Ticket.objects.order_by('-id'):
+        subtopic = ticket.subtopic
+        if subtopic:
+            subtopic = '<a href="%s">%s</a>' % (ticket.subtopic.get_absolute_url(), ticket.subtopic)
+        else:
+            subtopic = ''
         tickets.append([
             '<a href="%s">%s</a>' % (ticket.get_absolute_url(), ticket.pk),
             unicode(ticket.event_date),
             '<a class="ticket-summary" href="%s">%s</a>' % (ticket.get_absolute_url(), ticket.summary),
             '<a href="%s">%s</a>' % (ticket.topic.grant.get_absolute_url(), ticket.topic.grant),
             '<a href="%s">%s</a>' % (ticket.topic.get_absolute_url(), ticket.topic),
+            subtopic,
             ticket.requested_by_html(),
             "%s %s" % (ticket.preexpeditures()['amount'] or 0, settings.TRACKER_CURRENCY),
             "%s %s" % (ticket.accepted_expeditures(), settings.TRACKER_CURRENCY),

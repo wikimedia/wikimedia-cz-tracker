@@ -422,6 +422,9 @@ class Subtopic(CachedModel):
     def __unicode__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('subtopic_detail', kwargs={'pk':self.id})
+
     @cached_getter
     def media_count(self):
         return MediaInfo.objects.extra(where=['ticket_id in (select ticket_id from tracker_ticket where subtopic_id = %s)'], params=[self.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
