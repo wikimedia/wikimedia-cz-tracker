@@ -567,6 +567,10 @@ class Grant(models.Model):
     def __unicode__(self):
         return self.full_name
 
+    def open_for_tickets(self):
+        return len(self.topic_set.filter(open_for_tickets=True)) != 0
+    open_for_tickets.boolean = True
+
     def get_absolute_url(self):
         return reverse('grant_detail', kwargs={'slug':self.slug})
 

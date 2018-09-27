@@ -127,6 +127,7 @@ admin.site.register(models.Topic, TopicAdmin)
 
 class GrantAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('short_name',)}
+    list_display = ('full_name', 'open_for_tickets')
 admin.site.register(models.Grant, GrantAdmin)
 
 class TrackerProfileAdmin(admin.ModelAdmin):
