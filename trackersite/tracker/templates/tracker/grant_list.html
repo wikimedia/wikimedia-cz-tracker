@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Grant list" %}{% endblock %}
+
+{% block content %}
+<p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt;</p>
+<h1>{% trans "Grant list" %}</h1>
+{% block above_list %}{% endblock %}
+{% include "tracker/grant_table.html" with grant_list=open_grants %}
+
+<h3>{% trans "Topics closed for new tickets" %}</h3>
+{% include "tracker/grant_table.html" with grant_list=closed_grants %}
+{% block below_list %}{% endblock %}
+
+
+{% endblock content %}

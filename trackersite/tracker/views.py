@@ -144,6 +144,12 @@ class TicketAckDeleteView(DeleteView):
         return HttpResponseRedirect(self.ticket.get_absolute_url())
 ticket_ack_delete = TicketAckDeleteView.as_view()
 
+def grant_list(request):
+    return render(request, 'tracker/grant_list.html', {
+        'open_grants': [g for g in Grant.objects.all() if g.open_for_tickets()],
+        'closed_grants': [g for g in Grant.objects.all() if not g.open_for_tickets()],
+    })
+
 def topic_list(request):
     return render(request, 'tracker/topic_list.html', {
         'open_topics': Topic.objects.filter(open_for_tickets=True),

@@ -586,6 +586,15 @@ class Grant(CachedModel):
     def total_paid_together(self):
         return sum([x.paid_together() for x in self.topic_set.all()])
 
+    @cached_getter
+    def tickets_per_payment_status(self):
+        out = {}
+        for topic in self.topic_set.all():
+            tickets = topic.ticket_set.order_by() # remove default ordering as it b0rks our aggregation
+            for s in tickets.values('payment_status').annotate(models.Count('payment_status')):
+                out[s['payment_status']] = s['payment_status__count']
+        return out
+
     class Meta:
         verbose_name = _('Grant')
         verbose_name_plural = _('Grants')
