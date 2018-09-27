@@ -557,7 +557,7 @@ class Topic(CachedModel):
             ("supervisor", "Can edit all topics and tickets"),
         )
 
-class Grant(models.Model):
+class Grant(CachedModel):
     """ Grant is the bigger thing above topics """
     full_name = models.CharField(_('full name'), max_length=80, help_text=_('Full name for headlines and such'))
     short_name = models.CharField(_('short name'), max_length=16, help_text=_('Shorter name for use in tables'))
@@ -574,12 +574,15 @@ class Grant(models.Model):
     def get_absolute_url(self):
         return reverse('grant_detail', kwargs={'slug':self.slug})
 
+    @cached_getter
     def total_tickets(self):
         return sum([x.ticket_set.count() for x in self.topic_set.all()])
 
+    @cached_getter
     def total_paid_wages(self):
         return sum([x.paid_wages() for x in self.topic_set.all()])
 
+    @cached_getter
     def total_paid_together(self):
         return sum([x.paid_together() for x in self.topic_set.all()])
 
