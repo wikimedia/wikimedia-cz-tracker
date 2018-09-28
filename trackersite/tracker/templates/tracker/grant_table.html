@@ -16,7 +16,7 @@
 <tbody>
 {% for grant in grant_list %}{% with tpps=grant.tickets_per_payment_status %}
 <tr>
-<td><a href="{% url "grant_detail" grant.id %}">{{grant}}</a></td>
+<td><a href="{% url "grant_detail" grant.slug %}">{{grant}}</a></td>
 <td>{{grant.total_tickets}}</td>
 <td>{{grant.total_paid_wages}} {% trans "CZK" %}</td>
 <td>{{grant.total_paid_together}} {% trans "CZK" %}</td>
