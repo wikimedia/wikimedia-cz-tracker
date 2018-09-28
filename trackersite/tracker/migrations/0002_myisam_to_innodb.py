@@ -30,6 +30,19 @@ original_myisam_tables = (
     'tracker_transaction_tickets',
 )
 
+def forwards(apps, schema_editor):
+    if not schema_editor.connection.vendor.startswith('mysql'):
+        return
+
+    for query in ['ALTER TABLE {} ENGINE=InnoDB'.format(table) for table in original_myisam_tables]:
+        schema_editor.execute(query)
+
+def backwards(apps, schema_editor):
+    if not schema_editor.connection.vendor.startswith('mysql'):
+        return
+
+    for query in ['ALTER TABLE {} ENGINE=MyISAM'.format(table) for table in original_myisam_tables]:
+        schema_editor.execute(query)
 
 class Migration(migrations.Migration):
 
@@ -38,8 +51,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunSQL(
-            ['ALTER TABLE {} ENGINE=InnoDB'.format(table) for table in original_myisam_tables],
-            ['ALTER TABLE {} ENGINE=MyISAM'.format(table) for table in original_myisam_tables],
-        )
+        migrations.RunPython(forwards, backwards, atomic=True)
     ]
