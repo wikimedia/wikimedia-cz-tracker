@@ -421,7 +421,7 @@ def create_ticket(request):
                 initialE['amount'] = e.amount
                 initialE['wage'] = e.wage
                 initialExpeditures.append(initialE)
-        ExpeditureFormSet = preexpeditureformset_factory(extra=2+len(initialExpeditures), can_delete=False)
+        ExpeditureFormSet = expeditureformset_factory(extra=2+len(initialExpeditures), can_delete=False)
         expeditures = ExpeditureFormSet(prefix='expediture', initial=initialExpeditures)
         initialPreexpeditures = []
         if 'ticket' in request.GET:
