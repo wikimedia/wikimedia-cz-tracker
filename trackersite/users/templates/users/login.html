@@ -10,7 +10,7 @@
 <p>{% trans "Your username and password didn't match. Please try again." %}</p>
 {% endif %}
 
-<form class="form-horizontal" method="post" action="{% url "login" %}">
+<form class="form-horizontal" method="post" action="{% url "tracker_login" %}">
 {% csrf_token %}
 <div class="form-group">
 {% for field in form %}
