@@ -179,7 +179,7 @@ def topics_js(request):
     data = {}
     for t in Topic.objects.all():
         data[t.id] = {}
-        for attr in ('form_description', 'ticket_media', 'ticket_expenses', 'ticket_preexpenses'):
+        for attr in ('form_description', 'ticket_media', 'ticket_expenses', 'ticket_preexpenses', 'ticket_statutory_declaration'):
             data[t.id][attr] = getattr(t, attr)
         data[t.id]['subtopic_set'] = []
         for subtopic in t.subtopic_set.all():
@@ -234,6 +234,21 @@ def check_ticket_form_deposit(ticketform, preexpeditures):
             _("Your deposit is bigger than your preexpeditures")
         ))
 
+def check_statutory_declaration(ticketform):
+    """
+    Checks if both car_travel and statutory_declaration fields
+    were checked when saving the ticket.
+    """
+    if not ticketform.is_valid():
+        return
+    
+    car_travel = ticketform.cleaned_data.get('car_travel')
+    statutory_declaration = ticketform.cleaned_data.get('statutory_declaration')
+
+    if car_travel and not statutory_declaration:
+        ticketform.add_error('statutory_declaration', forms.ValidationError(
+            _('You are required to do statutory declaration')
+        ))
 
 def get_edit_ticket_form_class(ticket):
     class EditTicketForm(TicketForm):
@@ -396,6 +411,7 @@ def create_ticket(request):
             return HttpResponseBadRequest(unicode(e))
 
         check_ticket_form_deposit(ticketform, preexpeditures)
+        check_statutory_declaration(ticketform)
         if ticketform.is_valid() and mediainfo.is_valid() and expeditures.is_valid() and preexpeditures.is_valid():
             ticket = ticketform.save(commit=False)
             ticket.requested_user = request.user
@@ -483,6 +499,8 @@ def edit_ticket(request, pk):
         if 'precontent' not in ticket.ack_set() and 'content' not in ticket.ack_set():
             check_ticket_form_deposit(ticketform, preexpeditures)
 
+        check_statutory_declaration(ticketform)
+        
         if ticketform.is_valid() and mediainfo.is_valid() \
                 and (expeditures.is_valid() if 'content' not in ticket.ack_set() else True) \
                 and (preexpeditures.is_valid() if 'precontent' not in ticket.ack_set() and 'content' not in ticket.ack_set() else True):

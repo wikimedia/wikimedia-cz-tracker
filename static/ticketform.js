@@ -7,6 +7,7 @@ function refresh_description()
 		$('#mediainfo-group').hide();
 		$('#expediture-group').hide();
 		$('#preexpediture-group').hide();
+		$('.field_car_travel').hide();
 		$('#id_subtopic').html("<option value selected>---------</option>");
 		return;
 	}
@@ -16,6 +17,7 @@ function refresh_description()
 	$('#mediainfo-group').toggle(topic['ticket_media']);
 	$('#expediture-group').toggle(topic['ticket_expenses']);
 	$('#preexpediture-group').toggle(topic['ticket_preexpenses']);
+	$('.field_car_travel').toggle(topic['ticket_statutory_declaration']);
 	var subtopicsHtml = "<option value selected>---------</option>";
 	for(var i = 0; i < topic.subtopic_set.length; i++)
 	{
@@ -29,8 +31,14 @@ function refresh_description()
 		$('#id_subtopic').val("");
 }
 
+function statutory_declaration() {
+	$('.field_statutory_declaration').toggle($('#id_car_travel').prop('checked'));
+}
+
 $(document).ready(function() {
 	$('#id_topic').change(refresh_description);
+	$('.field_car_travel').change(statutory_declaration);
 	window.originallyCheckedTag = $('#id_subtopic').val();
 	refresh_description();
+	statutory_declaration();
 });

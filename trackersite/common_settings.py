@@ -97,3 +97,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+STATUTORY_DECLARATION_TEXT = 'I hereby declare that my travel expenses are true and accurate and that you spent money economically and effectivelly.'
