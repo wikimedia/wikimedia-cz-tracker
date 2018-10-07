@@ -1,3 +1,4 @@
+from rest_framework.permissions import IsAdminUser
 from django.contrib.auth.models import User, Group, Permission
 from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile
 from rest_framework import routers, serializers, viewsets
@@ -55,10 +56,12 @@ class PreexpeditureSerializer(serializers.HyperlinkedModelSerializer):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = (IsAdminUser, )
 
 class TrackerProfileViewSet(viewsets.ModelViewSet):
     queryset = TrackerProfile.objects.all()
     serializer_class = TrackerProfileSerializer
+    permission_classes = (IsAdminUser, )
 
 class PermissionViewSet(viewsets.ModelViewSet):
     queryset = Permission.objects.all()
@@ -67,6 +70,7 @@ class PermissionViewSet(viewsets.ModelViewSet):
 class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+    permission_classes = (IsAdminUser, )
 
 class GrantViewSet(viewsets.ModelViewSet):
     queryset = Grant.objects.all()
