@@ -4,7 +4,7 @@ from django.contrib.auth import views as auth
 
 urlpatterns = patterns('',
     url(r'^login/$', auth.login, kwargs={'template_name':'users/login.html'}, name='tracker_login'),
-    url(r'^logout/$', auth.logout, kwargs={'template_name':'users/logout.html'}, name='logout'),
+    url(r'^logout/$', auth.logout, kwargs={'template_name':'users/logout.html'}, name='tracker_logout'),
     url(r'^register/$', 'users.views.register', name='register'),
     url(r'^password/change/$', auth.password_change, name='password_change', kwargs={'template_name':'users/password_change.html'}),
     url(r'^password/change/done/$', auth.password_change_done, name='password_change_done', kwargs={
