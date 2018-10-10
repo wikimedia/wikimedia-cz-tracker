@@ -10,9 +10,9 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '',
         'PORT': '',
-	'OPTIONS': {
-		'unix_socket': '/tmp/mysqld/mysqld.sock'
-	}
+        'OPTIONS': {
+            'unix_socket': '/tmp/mysqld/mysqld.sock'
+        }
     }
 }
 
