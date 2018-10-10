@@ -236,7 +236,7 @@ def check_ticket_form_deposit(ticketform, preexpeditures):
 
 def check_statutory_declaration(ticketform):
     """
-    Checks if both car_travel and statutory_declaration fields
+    Checks if both car_travel and statutory_declaration fields (if required)
     were checked when saving the ticket.
     """
     if not ticketform.is_valid():
@@ -245,7 +245,7 @@ def check_statutory_declaration(ticketform):
     car_travel = ticketform.cleaned_data.get('car_travel')
     statutory_declaration = ticketform.cleaned_data.get('statutory_declaration')
 
-    if car_travel and not statutory_declaration:
+    if ticketform.cleaned_data.get('topic').ticket_statutory_declaration and car_travel and not statutory_declaration:
         ticketform.add_error('statutory_declaration', forms.ValidationError(
             _('You are required to do statutory declaration')
         ))
