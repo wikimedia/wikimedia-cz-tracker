@@ -2,6 +2,12 @@
 # Django project settings for Wikimedia-CI
 import os
 
+import common_settings as _common
+for item in dir(_common):
+    if item not in _common._IGNORE:
+        locals()[item] = getattr(_common, item)
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -34,8 +40,3 @@ RECAPTCHA_PRIVATE_KEY = ''
 SENDFILE_BACKEND = 'sendfile.backends.development'
 BASE_URL = 'https://example.com'
 GOOGLE_ANALYTICS = None
-
-import common_settings as _common
-for item in dir(_common):
-    if item not in _common._IGNORE:
-        locals()[item] = getattr(_common, item)
