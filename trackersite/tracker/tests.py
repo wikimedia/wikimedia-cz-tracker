@@ -15,6 +15,7 @@ import csv
 
 from users.models import UserWrapper
 from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, TrackerProfile, Document
+from django.conf import settings
 
 class SimpleTicketTest(TestCase):
     def setUp(self):
@@ -39,6 +40,11 @@ class SimpleTicketTest(TestCase):
     def test_ticket_list(self):
         response = Client().get(reverse('ticket_list'))
         self.assertEqual(response.status_code, 200)
+    
+    def test_ticket_json(self):
+        for langcode, langname in settings.LANGUAGES:
+            response = Client().get(reverse('tickets', kwargs={'lang': langcode}))
+            self.assertEqual(response.status_code, 200)
 
     def test_ticket_detail(self):
         response = Client().get(reverse('ticket_detail', kwargs={'pk':self.ticket1.id}))
