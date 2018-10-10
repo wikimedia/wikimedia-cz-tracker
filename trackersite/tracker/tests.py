@@ -14,7 +14,7 @@ import StringIO
 import csv
 
 from users.models import UserWrapper
-from tracker.models import Ticket, Topic, Grant, MediaInfo, Expediture, TrackerProfile, Document
+from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, TrackerProfile, Document
 
 class SimpleTicketTest(TestCase):
     def setUp(self):
@@ -158,6 +158,11 @@ class TicketTests(TestCase):
 
         self.statutory_declaration_topic = Topic(name='statutory_topic', open_for_tickets=True, ticket_media=True, ticket_statutory_declaration=True, grant=Grant.objects.get(short_name='g'))
         self.statutory_declaration_topic.save()
+
+        self.subtopic = Subtopic(name='Test', topic=self.open_topic)
+        self.subtopic2 = Subtopic(name='Test2', topic=self.statutory_declaration_topic)
+        self.subtopic.save()
+        self.subtopic2.save()
 
         self.password = 'password'
         self.user = User(username='user')
@@ -337,6 +342,43 @@ class TicketTests(TestCase):
             })
         self.assertEqual(200, response.status_code)
         self.assertFormError(response, 'ticketform', 'deposit', 'Your deposit is bigger than your preexpeditures')
+    
+    def test_invalid_subtopic(self):
+        c = self.get_client()
+        response = c.post(reverse('create_ticket'), {
+            'summary': 'ticket',
+            'topic': self.open_topic.id,
+            'subtopic': self.subtopic2.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
+        self.assertEqual(200, response.status_code)
+        self.assertFormError(response, 'ticketform', 'subtopic', 'Subtopic must belong to topic you used. You have probably JavaScript turned off.')
+    
+    def test_valid_subtopic(self):
+        c = self.get_client()
+        response = c.post(reverse('create_ticket'), {
+            'summary': 'ticket',
+            'topic': self.open_topic.id,
+            'subtopic': self.subtopic.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
+        self.assertEqual(302, response.status_code)
+        ticket = Ticket.objects.order_by('-created')[0]
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':ticket.id}))
 
     def test_correct_deposit(self):
         c = self.get_client()
@@ -395,6 +437,11 @@ class TicketEditTests(TestCase):
 
         statutory_topic = Topic(name='statutory_topic', ticket_statutory_declaration=True, grant=Grant.objects.get(short_name='g'))
         statutory_topic.save()
+
+        subtopic = Subtopic(name='subtopic', topic=topic)
+        subtopic2 = Subtopic(name='subtopic2', topic=statutory_topic)
+        subtopic.save()
+        subtopic2.save()
 
         password = 'my_password'
         user = User(username='my_user')
@@ -488,6 +535,41 @@ class TicketEditTests(TestCase):
             'preexpediture-TOTAL_FORMS': '0',
         })
         self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':ticket.id}))
+
+        # should succeed because correct subtopic was used
+        response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
+            'summary': 'ticket',
+            'topic': topic.id,
+            'subtopic': subtopic.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'car_travel': True,
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':ticket.id}))
+
+        # should fail because subtopic that doesn't belong to used topic was used
+        response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
+            'summary': 'ticket',
+            'topic': topic.id,
+            'subtopic': subtopic2.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'car_travel': True,
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
+        self.assertEqual(200, response.status_code)
+        self.assertFormError(response, 'ticketform', 'subtopic', 'Subtopic must belong to topic you used. You have probably JavaScript turned off.')
 
         # try to submit the form
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {

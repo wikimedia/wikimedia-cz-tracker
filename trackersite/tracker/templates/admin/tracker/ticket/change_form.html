@@ -19,14 +19,14 @@
 {% endblock form_top %}
 
 {% block after_related_objects %}
-<script type="text/javascript">
-document.getElementById('id_supervisor_notes').onclick = function() {signSupervisor()};
-function signSupervisor() {
-	    var param = "\n\nSem napište svou poznámku supervizora anebo tento text smažte --" + "{{user.get_username}}";
-		document.getElementById('id_supervisor_notes').value += param;
-		document.getElementById('id_supervisor_notes').onclick = function() {};
-}
+<script src="{% url "topics_js" %}"></script>
+<script>
+	window.username = "{{user.get_username}}";
 </script>
+<script type="text/javascript" src="/static/admin/js/jquery.min.js"></script>
+<script src="{{STATIC_URL}}ticketform/common.js"></script>
+<script src="{{STATIC_URL}}ticketform/admin.js"></script>
+<script src="{{STATIC_URL}}ticketform/subtopics.js"></script>
 {% if user_can_edit_documents or original.document_set.count > 0 %}
 <fieldset class="module">
 	<h2>{% trans "Ticket documents" %}</h2>

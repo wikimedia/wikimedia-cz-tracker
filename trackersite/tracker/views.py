@@ -202,7 +202,7 @@ class TicketForm(forms.ModelForm):
         return Topic.objects.filter(open_for_tickets=True)
 
     def _media(self):
-        return super(TicketForm, self).media + forms.Media(js=('ticketform.js', reverse('topics_js')))
+        return super(TicketForm, self).media + forms.Media(js=('ticketform/common.js', 'ticketform/subtopics.js', 'ticketform/form.js', reverse('topics_js')))
     media = property(_media)
 
     class Meta:
@@ -248,6 +248,21 @@ def check_statutory_declaration(ticketform):
     if ticketform.cleaned_data.get('topic').ticket_statutory_declaration and car_travel and not statutory_declaration:
         ticketform.add_error('statutory_declaration', forms.ValidationError(
             _('You are required to do statutory declaration')
+        ))
+
+def check_subtopic(ticketform):
+    """
+    Checks if subtopic belongs to given topic.
+    """
+    if not ticketform.is_valid():
+        return
+    
+    topic = ticketform.cleaned_data.get('topic')
+    subtopic = ticketform.cleaned_data.get('subtopic')
+
+    if subtopic is not None and subtopic not in topic.subtopic_set.all():
+        ticketform.add_error('subtopic', forms.ValidationError(
+            _('Subtopic must belong to topic you used. You have probably JavaScript turned off.')
         ))
 
 def get_edit_ticket_form_class(ticket):
@@ -412,6 +427,7 @@ def create_ticket(request):
 
         check_ticket_form_deposit(ticketform, preexpeditures)
         check_statutory_declaration(ticketform)
+        check_subtopic(ticketform)
         if ticketform.is_valid() and mediainfo.is_valid() and expeditures.is_valid() and preexpeditures.is_valid():
             ticket = ticketform.save(commit=False)
             ticket.requested_user = request.user
@@ -500,6 +516,7 @@ def edit_ticket(request, pk):
             check_ticket_form_deposit(ticketform, preexpeditures)
 
         check_statutory_declaration(ticketform)
+        check_subtopic(ticketform)
         
         if ticketform.is_valid() and mediainfo.is_valid() \
                 and (expeditures.is_valid() if 'content' not in ticket.ack_set() else True) \
