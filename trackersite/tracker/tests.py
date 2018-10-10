@@ -156,6 +156,9 @@ class TicketTests(TestCase):
         self.open_topic = Topic(name='test_topic', open_for_tickets=True, ticket_media=True, grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
         self.open_topic.save()
 
+        self.statutory_declaration_topic = Topic(name='statutory_topic', open_for_tickets=True, ticket_media=True, ticket_statutory_declaration=True, grant=Grant.objects.get(short_name='g'))
+        self.statutory_declaration_topic.save()
+
         self.password = 'password'
         self.user = User(username='user')
         self.user.set_password(self.password)
@@ -189,6 +192,22 @@ class TicketTests(TestCase):
         self.assertEqual(200, response.status_code)
         self.assertFormError(response, 'ticketform', 'summary', 'This field is required.')
         self.assertFormError(response, 'ticketform', 'deposit', 'This field is required.')
+
+        response = c.post(reverse('create_ticket'), {
+            'summary': 'ticket',
+            'topic': self.statutory_declaration_topic.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'car_travel': True,
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
+        self.assertEqual(200, response.status_code)
+        self.assertFormError(response, 'ticketform', 'statutory_declaration', 'You are required to do statutory declaration')
 
         response = c.post(reverse('create_ticket'), {
                 'summary': 'ticket',
@@ -374,6 +393,9 @@ class TicketEditTests(TestCase):
         topic = Topic(name='topic', grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
         topic.save()
 
+        statutory_topic = Topic(name='statutory_topic', ticket_statutory_declaration=True, grant=Grant.objects.get(short_name='g'))
+        statutory_topic.save()
+
         password = 'my_password'
         user = User(username='my_user')
         user.set_password(password)
@@ -400,6 +422,72 @@ class TicketEditTests(TestCase):
         ticket.ticketack_set.filter(ack_type='close').delete()
         response = c.get(reverse('edit_ticket', kwargs={'pk':ticket.id}))
         self.assertEqual(200, response.status_code) # now it should pass
+
+        # should fail because no statutory declaration
+        response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
+            'summary': 'ticket',
+            'topic': statutory_topic.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'car_travel': True,
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
+        self.assertEqual(200, response.status_code)
+        self.assertFormError(response, 'ticketform', 'statutory_declaration', 'You are required to do statutory declaration')
+
+        # should succeed because car_travel=False
+        response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
+            'summary': 'ticket',
+            'topic': statutory_topic.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'car_travel': False,
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':ticket.id}))
+
+        # should succeed because statutory_declaration=True
+        response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
+            'summary': 'ticket',
+            'topic': statutory_topic.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'car_travel': True,
+            'statutory_declaration': True,
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':ticket.id}))
+
+        # should succeed because statutory declarations are not required
+        response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
+            'summary': 'ticket',
+            'topic': topic.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'car_travel': True,
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':ticket.id}))
 
         # try to submit the form
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
