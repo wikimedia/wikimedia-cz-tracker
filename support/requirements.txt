@@ -6,7 +6,10 @@ django-contrib-comments==1.8.0
 django-widget-tweaks
 python-memcached
 social-auth-app-django
+
+# For API
 djangorestframework==3.3.3
+django-filter==1.1
 
 # we'll presume MySQL as the database
 mysql-python

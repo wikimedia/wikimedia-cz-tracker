@@ -60,6 +60,7 @@ INSTALLED_APPS = (
     'widget_tweaks',
     'social_django',
     'rest_framework',
+    'django_filters',
 )
 
 COMMENTS_APP = 'customcomments'
@@ -86,6 +87,10 @@ AUTHENTICATION_BACKENDS = (
 SOCIAL_AUTH_MEDIAWIKI_CALLBACK = 'oob'
 
 REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+    ),
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
