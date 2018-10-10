@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'tracker',
     'users',
+    'api',
     'customcomments',
     'sendfile',
     'snowpenguin.django.recaptcha2',
