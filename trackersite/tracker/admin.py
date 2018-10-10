@@ -107,6 +107,14 @@ class SubtopicAdmin(admin.ModelAdmin):
     list_filter = ('topic', )
 admin.site.register(models.Subtopic, SubtopicAdmin)
 
+def open_topics_for_tickets(modeladmin, request, queryset):
+    queryset.update(open_for_tickets=True)
+open_topics_for_tickets.short_description = _("Mark selected topics as opened for new tickets")
+
+def close_topics_for_tickets(modeladmin, request, queryset):
+    queryset.update(open_for_tickets=False)
+close_topics_for_tickets.short_description = _("Mark selected topics as closed for new tickets")
+
 class TopicAdmin(admin.ModelAdmin):
     def get_readonly_fields(self, request, obj=None):
         if request.user.has_perm('tracker.supervisor'):
@@ -123,6 +131,7 @@ class TopicAdmin(admin.ModelAdmin):
     list_display = ('name', 'grant', 'open_for_tickets', 'ticket_media', 'ticket_expenses', 'ticket_preexpenses', 'ticket_statutory_declaration')
     list_filter = ('grant', 'open_for_tickets', 'ticket_media', 'ticket_expenses', 'ticket_preexpenses', 'ticket_statutory_declaration')
     filter_horizontal = ('admin', )
+    actions = (open_topics_for_tickets, close_topics_for_tickets)
 admin.site.register(models.Topic, TopicAdmin)
 
 class GrantAdmin(admin.ModelAdmin):
