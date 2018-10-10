@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 12:27+0200\n"
+"POT-Creation-Date: 2018-10-10 17:04+0200\n"
 "PO-Revision-Date: 2016-12-27 18:50+0100\n"
 "Last-Translator: Petr Novák <petr.novak@cosmoboy.cz>\n"
 "Language-Team: none <none@example.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: common_settings.py:74 tracker/templates/tracker/grant_table.html:21
+#: common_settings.py:75 tracker/templates/tracker/grant_table.html:21
 #: tracker/templates/tracker/grant_table.html:22
 #: tracker/templates/tracker/grant_table.html:35
 #: tracker/templates/tracker/grant_table.html:36
@@ -29,11 +29,11 @@ msgstr ""
 msgid "CZK"
 msgstr "Kč"
 
-#: common_settings.py:77
+#: common_settings.py:78
 msgid "English"
 msgstr "angličtina"
 
-#: common_settings.py:78
+#: common_settings.py:79
 msgid "Czech"
 msgstr "čeština"
 
@@ -45,16 +45,6 @@ msgstr "Jméno"
 #: tracker/templates/tracker/ticketack_confirm_delete.html:13
 msgid "Comment"
 msgstr "Komentář"
-
-#: settings.py:129
-msgid ""
-"I hereby declare that my travel expenses are true and accurate and that your "
-"phototrip is according to the principles of the project Fotíme Česko / "
-"MediaGrant (economity, quality, effectiveness and ecologity."
-msgstr ""
-"Tímto čestně prohlašuji, že délka a náklady cesty odpovídají uvedené výšia "
-"fotocesta proběhla v souladu s principy projektuFotíme Česko/Mediagrant "
-"(hospodárnost, kvalita, účelnost, ekologie)."
 
 #: templates/admin/base_site.html:4
 msgid "Tracker admin"
@@ -116,6 +106,14 @@ msgstr "Náhled"
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
 msgid "Type"
 msgstr "Druh"
+
+#: tracker/admin.py:112
+msgid "Mark selected topics as opened for new tickets"
+msgstr "Označit vybraná témata jako otevřená pro nové tikety"
+
+#: tracker/admin.py:116
+msgid "Mark selected topics as closed for new tickets"
+msgstr "Označit vybraná témata jako uzavřená pro nové tikety"
 
 #: tracker/feeds.py:11 tracker/templates/tracker/generic/ticket_list.html:7
 #: tracker/templates/tracker/topic_detail.html:5
@@ -2170,6 +2168,15 @@ msgstr ""
 #, python-format
 msgid "User %s created."
 msgstr "Vytvořen uživatel %s."
+
+#~ msgid ""
+#~ "I hereby declare that my travel expenses are true and accurate and that "
+#~ "your phototrip is according to the principles of the project Fotíme "
+#~ "Česko / MediaGrant (economity, quality, effectiveness and ecologity."
+#~ msgstr ""
+#~ "Tímto čestně prohlašuji, že délka a náklady cesty odpovídají uvedené "
+#~ "výšia fotocesta proběhla v souladu s principy projektuFotíme Česko/"
+#~ "Mediagrant (hospodárnost, kvalita, účelnost, ekologie)."
 
 #~ msgid "Close"
 #~ msgstr "Zavřít"
