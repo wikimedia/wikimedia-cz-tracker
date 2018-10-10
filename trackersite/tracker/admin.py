@@ -9,6 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.http import Http404, HttpResponse, HttpResponseNotAllowed
 from django.template import RequestContext
 from django.template.loader import get_template
+from django.contrib.admin.helpers import ActionForm
 
 class MediaInfoAdmin(admin.TabularInline):
     model = models.MediaInfo
@@ -22,6 +23,14 @@ class PreexpeditureAdmin(admin.TabularInline):
 class AddAckForm(forms.Form):
     ack_type = forms.ChoiceField(choices=models.ACK_TYPES, label=_('Type'))
     comment = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'size':'40'}))
+
+class AddAckActionForm(ActionForm):
+    ack_type = forms.ChoiceField(required=False, choices=models.ACK_TYPES, label=_('Type'))
+
+def add_ack(modeladmin, request, queryset):
+    for ticket in queryset.all():
+        ticket.ticketack_set.create(ack_type=request.POST['ack_type'])
+add_ack.short_description = _('Add ack')
 
 class TicketAdmin(admin.ModelAdmin):
     def queryset(self, request):
@@ -47,6 +56,8 @@ class TicketAdmin(admin.ModelAdmin):
     date_hierarchy = 'event_date'
     search_fields = ['id', 'requested_user__username', 'requested_text', 'summary']
     inlines = [MediaInfoAdmin, PreexpeditureAdmin, ExpeditureAdmin]
+    action_form = AddAckActionForm
+    actions = (add_ack, )
 
     @staticmethod
     def _render(request, template_name, context_data):
