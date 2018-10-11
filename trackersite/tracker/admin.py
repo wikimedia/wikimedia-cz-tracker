@@ -29,7 +29,7 @@ class AddAckActionForm(ActionForm):
 
 def add_ack(modeladmin, request, queryset):
     for ticket in queryset.all():
-        ticket.ticketack_set.create(ack_type=request.POST['ack_type'])
+        ticket.ticketack_set.create(ack_type=request.POST['ack_type'], added_by=request.user)
 add_ack.short_description = _('Add ack')
 
 class TicketAdmin(admin.ModelAdmin):
