@@ -3,6 +3,7 @@ function refresh_subtopics() {
 	var topic = topics_table[topic_id];
     if (topic_id == '') {
         $('#id_subtopic').html("<option value selected>---------</option>");
+        return;
     }
     var subtopicsHtml = "<option value selected>---------</option>";
 	for(var i = 0; i < topic.subtopic_set.length; i++)
