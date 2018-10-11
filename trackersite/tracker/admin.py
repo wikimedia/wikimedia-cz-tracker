@@ -49,7 +49,7 @@ class TicketAdmin(admin.ModelAdmin):
         return super(TicketAdmin, self).change_view(request, object_id, extra_context=extra_context)
 
     exclude = ('updated', 'cluster', 'payment_status', 'imported')
-    readonly_fields = ('state_str', 'requested_user_details')
+    readonly_fields = ('state_str', 'requested_user_details', 'statutory_declaration')
     list_display = ('event_date', 'id', 'summary', 'subtopic', 'admin_topic', 'requested_by', 'state_str')
     list_display_links = ('summary',)
     list_filter = ('topic', 'subtopic', 'payment_status')
