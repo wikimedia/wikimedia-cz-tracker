@@ -1,10 +1,53 @@
-<!DOCTYPE html>
-<html lang="cs-cz">
-	<head>
-		<meta charset="utf-8" />
-		<title>Titulek</title>
-	</head>
-	<body>
-		
-	</body>
-</html>
+{% extends "base.html" %}
+{% load i18n trackertags %}
+{% block title %}{% trans "Ticket list" %}{% endblock %}
+
+
+{% block content %}
+<style>
+.container {
+	width: 100% !important;
+}
+</style>
+<p class="nav">{% trans "index" %} | <a href="{% url "topic_list" %}">{% trans "topics" %}</a> | <a href="{% url "transaction_list" %}">{% trans "transactions" %}</a> | <a href="{% url "user_list" %}">{% trans "users" %}</a></p>
+{% if user.is_authenticated %}<p class="tools screenonly"><a href="{% url "create_ticket" %}" class="btn btn-primary">{% trans "Create new ticket" %}</a></p>{% endif %}
+{% include "tracker/paginator.html" with url_name="ticket_list" extra_class="top" %}
+<h1>{% trans "Ticket list" %}</h1>
+<div class="hidden" id="disabledatatables">yes</div>
+<table>
+    <thead>
+        <tr><th>{% trans "ID" %} <i class="fa "></i></th><th>{% trans "Event date" %}</th><th>{% trans "Summary" %} <i class="fa "></i></th>
+            <th><abbr title="{% trans "Grant" %}">{% filter slice:":2" %}{% trans "Grant" %}{% endfilter %}<abbr></th>
+            <th>{% trans "Topic" %} <i class="fa "></i></th>
+            <th>{% trans "Subtopic" %}</th>
+            <th>{% trans "Requested by" %}</th>
+            <th>{% trans "Requested expeditures" %}</th>
+            <th>{% trans "Accepted expeditures" %}</th>
+            <th>{% trans "Paid expeditures" %}</th>
+            <th>{% trans "State" %}</th>
+            <th>{% trans "Last changed" %} <i class="fa "></i></th></tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+<script>
+    $.get('/user/display_items', function(display_items) {
+        var language = $('meta[http-equiv="Content-Language"]').attr('content');
+        var fullLanguage = "English";
+        switch(language) {
+            case "cs":
+                fullLanguage = "Czech";
+        }
+        var url = "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/" + fullLanguage + ".json";
+        $('table').DataTable({
+            "order": [[0, "desc"]],
+            "language": {
+                "url": url,
+            },
+            "pageLength": display_items,
+            "ajax": "/tickets/json/{{LANGUAGE}}.json"
+        });
+    });
+</script>
+{% endblock %}
