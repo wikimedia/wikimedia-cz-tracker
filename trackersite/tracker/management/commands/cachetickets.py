@@ -21,7 +21,7 @@ class Command(NoArgsCommand):
                     tickets.append([
                         '<a href="%s">%s</a>' % (ticket.get_absolute_url(), ticket.pk),
                         unicode(ticket.event_date),
-                        '<a class="ticket-summary" href="%s">%s</a>' % (ticket.get_absolute_url(), ticket.summary),
+                        '<a class="ticket-summary" href="%s">%s</a>' % (ticket.get_absolute_url(), ticket.name),
                         '<a href="%s">%s</a>' % (ticket.topic.grant.get_absolute_url(), ticket.topic.grant),
                         '<a href="%s">%s</a>' % (ticket.topic.get_absolute_url(), ticket.topic),
                         subtopic,
