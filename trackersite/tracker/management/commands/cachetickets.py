@@ -8,7 +8,17 @@ from tracker.models import Ticket
 class Command(NoArgsCommand):
     help = 'Cache tickets'
 
-    def handle_noargs(self, **options):
+    def add_arguments(self, parser):
+        parser.add_argument(
+            '--base-path',
+            action='store',
+            dest='base_path',
+            help='We will save the cached tickets to this path, default is TRACKER_PUBLIC_DEPLOY_ROOT'
+        )
+
+    def handle(self, *args, **options):
+        base_path = options['base_path'] or os.path.join(settings.TRACKER_PUBLIC_DEPLOY_ROOT, 'tickets')
+
         for langcode, langname in settings.LANGUAGES:
             with translation.override(langcode):
                 tickets = []
@@ -32,4 +42,4 @@ class Command(NoArgsCommand):
                         unicode(ticket.state_str()),
                         unicode(ticket.updated),
                     ])
-                open(os.path.join(settings.TRACKER_PUBLIC_DEPLOY_ROOT, 'tickets', '%s.json' % langcode), 'w').write(json.dumps({"data": tickets}))
+                open(os.path.join(base_path, '%s.json' % langcode), 'w').write(json.dumps({"data": tickets}))
