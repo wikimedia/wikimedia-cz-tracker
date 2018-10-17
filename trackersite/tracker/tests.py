@@ -22,10 +22,10 @@ class SimpleTicketTest(TestCase):
         self.topic = Topic(name='topic1', grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
         self.topic.save()
 
-        self.ticket1 = Ticket(summary='foo', requested_text='req1', topic=self.topic, description='foo foo')
+        self.ticket1 = Ticket(name='foo', requested_text='req1', topic=self.topic, description='foo foo')
         self.ticket1.save()
 
-        self.ticket2 = Ticket(summary='bar', requested_text='req2', topic=self.topic, description='bar bar')
+        self.ticket2 = Ticket(name='bar', requested_text='req2', topic=self.topic, description='bar bar')
         self.ticket2.save()
 
     def test_ticket_timestamps(self):
@@ -102,7 +102,7 @@ class OldRedirectTests(TestCase):
     def setUp(self):
         self.topic = Topic(name='topic', grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
         self.topic.save()
-        self.ticket = Ticket(summary='foo', requested_text='req', topic=self.topic, description='foo foo')
+        self.ticket = Ticket(name='foo', requested_text='req', topic=self.topic, description='foo foo')
         self.ticket.save()
 
     def assert301(self, *args, **kwargs):
@@ -135,7 +135,7 @@ class TicketSumTests(TestCase):
         self.topic.save()
 
     def test_empty_ticket(self):
-        empty_ticket = Ticket(topic=self.topic, requested_text='someone', summary='empty ticket')
+        empty_ticket = Ticket(topic=self.topic, requested_text='someone', name='empty ticket')
         empty_ticket.save()
 
         self.assertEqual(0, empty_ticket.media_count()['objects'])
@@ -144,7 +144,7 @@ class TicketSumTests(TestCase):
         self.assertEqual(0, self.topic.expeditures()['count'])
 
     def test_full_ticket(self):
-        full_ticket = Ticket(topic=self.topic, requested_text='someone', summary='full ticket')
+        full_ticket = Ticket(topic=self.topic, requested_text='someone', name='full ticket')
         full_ticket.save()
         full_ticket.mediainfo_set.create(description='Vague pictures')
         full_ticket.mediainfo_set.create(description='Counted pictures', count=15)
@@ -201,11 +201,11 @@ class TicketTests(TestCase):
                 'preexpediture-TOTAL_FORMS': '0',
             })
         self.assertEqual(200, response.status_code)
-        self.assertFormError(response, 'ticketform', 'summary', 'This field is required.')
+        self.assertFormError(response, 'ticketform', 'name', 'This field is required.')
         self.assertFormError(response, 'ticketform', 'deposit', 'This field is required.')
 
         response = c.post(reverse('create_ticket'), {
-            'summary': 'ticket',
+            'name': 'ticket',
             'topic': self.statutory_declaration_topic.id,
             'description': 'some desc',
             'deposit': '0',
@@ -221,7 +221,7 @@ class TicketTests(TestCase):
         self.assertFormError(response, 'ticketform', 'statutory_declaration', 'You are required to do statutory declaration')
 
         response = c.post(reverse('create_ticket'), {
-                'summary': 'ticket',
+                'name': 'ticket',
                 'topic': self.open_topic.id,
                 'description': 'some desc',
                 'deposit': '0',
@@ -243,7 +243,7 @@ class TicketTests(TestCase):
     def test_ticket_creation_with_media(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-                'summary': 'ticket',
+                'name': 'ticket',
                 'topic': self.open_topic.id,
                 'description': 'some desc',
                 'deposit': '0',
@@ -279,7 +279,7 @@ class TicketTests(TestCase):
     def test_wrong_topic_id(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-                'summary': 'ticket',
+                'name': 'ticket',
                 'topic': 'gogo',
                 'description': 'some desc',
                 'deposit': '0',
@@ -299,7 +299,7 @@ class TicketTests(TestCase):
 
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-                'summary': 'ticket',
+                'name': 'ticket',
                 'topic': closed_topic.id,
                 'description': 'some desc',
                 'deposit': '0',
@@ -316,7 +316,7 @@ class TicketTests(TestCase):
     def test_too_big_deposit(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-                'summary': 'ticket',
+                'name': 'ticket',
                 'topic': self.open_topic.id,
                 'description': 'some desc',
                 'deposit': '100',
@@ -333,7 +333,7 @@ class TicketTests(TestCase):
     def test_too_big_deposit2(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-                'summary': 'ticket',
+                'name': 'ticket',
                 'topic': self.open_topic.id,
                 'description': 'some desc',
                 'deposit': '50.01',
@@ -352,7 +352,7 @@ class TicketTests(TestCase):
     def test_invalid_subtopic(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-            'summary': 'ticket',
+            'name': 'ticket',
             'topic': self.open_topic.id,
             'subtopic': self.subtopic2.id,
             'description': 'some desc',
@@ -370,7 +370,7 @@ class TicketTests(TestCase):
     def test_valid_subtopic(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-            'summary': 'ticket',
+            'name': 'ticket',
             'topic': self.open_topic.id,
             'subtopic': self.subtopic.id,
             'description': 'some desc',
@@ -389,7 +389,7 @@ class TicketTests(TestCase):
     def test_correct_deposit(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-                'summary': 'ticket',
+                'name': 'ticket',
                 'topic': self.open_topic.id,
                 'description': 'some desc',
                 'deposit': '30.1',
@@ -428,7 +428,7 @@ class TicketEditTests(TestCase):
         t_open.save()
         t_assigned = Topic(name='t3', open_for_tickets=False, grant=grant)
         t_assigned.save()
-        ticket = Ticket(summary='ticket', topic=t_assigned)
+        ticket = Ticket(name='ticket', topic=t_assigned)
         ticket.save()
 
         from tracker.views import get_edit_ticket_form_class
@@ -454,7 +454,7 @@ class TicketEditTests(TestCase):
         user.set_password(password)
         user.save()
 
-        ticket = Ticket(summary='ticket', topic=topic, requested_user=None, requested_text='foo')
+        ticket = Ticket(name='ticket', topic=topic, requested_user=None, requested_text='foo')
         ticket.save()
         ticket.add_acks('close')
 
@@ -478,7 +478,7 @@ class TicketEditTests(TestCase):
 
         # should fail because no statutory declaration
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
-            'summary': 'ticket',
+            'name': 'ticket',
             'topic': statutory_topic.id,
             'description': 'some desc',
             'deposit': '0',
@@ -495,7 +495,7 @@ class TicketEditTests(TestCase):
 
         # should succeed because car_travel=False
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
-            'summary': 'ticket',
+            'name': 'ticket',
             'topic': statutory_topic.id,
             'description': 'some desc',
             'deposit': '0',
@@ -511,7 +511,7 @@ class TicketEditTests(TestCase):
 
         # should succeed because statutory_declaration=True
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
-            'summary': 'ticket',
+            'name': 'ticket',
             'topic': statutory_topic.id,
             'description': 'some desc',
             'deposit': '0',
@@ -528,7 +528,7 @@ class TicketEditTests(TestCase):
 
         # should succeed because statutory declarations are not required
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
-            'summary': 'ticket',
+            'name': 'ticket',
             'topic': topic.id,
             'description': 'some desc',
             'deposit': '0',
@@ -544,7 +544,7 @@ class TicketEditTests(TestCase):
 
         # should succeed because correct subtopic was used
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
-            'summary': 'ticket',
+            'name': 'ticket',
             'topic': topic.id,
             'subtopic': subtopic.id,
             'description': 'some desc',
@@ -561,7 +561,7 @@ class TicketEditTests(TestCase):
 
         # should fail because subtopic that doesn't belong to used topic was used
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
-            'summary': 'ticket',
+            'name': 'ticket',
             'topic': topic.id,
             'subtopic': subtopic2.id,
             'description': 'some desc',
@@ -579,7 +579,7 @@ class TicketEditTests(TestCase):
 
         # try to submit the form
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
-                'summary': 'new summary',
+                'name': 'new name',
                 'topic': ticket.topic.id,
                 'description': 'new desc',
                 'deposit': '0',
@@ -595,12 +595,12 @@ class TicketEditTests(TestCase):
         # check changed ticket data
         ticket = Ticket.objects.get(id=ticket.id)
         self.assertEqual(user, ticket.requested_user)
-        self.assertEqual('new summary', ticket.summary)
+        self.assertEqual('new name', ticket.name)
         self.assertEqual('new desc', ticket.description)
 
         # b0rked media item aborts the submit
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
-                'summary': 'ticket',
+                'name': 'ticket',
                 'topic': ticket.topic.id,
                 'description': 'some desc',
                 'deposit': '0',
@@ -619,7 +619,7 @@ class TicketEditTests(TestCase):
 
         # b0rked expediture items aborts the submit
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
-                'summary': 'ticket',
+                'name': 'ticket',
                 'topic': ticket.topic.id,
                 'description': 'some desc',
                 'deposit': '0',
@@ -637,7 +637,7 @@ class TicketEditTests(TestCase):
 
         # add some inline items
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
-                'summary': 'new summary',
+                'name': 'new name',
                 'topic': ticket.topic.id,
                 'description': 'new desc',
                 'deposit': '0',
@@ -679,7 +679,7 @@ class TicketEditTests(TestCase):
 
         # edit inline items
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
-                'summary': 'new summary',
+                'name': 'new name',
                 'topic': ticket.topic.id,
                 'description': 'new desc',
                 'deposit': '0',
@@ -732,7 +732,7 @@ class TicketEditTests(TestCase):
 
         # edit should work and ignore new data
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
-            'summary': 'new summary',
+            'name': 'new name',
             'topic': ticket.topic.id,
             'description': 'new desc',
             'deposit': '333',
@@ -750,7 +750,7 @@ class TicketEditTests(TestCase):
 
         # also, edit should work and not fail on missing preack-ignored fields
         response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
-            'summary': 'new summary',
+            'name': 'new name',
             'topic': ticket.topic.id,
             'description': 'new desc',
             'mediainfo-INITIAL_FORMS': '0',
@@ -772,7 +772,7 @@ class TicketAckTests(TestCase):
         self.user = User(username='my_user')
         self.user.set_password(self.password)
         self.user.save()
-        self.ticket = Ticket.objects.create(summary='ticket', topic=self.topic, requested_user=self.user)
+        self.ticket = Ticket.objects.create(name='ticket', topic=self.topic, requested_user=self.user)
 
     def test_ack_user_edit(self):
         # two user acks are possible
@@ -848,7 +848,7 @@ class TicketEditLinkTests(TestCase):
         self.user.set_password(self.password)
         self.user.save()
 
-        self.ticket = Ticket(summary='ticket', topic=self.topic, requested_user=None, requested_text='foo')
+        self.ticket = Ticket(name='ticket', topic=self.topic, requested_user=None, requested_text='foo')
         self.ticket.save()
 
     def get_ticket_response(self):
@@ -913,7 +913,7 @@ class UserDetailsTest(TestCase):
         self.user = User(username='user')
         self.user.save()
 
-        self.ticket = Ticket(summary='foo', requested_user=self.user, topic=self.topic, description='foo foo')
+        self.ticket = Ticket(name='foo', requested_user=self.user, topic=self.topic, description='foo foo')
         self.ticket.save()
 
     def test_user_details(self):
@@ -930,14 +930,14 @@ class SummaryTest(TestCase):
         self.topic = Topic(name='test_topic', ticket_expenses=True, grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
         self.topic.save()
 
-        self.ticket = Ticket(summary='foo', requested_user=self.user, topic=self.topic, rating_percentage=50)
+        self.ticket = Ticket(name='foo', requested_user=self.user, topic=self.topic, rating_percentage=50)
         self.ticket.save()
         self.ticket.add_acks('content', 'docs', 'archive')
         self.ticket.expediture_set.create(description='foo', amount=200)
         self.ticket.expediture_set.create(description='foo', amount=100)
         self.ticket.mediainfo_set.create(description='foo', count=5)
 
-        self.ticket2 = Ticket(summary='foo', requested_user=self.user, topic=self.topic, rating_percentage=100)
+        self.ticket2 = Ticket(name='foo', requested_user=self.user, topic=self.topic, rating_percentage=100)
         self.ticket2.save()
         self.ticket2.add_acks('content', 'docs', 'archive')
         self.ticket2.expediture_set.create(description='foo', amount=600)
@@ -960,7 +960,7 @@ class SummaryTest(TestCase):
         self.ticket.save()
         self.assertEqual({'unpaid':2}, self.topic.tickets_per_payment_status())
 
-    def test_ticket_summary(self):
+    def test_ticket_name(self):
         self.ticket.ticketack_set.filter(ack_type='content').delete()
         self.ticket.rating_percentage = None
         self.ticket.save()
@@ -976,12 +976,12 @@ class SummaryTest(TestCase):
         self.ticket.add_acks('content')
         self.assertEqual(150, self.ticket.accepted_expeditures())
 
-    def test_topic_summary(self):
+    def test_topic_name(self):
         self.assertEqual({'objects':3, 'media':13}, self.topic.media_count())
         self.assertEqual({'count':4, 'amount':910}, self.topic.expeditures())
         self.assertEqual(150 + 610, self.topic.accepted_expeditures())
 
-    def test_user_summary(self):
+    def test_user_name(self):
         profile = self.user.trackerprofile
         self.assertEqual({'objects':3, 'media':13}, profile.media_count())
         self.assertEqual(150 + 610, profile.accepted_expeditures())
@@ -1004,7 +1004,7 @@ class ImportTests(TestCase):
         csvfile = StringIO.StringIO()
         csvwriter = csv.writer(csvfile, delimiter=';')
         if type == 'ticket':
-            csvwriter.writerow(['event_date', 'summary', 'topic', 'event_url', 'description', 'deposit'])
+            csvwriter.writerow(['event_date', 'name', 'topic', 'event_url', 'description', 'deposit'])
             csvwriter.writerow([u'2010-04-23', u'Nazev ticketu', u'Nazev tematu', u'http://wikimedia.cz', u'Popis ticketu', u'0'])
         elif type == 'topic':
             csvwriter.writerow(['name', 'grant', 'new_tickets', 'media', 'preexpenses', 'expenses', 'description', 'form_description'])
@@ -1117,7 +1117,7 @@ class DocumentAccessTests(TestCase):
             u['user'].save()
 
         self.topic = Topic.objects.create(name='test_topic', ticket_expenses=True, grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
-        self.ticket = Ticket.objects.create(summary='ticket', topic=self.topic, requested_user=self.owner['user'])
+        self.ticket = Ticket.objects.create(name='ticket', topic=self.topic, requested_user=self.owner['user'])
 
         self.doc = {'name':'test.txt', 'content_type':'text/plain', 'payload':'hello, world!'}
         document = Document(ticket=self.ticket, filename=self.doc['name'], size=len(self.doc['payload']), content_type=self.doc['content_type'])

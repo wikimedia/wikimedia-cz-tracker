@@ -48,7 +48,7 @@ def tickets(request, lang):
         tickets.append([
             '<a href="%s">%s</a>' % (ticket.get_absolute_url(), ticket.pk),
             unicode(ticket.event_date),
-            '<a class="ticket-summary" href="%s">%s</a>' % (ticket.get_absolute_url(), ticket.summary),
+            '<a class="ticket-summary" href="%s">%s</a>' % (ticket.get_absolute_url(), ticket.name),
             '<a href="%s">%s</a>' % (ticket.topic.grant.get_absolute_url(), ticket.topic.grant),
             '<a href="%s">%s</a>' % (ticket.topic.get_absolute_url(), ticket.topic),
             subtopic,
@@ -212,7 +212,7 @@ class TicketForm(forms.ModelForm):
             'mandatory_report', 'imported', 'enable_comments')
         widgets = {
             'event_date': adminwidgets.AdminDateWidget(),
-            'summary': forms.TextInput(attrs={'size':'40'}),
+            'name': forms.TextInput(attrs={'size':'40'}),
             'description': forms.Textarea(attrs={'rows':'4', 'cols':'60'}),
         }
 
@@ -451,7 +451,7 @@ def create_ticket(request):
             initial['topic'] = request.GET['topic']
         if 'ticket' in request.GET:
             ticket = get_object_or_404(Ticket, id=request.GET['ticket'])
-            initial['summary'] = ticket.summary
+            initial['name'] = ticket.name
             initial['topic'] = ticket.topic
             initial['description'] = ticket.description
             initial['deposit'] = ticket.deposit
@@ -974,10 +974,10 @@ def export(request):
                         tmp.append(ticket)
                 tickets = tmp
                 del(tmp)
-            response = HttpResponseCsv(['id', 'created', 'updated', 'event_date', 'event_url', 'summary', 'requested_by', 'grant', 'topic', 'state', 'deposit', 'description', 'mandatory_report', 'accepted_expeditures', 'preexpeditures', 'expeditures'])
+            response = HttpResponseCsv(['id', 'created', 'updated', 'event_date', 'event_url', 'name', 'requested_by', 'grant', 'topic', 'state', 'deposit', 'description', 'mandatory_report', 'accepted_expeditures', 'preexpeditures', 'expeditures'])
             response['Content-Disposition'] = 'attachment; filename="exported-tickets.csv"'
             for ticket in tickets:
-                response.writerow([ticket.id, ticket.created, ticket.updated, ticket.event_date, ticket.event_url, ticket.summary, ticket.requested_by(), ticket.topic.grant.full_name, ticket.topic.name, ticket.state_str(), ticket.deposit, ticket.description, ticket.mandatory_report, ticket.accepted_expeditures(), ticket.preexpeditures()['amount'], ticket.expeditures()['amount']])
+                response.writerow([ticket.id, ticket.created, ticket.updated, ticket.event_date, ticket.event_url, ticket.name, ticket.requested_by(), ticket.topic.grant.full_name, ticket.topic.name, ticket.state_str(), ticket.deposit, ticket.description, ticket.mandatory_report, ticket.accepted_expeditures(), ticket.preexpeditures()['amount'], ticket.expeditures()['amount']])
             return response
         elif typ == 'grant':
             response = HttpResponseCsv(['full_name', 'short_name', 'slug', 'description'])
@@ -1275,12 +1275,12 @@ def importcsv(request):
                         messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     event_date = line[header.index('event_date')]
-                    summary = line[header.index('summary')]
+                    name = line[header.index('name')]
                     topic = Topic.objects.get(name=line[header.index('topic')])
                     event_url = line[header.index('event_url')]
                     description = line[header.index('description')]
                     deposit = float(line[header.index('deposit')])
-                    ticket = Ticket.objects.create(event_date=event_date, summary=summary, topic=topic, event_url=event_url, description=description, deposit=deposit)
+                    ticket = Ticket.objects.create(event_date=event_date, name=name, topic=topic, event_url=event_url, description=description, deposit=deposit)
                     ticket.requested_user = request.user
                     ticket.save()
             elif request.POST['type'] == 'topic':
@@ -1395,7 +1395,7 @@ def importcsv(request):
         if 'examplefile' in request.GET:
             giveexample = request.GET['examplefile']
             if giveexample == 'ticket':
-                response = HttpResponseCsv(['event_date', 'summary', 'topic', 'event_url', 'description', 'deposit'])
+                response = HttpResponseCsv(['event_date', 'name', 'topic', 'event_url', 'description', 'deposit'])
                 response['Content-Disposition'] = 'attachment; filename="example-ticket.csv"'
                 response.writerow([u'2010-04-23', u'Název ticketu', u'Název tématu', u'http://wikimedia.cz', u'Popis ticketu', u'Požadovaná záloha'])
                 return response

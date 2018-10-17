@@ -16,7 +16,7 @@ class CustomCommentForm(CommentSecurityForm):
     """
     Handles i bit less details of the comment than the usual form
     """
-    name = forms.CharField(label=_("Name"), max_length=50)
+    name = forms.CharField(label=_("Your name"), max_length=50)
     comment = forms.CharField(label=_('Comment'), widget=forms.Textarea, max_length=COMMENT_MAX_LENGTH)
     captcha = ReCaptchaField(widget=ReCaptchaWidget())
 

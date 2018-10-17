@@ -50,11 +50,11 @@ class TicketAdmin(admin.ModelAdmin):
 
     exclude = ('updated', 'cluster', 'payment_status', 'imported')
     readonly_fields = ('state_str', 'requested_user_details', 'statutory_declaration')
-    list_display = ('event_date', 'id', 'summary', 'subtopic', 'admin_topic', 'requested_by', 'state_str')
-    list_display_links = ('summary',)
+    list_display = ('event_date', 'id', 'name', 'subtopic', 'admin_topic', 'requested_by', 'state_str')
+    list_display_links = ('name',)
     list_filter = ('topic', 'subtopic', 'payment_status')
     date_hierarchy = 'event_date'
-    search_fields = ['id', 'requested_user__username', 'requested_text', 'summary']
+    search_fields = ['id', 'requested_user__username', 'requested_text', 'name']
     inlines = [MediaInfoAdmin, PreexpeditureAdmin, ExpeditureAdmin]
     action_form = AddAckActionForm
     actions = (add_ack, )

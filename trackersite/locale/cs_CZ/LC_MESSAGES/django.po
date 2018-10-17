@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 20:53+0200\n"
+"POT-Creation-Date: 2018-10-17 19:24+0200\n"
 "PO-Revision-Date: 2016-12-27 18:50+0100\n"
 "Last-Translator: Petr Novák <petr.novak@cosmoboy.cz>\n"
 "Language-Team: none <none@example.org>\n"
@@ -38,8 +38,8 @@ msgid "Czech"
 msgstr "čeština"
 
 #: customcomments/forms.py:19
-msgid "Name"
-msgstr "Jméno"
+msgid "Your name"
+msgstr "Vaše název"
 
 #: customcomments/forms.py:20
 #: tracker/templates/tracker/ticketack_confirm_delete.html:13
@@ -281,13 +281,14 @@ msgid ""
 "filled in"
 msgstr "Textové označení žadatele, použije se pokud nevyplníte uživatele"
 
-#: tracker/models.py:127
-msgid "summary"
-msgstr "shrnutí"
+#: tracker/models.py:127 tracker/models.py:420 tracker/models.py:483
+#: tracker/views.py:564
+msgid "name"
+msgstr "název"
 
 #: tracker/models.py:127
-msgid "Headline summary for the ticket"
-msgstr "Shrnutí do titulku tiketu"
+msgid "Name for the ticket"
+msgstr "Jméno tiketu"
 
 #: tracker/models.py:128 tracker/models.py:422 tracker/views.py:405
 msgid "topic"
@@ -491,10 +492,6 @@ msgstr "Tiket"
 #: tracker/templates/tracker/user_list.html:13
 msgid "Tickets"
 msgstr "Tikety"
-
-#: tracker/models.py:420 tracker/models.py:483 tracker/views.py:564
-msgid "name"
-msgstr "název"
 
 #: tracker/models.py:421
 msgid "Description shown to users who enter tickets for this subtopic"
@@ -1375,10 +1372,8 @@ msgid "Event date"
 msgstr "Datum akce"
 
 #: tracker/templates/tracker/index.html:19
-#: tracker/templates/tracker/ticket_table.html:13
-#: tracker/templates/tracker/ticket_table.html:29
-msgid "Summary"
-msgstr "Shrnutí"
+msgid "Name"
+msgstr "Název"
 
 #: tracker/templates/tracker/index.html:23
 #: tracker/templates/tracker/ticket_common_detail.html:8
@@ -1604,6 +1599,11 @@ msgstr "odeslat"
 #: tracker/templates/tracker/user_details_change.html:17
 msgid "Save"
 msgstr "Uložit"
+
+#: tracker/templates/tracker/ticket_table.html:13
+#: tracker/templates/tracker/ticket_table.html:29
+msgid "Summary"
+msgstr "Shrnutí"
 
 #: tracker/templates/tracker/ticket_table.html:22
 msgid "Status"
@@ -2178,6 +2178,12 @@ msgstr ""
 #, python-format
 msgid "User %s created."
 msgstr "Vytvořen uživatel %s."
+
+#~ msgid "summary"
+#~ msgstr "shrnutí"
+
+#~ msgid "Headline summary for the ticket"
+#~ msgstr "Shrnutí do titulku tiketu"
 
 #~ msgid ""
 #~ "I hereby declare that my travel expenses are true and accurate and that "

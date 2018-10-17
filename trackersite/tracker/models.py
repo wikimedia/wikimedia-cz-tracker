@@ -124,7 +124,7 @@ class Ticket(CachedModel):
     event_date = models.DateField(_('event date'), blank=True, null=True, help_text=_('Date of the event this ticket is about'))
     requested_user = models.ForeignKey('auth.User', verbose_name=_('requested by'), blank=True, null=True, help_text=_('User who created/requested for this ticket'))
     requested_text = models.CharField(verbose_name=_('requested by (text)'), blank=True, max_length=30, help_text=_('Text description of who requested for this ticket, in case user is not filled in'))
-    summary = models.CharField(_('summary'), max_length=100, help_text=_('Headline summary for the ticket'))
+    name = models.CharField(_('name'), max_length=100, help_text=_('Name for the ticket'))
     topic = models.ForeignKey('tracker.Topic', verbose_name=_('topic'), help_text=_('Project topic this ticket belongs to'))
     subtopic = models.ForeignKey('tracker.Subtopic', blank=True, null=True, verbose_name=_('subtopic'), help_text=_('Subtopic this ticket belongs to (if you don\'t know, leave this empty)'))
     rating_percentage = PercentageField(_('rating percentage'), blank=True, null=True, help_text=_('Rating percentage set by topic administrator'), default=100)
@@ -232,7 +232,7 @@ class Ticket(CachedModel):
     state_str.short_description = _('state')
 
     def __unicode__(self):
-        return '%s: %s' % (self.id, self.summary)
+        return '%s: %s' % (self.id, self.name)
 
     @cached_getter
     def requested_by(self):
@@ -932,7 +932,7 @@ def notify_ticket_change(sender, instance, **kwargs):
         if old.description != instance.description:
             text = u'U ticketu <a href="%s%s">%s</a> došlo ke změně popisku.' % (settings.BASE_URL, instance.get_absolute_url(), instance)
             Notification.fire_notification(instance, text, "ticket_change", None)
-        if old.summary != instance.summary:
+        if old.name != instance.name:
             text = u'U ticketu <a href="%s%s">%s</a> došlo ke změně názvu.' % (settings.BASE_URL, instance.get_absolute_url(), instance)
             Notification.fire_notification(instance, text, "ticket_change", None)
         if old.report_url != instance.report_url:
