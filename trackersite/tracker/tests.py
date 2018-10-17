@@ -3,6 +3,7 @@
 import datetime
 import re
 from decimal import Decimal
+import json
 
 from django.test import TestCase
 from django.test.client import Client
@@ -10,6 +11,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User, Permission
 from django.contrib.contenttypes.models import ContentType
 from django.core.files.base import ContentFile
+from django.core.management import call_command
 import StringIO
 import csv
 
@@ -1171,3 +1173,28 @@ class DocumentAccessTests(TestCase):
         ou.user_permissions.add(Permission.objects.get(content_type=topic_content, codename='edit_all_docs'))
         ou.save()
         self.check_user_access(user=self.other_user, can_see=True, can_edit=True)
+
+class CacheTicketsTests(TestCase):
+    def setUp(self):
+        self.owner = User.objects.create(username='ticket_owner')
+        self.topic = Topic.objects.create(name='test_topic', ticket_expenses=True, grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
+        self.ticket = Ticket.objects.create(name='ticket', topic=self.topic, requested_user=self.owner)
+
+        # Run cache_tickets, to have script already run in tests; record if it fails
+        self.succeed = True
+        try:
+            call_command('cachetickets', *[], **{'base_path': '/tmp'})
+        except Exception:
+            self.succeed = False
+
+    def test_cachetickets_succeed(self):
+        self.assertTrue(self.succeed)
+
+    def test_cachetickets_is_json(self):
+        is_json = True
+        try:
+            for langcode, language in settings.LANGUAGES:
+                json.loads(open('/tmp/%s.json' % langcode).read())
+        except Exception:
+            is_json = False
+        self.assertTrue(is_json)
