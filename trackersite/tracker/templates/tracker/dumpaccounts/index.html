@@ -27,7 +27,7 @@
 <table class="table table-striped table-hover">
 <tr><th>ID</th><th>Ticket</th><th>Status</th><th>Accepted</th><th>Payment</th></tr>
 {% for ticket in topic.ticket_set.all %}<tr class="payment_class_{{ticket.payment_status}}">
-<td><a href="{{ticket.id}}/index.html">{{ticket.id}}</a></td><td><a href="{{ticket.id}}/index.html">{{ticket.summary}}</a></td>
+<td><a href="{{ticket.id}}/index.html">{{ticket.id}}</a></td><td><a href="{{ticket.id}}/index.html">{{ticket.name}}</a></td>
 <td>{{ticket.state_str}}</td>{% with accepted=ticket.accepted_expeditures %}<td class="money">{% if accepted > 0 %}{{accepted|money}}{% endif %}</td><td class="payment_status">{{ticket.get_payment_status_display}}</td></tr>
 {% endwith %}
 </tr>

@@ -1,11 +1,11 @@
 {% load trackertags i18n %}<!DOCTYPE html>
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>{{ticket.summary}} ({{grant.short_name}})</title>
+<title>{{ticket.name}} ({{grant.short_name}})</title>
 <link href="../styles.css" rel="stylesheet" type="text/css">
 </head><body>
 <p class="nav"><a href="../index.html">{{grant.full_name}}</a> &gt;</p>
-<h1>{{ticket.summary}}</h1>
+<h1>{{ticket.name}}</h1>
 <p>Generated on {{date|date:'r'}}</p>
 
 {% include "tracker/ticket_common_detail.html" %}
