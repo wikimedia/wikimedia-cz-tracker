@@ -18,6 +18,9 @@ DATABASES = {
         'PORT': '',
         'OPTIONS': {
             'unix_socket': '/tmp/mysqld/mysqld.sock'
+        },
+        'TEST': {
+            'COLLATION': 'utf8_general_ci'
         }
     }
 }
