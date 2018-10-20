@@ -10,7 +10,7 @@
 <table class="ticket_list table table-striped table-hover">
 {% if show_media %}
 <thead>
-	<tr><th rowspan="2">{% trans "ID" %}</th><th rowspan="2">{% trans "Event date" %}</th><th rowspan="2">{% trans "Summary" %}</th>
+	<tr><th rowspan="2">{% trans "ID" %}</th><th rowspan="2">{% trans "Event date" %}</th><th rowspan="2">{% trans "Name" %}</th>
 		{% if show_grants %}<th rowspan="2"><abbr title="{% trans "Grant" %}">{% filter slice:":2" %}{% trans "Grant" %}{% endfilter %}<abbr></th>{% endif %}
 		{% if show_topics %}<th rowspan="2">{% trans "Topic" %}</th>{% endif %}
 		{% if show_topics %}<th>{% trans "Subtopic" %}</th>{% endif %}
@@ -26,7 +26,7 @@
 </thead>
 {% else %}
 <thead>
-	<tr><th>{% trans "ID" %} <i class="fa "></i></th><th>{% trans "Event date" %}</th><th>{% trans "Summary" %} <i class="fa "></i></th>
+	<tr><th>{% trans "ID" %} <i class="fa "></i></th><th>{% trans "Event date" %}</th><th>{% trans "Name" %} <i class="fa "></i></th>
 		{% if show_grants %}<th><abbr title="{% trans "Grant" %}">{% filter slice:":2" %}{% trans "Grant" %}{% endfilter %}<abbr></th>{% endif %}
 		{% if show_topics %}<th>{% trans "Topic" %} <i class="fa "></i></th>{% endif %}
 		{% if show_topics %}<th>{% trans "Subtopic" %}</th>{% endif %}
@@ -43,7 +43,7 @@
 	{% for ticket in ticket_list %}
 	<td><a href="{% url "ticket_detail" ticket.id %}">{{ticket.id}}</a></a></td>
 	<td>{{ticket.event_date}}</td>
-	<td class="ticket-summary"><a href="{% url "ticket_detail" ticket.id %}">{{ticket.summary}}</a></td>
+    <td class="ticket-summary"><a href="{% url "ticket_detail" ticket.id %}">{{ticket.name}}</a></td>
 	{% if show_grants %}<td><a href="{{ticket.topic.grant.get_absolute_url}}" title="{{ticket.topic.grant.full_name}}">{{ticket.topic.grant.short_name}}</a></td>{% endif %}
 	{% if show_topics %}<td><a href="{{ticket.topic.get_absolute_url}}">{{ticket.topic}}</a></td>{% endif %}
 	{% if show_topics %}<td>{% if ticket.subtopic %}<a href="{{ticket.subtopic.get_absolute_url}}">{{ticket.subtopic}}</a>{% endif %}</td>{% endif %}
