@@ -8,6 +8,7 @@ from django.utils import translation
 from django.utils.html import strip_tags
 from datetime import date
 
+
 class Command(NoArgsCommand):
     help = 'Process pending notifications'
 

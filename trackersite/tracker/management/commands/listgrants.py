@@ -1,6 +1,7 @@
 from django.core.management.base import NoArgsCommand
 from tracker.models import Grant
 
+
 class Command(NoArgsCommand):
     help = 'List available grants'
 

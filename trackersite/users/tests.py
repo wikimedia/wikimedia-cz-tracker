@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import views as auth_views
 
+
 class CreateUserTest(TestCase):
     def test_user_registration(self):
         USERNAME, PW, EMAIL = 'foouser', 'foo', 'foo@example.com'
@@ -17,6 +18,7 @@ class CreateUserTest(TestCase):
 
         # user does not exist -> we've been killed by captcha
         self.assertEqual(0, len(User.objects.filter(username=USERNAME)))
+
 
 class PasswordResetTests(TestCase):
     def test_password_reset(self):

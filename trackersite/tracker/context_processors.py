@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
 
+
 def public_settings(request):
 	return {
 		'CURRENCY': settings.TRACKER_CURRENCY,

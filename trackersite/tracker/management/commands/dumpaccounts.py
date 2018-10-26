@@ -8,6 +8,7 @@ from django.template.loader import render_to_string
 from django.contrib.staticfiles import finders
 from tracker.models import Grant, FinanceStatus
 
+
 class GrantDumper(object):
     """ This dumps grant into a ZIP file """
 

@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 
 from tracker.models import Topic, Ticket, Transaction
 
+
 class LatestTicketsFeed(Feed):
     description_template = 'feeds/ticket_description.html'
     title = _('Latest tickets')
@@ -20,12 +21,14 @@ class LatestTicketsFeed(Feed):
     def item_pubdate(self, item):
         return item.updated
 
+
 class SubmittedTicketsFeed(LatestTicketsFeed):
     title = _('Latest submitted tickets')
     description = _('Recently changed submitted tickets')
 
     def items(self):
         return [t for t in Ticket.objects.order_by('-updated')[:40] if t.has_ack('user_content')]
+
 
 class TopicTicketsFeed(Feed):
     description_template = 'feeds/ticket_description.html'
@@ -45,9 +48,11 @@ class TopicTicketsFeed(Feed):
     def item_pubdate(self, item):
         return item.updated
 
+
 class TopicSubmittedTicketsFeed(TopicTicketsFeed):
     def items(self, topic):
         return [t for t in topic.ticket_set.order_by('-updated')[:40] if t.has_ack('user_content')]
+
 
 class TransactionsFeed(Feed):
     description_template = 'feeds/transaction_description.html'

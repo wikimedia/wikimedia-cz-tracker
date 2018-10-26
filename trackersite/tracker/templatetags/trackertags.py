@@ -6,6 +6,7 @@ from django.utils.formats import number_format
 
 register = template.Library()
 
+
 @register.filter
 def money(value):
     if value == 0:

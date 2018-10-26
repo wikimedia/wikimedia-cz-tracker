@@ -27,8 +27,10 @@ from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaI
 from tracker.models import NOTIFICATION_TYPES
 from users.models import UserWrapper
 
+
 def ticket_list(request, page):
     return render(request, 'tracker/index.html', {"LANGUAGE": get_language()})
+
 
 def display_items(request):
     if request.user.is_authenticated():
@@ -36,6 +38,7 @@ def display_items(request):
     else:
         num = 25
     return HttpResponse(num, content_type='text/plain')
+
 
 def tickets(request, lang):
     tickets = []
@@ -61,6 +64,7 @@ def tickets(request, lang):
         ])
     return JsonResponse({"data": tickets})
 
+
 class CommentPostedCatcher(object):
     """
     View mixin that catches 'c' GET argument from comment framework
@@ -71,6 +75,7 @@ class CommentPostedCatcher(object):
             messages.success(request, _('Comment posted, thank you.'))
             return HttpResponseRedirect(request.path)
         return super(CommentPostedCatcher, self).get(request, **kwargs)
+
 
 class TicketDetailView(CommentPostedCatcher, DetailView):
     model = Ticket
@@ -87,10 +92,14 @@ class TicketDetailView(CommentPostedCatcher, DetailView):
         context['user_can_copy_preexpeditures'] = ticket.can_copy_preexpeditures(user)
         context['user_admin_of_topic'] = user in ticket.topic.admin.all()
         return context
+
+
 ticket_detail = TicketDetailView.as_view()
+
 
 class TicketAckAddForm(forms.Form):
     comment = forms.CharField(required=False, max_length=255)
+
 
 class TicketAckAddView(FormView):
     template_name = 'tracker/ticketack_add.html'
@@ -122,7 +131,10 @@ class TicketAckAddView(FormView):
             'ticketack': PossibleAck(self.kwargs['ack_type']),
         })
         return kwargs
+
+
 ticket_ack_add = TicketAckAddView.as_view()
+
 
 class TicketAckDeleteView(DeleteView):
     model = TicketAck
@@ -148,7 +160,10 @@ class TicketAckDeleteView(DeleteView):
         }
         messages.success(request, msg)
         return HttpResponseRedirect(self.ticket.get_absolute_url())
+
+
 ticket_ack_delete = TicketAckDeleteView.as_view()
+
 
 def grant_list(request):
     return render(request, 'tracker/grant_list.html', {
@@ -156,11 +171,13 @@ def grant_list(request):
         'closed_grants': [g for g in Grant.objects.all() if not g.open_for_tickets()],
     })
 
+
 def topic_list(request):
     return render(request, 'tracker/topic_list.html', {
         'open_topics': Topic.objects.filter(open_for_tickets=True),
         'closed_topics': Topic.objects.filter(open_for_tickets=False),
     })
+
 
 class TopicDetailView(CommentPostedCatcher, DetailView):
     model = Topic
@@ -169,11 +186,15 @@ class TopicDetailView(CommentPostedCatcher, DetailView):
         context = super(TopicDetailView, self).get_context_data(**kwargs)
         context['user_admin_of_topic'] = self.request.user in self.object.admin.all()
         return context
+
+
 topic_detail = TopicDetailView.as_view()
+
 
 class SubtopicDetailView(CommentPostedCatcher, DetailView):
     model = Subtopic
 subtopic_detail = SubtopicDetailView.as_view()
+
 
 def topics_js(request):
     data = {}
@@ -192,6 +213,7 @@ def topics_js(request):
 
     content = 'topics_table = %s;' % json.dumps(data)
     return HttpResponse(content, content_type='text/javascript')
+
 
 class TicketForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -216,6 +238,7 @@ class TicketForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'rows':'4', 'cols':'60'}),
         }
 
+
 def check_ticket_form_deposit(ticketform, preexpeditures):
     """
     Checks ticket deposit form field against preexpediture form.
@@ -234,6 +257,7 @@ def check_ticket_form_deposit(ticketform, preexpeditures):
             _("Your deposit is bigger than your preexpeditures")
         ))
 
+
 def check_statutory_declaration(ticketform):
     """
     Checks if both car_travel and statutory_declaration fields (if required)
@@ -250,6 +274,7 @@ def check_statutory_declaration(ticketform):
             _('You are required to do statutory declaration')
         ))
 
+
 def check_subtopic(ticketform):
     """
     Checks if subtopic belongs to given topic.
@@ -264,6 +289,7 @@ def check_subtopic(ticketform):
         ticketform.add_error('subtopic', forms.ValidationError(
             _('Subtopic must belong to topic you used. You have probably JavaScript turned off.')
         ))
+
 
 def get_edit_ticket_form_class(ticket):
     class EditTicketForm(TicketForm):
@@ -287,12 +313,14 @@ def get_edit_ticket_form_class(ticket):
     else:
         return EditTicketForm
 
+
 adminCore = forms.Media(js=(
     settings.ADMIN_MEDIA_PREFIX + "js/jquery.min.js",
     settings.STATIC_URL + "jquery.both.js",
     settings.ADMIN_MEDIA_PREFIX + "js/core.js",
     settings.ADMIN_MEDIA_PREFIX + "js/inlines.js",
 ))
+
 
 class ExtraItemFormSet(BaseInlineFormSet):
     """
@@ -307,7 +335,10 @@ class ExtraItemFormSet(BaseInlineFormSet):
         else:
             return original_count
 
+
 MEDIAINFO_FIELDS = ('url', 'description', 'count')
+
+
 def mediainfo_formfield(f, **kwargs):
     if f.name == 'url':
         kwargs['widget'] = forms.TextInput(attrs={'size':'60'})
@@ -350,6 +381,7 @@ def mute_notifications(request):
             "notification_types": notification_types,
         })
 
+
 @login_required
 def watch_ticket(request, pk):
     ticket = get_object_or_404(Ticket, id=pk)
@@ -379,6 +411,7 @@ def watch_ticket(request, pk):
             "objecttype": _("ticket"),
             "notification_types": notification_types,
         })
+
 
 @login_required
 def watch_topic(request, pk):
@@ -486,6 +519,7 @@ def create_ticket(request):
         'form_media': adminCore + ticketform.media + mediainfo.media + expeditures.media,
     })
 
+
 @login_required
 def edit_ticket(request, pk):
     ticket = get_object_or_404(Ticket, id=pk)
@@ -559,18 +593,23 @@ def edit_ticket(request, pk):
 		'user_can_copy_preexpeditures': ticket.can_copy_preexpeditures(request.user),
     })
 
+
 class UploadDocumentForm(forms.Form):
     file = forms.FileField(widget=forms.ClearableFileInput(attrs={'size':'60'}), label=_('file'))
     name = forms.RegexField(r'^[-_\.A-Za-z0-9]+\.[A-Za-z0-9]+$', error_messages={'invalid':ugettext_lazy('We need a sane file name, such as my-invoice123.jpg')}, widget=forms.TextInput(attrs={'size':'30'}), label=_('name'))
     description = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'size':'60'}), label=_('description'))
 
+
 DOCUMENT_FIELDS = ('filename', 'description')
+
+
 def document_formfield(f, **kwargs):
     if f.name == 'description':
         kwargs['widget'] = forms.TextInput(attrs={'size':'60'})
     return f.formfield(**kwargs)
 documentformset_factory = curry(inlineformset_factory, Ticket, Document,
     fields=DOCUMENT_FIELDS, formfield_callback=document_formfield)
+
 
 def document_view_required(access, ticket_id_field='pk'):
     """ Wrapper for document-accessing views (access=read|write)"""
@@ -588,6 +627,7 @@ def document_view_required(access, ticket_id_field='pk'):
         return wrapped_view
 
     return actual_decorator
+
 
 @document_view_required(access='write')
 def edit_ticket_docs(request, pk):
@@ -611,6 +651,7 @@ def edit_ticket_docs(request, pk):
         'ticket': ticket,
         'documents': documents,
     })
+
 
 @document_view_required(access='write')
 def upload_ticket_doc(request, pk):
@@ -644,11 +685,13 @@ def upload_ticket_doc(request, pk):
         'form_media': adminCore + upload.media,
     })
 
+
 @document_view_required(access='read', ticket_id_field='ticket_id')
 def download_document(request, ticket_id, filename):
     ticket = get_object_or_404(Ticket, id=ticket_id)
     doc = ticket.document_set.get(filename=filename)
     return sendfile(request, doc.payload.path, mimetype=doc.content_type)
+
 
 def topic_finance(request):
     grants_out = []
@@ -666,6 +709,7 @@ def topic_finance(request):
         'have_fuzzy': any([row['finance'].fuzzy for row in grants_out]),
     })
 
+
 class HttpResponseCsv(HttpResponse):
     def __init__(self, fields, *args, **kwargs):
         kwargs['content_type'] = 'text/csv'
@@ -675,6 +719,7 @@ class HttpResponseCsv(HttpResponse):
     def writerow(self, row):
         self.write(u';'.join(map(lambda s: u'"' + unicode(s).replace('"', "'").replace('\r\n', ' ').replace('\n', ' ').replace('\r', ' ') + u'"', row)))
         self.write(u'\r\n')
+
 
 def _get_topic_content_acks_per_user():
     """ Returns content acks counts per user and topic """
@@ -703,16 +748,19 @@ def _get_topic_content_acks_per_user():
         for r in result
     ]
 
+
 def topic_content_acks_per_user(request):
     return render(request, 'tracker/topic_content_acks_per_user.html', {
         'acks': _get_topic_content_acks_per_user(),
     })
+
 
 def topic_content_acks_per_user_csv(request):
     response = HttpResponseCsv(['user', 'grant', 'topic', 'ack_count'])
     for row in _get_topic_content_acks_per_user():
         response.writerow([row.user, row.grant, row.topic, row.ack_count])
     return response
+
 
 def transaction_list(request):
     return render(request, 'tracker/transaction_list.html', {
@@ -738,6 +786,7 @@ def transactions_csv(request):
         ])
     return response
 
+
 def user_list(request):
     totals = {
         'ticket_count': Ticket.objects.count(),
@@ -747,6 +796,7 @@ def user_list(request):
     }
 
     userless = Ticket.objects.filter(requested_user=None)
+
     if userless.count() > 0:
         unassigned = {
             'ticket_count': userless.count(),
@@ -762,6 +812,7 @@ def user_list(request):
         'totals': totals,
     })
 
+
 def user_detail(request, username):
     user = get_object_or_404(User, username=username)
 
@@ -770,6 +821,7 @@ def user_detail(request, username):
         # ^ NOTE 'user' means session user in the template, so we're using user_obj
         'ticket_list': user.ticket_set.all(),
     })
+
 
 class UserDetailsChange(FormView):
     template_name = 'tracker/user_details_change.html'
@@ -807,7 +859,9 @@ class UserDetailsChange(FormView):
         messages.success(self.request, _('Your details have been saved.'))
         return HttpResponseRedirect(reverse('index'))
 
+
 user_details_change = login_required(UserDetailsChange.as_view())
+
 
 def cluster_detail(request, pk):
     id = int(pk)
@@ -836,7 +890,10 @@ class AdminUserListView(ListView):
             context = super(AdminUserListView, self).get_context_data(**kwargs)
             context['is_tracker_supervisor'] = self.request.user.has_perm('tracker.supervisor')
             return context
+
+
 admin_user_list = login_required(AdminUserListView.as_view())
+
 
 def export(request):
     if request.method == 'POST':
@@ -880,7 +937,7 @@ def export(request):
                 smaller = int(smaller)
                 for ticket in tickets:
                     real = ticket.preexpeditures()['amount']
-                    if real == None:
+                    if real is None:
                         real = 0
                     if real >= larger and real <= smaller:
                         tmp.append(ticket)
@@ -890,7 +947,7 @@ def export(request):
                 larger = int(larger)
                 for ticket in tickets:
                     real = ticket.preexpeditures()['amount']
-                    if real == None:
+                    if real is None:
                         real = 0
                     if real >= larger:
                         tmp.append(ticket)
@@ -900,7 +957,7 @@ def export(request):
                 smaller = int(smaller)
                 for ticket in tickets:
                     real = ticket.preexpeditures()['amount']
-                    if real == None:
+                    if real is None:
                         real = 0
                     if real <= smaller:
                         tmp.append(ticket)
@@ -913,7 +970,7 @@ def export(request):
                 smaller = int(smaller)
                 for ticket in tickets:
                     real = ticket.expeditures()['amount']
-                    if real == None:
+                    if real is None:
                         real = 0
                     if real >= larger and real <= smaller:
                         tmp.append(ticket)
@@ -923,7 +980,7 @@ def export(request):
                 larger = int(larger)
                 for ticket in tickets:
                     real = ticket.expeditures()['amount']
-                    if real == None:
+                    if real is None:
                         real = 0
                     if real >= larger:
                         tmp.append(ticket)
@@ -933,7 +990,7 @@ def export(request):
                 smaller = int(smaller)
                 for ticket in tickets:
                     real = ticket.expeditures()['amount']
-                    if real == None:
+                    if real is None:
                         real = 0
                     if real <= smaller:
                         tmp.append(ticket)
@@ -1256,6 +1313,7 @@ def export(request):
                 'tickets': Ticket.objects.all(),
             })
 
+
 @login_required
 def importcsv(request):
     if request.method == 'POST' and not request.FILES['csvfile']:
@@ -1441,6 +1499,7 @@ def importcsv(request):
                 return HttpResponseBadRequest("You can't want example file of invalid object")
         else:
             return render(request, 'tracker/import.html', {})
+
 
 @login_required
 def copypreexpeditures(request, pk):

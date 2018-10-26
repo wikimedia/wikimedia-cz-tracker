@@ -19,6 +19,7 @@ from users.models import UserWrapper
 from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, TrackerProfile, Document
 from django.conf import settings
 
+
 class SimpleTicketTest(TestCase):
     def setUp(self):
         self.topic = Topic(name='topic1', grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
@@ -100,6 +101,7 @@ class SimpleTicketTest(TestCase):
         self.ticket1.save()
         self.assertEqual(self.ticket1.state_str(), 'historical')
 
+
 class OldRedirectTests(TestCase):
     def setUp(self):
         self.topic = Topic(name='topic', grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
@@ -131,6 +133,7 @@ class OldRedirectTests(TestCase):
         response = Client().get('/old/topic/%s/' % self.topic.id)
         self.assert301(response, self.topic.get_absolute_url())
 
+
 class TicketSumTests(TestCase):
     def setUp(self):
         self.topic = Topic(name='topic', grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
@@ -158,6 +161,7 @@ class TicketSumTests(TestCase):
         self.assertEqual({'count': 2, 'amount': 200}, full_ticket.expeditures())
         self.assertEqual({'objects': 3, 'media': 31}, self.topic.media_count())
         self.assertEqual({'count': 2, 'amount': 200}, self.topic.expeditures())
+
 
 class TicketTests(TestCase):
     def setUp(self):
@@ -420,6 +424,7 @@ class TicketTests(TestCase):
         self.assertEqual('pre2', preexpeditures[1].description)
         self.assertEqual(Decimal('20.1'), preexpeditures[1].amount)
         self.assertEqual(True, preexpeditures[1].wage)
+
 
 class TicketEditTests(TestCase):
     def test_correct_choices(self):
@@ -739,6 +744,7 @@ class TicketAckTests(TestCase):
         response = c.get(reverse('topic_content_acks_per_user_csv'))
         self.assertEqual(response.status_code, 200)
 
+
 class TicketEditLinkTests(TestCase):
     def setUp(self):
         self.topic = Topic(name='topic', grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
@@ -806,6 +812,7 @@ class TicketEditLinkTests(TestCase):
         self.assertEqual(False, response.context['user_can_edit_ticket'])
         self.assertEqual(True, response.context['user_can_edit_ticket_in_admin'])
 
+
 class UserDetailsTest(TestCase):
     def setUp(self):
         self.topic = Topic(name='test_topic', open_for_tickets=True, ticket_media=True, grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
@@ -822,6 +829,7 @@ class UserDetailsTest(TestCase):
         response = c.get(UserWrapper(self.user).get_absolute_url())
         self.assertEqual(200, response.status_code)
         self.assertEqual(self.ticket, response.context['ticket_list'][0])
+
 
 class SummaryTest(TestCase):
     def setUp(self):
@@ -891,6 +899,7 @@ class SummaryTest(TestCase):
         response = Client().get(reverse('topic_finance'))
         self.assertEqual(response.status_code, 200)
 
+
 class UserProfileTests(TestCase):
     def test_simple_create(self):
         user = User.objects.create(username='new_user')
@@ -898,6 +907,7 @@ class UserProfileTests(TestCase):
             user.trackerprofile
         except TrackerProfile.DoesNotExist:
             self.fail('Failed to create trackerprofile for new user')
+
 
 class ImportTests(TestCase):
 
@@ -1009,6 +1019,7 @@ class ImportTests(TestCase):
             })
             self.assertEqual(testConfiguration['superuser'], response.status_code)
 
+
 class DocumentAccessTests(TestCase):
     def setUp(self):
         self.owner = {'user': User.objects.create(username='ticket_owner'), 'password':'pw1'}
@@ -1026,7 +1037,7 @@ class DocumentAccessTests(TestCase):
 
     def check_user_access(self, user, can_see, can_edit):
         c = Client()
-        if user != None:
+        if user is not None:
             c.login(username=user['user'].username, password=user['password'])
             deny_code = 403
         else:
@@ -1072,6 +1083,7 @@ class DocumentAccessTests(TestCase):
         ou.user_permissions.add(Permission.objects.get(content_type=topic_content, codename='edit_all_docs'))
         ou.save()
         self.check_user_access(user=self.other_user, can_see=True, can_edit=True)
+
 
 class CacheTicketsTests(TestCase):
     def setUp(self):

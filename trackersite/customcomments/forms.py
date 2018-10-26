@@ -12,6 +12,7 @@ from django_comments.forms import CommentSecurityForm, COMMENT_MAX_LENGTH
 from snowpenguin.django.recaptcha2.fields import ReCaptchaField
 from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 
+
 class CustomCommentForm(CommentSecurityForm):
     """
     Handles i bit less details of the comment than the usual form

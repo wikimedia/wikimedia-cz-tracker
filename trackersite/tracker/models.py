@@ -57,6 +57,7 @@ NOTIFICATION_TYPES = [
 
 USER_EDITABLE_ACK_TYPES = ('user_precontent', 'user_content', 'user_docs')
 
+
 def uber_ack(ack_type):
     """ Return 'super-ack' for given user-editable ack. """
     return {
@@ -65,12 +66,14 @@ def uber_ack(ack_type):
         'user_docs':'docs',
     }[ack_type]
 
+
 class PercentageField(models.SmallIntegerField):
     """ Field that holds a percentage. """
     def formfield(self, **kwargs):
         defaults = {'min_value': 0, 'max_value':100}
         defaults.update(kwargs)
         return super(PercentageField, self).formfield(**defaults)
+
 
 class CachedModel(models.Model):
     """ Model which has some values cached """
@@ -105,7 +108,10 @@ class CachedModel(models.Model):
 
     class Meta:
         abstract = True
+
+
 cached_getter = CachedModel.cached_getter
+
 
 class DecimalRangeField(models.DecimalField):
     def __init__(self, verbose_name=None, name=None, min_value=None, max_value=None, **kwargs):
@@ -116,6 +122,7 @@ class DecimalRangeField(models.DecimalField):
         defaults = {'min_value': self.min_value, 'max_value': self.max_value }
         defaults.update(kwargs)
         return super(DecimalRangeField, self).formfield(**defaults)
+
 
 class Ticket(CachedModel):
     """ One unit of tracked / paid stuff. """
@@ -169,7 +176,7 @@ class Ticket(CachedModel):
         if not just_payment_status:
             self.updated = datetime.datetime.now()
 
-        if self.event_date == None:
+        if self.event_date is None:
             self.event_date = datetime.date.today()
 
         if not just_payment_status:
@@ -236,21 +243,21 @@ class Ticket(CachedModel):
 
     @cached_getter
     def requested_by(self):
-        if self.requested_user != None:
+        if self.requested_user is not None:
             return self.requested_user.username
         else:
             return self.requested_text
     requested_by.short_description = _('requested by')
 
     def requested_by_html(self):
-        if self.requested_user != None:
+        if self.requested_user is not None:
             return UserWrapper(self.requested_user).get_html_link()
         else:
             return escape(self.requested_text)
 
     @cached_getter
     def requested_user_details(self):
-        if self.requested_user != None:
+        if self.requested_user is not None:
             out = u'%s: %s<br />%s: %s' % (
                 _('E-mail'), escape(self.requested_user.email),
                 _('Other contact'), escape(self.requested_user.trackerprofile.other_contact),
@@ -277,7 +284,7 @@ class Ticket(CachedModel):
 
     @cached_getter
     def accepted_expeditures(self):
-        if not self.has_all_acks('content') or (self.rating_percentage == None):
+        if not self.has_all_acks('content') or (self.rating_percentage is None):
             return decimal.Decimal(0)
         else:
             total = sum([x.amount for x in self.expediture_set.all()], decimal.Decimal(0))
@@ -286,7 +293,7 @@ class Ticket(CachedModel):
 
     @cached_getter
     def paid_expeditures(self):
-        if self.rating_percentage == None:
+        if self.rating_percentage is None:
             return decimal.Decimal(0)
         else:
             total = sum([x.amount for x in self.expediture_set.filter(paid=True)], decimal.Decimal(0))
@@ -360,10 +367,13 @@ class Ticket(CachedModel):
         verbose_name_plural = _('Tickets')
         ordering = ['-id']
 
+
 class TicketModerator(CommentModerator):
     enable_field = 'enable_comments'
 
+
 moderator.register(Ticket, TicketModerator)
+
 
 class FinanceStatus(object):
     """ This is not a model, but rather a representation of topic finance status. """
@@ -415,6 +425,7 @@ class FinanceStatus(object):
 
     def as_dict(self):
         return {'fuzzy':self.fuzzy, 'unpaid':self.unpaid, 'paid':self.paid, 'overpaid':self.overpaid}
+
 
 class Subtopic(CachedModel):
     name = models.CharField(_('name'), max_length=80)
@@ -477,6 +488,7 @@ class Subtopic(CachedModel):
         verbose_name = _('Subtopic')
         verbose_name_plural = _('Subtopics')
         ordering = ['name']
+
 
 class Topic(CachedModel):
     """ Topics according to which the tickets are grouped. """
@@ -563,6 +575,7 @@ class Topic(CachedModel):
             ("supervisor", "Can edit all topics and tickets"),
         )
 
+
 class Grant(CachedModel):
     """ Grant is the bigger thing above topics """
     full_name = models.CharField(_('full name'), max_length=80, help_text=_('Full name for headlines and such'))
@@ -613,6 +626,7 @@ def ticket_note_comment(sender, comment, **kwargs):
     if type(obj) == Ticket:
         obj.save()
 
+
 class MediaInfo(models.Model):
     """ Media related to particular tickets. """
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'), help_text=_('Ticket this media info belongs to'))
@@ -626,6 +640,7 @@ class MediaInfo(models.Model):
     class Meta:
         verbose_name = _('Ticket media')
         verbose_name_plural = _('Ticket media')
+
 
 class Expediture(models.Model):
     """ Expenses related to particular tickets. """
@@ -648,6 +663,7 @@ class Expediture(models.Model):
         verbose_name = _('Ticket expediture')
         verbose_name_plural = _('Ticket expeditures')
 
+
 class Preexpediture(models.Model):
     """Preexpeditures related to particular tickets. """
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'), help_text=_('Ticket this preexpediture belogns to'))
@@ -662,8 +678,10 @@ class Preexpediture(models.Model):
         verbose_name = _('Ticket preexpediture')
         verbose_name_plural = _('Ticket preexpeditures')
 
+
 # introductory chunk for the template
 DOCUMENT_INTRO_TEMPLATE = template.Template('<a href="{% url "download_document" doc.ticket.id doc.filename %}">{{doc.filename}}</a>{% if detail and doc.description %}: {{doc.description}}{% endif %} <small>({{doc.content_type}}; {{doc.size|filesizeformat}})</small>')
+
 
 class Document(models.Model):
     """ Document related to particular ticket, not publicly accessible. """
@@ -741,6 +759,7 @@ class TrackerProfile(models.Model):
         verbose_name = _('Tracker profile')
         verbose_name_plural = _('Tracker profiles')
 
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, **kwargs):
     if not kwargs.get('created', False):
@@ -748,6 +767,7 @@ def create_user_profile(sender, **kwargs):
 
     user = kwargs['instance']
     TrackerProfile.objects.create(user=user)
+
 
 class Transaction(models.Model):
     """ One payment to or from the user. """
@@ -762,19 +782,19 @@ class Transaction(models.Model):
 
     def __unicode__(self):
         out = u'%s, %s %s' % (self.date, self.amount, settings.TRACKER_CURRENCY)
-        if self.description != None:
+        if self.description is not None:
            out += ': ' + self.description
         return out
 
     def other_party(self):
-        if self.other != None:
+        if self.other is not None:
             return self.other.username
         else:
             return self.other_text
     other_party.short_description = _('other party')
 
     def other_party_html(self):
-        if self.other != None:
+        if self.other is not None:
             return UserWrapper(self.other).get_html_link()
         else:
             return escape(self.other_text)
@@ -796,6 +816,7 @@ class Transaction(models.Model):
         verbose_name = _('Transaction')
         verbose_name_plural = _('Transactions')
         ordering = ['-date']
+
 
 class Cluster(models.Model):
     """ This is an auxiliary/cache model used to track relationships between tickets and payments. """
@@ -823,7 +844,7 @@ class TicketAck(models.Model):
         return u'%d %s by %s on %s' % (self.ticket_id, self.get_ack_type_display(), self.added_by, self.added)
 
     def added_by_html(self):
-        if self.added_by != None:
+        if self.added_by is not None:
             return UserWrapper(self.added_by).get_html_link()
         else:
             return ''
@@ -836,6 +857,7 @@ class TicketAck(models.Model):
     class Meta:
         ordering = ['added']
 
+
 @receiver(post_save, sender=TicketAck)
 def flush_ticket_after_ack_save(sender, instance, created, raw, **kwargs):
     if not raw:
@@ -845,6 +867,7 @@ def flush_ticket_after_ack_save(sender, instance, created, raw, **kwargs):
 @receiver(post_delete, sender=TicketAck)
 def flush_ticket_after_ack_delete(sender, instance, **kwargs):
     instance.ticket.update_payment_status()
+
 
 class Notification(models.Model):
     """Notification that is supposed to be sent."""
@@ -881,6 +904,7 @@ class TicketWatcher(models.Model):
     def __unicode__(self):
         return 'User %s is watching event %s on ticket %s' % (self.user, self.notification_type, self.ticket)
 
+
 class TopicWatcher(models.Model):
     """User that watch given topic"""
     topic = models.ForeignKey('Topic')
@@ -905,17 +929,20 @@ def notify_comment(sender, comment, **kwargs):
             else: continue
         Notification.fire_notification(obj, text, "comment", comment.user, additional=additional)
 
+
 @receiver(comment_was_posted)
 def add_commenting_user_to_watchers(sender, comment, **kwargs):
     obj = comment.content_object
     if type(obj) == Ticket and comment.user is not None:
         if comment.user != obj.requested_user and comment.user not in obj.topic.admin.all(): TicketWatcher.objects.create(ticket=obj, user=comment.user, notification_type="comment")
 
+
 @receiver(post_save, sender=Ticket)
 def notify_ticket(sender, instance, created, raw, **kwargs):
     if created:
         text = u'Ticket <a href="%s%s">%s</a> byl vytvořen uživatelem <tt>%s</tt> v tématu <tt>%s</tt>' % (settings.BASE_URL, instance.get_absolute_url(), instance, instance.requested_by_html(), instance.topic)
         Notification.fire_notification(instance, text, "ticket_new", instance.requested_user)
+
 
 @receiver(pre_save, sender=Ticket)
 def notify_supervizor_notes(sender, instance, **kwargs):
@@ -924,6 +951,7 @@ def notify_supervizor_notes(sender, instance, **kwargs):
         if old.supervisor_notes != instance.supervisor_notes:
             text = u'U ticketu <a href="%s%s">%s</a> došlo ke změně poznámek schvalovatele.' % (settings.BASE_URL, instance.get_absolute_url(), instance)
             Notification.fire_notification(instance, text, "supervisor_notes", None)
+
 
 @receiver(pre_save, sender=Ticket)
 def notify_ticket_change(sender, instance, **kwargs):
@@ -942,6 +970,7 @@ def notify_ticket_change(sender, instance, **kwargs):
             text = u'U ticketu <a href="%s%s">%s</a> došlo ke změně požadované zálohy.' % (settings.BASE_URL, instance.get_absolute_url(), instance)
             Notification.fire_notification(instance, text, "ticket_change", None)
 
+
 @receiver(pre_save, sender=Ticket)
 def notify_ticket_change_2(sender, instance, **kwargs):
     if instance.id is not None:
@@ -950,15 +979,18 @@ def notify_ticket_change_2(sender, instance, **kwargs):
             text = u'U ticketu <a href="%s%s">%s</a> došlo ke změně příznaku povinného reportu.' % (settings.BASE_URL, instance.get_absolute_url(), instance)
             Notification.fire_notification(instance, text, "ticket_change_all", None)
 
+
 @receiver(post_save, sender=TicketAck)
 def notify_ack_add(sender, instance, created, **kwargs):
     text = u"Ticketu <a href='%s%s'>%s</a> byl přidán stav <tt>%s</tt> uživatelem <tt>%s</tt>" % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket, instance.get_ack_type_display(), instance.added_by)
     Notification.fire_notification(instance.ticket, text, "ack_add", instance.added_by)
 
+
 @receiver(post_delete, sender=TicketAck)
 def notify_ack_remove(sender, instance, **kwargs):
     text = u'U ticketu <a href="%s%s">%s</a> došlo k odebrání stavu <tt>%s</tt>' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket, instance.get_ack_type_display())
     Notification.fire_notification(instance.ticket, text, "ack_remove", None)
+
 
 @receiver(post_save, sender=Preexpediture)
 def notify_preexpediture(sender, instance, created, raw, **kwargs):
@@ -969,11 +1001,13 @@ def notify_preexpediture(sender, instance, created, raw, **kwargs):
             text = u'Plánovaný výdaj <tt>%s</tt> tiketu <a href="%s%s">%s</a> byl změněn' % (instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)    
         Notification.fire_notification(instance.ticket, text, "preexpeditures_change", None)
 
+
 @receiver(post_delete, sender=Preexpediture)
 def notify_del_preexpediture(sender, instance, **kwargs):
     if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
         text = u'Plánovaný výdaj <ŧt>%s</tt> tiketu <a href="%s%s">%s</a> byl odstraněn' % (instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
         Notification.fire_notification(instance.ticket, text, "preexpeditures_change", None)
+
 
 @receiver(post_save, sender=Expediture)
 def notify_expediture(sender, instance, created, raw, **kwargs):
@@ -984,11 +1018,13 @@ def notify_expediture(sender, instance, created, raw, **kwargs):
             text = u'Reálný výdaj <tt>%s</tt> tiketu <a href="%s%s">%s</a> byl změněn' % (instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
         Notification.fire_notification(instance.ticket, text, "expeditures_change", None)
 
+
 @receiver(post_delete, sender=Expediture)
 def notify_del_expediture(sender, instance, **kwargs):
     if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
         text = u'Reálný výdaj <ŧt>%s</tt> tiketu <a href="%s%s">%s</a> byl odstraněn' % (instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
         Notification.fire_notification(instance.ticket, text, "expeditures_change", None)
+
 
 @receiver(post_save, sender=MediaInfo)
 def notify_media(sender, instance, created, raw, **kwargs):
@@ -999,11 +1035,13 @@ def notify_media(sender, instance, created, raw, **kwargs):
             text = u'Média tiketu <a href="%s%s">%s</a> byla změněna' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
         Notification.fire_notification(instance.ticket, text, "media_change", None)
 
+
 @receiver(post_delete, sender=MediaInfo)
 def notify_del_media(sender, instance, **kwargs):
     if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
         text = u'Média tiketu <a href="%s%s">%s</a> byla odstraněna' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
         Notification.fire_notification(instance.ticket, text, "media_change", None)
+
 
 class PossibleAck(object):
     """ Python representation of possible ack that can be added by user to a ticket. """

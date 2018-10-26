@@ -5,6 +5,7 @@ import json
 from django.utils import translation
 from tracker.models import Ticket
 
+
 class Command(NoArgsCommand):
     help = 'Cache tickets'
 

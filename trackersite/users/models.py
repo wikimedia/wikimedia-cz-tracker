@@ -2,6 +2,7 @@ from django.core.urlresolvers import reverse
 from django.utils.safestring import mark_safe
 from django.utils.html import escape
 
+
 class UserWrapper(object):
     def __init__(self, user):
         self.user = user

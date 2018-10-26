@@ -1,9 +1,11 @@
-import os, sys
+import os
+import sys
 from django.template import Template, Context
 from django.conf import settings
 from django.utils.crypto import get_random_string
 
 MY_PATH = os.path.abspath(os.path.dirname(__file__))
+
 
 def main():
     target_path = os.path.abspath(os.path.join(MY_PATH, '..', 'trackersite', 'settings.py'))

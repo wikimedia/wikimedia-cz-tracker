@@ -11,26 +11,35 @@ from django.template import RequestContext
 from django.template.loader import get_template
 from django.contrib.admin.helpers import ActionForm
 
+
 class MediaInfoAdmin(admin.TabularInline):
     model = models.MediaInfo
+
 
 class ExpeditureAdmin(admin.TabularInline):
     model = models.Expediture
 
+
 class PreexpeditureAdmin(admin.TabularInline):
     model = models.Preexpediture
+
 
 class AddAckForm(forms.Form):
     ack_type = forms.ChoiceField(choices=models.ACK_TYPES, label=_('Type'))
     comment = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'size':'40'}))
 
+
 class AddAckActionForm(ActionForm):
     ack_type = forms.ChoiceField(required=False, choices=models.ACK_TYPES, label=_('Type'))
+
 
 def add_ack(modeladmin, request, queryset):
     for ticket in queryset.all():
         ticket.ticketack_set.create(ack_type=request.POST['ack_type'], added_by=request.user)
+
+
 add_ack.short_description = _('Add ack')
+
 
 class TicketAdmin(admin.ModelAdmin):
     def queryset(self, request):
@@ -69,7 +78,7 @@ class TicketAdmin(admin.ModelAdmin):
         if (request.method == 'POST'):
             form = AddAckForm(request.POST)
             if form.is_valid():
-                if form.cleaned_data['ack_type'] == 'content' and ticket.rating_percentage == None:
+                if form.cleaned_data['ack_type'] == 'content' and ticket.rating_percentage is None:
                     return HttpResponse(json.dumps({
                         'form':self._render(request, 'admin/tracker/ticket/ack_norating_error.html', {}),
                         'id':-1,
@@ -111,20 +120,25 @@ class TicketAdmin(admin.ModelAdmin):
             url(r'^(?P<object_id>\d+)/acks/remove/$', self.remove_ack),
         ) + super(TicketAdmin, self).get_urls()
 
+
 admin.site.register(models.Ticket, TicketAdmin)
+
 
 class SubtopicAdmin(admin.ModelAdmin):
     list_display = ('name', 'topic')
     list_filter = ('topic', )
 admin.site.register(models.Subtopic, SubtopicAdmin)
 
+
 def open_topics_for_tickets(modeladmin, request, queryset):
     queryset.update(open_for_tickets=True)
 open_topics_for_tickets.short_description = _("Mark selected topics as opened for new tickets")
 
+
 def close_topics_for_tickets(modeladmin, request, queryset):
     queryset.update(open_for_tickets=False)
 close_topics_for_tickets.short_description = _("Mark selected topics as closed for new tickets")
+
 
 class TopicAdmin(admin.ModelAdmin):
     def get_readonly_fields(self, request, obj=None):
@@ -143,12 +157,16 @@ class TopicAdmin(admin.ModelAdmin):
     list_filter = ('grant', 'open_for_tickets', 'ticket_media', 'ticket_expenses', 'ticket_preexpenses', 'ticket_statutory_declaration')
     filter_horizontal = ('admin', )
     actions = (open_topics_for_tickets, close_topics_for_tickets)
+
+
 admin.site.register(models.Topic, TopicAdmin)
+
 
 class GrantAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('short_name',)}
     list_display = ('full_name', 'open_for_tickets')
 admin.site.register(models.Grant, GrantAdmin)
+
 
 class TrackerProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'bank_account', 'other_contact', 'other_identification')
