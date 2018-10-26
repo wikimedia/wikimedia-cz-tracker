@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from os.path import dirname, abspath, join
+from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 
 SITE_DIR = abspath(dirname(__file__))
@@ -99,3 +100,7 @@ REST_FRAMEWORK = {
 }
 
 STATUTORY_DECLARATION_TEXT = 'I hereby declare that my travel expenses are true and accurate and that you spent money economically and effectivelly.'
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
