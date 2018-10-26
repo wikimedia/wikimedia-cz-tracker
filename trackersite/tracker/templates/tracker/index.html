@@ -31,6 +31,12 @@
 
     </tbody>
 </table>
+<a href="{% url "importcsv" %}">
+<button class="btn btn-primary">{% trans "Import" %}</button>
+</a>
+<a href="{% url "export" %}">
+<button class="btn btn-primary">{% trans "Export" %}</button>
+</a>
 <script>
     $.get('/user/display_items', function(display_items) {
         var language = $('meta[http-equiv="Content-Language"]').attr('content');
