@@ -29,5 +29,6 @@ def main():
     target.write(template.render(context))
     target.close()
 
+
 if __name__ == '__main__':
     main()

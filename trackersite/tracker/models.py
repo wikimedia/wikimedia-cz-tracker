@@ -413,8 +413,8 @@ class FinanceStatus(object):
         elif ticket.payment_status == 'paid':
             self.paid += ticket.accepted_expeditures()
         elif ticket.payment_status == 'partially_paid':
-            self.paid += sum([e.amount for e in Expediture.objects.filter(ticket_id=ticket.id, paid=True)])*ticket.rating_percentage/100
-            self.unpaid += sum([e.amount for e in Expediture.objects.filter(ticket_id=ticket.id, paid=False)])*ticket.rating_percentage/100
+            self.paid += sum([e.amount for e in Expediture.objects.filter(ticket_id=ticket.id, paid=True)]) * ticket.rating_percentage / 100
+            self.unpaid += sum([e.amount for e in Expediture.objects.filter(ticket_id=ticket.id, paid=False)]) * ticket.rating_percentage / 100
 
     def add_finance(self, other):
         self.fuzzy = self.fuzzy or other.fuzzy
@@ -470,7 +470,7 @@ class Subtopic(CachedModel):
             for expediture in ticket.expediture_set.filter(wage=True, paid=True):
                 ticketsum.append(expediture.amount)
             if ticket.rating_percentage:
-                tosum.append(sum(ticketsum)*ticket.rating_percentage/100)
+                tosum.append(sum(ticketsum) * ticket.rating_percentage / 100)
         return sum(tosum)
 
     @cached_getter
@@ -481,7 +481,7 @@ class Subtopic(CachedModel):
             for expediture in ticket.expediture_set.filter(paid=True):
                 ticketsum.append(expediture.amount)
             if ticket.rating_percentage:
-                tosum.append(sum(ticketsum)*ticket.rating_percentage/100)
+                tosum.append(sum(ticketsum) * ticket.rating_percentage / 100)
         return sum(tosum)
 
     class Meta:
@@ -541,7 +541,7 @@ class Topic(CachedModel):
             for expediture in ticket.expediture_set.filter(wage=True, paid=True):
                 ticketsum.append(expediture.amount)
             if ticket.rating_percentage:
-                tosum.append(sum(ticketsum)*ticket.rating_percentage/100)
+                tosum.append(sum(ticketsum) * ticket.rating_percentage / 100)
         return sum(tosum)
 
     @cached_getter
@@ -552,7 +552,7 @@ class Topic(CachedModel):
             for expediture in ticket.expediture_set.filter(paid=True):
                 ticketsum.append(expediture.amount)
             if ticket.rating_percentage:
-                tosum.append(sum(ticketsum)*ticket.rating_percentage/100)
+                tosum.append(sum(ticketsum) * ticket.rating_percentage / 100)
         return sum(tosum)
 
     @cached_getter
@@ -783,7 +783,7 @@ class Transaction(models.Model):
     def __unicode__(self):
         out = u'%s, %s %s' % (self.date, self.amount, settings.TRACKER_CURRENCY)
         if self.description is not None:
-           out += ': ' + self.description
+            out += ': ' + self.description
         return out
 
     def other_party(self):
@@ -998,7 +998,7 @@ def notify_preexpediture(sender, instance, created, raw, **kwargs):
         if created:
             text = u'K tiketu <a href="%s%s">%s</a>  byly přidány plánované výdaje <tt>%s</tt>' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket, instance)
         else:
-            text = u'Plánovaný výdaj <tt>%s</tt> tiketu <a href="%s%s">%s</a> byl změněn' % (instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)    
+            text = u'Plánovaný výdaj <tt>%s</tt> tiketu <a href="%s%s">%s</a> byl změněn' % (instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
         Notification.fire_notification(instance.ticket, text, "preexpeditures_change", None)
 
 

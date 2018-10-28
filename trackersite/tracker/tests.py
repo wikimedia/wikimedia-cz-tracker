@@ -354,7 +354,7 @@ class TicketTests(TestCase):
             })
         self.assertEqual(200, response.status_code)
         self.assertFormError(response, 'ticketform', 'deposit', 'Your deposit is bigger than your preexpeditures')
-    
+
     def test_invalid_subtopic(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
@@ -372,7 +372,7 @@ class TicketTests(TestCase):
         })
         self.assertEqual(200, response.status_code)
         self.assertFormError(response, 'ticketform', 'subtopic', 'Subtopic must belong to topic you used. You have probably JavaScript turned off.')
-    
+
     def test_valid_subtopic(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {

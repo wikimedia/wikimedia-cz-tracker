@@ -127,16 +127,22 @@ admin.site.register(models.Ticket, TicketAdmin)
 class SubtopicAdmin(admin.ModelAdmin):
     list_display = ('name', 'topic')
     list_filter = ('topic', )
+
+
 admin.site.register(models.Subtopic, SubtopicAdmin)
 
 
 def open_topics_for_tickets(modeladmin, request, queryset):
     queryset.update(open_for_tickets=True)
+
+
 open_topics_for_tickets.short_description = _("Mark selected topics as opened for new tickets")
 
 
 def close_topics_for_tickets(modeladmin, request, queryset):
     queryset.update(open_for_tickets=False)
+
+
 close_topics_for_tickets.short_description = _("Mark selected topics as closed for new tickets")
 
 
@@ -165,11 +171,15 @@ admin.site.register(models.Topic, TopicAdmin)
 class GrantAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('short_name',)}
     list_display = ('full_name', 'open_for_tickets')
+
+
 admin.site.register(models.Grant, GrantAdmin)
 
 
 class TrackerProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'bank_account', 'other_contact', 'other_identification')
+
+
 admin.site.register(models.TrackerProfile, TrackerProfileAdmin)
 
 # piggypatch admin site to display our own index template with some bonus links

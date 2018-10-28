@@ -193,6 +193,8 @@ topic_detail = TopicDetailView.as_view()
 
 class SubtopicDetailView(CommentPostedCatcher, DetailView):
     model = Subtopic
+
+
 subtopic_detail = SubtopicDetailView.as_view()
 
 
@@ -265,7 +267,7 @@ def check_statutory_declaration(ticketform):
     """
     if not ticketform.is_valid():
         return
-    
+
     car_travel = ticketform.cleaned_data.get('car_travel')
     statutory_declaration = ticketform.cleaned_data.get('statutory_declaration')
 
@@ -281,7 +283,7 @@ def check_subtopic(ticketform):
     """
     if not ticketform.is_valid():
         return
-    
+
     topic = ticketform.cleaned_data.get('topic')
     subtopic = ticketform.cleaned_data.get('subtopic')
 
@@ -345,6 +347,8 @@ def mediainfo_formfield(f, **kwargs):
     elif f.name == 'count':
         kwargs['widget'] = forms.TextInput(attrs={'size': '4'})
     return f.formfield(**kwargs)
+
+
 mediainfoformset_factory = curry(inlineformset_factory, Ticket, MediaInfo,
     formset=ExtraItemFormSet, fields=MEDIAINFO_FIELDS, formfield_callback=mediainfo_formfield)
 
@@ -498,7 +502,7 @@ def create_ticket(request):
                 initialE['amount'] = e.amount
                 initialE['wage'] = e.wage
                 initialExpeditures.append(initialE)
-        ExpeditureFormSet = expeditureformset_factory(extra=2+len(initialExpeditures), can_delete=False)
+        ExpeditureFormSet = expeditureformset_factory(extra=2 + len(initialExpeditures), can_delete=False)
         expeditures = ExpeditureFormSet(prefix='expediture', initial=initialExpeditures)
         initialPreexpeditures = []
         if 'ticket' in request.GET:
@@ -508,7 +512,7 @@ def create_ticket(request):
                 initialPe['amount'] = pe.amount
                 initialPe['wage'] = pe.wage
                 initialPreexpeditures.append(initialPe)
-        PreexpeditureFormSet = preexpeditureformset_factory(extra=2+len(initialPreexpeditures), can_delete=False)
+        PreexpeditureFormSet = preexpeditureformset_factory(extra=2 + len(initialPreexpeditures), can_delete=False)
         preexpeditures = PreexpeditureFormSet(prefix='preexpediture', initial=initialPreexpeditures)
 
     return render(request, 'tracker/create_ticket.html', {
@@ -551,7 +555,7 @@ def edit_ticket(request, pk):
 
         check_statutory_declaration(ticketform)
         check_subtopic(ticketform)
-        
+
         if ticketform.is_valid() and mediainfo.is_valid() \
                 and (expeditures.is_valid() if 'content' not in ticket.ack_set() else True) \
                 and (preexpeditures.is_valid() if 'precontent' not in ticket.ack_set() and 'content' not in ticket.ack_set() else True):
@@ -607,6 +611,8 @@ def document_formfield(f, **kwargs):
     if f.name == 'description':
         kwargs['widget'] = forms.TextInput(attrs={'size': '60'})
     return f.formfield(**kwargs)
+
+
 documentformset_factory = curry(inlineformset_factory, Ticket, Document,
     fields=DOCUMENT_FIELDS, formfield_callback=document_formfield)
 
@@ -702,7 +708,7 @@ def topic_finance(request):
             topic_finance = topic.payment_summary()
             grant_finance.add_finance(topic_finance)
             topics.append({'topic': topic, 'finance': topic_finance})
-        grants_out.append({'grant': grant, 'topics': topics, 'finance': grant_finance, 'rows': len(topics)+1})
+        grants_out.append({'grant': grant, 'topics': topics, 'finance': grant_finance, 'rows': len(topics) + 1})
 
     return render(request, 'tracker/topic_finance.html', {
         'grants': grants_out,
@@ -1360,7 +1366,7 @@ def importcsv(request):
                     Topic.objects.create(name=name, grant_id=grant, open_for_tickets=new_tickets, ticket_media=media, ticket_preexpenses=preexpenses, ticket_expenses=expenses, description=description, form_description=form_description)
             elif request.POST['type'] == 'grant':
                 if not request.user.is_staff:
-                     return HttpResponseForbidden(_('You must be staffer in order to be able import grants.'))
+                    return HttpResponseForbidden(_('You must be staffer in order to be able import grants.'))
                 for line in reader:
                     imported += 1
                     if imported > 100 and not request.user.is_superuser:
