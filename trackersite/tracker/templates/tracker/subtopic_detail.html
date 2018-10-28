@@ -7,6 +7,8 @@
 <p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; <a href="{% url "topic_list" %}">{% trans "topics" %}</a> &gt; <a href="{{subtopic.topic.grant.get_absolute_url}}">{{subtopic.topic.grant.short_name}}</a> &gt; <a href="{{subtopic.topic.get_absolute_url}}">{{ subtopic.topic }}</a> &gt;</p>
 <h1>{{ subtopic.name }}</h1>
 
+<p>{% if user.is_authenticated %}<a href="{% url "create_ticket" %}?subtopic={{subtopic.id}}">{% trans "add ticket" %}</a>{% else %}.{% endif %}</p>
+
 {% if subtopic.description %}<div>{{ subtopic.description|safe|linebreaks }}</div>{% endif %}
 
 {% if subtopic.ticket_set.all|length > 0 %}

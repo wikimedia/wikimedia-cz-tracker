@@ -486,6 +486,9 @@ def create_ticket(request):
         initial = {'event_date': datetime.date.today()}
         if 'topic' in request.GET:
             initial['topic'] = request.GET['topic']
+        if 'subtopic' in request.GET:
+            initial['topic'] = get_object_or_404(Subtopic, id=request.GET['subtopic']).topic.id
+            initial['subtopic'] = request.GET['subtopic']
         if 'ticket' in request.GET:
             ticket = get_object_or_404(Ticket, id=request.GET['ticket'])
             initial['name'] = ticket.name
