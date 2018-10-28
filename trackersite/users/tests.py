@@ -12,7 +12,7 @@ class CreateUserTest(TestCase):
     def test_user_registration(self):
         USERNAME, PW, EMAIL = 'foouser', 'foo', 'foo@example.com'
         response = Client().post(reverse('register'), {
-            'username':USERNAME, 'password1':PW, 'password2':PW, 'email':EMAIL,
+            'username': USERNAME, 'password1': PW, 'password2': PW, 'email': EMAIL,
         })
         self.assertEqual(200, response.status_code)
 

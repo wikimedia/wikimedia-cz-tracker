@@ -17,7 +17,7 @@ js_info_dict = {
 
 urlpatterns = patterns('',
     url(r'^$', RedirectView.as_view(url='tickets/', permanent=False), name='index'),
-    url(r'', include(tracker.urls)), # tracker urls are included directly in web root
+    url(r'', include(tracker.urls)),  # tracker urls are included directly in web root
     url(r'^admin/', include(admin.site.urls)),
     url(r'^account/', include(users.urls)),
     url(r'oauth/', include('social_django.urls', namespace='social')),

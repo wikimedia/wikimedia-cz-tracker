@@ -32,7 +32,7 @@ class SimpleTicketTest(TestCase):
         self.ticket2.save()
 
     def test_ticket_timestamps(self):
-        self.assertTrue(self.ticket2.created > self.ticket1.created) # check ticket 2 is newer
+        self.assertTrue(self.ticket2.created > self.ticket1.created)  # check ticket 2 is newer
 
         # check new update of ticket changed updated ts
         old_updated = self.ticket1.updated
@@ -43,26 +43,26 @@ class SimpleTicketTest(TestCase):
     def test_ticket_list(self):
         response = Client().get(reverse('ticket_list'))
         self.assertEqual(response.status_code, 200)
-    
+
     def test_ticket_json(self):
         for langcode, langname in settings.LANGUAGES:
             response = Client().get(reverse('tickets', kwargs={'lang': langcode}))
             self.assertEqual(response.status_code, 200)
 
     def test_ticket_detail(self):
-        response = Client().get(reverse('ticket_detail', kwargs={'pk':self.ticket1.id}))
+        response = Client().get(reverse('ticket_detail', kwargs={'pk': self.ticket1.id}))
         self.assertEqual(response.status_code, 200)
 
     def test_ticket_url_escape(self):
         url = 'http://meta.wikimedia.org/wiki/Mediagrant/Fotografie_um%C4%9Bleck%C3%BDch_pam%C3%A1tek_v_%C4%8Cesk%C3%A9m_Krumlov%C4%9B'
         self.ticket1.description = '<a href="%s">foo link</a>' % url
         self.ticket1.save()
-        response = Client().get(reverse('ticket_detail', kwargs={'pk':self.ticket1.id}))
+        response = Client().get(reverse('ticket_detail', kwargs={'pk': self.ticket1.id}))
         self.assertContains(response, 'href="%s"' % url, 1)
 
     def test_ticket_absolute_url(self):
         t = self.ticket1
-        self.assertEqual(reverse('ticket_detail', kwargs={'pk':t.id}), t.get_absolute_url())
+        self.assertEqual(reverse('ticket_detail', kwargs={'pk': t.id}), t.get_absolute_url())
 
     def test_topic_list(self):
         response = Client().get(reverse('topic_list'))
@@ -74,19 +74,19 @@ class SimpleTicketTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_topic_detail(self):
-        response = Client().get(reverse('topic_detail', kwargs={'pk':self.topic.id}))
+        response = Client().get(reverse('topic_detail', kwargs={'pk': self.topic.id}))
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.context['topic'].ticket_set.all()), 2)
 
     def test_topic_absolute_url(self):
         t = self.topic
-        self.assertEqual(reverse('topic_detail', kwargs={'pk':t.id}), t.get_absolute_url())
+        self.assertEqual(reverse('topic_detail', kwargs={'pk': t.id}), t.get_absolute_url())
 
     def _test_one_feed(self, url_name, topic_id, expected_ticket_count):
-        url_kwargs = {'pk':topic_id} if topic_id is not None else {}
+        url_kwargs = {'pk': topic_id} if topic_id is not None else {}
         response = Client().get(reverse(url_name, kwargs=url_kwargs))
         self.assertEqual(response.status_code, 200)
-        items_in_response = re.findall(r'<item>', response.content) # ugly, mostly works
+        items_in_response = re.findall(r'<item>', response.content)  # ugly, mostly works
         self.assertEqual(expected_ticket_count, len(items_in_response))
 
     def test_feeds(self):
@@ -115,7 +115,7 @@ class OldRedirectTests(TestCase):
 
     def test_old_index(self):
         response = Client().get('/old/')
-        self.assert301(response, '/', target_status_code=302) # 302 = now index is a non-permanent redirect
+        self.assert301(response, '/', target_status_code=302)  # 302 = now index is a non-permanent redirect
 
     def test_topic_index(self):
         response = Client().get('/old/topics/')
@@ -127,7 +127,7 @@ class OldRedirectTests(TestCase):
 
     def test_new_ticket(self):
         response = Client().get('/old/ticket/new/')
-        self.assert301(response, reverse('create_ticket'), target_status_code=302) # 302 = redirect to login
+        self.assert301(response, reverse('create_ticket'), target_status_code=302)  # 302 = redirect to login
 
     def test_topic(self):
         response = Client().get('/old/topic/%s/' % self.topic.id)
@@ -188,7 +188,7 @@ class TicketTests(TestCase):
 
     def test_ticket_creation_denied(self):
         response = Client().get(reverse('create_ticket'))
-        self.assertEqual(302, response.status_code) # redirects to login
+        self.assertEqual(302, response.status_code)  # redirects to login
 
     def test_ticket_creation(self):
         c = self.get_client()
@@ -244,7 +244,7 @@ class TicketTests(TestCase):
         self.assertEqual(self.user, ticket.requested_user)
         self.assertEqual(self.user.username, ticket.requested_by())
         self.assertEqual('draft', ticket.state_str())
-        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':ticket.id}))
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
 
     def test_ticket_creation_with_media(self):
         c = self.get_client()
@@ -390,7 +390,7 @@ class TicketTests(TestCase):
         })
         self.assertEqual(302, response.status_code)
         ticket = Ticket.objects.order_by('-created')[0]
-        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':ticket.id}))
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
 
     def test_correct_deposit(self):
         c = self.get_client()
@@ -466,25 +466,25 @@ class TicketEditTests(TestCase):
         ticket.add_acks('close')
 
         c = Client()
-        response = c.get(reverse('edit_ticket', kwargs={'pk':ticket.id}))
-        self.assertEqual(302, response.status_code) # should be redirect to login page
+        response = c.get(reverse('edit_ticket', kwargs={'pk': ticket.id}))
+        self.assertEqual(302, response.status_code)  # should be redirect to login page
 
         c.login(username=user.username, password=password)
-        response = c.get(reverse('edit_ticket', kwargs={'pk':ticket.id}))
-        self.assertEqual(403, response.status_code) # denies edit of non-own ticket
+        response = c.get(reverse('edit_ticket', kwargs={'pk': ticket.id}))
+        self.assertEqual(403, response.status_code)  # denies edit of non-own ticket
 
         ticket.requested_user = user
         ticket.requested_text = ''
         ticket.save()
-        response = c.get(reverse('edit_ticket', kwargs={'pk':ticket.id}))
-        self.assertEqual(403, response.status_code) # still deny edit, ticket locked
+        response = c.get(reverse('edit_ticket', kwargs={'pk': ticket.id}))
+        self.assertEqual(403, response.status_code)  # still deny edit, ticket locked
 
         ticket.ticketack_set.filter(ack_type='close').delete()
-        response = c.get(reverse('edit_ticket', kwargs={'pk':ticket.id}))
-        self.assertEqual(200, response.status_code) # now it should pass
+        response = c.get(reverse('edit_ticket', kwargs={'pk': ticket.id}))
+        self.assertEqual(200, response.status_code)  # now it should pass
 
         # try to submit the form
-        response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
+        response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
                 'name': 'new name',
                 'topic': ticket.topic.id,
                 'description': 'new desc',
@@ -496,7 +496,7 @@ class TicketEditTests(TestCase):
                 'preexpediture-INITIAL_FORMS': '0',
                 'preexpediture-TOTAL_FORMS': '0',
             })
-        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':ticket.id}))
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
 
         # check changed ticket data
         ticket = Ticket.objects.get(id=ticket.id)
@@ -505,7 +505,7 @@ class TicketEditTests(TestCase):
         self.assertEqual('new desc', ticket.description)
 
         # b0rked media item aborts the submit
-        response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
+        response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
                 'name': 'ticket',
                 'topic': ticket.topic.id,
                 'description': 'some desc',
@@ -524,7 +524,7 @@ class TicketEditTests(TestCase):
         self.assertEqual('Enter a whole number.', response.context['mediainfo'].forms[0].errors['count'][0])
 
         # b0rked expediture items aborts the submit
-        response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
+        response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
                 'name': 'ticket',
                 'topic': ticket.topic.id,
                 'description': 'some desc',
@@ -542,7 +542,7 @@ class TicketEditTests(TestCase):
         self.assertEqual('This field is required.', response.context['expeditures'].forms[0].errors['amount'][0])
 
         # add some inline items
-        response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
+        response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
                 'name': 'new name',
                 'topic': ticket.topic.id,
                 'description': 'new desc',
@@ -567,7 +567,7 @@ class TicketEditTests(TestCase):
                 'preexpediture-INITIAL_FORMS': '0',
                 'preexpediture-TOTAL_FORMS': '0',
             })
-        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':ticket.id}))
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
         media = ticket.mediainfo_set.order_by('description')
         self.assertEqual(2, len(media))
         self.assertEqual('image 1', media[0].description)
@@ -584,7 +584,7 @@ class TicketEditTests(TestCase):
         self.assertEqual(100, expeditures[1].amount)
 
         # edit inline items
-        response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
+        response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
                 'name': 'new name',
                 'topic': ticket.topic.id,
                 'description': 'new desc',
@@ -617,7 +617,7 @@ class TicketEditTests(TestCase):
                 'preexpediture-INITIAL_FORMS': '0',
                 'preexpediture-TOTAL_FORMS': '0',
             })
-        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':ticket.id}))
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
         media = ticket.mediainfo_set.all()
         self.assertEqual(1, len(media))
         self.assertEqual('image 1 - edited', media[0].description)
@@ -637,7 +637,7 @@ class TicketEditTests(TestCase):
         ticket.add_acks('precontent')
 
         # edit should work and ignore new data
-        response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
+        response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
             'name': 'new name',
             'topic': ticket.topic.id,
             'description': 'new desc',
@@ -649,13 +649,13 @@ class TicketEditTests(TestCase):
             'preexpediture-INITIAL_FORMS': '0',
             'preexpediture-TOTAL_FORMS': '0',
         })
-        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':ticket.id}))
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
         ticket = Ticket.objects.get(id=ticket.id)
         self.assertEqual(deposit_amount, ticket.deposit)
         self.assertEqual(1, ticket.preexpediture_set.count())
 
         # also, edit should work and not fail on missing preack-ignored fields
-        response = c.post(reverse('edit_ticket', kwargs={'pk':ticket.id}), {
+        response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
             'name': 'new name',
             'topic': ticket.topic.id,
             'description': 'new desc',
@@ -664,7 +664,7 @@ class TicketEditTests(TestCase):
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
         })
-        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':ticket.id}))
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
         ticket = Ticket.objects.get(id=ticket.id)
         self.assertEqual(deposit_amount, ticket.deposit)
         self.assertEqual(1, ticket.preexpediture_set.count())
@@ -690,7 +690,7 @@ class TicketAckTests(TestCase):
         # add some acks, now only user_content is possible to add
         self.ticket.add_acks('user_docs', 'user_precontent')
         self.assertEqual(
-            {'user_content',},
+            {'user_content'},
             {a.ack_type for a in self.ticket.possible_user_acks()}
         )
 
@@ -709,12 +709,12 @@ class TicketAckTests(TestCase):
 
         c = Client()
         c.login(username=self.user.username, password=self.password)
-        delete_url = reverse('ticket_ack_delete', kwargs={'pk':self.ticket.id, 'ack_id':ud.id})
+        delete_url = reverse('ticket_ack_delete', kwargs={'pk': self.ticket.id, 'ack_id': ud.id})
         response = c.get(delete_url)
         self.assertEqual(response.status_code, 200)
 
         response = c.post(delete_url)
-        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk':self.ticket.id}))
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': self.ticket.id}))
         self.assertTrue('user_docs' not in self.ticket.ack_set())
 
     def test_ack_not_deletable_by_anon(self):
@@ -722,7 +722,7 @@ class TicketAckTests(TestCase):
         ud = self.ticket.ticketack_set.get(ack_type='user_docs')
 
         c = Client()
-        response = c.post(reverse('ticket_ack_delete', kwargs={'pk':self.ticket.id, 'ack_id':ud.id}))
+        response = c.post(reverse('ticket_ack_delete', kwargs={'pk': self.ticket.id, 'ack_id': ud.id}))
         self.assertEqual(response.status_code, 403)
 
     def test_ack_not_deletable_when_admin_only(self):
@@ -731,7 +731,7 @@ class TicketAckTests(TestCase):
 
         c = Client()
         c.login(username=self.user.username, password=self.password)
-        response = c.post(reverse('ticket_ack_delete', kwargs={'pk':self.ticket.id, 'ack_id':cont.id}))
+        response = c.post(reverse('ticket_ack_delete', kwargs={'pk': self.ticket.id, 'ack_id': cont.id}))
         self.assertEqual(response.status_code, 403)
 
     def test_topic_content_acks_per_user(self):
@@ -761,7 +761,7 @@ class TicketEditLinkTests(TestCase):
     def get_ticket_response(self):
         c = Client()
         c.login(username=self.user.username, password=self.password)
-        response = c.get(reverse('ticket_detail', kwargs={'pk':self.ticket.id}))
+        response = c.get(reverse('ticket_detail', kwargs={'pk': self.ticket.id}))
         self.assertEqual(response.status_code, 200)
         return response
 
@@ -855,11 +855,11 @@ class SummaryTest(TestCase):
         self.ticket2.mediainfo_set.create(description='foo', count=3)
 
     def test_topic_ticket_counts(self):
-        self.assertEqual({'unpaid':2}, self.topic.tickets_per_payment_status())
+        self.assertEqual({'unpaid': 2}, self.topic.tickets_per_payment_status())
         for e in self.ticket.expediture_set.all():
             e.paid = True
             e.save()
-        self.assertEqual({'unpaid':1, 'paid':1}, self.topic.tickets_per_payment_status())
+        self.assertEqual({'unpaid': 1, 'paid': 1}, self.topic.tickets_per_payment_status())
 
     def test_topic_ticket_counts2(self):
         """ change event_date (and thus sort_date) of one ticket, make sure it
@@ -867,15 +867,15 @@ class SummaryTest(TestCase):
         """
         self.ticket.event_date = datetime.date(2016, 1, 1)
         self.ticket.save()
-        self.assertEqual({'unpaid':2}, self.topic.tickets_per_payment_status())
+        self.assertEqual({'unpaid': 2}, self.topic.tickets_per_payment_status())
 
     def test_ticket_name(self):
         self.ticket.ticketack_set.filter(ack_type='content').delete()
         self.ticket.rating_percentage = None
         self.ticket.save()
 
-        self.assertEqual({'objects':1, 'media':5}, self.ticket.media_count())
-        self.assertEqual({'count':2, 'amount':300}, self.ticket.expeditures())
+        self.assertEqual({'objects': 1, 'media': 5}, self.ticket.media_count())
+        self.assertEqual({'count': 2, 'amount': 300}, self.ticket.expeditures())
         self.assertEqual(0, self.ticket.accepted_expeditures())
 
         self.ticket.rating_percentage = 50
@@ -886,13 +886,13 @@ class SummaryTest(TestCase):
         self.assertEqual(150, self.ticket.accepted_expeditures())
 
     def test_topic_name(self):
-        self.assertEqual({'objects':3, 'media':13}, self.topic.media_count())
-        self.assertEqual({'count':4, 'amount':910}, self.topic.expeditures())
+        self.assertEqual({'objects': 3, 'media': 13}, self.topic.media_count())
+        self.assertEqual({'count': 4, 'amount': 910}, self.topic.expeditures())
         self.assertEqual(150 + 610, self.topic.accepted_expeditures())
 
     def test_user_name(self):
         profile = self.user.trackerprofile
-        self.assertEqual({'objects':3, 'media':13}, profile.media_count())
+        self.assertEqual({'objects': 3, 'media': 13}, profile.media_count())
         self.assertEqual(150 + 610, profile.accepted_expeditures())
 
     def test_topic_finance(self):
@@ -962,9 +962,9 @@ class ImportTests(TestCase):
                 t.delete()
 
     def test_access_rights(self):
-        user = {'user': User.objects.create(username='user'), 'password':'pw1'}
-        staffer = {'user': User.objects.create(username='staffer', is_staff=True), 'password':'pw2'}
-        superuser = {'user': User.objects.create(username='superuser', is_staff=True, is_superuser=True), 'password':'pw3'}
+        user = {'user': User.objects.create(username='user'), 'password': 'pw1'}
+        staffer = {'user': User.objects.create(username='staffer', is_staff=True), 'password': 'pw2'}
+        superuser = {'user': User.objects.create(username='superuser', is_staff=True, is_superuser=True), 'password': 'pw3'}
         for u in (user, staffer, superuser):
             u['user'].set_password(u['password'])
             u['user'].save()
@@ -996,7 +996,7 @@ class ImportTests(TestCase):
         ]
         for testConfiguration in testConfigurations:
             c = Client()
-            c.login(username=user['user'].username, password=user['password']) # Login with normal user account
+            c.login(username=user['user'].username, password=user['password'])  # Login with normal user account
             response = c.post(reverse('importcsv'), {
                 'type': testConfiguration['type'],
                 'csvfile': self.get_test_data(testConfiguration['type'])
@@ -1004,7 +1004,7 @@ class ImportTests(TestCase):
             self.assertEqual(testConfiguration['normal'], response.status_code)
             self.reset_attempt(testConfiguration['type'])
             c = Client()
-            c.login(username=staffer['user'].username, password=staffer['password']) # Login with staffer user account
+            c.login(username=staffer['user'].username, password=staffer['password'])  # Login with staffer user account
             response = c.post(reverse('importcsv'), {
                 'type': testConfiguration['type'],
                 'csvfile': self.get_test_data(testConfiguration['type'])
@@ -1012,7 +1012,7 @@ class ImportTests(TestCase):
             self.assertEqual(testConfiguration['staffer'], response.status_code)
             self.reset_attempt(testConfiguration['type'])
             c = Client()
-            c.login(username=superuser['user'].username, password=superuser['password']) # Login with superuser user account
+            c.login(username=superuser['user'].username, password=superuser['password'])  # Login with superuser user account
             response = c.post(reverse('importcsv'), {
                 'type': testConfiguration['type'],
                 'csvfile': self.get_test_data(testConfiguration['type'])
@@ -1022,8 +1022,8 @@ class ImportTests(TestCase):
 
 class DocumentAccessTests(TestCase):
     def setUp(self):
-        self.owner = {'user': User.objects.create(username='ticket_owner'), 'password':'pw1'}
-        self.other_user = {'user':User.objects.create(username='other_user'), 'password':'pwo'}
+        self.owner = {'user': User.objects.create(username='ticket_owner'), 'password': 'pw1'}
+        self.other_user = {'user': User.objects.create(username='other_user'), 'password': 'pwo'}
         for u in (self.owner, self.other_user):
             u['user'].set_password(u['password'])
             u['user'].save()
@@ -1031,7 +1031,7 @@ class DocumentAccessTests(TestCase):
         self.topic = Topic.objects.create(name='test_topic', ticket_expenses=True, grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
         self.ticket = Ticket.objects.create(name='ticket', topic=self.topic, requested_user=self.owner['user'])
 
-        self.doc = {'name':'test.txt', 'content_type':'text/plain', 'payload':'hello, world!'}
+        self.doc = {'name': 'test.txt', 'content_type': 'text/plain', 'payload': 'hello, world!'}
         document = Document(ticket=self.ticket, filename=self.doc['name'], size=len(self.doc['payload']), content_type=self.doc['content_type'])
         document.payload.save(self.doc['name'], ContentFile(self.doc['payload']))
 
@@ -1043,18 +1043,18 @@ class DocumentAccessTests(TestCase):
         else:
             deny_code = 302
 
-        response = c.get(reverse('ticket_detail', kwargs={'pk':self.ticket.id}))
+        response = c.get(reverse('ticket_detail', kwargs={'pk': self.ticket.id}))
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['user_can_see_documents'], can_see)
         self.assertEqual(response.context['user_can_edit_documents'], can_edit)
 
-        response = c.get(reverse('edit_ticket_docs', kwargs={'pk':self.ticket.id}))
-        self.assertEqual(response.status_code, {True:200, False:deny_code}[can_edit])
+        response = c.get(reverse('edit_ticket_docs', kwargs={'pk': self.ticket.id}))
+        self.assertEqual(response.status_code, {True: 200, False: deny_code}[can_edit])
 
-        response = c.get(reverse('upload_ticket_doc', kwargs={'pk':self.ticket.id}))
-        self.assertEqual(response.status_code, {True:200, False:deny_code}[can_edit])
+        response = c.get(reverse('upload_ticket_doc', kwargs={'pk': self.ticket.id}))
+        self.assertEqual(response.status_code, {True: 200, False: deny_code}[can_edit])
 
-        response = c.get(reverse('download_document', kwargs={'ticket_id':self.ticket.id, 'filename':self.doc['name']}))
+        response = c.get(reverse('download_document', kwargs={'ticket_id': self.ticket.id, 'filename': self.doc['name']}))
         if can_see:
             self.assertEqual(response.status_code, 200)
             self.assertEqual(''.join(response.streaming_content), self.doc['payload'])

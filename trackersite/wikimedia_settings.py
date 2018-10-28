@@ -32,7 +32,7 @@ CACHES = {
     }
 }
 
-SECRET_KEY='42'
+SECRET_KEY = '42'
 PRODUCTION = False
 TRACKER_DOCS_ROOT = os.path.join(os.environ['DEPLOY_DIR'], 'docs')
 SITE_ID = 1

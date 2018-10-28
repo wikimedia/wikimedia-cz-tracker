@@ -26,7 +26,7 @@ class PreexpeditureAdmin(admin.TabularInline):
 
 class AddAckForm(forms.Form):
     ack_type = forms.ChoiceField(choices=models.ACK_TYPES, label=_('Type'))
-    comment = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'size':'40'}))
+    comment = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'size': '40'}))
 
 
 class AddAckActionForm(ActionForm):
@@ -80,26 +80,26 @@ class TicketAdmin(admin.ModelAdmin):
             if form.is_valid():
                 if form.cleaned_data['ack_type'] == 'content' and ticket.rating_percentage is None:
                     return HttpResponse(json.dumps({
-                        'form':self._render(request, 'admin/tracker/ticket/ack_norating_error.html', {}),
-                        'id':-1,
-                        'success':False,
+                        'form': self._render(request, 'admin/tracker/ticket/ack_norating_error.html', {}),
+                        'id': -1,
+                        'success': False,
                     }))
                 if form.cleaned_data['ack_type'] == 'content' and ticket.mandatory_report and ticket.report_url == '':
                     return HttpResponse(json.dumps({
-                        'form':self._render(request, 'admin/tracker/ticket/ack_noreport_error.html', {}),
-                        'id':-1,
+                        'form': self._render(request, 'admin/tracker/ticket/ack_noreport_error.html', {}),
+                        'id': -1,
                         'success': False,
                     }))
                 ack = ticket.ticketack_set.create(ack_type=form.cleaned_data['ack_type'], added_by=request.user, comment=form.cleaned_data['comment'])
                 return HttpResponse(json.dumps({
-                    'form':self._render(request, 'admin/tracker/ticket/ack_line.html', {'ack':ack}),
-                    'id':ack.id,
-                    'success':True,
+                    'form': self._render(request, 'admin/tracker/ticket/ack_line.html', {'ack': ack}),
+                    'id': ack.id,
+                    'success': True,
                 }))
         else:
             form = AddAckForm()
-        form_html = self._render(request, 'admin/tracker/ticket/add_ack.html', {'form':form})
-        return HttpResponse(json.dumps({'form':form_html}))
+        form_html = self._render(request, 'admin/tracker/ticket/add_ack.html', {'form': form})
+        return HttpResponse(json.dumps({'form': form_html}))
 
     def remove_ack(self, request, object_id):
         ticket = models.Ticket.objects.get(id=object_id)
@@ -111,7 +111,7 @@ class TicketAdmin(admin.ModelAdmin):
             raise Http404
         ack.delete()
         return HttpResponse(json.dumps({
-            'success':True,
+            'success': True,
         }))
 
     def get_urls(self):

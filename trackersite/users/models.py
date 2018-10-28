@@ -11,7 +11,7 @@ class UserWrapper(object):
         return unicode(self.user)
 
     def get_absolute_url(self):
-        return reverse('user_detail', kwargs={'username':self.user.username})
+        return reverse('user_detail', kwargs={'username': self.user.username})
 
     def get_html_link(self):
         out = '<a href="%s">%s</a>' % (self.get_absolute_url(), escape(unicode(self.user)))

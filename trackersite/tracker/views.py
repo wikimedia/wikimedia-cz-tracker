@@ -120,7 +120,7 @@ class TicketAckAddView(FormView):
             comment=form.cleaned_data['comment'],
         )
         msg = _('Ticket %(ticket_id)s confirmation "%(confirmation)s" has been added.') % {
-            'ticket_id':ticket.id, 'confirmation':ack.get_ack_type_display(),
+            'ticket_id': ticket.id, 'confirmation': ack.get_ack_type_display(),
         }
         messages.success(self.request, msg)
         return HttpResponseRedirect(ticket.get_absolute_url())
@@ -156,7 +156,7 @@ class TicketAckDeleteView(DeleteView):
         ack.delete()
 
         msg = _('Ticket %(ticket_id)s confirmation "%(confirmation)s" has been deleted.') % {
-            'ticket_id':self.ticket.id, 'confirmation':ack_display,
+            'ticket_id': self.ticket.id, 'confirmation': ack_display,
         }
         messages.success(request, msg)
         return HttpResponseRedirect(self.ticket.get_absolute_url())
@@ -234,8 +234,8 @@ class TicketForm(forms.ModelForm):
             'mandatory_report', 'imported', 'enable_comments')
         widgets = {
             'event_date': adminwidgets.AdminDateWidget(),
-            'name': forms.TextInput(attrs={'size':'40'}),
-            'description': forms.Textarea(attrs={'rows':'4', 'cols':'60'}),
+            'name': forms.TextInput(attrs={'size': '40'}),
+            'description': forms.Textarea(attrs={'rows': '4', 'cols': '60'}),
         }
 
 
@@ -341,9 +341,9 @@ MEDIAINFO_FIELDS = ('url', 'description', 'count')
 
 def mediainfo_formfield(f, **kwargs):
     if f.name == 'url':
-        kwargs['widget'] = forms.TextInput(attrs={'size':'60'})
+        kwargs['widget'] = forms.TextInput(attrs={'size': '60'})
     elif f.name == 'count':
-        kwargs['widget'] = forms.TextInput(attrs={'size':'4'})
+        kwargs['widget'] = forms.TextInput(attrs={'size': '4'})
     return f.formfield(**kwargs)
 mediainfoformset_factory = curry(inlineformset_factory, Ticket, MediaInfo,
     formset=ExtraItemFormSet, fields=MEDIAINFO_FIELDS, formfield_callback=mediainfo_formfield)
@@ -400,13 +400,13 @@ def watch_ticket(request, pk):
     else:
         notification_types = []
         for notification_type in NOTIFICATION_TYPES:
-            if notification_type[0] == 'ticket_new': continue # Watching ticket created event on particular ticket doesn't make sense
+            if notification_type[0] == 'ticket_new': continue  # Watching ticket created event on particular ticket doesn't make sense
             notification_types.append((
                 notification_type[0],
                 notification_type[1],
                 ticket.watches(request.user, notification_type[0])
             ))
-        return render(request, 'tracker/watch.html',{
+        return render(request, 'tracker/watch.html', {
             "object": get_object_or_404(Ticket, id=pk),
             "objecttype": _("ticket"),
             "notification_types": notification_types,
@@ -453,8 +453,8 @@ def create_ticket(request):
             expeditures = ExpeditureFormSet(request.POST, prefix='expediture')
             preexpeditures = PreexpeditureFormSet(request.POST, prefix='preexpediture')
             mediainfo.media   # trigger ValidationError when management form field are missing
-            expeditures.media # this seems to be a regression between Django 1.3 and 1.6
-            preexpeditures.media # test
+            expeditures.media  # this seems to be a regression between Django 1.3 and 1.6
+            preexpeditures.media  # test
         except forms.ValidationError, e:
             return HttpResponseBadRequest(unicode(e))
 
@@ -570,11 +570,11 @@ def edit_ticket(request, pk):
         if 'content' not in ticket.ack_set():
             expeditures = ExpeditureFormSet(prefix='expediture', instance=ticket)
         else:
-            expeditures = None # Hide expeditures in the edit form
+            expeditures = None  # Hide expeditures in the edit form
         if 'precontent' not in ticket.ack_set() and 'content' not in ticket.ack_set():
             preexpeditures = PreexpeditureFormSet(prefix='preexpediture', instance=ticket)
         else:
-            preexpeditures = None # Hide preexpeditures in the edit form
+            preexpeditures = None  # Hide preexpeditures in the edit form
 
     form_media = adminCore + ticketform.media + mediainfo.media
     if 'content' not in ticket.ack_set():
@@ -595,9 +595,9 @@ def edit_ticket(request, pk):
 
 
 class UploadDocumentForm(forms.Form):
-    file = forms.FileField(widget=forms.ClearableFileInput(attrs={'size':'60'}), label=_('file'))
-    name = forms.RegexField(r'^[-_\.A-Za-z0-9]+\.[A-Za-z0-9]+$', error_messages={'invalid':ugettext_lazy('We need a sane file name, such as my-invoice123.jpg')}, widget=forms.TextInput(attrs={'size':'30'}), label=_('name'))
-    description = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'size':'60'}), label=_('description'))
+    file = forms.FileField(widget=forms.ClearableFileInput(attrs={'size': '60'}), label=_('file'))
+    name = forms.RegexField(r'^[-_\.A-Za-z0-9]+\.[A-Za-z0-9]+$', error_messages={'invalid': ugettext_lazy('We need a sane file name, such as my-invoice123.jpg')}, widget=forms.TextInput(attrs={'size': '30'}), label=_('name'))
+    description = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'size': '60'}), label=_('description'))
 
 
 DOCUMENT_FIELDS = ('filename', 'description')
@@ -605,7 +605,7 @@ DOCUMENT_FIELDS = ('filename', 'description')
 
 def document_formfield(f, **kwargs):
     if f.name == 'description':
-        kwargs['widget'] = forms.TextInput(attrs={'size':'60'})
+        kwargs['widget'] = forms.TextInput(attrs={'size': '60'})
     return f.formfield(**kwargs)
 documentformset_factory = curry(inlineformset_factory, Ticket, Document,
     fields=DOCUMENT_FIELDS, formfield_callback=document_formfield)
@@ -669,13 +669,13 @@ def upload_ticket_doc(request, pk):
             doc.description = upload.cleaned_data['description']
             doc.payload.save(filename, payload)
             doc.save()
-            messages.success(request, _('File %(filename)s has been saved.') % {'filename':filename})
+            messages.success(request, _('File %(filename)s has been saved.') % {'filename': filename})
 
             if 'add-another' in request.POST:
                 next_view = 'upload_ticket_doc'
             else:
                 next_view = 'ticket_detail'
-            return HttpResponseRedirect(reverse(next_view, kwargs={'pk':ticket.id}))
+            return HttpResponseRedirect(reverse(next_view, kwargs={'pk': ticket.id}))
     else:
         upload = UploadDocumentForm()
 
@@ -701,8 +701,8 @@ def topic_finance(request):
         for topic in grant.topic_set.all():
             topic_finance = topic.payment_summary()
             grant_finance.add_finance(topic_finance)
-            topics.append({'topic':topic, 'finance':topic_finance})
-        grants_out.append({'grant':grant, 'topics':topics, 'finance':grant_finance, 'rows':len(topics)+1})
+            topics.append({'topic': topic, 'finance': topic_finance})
+        grants_out.append({'grant': grant, 'topics': topics, 'finance': grant_finance, 'rows': len(topics)+1})
 
     return render(request, 'tracker/topic_finance.html', {
         'grants': grants_out,
@@ -872,7 +872,7 @@ def cluster_detail(request, pk):
             ticket = Ticket.objects.get(id=id)
             if ticket.cluster is None:
                 raise Http404
-            return HttpResponseRedirect(reverse('cluster_detail', kwargs={'pk':ticket.cluster.id}))
+            return HttpResponseRedirect(reverse('cluster_detail', kwargs={'pk': ticket.cluster.id}))
         except Ticket.DoesNotExist:
             raise Http404
 
@@ -1329,7 +1329,7 @@ def importcsv(request):
             if request.POST['type'] == 'ticket':
                 for line in reader:
                     imported += 1
-                    if imported>100 and not request.user.is_superuser:
+                    if imported > 100 and not request.user.is_superuser:
                         messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     event_date = line[header.index('event_date')]
@@ -1346,7 +1346,7 @@ def importcsv(request):
                     return HttpResponseForbidden(_('You must be staffer in order to be able import topics.'))
                 for line in reader:
                     imported += 1
-                    if imported>100 and not request.user.is_superuser:
+                    if imported > 100 and not request.user.is_superuser:
                         messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     name = line[header.index('name')]
@@ -1363,7 +1363,7 @@ def importcsv(request):
                      return HttpResponseForbidden(_('You must be staffer in order to be able import grants.'))
                 for line in reader:
                     imported += 1
-                    if imported>100 and not request.user.is_superuser:
+                    if imported > 100 and not request.user.is_superuser:
                         messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     full_name = line[header.index('full_name')]
@@ -1374,7 +1374,7 @@ def importcsv(request):
             elif request.POST['type'] == 'expense':
                 for line in reader:
                     imported += 1
-                    if imported>100 and not request.user.is_superuser:
+                    if imported > 100 and not request.user.is_superuser:
                         messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     ticket = Ticket.objects.get(id=line[header.index('ticket_id')])
@@ -1394,7 +1394,7 @@ def importcsv(request):
             elif request.POST['type'] == 'preexpense':
                 for line in reader:
                     imported += 1
-                    if imported>100 and not request.user.is_superuser:
+                    if imported > 100 and not request.user.is_superuser:
                         messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     ticket = Ticket.objects.get(id=line[header.index('ticket_id')])
@@ -1408,7 +1408,7 @@ def importcsv(request):
             elif request.POST['type'] == 'media':
                 for line in reader:
                     imported += 1
-                    if imported>100 and not request.user.is_superuser:
+                    if imported > 100 and not request.user.is_superuser:
                         messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     ticket = Ticket.objects.get(id=line[header.index('ticket_id')])

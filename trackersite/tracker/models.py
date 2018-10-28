@@ -63,14 +63,14 @@ def uber_ack(ack_type):
     return {
         'user_precontent': 'precontent',
         'user_content': 'content',
-        'user_docs':'docs',
+        'user_docs': 'docs',
     }[ack_type]
 
 
 class PercentageField(models.SmallIntegerField):
     """ Field that holds a percentage. """
     def formfield(self, **kwargs):
-        defaults = {'min_value': 0, 'max_value':100}
+        defaults = {'min_value': 0, 'max_value': 100}
         defaults.update(kwargs)
         return super(PercentageField, self).formfield(**defaults)
 
@@ -268,7 +268,7 @@ class Ticket(CachedModel):
     requested_user_details.short_description = _('Requester details')
 
     def get_absolute_url(self):
-        return reverse('ticket_detail', kwargs={'pk':self.id})
+        return reverse('ticket_detail', kwargs={'pk': self.id})
 
     @cached_getter
     def media_count(self):
@@ -424,7 +424,7 @@ class FinanceStatus(object):
         self.seen_cluster_ids = self.seen_cluster_ids.union(other.seen_cluster_ids)
 
     def as_dict(self):
-        return {'fuzzy':self.fuzzy, 'unpaid':self.unpaid, 'paid':self.paid, 'overpaid':self.overpaid}
+        return {'fuzzy': self.fuzzy, 'unpaid': self.unpaid, 'paid': self.paid, 'overpaid': self.overpaid}
 
 
 class Subtopic(CachedModel):
@@ -436,7 +436,7 @@ class Subtopic(CachedModel):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('subtopic_detail', kwargs={'pk':self.id})
+        return reverse('subtopic_detail', kwargs={'pk': self.id})
 
     @cached_getter
     def media_count(self):
@@ -457,7 +457,7 @@ class Subtopic(CachedModel):
     @cached_getter
     def tickets_per_payment_status(self):
         out = {}
-        tickets = self.ticket_set.order_by() # remove default ordering as it b0rks our aggregation
+        tickets = self.ticket_set.order_by()  # remove default ordering as it b0rks our aggregation
         for s in tickets.values('payment_status').annotate(models.Count('payment_status')):
             out[s['payment_status']] = s['payment_status__count']
         return out
@@ -507,7 +507,7 @@ class Topic(CachedModel):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('topic_detail', kwargs={'pk':self.id})
+        return reverse('topic_detail', kwargs={'pk': self.id})
 
     @cached_getter
     def media_count(self):
@@ -528,7 +528,7 @@ class Topic(CachedModel):
     @cached_getter
     def tickets_per_payment_status(self):
         out = {}
-        tickets = self.ticket_set.order_by() # remove default ordering as it b0rks our aggregation
+        tickets = self.ticket_set.order_by()  # remove default ordering as it b0rks our aggregation
         for s in tickets.values('payment_status').annotate(models.Count('payment_status')):
             out[s['payment_status']] = s['payment_status__count']
         return out
@@ -591,7 +591,7 @@ class Grant(CachedModel):
     open_for_tickets.boolean = True
 
     def get_absolute_url(self):
-        return reverse('grant_detail', kwargs={'slug':self.slug})
+        return reverse('grant_detail', kwargs={'slug': self.slug})
 
     @cached_getter
     def total_tickets(self):
@@ -609,7 +609,7 @@ class Grant(CachedModel):
     def tickets_per_payment_status(self):
         out = {}
         for topic in self.topic_set.all():
-            tickets = topic.ticket_set.order_by() # remove default ordering as it b0rks our aggregation
+            tickets = topic.ticket_set.order_by()  # remove default ordering as it b0rks our aggregation
             for s in tickets.values('payment_status').annotate(models.Count('payment_status')):
                 out[s['payment_status']] = s['payment_status__count']
         return out
@@ -652,7 +652,7 @@ class Expediture(models.Model):
     wage = models.BooleanField(_('wage'), default=False)
 
     def __unicode__(self):
-        return _('%(description)s (%(amount)s %(currency)s)') % {'description':self.description, 'amount':self.amount, 'currency':settings.TRACKER_CURRENCY}
+        return _('%(description)s (%(amount)s %(currency)s)') % {'description': self.description, 'amount': self.amount, 'currency': settings.TRACKER_CURRENCY}
 
     def save(self, *args, **kwargs):
         super(Expediture, self).save(*args, **kwargs)
@@ -672,7 +672,7 @@ class Preexpediture(models.Model):
     wage = models.BooleanField(_('wage'), default=False)
 
     def __unicode__(self):
-        return _('%(description)s (%(amount)s %(currency)s)') % {'description':self.description, 'amount':self.amount, 'currency':settings.TRACKER_CURRENCY}
+        return _('%(description)s (%(amount)s %(currency)s)') % {'description': self.description, 'amount': self.amount, 'currency': settings.TRACKER_CURRENCY}
 
     class Meta:
         verbose_name = _('Ticket preexpediture')
@@ -699,13 +699,13 @@ class Document(models.Model):
 
     def inline_intro(self):
         try:
-            context = template.Context({'doc':self})
+            context = template.Context({'doc': self})
             return DOCUMENT_INTRO_TEMPLATE.render(context)
         except NoReverseMatch:
             return self.filename
 
     def html_item(self):
-        context = template.Context({'doc':self, 'detail':True})
+        context = template.Context({'doc': self, 'detail': True})
         return DOCUMENT_INTRO_TEMPLATE.render(context)
 
     class Meta:
@@ -725,7 +725,7 @@ class TrackerProfile(models.Model):
     display_items = models.IntegerField(_('Display items'), help_text=_('How many items should we display in tables at once'), default=25)
 
     def get_absolute_url(self):
-        return reverse('user_detail', kwargs={'username':self.user.username})
+        return reverse('user_detail', kwargs={'username': self.user.username})
 
     def media_count(self):
         return MediaInfo.objects.extra(where=['ticket_id in (select id from tracker_ticket where requested_user_id = %s)'], params=[self.user.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
@@ -820,13 +820,13 @@ class Transaction(models.Model):
 
 class Cluster(models.Model):
     """ This is an auxiliary/cache model used to track relationships between tickets and payments. """
-    id = models.IntegerField(primary_key=True) # cluster ID is always the id of its lowest-numbered ticket
-    more_tickets = models.BooleanField() # does this cluster have more tickets?
-    total_tickets = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True) # refreshed on cluster status update
-    total_transactions = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True) # refreshed on cluster status update
+    id = models.IntegerField(primary_key=True)  # cluster ID is always the id of its lowest-numbered ticket
+    more_tickets = models.BooleanField()  # does this cluster have more tickets?
+    total_tickets = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)  # refreshed on cluster status update
+    total_transactions = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)  # refreshed on cluster status update
 
     def get_absolute_url(self):
-        return reverse('cluster_detail', kwargs={'pk':self.id})
+        return reverse('cluster_detail', kwargs={'pk': self.id})
 
     def __unicode__(self):
         return unicode(self.id)

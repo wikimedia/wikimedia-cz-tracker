@@ -23,8 +23,8 @@ class GrantDumper(object):
         for topic in self.grant.topic_set.all():
             topic_finance = topic.payment_summary()
             grant_finance.add_finance(topic_finance)
-            topics.append({'topic':topic, 'finance':topic_finance})
-        return {'topics':topics, 'finance':grant_finance}
+            topics.append({'topic': topic, 'finance': topic_finance})
+        return {'topics': topics, 'finance': grant_finance}
 
     def dump_index(self):
         """ Dumps index page of the archive """
