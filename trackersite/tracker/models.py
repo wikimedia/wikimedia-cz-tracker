@@ -430,6 +430,7 @@ class FinanceStatus(object):
 class Subtopic(CachedModel):
     name = models.CharField(_('name'), max_length=80)
     description = models.TextField(_('description'), blank=True, help_text=_('Description shown to users who enter tickets for this subtopic'))
+    form_description = models.TextField(_('form description'), blank=True, help_text=_('Description shown to users who enter tickets for this subtopic'))
     topic = models.ForeignKey('tracker.Topic', verbose_name=_('topic'), help_text=_('Topic where this subtopic belongs'))
 
     def __unicode__(self):

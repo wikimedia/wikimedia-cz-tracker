@@ -20,7 +20,26 @@ function refresh_description()
 	$('.field_car_travel').toggle(topic['ticket_statutory_declaration']);
 }
 
+function refresh_subtopic_description()
+{
+	var subtopic_id = $('#id_subtopic').val();
+	if (subtopic_id == "")
+	{
+		$('#subtopic_desc').hide();
+		return;
+	}
+
+	console.log(subtopics_table);
+	var subtopic = subtopics_table[subtopic_id];
+	console.log(subtopic);
+
+	$('#subtopic_desc').html(subtopic['form_description']).toggle(subtopic['form_description'] != '');
+}
+
 $(document).ready(function() {
 	$('#id_topic').change(refresh_description);
+	$('#id_topic').change(refresh_subtopic_description);
+	$('#id_subtopic').change(refresh_subtopic_description);
 	refresh_description();
+	refresh_subtopic_description();
 });

@@ -209,11 +209,16 @@ def topics_js(request):
             data[t.id]['subtopic_set'].append({
                 "id": subtopic.id,
                 "name": subtopic.name,
-                "display_name": unicode(subtopic),
-                "description": subtopic.description
+                "display_name": unicode(subtopic)
             })
 
-    content = 'topics_table = %s;' % json.dumps(data)
+    subtopics = {}
+    for s in Subtopic.objects.all():
+        subtopics[s.id] = {
+            "form_description": s.form_description
+        }
+
+    content = 'topics_table = %s;\nsubtopics_table = %s' % (json.dumps(data), json.dumps(subtopics))
     return HttpResponse(content, content_type='text/javascript')
 
 
