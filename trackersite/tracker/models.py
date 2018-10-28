@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 import datetime
 import decimal
 
@@ -119,7 +119,7 @@ class DecimalRangeField(models.DecimalField):
         models.DecimalField.__init__(self, verbose_name, name, **kwargs)
 
     def formfield(self, **kwargs):
-        defaults = {'min_value': self.min_value, 'max_value': self.max_value }
+        defaults = {'min_value': self.min_value, 'max_value': self.max_value}
         defaults.update(kwargs)
         return super(DecimalRangeField, self).formfield(**defaults)
 

@@ -857,8 +857,8 @@ class SummaryTest(TestCase):
     def test_topic_ticket_counts(self):
         self.assertEqual({'unpaid':2}, self.topic.tickets_per_payment_status())
         for e in self.ticket.expediture_set.all():
-			e.paid = True
-			e.save()
+            e.paid = True
+            e.save()
         self.assertEqual({'unpaid':1, 'paid':1}, self.topic.tickets_per_payment_status())
 
     def test_topic_ticket_counts2(self):

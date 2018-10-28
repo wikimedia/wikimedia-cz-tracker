@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 import datetime
 import json
 from collections import namedtuple
@@ -590,7 +590,7 @@ def edit_ticket(request, pk):
         'preexpeditures': preexpeditures,
         'form_media': form_media,
         'user_can_edit_documents': ticket.can_edit_documents(request.user),
-		'user_can_copy_preexpeditures': ticket.can_copy_preexpeditures(request.user),
+        'user_can_copy_preexpeditures': ticket.can_copy_preexpeditures(request.user),
     })
 
 
@@ -831,7 +831,7 @@ class UserDetailsChange(FormView):
     def make_user_details_form(self):
         fields = fields_for_model(User, fields=self.user_fields)
         fields.update(fields_for_model(TrackerProfile, exclude=('user', 'muted_notifications')))
-        return type('UserDetailsForm', (forms.BaseForm,), {'base_fields': fields })
+        return type('UserDetailsForm', (forms.BaseForm,), {'base_fields': fields})
 
     def get_form_class(self):
         return self.make_user_details_form()
@@ -1414,7 +1414,7 @@ def importcsv(request):
                     ticket = Ticket.objects.get(id=line[header.index('ticket_id')])
                     url = line[header.index('url')]
                     description = line[header.index('description')]
-		    if 'number' in header:
+                    if 'number' in header:
                         number = line[header.index('number')]
                         if number == "":
                             number = None
