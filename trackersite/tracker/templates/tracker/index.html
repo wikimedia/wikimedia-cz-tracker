@@ -14,18 +14,18 @@
 {% include "tracker/paginator.html" with url_name="ticket_list" extra_class="top" %}
 <h1>{% trans "Ticket list" %}</h1>
 <div class="hidden" id="disabledatatables">yes</div>
-<table>
+<table class="responsive">
     <thead>
-        <tr><th>{% trans "ID" %} <i class="fa "></i></th><th>{% trans "Event date" %}</th><th>{% trans "Name" %} <i class="fa "></i></th>
-            <th><abbr title="{% trans "Grant" %}">{% filter slice:":2" %}{% trans "Grant" %}{% endfilter %}<abbr></th>
-            <th>{% trans "Topic" %} <i class="fa "></i></th>
-            <th>{% trans "Subtopic" %}</th>
-            <th>{% trans "Requested by" %}</th>
-            <th>{% trans "Preexpeditures" %}</th>
-            <th>{% trans "Accepted expeditures" %}</th>
-            <th>{% trans "Paid expeditures" %}</th>
-            <th>{% trans "State" %}</th>
-            <th>{% trans "Last changed" %} <i class="fa "></i></th></tr>
+        <tr><th data-priority="2">{% trans "ID" %} <i class="fa "></i></th><th data-priority="11">{% trans "Event date" %}</th><th data-priority="1">{% trans "Name" %} <i class="fa "></i></th>
+            <th data-priority="7"><abbr title="{% trans "Grant" %}">{% filter slice:":2" %}{% trans "Grant" %}{% endfilter %}<abbr></th>
+            <th data-priority="3">{% trans "Topic" %} <i class="fa "></i></th>
+            <th data-priority="4">{% trans "Subtopic" %}</th>
+            <th data-priority="5">{% trans "Requested by" %}</th>
+            <th data-priority="8">{% trans "Preexpeditures" %}</th>
+            <th data-priority="9">{% trans "Accepted expeditures" %}</th>
+            <th data-priority="10">{% trans "Paid expeditures" %}</th>
+            <th data-priority="6">{% trans "State" %}</th>
+            <th data-priority="12">{% trans "Last changed" %} <i class="fa "></i></th></tr>
     </thead>
     <tbody>
 
