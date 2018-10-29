@@ -1347,8 +1347,10 @@ def importcsv(request):
                         messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     event_date = line[header.index('event_date')]
-                    name = line[header.index('name')]
-                    topic = Topic.objects.get(name=line[header.index('topic')])
+                    if event_date == "None":
+                        event_date = None
+                    name = line[header.index('name')].decode('utf-8')
+                    topic = Topic.objects.filter(name=line[header.index('topic')])[0]
                     event_url = line[header.index('event_url')]
                     description = line[header.index('description')]
                     deposit = float(line[header.index('deposit')])
