@@ -748,9 +748,11 @@ class TrackerProfile(models.Model):
         return Transaction.objects.filter(other=self.user).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
 
     def get_muted_notifications(self):
-        if self.muted_notifications == '': return []
+        if self.muted_notifications == '':
+            return []
         res = []
-        for muted_notification in json.loads(self.muted_notifications): res.append(muted_notification)
+        for muted_notification in json.loads(self.muted_notifications):
+            res.append(muted_notification)
         return res
 
     def __unicode__(self):
@@ -883,15 +885,18 @@ class Notification(models.Model):
     @staticmethod
     def fire_notification(ticket, text, notification_type, sender, additional=set()):
         initial_user = [ticket.requested_user]
-        if initial_user is None: initial_user = []
-        if notification_type in ("ticket_new", "ticket_change", "preexpeditures_change", "expeditures_change", "media_change"): initial_user = []
+        if initial_user is None:
+            initial_user = []
+        if notification_type in ("ticket_new", "ticket_change", "preexpeditures_change", "expeditures_change", "media_change"):
+            initial_user = []
         users = set(initial_user)
         admins = set(ticket.topic.admin.all())
         topicwatchers = set([tw.user for tw in ticket.topic.topicwatcher_set.filter(notification_type=notification_type)])
         ticketwatchers = set([tw.user for tw in ticket.ticketwatcher_set.filter(notification_type=notification_type)])
         users = users.union(admins, topicwatchers, ticketwatchers) - set([sender])
         for user in users:
-            if notification_type in user.trackerprofile.get_muted_notifications(): continue
+            if notification_type in user.trackerprofile.get_muted_notifications():
+                continue
             Notification.objects.create(text=text, notification_type=notification_type, target_user=user)
 
 
@@ -926,8 +931,10 @@ def notify_comment(sender, comment, **kwargs):
         additional = set()
         for user_name in usersmentioned:
             users = User.objects.filter(username=user_name)
-            if len(users) == 1: additional.add(users[0])
-            else: continue
+            if len(users) == 1:
+                additional.add(users[0])
+            else:
+                continue
         Notification.fire_notification(obj, text, "comment", comment.user, additional=additional)
 
 
@@ -935,7 +942,8 @@ def notify_comment(sender, comment, **kwargs):
 def add_commenting_user_to_watchers(sender, comment, **kwargs):
     obj = comment.content_object
     if type(obj) == Ticket and comment.user is not None:
-        if comment.user != obj.requested_user and comment.user not in obj.topic.admin.all(): TicketWatcher.objects.create(ticket=obj, user=comment.user, notification_type="comment")
+        if comment.user != obj.requested_user and comment.user not in obj.topic.admin.all():
+            TicketWatcher.objects.create(ticket=obj, user=comment.user, notification_type="comment")
 
 
 @receiver(post_save, sender=Ticket)

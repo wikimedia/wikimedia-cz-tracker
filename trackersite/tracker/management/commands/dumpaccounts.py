@@ -34,7 +34,7 @@ class GrantDumper(object):
             'finance': self.grant_finance(),
         }).encode('utf8')
         self.zipfile.writestr('%s/index.html' % self.grant_slug, index)
-        self.zipfile.write(finders.find('teh-tracker.css'), '%s/styles.css'  % self.grant_slug)
+        self.zipfile.write(finders.find('teh-tracker.css'), '%s/styles.css' % self.grant_slug)
 
     def dump_ticket(self, ticket):
         index = render_to_string('tracker/dumpaccounts/ticket_detail.html', {

@@ -371,7 +371,8 @@ def mute_notifications(request):
     if request.method == 'POST':
         muted = []
         for notification_type in NOTIFICATION_TYPES:
-            if notification_type[0] in request.POST: muted.append(notification_type[0])
+            if notification_type[0] in request.POST:
+                muted.append(notification_type[0])
         request.user.trackerprofile.muted_notifications = json.dumps(muted)
         request.user.trackerprofile.save()
         messages.success(request, _('We muted notifications you do not want to hear.'))
@@ -401,15 +402,18 @@ def watch_ticket(request, pk):
         messages.warning(request, _('You cannot watch ticket in topic you are an admin of explicitely. You are already subscribed to all notifications.'))
         return HttpResponseRedirect(ticket.get_absolute_url())
     if request.method == 'POST':
-        for watcher in TicketWatcher.objects.filter(ticket=ticket, user=request.user): watcher.delete()
+        for watcher in TicketWatcher.objects.filter(ticket=ticket, user=request.user):
+            watcher.delete()
         for notification_type in NOTIFICATION_TYPES:
-            if notification_type[0] in request.POST: TicketWatcher.objects.create(ticket=ticket, user=request.user, notification_type=notification_type[0])
+            if notification_type[0] in request.POST:
+                TicketWatcher.objects.create(ticket=ticket, user=request.user, notification_type=notification_type[0])
         messages.success(request, _("Ticket's %s watching settings are changed.") % ticket)
         return HttpResponseRedirect(ticket.get_absolute_url())
     else:
         notification_types = []
         for notification_type in NOTIFICATION_TYPES:
-            if notification_type[0] == 'ticket_new': continue  # Watching ticket created event on particular ticket doesn't make sense
+            if notification_type[0] == 'ticket_new':
+                continue  # Watching ticket created event on particular ticket doesn't make sense
             notification_types.append((
                 notification_type[0],
                 notification_type[1],
@@ -429,9 +433,11 @@ def watch_topic(request, pk):
         messages.warning(request, _('You cannot watch topic you are an admin of explicitely. You are already subscribed to all notifications.'))
         return HttpResponseRedirect(topic.get_absolute_url())
     if request.method == 'POST':
-        for watcher in TopicWatcher.objects.filter(topic=topic, user=request.user): watcher.delete()
+        for watcher in TopicWatcher.objects.filter(topic=topic, user=request.user):
+            watcher.delete()
         for notification_type in NOTIFICATION_TYPES:
-            if notification_type[0] in request.POST: TopicWatcher.objects.create(topic=topic, user=request.user, notification_type=notification_type[0])
+            if notification_type[0] in request.POST:
+                TopicWatcher.objects.create(topic=topic, user=request.user, notification_type=notification_type[0])
         messages.success(request, _("Topic's %s watching settings are changed.") % topic)
         return HttpResponseRedirect(topic.get_absolute_url())
     else:

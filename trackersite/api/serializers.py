@@ -18,7 +18,7 @@ class TrackerProfileSerializer(serializers.HyperlinkedModelSerializer):
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model  = Group
+        model = Group
         fields = ('id', 'name')
 
 

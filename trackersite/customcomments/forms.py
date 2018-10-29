@@ -54,14 +54,14 @@ class CustomCommentForm(CommentSecurityForm):
         method to add extra fields onto a custom comment model.
         """
         return dict(
-            content_type = ContentType.objects.get_for_model(self.target_object),
-            object_pk    = force_unicode(self.target_object._get_pk_val()),
-            user_name    = self.cleaned_data["name"],
-            comment      = self.cleaned_data["comment"],
-            submit_date  = datetime.datetime.now(),
-            site_id      = site_id or settings.SITE_ID,
-            is_public    = True,
-            is_removed   = False,
+            content_type=ContentType.objects.get_for_model(self.target_object),
+            object_pk=force_unicode(self.target_object._get_pk_val()),
+            user_name=self.cleaned_data["name"],
+            comment=self.cleaned_data["comment"],
+            submit_date=datetime.datetime.now(),
+            site_id=site_id or settings.SITE_ID,
+            is_public=True,
+            is_removed=False,
         )
 
     def check_for_duplicate_comment(self, new):
@@ -72,9 +72,9 @@ class CustomCommentForm(CommentSecurityForm):
         possible_duplicates = self.get_comment_model()._default_manager.using(
             self.target_object._state.db
         ).filter(
-            content_type = new.content_type,
-            object_pk = new.object_pk,
-            user_name = new.user_name,
+            content_type=new.content_type,
+            object_pk=new.object_pk,
+            user_name=new.user_name,
         )
         for old in possible_duplicates:
             if old.submit_date.date() == new.submit_date.date() and old.comment == new.comment:
