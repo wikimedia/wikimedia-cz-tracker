@@ -1367,10 +1367,26 @@ def importcsv(request):
                         break
                     name = line[header.index('name')]
                     grant = Grant.objects.get(full_name=line[header.index('grant')]).id
-                    new_tickets = line[header.index('new_tickets')]
+                    new_tickets = line[header.index('open_for_new_tickets')]
+                    if new_tickets == "False":
+                        new_tickets = False
+                    else:
+                        new_tickets = True
                     media = line[header.index('media')]
+                    if media == "False":
+                        media = False
+                    else:
+                        media = True
                     preexpenses = line[header.index('preexpenses')]
+                    if preexpenses == "False":
+                        preexpenses = False
+                    else:
+                        preexpenses = True
                     expenses = line[header.index('expenses')]
+                    if expenses == "False":
+                        expenses = False
+                    else:
+                        expenses = True
                     description = line[header.index('description')]
                     form_description = line[header.index('form_description')]
                     Topic.objects.create(name=name, grant_id=grant, open_for_tickets=new_tickets, ticket_media=media, ticket_preexpenses=preexpenses, ticket_expenses=expenses, description=description, form_description=form_description)
@@ -1474,7 +1490,7 @@ def importcsv(request):
                 response.writerow([u'2010-04-23', u'Název ticketu', u'Název tématu', u'http://wikimedia.cz', u'Popis ticketu', u'Požadovaná záloha'])
                 return response
             elif giveexample == 'topic':
-                response = HttpResponseCsv(['name', 'grant', 'new_tickets', 'media', 'preexpenses', 'expenses', 'description', 'form_description'])
+                response = HttpResponseCsv(['name', 'grant', 'open_for_new_tickets', 'media', 'preexpenses', 'expenses', 'description', 'form_description'])
                 response['Content-Disposition'] = 'attachment; filename="example-topic.csv"'
                 response.writerow([u'Jméno tématu', u'Název grantu', u'True/False', u'True/False', u'True/False', u'True/False', u'Popis tématu', u'Popis formuláře tématu'])
                 return response
