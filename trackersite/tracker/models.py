@@ -878,7 +878,7 @@ def flush_ticket_after_ack_delete(sender, instance, **kwargs):
     instance.ticket.update_payment_status()
 
 
-class Notification(Model):
+class Notification(models.Model):
     """Notification that is supposed to be sent."""
     target_user = models.ForeignKey('auth.User', null=True, blank=True)
     fired = models.DateTimeField('fired', auto_now_add=True)
