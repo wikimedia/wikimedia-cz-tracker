@@ -46,7 +46,7 @@
 <thead><tr><th>{% trans "Item" %}</th><th>{% trans "Amount" %}</th><th>{% trans "Wage?" %}</th></tr></thead>
 <tbody>
 {% for item in ticket.preexpediture_set.all %}
-<tr><td>{{item.description}}</td><td class="money">{{item.amount|money}}</td><td>{% if item.wage %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}</td></tr>
+<tr {% if item.created %}title="{% trans "Created" %} {{item.created}}"{% endif %}><td>{{item.description}}</td><td class="money">{{item.amount|money}}</td><td>{% if item.wage %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}</td></tr>
 {% endfor %}
 </tbody>
 <tfoot>
@@ -61,7 +61,7 @@
 <thead><tr><th>{% trans "Item" %}</th><th>{% trans "Amount" %}</th><th>{% trans "Accounting info" %}</th><th>{% trans "Paid?" %}</th><th>{% trans "Wage?" %}</th></tr></thead>
 <tbody>
 {% for item in ticket.expediture_set.all %}
-<tr><td>{{item.description}}</td><td class="money">{{item.amount|money}}</td><td>{{item.accounting_info}}</td><td>{{ item.paid|yesno:_("Yes,No") }}</td><td>{{ item.wage|yesno:_("Yes,No") }}</td></tr>
+<tr {% if item.created %}title="{% trans "Created" %} {{item.created}}"{% endif %}><td>{{item.description}}</td><td class="money">{{item.amount|money}}</td><td>{{item.accounting_info}}</td><td>{{ item.paid|yesno:_("Yes,No") }}</td><td>{{ item.wage|yesno:_("Yes,No") }}</td></tr>
 {% endfor %}
 </tbody>
 <tfoot>

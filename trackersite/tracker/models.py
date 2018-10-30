@@ -75,7 +75,14 @@ class PercentageField(models.SmallIntegerField):
         return super(PercentageField, self).formfield(**defaults)
 
 
-class CachedModel(models.Model):
+class Model(models.Model):
+    created = models.DateTimeField(_('created'), auto_now_add=True, null=True)
+
+    class Meta:
+        abstract = True
+
+
+class CachedModel(Model):
     """ Model which has some values cached """
 
     def _get_item_key(self, name):
@@ -126,7 +133,6 @@ class DecimalRangeField(models.DecimalField):
 
 class Ticket(CachedModel):
     """ One unit of tracked / paid stuff. """
-    created = models.DateTimeField(_('created'), auto_now_add=True)
     updated = models.DateTimeField(_('updated'))
     event_date = models.DateField(_('event date'), blank=True, null=True, help_text=_('Date of the event this ticket is about'))
     requested_user = models.ForeignKey('auth.User', verbose_name=_('requested by'), blank=True, null=True, help_text=_('User who created/requested for this ticket'))
@@ -628,7 +634,7 @@ def ticket_note_comment(sender, comment, **kwargs):
         obj.save()
 
 
-class MediaInfo(models.Model):
+class MediaInfo(Model):
     """ Media related to particular tickets. """
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'), help_text=_('Ticket this media info belongs to'))
     description = models.CharField(_('description'), max_length=255, help_text=_('Item description to show'))
@@ -643,7 +649,7 @@ class MediaInfo(models.Model):
         verbose_name_plural = _('Ticket media')
 
 
-class Expediture(models.Model):
+class Expediture(Model):
     """ Expenses related to particular tickets. """
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'), help_text=_('Ticket this expediture belongs to'))
     description = models.CharField(_('description'), max_length=255, help_text=_('Description of this expediture'))
@@ -665,7 +671,7 @@ class Expediture(models.Model):
         verbose_name_plural = _('Ticket expeditures')
 
 
-class Preexpediture(models.Model):
+class Preexpediture(Model):
     """Preexpeditures related to particular tickets. """
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'), help_text=_('Ticket this preexpediture belogns to'))
     description = models.CharField(_('description'), max_length=255, help_text=_('Description of this preexpediture'))
@@ -684,7 +690,7 @@ class Preexpediture(models.Model):
 DOCUMENT_INTRO_TEMPLATE = template.Template('<a href="{% url "download_document" doc.ticket.id doc.filename %}">{{doc.filename}}</a>{% if detail and doc.description %}: {{doc.description}}{% endif %} <small>({{doc.content_type}}; {{doc.size|filesizeformat}})</small>')
 
 
-class Document(models.Model):
+class Document(Model):
     """ Document related to particular ticket, not publicly accessible. """
     ticket = models.ForeignKey('tracker.Ticket')
     filename = models.CharField(max_length=120, help_text='Document filename', validators=[
@@ -772,7 +778,7 @@ def create_user_profile(sender, **kwargs):
     TrackerProfile.objects.create(user=user)
 
 
-class Transaction(models.Model):
+class Transaction(Model):
     """ One payment to or from the user. """
     date = models.DateField(_('date'))
     other = models.ForeignKey('auth.User', verbose_name=_('other party'), blank=True, null=True, help_text=_('The other party; user who sent or received the payment'))
@@ -821,7 +827,7 @@ class Transaction(models.Model):
         ordering = ['-date']
 
 
-class Cluster(models.Model):
+class Cluster(Model):
     """ This is an auxiliary/cache model used to track relationships between tickets and payments. """
     id = models.IntegerField(primary_key=True)  # cluster ID is always the id of its lowest-numbered ticket
     more_tickets = models.BooleanField()  # does this cluster have more tickets?
@@ -835,7 +841,7 @@ class Cluster(models.Model):
         return unicode(self.id)
 
 
-class TicketAck(models.Model):
+class TicketAck(Model):
     """ Ack flag for given ticket. """
     ticket = models.ForeignKey('Ticket')
     ack_type = models.CharField(max_length=20, choices=ACK_TYPES)
@@ -872,7 +878,7 @@ def flush_ticket_after_ack_delete(sender, instance, **kwargs):
     instance.ticket.update_payment_status()
 
 
-class Notification(models.Model):
+class Notification(Model):
     """Notification that is supposed to be sent."""
     target_user = models.ForeignKey('auth.User', null=True, blank=True)
     fired = models.DateTimeField('fired', auto_now_add=True)
@@ -900,7 +906,7 @@ class Notification(models.Model):
             Notification.objects.create(text=text, notification_type=notification_type, target_user=user)
 
 
-class TicketWatcher(models.Model):
+class TicketWatcher(Model):
     """User that watch given ticket"""
     ticket = models.ForeignKey('Ticket')
     user = models.ForeignKey('auth.User')
@@ -911,7 +917,7 @@ class TicketWatcher(models.Model):
         return 'User %s is watching event %s on ticket %s' % (self.user, self.notification_type, self.ticket)
 
 
-class TopicWatcher(models.Model):
+class TopicWatcher(Model):
     """User that watch given topic"""
     topic = models.ForeignKey('Topic')
     user = models.ForeignKey('auth.User')
