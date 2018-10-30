@@ -575,9 +575,9 @@ def edit_ticket(request, pk):
                 and (preexpeditures.is_valid() if 'precontent' not in ticket.ack_set() and 'content' not in ticket.ack_set() else True):
             ticket = ticketform.save()
             mediainfo.save()
-            if 'content' not in ticket.ack_set():
+            if expeditures is not None:
                 expeditures.save()
-            if 'precontent' not in ticket.ack_set():
+            if preexpeditures is not None:
                 preexpeditures.save()
 
             messages.success(request, _('Ticket %s saved.') % ticket)
