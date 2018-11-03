@@ -36,7 +36,8 @@
 			{% if user.is_authenticated %}
 				{% trans "user" %}: <li style="list-style: none;">{{wrapped_user.get_html_link}}</li>
 				(<li><a href="{% url "password_change" %}">{% trans "change password" %}</a></li>; 
-				<li><a href="{% url "user_details_change" %}">{% trans "change my details" %}</a></li>); 
+				<li><a href="{% url "user_details_change" %}">{% trans "change my details" %}</a></li>;
+				<li><a href="{% url "preferences" %}">{% trans "preferences" %}</a></li>);
 				{% if user.is_staff %}
 					<li><a href="{% url "admin:index" %}">{% trans "admin" %}</a></li>
 				{% endif%}

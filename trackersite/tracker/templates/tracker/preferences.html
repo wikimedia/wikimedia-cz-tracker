@@ -1,17 +1,18 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n widget_tweaks %}
 {% block title %}
-{% trans "Watch" %} {{objecttype}}: {{object}}
+{% trans "Preferences" %}
 {% endblock %}
 
 {% block content %}
-<p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; <a href="{% url "user_details_change" %}">{% trans "change my details" %}</a></p>
+<p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; </p>
 
 <h1>
-    {% trans "Watch" %} {{objecttype}}: {{object}}
+    {% trans "Preferences" %}
 </h1>
-<tr class="container">
+<div class="container">
     <form enctype="multipart/form-data" class="form-horizontal" method="POST">
+        <h3>{% trans "Mute notifications" %}</h3>
         {% csrf_token %}
         <table>
             <tbody>
@@ -23,6 +24,11 @@
             {% endfor %}
             </tbody>
         </table>
+        <h3>{% trans "Other"%}</h3>
+        {% for field in preferences_form %}
+            {{ field.error }}
+            {{ field.label_tag }} {{ field|add_class:"form-control" }}
+        {% endfor %}
         <input class="form-control" type="submit" value="{% trans "Save" %}" />
     </form>
 </div>
