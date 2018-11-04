@@ -104,3 +104,5 @@ STATUTORY_DECLARATION_TEXT = 'I hereby declare that my travel expenses are true 
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
+
+MANUAL_LINK = 'https://www.wikimedia.cz/web/Manuál_na_tracker'

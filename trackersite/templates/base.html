@@ -42,12 +42,13 @@
 					<li><a href="{% url "admin:index" %}">{% trans "admin" %}</a></li>
 				{% endif%}
 				<li><a href="{% url "choose_language" %}">change language</a></li>
+				<li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
 				<li><a href="{% url "tracker_logout" %}">{% trans "logout" %}</a></li>
 			{% else %}
 				<li><a href="{% url "tracker_login" %}">{% trans "login" %}</a></li>
 				<li><a href="{% url "register" %}">{% trans "register" %}</a></li>
 				<li><a href="{% url "choose_language" %}">change language</a></li>
-				<li><a href="https://www.wikimedia.cz/web/Manuál_na_tracker">{% trans "help" %}</a></li>
+				<li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
 			{% endif %}
 		</ul>
 	</div>

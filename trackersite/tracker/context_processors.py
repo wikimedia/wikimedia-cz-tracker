@@ -8,4 +8,5 @@ def public_settings(request):
         'BASE_URL': settings.BASE_URL,
         'PRODUCTION': settings.PRODUCTION,
         'GOOGLE_ANALYTICS': settings.GOOGLE_ANALYTICS,
+        'MANUAL_LINK': settings.MANUAL_LINK,
     }
