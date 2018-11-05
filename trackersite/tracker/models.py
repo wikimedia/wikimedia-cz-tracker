@@ -4,6 +4,7 @@ import decimal
 
 from django_comments.signals import comment_was_posted
 from django.db.models.signals import pre_save, post_save, post_delete
+from request_provider.signals import get_request
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db import models
@@ -56,6 +57,17 @@ NOTIFICATION_TYPES = [
 ]
 
 USER_EDITABLE_ACK_TYPES = ('user_precontent', 'user_content', 'user_docs')
+
+
+def get_user(support_none=False):
+    r = get_request()
+    if r is None:
+        if support_none:
+            return None
+        else:
+            return _('unknown')
+    else:
+        return r.user
 
 
 def uber_ack(ack_type):
@@ -890,17 +902,18 @@ class Notification(models.Model):
 
     @staticmethod
     def fire_notification(ticket, text, notification_type, sender, additional=set()):
-        initial_user = [ticket.requested_user]
-        if initial_user is None:
-            initial_user = []
-        if notification_type in ("ticket_new", "ticket_change", "preexpeditures_change", "expeditures_change", "media_change"):
+        if ticket.requested_user is not None:
+            initial_user = [ticket.requested_user]
+        else:
             initial_user = []
         users = set(initial_user)
         admins = set(ticket.topic.admin.all())
         topicwatchers = set([tw.user for tw in ticket.topic.topicwatcher_set.filter(notification_type=notification_type)])
         ticketwatchers = set([tw.user for tw in ticket.ticketwatcher_set.filter(notification_type=notification_type)])
-        users = users.union(admins, topicwatchers, ticketwatchers) - set([sender])
+        users = users.union(admins, topicwatchers, ticketwatchers)
         for user in users:
+            if user == sender:
+                continue
             if notification_type in user.trackerprofile.get_muted_notifications():
                 continue
             Notification.objects.create(text=text, notification_type=notification_type, target_user=user)
@@ -956,7 +969,7 @@ def add_commenting_user_to_watchers(sender, comment, **kwargs):
 def notify_ticket(sender, instance, created, raw, **kwargs):
     if created:
         text = u'Ticket <a href="%s%s">%s</a> byl vytvořen uživatelem <tt>%s</tt> v tématu <tt>%s</tt>' % (settings.BASE_URL, instance.get_absolute_url(), instance, instance.requested_by_html(), instance.topic)
-        Notification.fire_notification(instance, text, "ticket_new", instance.requested_user)
+        Notification.fire_notification(instance, text, "ticket_new", get_user(True))
 
 
 @receiver(pre_save, sender=Ticket)
@@ -964,8 +977,8 @@ def notify_supervizor_notes(sender, instance, **kwargs):
     if instance.id is not None:
         old = Ticket.objects.get(id=instance.id)
         if old.supervisor_notes != instance.supervisor_notes:
-            text = u'U ticketu <a href="%s%s">%s</a> došlo ke změně poznámek schvalovatele.' % (settings.BASE_URL, instance.get_absolute_url(), instance)
-            Notification.fire_notification(instance, text, "supervisor_notes", None)
+            text = u'U ticketu <a href="%s%s">%s</a> uživatel %s změnil poznámky schvalovatele.' % (settings.BASE_URL, instance.get_absolute_url(), instance, get_user())
+            Notification.fire_notification(instance, text, "supervisor_notes", get_user(True))
 
 
 @receiver(pre_save, sender=Ticket)
@@ -973,17 +986,17 @@ def notify_ticket_change(sender, instance, **kwargs):
     if instance.id is not None and len(Notification.objects.filter(text__contains=instance.get_absolute_url(), notification_type="ticket_new")) == 0:
         old = Ticket.objects.get(id=instance.id)
         if old.description != instance.description:
-            text = u'U ticketu <a href="%s%s">%s</a> došlo ke změně popisku.' % (settings.BASE_URL, instance.get_absolute_url(), instance)
-            Notification.fire_notification(instance, text, "ticket_change", None)
+            text = u'U ticketu <a href="%s%s">%s</a> uživatel %s změnil popisek.' % (settings.BASE_URL, instance.get_absolute_url(), instance, get_user())
+            Notification.fire_notification(instance, text, "ticket_change", get_user(True))
         if old.name != instance.name:
-            text = u'U ticketu <a href="%s%s">%s</a> došlo ke změně názvu.' % (settings.BASE_URL, instance.get_absolute_url(), instance)
-            Notification.fire_notification(instance, text, "ticket_change", None)
+            text = u'U ticketu <a href="%s%s">%s</a> uživatel %s změnil název.' % (settings.BASE_URL, instance.get_absolute_url(), instance, get_user())
+            Notification.fire_notification(instance, text, "ticket_change", get_user(True))
         if old.report_url != instance.report_url:
-            text = u'U ticketu <a href="%s%s">%s</a> došlo ke změně odkazu na report.' % (settings.BASE_URL, instance.get_absolute_url(), instance)
-            Notification.fire_notification(instance, text, "ticket_change", None)
+            text = u'U ticketu <a href="%s%s">%s</a> uživatel %s změnil odkaz na report.' % (settings.BASE_URL, instance.get_absolute_url(), instance, get_user())
+            Notification.fire_notification(instance, text, "ticket_change", get_user(True))
         if old.deposit != instance.deposit:
-            text = u'U ticketu <a href="%s%s">%s</a> došlo ke změně požadované zálohy.' % (settings.BASE_URL, instance.get_absolute_url(), instance)
-            Notification.fire_notification(instance, text, "ticket_change", None)
+            text = u'U ticketu <a href="%s%s">%s</a> uživatel %s změnil požadovanou zálohu.' % (settings.BASE_URL, instance.get_absolute_url(), instance, get_user())
+            Notification.fire_notification(instance, text, "ticket_change", get_user(True))
 
 
 @receiver(pre_save, sender=Ticket)
@@ -991,71 +1004,71 @@ def notify_ticket_change_2(sender, instance, **kwargs):
     if instance.id is not None:
         old = Ticket.objects.get(id=instance.id)
         if old.mandatory_report != instance.mandatory_report:
-            text = u'U ticketu <a href="%s%s">%s</a> došlo ke změně příznaku povinného reportu.' % (settings.BASE_URL, instance.get_absolute_url(), instance)
-            Notification.fire_notification(instance, text, "ticket_change_all", None)
+            text = u'U ticketu <a href="%s%s">%s</a> uživatel %s změnil příznak povinného reportu.' % (settings.BASE_URL, instance.get_absolute_url(), instance, get_user())
+            Notification.fire_notification(instance, text, "ticket_change_all", get_user(True))
 
 
 @receiver(post_save, sender=TicketAck)
 def notify_ack_add(sender, instance, created, **kwargs):
     text = u"Ticketu <a href='%s%s'>%s</a> byl přidán stav <tt>%s</tt> uživatelem <tt>%s</tt>" % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket, instance.get_ack_type_display(), instance.added_by)
-    Notification.fire_notification(instance.ticket, text, "ack_add", instance.added_by)
+    Notification.fire_notification(instance.ticket, text, "ack_add", get_user(True))
 
 
 @receiver(post_delete, sender=TicketAck)
 def notify_ack_remove(sender, instance, **kwargs):
-    text = u'U ticketu <a href="%s%s">%s</a> došlo k odebrání stavu <tt>%s</tt>' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket, instance.get_ack_type_display())
-    Notification.fire_notification(instance.ticket, text, "ack_remove", None)
+    text = u'U ticketu <a href="%s%s">%s</a> uživatel %s odebral stav <tt>%s</tt>' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket, instance.get_ack_type_display(), get_user())
+    Notification.fire_notification(instance.ticket, text, "ack_remove", get_user(True))
 
 
 @receiver(post_save, sender=Preexpediture)
 def notify_preexpediture(sender, instance, created, raw, **kwargs):
     if len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
         if created:
-            text = u'K tiketu <a href="%s%s">%s</a>  byly přidány plánované výdaje <tt>%s</tt>' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket, instance)
+            text = u'K tiketu <a href="%s%s">%s</a>  uživatel %s přidal plánované výdaje <tt>%s</tt>' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket, get_user(), instance)
         else:
-            text = u'Plánovaný výdaj <tt>%s</tt> tiketu <a href="%s%s">%s</a> byl změněn' % (instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
-        Notification.fire_notification(instance.ticket, text, "preexpeditures_change", None)
+            text = u'Uživatel %s změnil plánovaný výdaj <tt>%s</tt> tiketu <a href="%s%s">%s</a>' % (get_user(), instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
+        Notification.fire_notification(instance.ticket, text, "preexpeditures_change", get_user(True))
 
 
 @receiver(post_delete, sender=Preexpediture)
 def notify_del_preexpediture(sender, instance, **kwargs):
     if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
-        text = u'Plánovaný výdaj <ŧt>%s</tt> tiketu <a href="%s%s">%s</a> byl odstraněn' % (instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
-        Notification.fire_notification(instance.ticket, text, "preexpeditures_change", None)
+        text = u'Uživatel %s odstranil plánovaný výdaj <ŧt>%s</tt> tiketu <a href="%s%s">%s</a>' % (get_user(), instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
+        Notification.fire_notification(instance.ticket, text, "preexpeditures_change", get_user(True))
 
 
 @receiver(post_save, sender=Expediture)
 def notify_expediture(sender, instance, created, raw, **kwargs):
     if len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
         if created:
-            text = u'K tiketu <a href="%s%s">%s</a>  byly přidány reálné výdaje <tt>%s</tt>' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket, instance)
+            text = u'K tiketu <a href="%s%s">%s</a>  uživatel %s přidal reálné výdaje <tt>%s</tt>' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket, get_user(), instance)
         else:
-            text = u'Reálný výdaj <tt>%s</tt> tiketu <a href="%s%s">%s</a> byl změněn' % (instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
-        Notification.fire_notification(instance.ticket, text, "expeditures_change", None)
+            text = u'Uživatel %s změnil reálný výdaj <tt>%s</tt> tiketu <a href="%s%s">%s</a>' % (get_user(), instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
+        Notification.fire_notification(instance.ticket, text, "expeditures_change", get_user(True))
 
 
 @receiver(post_delete, sender=Expediture)
 def notify_del_expediture(sender, instance, **kwargs):
     if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
-        text = u'Reálný výdaj <ŧt>%s</tt> tiketu <a href="%s%s">%s</a> byl odstraněn' % (instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
-        Notification.fire_notification(instance.ticket, text, "expeditures_change", None)
+        text = u'Uživatel %s odstranil reálný výdaj <ŧt>%s</tt> tiketu <a href="%s%s">%s</a>' % (get_user(), instance, settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
+        Notification.fire_notification(instance.ticket, text, "expeditures_change", get_user(True))
 
 
 @receiver(post_save, sender=MediaInfo)
 def notify_media(sender, instance, created, raw, **kwargs):
     if len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
         if created:
-            text = u'K tiketu <a href="%s%s">%s</a>  byla přidána média' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
+            text = u'K tiketu <a href="%s%s">%s</a>  uživatel %s přidal média' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket, get_user())
         else:
-            text = u'Média tiketu <a href="%s%s">%s</a> byla změněna' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
-        Notification.fire_notification(instance.ticket, text, "media_change", None)
+            text = u'Uživatel %s změnil média tiketu <a href="%s%s">%s</a>' % (get_user(), settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
+        Notification.fire_notification(instance.ticket, text, "media_change", get_user(True))
 
 
 @receiver(post_delete, sender=MediaInfo)
 def notify_del_media(sender, instance, **kwargs):
     if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
-        text = u'Média tiketu <a href="%s%s">%s</a> byla odstraněna' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
-        Notification.fire_notification(instance.ticket, text, "media_change", None)
+        text = u'Uživatel %s odstranil média tiketu <a href="%s%s">%s</a>' % (get_user(), settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket)
+        Notification.fire_notification(instance.ticket, text, "media_change", get_user(True))
 
 
 class PossibleAck(object):
