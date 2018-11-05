@@ -50,7 +50,6 @@ NOTIFICATION_TYPES = [
     ('ack_add', _('Ack added')),
     ('ack_remove', _('Ack removed')),
     ('ticket_change', _('Ticket changed')),
-    ('ticket_change_all', _('Ticket changed [for requestor]')),
     ('preexpeditures_change', _('Preexpeditures changed')),
     ('expeditures_change', _('Expeditures changed')),
     ('media_change', _('Media changed')),
@@ -1005,7 +1004,7 @@ def notify_ticket_change_2(sender, instance, **kwargs):
         old = Ticket.objects.get(id=instance.id)
         if old.mandatory_report != instance.mandatory_report:
             text = u'U ticketu <a href="%s%s">%s</a> uživatel %s změnil příznak povinného reportu.' % (settings.BASE_URL, instance.get_absolute_url(), instance, get_user())
-            Notification.fire_notification(instance, text, "ticket_change_all", get_user(True))
+            Notification.fire_notification(instance, text, "ticket_change", get_user(True))
 
 
 @receiver(post_save, sender=TicketAck)
