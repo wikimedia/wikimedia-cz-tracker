@@ -944,7 +944,11 @@ class TopicWatcher(Model):
 def notify_comment(sender, comment, **kwargs):
     obj = comment.content_object
     if type(obj) == Ticket:
-        text = u"K ticketu <a href='%s%s'>%s</a> byl přidán uživatelem <tt>%s</tt> komentář <tt>%s</tt>" % (settings.BASE_URL, obj.get_absolute_url(), obj, comment.user, comment.comment)
+        if comment.user is None:
+            user = comment.userinfo['name']
+        else:
+            user = comment.user.username
+        text = u"K ticketu <a href='%s%s'>%s</a> byl přidán uživatelem <tt>%s</tt> komentář <tt>%s</tt>" % (settings.BASE_URL, obj.get_absolute_url(), obj, user, comment.comment)
         usersmentioned = re.findall(r'@([-a-zA-Z0-9_.]+)', comment.comment)
         additional = set()
         for user_name in usersmentioned:
