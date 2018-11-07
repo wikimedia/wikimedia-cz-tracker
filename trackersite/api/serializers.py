@@ -45,6 +45,7 @@ class SubtopicSerializer(serializers.HyperlinkedModelSerializer):
 class TicketSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         read_only_fields = ('state_str', 'updated', 'created', 'cluster', 'payment_status', 'imported')
+        exclude = ('cluster', )
         model = Ticket
 
 
