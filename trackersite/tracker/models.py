@@ -734,13 +734,29 @@ class Document(Model):
         )
 
 
+class TrackerPreferences(models.Model):
+    user = models.OneToOneField(User, null=True)
+    muted_notifications = models.CharField('Muted notifications', max_length=300, blank=True)
+    display_items = models.IntegerField(_('Display items'), help_text=_('How many items should we display in tables at once'), default=25)
+
+    def get_muted_notifications(self):
+        if self.muted_notifications == '':
+            return []
+        res = []
+        for muted_notification in json.loads(self.muted_notifications):
+            res.append(muted_notification)
+        return res
+
+    class Meta:
+        verbose_name = _('Tracker user preference')
+        verbose_name_plural = _('Tracker user preferences')
+
+
 class TrackerProfile(models.Model):
     user = models.OneToOneField(User)
     bank_account = models.CharField(_('Bank account'), max_length=120, blank=True, help_text=_('Bank account information for money transfers'))
     other_contact = models.CharField(_('Other contact'), max_length=120, blank=True, help_text=_('Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information'))
     other_identification = models.CharField(_('Other identification'), max_length=120, blank=True, help_text=_('Address, or other identification information, so we know who are we sending money to'))
-    muted_notifications = models.CharField('Muted notifications', max_length=300, blank=True)
-    display_items = models.IntegerField(_('Display items'), help_text=_('How many items should we display in tables at once'), default=25)
 
     def get_absolute_url(self):
         return reverse('user_detail', kwargs={'username': self.user.username})
@@ -764,14 +780,6 @@ class TrackerProfile(models.Model):
     def transactions(self):
         return Transaction.objects.filter(other=self.user).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
 
-    def get_muted_notifications(self):
-        if self.muted_notifications == '':
-            return []
-        res = []
-        for muted_notification in json.loads(self.muted_notifications):
-            res.append(muted_notification)
-        return res
-
     def __unicode__(self):
         return unicode(self.user)
 
@@ -787,6 +795,7 @@ def create_user_profile(sender, **kwargs):
 
     user = kwargs['instance']
     TrackerProfile.objects.create(user=user)
+    TrackerPreferences.objects.create(user=user)
 
 
 class Transaction(Model):
@@ -913,7 +922,7 @@ class Notification(models.Model):
         for user in users:
             if user == sender:
                 continue
-            if notification_type in user.trackerprofile.get_muted_notifications():
+            if notification_type in user.trackerpreferences.get_muted_notifications():
                 continue
             Notification.objects.create(text=text, notification_type=notification_type, target_user=user)
 
