@@ -37,7 +37,6 @@
             {% if use_inline_intro %}<td>{{inline_admin_form.instance.inline_intro}}</td>{% endif %}
             {% for field in inline_admin_form.visible_fields %}
               <td class="field_{{ field.name }}{% if field.field.required %} required{% endif %}">
-                  {% if field.name == "DELETE" %}<span class="delete">{% trans "delete" %}</span>{% else %}{% trans field.name %}{% endif %}
                   {{ field.errors.as_ul }}
                   {{ field|add_class:"form-control" }}
               </td>
