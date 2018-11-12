@@ -15,10 +15,16 @@
         {% csrf_token %}
         <table>
             <tbody>
+                <tr>
+                    <td><label for="all">_("All")</label></td>
+                    <td><input type="checkbox" name="all" id="all"></td>
+                </tr>
+
+                <br>
             {% for notification_type in notification_types %}
                 <tr>
                     <td><label for="{{notification_type.0}}">{{notification_type.1}}</label></td>
-                    <td><input type="checkbox" name="{{notification_type.0}}" id="{{notification_type.0}}" {% if notification_type.2 %}checked{% endif %}></td>
+                    <td><input type="checkbox" name="{{notification_type.0}}" id="{{notification_type.0}}" class="otherNotifTypes" {% if notification_type.2 %}checked{% endif %}></td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -26,4 +32,6 @@
         <input class="form-control" type="submit" value="{% trans "Save" %}" />
     </form>
 </div>
+
+<script src="/static/toggleAllNotifs.js"></script>
 {% endblock %}
