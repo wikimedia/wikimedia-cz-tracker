@@ -1441,7 +1441,7 @@ msgstr "Ztlumit notifikace"
 
 #: tracker/templates/tracker/preferences.html:27
 msgid "Other"
-msgstr ""
+msgstr "Ostatní"
 
 #: tracker/templates/tracker/preferences.html:32
 #: tracker/templates/tracker/ticket_form.html:24
