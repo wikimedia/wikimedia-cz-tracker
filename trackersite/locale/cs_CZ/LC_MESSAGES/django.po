@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-12 15:32+0100\n"
+"POT-Creation-Date: 2018-11-12 21:13+0100\n"
 "PO-Revision-Date: 2016-12-27 18:50+0100\n"
 "Last-Translator: Petr Novák <petr.novak@cosmoboy.cz>\n"
 "Language-Team: none <none@example.org>\n"
@@ -1460,7 +1460,6 @@ msgid "Total for this subtopic"
 msgstr "Celkem za toto podtéma"
 
 #: tracker/templates/tracker/tabular_formset.html:12
-#: tracker/templates/tracker/tabular_formset.html:40
 msgid "delete"
 msgstr "smazat"
 
@@ -1468,12 +1467,12 @@ msgstr "smazat"
 msgid "Delete the item"
 msgstr "Smazat položku"
 
-#: tracker/templates/tracker/tabular_formset.html:92
+#: tracker/templates/tracker/tabular_formset.html:91
 #, python-format
 msgid "Add another %(formset_item_name)s"
 msgstr "Přidat další %(formset_item_name)s"
 
-#: tracker/templates/tracker/tabular_formset.html:95
+#: tracker/templates/tracker/tabular_formset.html:94
 #: tracker/templates/tracker/ticketack_confirm_delete.html:4
 #: tracker/templates/tracker/ticketack_confirm_delete.html:8
 msgid "Remove"
@@ -1831,6 +1830,10 @@ msgstr "neurčen"
 #: tracker/templates/tracker/watch.html:11
 msgid "Watch"
 msgstr "Sledovat"
+
+#: tracker/templates/tracker/watch.html:19
+msgid "All"
+msgstr "Všechny"
 
 #: tracker/views.py:75
 msgid "Comment posted, thank you."
