@@ -1,14 +1,18 @@
 #!/bin/bash
+set -e
+
 scriptdir="`dirname \"$0\"`"
-cd $scriptdir/../ \
-	&& git pull --ff-only \
-	&& source deploy/pyenv/bin/activate \
-	&& pip install -U pip \
-	&& pip install -U -r support/requirements.txt \
-	&& ( cd trackersite \
-		&& python manage.py syncdb \
-		&& python manage.py migrate \
-		&& python manage.py collectstatic --noinput \
-		&& python manage.py compilemessages \
-	) \
-	&& touch deploy/reload
+cd $scriptdir/../
+if [ "$1" != "--no-pull" ]; then
+	git pull --ff-only
+fi
+source deploy/pyenv/bin/activate
+pip install -U pip
+pip install -U -r support/requirements.txt
+cd trackersite
+python manage.py syncdb
+python manage.py migrate
+python manage.py collectstatic --noinput
+python manage.py compilemessages
+cd ../
+touch deploy/reload
