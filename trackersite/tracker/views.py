@@ -23,7 +23,7 @@ from sendfile import sendfile
 from django.utils.translation import get_language
 import csv
 
-from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, Expediture, Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, TicketWatcher, TopicWatcher
+from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, Expediture, Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher
 from tracker.models import NOTIFICATION_TYPES
 from users.models import UserWrapper
 
@@ -417,11 +417,11 @@ def watch_ticket(request, pk):
         messages.warning(request, _('You cannot watch ticket in topic you are an admin of explicitely. You are already subscribed to all notifications.'))
         return HttpResponseRedirect(ticket.get_absolute_url())
     if request.method == 'POST':
-        for watcher in TicketWatcher.objects.filter(ticket=ticket, user=request.user):
+        for watcher in Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id, user=request.user):
             watcher.delete()
         for notification_type in NOTIFICATION_TYPES:
             if notification_type[0] in request.POST:
-                TicketWatcher.objects.create(ticket=ticket, user=request.user, notification_type=notification_type[0])
+                Watcher.objects.create(watcher_type='Ticket', watched=ticket, user=request.user, notification_type=notification_type[0])
         messages.success(request, _("Ticket's %s watching settings are changed.") % ticket)
         return HttpResponseRedirect(ticket.get_absolute_url())
     else:
@@ -448,11 +448,11 @@ def watch_topic(request, pk):
         messages.warning(request, _('You cannot watch topic you are an admin of explicitely. You are already subscribed to all notifications.'))
         return HttpResponseRedirect(topic.get_absolute_url())
     if request.method == 'POST':
-        for watcher in TopicWatcher.objects.filter(topic=topic, user=request.user):
+        for watcher in Watcher.objects.filter(watcher_type='Topic', object_id=topic.id, user=request.user):
             watcher.delete()
         for notification_type in NOTIFICATION_TYPES:
             if notification_type[0] in request.POST:
-                TopicWatcher.objects.create(topic=topic, user=request.user, notification_type=notification_type[0])
+                Watcher.objects.create(watcher_type='Topic', watched=topic, user=request.user, notification_type=notification_type[0])
         messages.success(request, _("Topic's %s watching settings are changed.") % topic)
         return HttpResponseRedirect(topic.get_absolute_url())
     else:

@@ -6,6 +6,8 @@ from django_comments.signals import comment_was_posted
 from django.db.models.signals import pre_save, post_save, post_delete
 from request_provider.signals import get_request
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericForeignKey
 from django.dispatch import receiver
 from django.db import models
 from django.core.urlresolvers import reverse
@@ -140,6 +142,19 @@ class DecimalRangeField(models.DecimalField):
         defaults = {'min_value': self.min_value, 'max_value': self.max_value}
         defaults.update(kwargs)
         return super(DecimalRangeField, self).formfield(**defaults)
+
+
+class Watcher(Model):
+    watcher_type = models.CharField('watcher_type', max_length=50, blank=True)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True)
+    object_id = models.PositiveIntegerField(null=True)
+    watched = GenericForeignKey('content_type', 'object_id')
+    user = models.ForeignKey('auth.User')
+    notification_type = models.CharField('notification_type', max_length=50, choices=NOTIFICATION_TYPES)
+    ack_type = models.CharField('ack_type', max_length=50, null=True, choices=ACK_TYPES)
+
+    def __unicode__(self):
+        return 'User %s is watching event %s on %s %s' % (self.user, self.notification_type, self.watcher_type, self.watched)
 
 
 class Ticket(CachedModel):
@@ -319,7 +334,7 @@ class Ticket(CachedModel):
 
     def watches(self, user, event):
         """Watches given user this ticket?"""
-        return self.topic.watches(user, event) or (user.is_authenticated() and len(TicketWatcher.objects.filter(ticket=self, user=user, notification_type=event)) > 0)
+        return self.topic.watches(user, event) or (user.is_authenticated() and len(Watcher.objects.filter(watcher_type='Ticket', object_id=self.id, user=user, notification_type=event)) > 0)
 
     def can_edit(self, user):
         """ Can given user edit this ticket through a non-admin interface? """
@@ -583,7 +598,7 @@ class Topic(CachedModel):
 
     def watches(self, user, event):
         """Watches given user this topic?"""
-        return user.is_authenticated() and len(TopicWatcher.objects.filter(topic=self, user=user, notification_type=event)) > 0
+        return user.is_authenticated() and len(Watcher.objects.filter(watcher_type='Topic', object_id=self.id, user=user, notification_type=event)) > 0
 
     class Meta:
         verbose_name = _('Topic')
@@ -916,8 +931,8 @@ class Notification(models.Model):
             initial_user = []
         users = set(initial_user)
         admins = set(ticket.topic.admin.all())
-        topicwatchers = set([tw.user for tw in ticket.topic.topicwatcher_set.filter(notification_type=notification_type)])
-        ticketwatchers = set([tw.user for tw in ticket.ticketwatcher_set.filter(notification_type=notification_type)])
+        topicwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Topic', object_id=ticket.topic.id, notification_type=notification_type)])
+        ticketwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id, notification_type=notification_type)])
         users = users.union(admins, topicwatchers, ticketwatchers)
         for user in users:
             if user == sender:
@@ -925,28 +940,6 @@ class Notification(models.Model):
             if notification_type in user.trackerpreferences.get_muted_notifications():
                 continue
             Notification.objects.create(text=text, notification_type=notification_type, target_user=user)
-
-
-class TicketWatcher(Model):
-    """User that watch given ticket"""
-    ticket = models.ForeignKey('Ticket')
-    user = models.ForeignKey('auth.User')
-    notification_type = models.CharField('notification_type', max_length=50, choices=NOTIFICATION_TYPES)
-    ack_type = models.CharField('ack_type', max_length=50, null=True, choices=ACK_TYPES)
-
-    def __unicode__(self):
-        return 'User %s is watching event %s on ticket %s' % (self.user, self.notification_type, self.ticket)
-
-
-class TopicWatcher(Model):
-    """User that watch given topic"""
-    topic = models.ForeignKey('Topic')
-    user = models.ForeignKey('auth.User')
-    notification_type = models.CharField('notification_type', max_length=50, choices=NOTIFICATION_TYPES)
-    ack_type = models.CharField('ack_type', max_length=50, null=True, choices=ACK_TYPES)
-
-    def __unicode__(self):
-        return 'User %s is watching event %s on topic %s' % (self.user, self.notification_type, self.topic)
 
 
 @receiver(comment_was_posted)
@@ -974,7 +967,7 @@ def add_commenting_user_to_watchers(sender, comment, **kwargs):
     obj = comment.content_object
     if type(obj) == Ticket and comment.user is not None:
         if comment.user != obj.requested_user and comment.user not in obj.topic.admin.all():
-            TicketWatcher.objects.create(ticket=obj, user=comment.user, notification_type="comment")
+            Watcher.objects.create(watcher_type='Ticket', watched=obj, user=comment.user, notification_type="comment")
 
 
 @receiver(post_save, sender=Ticket)
