@@ -32,7 +32,7 @@ class Command(BaseCommand):
         grant_query_list = []
         for n in range(1, amount + 1):
             grant_query_list.append(Grant(
-                full_name="Grant number {}.".format(n),
+                full_name="Grant number {}".format(n),
                 short_name="ExampleG{}".format(n),
                 slug="exampleg{}".format(n),
                 description=("Detailed grant description. "
@@ -46,7 +46,7 @@ class Command(BaseCommand):
         topic_query_list = []
         for n in range(1, amount + 1):
             topic_query_list.append(Topic(
-                name="Topic number {}.".format(n),
+                name="Topic number {}".format(n),
                 # This should be fine for selecting grants,
                 # since the DB is small if/when you run this command
                 grant=choice(grant_objects),
@@ -68,7 +68,7 @@ class Command(BaseCommand):
         subtopic_query_list = []
         for n in range(1, amount + 1):
             subtopic_query_list.append(Subtopic(
-                name="Subtopic number {}.".format(n),
+                name="Subtopic number {}".format(n),
                 description=("Description shown to users who enter "
                              "tickets for this subtopic"),
                 topic=choice(topic_objects)
@@ -106,7 +106,7 @@ class Command(BaseCommand):
                 updated=created_and_updated,
                 event_date=generate_random_date(),
                 requested_user=choice(user_objects),
-                name="Example ticket number {}.".format(n),
+                name="Example ticket number {}".format(n),
                 topic=topic,
                 subtopic=subtopic,
                 rating_percentage=randint(0, 100),
