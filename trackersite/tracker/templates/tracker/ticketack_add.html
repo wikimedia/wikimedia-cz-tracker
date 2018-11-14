@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n widget_tweaks %}
 
-{% block title %}{% trans "Add" %}: {{ticket.summary}}{% endblock %}
+{% block title %}{% trans "Add" %}: {{ticketack.display}}{% endblock %}
 
 {% block content %}
 <p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; <a href="{% url "ticket_detail" ticket.id %}">{{ticket.summary}}</a> &gt; {% trans "confirmations" %} &gt;</p>
@@ -10,7 +10,7 @@
 <form method="POST" action="">
 {% for field in form %}
 {{ field.error }}
-{{ field.label_tag }} 
+{{ field.label_tag }}
 <div class="row">
 {{ field|add_class:"form-control" }}
 </div>
