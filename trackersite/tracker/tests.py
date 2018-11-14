@@ -4,6 +4,7 @@ import datetime
 import re
 from decimal import Decimal
 import json
+import random
 
 from django.test import TestCase
 from django.test.client import Client
@@ -1109,3 +1110,27 @@ class CacheTicketsTests(TestCase):
         except Exception:
             is_json = False
         self.assertTrue(is_json)
+
+
+class AdminTests(TestCase):
+    def setUp(self):
+        self.password = 'bar'
+        self.user = User.objects.create_superuser(username='admin',
+                                                  password=self.password,
+                                                  email='test@test')
+
+    def get_client(self):
+        c = Client()
+        c.login(username=self.user.username, password=self.password)
+        return c
+
+    def test_admin_ticket_not_found(self):
+        # Generate and make sure the Ticket with the selected id doesn't exist
+        while True:
+            random_id = random.randint(1, 999999)
+            if len(Ticket.objects.filter(id=random_id)) == 0:
+                break
+
+        c = self.get_client()
+        response = c.get('/admin/tracker/ticket/%d/' % random_id)
+        self.assertEqual(404, response.status_code)
