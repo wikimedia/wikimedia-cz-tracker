@@ -471,6 +471,32 @@ def watch_topic(request, pk):
 
 
 @login_required
+def watch_grant(request, pk):
+    grant = get_object_or_404(Grant, id=pk)
+    if request.method == 'POST':
+        for watcher in Watcher.objects.filter(watcher_type='Grant', object_id=grant.id, user=request.user):
+            watcher.delete()
+        for notification_type in NOTIFICATION_TYPES:
+            if notification_type[0] in request.POST:
+                Watcher.objects.create(watcher_type='Grant', watched=grant, user=request.user, notification_type=notification_type[0])
+        messages.success(request, _("%s's watching settings are changed.") % grant)
+        return HttpResponseRedirect(grant.get_absolute_url())
+    else:
+        notification_types = []
+        for notification_type in NOTIFICATION_TYPES:
+            notification_types.append((
+                notification_type[0],
+                notification_type[1],
+                grant.watches(request.user, notification_type[0])
+            ))
+        return render(request, 'tracker/watch.html', {
+            "object": grant,
+            "objecttype": _("grant"),
+            "notification_types": notification_types
+        })
+
+
+@login_required
 def create_ticket(request):
     MediaInfoFormSet = mediainfoformset_factory(extra=2, can_delete=False)
     ExpeditureFormSet = expeditureformset_factory(extra=2, can_delete=False)

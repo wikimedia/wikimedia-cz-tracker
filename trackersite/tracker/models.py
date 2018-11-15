@@ -598,7 +598,7 @@ class Topic(CachedModel):
 
     def watches(self, user, event):
         """Watches given user this topic?"""
-        return user.is_authenticated() and len(Watcher.objects.filter(watcher_type='Topic', object_id=self.id, user=user, notification_type=event)) > 0
+        return self.grant.watches(user, event) or (user.is_authenticated() and len(Watcher.objects.filter(watcher_type='Topic', object_id=self.id, user=user, notification_type=event)) > 0)
 
     class Meta:
         verbose_name = _('Topic')
@@ -625,6 +625,10 @@ class Grant(CachedModel):
 
     def get_absolute_url(self):
         return reverse('grant_detail', kwargs={'slug': self.slug})
+
+    def watches(self, user, event):
+        """Watches given user this grant?"""
+        return user.is_authenticated() and len(Watcher.objects.filter(watcher_type='Grant', object_id=self.id, user=user, notification_type=event)) > 0
 
     @cached_getter
     def total_tickets(self):
@@ -933,7 +937,8 @@ class Notification(models.Model):
         admins = set(ticket.topic.admin.all())
         topicwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Topic', object_id=ticket.topic.id, notification_type=notification_type)])
         ticketwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id, notification_type=notification_type)])
-        users = users.union(admins, topicwatchers, ticketwatchers)
+        grantwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Grant', object_id=ticket.topic.grant.id, notification_type=notification_type)])
+        users = users.union(admins, topicwatchers, ticketwatchers, grantwatchers)
         for user in users:
             if user == sender:
                 continue
