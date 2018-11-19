@@ -809,12 +809,11 @@ class TrackerProfile(models.Model):
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, **kwargs):
-    if not kwargs.get('created', False):
-        return
-
     user = kwargs['instance']
-    TrackerProfile.objects.create(user=user)
-    TrackerPreferences.objects.create(user=user)
+    if len(TrackerProfile.objects.filter(user=user)) == 0:
+        TrackerProfile.objects.create(user=user)
+    if len(TrackerPreferences.objects.filter(user=user)) == 0:
+        TrackerPreferences.objects.create(user=user)
 
 
 class Transaction(Model):
