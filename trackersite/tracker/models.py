@@ -49,6 +49,7 @@ NOTIFICATION_TYPES = [
     ('comment', _('Comment added')),
     ('supervisor_notes', _('Supervisor notes changed')),
     ('ticket_new', _('New ticket was created')),
+    ('ticket_delete', _('Ticket was deleted')),
     ('ack_add', _('Ack added')),
     ('ack_remove', _('Ack removed')),
     ('ticket_change', _('Ticket changed')),
@@ -1015,6 +1016,13 @@ def notify_ticket_change_2(sender, instance, **kwargs):
         if old.mandatory_report != instance.mandatory_report:
             text = u'U ticketu <a href="%s%s">%s</a> uživatel %s změnil příznak povinného reportu.' % (settings.BASE_URL, instance.get_absolute_url(), instance, get_user())
             Notification.fire_notification(instance, text, "ticket_change", get_user(True))
+
+
+@receiver(post_delete, sender=Ticket)
+def notify_ticket_delete(sender, instance, **kwargs):
+    if instance.id is not None:
+        text = u'Watched ticket "%s" has been deleted by admin %s' % (instance, get_user())
+        Notification.fire_notification(instance, text, "ticket_delete", get_user(True))
 
 
 @receiver(post_save, sender=TicketAck)

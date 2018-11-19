@@ -9,6 +9,15 @@
 </ul>
 {% endif %}
 
+{% if ticket_delete_notifs.count > 0 %}
+<h1>Seznam smazaných tiketů</h1>
+<ul>
+    {% for notif in ticket_delete_notifs %}
+    <li>{{notif.fired}}: {{notif}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 {% if ack_notifs.count > 0 %}
 <h1>Změna stavu sledovaných tiketů</h1>
 <ul>

@@ -27,6 +27,7 @@ class Command(NoArgsCommand):
                         "expeditures_notifs": Notification.objects.filter(target_user=user, notification_type="expeditures_change"),
                         "media_notifs": Notification.objects.filter(target_user=user, notification_type="media_change"),
                         "ticket_new_notifs": Notification.objects.filter(target_user=user, notification_type="ticket_new"),
+                        "ticket_delete_notifs": Notification.objects.filter(target_user=user, notification_type="ticket_delete"),
                         "comment_notifs": Notification.objects.filter(target_user=user, notification_type="comment"),
                         "supervisor_notes_notifs": Notification.objects.filter(target_user=user, notification_type="supervisor_notes"),
                         "BASE_URL": settings.BASE_URL,
