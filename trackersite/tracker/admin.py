@@ -172,8 +172,17 @@ class TopicAdmin(admin.ModelAdmin):
 admin.site.register(models.Topic, TopicAdmin)
 
 
+class GrantAdminForm(forms.ModelForm):
+    class Meta:
+        model = models.Grant
+        help_texts = {'open_for_tickets': _('Modify this value by opening or closing topics in this grant to tickets')}
+        exclude = []
+
+
 class GrantAdmin(admin.ModelAdmin):
+    form = GrantAdminForm
     prepopulated_fields = {'slug': ('short_name',)}
+    readonly_fields = ('open_for_tickets',)
     list_display = ('full_name', 'open_for_tickets')
 
 
