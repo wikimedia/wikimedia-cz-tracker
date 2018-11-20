@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n widget_tweaks %}
+{% block title %}
+{% trans "Deactivate account" %}
+{% endblock %}
+
+{% block content %}
+<p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; <a href="{% url "preferences" %}">{% trans "preferences" %}</a> &gt; </p>
+
+<h1>
+    {% trans "Deactivate account" %}
+</h1>
+<p>
+    {% trans "Deactivating your account will mean that it is no longer possible to login." %}
+    {% trans "Deactivation is irreversible without the intervention of an admin." %}
+    {% trans "You can contact an admin by replying to the email which confirms the deactivation." %}
+    <br><br>
+    {% trans "The following account will be deactivated:" %}
+    <ul class="list-group">
+        <li class="list-group-item">{% trans "Username:" %} {{username}}</li>
+        <li class="list-group-item">{% trans "Email:" %} {{email}}</li>
+    </ul>
+</p>
+<br>
+<div class="container">
+    <form enctype="multipart/form-data" class="form-horizontal" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            {{ field.label_tag }} {{ field|add_class:"form-control" }}
+            <p>{{ field.errors }}</p>
+        {% endfor %}
+        <input class="form-control btn-danger" type="submit" value="{% trans "Deactivate my account" %}" />
+    </form>
+</div>
+{% endblock %}

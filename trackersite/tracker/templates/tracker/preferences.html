@@ -31,5 +31,11 @@
         {% endfor %}
         <input class="form-control" type="submit" value="{% trans "Save" %}" />
     </form>
+    <br>
+    <h3>{% trans "Account actions" %}</h3>
+    <a href="{% url "deactivate_account" %}">
+        <button class="btn btn-danger">{% trans "Deactivate account" %}</button>
+    </a>
 </div>
+<br>
 {% endblock %}

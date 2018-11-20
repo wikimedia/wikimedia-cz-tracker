@@ -14,11 +14,14 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden, HttpResponseBadRequest, Http404
 from django.utils.functional import curry
 from django.utils.translation import ugettext as _, ugettext_lazy
+from django.utils.html import strip_tags
 from django.http import JsonResponse
 from django.views.generic import ListView, DetailView, FormView, DeleteView
 from django.contrib.admin import widgets as adminwidgets
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.template.loader import get_template
+from django.template import Context
 from sendfile import sendfile
 from django.utils.translation import get_language
 import csv
@@ -405,6 +408,41 @@ def preferences(request):
             "notification_types": notification_types,
             "preferences_form": preferences_form
         })
+
+
+class DeactivateForm(forms.Form):
+    password = forms.CharField(
+        label=_("Please enter your password to confirm the deactivation of your account."),
+        widget=forms.PasswordInput
+    )
+
+
+@login_required
+def deactivate_account(request):
+    if request.method == "POST":
+        form = DeactivateForm(request.POST)
+        if form.is_valid():
+            form_password = form.cleaned_data['password']
+            if request.user.check_password(form_password):
+                request.user.is_active = False
+                request.user.save()
+                if request.user.email:
+                    email_subject = "[WMCZ Tracker] %s" % _("Account deactivation")
+                    email_html_tempate = get_template('tracker/user_deactivate_email.html')
+                    html_context_dict = {"username": request.user.username}
+                    email_context = Context(html_context_dict)
+                    request.user.email_user(email_subject,
+                                            strip_tags(email_html_tempate.render(email_context)),
+                                            html_message=email_html_tempate.render(email_context))
+                messages.success(request, _('Your account has been deactivated.'))
+                return HttpResponseRedirect(reverse('tracker_logout'))
+            else:
+                form.add_error("password", _("Password is incorrect."))
+    else:
+        form = DeactivateForm()
+    return render(request, 'tracker/user_deactivate.html', {'form': form,
+                                                            'username': request.user.username,
+                                                            'email': request.user.email})
 
 
 @login_required
