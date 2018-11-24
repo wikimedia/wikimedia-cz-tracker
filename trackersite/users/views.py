@@ -28,6 +28,10 @@ class RegisterView(CreateView):
     def form_valid(self, form):
         form.save()
         messages.success(self.request, _('User %s created.') % form.cleaned_data['username'])
+        new_user = auth.authenticate(username=form.cleaned_data['username'],
+                                     password=form.cleaned_data['password1'])
+        auth.login(self.request, new_user)
+
         return HttpResponseRedirect(reverse('ticket_list'))
 
 
