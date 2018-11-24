@@ -1,12 +1,12 @@
 .alert-danger {
-    color: #a94442 !important;
-    background-color: #f2dede !important;
-    border-color: #ebccd1 !important;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }
 
 @media (max-width: 768px) {
     .btn {
-        margin-bottom: 0.3em !important;
+        margin-bottom: 0.3em;
     }
 }
 

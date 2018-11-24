@@ -1,9 +1,8 @@
 {% extends "primitive_base.html" %}
 {% load i18n %}
 
-{% block head %}{{ block.super }}
+{% block head %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="{{STATIC_URL}}teh-tracker.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{{STATIC_URL}}admin/{% endfilter %}";</script>
 <script type="text/javascript" src="{% url "django.views.i18n.javascript_catalog" %}"></script>
 <script type="text/javascript" src="{{STATIC_URL}}datatables-init.js"></script>
@@ -12,6 +11,8 @@
 <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="{{STATIC_URL}}jquery.dataTables.js"></script>
 
+{{ block.super }}
+<link href="{{STATIC_URL}}teh-tracker.css" rel="stylesheet" type="text/css" />
 {{form_media}}{% endblock %}
 
 {% block language_code %}{{LANGUAGE_CODE}}{% endblock %}
