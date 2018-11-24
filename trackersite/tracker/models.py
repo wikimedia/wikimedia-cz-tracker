@@ -404,6 +404,13 @@ class Ticket(CachedModel):
 class TicketModerator(CommentModerator):
     enable_field = 'enable_comments'
 
+    def allow(self, comment, content_object, request):
+        is_allowed = super(TicketModerator, self).allow(comment, content_object, request)
+        if not is_allowed:
+            if request.user.has_perm("tracker.bypass_disabled_comments"):
+                is_allowed = True
+        return is_allowed
+
 
 moderator.register(Ticket, TicketModerator)
 
@@ -806,6 +813,9 @@ class TrackerProfile(models.Model):
     class Meta:
         verbose_name = _('Tracker profile')
         verbose_name_plural = _('Tracker profiles')
+        permissions = (
+            ("bypass_disabled_comments", "Can post comments even if they are not enabled."),
+        )
 
 
 @receiver(post_save, sender=User)
