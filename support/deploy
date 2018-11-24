@@ -4,7 +4,8 @@ set -e
 scriptdir="`dirname \"$0\"`"
 cd $scriptdir/../
 if [ "$1" != "--no-pull" ]; then
-	git pull --ff-only
+    git checkout master
+    git pull --ff-only
 fi
 source deploy/pyenv/bin/activate
 pip install -U pip
