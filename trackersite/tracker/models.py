@@ -1031,7 +1031,7 @@ def notify_ticket_change_2(sender, instance, **kwargs):
 @receiver(post_delete, sender=Ticket)
 def notify_ticket_delete(sender, instance, **kwargs):
     if instance.id is not None:
-        text = u'Watched ticket "%s" has been deleted by admin %s' % (instance, get_user())
+        text = u'Tiket "%s" byl smazán uživatelem %s' % (instance, get_user())
         Notification.fire_notification(instance, text, "ticket_delete", get_user(True))
 
 
