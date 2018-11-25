@@ -448,29 +448,40 @@ def deactivate_account(request):
 @login_required
 def watch_ticket(request, pk):
     ticket = get_object_or_404(Ticket, id=pk)
-    if ticket.requested_user == request.user:
-        messages.warning(request, _('You cannot watch tickets you own explictely. You are already subscribed to all notifications.'))
-        return HttpResponseRedirect(ticket.get_absolute_url())
-    if request.user in ticket.topic.admin.all():
-        messages.warning(request, _('You cannot watch ticket in topic you are an admin of explicitely. You are already subscribed to all notifications.'))
-        return HttpResponseRedirect(ticket.get_absolute_url())
+    hidden_notifications = ["ticket_new", "muted"]
     if request.method == 'POST':
+        create_watchers = True
+        if request.user in ticket.topic.admin.all() or request.user == ticket.requested_user:
+            all_notification_types_in_post = True
+            for notification_type in NOTIFICATION_TYPES:
+                if not notification_type[0] in request.POST and notification_type[0] not in hidden_notifications:
+                    all_notification_types_in_post = False
+            if all_notification_types_in_post:
+                create_watchers = False
         for watcher in Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id, user=request.user):
             watcher.delete()
-        for notification_type in NOTIFICATION_TYPES:
-            if notification_type[0] in request.POST:
-                Watcher.objects.create(watcher_type='Ticket', watched=ticket, user=request.user, notification_type=notification_type[0])
+        if create_watchers:
+            has_created_watcher = False
+            for notification_type in NOTIFICATION_TYPES:
+                if notification_type[0] in request.POST:
+                    has_created_watcher = True
+                    Watcher.objects.create(watcher_type='Ticket', watched=ticket, user=request.user, notification_type=notification_type[0])
+            if not has_created_watcher and (request.user in ticket.topic.admin.all() or request.user == ticket.requested_user):
+                Watcher.objects.create(watcher_type='Ticket', watched=ticket, user=request.user,
+                                       notification_type="muted")
         messages.success(request, _("Ticket's %s watching settings are changed.") % ticket)
         return HttpResponseRedirect(ticket.get_absolute_url())
     else:
         notification_types = []
+        user_is_admin_or_owner_and_no_watcher = (request.user in ticket.topic.admin.all() or request.user == ticket.requested_user) and not Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id, user=request.user).exists()
+
         for notification_type in NOTIFICATION_TYPES:
-            if notification_type[0] == 'ticket_new':
-                continue  # Watching ticket created event on particular ticket doesn't make sense
+            if notification_type[0] in hidden_notifications:
+                continue
             notification_types.append((
                 notification_type[0],
                 notification_type[1],
-                ticket.watches(request.user, notification_type[0])
+                ticket.watches(request.user, notification_type[0]) if not user_is_admin_or_owner_and_no_watcher else True
             ))
         return render(request, 'tracker/watch.html', {
             "object": get_object_or_404(Ticket, id=pk),
@@ -482,24 +493,39 @@ def watch_ticket(request, pk):
 @login_required
 def watch_topic(request, pk):
     topic = get_object_or_404(Topic, id=pk)
-    if request.user in topic.admin.all():
-        messages.warning(request, _('You cannot watch topic you are an admin of explicitely. You are already subscribed to all notifications.'))
-        return HttpResponseRedirect(topic.get_absolute_url())
+    hidden_notifications = ["muted"]
     if request.method == 'POST':
+        create_watchers = True
+        if request.user in topic.admin.all():
+            all_notification_types_in_post = True
+            for notification_type in NOTIFICATION_TYPES:
+                if not notification_type[0] in request.POST and notification_type[0] not in hidden_notifications:
+                    all_notification_types_in_post = False
+            if all_notification_types_in_post:
+                create_watchers = False
         for watcher in Watcher.objects.filter(watcher_type='Topic', object_id=topic.id, user=request.user):
             watcher.delete()
-        for notification_type in NOTIFICATION_TYPES:
-            if notification_type[0] in request.POST:
-                Watcher.objects.create(watcher_type='Topic', watched=topic, user=request.user, notification_type=notification_type[0])
+        if create_watchers:
+            has_created_watcher = False
+            for notification_type in NOTIFICATION_TYPES:
+                if notification_type[0] in request.POST:
+                    has_created_watcher = True
+                    Watcher.objects.create(watcher_type='Topic', watched=topic, user=request.user, notification_type=notification_type[0])
+            if not has_created_watcher and request.user in topic.admin.all():
+                Watcher.objects.create(watcher_type='Topic', watched=topic, user=request.user,
+                                       notification_type="muted")
         messages.success(request, _("Topic's %s watching settings are changed.") % topic)
         return HttpResponseRedirect(topic.get_absolute_url())
     else:
         notification_types = []
+        user_is_admin_and_no_watcher = request.user in topic.admin.all() and not Watcher.objects.filter(watcher_type='Topic', object_id=topic.id, user=request.user).exists()
         for notification_type in NOTIFICATION_TYPES:
+            if notification_type[0] in hidden_notifications:
+                continue
             notification_types.append((
                 notification_type[0],
                 notification_type[1],
-                topic.watches(request.user, notification_type[0])
+                topic.watches(request.user, notification_type[0]) if not user_is_admin_and_no_watcher else True
             ))
         return render(request, 'tracker/watch.html', {
             "object": topic,
@@ -569,8 +595,7 @@ def create_ticket(request):
             if ticket.topic.ticket_preexpenses:
                 preexpeditures.instance = ticket
                 preexpeditures.save()
-
-            messages.success(request, _('Ticket %s created.') % ticket)
+            messages.success(request, _('Ticket %s is created') % ticket)
             return HttpResponseRedirect(ticket.get_absolute_url())
     else:
         initial = {'event_date': datetime.date.today()}

@@ -56,6 +56,7 @@ NOTIFICATION_TYPES = [
     ('preexpeditures_change', _('Preexpeditures changed')),
     ('expeditures_change', _('Expeditures changed')),
     ('media_change', _('Media changed')),
+    ('muted', _('No notifications')),
 ]
 
 USER_EDITABLE_ACK_TYPES = ('user_precontent', 'user_content', 'user_docs')
@@ -335,7 +336,11 @@ class Ticket(CachedModel):
 
     def watches(self, user, event):
         """Watches given user this ticket?"""
-        return self.topic.watches(user, event) or (user.is_authenticated() and len(Watcher.objects.filter(watcher_type='Ticket', object_id=self.id, user=user, notification_type=event)) > 0)
+        if self.topic.watches(user, event) and not Watcher.objects.filter(watcher_type='Ticket', object_id=self.id, user=user).exists():
+            return True
+        if user.is_authenticated and Watcher.objects.filter(watcher_type='Ticket', object_id=self.id, user=user, notification_type=event).exists():
+            return True
+        return False
 
     def can_edit(self, user):
         """ Can given user edit this ticket through a non-admin interface? """
@@ -939,12 +944,24 @@ class Notification(models.Model):
 
     @staticmethod
     def fire_notification(ticket, text, notification_type, sender, additional=set()):
+        users = set([])
         if ticket.requested_user is not None:
-            initial_user = [ticket.requested_user]
-        else:
-            initial_user = []
-        users = set(initial_user)
+            users = {ticket.requested_user}
+            if Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id, user=ticket.requested_user).exists() \
+                    or Watcher.objects.filter(watcher_type='Topic', object_id=ticket.topic.id,
+                                              user=ticket.requested_user).exists() \
+                    or Watcher.objects.filter(watcher_type='Grant', object_id=ticket.topic.grant.id,
+                                              user=ticket.requested_user).exists():
+                users.remove(ticket.requested_user)
         admins = set(ticket.topic.admin.all())
+        admins_to_be_removed_from_set = []
+        for admin in admins:
+            if Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id, user=admin).exists() \
+                    or Watcher.objects.filter(watcher_type='Topic', object_id=ticket.topic.id, user=admin).exists() \
+                    or Watcher.objects.filter(watcher_type='Grant', object_id=ticket.topic.grant.id, user=admin).exists():
+                admins_to_be_removed_from_set.append(admin)
+        for admin in admins_to_be_removed_from_set:
+            admins.remove(admin)
         topicwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Topic', object_id=ticket.topic.id, notification_type=notification_type)])
         ticketwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id, notification_type=notification_type)])
         grantwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Grant', object_id=ticket.topic.grant.id, notification_type=notification_type)])
