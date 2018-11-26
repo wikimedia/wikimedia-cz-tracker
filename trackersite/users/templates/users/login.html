@@ -4,7 +4,7 @@
 {% block title %}{% trans "Login" %}{% endblock %}
 
 {% block content %}
-{% if request.GET.next %}<p>{% trans "You need to log in to access the following page." %}</p>{% endif %}
+{% if not request.GET.clicked and request.GET.next %}<p>{% trans "You need to log in to access the following page." %}</p>{% endif %}
 
 {% if form.errors %}
 <p>{% trans "Your username and password didn't match. Please try again." %}</p>
@@ -18,8 +18,7 @@
 {{ field.label_tag }} {{field|add_class:"form-control"}}
 {% endfor %}
 <br>
-<button class="btn btn-primary" type="submit" value="{% trans "login" %}">Login</button>
-<button class="btn btn-secundary hidden" type="hidden" name="next" value="{{ next }}"></button>
+<button class="btn btn-primary" type="submit" name="next" value="{{ next }}">{% trans "login" %}</button>
 </div>
 </form>
 

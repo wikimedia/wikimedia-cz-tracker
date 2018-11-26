@@ -45,7 +45,12 @@
 				<li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
 				<li><a href="{% url "tracker_logout" %}">{% trans "logout" %}</a></li>
 			{% else %}
-				<li><a href="{% url "tracker_login" %}">{% trans "login" %}</a></li>
+				{% url 'tracker_logout' as tracker_logout_url %}
+				{% if request.path != tracker_logout_url%}
+					<li><a href="{% url "tracker_login" %}?next={{request.path}}&clicked=True">{% trans "login" %}</a></li>
+				{% else %}
+					<li><a href="{% url "tracker_login" %}?clicked=True">{% trans "login" %}</a></li>
+				{% endif %}
 				<li><a href="{% url "register" %}">{% trans "register" %}</a></li>
 				<li><a href="{% url "choose_language" %}">change language</a></li>
 				<li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
