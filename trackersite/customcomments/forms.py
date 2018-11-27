@@ -8,6 +8,7 @@ from django.utils.encoding import force_unicode
 from django.contrib.contenttypes.models import ContentType
 from django_comments.models import Comment
 from django_comments.forms import CommentSecurityForm, COMMENT_MAX_LENGTH
+from request_provider.signals import get_request
 
 from snowpenguin.django.recaptcha2.fields import ReCaptchaField
 from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
@@ -15,11 +16,15 @@ from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 
 class CustomCommentForm(CommentSecurityForm):
     """
-    Handles i bit less details of the comment than the usual form
+    Handles a bit less details of the comment than the usual form
     """
     name = forms.CharField(label=_("Your name"), max_length=50)
     comment = forms.CharField(label=_('Comment'), widget=forms.Textarea, max_length=COMMENT_MAX_LENGTH)
-    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+
+    def __init__(self, *args, **kwargs):
+        super(CustomCommentForm, self).__init__(*args, **kwargs)
+        if not get_request().user.is_authenticated():
+            self.fields['captcha'] = ReCaptchaField(widget=ReCaptchaWidget())
 
     def get_comment_object(self, site_id=None):
         """
