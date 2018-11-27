@@ -1,15 +1,7 @@
-{% extends "primitive_base.html" %}
-{% block fulltitle %}500 Internal Error{% endblock %}
+{% extends "base.html" %}
+{% block title %}500 Internal Error{% endblock %}
 
-{% block head %}
-<style>
-<!--
-body { background-color: black; color: gray; text-align: center; }
--->
-</style>
-{{ block.super }}{% endblock %}
-
-{% block body %}
-<p><img src="http://cosmoboy.cz/rpl/images/a5.jpg" width="640" height="426" alt="Internal Error" /><br />
+{% block content %}
+<p class="errorPageText"><img src="http://cosmoboy.cz/rpl/images/a5.jpg" width="640" height="426" alt="Internal Error" /><br />
 There was an error processing you request. Sorry about that.</p>
 {% endblock %}

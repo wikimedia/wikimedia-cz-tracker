@@ -133,3 +133,5 @@ input[type=checkbox] {
     left: -4px;
     top: -3px;
 }
+
+.errorPageText{ text-align: center; }
