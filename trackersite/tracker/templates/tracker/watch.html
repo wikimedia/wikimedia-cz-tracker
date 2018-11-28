@@ -17,7 +17,7 @@
             <tbody>
                 <tr>
                     <td><label for="all">{% trans "All" %}</label></td>
-                    <td><input type="checkbox" name="all" id="all"></td>
+                    <td><input type="checkbox" {% if watches_all_notifications %} checked {% endif %} name="all" id="all"></td>
                 </tr>
 
                 <br>

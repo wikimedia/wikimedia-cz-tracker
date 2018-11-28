@@ -474,19 +474,23 @@ def watch_ticket(request, pk):
     else:
         notification_types = []
         user_is_admin_or_owner_and_no_watcher = (request.user in ticket.topic.admin.all() or request.user == ticket.requested_user) and not Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id, user=request.user).exists()
-
+        watches_all_notifications = True
         for notification_type in NOTIFICATION_TYPES:
             if notification_type[0] in hidden_notifications:
                 continue
+            notification_type_watched = ticket.watches(request.user, notification_type[0]) if not user_is_admin_or_owner_and_no_watcher else True
+            if not notification_type_watched:
+                watches_all_notifications = False
             notification_types.append((
                 notification_type[0],
                 notification_type[1],
-                ticket.watches(request.user, notification_type[0]) if not user_is_admin_or_owner_and_no_watcher else True
+                notification_type_watched
             ))
         return render(request, 'tracker/watch.html', {
             "object": get_object_or_404(Ticket, id=pk),
             "objecttype": _("ticket"),
             "notification_types": notification_types,
+            "watches_all_notifications": watches_all_notifications
         })
 
 
@@ -647,6 +651,7 @@ def edit_ticket(request, pk):
     ticket = get_object_or_404(Ticket, id=pk)
     if not ticket.can_edit(request.user):
         return HttpResponseForbidden(_('You cannot edit this ticket.'))
+
     TicketEditForm = get_edit_ticket_form_class(ticket)
 
     MediaInfoFormSet = mediainfoformset_factory(extra=1, can_delete=True)
