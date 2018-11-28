@@ -14,12 +14,23 @@
     <form enctype="multipart/form-data" class="form-horizontal" method="POST">
         <h3>{% trans "Mute notifications" %}</h3>
         {% csrf_token %}
-        <table>
+        <table class="dataTable">
             <tbody>
             {% for notification_type in notification_types %}
                 <tr>
-                    <td><label for="{{notification_type.0}}">{{notification_type.1}}</label></td>
+                    <td class="checkbox_label"><label for="{{notification_type.0}}">{{notification_type.1}}</label></td>
                     <td><input type="checkbox" name="{{notification_type.0}}" id="{{notification_type.0}}" {% if notification_type.2 %}checked{% endif %}></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <h3>{% trans "Ignore ack types" %}</h3>
+        <table class="dataTable">
+            <tbody>
+            {% for ack_type in ack_types %}
+                <tr>
+                    <td class="checkbox_label"><label for="{{ack_type.0}}">{{ack_type.1}}</label></td>
+                    <td><input type="checkbox" name="{{ack_type.0}}" id="{{ack_type.0}}" {% if ack_type.2 %}checked{% endif %}></td>
                 </tr>
             {% endfor %}
             </tbody>

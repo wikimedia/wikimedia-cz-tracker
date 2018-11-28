@@ -769,6 +769,7 @@ class Document(Model):
 class TrackerPreferences(models.Model):
     user = models.OneToOneField(User, null=True)
     muted_notifications = models.CharField('Muted notifications', max_length=300, blank=True)
+    muted_ack = models.CharField('Ignored acks', max_length=300, blank=True)
     display_items = models.IntegerField(_('Display items'), help_text=_('How many items should we display in tables at once'), default=25)
 
     def get_muted_notifications(self):
@@ -777,6 +778,14 @@ class TrackerPreferences(models.Model):
         res = []
         for muted_notification in json.loads(self.muted_notifications):
             res.append(muted_notification)
+        return res
+
+    def get_muted_ack(self):
+        if self.muted_ack == '':
+            return []
+        res = []
+        for muted_ack in json.loads(self.muted_ack):
+            res.append(muted_ack)
         return res
 
     class Meta:
@@ -943,7 +952,7 @@ class Notification(models.Model):
         return self.text
 
     @staticmethod
-    def fire_notification(ticket, text, notification_type, sender, additional=set()):
+    def fire_notification(ticket, text, notification_type, sender, additional=set(), ack_type=None):
         users = set([])
         if ticket.requested_user is not None:
             users = {ticket.requested_user}
@@ -970,6 +979,8 @@ class Notification(models.Model):
             if user == sender:
                 continue
             if notification_type in user.trackerpreferences.get_muted_notifications():
+                continue
+            if ack_type in user.trackerpreferences.get_muted_ack():
                 continue
             Notification.objects.create(text=text, notification_type=notification_type, target_user=user)
 
@@ -1055,13 +1066,13 @@ def notify_ticket_delete(sender, instance, **kwargs):
 @receiver(post_save, sender=TicketAck)
 def notify_ack_add(sender, instance, created, **kwargs):
     text = u"Ticketu <a href='%s%s'>%s</a> byl přidán stav <tt>%s</tt> uživatelem <tt>%s</tt>" % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket, instance.get_ack_type_display(), instance.added_by)
-    Notification.fire_notification(instance.ticket, text, "ack_add", get_user(True))
+    Notification.fire_notification(instance.ticket, text, "ack_add", get_user(True), ack_type=instance.ack_type)
 
 
 @receiver(post_delete, sender=TicketAck)
 def notify_ack_remove(sender, instance, **kwargs):
     text = u'U ticketu <a href="%s%s">%s</a> uživatel %s odebral stav <tt>%s</tt>' % (settings.BASE_URL, instance.ticket.get_absolute_url(), instance.ticket, instance.get_ack_type_display(), get_user())
-    Notification.fire_notification(instance.ticket, text, "ack_remove", get_user(True))
+    Notification.fire_notification(instance.ticket, text, "ack_remove", get_user(True), ack_type=instance.ack_type)
 
 
 @receiver(post_save, sender=Preexpediture)

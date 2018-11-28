@@ -27,7 +27,7 @@ from django.utils.translation import get_language
 import csv
 
 from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, Expediture, Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher
-from tracker.models import NOTIFICATION_TYPES
+from tracker.models import ACK_TYPES, NOTIFICATION_TYPES
 from users.models import UserWrapper
 
 
@@ -372,19 +372,25 @@ preexpeditureformset_factory = curry(inlineformset_factory, Ticket, Preexpeditur
 class PreferencesForm(forms.ModelForm):
     class Meta:
         model = TrackerPreferences
-        exclude = ('muted_notifications', 'user')
+        exclude = ('muted_notifications', 'muted_ack', 'user')
 
 
 @login_required()
 def preferences(request):
     if request.method == 'POST':
         muted = []
+        ack_muted = []
         for notification_type in NOTIFICATION_TYPES:
             if notification_type[0] in request.POST:
                 muted.append(notification_type[0])
                 del request.POST[notification_type[0]]
+        for ack_type in ACK_TYPES:
+            if ack_type[0] in request.POST:
+                ack_muted.append(ack_type[0])
+                del request.POST[ack_type[0]]
         request.user.trackerpreferences.muted_notifications = json.dumps(muted)
-        request.user.trackerprofile.save()
+        request.user.trackerpreferences.muted_ack = json.dumps(ack_muted)
+        request.user.trackerpreferences.save()
 
         pref_form = PreferencesForm(request.POST, instance=request.user.trackerpreferences)
         if pref_form.is_valid():
@@ -393,12 +399,20 @@ def preferences(request):
         return HttpResponseRedirect(request.path)
     else:
         notification_types = []
+        ack_types = []
         muted = request.user.trackerpreferences.get_muted_notifications()
+        ack_muted = request.user.trackerpreferences.get_muted_ack()
         for notification_type in NOTIFICATION_TYPES:
             notification_types.append((
                 notification_type[0],
                 notification_type[1],
                 notification_type[0] in muted,
+            ))
+        for ack_type in ACK_TYPES:
+            ack_types.append((
+                ack_type[0],
+                ack_type[1].capitalize(),
+                ack_type[0] in ack_muted,
             ))
         preferences_form = PreferencesForm(
             instance=request.user.trackerpreferences,
@@ -406,6 +420,7 @@ def preferences(request):
         )
         return render(request, 'tracker/preferences.html', {
             "notification_types": notification_types,
+            "ack_types": ack_types,
             "preferences_form": preferences_form
         })
 

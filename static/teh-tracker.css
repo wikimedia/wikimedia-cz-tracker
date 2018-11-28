@@ -22,6 +22,7 @@ tr.total td { font-weight: bold; }
 tr.mid_total td { border-top: 1px solid #666; }
 tr.first_total td { border-top: 2px solid black; }
 tr.grand_total td { border-bottom: double 3px black; }
+td.checkbox_label { width: 90%; }
 .ticket_list tr.total td { border-top: 2px solid black; }
 .hide-switch > .unhide { display: none; }
 .hiddencomment { display: none; }
