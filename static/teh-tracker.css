@@ -44,13 +44,62 @@ th.required { font-weight: bold; }
 th.required:after { padding-left: 0.2em; content: "*"; color: red; }
 
 .datetimeshortcuts img { border: none; }
-.calendarbox { background-color: white; border: 1px solid #ddd; }
-.calendarnav-next { float: right; }
-.calendarnav-previous, .calendarnav-next { padding: 0 1em 0 1em; background-color: #ddd; }
-.calendar-shortcuts { font-size: smaller; text-align: center; }
+.calendar caption {
+    text-align: center;
+    user-select: text
+}
+.calendar td, .calendar td > a {
+    color: #2a66d9;
+    text-align: center;
+    text-decoration: none;
+}
+.calendar th > a, .calendar th {
+    text-align: center;
+    text-decoration: none;
+}
+.calendarbox {
+    text-align: center;
+    user-select: none;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: #00000042 0px 0px 15px 0px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 560ms;
+}
+.calendarbox div:not(.calendar):not(.calendar-shortcuts) {
+    display: flex;
+}
+.calendarnav-previous, .calendarnav-next {
+    color: #fff;
+    padding: 0 1em 0 1em;
+    background-color: #2a66d9;
+    transition: ease-in 500ms;
+}
+.calendarnav-previous:hover, .calendarnav-next:hover, .calendarnav-previous:focus, .calendarnav-next:focus {
+    text-decoration: none;
+    color: #fff;
+    box-shadow: #518dff 0px 0px 6px 0px;
+    background-color: #518dff;
+}
+.calendarnav-next {
+    float: right;
+    border-radius: 0 5px 0 9px;
+}
+.calendarnav-previous {
+    border-radius: 5px 0 9px 0;
+    margin-right: auto;
+}
+.calendar-shortcuts { font-size: smaller; text-align: center; color: #212121 }
+.calendar-shortcuts a {
+    color: #2962FF;
+    transition: ease-in 300ms;
+}
+.calendar-shortcuts a:hover, .calendar-shortcuts a:active, .calendar-shortcuts a:focus {
+    text-decoration: none;
+    text-shadow: 0 0 16px #60bdfa;
+}
 .calendar-cancel { text-align: right; margin: 0.2em 0 0 0; }
-.calendar-cancel a { color: red; font-size: smaller; }
-.calendar-cancel a:hover { background-color: red; color: black; }
+.calendar-cancel a { color: #ff4242; font-size: smaller; padding: 3px; border-radius: 0 0 5px 0; transition: ease-in 200ms; }
+.calendar-cancel a:hover { background-color: #ff4242; color: #fff; text-decoration: none;}
 
 .empty-form { display:none; }
 td.money { text-align:right; }
@@ -88,7 +137,7 @@ input[type="submit"] {
 }
 
 .ticket-summary {
-	        font-weight: bold;
+	font-weight: bold;
 }
 
 input[type=checkbox] {
