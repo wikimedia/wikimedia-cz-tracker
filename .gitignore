@@ -1,2 +1,5 @@
 /.tox
 /deploy
+# Prevents from uploading configurations
+/.idea
+/.vscode
