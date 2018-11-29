@@ -15,6 +15,8 @@ js_info_dict = {
     # local site stuff should be covered by LOCALE_PATHS common setting
 }
 
+handler403 = 'errors.permission_denied'
+
 urlpatterns = patterns(
     '',
     url(r'^$', RedirectView.as_view(url='tickets/', permanent=False), name='index'),

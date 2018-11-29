@@ -11,7 +11,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden, HttpResponseBadRequest, Http404
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest, Http404
+from django.core.exceptions import PermissionDenied
 from django.utils.functional import curry
 from django.utils.translation import ugettext as _, ugettext_lazy
 from django.utils.html import strip_tags
@@ -153,7 +154,7 @@ class TicketAckDeleteView(DeleteView):
     def delete(self, request, *args, **kwargs):
         ack = self.get_object()
         if not (self.ticket.can_edit(request.user) and ack.user_removable):
-            return HttpResponseForbidden(_('You cannot edit this'))
+            raise PermissionDenied('You cannot edit this')
 
         ack_display = ack.get_ack_type_display()
         ack.delete()
@@ -679,7 +680,7 @@ def create_ticket(request):
 def edit_ticket(request, pk):
     ticket = get_object_or_404(Ticket, id=pk)
     if not ticket.can_edit(request.user):
-        return HttpResponseForbidden(_('You cannot edit this ticket.'))
+        raise PermissionDenied('You cannot edit this ticket')
 
     TicketEditForm = get_edit_ticket_form_class(ticket)
 
@@ -783,7 +784,7 @@ def document_view_required(access, ticket_id_field='pk'):
             if (access == 'read' and ticket.can_see_documents(request.user)) or (access == 'write' and ticket.can_edit_documents(request.user)):
                 return view(request, *args, **kwargs)
             else:
-                return HttpResponseForbidden(_("You cannot see this ticket's documents."))
+                raise PermissionDenied("You cannot see this ticket's documents.")
         return wrapped_view
 
     return actual_decorator
@@ -1461,7 +1462,7 @@ def export(request):
                     for user in users:
                         response.writerow([user.user.id, user.user.username, user.user.first_name, user.user.last_name, user.user.email, user.user.is_active, user.user.is_staff, user.user.is_superuser, user.user.last_login, user.user.date_joined, user.count_ticket_created(), user.accepted_expeditures(), user.paid_expeditures(), user.bank_account, user.other_contact, user.bank_account])
                     return response
-            return HttpResponseForbidden(_('You must be staffer in order to export users'))
+            raise PermissionDenied('You must be staffer in order to export users')
 
         return HttpResponseBadRequest(_('You must fill the form validly'))
     else:
@@ -1506,7 +1507,7 @@ def importcsv(request):
                     ticket.save()
             elif request.POST['type'] == 'topic':
                 if not request.user.is_staff:
-                    return HttpResponseForbidden(_('You must be staffer in order to be able import topics.'))
+                    raise PermissionDenied('You must be staffer in order to be able import topics.')
                 for line in reader:
                     imported += 1
                     if imported > 100 and not request.user.is_superuser:
@@ -1539,7 +1540,7 @@ def importcsv(request):
                     Topic.objects.create(name=name, grant_id=grant, open_for_tickets=new_tickets, ticket_media=media, ticket_preexpenses=preexpenses, ticket_expenses=expenses, description=description, form_description=form_description)
             elif request.POST['type'] == 'grant':
                 if not request.user.is_staff:
-                    return HttpResponseForbidden(_('You must be staffer in order to be able import grants.'))
+                    raise PermissionDenied('You must be staffer in order to be able import grants.')
                 for line in reader:
                     imported += 1
                     if imported > 100 and not request.user.is_superuser:
@@ -1569,7 +1570,7 @@ def importcsv(request):
                     if ticket.can_edit(request.user) or request.user.is_staff:
                         Expediture.objects.create(ticket=ticket, description=description, amount=amount, wage=wage, accounting_info=accounting_info, paid=paid)
                     else:
-                        return HttpResponseForbidden(_("You can't add preexpenses to ticket that you did not created."))
+                        raise PermissionDenied("You can't add preexpenses to ticket that you did not created.")
             elif request.POST['type'] == 'preexpense':
                 for line in reader:
                     imported += 1
@@ -1583,7 +1584,7 @@ def importcsv(request):
                     if ticket.can_edit(request.user) or request.user.is_staff:
                         Preexpediture.objects.create(ticket=ticket, description=description, amount=amount, wage=wage)
                     else:
-                        return HttpResponseForbidden(_("You can't add preexpenses to ticket that you did not created."))
+                        raise PermissionDenied("You can't add preexpenses to ticket that you did not created.")
             elif request.POST['type'] == 'media':
                 for line in reader:
                     imported += 1
@@ -1603,10 +1604,10 @@ def importcsv(request):
                         MediaInfo.objects.create(ticket=ticket, url=url, description=description, count=number)
                         ticket.save()
                     else:
-                        return HttpResponseForbidden(_("You can't add media items to ticket that you did not created."))
+                        raise PermissionDenied("You can't add media items to ticket that you did not created.")
             elif request.POST['type'] == 'user':
                 if not request.user.is_superuser:
-                    return HttpResponseForbidden(_('You must be superuser in order to be able import users.'))
+                    raise PermissionDenied('You must be superuser in order to be able import users.')
                 for line in reader:
                     username = line[header.index('username')]
                     password = line[header.index('password')]
@@ -1684,7 +1685,7 @@ def importcsv(request):
 def copypreexpeditures(request, pk):
     ticket = get_object_or_404(Ticket, id=pk)
     if not ticket.can_edit(request.user) or 'content' in ticket.ack_set():
-        return HttpResponseForbidden(_('You cannot edit this'))
+        raise PermissionDenied('You cannot edit this')
     for e in ticket.expediture_set.all():
         e.delete()
     for pe in ticket.preexpediture_set.all():

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}403 Forbidden{% endblock %}
+
+{% block content %}
+<h1 class="errorPageText">Forbidden</h1>
+<img src="/static/403.jpeg" alt="STOP!" title="Photo by Dominik Dvořák on Unsplash" width="100%" />
+{% if exception %}
+    <h4 class="errorPageText">{{ exception }}</h4>
+{% else %}
+    <h4 class="errorPageText">You don't have permissions to do this!</h4>
+{% endif %}
+{% endblock %}
