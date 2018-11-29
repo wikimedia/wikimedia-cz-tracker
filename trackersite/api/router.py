@@ -1,4 +1,16 @@
-from viewsets import *
+from viewsets import (
+    UserViewSet,
+    PermissionViewSet,
+    TrackerProfileViewSet,
+    GroupViewSet,
+    GrantViewSet,
+    TopicViewSet,
+    SubtopicViewSet,
+    TicketViewSet,
+    MediaInfoViewSet,
+    ExpeditureViewSet,
+    PreexpeditureViewSet
+)
 from rest_framework import routers
 
 # Routers provide an easy way of automatically determining the URL conf.

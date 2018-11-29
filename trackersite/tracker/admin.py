@@ -119,7 +119,8 @@ class TicketAdmin(admin.ModelAdmin):
         }))
 
     def get_urls(self):
-        return patterns('',
+        return patterns(
+            '',
             url(r'^(?P<object_id>\d+)/acks/add/$', self.add_ack),
             url(r'^(?P<object_id>\d+)/acks/remove/$', self.remove_ack),
         ) + super(TicketAdmin, self).get_urls()

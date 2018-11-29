@@ -5,7 +5,8 @@ from django.views.generic import DetailView, RedirectView
 from tracker.models import Grant
 from tracker import feeds
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^tickets/(?:page/(?P<page>\d+)/)?$', 'tracker.views.ticket_list', name='ticket_list'),
     url(r'ticket/watch/(?P<pk>\d+)/?$', 'tracker.views.watch_ticket', name='watch_ticket'),
     url(r'^tickets/feed/$', feeds.LatestTicketsFeed(), name='ticket_list_feed'),

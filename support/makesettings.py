@@ -10,7 +10,7 @@ MY_PATH = os.path.abspath(os.path.dirname(__file__))
 def main():
     target_path = os.path.abspath(os.path.join(MY_PATH, '..', 'trackersite', 'settings.py'))
     if os.path.exists(target_path):
-        print 'Don\'t want to overwrite %s.\nIf you\'re sure, delete it and try again.' % target
+        print 'Don\'t want to overwrite %s.\nIf you\'re sure, delete it and try again.' % target_path
         sys.exit(1)
 
     # make a template instance

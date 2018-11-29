@@ -15,7 +15,8 @@ js_info_dict = {
     # local site stuff should be covered by LOCALE_PATHS common setting
 }
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', RedirectView.as_view(url='tickets/', permanent=False), name='index'),
     url(r'', include(tracker.urls)),  # tracker urls are included directly in web root
     url(r'^admin/', include(admin.site.urls)),

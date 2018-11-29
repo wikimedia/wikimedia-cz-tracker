@@ -239,9 +239,11 @@ class TicketForm(forms.ModelForm):
 
     class Meta:
         model = Ticket
-        exclude = ('created', 'updated', 'requested_user', 'requested_text',
+        exclude = (
+            'created', 'updated', 'requested_user', 'requested_text',
             'custom_state', 'rating_percentage', 'supervisor_notes', 'cluster', 'payment_status',
-            'mandatory_report', 'imported', 'enable_comments')
+            'mandatory_report', 'imported', 'enable_comments'
+        )
         widgets = {
             'event_date': adminwidgets.AdminDateWidget(),
             'name': forms.TextInput(attrs={'size': '40'}),
@@ -357,16 +359,22 @@ def mediainfo_formfield(f, **kwargs):
     return f.formfield(**kwargs)
 
 
-mediainfoformset_factory = curry(inlineformset_factory, Ticket, MediaInfo,
-    formset=ExtraItemFormSet, fields=MEDIAINFO_FIELDS, formfield_callback=mediainfo_formfield)
+mediainfoformset_factory = curry(
+    inlineformset_factory, Ticket, MediaInfo,
+    formset=ExtraItemFormSet, fields=MEDIAINFO_FIELDS, formfield_callback=mediainfo_formfield
+)
 
 EXPEDITURE_FIELDS = ('description', 'amount', 'wage')
-expeditureformset_factory = curry(inlineformset_factory, Ticket, Expediture,
-    formset=ExtraItemFormSet, fields=EXPEDITURE_FIELDS)
+expeditureformset_factory = curry(
+    inlineformset_factory, Ticket, Expediture,
+    formset=ExtraItemFormSet, fields=EXPEDITURE_FIELDS
+)
 
 PREEXPEDITURE_FIELDS = ('description', 'amount', 'wage')
-preexpeditureformset_factory = curry(inlineformset_factory, Ticket, Preexpediture,
-    formset=ExtraItemFormSet, fields=PREEXPEDITURE_FIELDS)
+preexpeditureformset_factory = curry(
+    inlineformset_factory, Ticket, Preexpediture,
+    formset=ExtraItemFormSet, fields=PREEXPEDITURE_FIELDS
+)
 
 
 class PreferencesForm(forms.ModelForm):
@@ -757,8 +765,10 @@ def document_formfield(f, **kwargs):
     return f.formfield(**kwargs)
 
 
-documentformset_factory = curry(inlineformset_factory, Ticket, Document,
-    fields=DOCUMENT_FIELDS, formfield_callback=document_formfield)
+documentformset_factory = curry(
+    inlineformset_factory, Ticket, Document,
+    fields=DOCUMENT_FIELDS, formfield_callback=document_formfield
+)
 
 
 def document_view_required(access, ticket_id_field='pk'):

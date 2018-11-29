@@ -17,7 +17,7 @@ import StringIO
 import csv
 
 from users.models import UserWrapper
-from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, TrackerProfile, Document
+from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile, Document
 from django.conf import settings
 
 
@@ -200,13 +200,13 @@ class TicketTests(TestCase):
         self.assertEqual(400, response.status_code)
 
         response = c.post(reverse('create_ticket'), {
-                'mediainfo-INITIAL_FORMS': '0',
-                'mediainfo-TOTAL_FORMS': '0',
-                'expediture-INITIAL_FORMS': '0',
-                'expediture-TOTAL_FORMS': '0',
-                'preexpediture-INITIAL_FORMS': '0',
-                'preexpediture-TOTAL_FORMS': '0',
-            })
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
         self.assertEqual(200, response.status_code)
         self.assertFormError(response, 'ticketform', 'name', 'This field is required.')
         self.assertFormError(response, 'ticketform', 'deposit', 'This field is required.')
@@ -228,17 +228,17 @@ class TicketTests(TestCase):
         self.assertFormError(response, 'ticketform', 'statutory_declaration', 'You are required to do statutory declaration')
 
         response = c.post(reverse('create_ticket'), {
-                'name': 'ticket',
-                'topic': self.open_topic.id,
-                'description': 'some desc',
-                'deposit': '0',
-                'mediainfo-INITIAL_FORMS': '0',
-                'mediainfo-TOTAL_FORMS': '0',
-                'expediture-INITIAL_FORMS': '0',
-                'expediture-TOTAL_FORMS': '0',
-                'preexpediture-INITIAL_FORMS': '0',
-                'preexpediture-TOTAL_FORMS': '0',
-            })
+            'name': 'ticket',
+            'topic': self.open_topic.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
         self.assertEqual(302, response.status_code)
         self.assertEqual(1, Ticket.objects.count())
         ticket = Ticket.objects.order_by('-created')[0]
@@ -250,26 +250,26 @@ class TicketTests(TestCase):
     def test_ticket_creation_with_media(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-                'name': 'ticket',
-                'topic': self.open_topic.id,
-                'description': 'some desc',
-                'deposit': '0',
-                'mediainfo-INITIAL_FORMS': '0',
-                'mediainfo-TOTAL_FORMS': '3',
-                'mediainfo-0-count': '',
-                'mediainfo-0-description': 'image 1',
-                'mediainfo-0-url': 'http://www.example.com/image1.jpg',
-                'mediainfo-1-count': '',
-                'mediainfo-1-description': '',
-                'mediainfo-1-url': '',
-                'mediainfo-2-count': '3',
-                'mediainfo-2-description': 'image 2 - group',
-                'mediainfo-2-url': 'http://www.example.com/imagegroup/',
-                'expediture-INITIAL_FORMS': '0',
-                'expediture-TOTAL_FORMS': '0',
-                'preexpediture-INITIAL_FORMS': '0',
-                'preexpediture-TOTAL_FORMS': '0',
-            })
+            'name': 'ticket',
+            'topic': self.open_topic.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '3',
+            'mediainfo-0-count': '',
+            'mediainfo-0-description': 'image 1',
+            'mediainfo-0-url': 'http://www.example.com/image1.jpg',
+            'mediainfo-1-count': '',
+            'mediainfo-1-description': '',
+            'mediainfo-1-url': '',
+            'mediainfo-2-count': '3',
+            'mediainfo-2-description': 'image 2 - group',
+            'mediainfo-2-url': 'http://www.example.com/imagegroup/',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
         self.assertEqual(302, response.status_code)
         self.assertEqual(1, Ticket.objects.count())
         ticket = Ticket.objects.order_by('-created')[0]
@@ -286,17 +286,17 @@ class TicketTests(TestCase):
     def test_wrong_topic_id(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-                'name': 'ticket',
-                'topic': 'gogo',
-                'description': 'some desc',
-                'deposit': '0',
-                'mediainfo-INITIAL_FORMS': '0',
-                'mediainfo-TOTAL_FORMS': '0',
-                'expediture-INITIAL_FORMS': '0',
-                'expediture-TOTAL_FORMS': '0',
-                'preexpediture-INITIAL_FORMS': '0',
-                'preexpediture-TOTAL_FORMS': '0',
-            })
+            'name': 'ticket',
+            'topic': 'gogo',
+            'description': 'some desc',
+            'deposit': '0',
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
         self.assertEqual(200, response.status_code)
         self.assertFormError(response, 'ticketform', 'topic', 'Select a valid choice. That choice is not one of the available choices.')
 
@@ -306,53 +306,53 @@ class TicketTests(TestCase):
 
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-                'name': 'ticket',
-                'topic': closed_topic.id,
-                'description': 'some desc',
-                'deposit': '0',
-                'mediainfo-INITIAL_FORMS': '0',
-                'mediainfo-TOTAL_FORMS': '0',
-                'expediture-INITIAL_FORMS': '0',
-                'expediture-TOTAL_FORMS': '0',
-                'preexpediture-INITIAL_FORMS': '0',
-                'preexpediture-TOTAL_FORMS': '0',
-            })
+            'name': 'ticket',
+            'topic': closed_topic.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
         self.assertEqual(200, response.status_code)
         self.assertFormError(response, 'ticketform', 'topic', 'Select a valid choice. That choice is not one of the available choices.')
 
     def test_too_big_deposit(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-                'name': 'ticket',
-                'topic': self.open_topic.id,
-                'description': 'some desc',
-                'deposit': '100',
-                'mediainfo-INITIAL_FORMS': '0',
-                'mediainfo-TOTAL_FORMS': '0',
-                'expediture-INITIAL_FORMS': '0',
-                'expediture-TOTAL_FORMS': '0',
-                'preexpediture-INITIAL_FORMS': '0',
-                'preexpediture-TOTAL_FORMS': '0',
-            })
+            'name': 'ticket',
+            'topic': self.open_topic.id,
+            'description': 'some desc',
+            'deposit': '100',
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
         self.assertEqual(200, response.status_code)
         self.assertFormError(response, 'ticketform', 'deposit', 'Your deposit is bigger than your preexpeditures')
 
     def test_too_big_deposit2(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-                'name': 'ticket',
-                'topic': self.open_topic.id,
-                'description': 'some desc',
-                'deposit': '50.01',
-                'mediainfo-INITIAL_FORMS': '0',
-                'mediainfo-TOTAL_FORMS': '0',
-                'expediture-INITIAL_FORMS': '0',
-                'expediture-TOTAL_FORMS': '0',
-                'preexpediture-INITIAL_FORMS': '0',
-                'preexpediture-TOTAL_FORMS': '1',
-                'preexpediture-0-description': 'foo',
-                'preexpediture-0-amount': '50',
-            })
+            'name': 'ticket',
+            'topic': self.open_topic.id,
+            'description': 'some desc',
+            'deposit': '50.01',
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '1',
+            'preexpediture-0-description': 'foo',
+            'preexpediture-0-amount': '50',
+        })
         self.assertEqual(200, response.status_code)
         self.assertFormError(response, 'ticketform', 'deposit', 'Your deposit is bigger than your preexpeditures')
 
@@ -396,22 +396,22 @@ class TicketTests(TestCase):
     def test_correct_deposit(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
-                'name': 'ticket',
-                'topic': self.open_topic.id,
-                'description': 'some desc',
-                'deposit': '30.1',
-                'mediainfo-INITIAL_FORMS': '0',
-                'mediainfo-TOTAL_FORMS': '0',
-                'expediture-INITIAL_FORMS': '0',
-                'expediture-TOTAL_FORMS': '0',
-                'preexpediture-INITIAL_FORMS': '0',
-                'preexpediture-TOTAL_FORMS': '2',
-                'preexpediture-0-description': 'pre1',
-                'preexpediture-0-amount': '10.0',
-                'preexpediture-1-description': 'pre2',
-                'preexpediture-1-amount': '20.1',
-                'preexpediture-1-wage': 'true',
-            })
+            'name': 'ticket',
+            'topic': self.open_topic.id,
+            'description': 'some desc',
+            'deposit': '30.1',
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '2',
+            'preexpediture-0-description': 'pre1',
+            'preexpediture-0-amount': '10.0',
+            'preexpediture-1-description': 'pre2',
+            'preexpediture-1-amount': '20.1',
+            'preexpediture-1-wage': 'true',
+        })
         self.assertEqual(302, response.status_code)
         self.assertEqual(1, Ticket.objects.count())
         ticket = Ticket.objects.order_by('-created')[0]
@@ -486,17 +486,17 @@ class TicketEditTests(TestCase):
 
         # try to submit the form
         response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
-                'name': 'new name',
-                'topic': ticket.topic.id,
-                'description': 'new desc',
-                'deposit': '0',
-                'mediainfo-INITIAL_FORMS': '0',
-                'mediainfo-TOTAL_FORMS': '0',
-                'expediture-INITIAL_FORMS': '0',
-                'expediture-TOTAL_FORMS': '0',
-                'preexpediture-INITIAL_FORMS': '0',
-                'preexpediture-TOTAL_FORMS': '0',
-            })
+            'name': 'new name',
+            'topic': ticket.topic.id,
+            'description': 'new desc',
+            'deposit': '0',
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
         self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
 
         # check changed ticket data
@@ -507,67 +507,67 @@ class TicketEditTests(TestCase):
 
         # b0rked media item aborts the submit
         response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
-                'name': 'ticket',
-                'topic': ticket.topic.id,
-                'description': 'some desc',
-                'deposit': '0',
-                'mediainfo-INITIAL_FORMS': '0',
-                'mediainfo-TOTAL_FORMS': '1',
-                'mediainfo-0-count': 'foo',
-                'mediainfo-0-description': 'image 1',
-                'mediainfo-0-url': 'http://www.example.com/image1.jpg',
-                'expediture-INITIAL_FORMS': '0',
-                'expediture-TOTAL_FORMS': '0',
-                'preexpediture-INITIAL_FORMS': '0',
-                'preexpediture-TOTAL_FORMS': '0',
-            })
+            'name': 'ticket',
+            'topic': ticket.topic.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '1',
+            'mediainfo-0-count': 'foo',
+            'mediainfo-0-description': 'image 1',
+            'mediainfo-0-url': 'http://www.example.com/image1.jpg',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
         self.assertEqual(200, response.status_code)
         self.assertEqual('Enter a whole number.', response.context['mediainfo'].forms[0].errors['count'][0])
 
         # b0rked expediture items aborts the submit
         response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
-                'name': 'ticket',
-                'topic': ticket.topic.id,
-                'description': 'some desc',
-                'deposit': '0',
-                'mediainfo-INITIAL_FORMS': '0',
-                'mediainfo-TOTAL_FORMS': '0',
-                'expediture-INITIAL_FORMS': '0',
-                'expediture-TOTAL_FORMS': '1',
-                'expediture-0-description': 'foo',
-                'expediture-0-amount': '',
-                'preexpediture-INITIAL_FORMS': '0',
-                'preexpediture-TOTAL_FORMS': '0',
-            })
+            'name': 'ticket',
+            'topic': ticket.topic.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '1',
+            'expediture-0-description': 'foo',
+            'expediture-0-amount': '',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
         self.assertEqual(200, response.status_code)
         self.assertEqual('This field is required.', response.context['expeditures'].forms[0].errors['amount'][0])
 
         # add some inline items
         response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
-                'name': 'new name',
-                'topic': ticket.topic.id,
-                'description': 'new desc',
-                'deposit': '0',
-                'mediainfo-INITIAL_FORMS': '0',
-                'mediainfo-TOTAL_FORMS': '3',
-                'mediainfo-0-count': '',
-                'mediainfo-0-description': 'image 1',
-                'mediainfo-0-url': 'http://www.example.com/image1.jpg',
-                'mediainfo-1-count': '',
-                'mediainfo-1-description': '',
-                'mediainfo-1-url': '',
-                'mediainfo-2-count': '3',
-                'mediainfo-2-description': 'image 2 - group',
-                'mediainfo-2-url': 'http://www.example.com/imagegroup/',
-                'expediture-INITIAL_FORMS': '0',
-                'expediture-TOTAL_FORMS': '2',
-                'expediture-0-description': 'ten fifty',
-                'expediture-0-amount': '10.50',
-                'expediture-1-description': 'hundred',
-                'expediture-1-amount': '100',
-                'preexpediture-INITIAL_FORMS': '0',
-                'preexpediture-TOTAL_FORMS': '0',
-            })
+            'name': 'new name',
+            'topic': ticket.topic.id,
+            'description': 'new desc',
+            'deposit': '0',
+            'mediainfo-INITIAL_FORMS': '0',
+            'mediainfo-TOTAL_FORMS': '3',
+            'mediainfo-0-count': '',
+            'mediainfo-0-description': 'image 1',
+            'mediainfo-0-url': 'http://www.example.com/image1.jpg',
+            'mediainfo-1-count': '',
+            'mediainfo-1-description': '',
+            'mediainfo-1-url': '',
+            'mediainfo-2-count': '3',
+            'mediainfo-2-description': 'image 2 - group',
+            'mediainfo-2-url': 'http://www.example.com/imagegroup/',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '2',
+            'expediture-0-description': 'ten fifty',
+            'expediture-0-amount': '10.50',
+            'expediture-1-description': 'hundred',
+            'expediture-1-amount': '100',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
         self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
         media = ticket.mediainfo_set.order_by('description')
         self.assertEqual(2, len(media))
@@ -586,38 +586,38 @@ class TicketEditTests(TestCase):
 
         # edit inline items
         response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
-                'name': 'new name',
-                'topic': ticket.topic.id,
-                'description': 'new desc',
-                'deposit': '0',
-                'mediainfo-INITIAL_FORMS': '2',
-                'mediainfo-TOTAL_FORMS': '3',
-                'mediainfo-0-id': media[0].id,
-                'mediainfo-0-count': '1',
-                'mediainfo-0-description': 'image 1 - edited',
-                'mediainfo-0-url': 'http://www.example.com/second.jpg',
-                'mediainfo-1-id': media[1].id,
-                'mediainfo-1-DELETE': 'on',
-                'mediainfo-1-count': '3',
-                'mediainfo-1-description': 'image 2 - group',
-                'mediainfo-1-url': 'http://www.example.com/imagegroup/',
-                'mediainfo-2-count': '',
-                'mediainfo-2-description': '',
-                'mediainfo-2-url': '',
-                'expediture-INITIAL_FORMS': '2',
-                'expediture-TOTAL_FORMS': '3',
-                'expediture-0-id': expeditures[0].id,
-                'expediture-0-description': 'ten fifty',
-                'expediture-0-amount': '10.50',
-                'expediture-0-DELETE': 'on',
-                'expediture-1-id': expeditures[1].id,
-                'expediture-1-description': 'hundred+1',
-                'expediture-1-amount': '101',
-                'expediture-2-description': '',
-                'expediture-2-amount': '',
-                'preexpediture-INITIAL_FORMS': '0',
-                'preexpediture-TOTAL_FORMS': '0',
-            })
+            'name': 'new name',
+            'topic': ticket.topic.id,
+            'description': 'new desc',
+            'deposit': '0',
+            'mediainfo-INITIAL_FORMS': '2',
+            'mediainfo-TOTAL_FORMS': '3',
+            'mediainfo-0-id': media[0].id,
+            'mediainfo-0-count': '1',
+            'mediainfo-0-description': 'image 1 - edited',
+            'mediainfo-0-url': 'http://www.example.com/second.jpg',
+            'mediainfo-1-id': media[1].id,
+            'mediainfo-1-DELETE': 'on',
+            'mediainfo-1-count': '3',
+            'mediainfo-1-description': 'image 2 - group',
+            'mediainfo-1-url': 'http://www.example.com/imagegroup/',
+            'mediainfo-2-count': '',
+            'mediainfo-2-description': '',
+            'mediainfo-2-url': '',
+            'expediture-INITIAL_FORMS': '2',
+            'expediture-TOTAL_FORMS': '3',
+            'expediture-0-id': expeditures[0].id,
+            'expediture-0-description': 'ten fifty',
+            'expediture-0-amount': '10.50',
+            'expediture-0-DELETE': 'on',
+            'expediture-1-id': expeditures[1].id,
+            'expediture-1-description': 'hundred+1',
+            'expediture-1-amount': '101',
+            'expediture-2-description': '',
+            'expediture-2-amount': '',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        })
         self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
         media = ticket.mediainfo_set.all()
         self.assertEqual(1, len(media))
