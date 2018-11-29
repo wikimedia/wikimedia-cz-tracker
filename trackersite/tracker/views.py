@@ -377,6 +377,7 @@ class PreferencesForm(forms.ModelForm):
 
 @login_required()
 def preferences(request):
+    hidden_notifications = ['muted']
     if request.method == 'POST':
         muted = []
         ack_muted = []
@@ -403,6 +404,8 @@ def preferences(request):
         muted = request.user.trackerpreferences.get_muted_notifications()
         ack_muted = request.user.trackerpreferences.get_muted_ack()
         for notification_type in NOTIFICATION_TYPES:
+            if notification_type[0] in hidden_notifications:
+                continue
             notification_types.append((
                 notification_type[0],
                 notification_type[1],
@@ -556,6 +559,7 @@ def watch_topic(request, pk):
 @login_required
 def watch_grant(request, pk):
     grant = get_object_or_404(Grant, id=pk)
+    hidden_notifications = ["muted"]
     if request.method == 'POST':
         for watcher in Watcher.objects.filter(watcher_type='Grant', object_id=grant.id, user=request.user):
             watcher.delete()
@@ -567,6 +571,8 @@ def watch_grant(request, pk):
     else:
         notification_types = []
         for notification_type in NOTIFICATION_TYPES:
+            if notification_type[0] in hidden_notifications:
+                continue
             notification_types.append((
                 notification_type[0],
                 notification_type[1],
