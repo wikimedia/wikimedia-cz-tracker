@@ -23,9 +23,9 @@ class Command(NoArgsCommand):
                     c_dict = {
                         "ack_notifs": Notification.objects.filter(target_user=user, notification_type__in=["ack_add", "ack_remove"]),
                         "ticket_change_notifs": Notification.objects.filter(target_user=user, notification_type__in=["ticket_change", "ticket_change_all"]),
-                        "preexpeditures_notifs": Notification.objects.filter(target_user=user, notification_type="preexpeditures_change"),
-                        "expeditures_notifs": Notification.objects.filter(target_user=user, notification_type="expeditures_change"),
-                        "media_notifs": Notification.objects.filter(target_user=user, notification_type="media_change"),
+                        "preexpeditures_notifs": Notification.objects.filter(target_user=user, notification_type__in=["preexpeditures_change", "preexpeditures_new"]),
+                        "expeditures_notifs": Notification.objects.filter(target_user=user, notification_type__in=["expeditures_change", "expeditures_new"]),
+                        "media_notifs": Notification.objects.filter(target_user=user, notification_type__in=["media_change", "media_new"]),
                         "ticket_new_notifs": Notification.objects.filter(target_user=user, notification_type="ticket_new"),
                         "ticket_delete_notifs": Notification.objects.filter(target_user=user, notification_type="ticket_delete"),
                         "comment_notifs": Notification.objects.filter(target_user=user, notification_type="comment"),

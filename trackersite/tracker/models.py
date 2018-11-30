@@ -53,8 +53,11 @@ NOTIFICATION_TYPES = [
     ('ack_add', _('Ack added')),
     ('ack_remove', _('Ack removed')),
     ('ticket_change', _('Ticket changed')),
+    ('preexpeditures_new', _('New preexpediture was created')),
     ('preexpeditures_change', _('Preexpeditures changed')),
+    ('expeditures_new', _('New expediture was created')),
     ('expeditures_change', _('Expeditures changed')),
+    ('media_new', _('New media was created')),
     ('media_change', _('Media changed')),
     ('muted', _('No notifications')),
 ]
@@ -978,6 +981,13 @@ class Notification(models.Model):
         ticketwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id, notification_type=notification_type)])
         grantwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Grant', object_id=ticket.topic.grant.id, notification_type=notification_type)])
         users = users.union(admins, topicwatchers, ticketwatchers, grantwatchers)
+
+        # Don't create a Notification again if there's already the exact same
+        # notification in the database.
+        if len(Notification.objects.filter(
+                text=raw_text, notification_type=notification_type)) > 0:
+            return
+
         for user in users:
             if user == sender:
                 continue
@@ -1135,17 +1145,47 @@ def notify_ack_remove(sender, instance, **kwargs):
 
 @receiver(post_save, sender=Preexpediture)
 def notify_preexpediture(sender, instance, created, raw, **kwargs):
-    if len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
+    if (len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0 and
+            created):
+        # HACK: It turns out `instance` and Preexpediture. objects.get(id=instance.id)
+        # are different. Especially for the `Preexpediture.amount` field which
+        # is intended to be a Decimal with precision of 2 digits.
+        # For example if the wage was (2.00)
+        # If we printed the stringified `instance.wage`, we'd get "2"
+        # on the other hand, if we printed the stringified of
+        # `Preexpediture.objects.get(id=instance.id)` (from the database)
+        # we'd get "2.00".
+        #
+        # We use the data given by the database rather than the instance
+        # because it will affect how `notify_preexpediture_change()`
+        # and `notify_del_preexpediture()` will work.
+        preexpediture_instance = Preexpediture.objects.get(id=instance.id)
+
+        text_data = {
+            'user': get_user(),
+            'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
+            'expeditures': preexpediture_instance,
+            'ticket': instance.ticket
+        }
+        text = 'User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+        Notification.fire_notification(instance.ticket, text, "preexpeditures_new", get_user(True), text_data=text_data)
+
+
+@receiver(pre_save, sender=Preexpediture)
+def notify_preexpediture_change(sender, instance, **kwargs):
+    if instance.id is not None:
+        old = Preexpediture.objects.get(id=instance.id)
+        if Notification.objects.filter(text__contains=str(old), notification_type="preexpeditures_new"):
+            return
+
         text_data = {
             'user': get_user(),
             'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
             'expeditures': instance,
             'ticket': instance.ticket
         }
-        if created:
-            text = 'User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
-        else:
-            text = 'User <tt>%(user)s</tt> changed planned expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+
+        text = 'User <tt>%(user)s</tt> changed planned expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
         Notification.fire_notification(instance.ticket, text, "preexpeditures_change", get_user(True), text_data=text_data)
 
 
@@ -1164,17 +1204,37 @@ def notify_del_preexpediture(sender, instance, **kwargs):
 
 @receiver(post_save, sender=Expediture)
 def notify_expediture(sender, instance, created, raw, **kwargs):
-    if len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
+    if (len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type__in=["ticket_new", "expeditures_new"])) == 0 and
+            created):
+        # HACK: See comments in `notify_preexpediture()`
+        expediture_instance = Expediture.objects.get(id=instance.id)
+
+        text_data = {
+            'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
+            'ticket': instance.ticket,
+            'user': get_user(),
+            'expeditures': expediture_instance
+        }
+
+        text = 'User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+        Notification.fire_notification(instance.ticket, text, "expeditures_new", get_user(True), text_data=text_data)
+
+
+@receiver(pre_save, sender=Expediture)
+def notify_expediture_change(sender, instance, **kwargs):
+    if instance.id is not None:
+        old = Expediture.objects.get(id=instance.id)
+        if Notification.objects.filter(text__contains=str(old), notification_type="expeditures_new"):
+            return
+
         text_data = {
             'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
             'ticket': instance.ticket,
             'user': get_user(),
             'expeditures': instance
         }
-        if created:
-            text = 'User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
-        else:
-            text = 'User <tt>%(user)s</tt> changed real expeditures <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+
+        text = 'User <tt>%(user)s</tt> changed real expeditures <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
         Notification.fire_notification(instance.ticket, text, "expeditures_change", get_user(True), text_data=text_data)
 
 
@@ -1193,7 +1253,7 @@ def notify_del_expediture(sender, instance, **kwargs):
 
 @receiver(post_save, sender=MediaInfo)
 def notify_media(sender, instance, created, raw, **kwargs):
-    if len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
+    if len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type__in=["ticket_new", "media_new"])) == 0:
         text_data = {
             'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
             'ticket': instance.ticket,
@@ -1201,9 +1261,10 @@ def notify_media(sender, instance, created, raw, **kwargs):
         }
         if created:
             text = 'User <tt>%(user)s</tt> added media to ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+            Notification.fire_notification(instance.ticket, text, "media_new", get_user(True), text_data=text_data)
         else:
             text = 'User <tt>%(user)s</tt> changed media of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
-        Notification.fire_notification(instance.ticket, text, "media_change", get_user(True), text_data=text_data)
+            Notification.fire_notification(instance.ticket, text, "media_change", get_user(True), text_data=text_data)
 
 
 @receiver(post_delete, sender=MediaInfo)
