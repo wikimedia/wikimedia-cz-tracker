@@ -49,12 +49,12 @@
     jQuery.fn.dataTableExt.oSort['date-with-none-asc'] = function (a, b) {
         var ordA = dateWithNoneToOrder(a),
             ordB = dateWithNoneToOrder(b);
-        return (ordA < ordB) ? -1 : ((ordA > ordB) ? 1 : 0);
+        return ordA - ordB;
     };
     jQuery.fn.dataTableExt.oSort['date-with-none-desc'] = function (a, b) {
         var ordA = dateWithNoneToOrder(a),
             ordB = dateWithNoneToOrder(b);
-        return (ordA < ordB) ? 1 : ((ordA > ordB) ? -1 : 0);
+        return ordB - ordA;
     };
 
     $.get('/user/display_items', function(display_items) {
