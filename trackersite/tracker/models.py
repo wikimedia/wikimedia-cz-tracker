@@ -46,6 +46,7 @@ ACK_TYPES = (
 )
 
 NOTIFICATION_TYPES = [
+    ('muted', _('All notifications')),
     ('comment', _('Comment added')),
     ('supervisor_notes', _('Supervisor notes changed')),
     ('ticket_new', _('New ticket was created')),
@@ -59,7 +60,6 @@ NOTIFICATION_TYPES = [
     ('expeditures_change', _('Expeditures changed')),
     ('media_new', _('New media was created')),
     ('media_change', _('Media changed')),
-    ('muted', _('No notifications')),
 ]
 
 LANGUAGE_CHOICES = settings.LANGUAGES
@@ -992,6 +992,8 @@ class Notification(models.Model):
             if user == sender:
                 continue
             if notification_type in user.trackerpreferences.get_muted_notifications():
+                continue
+            if 'muted' in user.trackerpreferences.get_muted_notifications():
                 continue
             if ack_type in user.trackerpreferences.get_muted_ack():
                 continue

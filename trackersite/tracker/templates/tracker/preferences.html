@@ -19,7 +19,10 @@
             {% for notification_type in notification_types %}
                 <tr>
                     <td class="checkbox_label"><label for="{{notification_type.0}}">{{notification_type.1}}</label></td>
-                    <td><input type="checkbox" name="{{notification_type.0}}" id="{{notification_type.0}}" {% if notification_type.2 %}checked{% endif %}></td>
+                    <td>
+                        <input type="checkbox" name="{{notification_type.0}}" id="{{notification_type.0}}"
+                            {% if notification_type.2 or notification_types.0.2 %}checked{% endif %}>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -49,4 +52,11 @@
     </a>
 </div>
 <br>
+<script>
+    $('#muted').click(function (ev) {
+        Array.from(document.querySelector('#DataTables_Table_0').querySelectorAll('input[type=\'checkbox\']'))
+            .filter(el => el.id !== 'muted')
+            .forEach(el => { el.checked = ev.target.checked })
+    })
+</script>
 {% endblock %}

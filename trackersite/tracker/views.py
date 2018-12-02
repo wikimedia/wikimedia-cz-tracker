@@ -385,14 +385,16 @@ class PreferencesForm(forms.ModelForm):
 
 @login_required()
 def preferences(request):
-    hidden_notifications = ['muted']
     if request.method == 'POST':
         muted = []
         ack_muted = []
-        for notification_type in NOTIFICATION_TYPES:
-            if notification_type[0] in request.POST:
-                muted.append(notification_type[0])
-                del request.POST[notification_type[0]]
+        if 'muted' not in request.POST:
+            for notification_type in NOTIFICATION_TYPES:
+                if notification_type[0] in request.POST:
+                    muted.append(notification_type[0])
+                    del request.POST[notification_type[0]]
+        else:
+            muted.append('muted')
         for ack_type in ACK_TYPES:
             if ack_type[0] in request.POST:
                 ack_muted.append(ack_type[0])
@@ -412,8 +414,6 @@ def preferences(request):
         muted = request.user.trackerpreferences.get_muted_notifications()
         ack_muted = request.user.trackerpreferences.get_muted_ack()
         for notification_type in NOTIFICATION_TYPES:
-            if notification_type[0] in hidden_notifications:
-                continue
             notification_types.append((
                 notification_type[0],
                 notification_type[1],
