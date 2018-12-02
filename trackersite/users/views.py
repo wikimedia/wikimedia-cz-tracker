@@ -18,7 +18,7 @@ from .forms import CustomPasswordChangeForm
 
 
 class UserWithEmailForm(auth.forms.UserCreationForm):
-    email = forms.EmailField(required=False, help_text=_("Will be used for password recovery and notifications, if you enable them."))
+    email = forms.EmailField(required=True, help_text=_("Will be used for password recovery and notifications, if you enable them."))
     captcha = ReCaptchaField(widget=ReCaptchaWidget())
 
     class Meta:

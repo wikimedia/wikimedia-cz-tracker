@@ -20,6 +20,31 @@
 {% block fulltitle %}{% block title %}{% endblock %}{% endblock %}
 
 {% block body %}
+
+{% if user.is_authenticated and request.path != "/my/details/" %}{% if not user.email %}
+<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        {% trans 'There is no email address associated with this account. Please update your details now.' %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">{% trans 'Update details' %}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$( document ).ready( () => {
+	$( '#emailModal' ).modal('show');
+});
+$( '#emailModal' ).on('hidden.bs.modal', (e) => {
+	$( location ).attr('href', '/my/details/');
+});
+</script>
+{% endif %}{% endif %}
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
 	<div class="navbar-header">
