@@ -801,6 +801,7 @@ class TrackerPreferences(models.Model):
 
 class TrackerProfile(models.Model):
     user = models.OneToOneField(User)
+    mediawiki_username = models.CharField(_('Username on mediawiki'), max_length=120, blank=True)
     bank_account = models.CharField(_('Bank account'), max_length=120, blank=True, help_text=_('Bank account information for money transfers'))
     other_contact = models.CharField(_('Other contact'), max_length=120, blank=True, help_text=_('Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information'))
     other_identification = models.CharField(_('Other identification'), max_length=120, blank=True, help_text=_('Address, or other identification information, so we know who are we sending money to'))

@@ -25,6 +25,7 @@ from django.template.loader import get_template
 from django.template import Context
 from sendfile import sendfile
 from django.utils.translation import get_language
+from social_django.models import UserSocialAuth
 import csv
 
 from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, Expediture, Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher
@@ -41,6 +42,7 @@ def display_items(request):
         num = request.user.trackerpreferences.display_items
     else:
         num = 25
+
     return HttpResponse(num, content_type='text/plain')
 
 
@@ -426,6 +428,21 @@ def preferences(request):
                 ack_type[1].capitalize(),
                 ack_type[0] in ack_muted,
             ))
+
+        account_has_mediawiki_connection = True
+        try:
+            user_social_auth_object = UserSocialAuth.objects.get(user_id=request.user.id)
+        except UserSocialAuth.DoesNotExist:
+            account_has_mediawiki_connection = False
+        else:
+            if user_social_auth_object.provider != "mediawiki":
+                account_has_mediawiki_connection = False
+        mediawiki_connect_data = {
+            'is_connected': account_has_mediawiki_connection,
+            'username': request.user.trackerprofile.mediawiki_username,
+            'has_password': request.user.has_usable_password()
+        }
+
         preferences_form = PreferencesForm(
             instance=request.user.trackerpreferences,
             initial=dict((pref.name, getattr(request.user.trackerpreferences, pref.name)) for pref in request.user.trackerpreferences._meta.fields if pref.name not in ('id', 'user'))
@@ -433,6 +450,7 @@ def preferences(request):
         return render(request, 'tracker/preferences.html', {
             "notification_types": notification_types,
             "ack_types": ack_types,
+            "mediawiki_connect_data": mediawiki_connect_data,
             "preferences_form": preferences_form
         })
 

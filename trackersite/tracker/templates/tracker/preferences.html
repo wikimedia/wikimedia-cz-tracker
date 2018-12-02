@@ -45,9 +45,34 @@
         {% endfor %}
         <input class="form-control" type="submit" value="{% trans "Save" %}" />
     </form>
+    <h3>{% trans "Wikimedia account" %}</h3>
+    {% if mediawiki_connect_data.is_connected %}
+    <tr>
+        <td class="checkbox_label"><label>
+            {% trans "Your account is connected to Wikimedia account" %}
+            <a href="https://meta.wikimedia.org/wiki/User:{{mediawiki_connect_data.username}}">{{mediawiki_connect_data.username}}</a>.
+        </label></td>
+    </tr>
+    <tr>
+        <td>
+            {% if mediawiki_connect_data.has_password %}
+            <form action="{% url 'social:disconnect' 'mediawiki' %}?next={% url 'preferences' %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-warning">
+                    Disconnect Wikimedia account
+                </button>
+            </form>
+            {% else %}
+            <label>{% trans "In order to disconnect your Wikimedia account, you first need to" %} <a href="{% url 'password_change' %}">{% trans "set a password." %}</a></label>
+            {% endif %}
+        </td>
+    </tr>
+    {% else %}
+    <a href="{% url 'social:begin' 'mediawiki' %}?next={% url 'preferences' %}"><button class="btn btn-primary">{% trans "Link Wikimedia account" %}</button></a>
+    {% endif %}
     <br>
     <h3>{% trans "Account actions" %}</h3>
-    <a href="{% url "deactivate_account" %}">
+    <a href="{% url 'deactivate_account' %}">
         <button class="btn btn-danger">{% trans "Deactivate account" %}</button>
     </a>
 </div>
