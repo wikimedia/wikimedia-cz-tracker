@@ -13,20 +13,18 @@ class Command(BaseCommand):
     def generate_and_add_users(self, amount=4):
         first_names = ["John", "Emilia", "Lisa", "Nathan", "Bob", "Lucas"]
         last_names = ["Smith", "Johnson", "Williams", "Jones", "Garcia", "Miller"]
-        user_query_list = []
         for n in range(1, amount + 1):
-            user_query_list.append(User(
-                username="ExampleUser_{}".format(n),
-                email="user{}@notreal.example".format(n),
-                password="verygoodpassword",
-                first_name=choice(first_names),
-                last_name=choice(last_names),
-            ))
-        try:
-            User.objects.bulk_create(user_query_list)
-        except IntegrityError:
-            # Users already exist.
-            pass
+            try:
+                User.objects.create_user(
+                    "ExampleUser_{}".format(n),
+                    email="user{}@notreal.example".format(n),
+                    password="ExamplePassword",
+                    first_name=choice(first_names),
+                    last_name=choice(last_names)
+                )
+            except IntegrityError:
+                # User already exists.
+                pass
 
     def generate_and_add_grants(self, amount=4):
         grant_query_list = []
@@ -99,6 +97,7 @@ class Command(BaseCommand):
             try:
                 subtopic = choice(subtopic_objects.filter(topic=topic))
             except IndexError:
+                # topic has no subtopics
                 subtopic = None
 
             ticket_query_list.append(Ticket(
