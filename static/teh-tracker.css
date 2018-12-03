@@ -112,13 +112,19 @@ td.money { text-align:right; }
 .payment_class_paid .payment_status, .payment_cell.paid { background-color: #96fd7e; }
 .payment_class_overpaid .payment_status, .payment_cell.overpaid { background-color: #ff7878; }
 
+.statutory-declaration {display: none; }
+
 @media print {
 	#user, .nav, .screenonly { display:none; }
 	#ticket_id { font-size:26pt; font-weight:bold; text-align:right; display:block !important;}
 	#media_list li { list-style-type:none; display:inline; }
 	#media_list li:after { content:";"; }
 	.comments_empty, .comments_add { display:none; }
-	alert {display: none;}
+    alert {display: none;}
+    .statutory-declaration {
+        display: block;
+        padding-bottom: 10px;
+    }
 }
 
 fieldset.noframe { border: none; padding: 0; }

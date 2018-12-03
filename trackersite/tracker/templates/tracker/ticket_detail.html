@@ -43,8 +43,13 @@
 </table>
 {% endif %}
 
-{% if ticket.document_set.count > 0 %}
-<h2>{% trans "Documents" %}</h2>
+{% if ticket.document_set.count > 0 or ticket.statutory_declaration %}
+<h2 {% if ticket.document_set.count == 0 %}class="statutory-declaration"{% endif %}>{% trans "Documents" %}</h2>
+{% if ticket.statutory_declaration %}
+<div class="statutory-declaration">
+    {{STATUTORY_DECLARATION_TEXT}} --{{ticket.requested_by}}
+</div>
+{% endif %}
 {% if user_can_see_documents %}
 <ul>{% for doc in ticket.document_set.all %}
     <li>{{doc.html_item}}</li>
