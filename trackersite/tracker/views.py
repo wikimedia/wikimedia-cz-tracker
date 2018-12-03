@@ -28,6 +28,7 @@ from django.utils.translation import get_language
 from social_django.models import UserSocialAuth
 import csv
 
+from tracker.templatetags.trackertags import money
 from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, Expediture, Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher
 from tracker.models import ACK_TYPES, NOTIFICATION_TYPES
 from users.models import UserWrapper
@@ -62,9 +63,9 @@ def tickets(request, lang):
             '<a href="%s">%s</a>' % (ticket.topic.get_absolute_url(), ticket.topic),
             subtopic,
             ticket.requested_by_html(),
-            "%s %s" % (ticket.preexpeditures()['amount'] or 0, settings.TRACKER_CURRENCY),
-            "%s %s" % (ticket.accepted_expeditures(), settings.TRACKER_CURRENCY),
-            "%s %s" % (ticket.paid_expeditures(), settings.TRACKER_CURRENCY),
+            money(ticket.preexpeditures()['amount'] or 0),
+            money(ticket.accepted_expeditures()),
+            money(ticket.paid_expeditures()),
             unicode(ticket.state_str()),
             unicode(ticket.updated),
         ])

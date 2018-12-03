@@ -3,6 +3,7 @@ from django.conf import settings
 import os.path
 import json
 from django.utils import translation
+from tracker.templatetags.trackertags import money
 from tracker.models import Ticket
 
 
@@ -37,9 +38,9 @@ class Command(NoArgsCommand):
                         '<a href="%s">%s</a>' % (ticket.topic.get_absolute_url(), ticket.topic),
                         subtopic,
                         ticket.requested_by_html(),
-                        "%s %s" % (ticket.preexpeditures()['amount'] or 0, settings.TRACKER_CURRENCY),
-                        "%s %s" % (ticket.accepted_expeditures(), settings.TRACKER_CURRENCY),
-                        "%s %s" % (ticket.paid_expeditures(), settings.TRACKER_CURRENCY),
+                        money(ticket.preexpeditures()['amount'] or 0),
+                        money(ticket.accepted_expeditures()),
+                        money(ticket.paid_expeditures()),
                         unicode(ticket.state_str()),
                         unicode(ticket.updated),
                     ])
