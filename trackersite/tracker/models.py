@@ -6,11 +6,13 @@ from django_comments.signals import comment_was_posted
 from django.db.models.signals import pre_save, post_save, post_delete
 from request_provider.signals import get_request
 from django.contrib.auth.models import User
+from django.contrib.admin.models import LogEntry, CHANGE
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.dispatch import receiver
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.utils.encoding import force_unicode
 from django.utils.translation import ugettext_lazy as _, string_concat, activate, deactivate
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
@@ -19,12 +21,14 @@ from django.core.files.storage import FileSystemStorage
 from django.core.validators import RegexValidator
 from django.core.urlresolvers import NoReverseMatch
 from django.core.cache import cache
+from django.forms.models import model_to_dict
 from django import template
 import re
 import json
 
 from users.models import UserWrapper
 from django_comments.moderation import CommentModerator, moderator
+
 
 PAYMENT_STATUS_CHOICES = (
     ('n_a', _('n/a')),
@@ -65,6 +69,51 @@ NOTIFICATION_TYPES = [
 LANGUAGE_CHOICES = settings.LANGUAGES
 
 USER_EDITABLE_ACK_TYPES = ('user_precontent', 'user_content', 'user_docs')
+
+
+class ModelDiffMixin(object):
+    """
+    A model mixin that tracks model fields' values and provide some useful api
+    to know what fields have been changed.
+    Thanks to: https://stackoverflow.com/a/547714/5589365
+    """
+
+    def __init__(self, *args, **kwargs):
+        super(ModelDiffMixin, self).__init__(*args, **kwargs)
+        self.__initial = self._dict
+
+    @property
+    def diff(self):
+        d1 = self.__initial
+        d2 = self._dict
+        diffs = [(k, (v, d2[k])) for k, v in d1.items() if v != d2[k]]
+        return dict(diffs)
+
+    @property
+    def has_changed(self):
+        return bool(self.diff)
+
+    @property
+    def changed_fields(self):
+        return self.diff.keys()
+
+    def get_field_diff(self, field_name):
+        """
+        Returns a diff for field if it's changed and None otherwise.
+        """
+        return self.diff.get(field_name, None)
+
+    def save(self, *args, **kwargs):
+        """
+        Saves model and set initial state.
+        """
+        super(ModelDiffMixin, self).save(*args, **kwargs)
+        self.__initial = self._dict
+
+    @property
+    def _dict(self):
+        return model_to_dict(self, fields=[field.name for field in
+                             self._meta.fields])
 
 
 def get_user(support_none=False):
@@ -164,7 +213,7 @@ class Watcher(Model):
         return 'User %s is watching event %s on %s %s' % (self.user, self.notification_type, self.watcher_type, self.watched)
 
 
-class Ticket(CachedModel):
+class Ticket(CachedModel, ModelDiffMixin):
     """ One unit of tracked / paid stuff. """
     updated = models.DateTimeField(_('updated'))
     event_date = models.DateField(_('event date'), blank=True, null=True, help_text=_('Date of the event this ticket is about'))
@@ -211,7 +260,20 @@ class Ticket(CachedModel):
     update_payment_status.alters_data = True
 
     def save(self, *args, **kwargs):
+        saved_from_admin = kwargs.pop('saved_from_admin', False)
         just_payment_status = kwargs.pop('just_payment_status', False)
+        if self.has_changed and get_request() and not saved_from_admin:
+            change_message = 'Changed ' + ', '.join(self.changed_fields) + "."
+            ct = ContentType.objects.get_for_model(self)
+            LogEntry.objects.log_action(
+                user_id=get_request().user.id,
+                content_type_id=ct.pk,
+                object_id=self.pk,
+                object_repr=force_unicode(self),
+                action_flag=CHANGE,
+                change_message=change_message
+            )
+
         if not just_payment_status:
             self.updated = datetime.datetime.now()
 

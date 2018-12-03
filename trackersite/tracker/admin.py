@@ -125,6 +125,9 @@ class TicketAdmin(admin.ModelAdmin):
             url(r'^(?P<object_id>\d+)/acks/remove/$', self.remove_ack),
         ) + super(TicketAdmin, self).get_urls()
 
+    def save_model(self, request, obj, form, change):
+        obj.save(saved_from_admin=True)
+
 
 admin.site.register(models.Ticket, TicketAdmin)
 
