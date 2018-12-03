@@ -7,6 +7,7 @@
 {% endblock extrahead %}
 
 {% block form_top %}<div>{% trans "Ticket ID" %}: {{object_id}}</div>
+{% if not add %}
 <div style="float:right">
 <h2>{% trans "Approvals" %}</h2>
 <ul class="ack-set" data-add-handler="acks/add/" data-remove-handler="acks/remove/" data-token="{{csrf_token}}">{% for ack in original.ticketack_set.all %}
@@ -15,7 +16,7 @@
 	<li class="add-block"><a href="#" class="add-ack">ADD ACK</a></li>
 </ul>
 </div>
-
+{% endif %}
 {% endblock form_top %}
 
 {% block after_related_objects %}
