@@ -13,7 +13,14 @@ class Command(BaseCommand):
     def generate_and_add_users(self, amount=4):
         first_names = ["John", "Emilia", "Lisa", "Nathan", "Bob", "Lucas"]
         last_names = ["Smith", "Johnson", "Williams", "Jones", "Garcia", "Miller"]
-        for n in range(1, amount + 1):
+        try:
+            last_example_user = User.objects.filter(username__startswith="ExampleUser_").order_by('pk').reverse()[0]
+        except IndexError:
+            # no example users
+            start_num = 1
+        else:
+            start_num = int(last_example_user.username[-1]) + 1
+        for n in range(start_num, start_num + amount):
             try:
                 User.objects.create_user(
                     "ExampleUser_{}".format(n),
