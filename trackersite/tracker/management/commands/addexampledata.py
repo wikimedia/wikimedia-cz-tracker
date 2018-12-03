@@ -54,10 +54,10 @@ class Command(BaseCommand):
                 form_description=("This description is"
                                   "shown to users who enter"
                                   "tickets for this topic."),
-                open_for_tickets=choice([True, False]),
-                ticket_media=choice([True, False]),
-                ticket_expenses=choice([True, False]),
-                ticket_preexpenses=choice([True, False]),
+                open_for_tickets=True,
+                ticket_media=True,
+                ticket_expenses=True,
+                ticket_preexpenses=True,
             ))
         Topic.objects.bulk_create(topic_query_list)
 
