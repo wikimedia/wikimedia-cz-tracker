@@ -1,5 +1,6 @@
 /.tox
 /deploy
+/node_modules
 # Prevents from uploading configurations
 /.idea
 /.vscode
