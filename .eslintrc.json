@@ -1,0 +1,47 @@
+{
+    "extends": "wikimedia",
+    "rules": {
+        "object-curly-spacing": "off",
+        "space-before-function-paren": "off",
+        "one-var": "off",
+        "computed-property-spacing": "off",
+        "wrap-iife": "off",
+        "quotes": "off",
+        "eol-last": "off",
+        "no-extra-semi": "off",
+        "camelcase": "off",
+        "semi": "off",
+        "no-unused-vars": "off",
+        "no-implicit-globals": "off",
+        "array-bracket-spacing": "off",
+        "quote-props": "off",
+        "comma-dangle": "off",
+        "no-trailing-spaces": "off",
+        "space-in-parens": "off",
+        "no-undef": "off",
+        "vars-on-top": "off",
+        "indent": "off",
+        "max-statements-per-line": "off",
+        "brace-style": "off",
+        "keyword-spacing": "off",
+        "eqeqeq": "off",
+        "dot-notation": "off",
+        "space-before-blocks": "off"
+    },
+    "overrides": [
+        {
+            "files": "Gruntfile.js",
+            "env":  {
+                "commonjs": true
+            }
+        },
+        {
+            "files": [
+                "static/toggleAllNotifs.js"
+            ],
+            "parserOptions": {
+                "ecmaVersion": 6
+            }
+        }
+    ]
+}

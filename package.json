@@ -4,7 +4,7 @@
   "description": "Wikimedia Czech Republic's expense tracking app",
   "main": "index.js",
   "scripts": {
-    "test": "echo NOOP"
+    "test": "grunt lint"
   },
   "repository": {
     "type": "git",
