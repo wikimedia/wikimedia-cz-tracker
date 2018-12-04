@@ -9,13 +9,22 @@ from serializers import (
     Ticket, TicketSerializer,
     MediaInfo, MediaInfoSerializer,
     Expediture, ExpeditureSerializer,
-    Preexpediture, PreexpeditureSerializer
+    Preexpediture, PreexpeditureSerializer,
+    ContentTypeSerializer
 )
 from rest_framework.permissions import IsAdminUser
+from api.permissions import ReadOnly
 from rest_framework import viewsets
+from django.contrib.contenttypes.models import ContentType
 
 
 # ViewSets define the view behavior.
+class ContentTypeViewSet(viewsets.ModelViewSet):
+    queryset = ContentType.objects.all()
+    serializer_class = ContentTypeSerializer
+    permission_classes = (ReadOnly, )
+
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer

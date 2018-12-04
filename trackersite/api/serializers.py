@@ -1,9 +1,15 @@
 from django.contrib.auth.models import User, Group, Permission
 from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile
+from django.contrib.contenttypes.models import ContentType
 from rest_framework import serializers
 
 
 # Serializers define the API representation.
+class ContentTypeSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ContentType
+
+
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User

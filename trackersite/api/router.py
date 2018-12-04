@@ -9,12 +9,14 @@ from viewsets import (
     TicketViewSet,
     MediaInfoViewSet,
     ExpeditureViewSet,
-    PreexpeditureViewSet
+    PreexpeditureViewSet,
+    ContentTypeViewSet
 )
 from rest_framework import routers
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
+router.register(r'contenttypes', ContentTypeViewSet)
 router.register(r'auth/users', UserViewSet)
 router.register(r'auth/permissions', PermissionViewSet)
 router.register(r'tracker/trackerprofile', TrackerProfileViewSet)
