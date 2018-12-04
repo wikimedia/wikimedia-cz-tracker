@@ -6,6 +6,7 @@
 {% block content %}
 <p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt;</p>
 <h1>{% trans "Topic list" %}</h1>
+<span class="hidden" id="custom-ordering-datatables">[[0, "asc"]]</span>
 {% block above_list %}{% endblock %}
 {% include "tracker/topic_table.html" with show_grants="True" topic_list=open_topics %}
 
