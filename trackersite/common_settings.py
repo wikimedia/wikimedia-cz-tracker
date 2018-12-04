@@ -62,6 +62,7 @@ INSTALLED_APPS = (
     'widget_tweaks',
     'social_django',
     'rest_framework',
+    'rest_framework.authtoken',
     'django_filters',
 )
 
@@ -119,7 +120,13 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    )
+
 }
 
 STATUTORY_DECLARATION_TEXT = 'I hereby declare that my travel expenses are true and accurate and that you spent money economically and effectivelly.'
