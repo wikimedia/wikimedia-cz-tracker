@@ -13,6 +13,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 class TrackerProfileSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
+        read_only_fields = ('mediawiki_username', )
         model = TrackerProfile
 
 
