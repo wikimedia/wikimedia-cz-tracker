@@ -49,7 +49,6 @@ class PermissionViewSet(viewsets.ModelViewSet):
 class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
-    permission_classes = (IsAdminUser, )
     search_fields = ('name', )
 
 
