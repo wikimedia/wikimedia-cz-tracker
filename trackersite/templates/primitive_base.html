@@ -1,11 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- htmllint attr-name-style="false" -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- htmllint attr-name-style="$previous" -->
 <head>
 <script type="text/javascript" src="/static/admin/js/jquery.min.js"></script>
 <script type="text/javascript" src="/static/jquery.tristate.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Language" content="{% block language_code %}en{% endblock %}" />
-<title>{% block fulltitle %}{% endblock fulltitle %}</title>
+
+<title>
+{% block fulltitle %}{% endblock fulltitle %}
+</title>
+
 {% block head %}
 <link rel="stylesheet" href="/static/bootstrap.min.css">
 {% endblock %}
@@ -18,11 +24,11 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ GOOGLE_ANALYTICS }}"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', '{{ GOOGLE_ANALYTICS }}');
+    gtag('config', '{{ GOOGLE_ANALYTICS }}');
 </script>
 {% endif %}
 </body>

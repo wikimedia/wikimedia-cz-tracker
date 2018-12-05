@@ -34,7 +34,9 @@
             {% for ack_type in ack_types %}
                 <tr>
                     <td class="checkbox_label"><label for="{{ack_type.0}}">{{ack_type.1}}</label></td>
+                    <!-- htmllint id-no-dup="false" -->
                     <td><input type="checkbox" name="{{ack_type.0}}" id="{{ack_type.0}}" {% if ack_type.2 %}checked{% endif %}></td>
+                    <!-- htmllint id-no-dup="$previous" -->
                 </tr>
             {% endfor %}
             </tbody>

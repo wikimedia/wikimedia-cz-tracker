@@ -1,0 +1,12 @@
+{
+	"indent-style": "spaces",
+	"raw-ignore-regex": "({% .*? %}|{{.*?}})[ \t]*",
+	"label-req-for": false,
+	"line-end-style": false,
+	"text-ignore-regex": "(=>|<!--|-->)",
+
+	"id-class-style": false,
+	"tag-bans": false,
+	"attr-bans": false,
+	"tag-close": false
+}

@@ -23,76 +23,80 @@
 
 {% if user.is_authenticated and request.path != "/my/details/" %}{% if not user.email %}
 <div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        {% trans 'There is no email address associated with this account. Please update your details now.' %}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">{% trans 'Update details' %}</button>
-      </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% trans 'There is no email address associated with this account. Please update your details now.' %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">{% trans 'Update details' %}</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <script>
 $( document ).ready( () => {
-	$( '#emailModal' ).modal('show');
+    $( '#emailModal' ).modal('show');
 });
 $( '#emailModal' ).on('hidden.bs.modal', (e) => {
-	$( location ).attr('href', '/my/details/');
+    $( location ).attr('href', '/my/details/');
 });
 </script>
 {% endif %}{% endif %}
 
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-	<div class="navbar-header">
+    <div class="container-fluid">
+        <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	            <span class="sr-only">Toggle navigation</span>
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>
-	     </button>
-	     <a class="navbar-brand" href="/">Tracker</a>
-	</div>
+                <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Tracker</a>
+    </div>
 
-	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<ul class="nav navbar-nav navbar-right">
-			{% if user.is_authenticated %}
-				{% trans "user" %}: <li style="list-style: none;">{{wrapped_user.get_html_link}}</li>
-				(<li><a href="{% url "password_change" %}">{% trans "change password" %}</a></li>; 
-				<li><a href="{% url "user_details_change" %}">{% trans "change my details" %}</a></li>;
-				<li><a href="{% url "preferences" %}">{% trans "preferences" %}</a></li>);
-				{% if user.is_staff %}
-					<li><a href="{% url "admin:index" %}">{% trans "admin" %}</a></li>
-				{% endif%}
-				<li><a href="{% url "choose_language" %}">change language</a></li>
-				<li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
-				<li><a href="{% url "tracker_logout" %}">{% trans "logout" %}</a></li>
-			{% else %}
-				{% url 'tracker_logout' as tracker_logout_url %}
-				{% if request.path != tracker_logout_url%}
-					<li><a href="{% url "tracker_login" %}?next={{request.path}}&clicked=True">{% trans "login" %}</a></li>
-				{% else %}
-					<li><a href="{% url "tracker_login" %}?clicked=True">{% trans "login" %}</a></li>
-				{% endif %}
-				<li><a href="{% url "register" %}">{% trans "register" %}</a></li>
-				<li><a href="{% url "choose_language" %}">change language</a></li>
-				<li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
-			{% endif %}
-		</ul>
-	</div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+                {% trans "user" %}: <li style="list-style: none;">{{wrapped_user.get_html_link}}</li>
+                (<li><a href="{% url "password_change" %}">{% trans "change password" %}</a></li>; 
+                <li><a href="{% url "user_details_change" %}">{% trans "change my details" %}</a></li>;
+                <li><a href="{% url "preferences" %}">{% trans "preferences" %}</a></li>);
+                {% if user.is_staff %}
+                    <li><a href="{% url "admin:index" %}">{% trans "admin" %}</a></li>
+                {% endif%}
+                <li><a href="{% url "choose_language" %}">change language</a></li>
+                <li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
+                <li><a href="{% url "tracker_logout" %}">{% trans "logout" %}</a></li>
+            {% else %}
+                {% url 'tracker_logout' as tracker_logout_url %}
+                {% if request.path != tracker_logout_url%}
+                    <!-- htmllint spec-char-escape="false" -->
+                    <li><a href="{% url "tracker_login" %}?next={{request.path}}&clicked=True">{% trans "login" %}</a></li>
+                    <!-- htmllint spec-char-escape="false" -->
+                {% else %}
+                    <li><a href="{% url "tracker_login" %}?clicked=True">{% trans "login" %}</a></li>
+                {% endif %}
+                <li><a href="{% url "register" %}">{% trans "register" %}</a></li>
+                <li><a href="{% url "choose_language" %}">change language</a></li>
+                <li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
+            {% endif %}
+        </ul>
+    </div>
     </div>
 </nav>
 {% if messages or not PRODUCTION %}
 <div class="container">
     {% for message in messages %}
-    <div{% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissable"{% else %} class="alert alert-info alert-dismissable" {% endif %}><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ message }}</div>
-	{% endfor %}
-	{% if not PRODUCTION %}
-	<div class="alert alert-warning">{% trans "Warning" %}: {% trans "You are not in production." %}</div>
-	{% endif %}
+    <!-- htmllint attr-no-dup="false" -->
+    <div {% if message.tags %}class="alert alert-{{ message.tags }} alert-dismissable" {% else %}class="alert alert-info alert-dismissable" {% endif %}><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ message }}</div>
+    <!-- htmllint attr-no-dup="$previous" -->
+    {% endfor %}
+    {% if not PRODUCTION %}
+    <div class="alert alert-warning">{% trans "Warning" %}: {% trans "You are not in production." %}</div>
+    {% endif %}
 </div>
 {% endif %}
 <div class="container">

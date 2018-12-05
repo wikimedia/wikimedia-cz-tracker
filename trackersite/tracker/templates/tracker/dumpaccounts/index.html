@@ -10,14 +10,14 @@
 <table class="table table-striped table-hover">
 <tr><th>Topic</th><th>Unpaid</th><th>Paid</th><th>Overpaid</th></tr>
 {% for t in finance.topics %}<tr><td><a href="#topic-{{t.topic.id}}">{{t.topic.name}}</a></td>
-<td class="money payment_cell {% if t.finance.unpaid %}unpaid{% else %}n_a{% endif %}">{{t.finance.unpaid|money}}</td>
-<td class="money payment_cell{% if t.finance.paid %} paid{% endif %}">{{t.finance.paid|money}}</td>
-<td class="money payment_cell {% if t.finance.overpaid %}overpaid{% else %}n_a{% endif %}">{{t.finance.overpaid|money}}</td></tr>
+<td class="money payment-cell {% if t.finance.unpaid %}unpaid{% else %}n_a{% endif %}">{{t.finance.unpaid|money}}</td>
+<td class="money payment-cell{% if t.finance.paid %} paid{% endif %}">{{t.finance.paid|money}}</td>
+<td class="money payment-cell {% if t.finance.overpaid %}overpaid{% else %}n_a{% endif %}">{{t.finance.overpaid|money}}</td></tr>
 {% endfor %}
 <tr class="total first_total"><td>Total {{grant.full_name}}</td>
-<td class="money payment_cell">{{finance.finance.unpaid|money}}</td>
-<td class="money payment_cell">{{finance.finance.paid|money}}</td>
-<td class="money payment_cell">{{finance.finance.overpaid|money}}</td>
+<td class="money payment-cell">{{finance.finance.unpaid|money}}</td>
+<td class="money payment-cell">{{finance.finance.paid|money}}</td>
+<td class="money payment-cell">{{finance.finance.overpaid|money}}</td>
 </tr></table>
 
 {% for topic in grant.topic_set.all %}

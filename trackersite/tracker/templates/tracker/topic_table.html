@@ -23,11 +23,11 @@
 <td>{{topic.ticket_set.count}}</td>
 <td>{{topic.paid_wages}} {% trans "CZK" %}</td>
 <td>{{topic.paid_together}} {% trans "CZK" %}</td>
-<td{% if tpps.n_a %} class="payment_cell n_a" {% endif %}>{{tpps.n_a}}</td>
-<td{% if tpps.unpaid %} class="payment_cell unpaid"{% endif %}>{{tpps.unpaid}}</td>
-<td{% if tpps.partially_paid %} class="payment_cell partially_paid"{% endif %}>{{tpps.partially_paid}}</td>
-<td{% if tpps.paid %} class="payment_cell paid"{% endif %}>{{tpps.paid}}</td>
-<td{% if tpps.overpaid %} class="payment_cell overpaid"{% endif %}>{{tpps.overpaid}}</td>
+<td {% if tpps.n_a %}class="payment-cell n_a" {% endif %}>{{tpps.n_a}}</td>
+<td {% if tpps.unpaid %}class="payment-cell unpaid"{% endif %}>{{tpps.unpaid}}</td>
+<td {% if tpps.partially_paid %}class="payment-cell partially_paid"{% endif %}>{{tpps.partially_paid}}</td>
+<td {% if tpps.paid %}class="payment-cell paid"{% endif %}>{{tpps.paid}}</td>
+<td {% if tpps.overpaid %}class="payment-cell overpaid"{% endif %}>{{tpps.overpaid}}</td>
 <td>{% for admin in topic.admin.all %}{{ admin.username }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
 </tr>
 {% endwith %}{% endfor %}

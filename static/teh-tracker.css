@@ -19,7 +19,7 @@ table tr:hover td { background-color: #ddd; }
 abbr[title] { border-bottom: dotted 1px black; }
 tr.highlight td { background-color: #eee; }
 tr.total td { font-weight: bold; }
-tr.mid_total td { border-top: 1px solid #666; }
+tr.mid-total td { border-top: 1px solid #666; }
 tr.first_total td { border-top: 2px solid black; }
 tr.grand_total td { border-bottom: double 3px black; }
 td.checkbox_label { width: 90%; }
@@ -107,10 +107,10 @@ td.money { text-align:right; }
 
 #ticket_id { display:none; }
 
-.payment_class_n_a .payment_status, .payment_cell.n_a { color: #999; }
-.payment_class_unpaid .payment_status, .payment_class_partially_paid td.payment_status, .payment_cell.unpaid, .payment_cell.partially_paid { background-color: #feffc5; }
-.payment_class_paid .payment_status, .payment_cell.paid { background-color: #96fd7e; }
-.payment_class_overpaid .payment_status, .payment_cell.overpaid { background-color: #ff7878; }
+.payment_class_n_a .payment_status, .payment-cell.n_a { color: #999; }
+.payment_class_unpaid .payment_status, .payment_class_partially_paid td.payment_status, .payment-cell.unpaid, .payment-cell.partially_paid { background-color: #feffc5; }
+.payment_class_paid .payment_status, .payment-cell.paid { background-color: #96fd7e; }
+.payment_class_overpaid .payment_status, .payment-cell.overpaid { background-color: #ff7878; }
 
 .statutory-declaration {display: none; }
 

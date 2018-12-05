@@ -4,17 +4,17 @@
 {% block head %}{{block.super}}
 <script type="text/javascript"><!--
 $(document).ready(function() {
-	$('#id_file').change(function() {
-		var name = $('#id_name');
-		if ((name.val() == '') || (name.attr('data-prefilled') == 'true'))
-		{
-			var filename = $('#id_file').val();
-			filename = filename.replace('C:\\fakepath\\', '');
-			filename = filename.replace(new RegExp('[^-_\\.A-Za-z0-9]', 'g'), '-');
-			name.val(filename);
-			name.attr('data-prefilled', 'true');
-		}
-	});
+    $('#id_file').change(function() {
+        var name = $('#id_name');
+        if ((name.val() == '') || (name.attr('data-prefilled') == 'true'))
+        {
+            var filename = $('#id_file').val();
+            filename = filename.replace('C:\\fakepath\\', '');
+            filename = filename.replace(new RegExp('[^-_\\.A-Za-z0-9]', 'g'), '-');
+            name.val(filename);
+            name.attr('data-prefilled', 'true');
+        }
+    });
 });
 --></script>
 {% endblock %}

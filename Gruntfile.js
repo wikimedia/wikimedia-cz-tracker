@@ -23,12 +23,22 @@ module.exports = function gruntConfig( grunt ) {
 				'!static/**.min.css',
 				'!static/jquery*.css',
 			]
+		},
+
+		htmllint: {
+			options: {
+				htmllintrc: '.htmllintrc.json'
+			},
+			src: [
+				'trackersite/**/*.html'
+			]
 		}
+
 	} );
 
 	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
-
+	grunt.loadNpmTasks( 'grunt-htmllint' );
 	grunt.registerTask( 'default', [ 'lint' ] );
-	grunt.registerTask( 'lint', [ 'eslint', 'stylelint' ] );
+	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'htmllint' ] );
 };

@@ -13,7 +13,7 @@
 <h2>{% trans "Documents" %}</h2>
 {% if ticket.document_set.count > 0 %}
 <ul>{% for doc in ticket.document_set.all %}
-	<li><a href="{{doc.filename}}">{{doc.filename}}</a>{% if doc.description %}: {{doc.description}}{% endif %} <small>({{doc.content_type}}; {{doc.size|filesizeformat}})</small></li>
+    <li><a href="{{doc.filename}}">{{doc.filename}}</a>{% if doc.description %}: {{doc.description}}{% endif %} <small>({{doc.content_type}}; {{doc.size|filesizeformat}})</small></li>
 {% endfor %}</ul>
 {% else %}
 <p>There aren't any documents here.</p>
