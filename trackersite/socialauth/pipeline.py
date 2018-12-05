@@ -10,7 +10,7 @@ def save_extra_data(backend, user, response, *args, **kwargs):
 
 
 def display_succes_message_link(backend, *args, **kwargs):
-    if backend.name == "mediawiki" and not kwargs['is_new']:
+    if backend.name == "mediawiki" and kwargs['new_association']:
         request = get_request()
         messages.success(request, _('Successfully linked your wikimedia account!'))
 
