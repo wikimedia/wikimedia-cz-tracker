@@ -33,6 +33,12 @@ from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaI
 from tracker.models import ACK_TYPES, NOTIFICATION_TYPES
 from users.models import UserWrapper
 
+TICKET_EXCLUDE_FIELDS = (
+            'created', 'updated', 'requested_user', 'requested_text',
+            'custom_state', 'rating_percentage', 'supervisor_notes', 'cluster', 'payment_status',
+            'mandatory_report', 'imported', 'enable_comments', 'statutory_declaration_date',
+        )
+
 
 def ticket_list(request, page):
     return render(request, 'tracker/index.html', {"LANGUAGE": get_language()})
@@ -243,11 +249,7 @@ class TicketForm(forms.ModelForm):
 
     class Meta:
         model = Ticket
-        exclude = (
-            'created', 'updated', 'requested_user', 'requested_text',
-            'custom_state', 'rating_percentage', 'supervisor_notes', 'cluster', 'payment_status',
-            'mandatory_report', 'imported', 'enable_comments', 'statutory_declaration_date',
-        )
+        exclude = TICKET_EXCLUDE_FIELDS
         widgets = {
             'event_date': adminwidgets.AdminDateWidget(),
             'name': forms.TextInput(attrs={'size': '40'}),

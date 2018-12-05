@@ -1,19 +1,19 @@
 from serializers import (
-    User, UserSerializer,
+    User, UserSerializerAdmin, UserSerializer,
     TrackerProfile, TrackerProfileSerializer,
     Permission, PermissionSerializer,
     Group, GroupSerializer,
     Grant, GrantSerializer,
     Topic, TopicSerializer,
     Subtopic, SubtopicSerializer,
-    Ticket, TicketSerializer,
+    Ticket, TicketSerializer, TicketNoAdminUpdateSerializer,
     MediaInfo, MediaInfoSerializer,
-    Expediture, ExpeditureSerializer,
+    Expediture, ExpeditureSerializer, ExpeditureAdminSerializer,
     Preexpediture, PreexpeditureSerializer,
     ContentTypeSerializer
 )
 from rest_framework.permissions import IsAdminUser
-from api.permissions import ReadOnly
+from permissions import ReadOnly, CanEditTicketElseReadOnly, CanEditExpedituresElseReadOnly
 from rest_framework import viewsets
 from django.contrib.contenttypes.models import ContentType
 
@@ -26,11 +26,21 @@ class ContentTypeViewSet(viewsets.ModelViewSet):
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = (IsAdminUser, )
+    queryset = User.objects.none()
     filter_fields = ('is_active', 'is_staff', 'is_superuser')
     search_fields = ('first_name', 'last_name', 'username', 'email')
+
+    def get_queryset(self):
+        if self.request.user and self.request.user.is_staff:
+            return User.objects.all()
+        else:
+            return User.objects.filter(is_active=True)
+
+    def get_serializer_class(self):
+        if self.request.user and self.request.user.is_staff:
+            return UserSerializerAdmin
+        else:
+            return UserSerializer
 
 
 class TrackerProfileViewSet(viewsets.ModelViewSet):
@@ -73,26 +83,41 @@ class SubtopicViewSet(viewsets.ModelViewSet):
 
 class TicketViewSet(viewsets.ModelViewSet):
     queryset = Ticket.objects.all()
-    serializer_class = TicketSerializer
     search_fields = ('summary', 'description')
+    permission_classes = (CanEditTicketElseReadOnly, )
+
+    def get_serializer_class(self):
+        if (self.action == 'update' or self.action == 'create') and not self.request.user.is_staff:
+            return TicketNoAdminUpdateSerializer
+        return TicketSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(requested_user=self.request.user)
 
 
 class MediaInfoViewSet(viewsets.ModelViewSet):
     queryset = MediaInfo.objects.all()
     serializer_class = MediaInfoSerializer
+    permission_classes = (CanEditExpedituresElseReadOnly, )
     filter_fields = ('ticket', )
     search_fields = ('description', 'url')
 
 
 class ExpeditureViewSet(viewsets.ModelViewSet):
     queryset = Expediture.objects.all()
-    serializer_class = ExpeditureSerializer
+    permission_classes = (CanEditExpedituresElseReadOnly, )
     filter_fields = ('ticket', 'wage', 'paid')
     search_fields = ('description', 'accounting_info')
+
+    def get_serializer_class(self):
+        if not self.request.user.is_staff:
+            return ExpeditureSerializer
+        return ExpeditureAdminSerializer
 
 
 class PreexpeditureViewSet(viewsets.ModelViewSet):
     queryset = Preexpediture.objects.all()
     serializer_class = PreexpeditureSerializer
+    permission_classes = (CanEditExpedituresElseReadOnly, )
     filter_fields = ('ticket', 'wage')
     search_fields = ('description', )
