@@ -893,7 +893,7 @@ msgid ""
 "%(ticket)s</a> by user <tt>%(user)s</tt>"
 msgstr ""
 "K ticketu <a href=\"%(ticket_url)s\">%(ticket)s</a> byl přidán uživatelem "
-"<tt>%(user)s</tt>komentář <tt>%(comment)s</tt>"
+"<tt>%(user)s</tt> komentář <tt>%(comment)s</tt>"
 
 #: tracker/templates/admin/tracker/ticket/ack_norating_error.html:2
 msgid ""
