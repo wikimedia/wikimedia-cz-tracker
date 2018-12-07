@@ -8,9 +8,9 @@ module.exports = function gruntConfig( grunt ) {
 			},
 			src: [
 				'Gruntfile.js',
-				'static/**.js',
-                '!static/**.min.js',
-                '!static/jquery*.js',
+				'static/**/*.js',
+				'!static/**/*.min.js',
+				'!static/**/jquery*.js'
 			]
 		},
 
@@ -19,9 +19,9 @@ module.exports = function gruntConfig( grunt ) {
 				configFile: '.stylelintrc.json'
 			},
 			src: [
-				'static/**.css',
-				'!static/**.min.css',
-				'!static/jquery*.css',
+				'static/**/*.css',
+				'!static/**/*.min.css',
+				'!static/**/jquery*.css'
 			]
 		},
 

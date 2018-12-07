@@ -29,9 +29,7 @@ function refresh_subtopic_description()
 		return;
 	}
 
-	console.log(subtopics_table);
 	var subtopic = subtopics_table[subtopic_id];
-	console.log(subtopic);
 
 	$('#subtopic_desc').html(subtopic['form_description']).toggle(subtopic['form_description'] != '');
 }

@@ -12,10 +12,11 @@ function refresh_subtopics() {
 		subtopicsHtml += '<option value="' + subtopic.id + '">' + subtopic.display_name + '</option>';
 	}
 	$('#id_subtopic').html(subtopicsHtml);
-	if($('#id_subtopic').html().includes(window.originallyCheckedTag))
+	if ($('#id_subtopic').html().includes(window.originallyCheckedTag)) {
 		$('#id_subtopic').val(window.originallyCheckedTag);
-	else
+	} else {
 		$('#id_subtopic').val("");
+	}
 }
 
 $(document).ready(function() {
