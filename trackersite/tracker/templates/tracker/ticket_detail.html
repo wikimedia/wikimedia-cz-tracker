@@ -47,7 +47,7 @@
 <h2 {% if ticket.document_set.count == 0 %}class="statutory-declaration"{% endif %}>{% trans "Documents" %}</h2>
 {% if ticket.statutory_declaration %}
 <div class="statutory-declaration">
-    {{ STATUTORY_DECLARATION_TEXT }} --{{ ticket.requested_by }}
+    {{ STATUTORY_DECLARATION_TEXT }} --{{ ticket.requested_by }}{% if ticket.statutory_declaration_date %}, {{ ticket.statutory_declaration_date }}{% endif %}
 </div>
 {% endif %}
 {% if user_can_see_documents %}

@@ -237,6 +237,7 @@ class Ticket(CachedModel, ModelDiffMixin):
     enable_comments = models.BooleanField(_('enable comments'), default=True, help_text=_('Can users comment on this ticket?'))
     car_travel = models.BooleanField(_('Did you travel by car?'), default=False, help_text=_('Do you request reimbursement of car-type travel expense?'))
     statutory_declaration = models.BooleanField(_('Statutory declaration'), default=False, help_text=settings.STATUTORY_DECLARATION_TEXT)
+    statutory_declaration_date = models.DateTimeField(_('Date when statutory declaration was made'), null=True, default=None)
 
     @staticmethod
     def currency():
@@ -273,6 +274,12 @@ class Ticket(CachedModel, ModelDiffMixin):
                 action_flag=CHANGE,
                 change_message=change_message
             )
+
+        statutory_declaration_diff = self.get_field_diff('statutory_declaration')
+        if statutory_declaration_diff and not statutory_declaration_diff[0] and statutory_declaration_diff[1]:
+            self.statutory_declaration_date = datetime.datetime.now()  # the statutory declaration was made, store when this happened
+        elif statutory_declaration_diff and statutory_declaration_diff[0] and not statutory_declaration_diff[1]:
+            self.statutory_declaration_date = None  # the statutory declaration was revoked, clear the date field
 
         if not just_payment_status:
             self.updated = datetime.datetime.now()

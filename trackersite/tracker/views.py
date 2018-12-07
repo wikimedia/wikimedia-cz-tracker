@@ -246,7 +246,7 @@ class TicketForm(forms.ModelForm):
         exclude = (
             'created', 'updated', 'requested_user', 'requested_text',
             'custom_state', 'rating_percentage', 'supervisor_notes', 'cluster', 'payment_status',
-            'mandatory_report', 'imported', 'enable_comments'
+            'mandatory_report', 'imported', 'enable_comments', 'statutory_declaration_date',
         )
         widgets = {
             'event_date': adminwidgets.AdminDateWidget(),
