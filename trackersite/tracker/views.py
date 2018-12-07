@@ -225,7 +225,7 @@ def topics_js(request):
             "form_description": s.form_description
         }
 
-    content = 'topics_table = %s;\nsubtopics_table = %s' % (json.dumps(data), json.dumps(subtopics))
+    content = 'topicsTable = %s;\nsubtopicsTable = %s' % (json.dumps(data), json.dumps(subtopics))
     return HttpResponse(content, content_type='text/javascript')
 
 
