@@ -54,13 +54,6 @@ class SimpleTicketTest(TestCase):
         response = Client().get(reverse('ticket_detail', kwargs={'pk': self.ticket1.id}))
         self.assertEqual(response.status_code, 200)
 
-    def test_ticket_url_escape(self):
-        url = 'http://meta.wikimedia.org/wiki/Mediagrant/Fotografie_um%C4%9Bleck%C3%BDch_pam%C3%A1tek_v_%C4%8Cesk%C3%A9m_Krumlov%C4%9B'
-        self.ticket1.description = '<a href="%s">foo link</a>' % url
-        self.ticket1.save()
-        response = Client().get(reverse('ticket_detail', kwargs={'pk': self.ticket1.id}))
-        self.assertContains(response, 'href="%s"' % url, 1)
-
     def test_ticket_absolute_url(self):
         t = self.ticket1
         self.assertEqual(reverse('ticket_detail', kwargs={'pk': t.id}), t.get_absolute_url())
