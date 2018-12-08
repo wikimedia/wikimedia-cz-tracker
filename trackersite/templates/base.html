@@ -82,7 +82,7 @@ $( '#emailModal' ).on('hidden.bs.modal', (e) => {
                     <li><a href="{% url "tracker_login" %}?clicked=True">{% trans "login" %}</a></li>
                 {% endif %}
                 <li><a href="{% url "register" %}">{% trans "register" %}</a></li>
-                <li><a href="{% url "choose_language" %}">{% trans "change language"</a></li>
+                <li><a href="{% url "choose_language" %}">{% trans "change language" %}</a></li>
                 <li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
             {% endif %}
         </ul>
