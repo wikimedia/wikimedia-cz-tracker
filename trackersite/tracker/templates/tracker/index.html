@@ -59,6 +59,11 @@
         return ordB - ordA;
     };
 
+    jQuery.fn.dataTableExt.oSort['money-pre'] = function(a){
+        a = a.toString();
+        return parseFloat(a.replace(',', '').replace('.', ''))
+    };
+
     $.get('/user/display_items', function(display_items) {
         var language = $('meta[http-equiv="Content-Language"]').attr('content');
         var fullLanguage = "English";
@@ -70,7 +75,8 @@
         $('table').DataTable({
             "order": [[0, "desc"]],
             "columnDefs": [
-                {"type": "date-with-none", "targets": 1}
+                {"type": "date-with-none", "targets": 1},
+                {"type": "money", "targets": [7,8,9]}
             ],
             "language": {
                 "url": url,
