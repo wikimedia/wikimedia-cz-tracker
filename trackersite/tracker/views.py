@@ -15,7 +15,7 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadReque
 from django.core.exceptions import PermissionDenied
 from django.utils.functional import curry
 from django.utils.translation import ugettext as _, ugettext_lazy
-from django.utils.html import strip_tags
+from django.utils.html import strip_tags, escape
 from django.http import JsonResponse
 from django.views.generic import ListView, DetailView, FormView, DeleteView
 from django.contrib.admin import widgets as adminwidgets
@@ -64,7 +64,7 @@ def tickets(request, lang):
         tickets.append([
             '<a href="%s">%s</a>' % (ticket.get_absolute_url(), ticket.pk),
             unicode(ticket.event_date),
-            '<a class="ticket-summary" href="%s">%s</a>' % (ticket.get_absolute_url(), ticket.name),
+            '<a class="ticket-summary" href="%s">%s</a>' % (ticket.get_absolute_url(), escape(ticket.name)),
             '<a href="%s">%s</a>' % (ticket.topic.grant.get_absolute_url(), ticket.topic.grant),
             '<a href="%s">%s</a>' % (ticket.topic.get_absolute_url(), ticket.topic),
             subtopic,
