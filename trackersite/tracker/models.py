@@ -906,6 +906,7 @@ class TrackerProfile(models.Model):
         verbose_name_plural = _('Tracker profiles')
         permissions = (
             ("bypass_disabled_comments", "Can post comments even if they are not enabled."),
+            ("import_unlimited_rows", "Can import more than a hundred rows at a time."),
         )
 
 

@@ -1512,8 +1512,8 @@ def importcsv(request):
             if request.POST['type'] == 'ticket':
                 for line in reader:
                     imported += 1
-                    if imported > 100 and not request.user.is_superuser:
-                        messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
+                    if imported > 100 and not request.user.has_perm('tracker.import_unlimited_rows'):
+                        messages.warning(request, _('You do not have permission to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     event_date = line[header.index('event_date')]
                     if event_date == "None":
@@ -1531,8 +1531,8 @@ def importcsv(request):
                     raise PermissionDenied('You must be staffer in order to be able import topics.')
                 for line in reader:
                     imported += 1
-                    if imported > 100 and not request.user.is_superuser:
-                        messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
+                    if imported > 100 and not request.user.has_perm('tracker.import_unlimited_rows'):
+                        messages.warning(request, _('You do not have permission to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     name = line[header.index('name')]
                     grant = Grant.objects.get(full_name=line[header.index('grant')]).id
@@ -1564,8 +1564,8 @@ def importcsv(request):
                     raise PermissionDenied('You must be staffer in order to be able import grants.')
                 for line in reader:
                     imported += 1
-                    if imported > 100 and not request.user.is_superuser:
-                        messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
+                    if imported > 100 and not request.user.has_perm('tracker.import_unlimited_rows'):
+                        messages.warning(request, _('You do not have permission to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     full_name = line[header.index('full_name')]
                     short_name = line[header.index('short_name')]
@@ -1575,8 +1575,8 @@ def importcsv(request):
             elif request.POST['type'] == 'expense':
                 for line in reader:
                     imported += 1
-                    if imported > 100 and not request.user.is_superuser:
-                        messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
+                    if imported > 100 and not request.user.has_perm('tracker.import_unlimited_rows'):
+                        messages.warning(request, _('You do not have permission to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     ticket = Ticket.objects.get(id=line[header.index('ticket_id')])
                     description = line[header.index('description')]
@@ -1595,8 +1595,8 @@ def importcsv(request):
             elif request.POST['type'] == 'preexpense':
                 for line in reader:
                     imported += 1
-                    if imported > 100 and not request.user.is_superuser:
-                        messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
+                    if imported > 100 and not request.user.has_perm('tracker.import_unlimited_rows'):
+                        messages.warning(request, _('You do not have permission to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     ticket = Ticket.objects.get(id=line[header.index('ticket_id')])
                     description = line[header.index('description')]
@@ -1609,8 +1609,8 @@ def importcsv(request):
             elif request.POST['type'] == 'media':
                 for line in reader:
                     imported += 1
-                    if imported > 100 and not request.user.is_superuser:
-                        messages.warning(request, _('You must be superuser in order to be able to import more than 100 rows. First 100 rows has already been imported.'))
+                    if imported > 100 and not request.user.has_perm('tracker.import_unlimited_rows'):
+                        messages.warning(request, _('You do not have permission to import more than 100 rows. First 100 rows has already been imported.'))
                         break
                     ticket = Ticket.objects.get(id=line[header.index('ticket_id')])
                     url = line[header.index('url')]
