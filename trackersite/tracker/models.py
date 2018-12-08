@@ -282,6 +282,9 @@ class Ticket(CachedModel, ModelDiffMixin):
         elif statutory_declaration_diff and statutory_declaration_diff[0] and not statutory_declaration_diff[1]:
             self.statutory_declaration_date = None  # the statutory declaration was revoked, clear the date field
 
+        if not self.car_travel:
+            self.statutory_declaration = False
+
         if not just_payment_status:
             self.updated = datetime.datetime.now(tz=utc)
 
