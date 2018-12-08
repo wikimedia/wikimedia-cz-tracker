@@ -3,7 +3,11 @@
 {% block title %}{% trans "404 Not Found" %}{% endblock %}
 
 {% block content %}
-<h1 class="errorPageText">{% trans "Not Found" %}</h1>
-<p class="errorPageText"><img src="http://cosmoboy.cz/rpl/images/a5.jpg" width="640" height="426" alt="Not Found" /><br />
-{% blocktrans %}The requested URL {{ request_path }} was not found on this server.{% endblocktrans %}</p>
+    <div class="errorPage">
+        <h1>{% trans "Not Found" %}</h1>
+        <img src="http://cosmoboy.cz/rpl/images/a5.jpg" alt="Not Found" />
+        <p>
+            {% blocktrans %}The requested URL {{ request_path }} was not found on this server.{% endblocktrans %}
+        </p>
+    </div>
 {% endblock %}

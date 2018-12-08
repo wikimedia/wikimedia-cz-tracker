@@ -3,6 +3,11 @@
 {% block title %}500 {% trans "Internal Error" %}{% endblock %}
 
 {% block content %}
-<p class="errorPageText"><img src="http://cosmoboy.cz/rpl/images/a5.jpg" width="640" height="426" alt="Internal Error" /><br />
-{% trans "There was an error processing you request. Sorry about that." %}</p>
+    <div class="errorPage">
+        <h1>{% trans "Internal Error" %}</h1>
+        <img src="http://cosmoboy.cz/rpl/images/a5.jpg" alt="Internal Error" />
+        <p>
+            {% trans "There was an error processing you request. Sorry about that." %}
+        </p>
+    </div>
 {% endblock %}

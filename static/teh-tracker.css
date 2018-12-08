@@ -319,8 +319,20 @@ input[type=checkbox] {
     top: -3px;
 }
 
-.errorPageText{
+.errorPage {
     text-align: center;
+}
+
+.errorPage img {
+    width: 80%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.errorPage p {
+    margin-top: 16px;
+    font-size: 20px
 }
 
 .form-horizontal div[class="form-group"] {

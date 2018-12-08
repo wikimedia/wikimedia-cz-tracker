@@ -3,11 +3,13 @@
 {% block title %}{% trans "403 Forbidden" %}{% endblock %}
 
 {% block content %}
-<h1 class="errorPageText">{% trans "Forbidden" %}</h1>
-<img src="/static/403.jpeg" alt="STOP!" title="Photo by Dominik Dvořák on Unsplash" width="100%" />
-{% if exception %}
-    <h4 class="errorPageText">{{ exception }}</h4>
-{% else %}
-    <h4 class="errorPageText">{% trans "You don't have permissions to do this!" %}</h4>
-{% endif %}
+    <div class="errorPage">
+        <h1>{% trans "Forbidden" %}</h1>
+        <img src="/static/403.jpeg" alt="Stop!" title="Photo by Dominik Dvořák on Unsplash" />
+        {% if exception %}
+            <p>{{ exception }}</p>
+        {% else %}
+            <p>{% trans "You don't have permissions to do this!" %}</p>
+        {% endif %}
+    </div>
 {% endblock %}
