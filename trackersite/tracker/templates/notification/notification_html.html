@@ -1,7 +1,7 @@
 {% load i18n %}
 {% autoescape off %}
 {% if ticket_new_notifs.count > 0 %}
-<h1>Seznam nových ticketů</h1>
+<h1>{% trans "List of new tickets" %}</h1>
 <ul>
     {% for notif in ticket_new_notifs %}
     <li>{{notif.fired}}: {{notif}}</li>
@@ -10,7 +10,7 @@
 {% endif %}
 
 {% if ticket_delete_notifs.count > 0 %}
-<h1>Seznam smazaných tiketů</h1>
+<h1>{% trans "List of deleted tickets" %}</h1>
 <ul>
     {% for notif in ticket_delete_notifs %}
     <li>{{notif.fired}}: {{notif}}</li>
@@ -19,7 +19,7 @@
 {% endif %}
 
 {% if ack_notifs.count > 0 %}
-<h1>Změna stavu sledovaných tiketů</h1>
+<h1>{% trans "The state of a watched ticket was changed" %}</h1>
 <ul>
     {% for notif in ack_notifs %}
     <li>{{notif.fired}}: {{notif}}</li>
@@ -28,7 +28,7 @@
 {% endif %}
 
 {% if supervisor_notes_notifs.count > 0 %}
-<h1>Změna poznámek schvalovatele u sledovaných ticketů</h1>
+<h1>{% trans "Supervisor notes on a watched ticket were changed" %}</h1>
 <ul>
     {% for notif in supervisor_notes_notifs %}
     <li>{{notif.fired}}: {{notif}}</li>
@@ -37,7 +37,7 @@
 {% endif %}
 
 {% if ticket_change_notifs.count > 0 %}
-<h1>Změna sledovaného tiketu</h1>
+<h1>{% trans "Changes were made to a watched ticket" %}</h1>
 <ul>
     {% for notif in ticket_change_notifs %}
     <li>{{notif.fired}}: {{notif}}</li>
@@ -46,7 +46,7 @@
 {% endif %}
 
 {% if preexpeditures_notifs.count > 0 %}
-<h1>Změna plánovaných výdajů u sledovaných tiketů</h1>
+<h1>{% trans "The preexpenditures of a watched ticket were changed" %}</h1>
 <ul>
     {% for notif in preexpeditures_notifs %}
     <li>{{notif.fired}}: {{notif}}</li>
@@ -55,7 +55,7 @@
 {% endif %}
 
 {% if expeditures_notifs.count > 0 %}
-<h1>Změna reálných výdajů u sledovaných tiketů</h1>
+<h1>{% trans "The expenditures of a watched ticket were changed" %}</h1>
 <ul>
     {% for notif in expeditures_notifs %}
     <li>{{notif.fired}}: {{notif}}</li>
@@ -64,7 +64,7 @@
 {% endif %}
 
 {% if media_notifs.count > 0 %}
-<h1>Změna médií u sledovaných tiketů</h1>
+<h1>{% trans "Medias of a watched ticket" %}</h1>
 <ul>
     {% for notif in media_notifs %}
     <li>{{notif.fired}}: {{notif}}</li>
@@ -74,7 +74,7 @@
 
 
 {% if comment_notifs.count > 0 %}
-<h1>Seznam přidaných komentářů k sledovaným ticketům</h1>
+<h1>{% trans "A comment was added to a watched ticket" %}</h1>
 <ul>
     {% for notif in comment_notifs %}
     <li>{{notif.fired}}: {{notif}}</li>
@@ -83,5 +83,5 @@
 {% endif %}
 
 -- <br>
-<a href="{{BASE_URL}}">Tracker notifikace</a>
+<a href="{{BASE_URL}}">{% trans "Tracker notifications" %}</a>
 {% endautoescape %}

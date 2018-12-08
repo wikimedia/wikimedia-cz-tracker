@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-07 20:24+0100\n"
+"POT-Creation-Date: 2018-12-08 19:11+0100\n"
 "PO-Revision-Date: 2016-12-27 18:50+0100\n"
 "Last-Translator: Petr Novák <petr.novak@cosmoboy.cz>\n"
 "Language-Team: none <none@example.org>\n"
@@ -16,6 +16,54 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: api/serializers.py:76
+msgid "Deposit should be zero when creating a ticket"
+msgstr ""
+
+#: api/serializers.py:79
+msgid "Cannot edit deposit once a ticket has been preaccepted"
+msgstr ""
+
+#: api/serializers.py:84 api/serializers.py:87
+msgid "Deposit should be lower or equal to the sum of preexpeditures"
+msgstr ""
+
+#: api/serializers.py:101
+#, fuzzy
+#| msgid "You cannot edit this ticket."
+msgid "You can not add media to this ticket."
+msgstr "Nemáte práva k úpravám tohoto tiketu."
+
+#: api/serializers.py:103
+#, fuzzy
+#| msgid "You cannot edit this ticket."
+msgid "You can not edit the media of this ticket."
+msgstr "Nemáte práva k úpravám tohoto tiketu."
+
+#: api/serializers.py:120
+#, fuzzy
+#| msgid "You cannot edit this ticket."
+msgid "You can not add expiditures to this ticket."
+msgstr "Nemáte práva k úpravám tohoto tiketu."
+
+#: api/serializers.py:122
+#, fuzzy
+#| msgid "You cannot edit this ticket."
+msgid "You can not edit expiditures of this ticket."
+msgstr "Nemáte práva k úpravám tohoto tiketu."
+
+#: api/serializers.py:135
+#, fuzzy
+#| msgid "You cannot edit this ticket."
+msgid "You can not add preexpiditures to this ticket."
+msgstr "Nemáte práva k úpravám tohoto tiketu."
+
+#: api/serializers.py:137
+#, fuzzy
+#| msgid "You cannot edit this ticket."
+msgid "You can not edit preexpiditures of this ticket."
+msgstr "Nemáte práva k úpravám tohoto tiketu."
 
 #: common_settings.py:78 tracker/templates/tracker/grant_table.html:21
 #: tracker/templates/tracker/grant_table.html:22
@@ -329,7 +377,7 @@ msgid ""
 msgstr "Textové označení žadatele, použije se pokud nevyplníte uživatele"
 
 #: tracker/models.py:222 tracker/models.py:550 tracker/models.py:615
-#: tracker/views.py:775
+#: tracker/views.py:777
 msgid "name"
 msgstr "název"
 
@@ -337,7 +385,7 @@ msgstr "název"
 msgid "Name for the ticket"
 msgstr "Jméno tiketu"
 
-#: tracker/models.py:223 tracker/models.py:553 tracker/views.py:582
+#: tracker/models.py:223 tracker/models.py:553 tracker/views.py:584
 msgid "topic"
 msgstr "téma"
 
@@ -393,7 +441,7 @@ msgstr "Odkažte na veřejnou stránku popisující akci, pokud existuje"
 
 #: tracker/models.py:229 tracker/models.py:551 tracker/models.py:622
 #: tracker/models.py:704 tracker/models.py:757 tracker/models.py:772
-#: tracker/models.py:794 tracker/models.py:926 tracker/views.py:776
+#: tracker/models.py:794 tracker/models.py:926 tracker/views.py:778
 msgid "description"
 msgstr "popis"
 
@@ -567,7 +615,7 @@ msgstr "Subtéma"
 msgid "Subtopics"
 msgstr "Subtémata"
 
-#: tracker/models.py:616 tracker/views.py:611
+#: tracker/models.py:616 tracker/views.py:613
 msgid "grant"
 msgstr "grant"
 
@@ -689,7 +737,7 @@ msgid "Grants"
 msgstr "Granty"
 
 #: tracker/models.py:756 tracker/models.py:771 tracker/models.py:793
-#: tracker/views.py:537
+#: tracker/views.py:539
 msgid "ticket"
 msgstr "tiket"
 
@@ -782,7 +830,7 @@ msgstr "Plánovaný výdaj tiketu"
 msgid "Ticket preexpeditures"
 msgstr "Plánované výdaje tiketu"
 
-#: tracker/models.py:814 tracker/views.py:775
+#: tracker/models.py:814 tracker/views.py:777
 msgid "We need a sane file name, such as my-invoice123.jpg"
 msgstr ""
 "Jméno souboru musí vypadat jako jméno bez speciálních znaků; použijte něco "
@@ -1012,6 +1060,46 @@ msgstr "Částka"
 #: tracker/templates/tracker/user_detail.html:22
 msgid "Description"
 msgstr "Popis"
+
+#: tracker/templates/notification/notification_html.html:4
+msgid "List of new tickets"
+msgstr "Seznam nových tiketů"
+
+#: tracker/templates/notification/notification_html.html:13
+msgid "List of deleted tickets"
+msgstr "Seznam smazaných tiketů"
+
+#: tracker/templates/notification/notification_html.html:22
+msgid "The state of a watched ticket was changed"
+msgstr "Změna stavu sledovaných tiketů"
+
+#: tracker/templates/notification/notification_html.html:31
+msgid "Supervisor notes on a watched ticket were changed"
+msgstr "Změna poznámek schvalovatele u sledovaných ticketů"
+
+#: tracker/templates/notification/notification_html.html:40
+msgid "Changes were made to a watched ticket"
+msgstr "Změna sledovaného tiketu"
+
+#: tracker/templates/notification/notification_html.html:49
+msgid "The preexpenditures of a watched ticket were changed"
+msgstr "Změna plánovaných výdajů u sledovaných tiketů"
+
+#: tracker/templates/notification/notification_html.html:58
+msgid "The expenditures of a watched ticket were changed"
+msgstr "Změna reálných výdajů u sledovaných tiketů"
+
+#: tracker/templates/notification/notification_html.html:67
+msgid "Medias of a watched ticket"
+msgstr "Změna médií u sledovaných tiketů"
+
+#: tracker/templates/notification/notification_html.html:77
+msgid "A comment was added to a watched ticket"
+msgstr "Seznam přidaných komentářů k sledovaným ticketům"
+
+#: tracker/templates/notification/notification_html.html:86
+msgid "Tracker notifications"
+msgstr "Tracker notifikace"
 
 #: tracker/templates/tracker/admin_index_override.html:10
 #, python-format
@@ -1549,6 +1637,18 @@ msgstr ""
 msgid "set a password."
 msgstr "nastavit heslo"
 
+#: tracker/templates/tracker/preferences.html:74
+#, fuzzy
+#| msgid "Wikimedia account"
+msgid "Link Wikimedia account"
+msgstr "Wikimedia účet"
+
+#: tracker/templates/tracker/preferences.html:77
+#, fuzzy
+#| msgid "Account deactivation"
+msgid "Account actions"
+msgstr "Deaktivace účtu"
+
 #: tracker/templates/tracker/preferences.html:79
 #: tracker/templates/tracker/user_deactivate.html:4
 #: tracker/templates/tracker/user_deactivate.html:11
@@ -1719,7 +1819,7 @@ msgstr "Přidat komentář"
 msgid "Related files"
 msgstr "Odkazy na soubory"
 
-#: tracker/templates/tracker/ticket_form.html:11 tracker/views.py:774
+#: tracker/templates/tracker/ticket_form.html:11 tracker/views.py:776
 msgid "file"
 msgstr "soubor"
 
@@ -1926,6 +2026,12 @@ msgid "Tracker account deactivated"
 msgstr "Účet deaktivován"
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
+#, fuzzy
+#| msgid "no tracker account listed"
+msgid "Your tracker account with username "
+msgstr "účet neuveden"
+
+#: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "has been deactivated."
 msgstr ""
 
@@ -1986,98 +2092,100 @@ msgstr "Sledovat"
 msgid "All"
 msgstr "Všechny"
 
-#: tracker/views.py:82
+#: tracker/views.py:88
 msgid "Comment posted, thank you."
 msgstr "Komentář přidán, děkujeme."
 
-#: tracker/views.py:129
+#: tracker/views.py:135
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
 msgstr "Schválení \"%(confirmation)s\" přidáno k tiketu %(ticket_id)s"
 
-#: tracker/views.py:165
+#: tracker/views.py:171
 #, python-format
 msgid ""
 "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been deleted."
 msgstr "Schválení \"%(confirmation)s\" smazáno z tiketu %(ticket_id)s"
 
-#: tracker/views.py:273
+#: tracker/views.py:275
 msgid "Your deposit is bigger than your preexpeditures"
 msgstr "Vámi požadovaná záloha je vyšší než vámi zadané plánované výdaje"
 
-#: tracker/views.py:290
+#: tracker/views.py:292
 msgid "You are required to do statutory declaration"
 msgstr "Vyžaduje se po vás učinit čestné prohlášení"
 
-#: tracker/views.py:306
+#: tracker/views.py:308
 msgid ""
 "Subtopic must belong to topic you used. You have probably JavaScript turned "
 "off."
 msgstr ""
 
-#: tracker/views.py:413
+#: tracker/views.py:415
 msgid "We've updated your preferences"
 msgstr ""
 
-#: tracker/views.py:461
+#: tracker/views.py:463
 msgid "Please enter your password to confirm the deactivation of your account."
 msgstr "Pro potvrzení deaktivace účtu zadejte prosím své heslo"
 
-#: tracker/views.py:476
+#: tracker/views.py:478
 msgid "Account deactivation"
 msgstr "Deaktivace účtu"
 
-#: tracker/views.py:483
+#: tracker/views.py:485
 msgid "Your account has been deactivated."
 msgstr "Váš účet byl deaktivován"
 
-#: tracker/views.py:486
+#: tracker/views.py:488
 msgid "Password is incorrect."
 msgstr "Heslo je nesprávné"
 
-#: tracker/views.py:518
+#: tracker/views.py:520
 #, python-format
 msgid "Ticket's %s watching settings are changed."
 msgstr "Události sledované u tiketu %s byly změněny."
 
-#: tracker/views.py:567
+#: tracker/views.py:569
 #, python-format
 msgid "Topic's %s watching settings are changed."
 msgstr "Události sledované u tématu %s byly změněny."
 
-#: tracker/views.py:597
+#: tracker/views.py:599
+#, python-format
 msgid "%s's watching settings are changed."
 msgstr "Nastavení sledování u %s byly změněny."
 
-#: tracker/views.py:651
+#: tracker/views.py:653
+#, python-format
 msgid "Ticket %s is created"
 msgstr "Vytvořen tiket %s."
 
-#: tracker/views.py:741
+#: tracker/views.py:743
 #, python-format
 msgid "Ticket %s saved."
 msgstr "Tiket %s uložen."
 
-#: tracker/views.py:825
+#: tracker/views.py:827
 #, python-format
 msgid "Document changes for ticket %s saved."
 msgstr "Změny dokladů pro tiket %s uloženy."
 
-#: tracker/views.py:852
+#: tracker/views.py:854
 #, python-format
 msgid "File %(filename)s has been saved."
 msgstr "Soubor %(filename)s uložen."
 
-#: tracker/views.py:1040
+#: tracker/views.py:1042
 msgid "Your details have been saved."
 msgstr "Vaše údaje byly uloženy"
 
-#: tracker/views.py:1486
+#: tracker/views.py:1488
 msgid "You must fill the form validly"
 msgstr "Musíte formulář vyplnit validně"
 
-#: tracker/views.py:1514 tracker/views.py:1533 tracker/views.py:1566
-#: tracker/views.py:1577 tracker/views.py:1597 tracker/views.py:1611
+#: tracker/views.py:1516 tracker/views.py:1535 tracker/views.py:1568
+#: tracker/views.py:1579 tracker/views.py:1599 tracker/views.py:1613
 msgid ""
 "You must be superuser in order to be able to import more than 100 rows. "
 "First 100 rows has already been imported."
@@ -2085,7 +2193,7 @@ msgstr ""
 "Pro import více než 100 řádků musíte být superuživatelem. Prvních 100 jich "
 "bylo již naimportováno. "
 
-#: tracker/views.py:1647
+#: tracker/views.py:1649
 msgid ""
 "The form have returned strange values. Please contact the systemadmin and "
 "tell him what you tried to do. "
@@ -2093,11 +2201,11 @@ msgstr ""
 "Formulář vrátil divné hodnoty. Prosím, kontaktujte systémového správce a "
 "sdělte mu, o co jste se pokoušeli."
 
-#: tracker/views.py:1649
+#: tracker/views.py:1651
 msgid "Your CSV file was imported. "
 msgstr "Váš CSV soubor byl importován"
 
-#: tracker/views.py:1712
+#: tracker/views.py:1714
 msgid "Preexpeditures were copied to expeditures successfuly."
 msgstr "Plánované výdaje byly do výdajů úspěšně zkopírovány."
 
@@ -2306,11 +2414,11 @@ msgstr ""
 msgid "User %s created."
 msgstr "Vytvořen uživatel %s."
 
+#~ msgid "Watched ticket was changed"
+#~ msgstr "Změna sledovaného tiketu"
+
 #~ msgid "You cannot edit this"
 #~ msgstr "Nemáte práva k této změně"
-
-#~ msgid "You cannot edit this ticket."
-#~ msgstr "Nemáte práva k úpravám tohoto tiketu."
 
 #~ msgid "You cannot see this ticket's documents."
 #~ msgstr "Nemáte právo vidět doklady tohoto tiketu."
