@@ -1,17 +1,20 @@
 ( function () {
-	function showHiddencomment() {
-		$( this ).hide();
-		$( this ).parent().find( '.hiddencomment' ).show();
-		return false;
+	function processHiddencomment( el ) {
+		var hiddencomment = el.querySelector( '.hiddencomment' ),
+			unhide = el.querySelector( 'a.unhide' );
+
+		hiddencomment.hidden = true;
+		unhide.hidden = false;
+
+		unhide.addEventListener( 'click', function () {
+			hiddencomment.hidden = false;
+			unhide.hidden = true;
+		} );
 	}
 
-	function processHiddencomment() {
-		var switchDiv = $( this );
-		switchDiv.find( '.hiddencomment' ).hide();
-		switchDiv.find( 'a.unhide' ).click( showHiddencomment ).show();
-	}
-
-	$( document ).ready( function () {
-		$( '.hide-switch' ).each( processHiddencomment );
+	document.addEventListener( 'DOMContentLoaded', function () {
+		document.querySelectorAll( '.hide-switch' ).forEach( function ( el ) {
+			processHiddencomment( el );
+		} );
 	} );
 }() );

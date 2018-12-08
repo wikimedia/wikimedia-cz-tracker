@@ -1,8 +1,11 @@
 ( function () {
 	function dataTablesInit() {
-		var language, fullLanguage, url, ordering, columnDefs;
-		if ( $( '#disabledatatables' ).text().length === 0 ) {
-			language = $( 'meta[http-equiv="Content-Language"]' ).attr( 'content' );
+		var language, fullLanguage, url, columnDefs, ordering;
+		if ( document.querySelector( '#disabledatatables' ) && document.querySelector( '#disabledatatables' ).textContent.length === 0 ) {
+			language = document.querySelector( 'meta[http-equiv="Content-Language"]' ).getAttribute( 'content' );
+			fullLanguage = 'English';
+			url = 'https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/' + fullLanguage + '.json';
+			ordering = document.querySelector( '#custom-ordering-datatables' ).textContent;
 
 			fetch( '/api/tracker/languages/', { headers: { Accept: 'application/json' } } ).then( function ( response ) {
 				return response.json();
@@ -32,7 +35,7 @@
 			} );
 		}
 	}
-	$( document ).ready( dataTablesInit );
+	document.addEventListener( 'DOMContentLoaded', dataTablesInit );
 
 	if ( 'matchMedia' in window ) {
 		// Chrome, Firefox, and IE 10 support mediaMatch listeners
@@ -41,7 +44,10 @@
 				$( 'table' ).DataTable().destroy();
 			} else {
 				// Fires immediately, so wait for the first mouse movement
-				$( document ).one( 'mouseover', dataTablesInit );
+				document.addEventListener( 'mouseover', function cb() {
+					dataTablesInit();
+					document.removeEventListener( 'mouseover', cb );
+				} );
 			}
 		} );
 	}

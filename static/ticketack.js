@@ -1,89 +1,87 @@
 /* globals django */
-( function ( $ ) {
-	function findParent( el, condition ) {
+( function () {
+	var prev;
+	function findParent( el, selector ) {
 		while ( true ) {
-			if ( el.is( condition ) ) {
+			if ( el.matches( selector ) ) {
 				return el;
 			}
-			el = el.parent();
+			el = el.parentNode;
 		}
 	}
 
 	function addAck( target, set ) {
 		var block = findParent( target, 'li' );
-		set.data( 'prev', block.html() );
-		$.ajax( {
-			type: 'GET',
-			url: set.attr( 'data-add-handler' ),
-			dataType: 'json',
-			success: function ( data ) {
-				block.html( data.form );
-			}
-		} );
+		prev = block.innerHTML;
+		fetch( set.getAttribute( 'data-add-handler' ) )
+			.then( function ( res ) { return res.json(); } )
+			.then( function ( res ) {
+				block.innerHTML = res.form;
+			} );
 	}
 
 	function submitAck( target, set ) {
-		var formData = findParent( target, 'form' ).serialize();
-		$.ajax( {
-			type: 'POST',
-			data: formData,
-			url: set.attr( 'data-add-handler' ),
-			dataType: 'json',
-			success: function ( data ) {
+		var formData = new FormData( findParent( target, 'form' ) );
+		fetch( set.getAttribute( 'data-add-handler' ), {
+			method: 'POST',
+			body: formData
+		} )
+			.then( function ( res ) { return res.json(); } )
+			.then( function ( res ) {
 				var item = findParent( target, '.add-block' ),
 					next;
-				if ( data.form !== undefined ) {
-					item.html( data.form );
+				if ( res.form ) {
+					item.innerHTML = res.form;
 				}
-				if ( data.success ) {
-					next = item.clone();
-					next.html( set.data( 'prev' ) );
-					item.removeClass( 'add-block' );
-					item.addClass( 'newly-added' );
-					item.attr( 'data-id', data.id );
-					item.after( next );
+				if ( res.success ) {
+					next = item.cloneNode( true );
+					next.innerHTML = prev;
+					item.classList.remove( 'add-block' );
+					item.classList.add( 'newly-added' );
+					item.setAttribute( 'data-id', res.id );
+					item.insertAdjacentHTML( 'afterend', next.outerHTML );
 				}
-			}
-		} );
+			} );
 	}
 
 	function removeAck( target, set ) {
 		var ackLine = findParent( target, 'li' ),
-			block = findParent( target, '.remove-block' );
-		if ( block.hasClass( 'really' ) ) {
-			ackLine.addClass( 'removing' );
-			$.ajax( {
-				type: 'POST',
-				data: { id: ackLine.attr( 'data-id' ), csrfmiddlewaretoken: set.attr( 'data-token' ) },
-				url: set.attr( 'data-remove-handler' ),
-				dataType: 'json',
-				success: function ( data ) {
-					if ( data.success ) {
-						ackLine.remove();
+			block = findParent( target, '.remove-block' ),
+			formData = new FormData();
+		if ( block.classList.contains( 'really' ) ) {
+			ackLine.classList.add( 'removing' );
+			formData.append( 'id', ackLine.getAttribute( 'data-id' ) );
+			formData.append( 'csrfmiddlewaretoken', set.getAttribute( 'data-token' ) );
+
+			fetch( set.getAttribute( 'data-remove-handler' ), {
+				method: 'POST',
+				body: formData
+			} )
+				.then( function ( res ) { return res.json(); } )
+				.then( function ( res ) {
+					if ( res.success ) {
+						ackLine.parentNode.removeChild( ackLine );
 					} else {
-						ackLine.addClass( 'failed' );
+						ackLine.classList.add( 'failed' );
 					}
-				}
-			} );
+				} );
 		} else {
-			block.addClass( 'really' );
+			block.classList.add( 'really' );
 		}
 	}
 
-	$( document ).ready( function () {
-		$( '.ack-set' ).click( function ( event ) {
-			var target = $( event.target ),
-				set = $( this );
-			if ( target.hasClass( 'add-ack' ) ) {
-				addAck( target, set );
+	document.addEventListener( 'DOMContentLoaded', function () {
+		document.querySelector( '.ack-set' ).addEventListener( 'click', function ( event ) {
+			if ( event.target.classList.contains( 'add-ack' ) ) {
+				addAck( event.target, this );
 				return false;
 			}
-			if ( target.hasClass( 'submit-ack' ) ) {
-				submitAck( target, set );
+			if ( event.target.classList.contains( 'submit-ack' ) ) {
+				submitAck( event.target, this );
 				return false;
 			}
-			if ( target.hasClass( 'remove-ack' ) ) {
-				removeAck( target, set );
+			if ( event.target.classList.contains( 'remove-ack' ) ) {
+				removeAck( event.target, this );
 				return false;
 			}
 		} );

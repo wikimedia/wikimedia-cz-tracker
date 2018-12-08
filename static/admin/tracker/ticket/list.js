@@ -1,14 +1,16 @@
 ( function () {
-	function refreshActionForm() {
-		if ( $( 'select[name="action"]' ).val() === 'add_ack' ) {
-			$( 'select[name="ack_type"]' ).parent().show();
-		} else {
-			$( 'select[name="ack_type"]' ).parent().hide();
-		}
-	}
+	document.addEventListener( 'DOMContentLoaded', function () {
+		var ackTypeSelect = document.querySelector( 'select[name="ack_type"]' ),
+			actionSelect = document.querySelector( 'select[name="action"]' );
 
-	$( document ).ready( function () {
-		$( 'select[name="action"]' ).change( refreshActionForm );
+		function refreshActionForm() {
+			if ( actionSelect.value === 'add_ack' ) {
+				ackTypeSelect.parentNode.hidden = false;
+			} else {
+				ackTypeSelect.parentNode.hidden = true;
+			}
+		}
+		actionSelect.addEventListener( 'change', refreshActionForm );
 		refreshActionForm();
 	} );
 }() );

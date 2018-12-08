@@ -1,10 +1,12 @@
 ( function () {
+	var idSupervisorNotes = document.querySelector( '#id_supervisor_notes' );
+
 	function signSupervisor() {
 		var param = '\n\nSem napište svou poznámku supervizora anebo tento text smažte --' + window.username;
-		document.getElementById( 'id_supervisor_notes' ).value += param;
-		document.getElementById( 'id_supervisor_notes' ).onclick = function () {};
+		idSupervisorNotes.value += param;
 	}
-	document.getElementById( 'id_supervisor_notes' ).onclick = function () {
+	idSupervisorNotes.addEventListener( 'click', function cb() {
 		signSupervisor();
-	};
+		idSupervisorNotes.removeEventListener( 'click', cb );
+	} );
 }() );

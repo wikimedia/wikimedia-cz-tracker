@@ -1,15 +1,18 @@
-$( document ).ready( () => {
-	const allButton = $( '#all' ),
-		otherNotifTypes = $( '.notif-form input.otherNotifTypes[type=checkbox]' );
+document.addEventListener( 'DOMContentLoaded', () => {
+	const allButton = document.querySelector( '#all' ),
+		otherNotifTypes = document.querySelectorAll( '.notif-form input.otherNotifTypes[type=checkbox]' );
 
-	$( allButton ).change( () => {
-		otherNotifTypes.each( ( index, notifType ) => {
-			$( notifType ).prop( 'checked', $( allButton ).prop( 'checked' ) );
+	allButton.addEventListener( 'change', () => {
+		otherNotifTypes.forEach( checkbox => {
+			checkbox.checked = allButton.checked;
 		} );
 	} );
 
-	$( otherNotifTypes ).change( () => {
-		const unCheckedNotifs = otherNotifTypes.not( ':checked' );
-		allButton.prop( 'checked', unCheckedNotifs.length === 0 );
+	otherNotifTypes.forEach( checkbox => {
+		checkbox.addEventListener( 'change', () => {
+			// set "all" checkbox unchecked if some checkboxes are not checked
+			allButton.checked = !Array.from( otherNotifTypes )
+				.some( checkbox => !checkbox.checked );
+		} );
 	} );
 } );
