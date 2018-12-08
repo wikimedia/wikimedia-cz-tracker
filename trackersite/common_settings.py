@@ -66,6 +66,8 @@ INSTALLED_APPS = (
     'django_filters',
 )
 
+USE_TZ = True
+
 COMMENTS_APP = 'customcomments'
 
 ROOT_URLCONF = 'urls'

@@ -1,6 +1,6 @@
 from datetime import datetime
 from random import choice, randint
-
+from pytz import UTC
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
 from django.db.utils import IntegrityError
@@ -92,7 +92,7 @@ class Command(BaseCommand):
             day = randint(1, 28)
             hour = randint(1, 23)
             minute = randint(1, 59)
-            return datetime(year, month, day, hour, minute)
+            return datetime(year, month, day, hour, minute, tzinfo=UTC)
 
         user_objects = User.objects.all()
         topic_objects = Topic.objects.all()

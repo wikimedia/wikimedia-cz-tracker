@@ -7,6 +7,7 @@ django-widget-tweaks
 python-memcached
 social-auth-app-django
 django-request-provider
+pytz
 
 # For API
 djangorestframework==3.3.3

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from pytz import timezone
 from django.db import migrations, models
 import datetime
 
@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='notification',
             name='fired',
-            field=models.DateTimeField(default=datetime.datetime(2018, 5, 28, 18, 33, 28, 559266), verbose_name=b'fired', auto_now_add=True),
+            field=models.DateTimeField(default=datetime.datetime(2018, 5, 28, 18, 33, 28, 559266, tzinfo=timezone('Europe/Prague')), verbose_name=b'fired', auto_now_add=True),
             preserve_default=False,
         ),
         migrations.AddField(

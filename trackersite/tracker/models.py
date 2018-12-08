@@ -23,6 +23,7 @@ from django.core.urlresolvers import NoReverseMatch
 from django.core.cache import cache
 from django.forms.models import model_to_dict
 from django import template
+from pytz import utc
 import re
 import json
 
@@ -282,7 +283,7 @@ class Ticket(CachedModel, ModelDiffMixin):
             self.statutory_declaration_date = None  # the statutory declaration was revoked, clear the date field
 
         if not just_payment_status:
-            self.updated = datetime.datetime.now()
+            self.updated = datetime.datetime.now(tz=utc)
 
         if self.event_date is None:
             self.event_date = datetime.date.today()
