@@ -9,6 +9,7 @@ from django import forms
 from django.forms.models import fields_for_model, inlineformset_factory, BaseInlineFormSet
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib.auth.views import redirect_to_login
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest, Http404
@@ -797,7 +798,6 @@ def document_view_required(access, ticket_id_field='pk'):
     """ Wrapper for document-accessing views (access=read|write)"""
     def actual_decorator(view):
         def wrapped_view(request, *args, **kwargs):
-            from django.contrib.auth.views import redirect_to_login
             if not request.user.is_authenticated():
                 return redirect_to_login(request.path)
 
