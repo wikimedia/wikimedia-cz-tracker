@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}{% trans "Edit" %}: {{ticket.summary}}{% endblock %}
+{% block title %}{% trans "Edit" %}: {{ticket.name}}{% endblock %}
 
 {% block content %}
 <p class="nav"><a href="{% url "ticket_list" %}" class="btn btn-primary">{% trans "index" %}</a> &gt; <a href="{% url "ticket_detail" ticket.id %}">{{ticket.summary}}</a> &gt;</p>
