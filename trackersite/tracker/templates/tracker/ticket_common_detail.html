@@ -1,6 +1,8 @@
 {% load i18n comments trackertags %}
 
+<!-- i18n-lint disable -->
 <span class="hidden" id="custom-ordering-datatables">false</span>
+<!-- i18n-lint enable -->
 <p>{% trans "Ticket ID" %}: {{ ticket.id }}<br />
 {% trans "Created" %}: {{ ticket.created }}<br />
 {% trans "Last changed" %}: {{ ticket.updated }}<br />

@@ -49,12 +49,14 @@ $( '#emailModal' ).on('hidden.bs.modal', (e) => {
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">{% trans "Toggle navigation" %}</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+        <!-- i18n-lint disable -->
         <a class="navbar-brand" href="/">Tracker</a>
+        <!-- i18n-lint enable -->
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -67,7 +69,7 @@ $( '#emailModal' ).on('hidden.bs.modal', (e) => {
                 {% if user.is_staff %}
                     <li><a href="{% url "admin:index" %}">{% trans "admin" %}</a></li>
                 {% endif%}
-                <li><a href="{% url "choose_language" %}">change language</a></li>
+                <li><a href="{% url "choose_language" %}">{% trans "change language" %}</a></li>
                 <li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
                 <li><a href="{% url "tracker_logout" %}">{% trans "logout" %}</a></li>
             {% else %}
@@ -80,7 +82,7 @@ $( '#emailModal' ).on('hidden.bs.modal', (e) => {
                     <li><a href="{% url "tracker_login" %}?clicked=True">{% trans "login" %}</a></li>
                 {% endif %}
                 <li><a href="{% url "register" %}">{% trans "register" %}</a></li>
-                <li><a href="{% url "choose_language" %}">change language</a></li>
+                <li><a href="{% url "choose_language" %}">{% trans "change language"</a></li>
                 <li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
             {% endif %}
         </ul>

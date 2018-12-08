@@ -1,7 +1,8 @@
 {% extends "base.html" %}
-{% block title %}500 Internal Error{% endblock %}
+{% load i18n %}
+{% block title %}500 {% trans "Internal Error" %}{% endblock %}
 
 {% block content %}
 <p class="errorPageText"><img src="http://cosmoboy.cz/rpl/images/a5.jpg" width="640" height="426" alt="Internal Error" /><br />
-There was an error processing you request. Sorry about that.</p>
+{% trans "There was an error processing you request. Sorry about that." %}</p>
 {% endblock %}

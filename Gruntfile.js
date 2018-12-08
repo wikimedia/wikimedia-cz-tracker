@@ -32,13 +32,29 @@ module.exports = function gruntConfig( grunt ) {
 			src: [
 				'trackersite/**/*.html'
 			]
-		}
+		},
 
+		i18nlint: {
+			options: {
+				attributes: [],
+				templateDelimiters: [
+					[ '{{', '}}' ],
+					[ '{% blocktrans', '{% endblocktrans %}' ],
+					[ '{%', '%}' ],
+					[ '{#', '#}' ],
+					[ '<!-- i18n-lint disable -->', '<!-- i18n-lint enable -->' ]
+				]
+			},
+			src: [
+				'trackersite/**/*.html'
+			]
+		}
 	} );
 
 	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
 	grunt.loadNpmTasks( 'grunt-htmllint' );
+	grunt.loadNpmTasks( 'grunt-i18nlint' );
 	grunt.registerTask( 'default', [ 'lint' ] );
-	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'htmllint' ] );
+	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'htmllint', 'i18nlint' ] );
 };

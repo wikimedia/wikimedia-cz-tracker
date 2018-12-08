@@ -6,7 +6,7 @@
 </head><body>
 <p class="nav"><a href="../index.html">{{grant.full_name}}</a> &gt;</p>
 <h1>{{ticket.name}}</h1>
-<p>Generated on {{date|date:'r'}}</p>
+<p>{% trans "Generated on" %} {{date|date:'r'}}</p>
 
 {% include "tracker/ticket_common_detail.html" %}
 
@@ -16,7 +16,7 @@
     <li><a href="{{doc.filename}}">{{doc.filename}}</a>{% if doc.description %}: {{doc.description}}{% endif %} <small>({{doc.content_type}}; {{doc.size|filesizeformat}})</small></li>
 {% endfor %}</ul>
 {% else %}
-<p>There aren't any documents here.</p>
+<p>{% trans "There aren't any documents here." %}</p>
 {% endif %}
 
 <p>∎</p>

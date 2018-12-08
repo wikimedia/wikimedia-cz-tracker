@@ -13,7 +13,7 @@
 <ul class="ack-set" data-add-handler="acks/add/" data-remove-handler="acks/remove/" data-token="{{csrf_token}}">{% for ack in original.ticketack_set.all %}
     <li data-id="{{ack.id}}">{% include "admin/tracker/ticket/ack_line.html" %}</li>
 {% endfor %}
-    <li class="add-block"><a href="#" class="add-ack">ADD ACK</a></li>
+    <li class="add-block"><a href="#" class="add-ack">{% trans "ADD ACK" %}</a></li>
 </ul>
 </div>
 {% endif %}

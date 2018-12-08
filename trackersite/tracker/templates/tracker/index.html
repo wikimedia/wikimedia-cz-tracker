@@ -13,7 +13,9 @@
 {% if user.is_authenticated %}<p class="tools screenonly"><a href="{% url "create_ticket" %}" class="btn btn-primary">{% trans "Create new ticket" %}</a></p>{% endif %}
 {% include "tracker/paginator.html" with url_name="ticket_list" extra_class="top" %}
 <h1>{% trans "Ticket list" %}</h1>
+<!-- i18n-lint disable -->
 <div class="hidden" id="disabledatatables">yes</div>
+<!-- i18n-lint enable -->
 <table class="responsive">
     <thead>
         <tr><th data-priority="2">{% trans "ID" %} <i class="fa "></i></th><th data-priority="11">{% trans "Event date" %}</th><th data-priority="1">{% trans "Name" %} <i class="fa "></i></th>

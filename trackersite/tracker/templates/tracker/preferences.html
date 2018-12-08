@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block content %}
+<!-- i18n-lint disable -->
 <div class="hidden" id="disabledatatables">yes</div>
+<!-- i18n-lint enable -->
 <p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; </p>
 
 <h1>
@@ -62,7 +64,7 @@
             <form action="{% url 'social:disconnect' 'mediawiki' %}?next={% url 'preferences' %}" method="post">
                 {% csrf_token %}
                 <button class="btn btn-warning">
-                    Disconnect Wikimedia account
+                    {% trans "Disconnect Wikimedia account" %}
                 </button>
             </form>
             {% else %}

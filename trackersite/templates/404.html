@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-{% block title %}404 Not Found{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "404 Not Found" %}{% endblock %}
 
 {% block content %}
-<h1 class="errorPageText">Not Found</h1>
+<h1 class="errorPageText">{% trans "Not Found" %}</h1>
 <p class="errorPageText"><img src="http://cosmoboy.cz/rpl/images/a5.jpg" width="640" height="426" alt="Not Found" /><br />
-The requested URL {{ request_path }} was not found on this server.</p>
+{% blocktrans %}The requested URL {{ request_path }} was not found on this server.{% endblocktrans %}</p>
 {% endblock %}
