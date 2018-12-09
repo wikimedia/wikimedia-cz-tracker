@@ -365,7 +365,7 @@ class TicketTests(TestCase):
             'preexpediture-TOTAL_FORMS': '0',
         })
         self.assertEqual(200, response.status_code)
-        self.assertFormError(response, 'ticketform', 'subtopic', 'Subtopic must belong to topic you used. You have probably JavaScript turned off.')
+        self.assertFormError(response, 'ticketform', 'subtopic', 'Subtopic must belong to the topic you used. You probably have JavaScript turned off.')
 
     def test_valid_subtopic(self):
         c = self.get_client()

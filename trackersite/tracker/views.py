@@ -306,7 +306,7 @@ def check_subtopic(ticketform):
 
     if subtopic is not None and subtopic not in topic.subtopic_set.all():
         ticketform.add_error('subtopic', forms.ValidationError(
-            _('Subtopic must belong to topic you used. You have probably JavaScript turned off.')
+            _('Subtopic must belong to the topic you used. You probably have JavaScript turned off.')
         ))
 
 
@@ -1531,7 +1531,7 @@ def importcsv(request):
                     ticket.save()
             elif request.POST['type'] == 'topic':
                 if not request.user.is_staff:
-                    raise PermissionDenied('You must be staffer in order to be able import topics.')
+                    raise PermissionDenied('You must be a staffer in order to be able to import topics.')
                 for line in reader:
                     imported += 1
                     if (imported > import_limit and not import_unlimited) and not request.user.has_perm('tracker.import_unlimited_rows'):
@@ -1564,7 +1564,7 @@ def importcsv(request):
                     Topic.objects.create(name=name, grant_id=grant, open_for_tickets=new_tickets, ticket_media=media, ticket_preexpenses=preexpenses, ticket_expenses=expenses, description=description, form_description=form_description)
             elif request.POST['type'] == 'grant':
                 if not request.user.is_staff:
-                    raise PermissionDenied('You must be staffer in order to be able import grants.')
+                    raise PermissionDenied('You must be a staffer in order to be able to import grants.')
                 for line in reader:
                     imported += 1
                     if (imported > import_limit and not import_unlimited) and not request.user.has_perm('tracker.import_unlimited_rows'):
@@ -1594,7 +1594,7 @@ def importcsv(request):
                     if ticket.can_edit(request.user) or request.user.is_staff:
                         Expediture.objects.create(ticket=ticket, description=description, amount=amount, wage=wage, accounting_info=accounting_info, paid=paid)
                     else:
-                        raise PermissionDenied("You can't add preexpenses to ticket that you did not created.")
+                        raise PermissionDenied("You can't add preexpenses to a ticket that you did not create.")
             elif request.POST['type'] == 'preexpense':
                 for line in reader:
                     imported += 1
@@ -1608,7 +1608,7 @@ def importcsv(request):
                     if ticket.can_edit(request.user) or request.user.is_staff:
                         Preexpediture.objects.create(ticket=ticket, description=description, amount=amount, wage=wage)
                     else:
-                        raise PermissionDenied("You can't add preexpenses to ticket that you did not created.")
+                        raise PermissionDenied("You can't add preexpenses to a ticket that you did not create.")
             elif request.POST['type'] == 'media':
                 for line in reader:
                     imported += 1
@@ -1628,10 +1628,10 @@ def importcsv(request):
                         MediaInfo.objects.create(ticket=ticket, url=url, description=description, count=number)
                         ticket.save()
                     else:
-                        raise PermissionDenied("You can't add media items to ticket that you did not created.")
+                        raise PermissionDenied("You can't add media items to a ticket that you did not create.")
             elif request.POST['type'] == 'user':
                 if not request.user.is_superuser:
-                    raise PermissionDenied('You must be superuser in order to be able import users.')
+                    raise PermissionDenied('You must be a superuser in order to be able to import users.')
                 for line in reader:
                     username = line[header.index('username')]
                     password = line[header.index('password')]
@@ -1649,7 +1649,7 @@ def importcsv(request):
                     user.is_active = is_active
                     user.save()
             else:
-                messages.error(request, _('The form have returned strange values. Please contact the systemadmin and tell him what you tried to do. '))
+                messages.error(request, _('The form has returned strange values. Please contact the systemadmin and tell him what you tried to do. '))
                 return render(request, 'tracker/import.html', {})
         messages.success(request, _('Your CSV file was imported. '))
         return HttpResponseRedirect(reverse('index'))
@@ -1700,7 +1700,7 @@ def importcsv(request):
                 response.writerow([_('Ticket ID'), u'http://link.cz', _('Description'), u'100'])
                 return response
             else:
-                return HttpResponseBadRequest("You can't want example file of invalid object")
+                return HttpResponseBadRequest("You can't download an example file of an invalid object")
         else:
             return render(request, 'tracker/import.html', {'MAX_NUMBER_OF_ROWS_ON_IMPORT': settings.MAX_NUMBER_OF_ROWS_ON_IMPORT})
 
@@ -1714,5 +1714,5 @@ def copypreexpeditures(request, pk):
         e.delete()
     for pe in ticket.preexpediture_set.all():
         e = Expediture.objects.create(ticket=ticket, description=pe.description, amount=pe.amount, wage=pe.wage)
-    messages.success(request, _('Preexpeditures were copied to expeditures successfuly.'))
+    messages.success(request, _('Preexpeditures were succesfully copied to expeditures.'))
     return HttpResponseRedirect(ticket.get_absolute_url())
