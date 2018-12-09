@@ -14,7 +14,7 @@ class Command(NoArgsCommand):
 
     def handle_noargs(self, **options):
         subject_c = Context({"date": date.today()})
-        subject_text = get_template('notification/notification_subject.txt').render(subject_c)
+        subject_template = get_template('notification/notification_subject.txt')
         html_template = get_template('notification/notification_html.html')
         for user in User.objects.all():
             if user.email:
@@ -36,6 +36,6 @@ class Command(NoArgsCommand):
                         translation.activate(user.trackerpreferences.email_language)
                     else:
                         translation.deactivate()
-                    user.email_user(subject_text, strip_tags(html_template.render(c)), html_message=html_template.render(c))
+                    user.email_user(subject_template.render(subject_c), strip_tags(html_template.render(c)), html_message=html_template.render(c))
             for notification in Notification.objects.filter(target_user=user):
                 notification.delete()

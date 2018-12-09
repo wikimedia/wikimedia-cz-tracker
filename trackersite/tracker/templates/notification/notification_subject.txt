@@ -1,1 +1,1 @@
-[WMCZ Tracker] Přehled změn ve vámi sledovaných tiketech - {{date}}
+{% load i18n %}[WMCZ Tracker] {% trans "List of changes of watched tickets" %} - {{date}}
