@@ -5,11 +5,11 @@
 
 {% block content %}
 <h1>{% trans "Import" %}</h1>
-
+{% if MAX_NUMBER_OF_ROWS_ON_IMPORT %}
 <div class="alert alert-info">
-    <p>{% trans "Be warned that you need permission to import more than 100 rows. If you'll submit CSV longer than 100 rows, only first 100 will be processed. If you really need to import so many objects, please contact the systemadmin. " %}</p>
+    <p>{% blocktrans %} Be warned that you need permission to import more than {{MAX_NUMBER_OF_ROWS_ON_IMPORT}} rows. If you'll submit a file CSV with more than {{MAX_NUMBER_OF_ROWS_ON_IMPORT}} rows, only the first {{MAX_NUMBER_OF_ROWS_ON_IMPORT}} will be processed. If you really need to import more than {{MAX_NUMBER_OF_ROWS_ON_IMPORT}} of objects, please contact the systemadmin.{% endblocktrans %}</p>
 </div>
-
+{% endif %}
 <form enctype="multipart/form-data" class="form-horizontal" method="POST">
     {% trans "What kind of objects are you importing?" %}
     <div class="form-group">

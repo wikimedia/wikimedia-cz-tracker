@@ -1500,8 +1500,11 @@ def export(request):
 @login_required
 def importcsv(request):
     if request.method == 'POST' and not request.FILES['csvfile']:
-        return render(request, 'tracker/import.html', {})
+        return render(request, 'tracker/import.html')
     elif request.method == 'POST' and request.FILES['csvfile']:
+        import_limit = settings.MAX_NUMBER_OF_ROWS_ON_IMPORT
+        import_unlimited = not import_limit
+        too_much_rows_message = _('You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported.') % {'input_row_limit': str(import_limit)}
         imported = 0
         csvfile = request.FILES['csvfile']
         header = None
@@ -1512,8 +1515,8 @@ def importcsv(request):
             if request.POST['type'] == 'ticket':
                 for line in reader:
                     imported += 1
-                    if imported > 100 and not request.user.has_perm('tracker.import_unlimited_rows'):
-                        messages.warning(request, _('You do not have permission to import more than 100 rows. First 100 rows has already been imported.'))
+                    if (imported > import_limit and not import_unlimited) and not request.user.has_perm('tracker.import_unlimited_rows'):
+                        messages.warning(request, too_much_rows_message)
                         break
                     event_date = line[header.index('event_date')]
                     if event_date == "None":
@@ -1531,8 +1534,8 @@ def importcsv(request):
                     raise PermissionDenied('You must be staffer in order to be able import topics.')
                 for line in reader:
                     imported += 1
-                    if imported > 100 and not request.user.has_perm('tracker.import_unlimited_rows'):
-                        messages.warning(request, _('You do not have permission to import more than 100 rows. First 100 rows has already been imported.'))
+                    if (imported > import_limit and not import_unlimited) and not request.user.has_perm('tracker.import_unlimited_rows'):
+                        messages.warning(request, too_much_rows_message)
                         break
                     name = line[header.index('name')]
                     grant = Grant.objects.get(full_name=line[header.index('grant')]).id
@@ -1564,8 +1567,8 @@ def importcsv(request):
                     raise PermissionDenied('You must be staffer in order to be able import grants.')
                 for line in reader:
                     imported += 1
-                    if imported > 100 and not request.user.has_perm('tracker.import_unlimited_rows'):
-                        messages.warning(request, _('You do not have permission to import more than 100 rows. First 100 rows has already been imported.'))
+                    if (imported > import_limit and not import_unlimited) and not request.user.has_perm('tracker.import_unlimited_rows'):
+                        messages.warning(request, too_much_rows_message)
                         break
                     full_name = line[header.index('full_name')]
                     short_name = line[header.index('short_name')]
@@ -1575,8 +1578,8 @@ def importcsv(request):
             elif request.POST['type'] == 'expense':
                 for line in reader:
                     imported += 1
-                    if imported > 100 and not request.user.has_perm('tracker.import_unlimited_rows'):
-                        messages.warning(request, _('You do not have permission to import more than 100 rows. First 100 rows has already been imported.'))
+                    if (imported > import_limit and not import_unlimited) and not request.user.has_perm('tracker.import_unlimited_rows'):
+                        messages.warning(request, too_much_rows_message)
                         break
                     ticket = Ticket.objects.get(id=line[header.index('ticket_id')])
                     description = line[header.index('description')]
@@ -1595,8 +1598,8 @@ def importcsv(request):
             elif request.POST['type'] == 'preexpense':
                 for line in reader:
                     imported += 1
-                    if imported > 100 and not request.user.has_perm('tracker.import_unlimited_rows'):
-                        messages.warning(request, _('You do not have permission to import more than 100 rows. First 100 rows has already been imported.'))
+                    if (imported > import_limit and not import_unlimited) and not request.user.has_perm('tracker.import_unlimited_rows'):
+                        messages.warning(request, too_much_rows_message)
                         break
                     ticket = Ticket.objects.get(id=line[header.index('ticket_id')])
                     description = line[header.index('description')]
@@ -1609,8 +1612,8 @@ def importcsv(request):
             elif request.POST['type'] == 'media':
                 for line in reader:
                     imported += 1
-                    if imported > 100 and not request.user.has_perm('tracker.import_unlimited_rows'):
-                        messages.warning(request, _('You do not have permission to import more than 100 rows. First 100 rows has already been imported.'))
+                    if (imported > import_limit and not import_unlimited) and not request.user.has_perm('tracker.import_unlimited_rows'):
+                        messages.warning(request, too_much_rows_message)
                         break
                     ticket = Ticket.objects.get(id=line[header.index('ticket_id')])
                     url = line[header.index('url')]
@@ -1699,7 +1702,7 @@ def importcsv(request):
             else:
                 return HttpResponseBadRequest("You can't want example file of invalid object")
         else:
-            return render(request, 'tracker/import.html', {})
+            return render(request, 'tracker/import.html', {'MAX_NUMBER_OF_ROWS_ON_IMPORT': settings.MAX_NUMBER_OF_ROWS_ON_IMPORT})
 
 
 @login_required
