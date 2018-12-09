@@ -1079,7 +1079,7 @@ class Notification(models.Model):
                 deactivate()
 
             if text_data:
-                text = _(raw_text) % text_data
+                text = raw_text % text_data
             else:
                 text = raw_text
 
@@ -1124,7 +1124,7 @@ def add_commenting_user_to_watchers(sender, comment, **kwargs):
 @receiver(post_save, sender=Ticket)
 def notify_ticket(sender, instance, created, raw, **kwargs):
     if created:
-        text = 'User <tt>%(user)s</tt> created ticket <a href="%(ticket_url)s">%(ticket)s</a> in topic <tt>%(topic)s</tt>.'
+        text = _('User <tt>%(user)s</tt> created ticket <a href="%(ticket_url)s">%(ticket)s</a> in topic <tt>%(topic)s</tt>.')
         text_data = {
             'user': instance.requested_by_html(),
             'ticket_url': settings.BASE_URL + instance.get_absolute_url(),
@@ -1139,7 +1139,7 @@ def notify_supervizor_notes(sender, instance, **kwargs):
     if instance.id is not None:
         old = Ticket.objects.get(id=instance.id)
         if old.supervisor_notes != instance.supervisor_notes:
-            text = 'User <tt>%(user)s</tt> changed supervisor notes of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+            text = _('User <tt>%(user)s</tt> changed supervisor notes of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
             text_data = {
                 'user': get_user(),
                 'ticket_url': settings.BASE_URL + instance.get_absolute_url(),
@@ -1158,16 +1158,16 @@ def notify_ticket_change(sender, instance, **kwargs):
             'ticket': instance
         }
         if old.description != instance.description:
-            text = 'User <tt>%(user)s</tt> changed description of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+            text = _('User <tt>%(user)s</tt> changed description of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
             Notification.fire_notification(instance, text, "ticket_change", get_user(True), text_data=text_data)
         if old.name != instance.name:
-            text = 'User <tt>%(user)s</tt> changed name of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+            text = _('User <tt>%(user)s</tt> changed name of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
             Notification.fire_notification(instance, text, "ticket_change", get_user(True), text_data=text_data)
         if old.report_url != instance.report_url:
-            text = 'User <tt>%(user)s</tt> changed link to report of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+            text = _('User <tt>%(user)s</tt> changed link to report of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
             Notification.fire_notification(instance, text, "ticket_change", get_user(True), text_data=text_data)
         if old.deposit != instance.deposit:
-            text = 'User <tt>%(user)s</tt> changed requested deposit of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+            text = _('User <tt>%(user)s</tt> changed requested deposit of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
             Notification.fire_notification(instance, text, "ticket_change", get_user(True), text_data=text_data)
 
 
@@ -1176,7 +1176,7 @@ def notify_ticket_change_2(sender, instance, **kwargs):
     if instance.id is not None:
         old = Ticket.objects.get(id=instance.id)
         if old.mandatory_report != instance.mandatory_report:
-            text = 'User <tt>%(user)s</tt> changed "Is report mandatory?" field of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+            text = _('User <tt>%(user)s</tt> changed "Is report mandatory?" field of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
             text_data = {
                 'ticket_url': settings.BASE_URL + instance.get_absolute_url(),
                 'user': get_user(),
@@ -1188,7 +1188,7 @@ def notify_ticket_change_2(sender, instance, **kwargs):
 @receiver(post_delete, sender=Ticket)
 def notify_ticket_delete(sender, instance, **kwargs):
     if instance.id is not None:
-        text = 'Ticket "%(ticket)s" was deleted by user %(user)s'
+        text = _('Ticket "%(ticket)s" was deleted by user %(user)s')
         text_data = {
             'ticket': instance,
             'user': get_user()
@@ -1204,7 +1204,7 @@ def notify_ack_add(sender, instance, created, **kwargs):
         'ticket': instance.ticket,
         'ack_type': instance.get_ack_type_display()
     }
-    text = 'User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+    text = _('User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
     Notification.fire_notification(instance.ticket, text, "ack_add", get_user(True), text_data=text_data, ack_type=instance.ack_type)
 
 
@@ -1216,7 +1216,7 @@ def notify_ack_remove(sender, instance, **kwargs):
         'ticket': instance.ticket,
         'ack_type': instance.get_ack_type_display()
     }
-    text = 'User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>'
+    text = _('User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>')
     Notification.fire_notification(instance.ticket, text, "ack_remove", get_user(True), text_data=text_data, ack_type=instance.ack_type)
 
 
@@ -1244,7 +1244,7 @@ def notify_preexpediture(sender, instance, created, raw, **kwargs):
             'expeditures': preexpediture_instance,
             'ticket': instance.ticket
         }
-        text = 'User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+        text = _('User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
         Notification.fire_notification(instance.ticket, text, "preexpeditures_new", get_user(True), text_data=text_data)
 
 
@@ -1262,7 +1262,7 @@ def notify_preexpediture_change(sender, instance, **kwargs):
             'ticket': instance.ticket
         }
 
-        text = 'User <tt>%(user)s</tt> changed planned expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+        text = _('User <tt>%(user)s</tt> changed planned expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
         Notification.fire_notification(instance.ticket, text, "preexpeditures_change", get_user(True), text_data=text_data)
 
 
@@ -1275,7 +1275,7 @@ def notify_del_preexpediture(sender, instance, **kwargs):
             'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
             'ticket': instance.ticket
         }
-        text = 'User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+        text = _('User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
         Notification.fire_notification(instance.ticket, text, "preexpeditures_change", get_user(True), text_data=text_data)
 
 
@@ -1293,7 +1293,7 @@ def notify_expediture(sender, instance, created, raw, **kwargs):
             'expeditures': expediture_instance
         }
 
-        text = 'User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+        text = _('User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
         Notification.fire_notification(instance.ticket, text, "expeditures_new", get_user(True), text_data=text_data)
 
 
@@ -1311,7 +1311,7 @@ def notify_expediture_change(sender, instance, **kwargs):
             'expeditures': instance
         }
 
-        text = 'User <tt>%(user)s</tt> changed real expeditures <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+        text = _('User <tt>%(user)s</tt> changed real expeditures <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
         Notification.fire_notification(instance.ticket, text, "expeditures_change", get_user(True), text_data=text_data)
 
 
@@ -1324,7 +1324,7 @@ def notify_del_expediture(sender, instance, **kwargs):
             'user': get_user(),
             'expeditures': instance
         }
-        text = 'User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+        text = _('User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
         Notification.fire_notification(instance.ticket, text, "expeditures_change", get_user(True), text_data=text_data)
 
 
@@ -1337,10 +1337,10 @@ def notify_media(sender, instance, created, raw, **kwargs):
             'user': get_user(),
         }
         if created:
-            text = 'User <tt>%(user)s</tt> added media to ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+            text = _('User <tt>%(user)s</tt> added media to ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
             Notification.fire_notification(instance.ticket, text, "media_new", get_user(True), text_data=text_data)
         else:
-            text = 'User <tt>%(user)s</tt> changed media of ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+            text = _('User <tt>%(user)s</tt> changed media of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
             Notification.fire_notification(instance.ticket, text, "media_change", get_user(True), text_data=text_data)
 
 
@@ -1352,7 +1352,7 @@ def notify_del_media(sender, instance, **kwargs):
             'ticket': instance.ticket,
             'user': get_user(),
         }
-        text = 'User <tt>%(user)s</tt> removed media from ticket <a href="%(ticket_url)s">%(ticket)s</a>.'
+        text = _('User <tt>%(user)s</tt> removed media from ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
         Notification.fire_notification(instance.ticket, text, "media_change", get_user(True), text_data=text_data)
 
 
