@@ -3,8 +3,10 @@ from random import choice, randint
 from pytz import UTC
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
-from django.db.utils import IntegrityError
+from django.db.utils import IntegrityError, DataError
 from tracker.models import Grant, Topic, Subtopic, Ticket
+
+USERNAME_PREFIX = "ExampleUser_"
 
 
 class Command(BaseCommand):
@@ -14,7 +16,7 @@ class Command(BaseCommand):
         first_names = ["John", "Emilia", "Lisa", "Nathan", "Bob", "Lucas"]
         last_names = ["Smith", "Johnson", "Williams", "Jones", "Garcia", "Miller"]
         try:
-            last_example_user = User.objects.filter(username__startswith="ExampleUser_").order_by('pk').reverse()[0]
+            last_example_user = User.objects.filter(username__startswith=USERNAME_PREFIX).order_by('pk').reverse()[0]
         except IndexError:
             # no example users
             start_num = 1
@@ -23,7 +25,7 @@ class Command(BaseCommand):
         for n in range(start_num, start_num + amount):
             try:
                 User.objects.create_user(
-                    "ExampleUser_{}".format(n),
+                    USERNAME_PREFIX + str(n),
                     email="user{}@notreal.example".format(n),
                     password="ExamplePassword",
                     first_name=choice(first_names),
@@ -94,7 +96,9 @@ class Command(BaseCommand):
             minute = randint(1, 59)
             return datetime(year, month, day, hour, minute, tzinfo=UTC)
 
-        user_objects = User.objects.all()
+        user_objects = User.objects.filter(username__startswith=USERNAME_PREFIX)
+        if not user_objects.exists():
+            raise DataError('To create example tickets, at least one example user has to be created.')
         topic_objects = Topic.objects.all()
         subtopic_objects = Subtopic.objects.all()
         ticket_query_list = []
