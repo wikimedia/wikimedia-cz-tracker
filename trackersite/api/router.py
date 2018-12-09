@@ -10,7 +10,8 @@ from viewsets import (
     MediaInfoViewSet,
     ExpeditureViewSet,
     PreexpeditureViewSet,
-    ContentTypeViewSet
+    ContentTypeViewSet,
+    LanguagesViewSet
 )
 from rest_framework import routers
 
@@ -28,3 +29,4 @@ router.register(r'tracker/tickets', TicketViewSet)
 router.register(r'tracker/mediainfo', MediaInfoViewSet)
 router.register(r'tracker/expeditures', ExpeditureViewSet)
 router.register(r'tracker/preexpeditures', PreexpeditureViewSet)
+router.register(r'tracker/languages', LanguagesViewSet, base_name="Languages")

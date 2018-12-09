@@ -10,15 +10,19 @@ from serializers import (
     MediaInfo, MediaInfoSerializer,
     Expediture, ExpeditureSerializer, ExpeditureAdminSerializer,
     Preexpediture, PreexpeditureSerializer,
-    ContentTypeSerializer
+    ContentTypeSerializer,
 )
+from rest_framework import viewsets
+from rest_framework.response import Response
 from rest_framework.permissions import IsAdminUser
 from permissions import ReadOnly, CanEditTicketElseReadOnly, CanEditExpedituresElseReadOnly
-from rest_framework import viewsets
 from django.contrib.contenttypes.models import ContentType
-
+from django.utils.translation import activate
+from django.conf import settings
 
 # ViewSets define the view behavior.
+
+
 class ContentTypeViewSet(viewsets.ModelViewSet):
     queryset = ContentType.objects.all()
     serializer_class = ContentTypeSerializer
@@ -79,6 +83,18 @@ class SubtopicViewSet(viewsets.ModelViewSet):
     serializer_class = SubtopicSerializer
     filter_fields = ('topic', )
     search_fields = ('name', 'description')
+
+
+class LanguagesViewSet(viewsets.ViewSet):
+    permission_classes = (ReadOnly, )
+
+    def list(self, request):
+        # If `lang` parameter is provided, then return proper localized language names. Otherwise return English names
+        activate(request.GET.get('lang', 'en'))
+
+        languages = dict(settings.LANGUAGES)
+
+        return Response(languages)
 
 
 class TicketViewSet(viewsets.ModelViewSet):
