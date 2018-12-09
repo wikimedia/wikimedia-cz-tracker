@@ -1,30 +1,6 @@
 {
     "extends": "stylelint-config-wikimedia",
     "rules": {
-        "block-opening-brace-newline-after": null,
-        "block-opening-brace-newline-before": null,
-        "block-opening-brace-space-after": null,
-        "block-opening-brace-space-before": null,
-        "color-hex-case": null,
-        "color-named": null,
-        "declaration-block-semicolon-newline-after": null,
-        "declaration-block-single-line-max-declarations": null,
-        "declaration-block-trailing-semicolon": null,
-        "declaration-colon-space-after": null,
-        "declaration-no-important": null,
-        "declaration-property-value-blacklist": null,
-        "function-parentheses-space-inside": null,
-        "indentation": null,
-        "length-zero-no-unit": null,
-        "media-feature-parentheses-space-inside": null,
-        "no-descending-specificity": null,
-        "rule-empty-line-before": null,
-        "selector-attribute-brackets-space-inside": null,
-        "selector-attribute-quotes": null,
-        "selector-list-comma-newline-after": null,
-        "selector-max-id": null,
-        "selector-pseudo-class-parentheses-space-inside": null,
-        "selector-type-no-unknown": null,
-        "string-quotes": null
+        "selector-max-id": 2
     }
 }

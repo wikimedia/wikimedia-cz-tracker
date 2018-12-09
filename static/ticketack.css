@@ -17,36 +17,37 @@
 		background: transparent;
 	}
 }
+
 .newly-added {
 	animation: incoming 3s;
 	-webkit-animation: incoming 3s;
 }
 
 .remove-block .really {
-	display:none;
+	display: none;
 }
 
 .remove-block.really .initial {
-	display:none;
+	display: none;
 }
 
 .remove-block.really .really {
-	display:inline;
-	padding:0 0 0 0.4em;
-	border:1px solid red;
+	display: inline;
+	padding: 0 0 0 0.4em;
+	border: 1px solid #f00;
 }
 
 .remove-block.really .really a {
-	padding:0 0.4em;
-	color:white;
-	background-color:red;
-	font-weight:bold;
+	padding: 0 0.4em;
+	color: #fff;
+	background-color: #f00;
+	font-weight: bold;
 }
 
 .removing {
-	background-color:red;
+	background-color: #f00;
 }
 
 .removing.failed {
-	background-color:gray;
+	background-color: #808;
 }
