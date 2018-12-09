@@ -1656,17 +1656,17 @@ def importcsv(request):
             if giveexample == 'ticket':
                 response = HttpResponseCsv(['event_date', 'name', 'topic', 'event_url', 'description', 'deposit'])
                 response['Content-Disposition'] = 'attachment; filename="example-ticket.csv"'
-                response.writerow([u'2010-04-23', u'Název ticketu', u'Název tématu', u'http://wikimedia.cz', u'Popis ticketu', u'Požadovaná záloha'])
+                response.writerow([u'2010-04-23', _('Name of a ticket'), _('Name of a topic'), u'http://wikimedia.cz', _('Description'), u'0'])
                 return response
             elif giveexample == 'topic':
                 response = HttpResponseCsv(['name', 'grant', 'open_for_new_tickets', 'media', 'preexpenses', 'expenses', 'description', 'form_description'])
                 response['Content-Disposition'] = 'attachment; filename="example-topic.csv"'
-                response.writerow([u'Jméno tématu', u'Název grantu', u'True/False', u'True/False', u'True/False', u'True/False', u'Popis tématu', u'Popis formuláře tématu'])
+                response.writerow([_('Name of a topic'), _('Name of a grant'), u'True', u'True', u'True', u'True', _('Description'), _('Form description')])
                 return response
             elif giveexample == 'grant':
                 response = HttpResponseCsv(['full_name', 'short_name', 'slug', 'description'])
                 response['Content-Disposition'] = 'attachment; filename="example-grant.csv"'
-                response.writerow([u'Plné jméno', u'Krátké jméno', u'Slug', u'Popis'])
+                response.writerow([_('Full name'), _('Short name'), _('Slug'), _('Description')])
                 return response
             elif giveexample == 'expense':
                     fields = ['ticket_id', 'description', 'amount', 'wage']
@@ -1675,26 +1675,26 @@ def importcsv(request):
                         fields.append('paid')
                     response = HttpResponseCsv(fields)
                     response['Content-Disposition'] = 'attachment; filename="example-expense.csv"'
-                    row = [u'ID tiketu', u'Popis výdaje', u'Vydané peníze v CZK', u'True/False']
+                    row = [_('Ticket ID'), _('Description'), u'100', u'False']
                     if request.user.is_staff:
-                        row.append(u'Účetní údaje')
-                        row.append(u'True/False')
+                        row.append(_('Accounting info'))
+                        row.append(u'False')
                     response.writerow(row)
                     return response
             elif giveexample == 'preexpense':
                 response = HttpResponseCsv(['ticket_id', 'description', 'amount', 'wage'])
                 response['Content-Disposition'] = 'attachment; filename="example-preexpense.csv"'
-                response.writerow([u'ID tiketu', u'Popis výdaje', u'Vydané peníze v CZK', u'True/False'])
+                response.writerow([_('Ticket ID'), _('Description'), u'100', u'False'])
                 return response
             elif giveexample == 'user':
                 response = HttpResponseCsv(['username', 'password', 'first_name', 'last_name', 'is_superuser', 'is_staff', 'is_active', 'email'])
                 response['Content-Disposition'] = 'attachment; filename="example-user.csv"'
-                response.writerow([u'Uživatelské jméno', u'Heslo', u'KřestníJméno', u'Příjmení', u'True/False', u'True/False', u'True/False', u'emailova@adresa.cz'])
+                response.writerow([_('Username'), _('Password'), _('First name'), _('Last name'), u'False', u'False', u'True', u'mail@address.example'])
                 return response
             elif giveexample == 'media':
                 response = HttpResponseCsv(['ticket_id', 'url', 'description', 'number'])
                 response['Content-Disposition'] = 'attachment; filename="example-media.csv"'
-                response.writerow([u'1', u'http://odkaz.cz', u'popisek', u'100'])
+                response.writerow([_('Ticket ID'), u'http://link.cz', _('Description'), u'100'])
                 return response
             else:
                 return HttpResponseBadRequest("You can't want example file of invalid object")
