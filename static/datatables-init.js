@@ -1,12 +1,12 @@
 ( function () {
 	function dataTablesInit() {
-		var language, fullLanguage, url, ordering;
+		var language, fullLanguage, url, ordering, columnDefs;
 		if ( $( '#disabledatatables' ).text().length === 0 ) {
 			language = $( 'meta[http-equiv="Content-Language"]' ).attr( 'content' );
 			fullLanguage = 'English';
 			url = 'https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/' + fullLanguage + '.json';
 			ordering = $( '#custom-ordering-datatables' ).text();
-
+			columnDefs = $( '#custom-columnDefs-datatables' ).text();
 			switch ( language ) {
 				case 'cs':
 					fullLanguage = 'Czech';
@@ -16,10 +16,16 @@
 			} else {
 				ordering = JSON.parse( ordering );
 			}
+			if ( columnDefs === '' ) {
+				columnDefs = null;
+			} else {
+				columnDefs = JSON.parse( columnDefs );
+			}
 			$.get( '/user/display_items', function ( displayItems ) {
 				$( 'table' ).DataTable( {
 					pageLength: displayItems,
 					order: ordering,
+					columnDefs: columnDefs,
 					language: { url: url }
 				} );
 			} );

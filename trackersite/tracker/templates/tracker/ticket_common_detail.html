@@ -1,7 +1,7 @@
 {% load i18n comments trackertags %}
 
 <!-- i18n-lint disable -->
-<span class="hidden" id="custom-ordering-datatables">false</span>
+<span class="hidden" id="custom-columnDefs-datatables">[{"type": "money", "targets": 1}]</span>
 <!-- i18n-lint enable -->
 <p>{% trans "Ticket ID" %}: {{ ticket.id }}<br />
 {% trans "Created" %}: {{ ticket.created }}<br />

@@ -40,30 +40,6 @@
 <button class="btn btn-primary">{% trans "Export" %}</button>
 </a>
 <script>
-    function dateWithNoneToOrder(date){
-        var datePattern = /\d{4}-\d{2}-\d{2}/
-        if(datePattern.test(date)){
-            return parseInt(String(date).replace("-", ""))
-        }
-        return 0
-
-    }
-    jQuery.fn.dataTableExt.oSort['date-with-none-asc'] = function (a, b) {
-        var ordA = dateWithNoneToOrder(a),
-            ordB = dateWithNoneToOrder(b);
-        return ordA - ordB;
-    };
-    jQuery.fn.dataTableExt.oSort['date-with-none-desc'] = function (a, b) {
-        var ordA = dateWithNoneToOrder(a),
-            ordB = dateWithNoneToOrder(b);
-        return ordB - ordA;
-    };
-
-    jQuery.fn.dataTableExt.oSort['money-pre'] = function(a){
-        a = a.toString();
-        return parseFloat(a.replace(',', '').replace('.', ''))
-    };
-
     $.get('/user/display_items', function(display_items) {
         var language = $('meta[http-equiv="Content-Language"]').attr('content');
         var fullLanguage = "English";
