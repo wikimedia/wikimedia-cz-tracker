@@ -6,7 +6,7 @@
 {^
 
 {% block content %}
-<p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; <a href="{% url "topic_list" %}">{% trans "topics" %}</a> &gt;</p>
+<p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; <a href="{% url "grant_list" %}">{% trans "grants" %}</a> &gt;</p>
 <h1>{{grant.full_name}}</h1>
 {% if user.is_authenticated %}<a href="{% url 'watch_grant' grant.id %}">{% trans "watch settings" %}</a>{% endif %}
 {% if grant.description %}<div>{{ grant.description|safe|linebreaks }}</div>{% endif %}
