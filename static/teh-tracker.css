@@ -356,9 +356,13 @@ input [ type='submit' ] {
 	font-weight: bold;
 }
 
-input [ type='checkbox' ] {
+input[ type='checkbox' ] {
 	max-width: 20px;
 	max-height: 20px;
+}
+
+td.field_wage input.form-control[ type='checkbox' ] {
+	margin: 12.5px;
 }
 
 .messages {
