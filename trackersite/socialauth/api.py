@@ -27,3 +27,11 @@ class MediaWiki():
                 self.tokens.get('oauth_token_secret')
             )
         )
+
+    def get_token(self, type="csrf"):
+        return self.authorized_request({
+            "action": "query",
+            "format": "json",
+            "meta": "tokens",
+            "type": type
+        }).json()["query"]["tokens"]["%stoken" % type]
