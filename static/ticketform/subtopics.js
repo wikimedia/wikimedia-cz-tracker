@@ -1,20 +1,20 @@
-( function () {
-	document.addEventListener( 'DOMContentLoaded', function () {
-		var idTopic = document.querySelector( '#id_topic' ),
+{
+	document.addEventListener( 'DOMContentLoaded', () => {
+		const idTopic = document.querySelector( '#id_topic' ),
 			idSubtopic = document.querySelector( '#id_subtopic' );
 
 		function refreshSubtopics() {
-			var topicId = idTopic.value,
-				topic = window.topicsTable[ topicId ],
-				subtopicsHtml = '<option value selected>---------</option>',
-				i, subtopic;
+			const topicId = idTopic.value,
+				topic = window.topicsTable[ topicId ];
+			let i, subtopic,
+				subtopicsHtml = '<option value selected>---------</option>';
 			if ( topicId === '' ) {
 				idSubtopic.innerHTML = '<option value selected>---------</option>';
 				return;
 			}
 			for ( i = 0; i < topic.subtopic_set.length; i++ ) {
 				subtopic = topic.subtopic_set[ i ];
-				subtopicsHtml += '<option value="' + subtopic.id + '">' + subtopic.display_name + '</option>';
+				subtopicsHtml += `<option value="${subtopic.id}">${subtopic.display_name}</option>`;
 			}
 			idSubtopic.innerHTML = subtopicsHtml;
 			if ( idSubtopic.innerHTML.includes( window.originallyCheckedTag ) ) {
@@ -28,4 +28,4 @@
 		idTopic.addEventListener( 'change', refreshSubtopics );
 		refreshSubtopics();
 	} );
-}() );
+}

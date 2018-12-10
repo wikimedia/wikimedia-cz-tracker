@@ -1,5 +1,5 @@
-/*jslint devel: true, bitwise: true, regexp: true, browser: true, confusion: true, unparam: true, eqeq: true, white: true, nomen: true, plusplus: true, maxerr: 50, indent: 4 */
-/*globals jQuery */
+/* jslint devel: true, bitwise: true, regexp: true, browser: true, confusion: true, unparam: true, eqeq: true, white: true, nomen: true, plusplus: true, maxerr: 50, indent: 4 */
+/* globals jQuery */
 
 /*!
  * Tristate v1.2.1
@@ -15,125 +15,125 @@
  * val() overwrite
  */
 
-;(function($, undefined) {   
+( function ( $, undefined ) {
 	'use strict';
-	
-	var pluginName = 'tristate',
+
+	let pluginName = 'tristate',
 		defaults = {
-			'change':			undefined,
-			'checked':			undefined,
-			'indeterminate':	undefined,
-			'init':				undefined,
-			'reverse':			false,
-			'state':			undefined,
-			'unchecked':		undefined,
-			'value':			undefined	// one-way only!
+			change: undefined,
+			checked: undefined,
+			indeterminate: undefined,
+			init: undefined,
+			reverse: false,
+			state: undefined,
+			unchecked: undefined,
+			value: undefined // one-way only!
 		},
-		valFunction	= $.fn.val;
+		valFunction = $.fn.val;
 
-    function Plugin(element, options) {
-        if($(element).is(':checkbox')) {        
-            this.element = $(element);
-            this.settings = $.extend( {}, defaults, options );
-            this._create();
-        }
-    }
+	function Plugin( element, options ) {
+		if ( $( element ).is( ':checkbox' ) ) {
+			this.element = $( element );
+			this.settings = $.extend( {}, defaults, options );
+			this._create();
+		}
+	}
 
-    $.extend(Plugin.prototype, {
-		_create: function() {					
-			var that = this,
-				state;
+	$.extend( Plugin.prototype, {
+		_create: function () {
+			const that = this;
+			let state;
 
 			// Fix for #1
-			if (window.navigator.userAgent.indexOf('Trident') >= 0) {
-				this.element.click(function(e) {
-					that._change.call(that, e);			
-					that.element.closest('form').change();
-				});
+			if ( window.navigator.userAgent.indexOf( 'Trident' ) >= 0 ) {
+				this.element.click( ( e ) => {
+					that._change.call( that, e );
+					that.element.closest( 'form' ).change();
+				} );
 			} else {
-				this.element.change(function(e) {
-					that._change.call(that, e);
-				});
+				this.element.change( ( e ) => {
+					that._change.call( that, e );
+				} );
 			}
 
-			this.settings.checked		= this.element.attr('checkedvalue')		  || this.settings.checked;
-			this.settings.unchecked		= this.element.attr('uncheckedvalue')	  || this.settings.unchecked;
-			this.settings.indeterminate	= this.element.attr('indeterminatevalue') || this.settings.indeterminate;
+			this.settings.checked = this.element.attr( 'checkedvalue' ) || this.settings.checked;
+			this.settings.unchecked = this.element.attr( 'uncheckedvalue' ) || this.settings.unchecked;
+			this.settings.indeterminate = this.element.attr( 'indeterminatevalue' ) || this.settings.indeterminate;
 
 			// Initially, set state based on option state or attributes
-			if (typeof this.settings.state === 'undefined') {
-				this.settings.state		= typeof this.element.attr('indeterminate') !== 'undefined'? null : this.element.is(':checked');
+			if ( typeof this.settings.state === 'undefined' ) {
+				this.settings.state = typeof this.element.attr( 'indeterminate' ) !== 'undefined' ? null : this.element.is( ':checked' );
 			}
 
 			// If value specified, overwrite with value
-			if (typeof this.settings.value !== 'undefined') {
-				state = this._parseValue(this.settings.value);
-				if (typeof state !== 'undefined') {
+			if ( typeof this.settings.value !== 'undefined' ) {
+				state = this._parseValue( this.settings.value );
+				if ( typeof state !== 'undefined' ) {
 					this.settings.state = state;
 				}
 			}
 
-			this._refresh(this.settings.init);
+			this._refresh( this.settings.init );
 
 			return this;
 		},
 
-		_change: function(e) {
-			if (e.isTrigger || !e.hasOwnProperty('which')) {
+		_change: function ( e ) {
+			if ( e.isTrigger || !e.hasOwnProperty( 'which' ) ) {
 				e.preventDefault();
 			}
-			
-			switch (this.settings.state) {
-				case true:  this.settings.state = (this.settings.reverse ? false : null); break;
-				case false: this.settings.state = (this.settings.reverse ? null : true); break;
-				default:    this.settings.state = (this.settings.reverse ? true : false); break;
+
+			switch ( this.settings.state ) {
+				case true: this.settings.state = ( this.settings.reverse ? false : null ); break;
+				case false: this.settings.state = ( this.settings.reverse ? null : true ); break;
+				default: this.settings.state = ( !!this.settings.reverse ); break;
 			}
 
-			this._refresh(this.settings.change);								
+			this._refresh( this.settings.change );
 		},
-		
-		_refresh: function(callback) {
-			var value	= this.value();
 
-			this.element.data("vanderlee." + pluginName, value);
+		_refresh: function ( callback ) {
+			const value = this.value();
 
-			this.element[this.settings.state === null ? 'attr' : 'removeAttr']('indeterminate', 'indeterminate');
-			this.element.prop('indeterminate', this.settings.state === null);
-			this.element.get(0).indeterminate = this.settings.state === null;
+			this.element.data( 'vanderlee.' + pluginName, value );
 
-			this.element[this.settings.state === true ? 'attr' : 'removeAttr']('checked', true);
-			this.element.prop('checked', this.settings.state === true);
+			this.element[ this.settings.state === null ? 'attr' : 'removeAttr' ]( 'indeterminate', 'indeterminate' );
+			this.element.prop( 'indeterminate', this.settings.state === null );
+			this.element.get( 0 ).indeterminate = this.settings.state === null;
 
-			if ($.isFunction(callback)) {
-				callback.call(this.element, this.settings.state, this.value());
+			this.element[ this.settings.state === true ? 'attr' : 'removeAttr' ]( 'checked', true );
+			this.element.prop( 'checked', this.settings.state === true );
+
+			if ( typeof ( callback ) === 'function' ) {
+				callback.call( this.element, this.settings.state, this.value() );
 			}
 		},
 
-		state: function(value) {
-			if (typeof value === 'undefined') {
+		state: function ( value ) {
+			if ( typeof value === 'undefined' ) {
 				return this.settings.state;
-			} else if (value === true || value === false || value === null) {
+			} else if ( value === true || value === false || value === null ) {
 				this.settings.state = value;
 
-				this._refresh(this.settings.change);
+				this._refresh( this.settings.change );
 			}
 			return this;
 		},
 
-		_parseValue: function(value) {
-			if (value === this.settings.checked) {
+		_parseValue: function ( value ) {
+			if ( value === this.settings.checked ) {
 				return true;
-			} else if (value === this.settings.unchecked) {
+			} else if ( value === this.settings.unchecked ) {
 				return false;
-			} else if (value === this.settings.indeterminate) {
+			} else if ( value === this.settings.indeterminate ) {
 				return null;
 			}
 		},
 
-		value: function(value) {
-			if (typeof value === 'undefined') {
-				var value;
-				switch (this.settings.state) {
+		value: function ( value ) {
+			if ( typeof value === 'undefined' ) {
+				let value;
+				switch ( this.settings.state ) {
 					case true:
 						value = this.settings.checked;
 						break;
@@ -146,68 +146,68 @@
 						value = this.settings.indeterminate;
 						break;
 				}
-				return typeof value === 'undefined'? this.element.attr('value') : value;
+				return typeof value === 'undefined' ? this.element.attr( 'value' ) : value;
 			} else {
-				var state = this._parseValue(value);
-				if (typeof state !== 'undefined') {
+				const state = this._parseValue( value );
+				if ( typeof state !== 'undefined' ) {
 					this.settings.state = state;
-					this._refresh(this.settings.change);
+					this._refresh( this.settings.change );
 				}
 			}
-		}		
-	});
+		}
+	} );
 
-	$.fn[pluginName] = function (options, value) {	
-		var result = this;
-		
-		this.each(function() {
-            if (!$.data(this, "plugin.vanderlee." + pluginName)) {
-                $.data(this, "plugin.vanderlee." + pluginName, new Plugin(this, options));
-            } else if (typeof options === 'string') {
-				if (typeof value === 'undefined') {
-					result = $(this).data("plugin.vanderlee." + pluginName)[options]();
+	$.fn[ pluginName ] = function ( options, value ) {
+		let result = this;
+
+		this.each( function () {
+			if ( !$.data( this, 'plugin.vanderlee.' + pluginName ) ) {
+				$.data( this, 'plugin.vanderlee.' + pluginName, new Plugin( this, options ) );
+			} else if ( typeof options === 'string' ) {
+				if ( typeof value === 'undefined' ) {
+					result = $( this ).data( 'plugin.vanderlee.' + pluginName )[ options ]();
 					return false;
 				} else {
-					$(this).data("plugin.vanderlee." + pluginName)[options](value);
+					$( this ).data( 'plugin.vanderlee.' + pluginName )[ options ]( value );
 				}
 			}
-        });
+		} );
 
 		return result;
 	};
-	
+
 	// Overwrite fn.val
-    $.fn.val = function(value) {
-        var data = this.data("vanderlee." + pluginName);
-        if (typeof data === 'undefined') {
-	        if (typeof value === 'undefined') {
-	            return valFunction.call(this);
+	$.fn.val = function ( value ) {
+		const data = this.data( 'vanderlee.' + pluginName );
+		if ( typeof data === 'undefined' ) {
+			if ( typeof value === 'undefined' ) {
+				return valFunction.call( this );
 			} else {
-				return valFunction.call(this, value);
+				return valFunction.call( this, value );
 			}
 		} else {
-	        if (typeof value === 'undefined') {
+			if ( typeof value === 'undefined' ) {
 				return data;
 			} else {
-				this.data("vanderlee." + pluginName, value);
+				this.data( 'vanderlee.' + pluginName, value );
 				return this;
 			}
 		}
-    };
+	};
 
 	// :indeterminate pseudo selector
-    $.expr.filters.indeterminate = function(element) {
-		var $element = $(element);
-		return typeof $element.data("vanderlee." + pluginName) !== 'undefined' && $element.prop('indeterminate');
-    };
+	$.expr.filters.indeterminate = ( element ) => {
+		const $element = $( element );
+		return typeof $element.data( 'vanderlee.' + pluginName ) !== 'undefined' && $element.prop( 'indeterminate' );
+	};
 
 	// :determinate pseudo selector
-    $.expr.filters.determinate = function(element) {
-		return !($.expr.filters.indeterminate(element));
-    };
+	$.expr.filters.determinate = ( element ) => {
+		return !( $.expr.filters.indeterminate( element ) );
+	};
 
 	// :tristate selector
-    $.expr.filters.tristate = function(element) {
-		return typeof $(element).data("vanderlee." + pluginName) !== 'undefined';
-    };
-})(jQuery);
+	$.expr.filters.tristate = ( element ) => {
+		return typeof $( element ).data( 'vanderlee.' + pluginName ) !== 'undefined';
+	};
+}( jQuery ) );

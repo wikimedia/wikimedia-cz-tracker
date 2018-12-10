@@ -20,6 +20,13 @@
         }
     ],
     "env": {
-        "browser": true
+        "browser": true,
+        "es6": true
+    },
+    "rules": {
+        "arrow-parens": ["error", "as-needed", {
+                "requireForBlockBody": true
+            }],
+        "no-const-assign": "error"
     }
 }

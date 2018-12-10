@@ -49,38 +49,38 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        var rows = "#{{ formset.prefix }}-group fieldset tbody tr";
-        var reinitDateTimeShortCuts = function() {
+    document.addEventListener('DOMContentLoaded', () => {
+        const rows = "#{{ formset.prefix }}-group fieldset tbody tr";
+        const reinitDateTimeShortCuts = () => {
             // Reinitialize the calendar and clock widgets by force
             if (typeof DateTimeShortcuts != "undefined") {
                 $(".datetimeshortcuts").remove();
                 DateTimeShortcuts.init();
             }
         }
-        var updateSelectFilter = function() {
+        const updateSelectFilter = () => {
             // If any SelectFilter widgets are a part of the new form,
             // instantiate a new SelectFilter instance for it.
             if (typeof SelectFilter != "undefined"){
-                $(".selectfilter").each(function(index, value){
-                    var namearr = value.name.split('-');
+                $(".selectfilter").each((index, value) => {
+                    const namearr = value.name.split('-');
                     SelectFilter.init(value.id, namearr[namearr.length-1], false, "{{STATIC_URL}}admin/");
                 });
-                $(".selectfilterstacked").each(function(index, value){
-                    var namearr = value.name.split('-');
+                $(".selectfilterstacked").each((index, value) => {
+                    const namearr = value.name.split('-');
                     SelectFilter.init(value.id, namearr[namearr.length-1], true, "{{STATIC_URL}}admin/");
                 });
             }
         }
-        var initPrepopulatedFields = function(row) {
-            row.find('.prepopulated_field').each(function() {
-                var field = $(this);
-                var input = field.find('input, select, textarea');
-                var dependency_list = input.data('dependency_list') || [];
-                var dependencies = [];
-                $.each(dependency_list, function(i, field_name) {
+        const initPrepopulatedFields = row => {
+            row.find('.prepopulated_field').each(() => {
+                const field = $(this),
+                    input = field.find('input, select, textarea'),
+                    dependency_list = input.data('dependency_list') || [];
+                const dependencies = [];
+                dependency_list.forEach(fieldName => {
                     dependencies.push('#' + row.find(field_name).find('input, select, textarea').attr('id'));
-                });
+                })
                 if (dependencies.length) {
                     input.prepopulate(dependencies, input.attr('maxlength'));
                 }
@@ -93,7 +93,7 @@
             deleteCssClass: "inline-deletelink",
             deleteText: "{% trans "Remove" %}",
             emptyCssClass: "empty-form",
-            added: (function(row) {
+            added: (row => {
                 row.find('.field_DELETE .delete').empty();
                 initPrepopulatedFields(row);
                 reinitDateTimeShortCuts();

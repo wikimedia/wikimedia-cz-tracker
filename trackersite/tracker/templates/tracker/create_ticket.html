@@ -2,7 +2,7 @@
 {% block head %}
 {{block.super}}
 <script type="text/javascript">
-    document.addEventListener( 'DOMContentLoaded', function () {
+    document.addEventListener( 'DOMContentLoaded', () => {
         if (document.querySelector( '#copytopreexpeditures' )) {
             document.querySelector( '#copytopreexpeditures' ).hidden = true;
         }

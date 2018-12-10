@@ -1,6 +1,6 @@
-( function () {
-	document.addEventListener( 'DOMContentLoaded', function () {
-		var ackTypeSelect = document.querySelector( 'select[name="ack_type"]' ),
+{
+	document.addEventListener( 'DOMContentLoaded', () => {
+		const ackTypeSelect = document.querySelector( 'select[name="ack_type"]' ),
 			actionSelect = document.querySelector( 'select[name="action"]' );
 
 		function refreshActionForm() {
@@ -13,4 +13,4 @@
 		actionSelect.addEventListener( 'change', refreshActionForm );
 		refreshActionForm();
 	} );
-}() );
+}

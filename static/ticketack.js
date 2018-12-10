@@ -1,6 +1,5 @@
-/* globals django */
-( function () {
-	var prev;
+{
+	let previous;
 	function findParent( el, selector ) {
 		while ( true ) {
 			if ( el.matches( selector ) ) {
@@ -11,41 +10,38 @@
 	}
 
 	function addAck( target, set ) {
-		var block = findParent( target, 'li' );
-		prev = block.innerHTML;
+		const block = findParent( target, 'li' );
+		previous = block.innerHTML;
 		fetch( set.getAttribute( 'data-add-handler' ) )
-			.then( function ( res ) { return res.json(); } )
-			.then( function ( res ) {
-				block.innerHTML = res.form;
-			} );
+			.then( res => res.json() )
+			.then( ( res ) => { block.innerHTML = res.form; } );
 	}
 
 	function submitAck( target, set ) {
-		var formData = new FormData( findParent( target, 'form' ) );
+		const formData = new FormData( findParent( target, 'form' ) );
 		fetch( set.getAttribute( 'data-add-handler' ), {
 			method: 'POST',
 			body: formData
 		} )
-			.then( function ( res ) { return res.json(); } )
-			.then( function ( res ) {
-				var item = findParent( target, '.add-block' ),
-					next;
-				if ( res.form ) {
-					item.innerHTML = res.form;
+			.then( response => response.json() )
+			.then( ( response ) => {
+				const item = findParent( target, '.add-block' );
+				if ( response.form ) {
+					item.innerHTML = response.form;
 				}
-				if ( res.success ) {
-					next = item.cloneNode( true );
-					next.innerHTML = prev;
+				if ( response.success ) {
+					const next = item.cloneNode( true );
+					next.innerHTML = previous;
 					item.classList.remove( 'add-block' );
 					item.classList.add( 'newly-added' );
-					item.setAttribute( 'data-id', res.id );
+					item.setAttribute( 'data-id', response.id );
 					item.insertAdjacentHTML( 'afterend', next.outerHTML );
 				}
 			} );
 	}
 
 	function removeAck( target, set ) {
-		var ackLine = findParent( target, 'li' ),
+		const ackLine = findParent( target, 'li' ),
 			block = findParent( target, '.remove-block' ),
 			formData = new FormData();
 		if ( block.classList.contains( 'really' ) ) {
@@ -56,10 +52,9 @@
 			fetch( set.getAttribute( 'data-remove-handler' ), {
 				method: 'POST',
 				body: formData
-			} )
-				.then( function ( res ) { return res.json(); } )
-				.then( function ( res ) {
-					if ( res.success ) {
+			} ).then( response => response.json() )
+				.then( ( reponse ) => {
+					if ( reponse.success ) {
 						ackLine.parentNode.removeChild( ackLine );
 					} else {
 						ackLine.classList.add( 'failed' );
@@ -70,7 +65,7 @@
 		}
 	}
 
-	document.addEventListener( 'DOMContentLoaded', function () {
+	document.addEventListener( 'DOMContentLoaded', () => {
 		document.querySelector( '.ack-set' ).addEventListener( 'click', function ( event ) {
 			if ( event.target.classList.contains( 'add-ack' ) ) {
 				addAck( event.target, this );
@@ -86,4 +81,4 @@
 			}
 		} );
 	} );
-}( django.jQuery ) );
+}

@@ -40,27 +40,27 @@
 <button class="btn btn-primary">{% trans "Export" %}</button>
 </a>
 <script>
-    $.get('/user/display_items', function(display_items) {
-        var language = $('meta[http-equiv="Content-Language"]').attr('content');
-        fetch('/api/tracker/languages/', { headers: { Accept: 'application/json' }}).then(function (response) {
-            return response.json()
-        } ).then(function (data) {
-                var fullLanguage = data[language.toLowerCase()];
-                var url = "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/" + fullLanguage + ".json";
+    fetch('/user/display_items').then(response => response.json())
+        .then( display_items => {
+            const LANGUAGE = '{{LANGUAGE}}'
+            fetch('/api/tracker/languages/', { headers: { Accept: 'application/json' }}).then( response => response.json())
+                .then(function (data) {
+                    const fullLanguage = data[LANGUAGE.toLowerCase()],
+                        url = `https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/${fullLanguage}.json`;
 
-                $('table').DataTable({
-                    "order": [[0, "desc"]],
-                    "columnDefs": [
-                        {"type": "date-with-none", "targets": 1},
-                        {"type": "money", "targets": [7, 8, 9]}
-                    ],
-                    "language": {
-                        "url": url,
-                    },
-                    "pageLength": display_items,
-                    "ajax": "/tickets/json/{{LANGUAGE}}.json"
+                    $('table').DataTable({
+                        order: [[0, "desc"]],
+                        columnDefs: [
+                            { type: 'date-with-none', targets: 1 },
+                            { type: 'money', targets: [7, 8, 9] }
+                        ],
+                        language: {
+                            url
+                        },
+                        pageLength: display_items,
+                        ajax: '/tickets/json/{{LANGUAGE}}.json'
+                    });
                 });
-            });
     });
 </script>
 {% endblock %}

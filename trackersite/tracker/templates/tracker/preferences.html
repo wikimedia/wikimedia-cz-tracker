@@ -83,7 +83,7 @@
 </div>
 <br>
 <script>
-    $('#muted').click(function (ev) {
+    $('#muted').click( ev => {
         Array.from(document.querySelector('#DataTables_Table_0').querySelectorAll('input[type=\'checkbox\']'))
             .filter(el => el.id !== 'muted')
             .forEach(el => { el.checked = ev.target.checked })

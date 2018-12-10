@@ -1,6 +1,6 @@
-( function () {
-	document.addEventListener( 'DOMContentLoaded', function () {
-		var idTopic = document.querySelector( '#id_topic' ),
+{
+	document.addEventListener( 'DOMContentLoaded', () => {
+		const idTopic = document.querySelector( '#id_topic' ),
 			idSubtopic = document.querySelector( '#id_subtopic' ),
 			topicDesc = document.querySelector( '#topic_desc' ),
 			subtopicDesc = document.querySelector( '#subtopic_desc' ),
@@ -10,11 +10,11 @@
 			fieldCarTravel = document.querySelector( '.field_car_travel' );
 
 		function refreshDescription() {
-			var topicId = idTopic.value,
+			const topicId = idTopic.value,
 				topic = window.topicsTable[ topicId ];
 			if ( topicId === '' ) {
 				[ topicDesc, mediaInfoGroup, expeditureGroup, preexpeditureGroup, fieldCarTravel ]
-					.forEach( function ( el ) { el.hidden = true; } );
+					.forEach( ( el ) => { el.hidden = true; } );
 				return;
 			}
 
@@ -27,7 +27,7 @@
 		}
 
 		function refreshSubtopicDescription() {
-			var subtopicId = idSubtopic.value,
+			const subtopicId = idSubtopic.value,
 				subtopic = window.subtopicsTable[ subtopicId ];
 			if ( subtopicId === '' ) {
 				subtopicDesc.hidden = true;
@@ -44,4 +44,4 @@
 		refreshDescription();
 		refreshSubtopicDescription();
 	} );
-}() );
+}

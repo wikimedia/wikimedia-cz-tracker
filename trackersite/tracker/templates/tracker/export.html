@@ -361,7 +361,7 @@ p.bold-label {
 
 <script>
 $(document).ready(function() {
-    $('#tickets').on('show.bs.collapse', function () {
+    $('#tickets').on('show.bs.collapse', () => {
         $('#grants').collapse('hide')
         $('#preexpeditures').collapse('hide')
         $('#expeditures').collapse('hide')
@@ -369,15 +369,15 @@ $(document).ready(function() {
         $('#users').collapse('hide')
     });
 
-    $('#grants').on('show.bs.collapse', function () {
+    $('#grants').on('show.bs.collapse', () => {
         $('#tickets').collapse('hide')
         $('#preexpeditures').collapse('hide')
         $('#expeditures').collapse('hide')
         $('#topics').collapse('hide')
         $('#users').collapse('hide')
     });
-    
-    $('#preexpeditures').on('show.bs.collapse', function () {
+
+    $('#preexpeditures').on('show.bs.collapse', () => {
         $('#tickets').collapse('hide')
         $('#grants').collapse('hide')
         $('#expeditures').collapse('hide')
@@ -385,7 +385,7 @@ $(document).ready(function() {
         $('#users').collapse('hide')
     });
 
-    $('#expeditures').on('show.bs.collapse', function () {
+    $('#expeditures').on('show.bs.collapse', () => {
         $('#tickets').collapse('hide')
         $('#grants').collapse('hide')
         $('#preexpeditures').collapse('hide')
@@ -393,7 +393,7 @@ $(document).ready(function() {
         $('#users').collapse('hide')
     });
 
-    $('#topics').on('show.bs.collapse', function () { 
+    $('#topics').on('show.bs.collapse', () => {
         $('#tickets').collapse('hide')
         $('#grants').collapse('hide')
         $('#preexpeditures').collapse('hide')
@@ -401,7 +401,7 @@ $(document).ready(function() {
         $('#users').collapse('hide')
     });
 
-    $('#users').on('show.bs.collapse', function () {
+    $('#users').on('show.bs.collapse', () => {
         $('#tickets').collapse('hide')
         $('#grants').collapse('hide')
         $('#preexpeditures').collapse('hide')
