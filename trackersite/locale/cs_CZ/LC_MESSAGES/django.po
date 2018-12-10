@@ -1343,10 +1343,8 @@ msgid "Tracker notifications"
 msgstr "Tracker notifikace"
 
 #: tracker/templates/notification/notification_subject.txt:1
-#, fuzzy
-#| msgid "Medias of a watched ticket"
 msgid "List of changes of watched tickets"
-msgstr "Změna médií u sledovaných tiketů"
+msgstr "Přehled změn ve vámi sledovaných tiketech"
 
 #: tracker/templates/tracker/admin_index_override.html:10
 #, python-format
