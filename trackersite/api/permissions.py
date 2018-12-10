@@ -29,3 +29,13 @@ class CanEditMediaElseReadOnly(BasePermission):
         if request.method in SAFE_METHODS:
             return True
         return obj.ticket.can_edit_documents(request.user)
+
+
+class IsSelf(BasePermission):
+    def has_permission(self, request, view):
+        if request.method == "POST" and not request.user.has_perm('tracker.add_trackerprofile'):
+            return False
+        return True
+
+    def has_object_permission(self, request, view, obj):
+        return obj.user == request.user or request.user.has_perm('tracker.change_trackerprofile')

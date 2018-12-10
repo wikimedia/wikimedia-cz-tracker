@@ -14,8 +14,7 @@ from serializers import (
 )
 from rest_framework import viewsets
 from rest_framework.response import Response
-from rest_framework.permissions import IsAdminUser
-from permissions import ReadOnly, CanEditTicketElseReadOnly, CanEditExpedituresElseReadOnly
+from permissions import ReadOnly, CanEditTicketElseReadOnly, CanEditExpedituresElseReadOnly, IsSelf
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import activate
 from django.conf import settings
@@ -48,10 +47,16 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class TrackerProfileViewSet(viewsets.ModelViewSet):
-    queryset = TrackerProfile.objects.all()
+    queryset = TrackerProfile.objects.none()
     serializer_class = TrackerProfileSerializer
-    permission_classes = (IsAdminUser, )
+    permission_classes = (IsSelf, )
     filter_fields = ('user', )
+
+    def get_queryset(self):
+        if self.request.user and self.request.user.is_staff:
+            return TrackerProfile.objects.all()
+        else:
+            return TrackerProfile.objects.filter(user=self.request.user)
 
 
 class PermissionViewSet(viewsets.ModelViewSet):
