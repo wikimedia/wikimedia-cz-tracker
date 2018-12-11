@@ -36,13 +36,16 @@ class MediaWiki():
             "type": type
         }).json()["query"]["tokens"]["%stoken" % type]
 
-    def get_content(self, title, rvslot="main"):
-        data = self.authorized_request({
+    def get_content(self, title, rvslot="main", rvsection=None):
+        payload = {
             "action": "query",
             "format": "json",
             "prop": "revisions",
             "titles": title,
             "rvprop": "content",
             "rvslots": rvslot
-        }).json()["query"]["pages"]
+        }
+        if rvsection:
+            payload["rvsection"] = rvsection
+        data = self.authorized_request(payload).json()["query"]["pages"]
         return data[data.keys()[0]]["revisions"][0]["slots"][rvslot]["*"]
