@@ -133,23 +133,23 @@ class TicketSumTests(TestCase):
         empty_ticket = Ticket(topic=self.topic, requested_text='someone', name='empty ticket')
         empty_ticket.save()
 
-        self.assertEqual(0, empty_ticket.media_count()['objects'])
+        self.assertEqual(0, empty_ticket.media_old_count()['objects'])
         self.assertEqual(0, empty_ticket.expeditures()['count'])
-        self.assertEqual(0, self.topic.media_count()['objects'])
+        self.assertEqual(0, self.topic.media_old_count()['objects'])
         self.assertEqual(0, self.topic.expeditures()['count'])
 
     def test_full_ticket(self):
         full_ticket = Ticket(topic=self.topic, requested_text='someone', name='full ticket')
         full_ticket.save()
-        full_ticket.mediainfo_set.create(description='Vague pictures')
-        full_ticket.mediainfo_set.create(description='Counted pictures', count=15)
-        full_ticket.mediainfo_set.create(description='Even more pictures', count=16)
+        full_ticket.mediainfoold_set.create(description='Vague pictures')
+        full_ticket.mediainfoold_set.create(description='Counted pictures', count=15)
+        full_ticket.mediainfoold_set.create(description='Even more pictures', count=16)
         full_ticket.expediture_set.create(description='Some expense', amount=99)
         full_ticket.expediture_set.create(description='Some other expense', amount=101)
 
-        self.assertEqual({'objects': 3, 'media': 31}, full_ticket.media_count())
+        self.assertEqual({'objects': 3, 'media': 31}, full_ticket.media_old_count())
         self.assertEqual({'count': 2, 'amount': 200}, full_ticket.expeditures())
-        self.assertEqual({'objects': 3, 'media': 31}, self.topic.media_count())
+        self.assertEqual({'objects': 3, 'media': 31}, self.topic.media_old_count())
         self.assertEqual({'count': 2, 'amount': 200}, self.topic.expeditures())
 
 
@@ -189,8 +189,6 @@ class TicketTests(TestCase):
         self.assertEqual(400, response.status_code)
 
         response = c.post(reverse('create_ticket'), {
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
             'preexpediture-INITIAL_FORMS': '0',
@@ -206,8 +204,6 @@ class TicketTests(TestCase):
             'description': 'some desc',
             'deposit': '0',
             'car_travel': True,
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
             'preexpediture-INITIAL_FORMS': '0',
@@ -221,8 +217,6 @@ class TicketTests(TestCase):
             'topic': self.open_topic.id,
             'description': 'some desc',
             'deposit': '0',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
             'preexpediture-INITIAL_FORMS': '0',
@@ -236,42 +230,6 @@ class TicketTests(TestCase):
         self.assertEqual('draft', ticket.state_str())
         self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
 
-    def test_ticket_creation_with_media(self):
-        c = self.get_client()
-        response = c.post(reverse('create_ticket'), {
-            'name': 'ticket',
-            'topic': self.open_topic.id,
-            'description': 'some desc',
-            'deposit': '0',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '3',
-            'mediainfo-0-count': '',
-            'mediainfo-0-description': 'image 1',
-            'mediainfo-0-url': 'http://www.example.com/image1.jpg',
-            'mediainfo-1-count': '',
-            'mediainfo-1-description': '',
-            'mediainfo-1-url': '',
-            'mediainfo-2-count': '3',
-            'mediainfo-2-description': 'image 2 - group',
-            'mediainfo-2-url': 'http://www.example.com/imagegroup/',
-            'expediture-INITIAL_FORMS': '0',
-            'expediture-TOTAL_FORMS': '0',
-            'preexpediture-INITIAL_FORMS': '0',
-            'preexpediture-TOTAL_FORMS': '0',
-        })
-        self.assertEqual(302, response.status_code)
-        self.assertEqual(1, Ticket.objects.count())
-        ticket = Ticket.objects.order_by('-created')[0]
-
-        media = ticket.mediainfo_set.order_by('description')
-        self.assertEqual(2, len(media))
-        self.assertEqual('image 1', media[0].description)
-        self.assertEqual('http://www.example.com/image1.jpg', media[0].url)
-        self.assertEqual(None, media[0].count)
-        self.assertEqual('image 2 - group', media[1].description)
-        self.assertEqual('http://www.example.com/imagegroup/', media[1].url)
-        self.assertEqual(3, media[1].count)
-
     def test_wrong_topic_id(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
@@ -279,8 +237,6 @@ class TicketTests(TestCase):
             'topic': 'gogo',
             'description': 'some desc',
             'deposit': '0',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
             'preexpediture-INITIAL_FORMS': '0',
@@ -299,8 +255,6 @@ class TicketTests(TestCase):
             'topic': closed_topic.id,
             'description': 'some desc',
             'deposit': '0',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
             'preexpediture-INITIAL_FORMS': '0',
@@ -316,8 +270,6 @@ class TicketTests(TestCase):
             'topic': self.open_topic.id,
             'description': 'some desc',
             'deposit': '100',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
             'preexpediture-INITIAL_FORMS': '0',
@@ -333,8 +285,6 @@ class TicketTests(TestCase):
             'topic': self.open_topic.id,
             'description': 'some desc',
             'deposit': '50.01',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
             'preexpediture-INITIAL_FORMS': '0',
@@ -353,8 +303,6 @@ class TicketTests(TestCase):
             'subtopic': self.subtopic2.id,
             'description': 'some desc',
             'deposit': '0',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
             'preexpediture-INITIAL_FORMS': '0',
@@ -371,8 +319,6 @@ class TicketTests(TestCase):
             'subtopic': self.subtopic.id,
             'description': 'some desc',
             'deposit': '0',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
             'preexpediture-INITIAL_FORMS': '0',
@@ -389,8 +335,6 @@ class TicketTests(TestCase):
             'topic': self.open_topic.id,
             'description': 'some desc',
             'deposit': '30.1',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
             'preexpediture-INITIAL_FORMS': '0',
@@ -479,8 +423,6 @@ class TicketEditTests(TestCase):
             'topic': ticket.topic.id,
             'description': 'new desc',
             'deposit': '0',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
             'preexpediture-INITIAL_FORMS': '0',
@@ -494,33 +436,12 @@ class TicketEditTests(TestCase):
         self.assertEqual('new name', ticket.name)
         self.assertEqual('new desc', ticket.description)
 
-        # b0rked media item aborts the submit
-        response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
-            'name': 'ticket',
-            'topic': ticket.topic.id,
-            'description': 'some desc',
-            'deposit': '0',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '1',
-            'mediainfo-0-count': 'foo',
-            'mediainfo-0-description': 'image 1',
-            'mediainfo-0-url': 'http://www.example.com/image1.jpg',
-            'expediture-INITIAL_FORMS': '0',
-            'expediture-TOTAL_FORMS': '0',
-            'preexpediture-INITIAL_FORMS': '0',
-            'preexpediture-TOTAL_FORMS': '0',
-        })
-        self.assertEqual(200, response.status_code)
-        self.assertEqual('Enter a whole number.', response.context['mediainfo'].forms[0].errors['count'][0])
-
         # b0rked expediture items aborts the submit
         response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
             'name': 'ticket',
             'topic': ticket.topic.id,
             'description': 'some desc',
             'deposit': '0',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '1',
             'expediture-0-description': 'foo',
@@ -537,17 +458,6 @@ class TicketEditTests(TestCase):
             'topic': ticket.topic.id,
             'description': 'new desc',
             'deposit': '0',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '3',
-            'mediainfo-0-count': '',
-            'mediainfo-0-description': 'image 1',
-            'mediainfo-0-url': 'http://www.example.com/image1.jpg',
-            'mediainfo-1-count': '',
-            'mediainfo-1-description': '',
-            'mediainfo-1-url': '',
-            'mediainfo-2-count': '3',
-            'mediainfo-2-description': 'image 2 - group',
-            'mediainfo-2-url': 'http://www.example.com/imagegroup/',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '2',
             'expediture-0-description': 'ten fifty',
@@ -558,14 +468,6 @@ class TicketEditTests(TestCase):
             'preexpediture-TOTAL_FORMS': '0',
         })
         self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
-        media = ticket.mediainfo_set.order_by('description')
-        self.assertEqual(2, len(media))
-        self.assertEqual('image 1', media[0].description)
-        self.assertEqual('http://www.example.com/image1.jpg', media[0].url)
-        self.assertEqual(None, media[0].count)
-        self.assertEqual('image 2 - group', media[1].description)
-        self.assertEqual('http://www.example.com/imagegroup/', media[1].url)
-        self.assertEqual(3, media[1].count)
         expeditures = ticket.expediture_set.order_by('amount')
         self.assertEqual(2, len(expeditures))
         self.assertEqual('ten fifty', expeditures[0].description)
@@ -579,20 +481,6 @@ class TicketEditTests(TestCase):
             'topic': ticket.topic.id,
             'description': 'new desc',
             'deposit': '0',
-            'mediainfo-INITIAL_FORMS': '2',
-            'mediainfo-TOTAL_FORMS': '3',
-            'mediainfo-0-id': media[0].id,
-            'mediainfo-0-count': '1',
-            'mediainfo-0-description': 'image 1 - edited',
-            'mediainfo-0-url': 'http://www.example.com/second.jpg',
-            'mediainfo-1-id': media[1].id,
-            'mediainfo-1-DELETE': 'on',
-            'mediainfo-1-count': '3',
-            'mediainfo-1-description': 'image 2 - group',
-            'mediainfo-1-url': 'http://www.example.com/imagegroup/',
-            'mediainfo-2-count': '',
-            'mediainfo-2-description': '',
-            'mediainfo-2-url': '',
             'expediture-INITIAL_FORMS': '2',
             'expediture-TOTAL_FORMS': '3',
             'expediture-0-id': expeditures[0].id,
@@ -608,11 +496,6 @@ class TicketEditTests(TestCase):
             'preexpediture-TOTAL_FORMS': '0',
         })
         self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
-        media = ticket.mediainfo_set.all()
-        self.assertEqual(1, len(media))
-        self.assertEqual('image 1 - edited', media[0].description)
-        self.assertEqual('http://www.example.com/second.jpg', media[0].url)
-        self.assertEqual(1, media[0].count)
         expeditures = ticket.expediture_set.order_by('amount')
         self.assertEqual(1, len(expeditures))
         self.assertEqual('hundred+1', expeditures[0].description)
@@ -632,8 +515,6 @@ class TicketEditTests(TestCase):
             'topic': ticket.topic.id,
             'description': 'new desc',
             'deposit': '333',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
             'preexpediture-INITIAL_FORMS': '0',
@@ -649,8 +530,6 @@ class TicketEditTests(TestCase):
             'name': 'new name',
             'topic': ticket.topic.id,
             'description': 'new desc',
-            'mediainfo-INITIAL_FORMS': '0',
-            'mediainfo-TOTAL_FORMS': '0',
             'expediture-INITIAL_FORMS': '0',
             'expediture-TOTAL_FORMS': '0',
         })
@@ -834,15 +713,15 @@ class SummaryTest(TestCase):
         self.ticket.add_acks('content', 'docs', 'archive')
         self.ticket.expediture_set.create(description='foo', amount=200)
         self.ticket.expediture_set.create(description='foo', amount=100)
-        self.ticket.mediainfo_set.create(description='foo', count=5)
+        self.ticket.mediainfoold_set.create(description='foo', count=5)
 
         self.ticket2 = Ticket(name='foo', requested_user=self.user, topic=self.topic, rating_percentage=100)
         self.ticket2.save()
         self.ticket2.add_acks('content', 'docs', 'archive')
         self.ticket2.expediture_set.create(description='foo', amount=600)
         self.ticket2.expediture_set.create(description='foo', amount=10)
-        self.ticket2.mediainfo_set.create(description='foo', count=5)
-        self.ticket2.mediainfo_set.create(description='foo', count=3)
+        self.ticket2.mediainfoold_set.create(description='foo', count=5)
+        self.ticket2.mediainfoold_set.create(description='foo', count=3)
 
     def test_topic_ticket_counts(self):
         self.assertEqual({'unpaid': 2}, self.topic.tickets_per_payment_status())
@@ -864,7 +743,7 @@ class SummaryTest(TestCase):
         self.ticket.rating_percentage = None
         self.ticket.save()
 
-        self.assertEqual({'objects': 1, 'media': 5}, self.ticket.media_count())
+        self.assertEqual({'objects': 1, 'media': 5}, self.ticket.media_old_count())
         self.assertEqual({'count': 2, 'amount': 300}, self.ticket.expeditures())
         self.assertEqual(0, self.ticket.accepted_expeditures())
 
@@ -876,13 +755,13 @@ class SummaryTest(TestCase):
         self.assertEqual(150, self.ticket.accepted_expeditures())
 
     def test_topic_name(self):
-        self.assertEqual({'objects': 3, 'media': 13}, self.topic.media_count())
+        self.assertEqual({'objects': 3, 'media': 13}, self.topic.media_old_count())
         self.assertEqual({'count': 4, 'amount': 910}, self.topic.expeditures())
         self.assertEqual(150 + 610, self.topic.accepted_expeditures())
 
     def test_user_name(self):
         profile = self.user.trackerprofile
-        self.assertEqual({'objects': 3, 'media': 13}, profile.media_count())
+        self.assertEqual({'objects': 3, 'media': 13}, profile.media_old_count())
         self.assertEqual(150 + 610, profile.accepted_expeditures())
 
     def test_topic_finance(self):

@@ -14,6 +14,7 @@ from serializers import (
     ContentTypeSerializer,
 )
 from rest_framework import viewsets
+from rest_framework import status
 from rest_framework.response import Response
 from permissions import (ReadOnly, CanEditTicketElseReadOnly, CanEditExpedituresElseReadOnly, IsSelfTrackerProfile,
                          IsOwnTrackerPreferences)
@@ -149,7 +150,14 @@ class MediaInfoViewSet(viewsets.ModelViewSet):
     serializer_class = MediaInfoSerializer
     permission_classes = (CanEditExpedituresElseReadOnly, )
     filter_fields = ('ticket', )
-    search_fields = ('description', 'url')
+    search_fields = ('name', )
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data, many=isinstance(request.data, list))
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
 class ExpeditureViewSet(viewsets.ModelViewSet):

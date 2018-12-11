@@ -26,6 +26,9 @@ from django import template
 from pytz import utc
 import re
 import json
+from jsonfield import JSONField
+from socialauth.api import MediaWiki
+from background_task import background
 
 from users.models import UserWrapper
 from django_comments.moderation import CommentModerator, moderator
@@ -387,8 +390,8 @@ class Ticket(CachedModel, ModelDiffMixin):
         return reverse('ticket_detail', kwargs={'pk': self.id})
 
     @cached_getter
-    def media_count(self):
-        return self.mediainfo_set.aggregate(objects=models.Count('id'), media=models.Sum('count'))
+    def media_old_count(self):
+        return self.mediainfoold_set.aggregate(objects=models.Count('id'), media=models.Sum('count'))
 
     def expeditures_amount(self):
         return self.expeditures()['amount'] or 0
@@ -576,8 +579,8 @@ class Subtopic(CachedModel):
         return reverse('subtopic_detail', kwargs={'pk': self.id})
 
     @cached_getter
-    def media_count(self):
-        return MediaInfo.objects.extra(where=['ticket_id in (select ticket_id from tracker_ticket where subtopic_id = %s)'], params=[self.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
+    def media_old_count(self):
+        return MediaInfoOld.objects.extra(where=['ticket_id in (select ticket_id from tracker_ticket where subtopic_id = %s)'], params=[self.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
 
     @cached_getter
     def expeditures(self):
@@ -647,8 +650,8 @@ class Topic(CachedModel):
         return reverse('topic_detail', kwargs={'pk': self.id})
 
     @cached_getter
-    def media_count(self):
-        return MediaInfo.objects.extra(where=['ticket_id in (select id from tracker_ticket where topic_id = %s)'], params=[self.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
+    def media_old_count(self):
+        return MediaInfoOld.objects.extra(where=['ticket_id in (select id from tracker_ticket where topic_id = %s)'], params=[self.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
 
     @cached_getter
     def expeditures(self):
@@ -768,7 +771,7 @@ def ticket_note_comment(sender, comment, **kwargs):
         obj.save()
 
 
-class MediaInfo(Model):
+class MediaInfoOld(Model):
     """ Media related to particular tickets. """
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'), help_text=_('Ticket this media info belongs to'))
     description = models.CharField(_('description'), max_length=255, help_text=_('Item description to show'))
@@ -777,6 +780,70 @@ class MediaInfo(Model):
 
     def __unicode__(self):
         return self.description
+
+    class Meta:
+        verbose_name = _('Ticket media')
+        verbose_name_plural = _('Ticket media')
+
+
+class MediaInfo(Model):
+    """ Media related to particular tickets. """
+    ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'), help_text=_('Ticket this media info belongs to'))
+    updated = models.DateTimeField(_('updated'), null=True)
+    name = models.CharField(_('name'), max_length=255, blank=True)
+    width = models.IntegerField(_('width'), null=True)
+    height = models.IntegerField(_('height'), null=True)
+    categories = JSONField(_('categories'), null=False, default=[])
+    usages = JSONField(_('usages'), null=False, default=[])
+
+    def __unicode__(self):
+        return self.name
+
+    @staticmethod
+    def strip_template(text):
+        # TODO: First letter of template should be case-insensitive
+        regex = r"\n{{" + settings.MEDIAINFO_MEDIAWIKI_TEMPLATE + r"[^}]*}}"
+        return re.sub(regex, "", text)
+
+    @staticmethod
+    @background(schedule=10)
+    def remove_from_mediawiki(media_name, user_id):
+        mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_URL)
+        mw.put_content(media_name, MediaInfo.strip_template(mw.get_content(media_name, rvsection=1)), section=1)
+
+    @staticmethod
+    @background(schedule=10)
+    def add_to_mediawiki(media_id, user_id):
+        media = MediaInfo.objects.get(id=media_id)
+        parameters = {
+            'rok': datetime.date.today().year,
+            'podtéma': media.ticket.subtopic,
+            'tiket': media.ticket.id,
+        }
+        if media.ticket.subtopic:
+                parameters['subtéma'] = media.ticket.subtopic
+
+        template = u'{{%s' % settings.MEDIAINFO_MEDIAWIKI_TEMPLATE
+        for param in parameters:
+            template += u"|%s=%s" % (param.decode('utf-8'), str(parameters[param]).decode('utf-8'))
+        template += u'}}'
+
+        mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_URL)
+        old = mw.get_content(media.name, rvsection=1)
+        if template not in old:
+            mw.put_content(media.name,  MediaInfo.strip_template(old) + u"\n" + template, section=1)
+
+    def save(self, *args, **kwargs):
+        super(MediaInfo, self).save(*args, **kwargs)
+
+        if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE:
+            MediaInfo.add_to_mediawiki(self.id, get_request().user.id)
+
+    def delete(self, *args, **kwargs):
+        if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE:
+            MediaInfo.remove_from_mediawiki(self.name, get_request().user.id)
+
+        super(MediaInfo, self).delete(*args, **kwargs)
 
     class Meta:
         verbose_name = _('Ticket media')
@@ -906,8 +973,8 @@ class TrackerProfile(models.Model):
     def get_absolute_url(self):
         return reverse('user_detail', kwargs={'username': self.user.username})
 
-    def media_count(self):
-        return MediaInfo.objects.extra(where=['ticket_id in (select id from tracker_ticket where requested_user_id = %s)'], params=[self.user.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
+    def media_old_count(self):
+        return MediaInfoOld.objects.extra(where=['ticket_id in (select id from tracker_ticket where requested_user_id = %s)'], params=[self.user.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
 
     def accepted_expeditures(self):
         return sum([t.accepted_expeditures() for t in self.user.ticket_set.filter(rating_percentage__gt=0)])

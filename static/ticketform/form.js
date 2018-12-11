@@ -11,7 +11,6 @@
 			idSubtopic = document.querySelector( '#id_subtopic' ),
 			topicDesc = document.querySelector( '#topic_desc' ),
 			subtopicDesc = document.querySelector( '#subtopic_desc' ),
-			mediaInfoGroup = document.querySelector( '#mediainfo-group' ),
 			expeditureGroup = document.querySelector( '#expediture-group' ),
 			preexpeditureGroup = document.querySelector( '#preexpediture-group' ),
 			fieldCarTravel = document.querySelector( '.field-car_travel' );
@@ -20,14 +19,13 @@
 			const topicId = idTopic.value,
 				topic = getTopicById( topicId );
 			if ( topicId === '' ) {
-				[ topicDesc, mediaInfoGroup, expeditureGroup, preexpeditureGroup, fieldCarTravel ]
+				[ topicDesc, expeditureGroup, preexpeditureGroup, fieldCarTravel ]
 					.forEach( ( el ) => { el.hidden = true; } );
 				return;
 			}
 
 			topicDesc.innerHTML = topic.form_description;
 			topicDesc.hidden = topic.form_description === '';
-			mediaInfoGroup.hidden = !topic.ticket_media;
 			expeditureGroup.hidden = !topic.ticket_expenses;
 			preexpeditureGroup.hidden = !topic.ticket_preexpenses;
 			fieldCarTravel.hidden = !topic.ticket_statutory_declaration;

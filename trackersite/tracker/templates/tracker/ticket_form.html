@@ -10,9 +10,6 @@
 {% if field.name == "subtopic" %}<p id="subtopic_desc"></p>{% endif %}
 {% endfor %}
 
-{# mediainfo formset #}
-{% include "tracker/tabular_formset.html" with formset=mediainfo formset_title=_("Related files") formset_item_name=_("file") section="file" %}
-
 {% if preexpeditures %}
 {# preexpediture formset #}
 {% include "tracker/tabular_formset.html" with formset=preexpeditures formset_title=_("Preexpeditures") formset_item_name=_("preexpediture") section="preexpediture" %}

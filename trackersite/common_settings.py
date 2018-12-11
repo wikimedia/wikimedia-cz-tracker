@@ -64,6 +64,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
+    'background_task',
 )
 
 USE_TZ = True

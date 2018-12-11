@@ -8,6 +8,8 @@ python-memcached
 social-auth-app-django
 django-request-provider
 pytz
+jsonfield
+django-background-tasks
 
 # For API
 djangorestframework==3.3.3

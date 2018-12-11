@@ -340,22 +340,6 @@ class ExtraItemFormSet(BaseInlineFormSet):
             return original_count
 
 
-MEDIAINFO_FIELDS = ('url', 'description', 'count')
-
-
-def mediainfo_formfield(f, **kwargs):
-    if f.name == 'url':
-        kwargs['widget'] = forms.TextInput(attrs={'size': '60'})
-    elif f.name == 'count':
-        kwargs['widget'] = forms.TextInput(attrs={'size': '4'})
-    return f.formfield(**kwargs)
-
-
-mediainfoformset_factory = curry(
-    inlineformset_factory, Ticket, MediaInfo,
-    formset=ExtraItemFormSet, fields=MEDIAINFO_FIELDS, formfield_callback=mediainfo_formfield
-)
-
 EXPEDITURE_FIELDS = ('description', 'amount', 'wage')
 expeditureformset_factory = curry(
     inlineformset_factory, Ticket, Expediture,
@@ -603,17 +587,14 @@ def watch_grant(request, pk):
 
 @login_required
 def create_ticket(request):
-    MediaInfoFormSet = mediainfoformset_factory(extra=2, can_delete=False)
     ExpeditureFormSet = expeditureformset_factory(extra=2, can_delete=False)
     PreexpeditureFormSet = preexpeditureformset_factory(extra=2, can_delete=False)
 
     if request.method == 'POST':
         ticketform = TicketForm(request.POST)
         try:
-            mediainfo = MediaInfoFormSet(request.POST, prefix='mediainfo')
             expeditures = ExpeditureFormSet(request.POST, prefix='expediture')
             preexpeditures = PreexpeditureFormSet(request.POST, prefix='preexpediture')
-            mediainfo.media   # trigger ValidationError when management form field are missing
             expeditures.media  # this seems to be a regression between Django 1.3 and 1.6
             preexpeditures.media  # test
         except forms.ValidationError, e:
@@ -622,14 +603,11 @@ def create_ticket(request):
         check_ticket_form_deposit(ticketform, preexpeditures)
         check_statutory_declaration(ticketform)
         check_subtopic(ticketform)
-        if ticketform.is_valid() and mediainfo.is_valid() and expeditures.is_valid() and preexpeditures.is_valid():
+        if ticketform.is_valid() and expeditures.is_valid() and preexpeditures.is_valid():
             ticket = ticketform.save(commit=False)
             ticket.requested_user = request.user
             ticket.save()
             ticketform.save_m2m()
-            if ticket.topic.ticket_media:
-                mediainfo.instance = ticket
-                mediainfo.save()
             if ticket.topic.ticket_expenses:
                 expeditures.instance = ticket
                 expeditures.save()
@@ -652,7 +630,6 @@ def create_ticket(request):
             initial['description'] = ticket.description
             initial['deposit'] = ticket.deposit
         ticketform = TicketForm(initial=initial)
-        mediainfo = MediaInfoFormSet(prefix='mediainfo')
         initialExpeditures = []
         if 'ticket' in request.GET:
             for e in Expediture.objects.filter(ticket=ticket):
@@ -676,10 +653,9 @@ def create_ticket(request):
 
     return render(request, 'tracker/create_ticket.html', {
         'ticketform': ticketform,
-        'mediainfo': mediainfo,
         'expeditures': expeditures,
         'preexpeditures': preexpeditures,
-        'form_media': adminCore + ticketform.media + mediainfo.media + expeditures.media,
+        'form_media': adminCore + ticketform.media + expeditures.media,
     })
 
 
@@ -725,14 +701,12 @@ def edit_ticket(request, pk):
 
     TicketEditForm = get_edit_ticket_form_class(ticket)
 
-    MediaInfoFormSet = mediainfoformset_factory(extra=1, can_delete=True)
     ExpeditureFormSet = expeditureformset_factory(extra=1, can_delete=True)
     PreexpeditureFormSet = preexpeditureformset_factory(extra=1, can_delete=True)
 
     if request.method == 'POST':
         ticketform = TicketEditForm(request.POST, instance=ticket)
         try:
-            mediainfo = MediaInfoFormSet(request.POST, prefix='mediainfo', instance=ticket)
             if 'content' not in ticket.ack_set():
                 expeditures = ExpeditureFormSet(request.POST, prefix='expediture', instance=ticket)
             else:
@@ -750,11 +724,10 @@ def edit_ticket(request, pk):
         check_statutory_declaration(ticketform)
         check_subtopic(ticketform)
 
-        if ticketform.is_valid() and mediainfo.is_valid() \
+        if ticketform.is_valid() \
                 and (expeditures.is_valid() if 'content' not in ticket.ack_set() else True) \
                 and (preexpeditures.is_valid() if 'precontent' not in ticket.ack_set() and 'content' not in ticket.ack_set() else True):
             ticket = ticketform.save()
-            mediainfo.save()
             if expeditures is not None:
                 expeditures.save()
             if preexpeditures is not None:
@@ -764,7 +737,6 @@ def edit_ticket(request, pk):
             return HttpResponseRedirect(ticket.get_absolute_url())
     else:
         ticketform = TicketEditForm(instance=ticket)
-        mediainfo = MediaInfoFormSet(prefix='mediainfo', instance=ticket)
         if 'content' not in ticket.ack_set():
             expeditures = ExpeditureFormSet(prefix='expediture', instance=ticket)
         else:
@@ -774,7 +746,7 @@ def edit_ticket(request, pk):
         else:
             preexpeditures = None  # Hide preexpeditures in the edit form
 
-    form_media = adminCore + ticketform.media + mediainfo.media
+    form_media = adminCore + ticketform.media
     if 'content' not in ticket.ack_set():
         form_media += expeditures.media
     if 'precontent' not in ticket.ack_set() and 'content' not in ticket.ack_set():
@@ -783,7 +755,6 @@ def edit_ticket(request, pk):
     return render(request, 'tracker/edit_ticket.html', {
         'ticket': ticket,
         'ticketform': ticketform,
-        'mediainfo': mediainfo,
         'expeditures': expeditures,
         'preexpeditures': preexpeditures,
         'form_media': form_media,
