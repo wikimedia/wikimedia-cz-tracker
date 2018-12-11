@@ -49,3 +49,16 @@ class MediaWiki():
             payload["rvsection"] = rvsection
         data = self.authorized_request(payload).json()["query"]["pages"]
         return data[data.keys()[0]]["revisions"][0]["slots"][rvslot]["*"]
+
+    def put_content(self, title, text, section=None, summary="Automated update by Tracker"):
+        payload = {
+            "action": "edit",
+            "format": "json",
+            "title": title,
+            "text": text,
+            "summary": summary,
+            "token": self.get_token()
+        }
+        if section:
+            payload["section"] = section
+        return self.authorized_request(payload)
