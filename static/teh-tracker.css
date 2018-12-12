@@ -279,7 +279,7 @@ td.money {
 	background-color: #ff7878;
 }
 
-.statutory-declaration {
+.signatures {
 	display: none;
 }
 
@@ -315,7 +315,7 @@ td.money {
 		display: none;
 	}
 
-	.statutory-declaration {
+	.signatures {
 		display: block;
 		padding-bottom: 10px;
 	}

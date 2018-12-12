@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n widget_tweaks %}
+
+{% block content %}
+<h1>{% trans "Add statutory declaration to" %}: {{ticket}}</h1>
+<p>{{ declaration }}</p>
+<form method="post">
+    {% for field in form %}
+    <p class="field_{{field.name}}{% if field.field.required %} required{% endif %}">{{field.errors.as_ul}}<label for="id_{{ field.name }}">{{ field.label }}:</label> {{ field|add_class:"form-control" }}<span class="helptext">{{ field.help_text }}</span></p>    {% endfor %}
+    {% csrf_token %}
+    <input class="form-control" type="submit" value="{% trans "Submit" %}" />        
+</form>
+{% endblock content %}

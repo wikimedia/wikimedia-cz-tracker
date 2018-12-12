@@ -214,6 +214,12 @@ class Watcher(Model):
         return 'User %s is watching event %s on %s %s' % (self.user, self.notification_type, self.watcher_type, self.watched)
 
 
+class Signature(Model):
+    user = models.ForeignKey('auth.User')
+    signed_ticket = models.ForeignKey('tracker.Ticket')
+    signed_text = models.TextField(_('Signed text'))
+
+
 class Ticket(CachedModel, ModelDiffMixin):
     """ One unit of tracked / paid stuff. """
     updated = models.DateTimeField(_('updated'))
@@ -237,8 +243,6 @@ class Ticket(CachedModel, ModelDiffMixin):
     imported = models.BooleanField(_('imported'), default=False, help_text=_('Was this ticket imported from older Tracker version?'))
     enable_comments = models.BooleanField(_('enable comments'), default=True, help_text=_('Can users comment on this ticket?'))
     car_travel = models.BooleanField(_('Did you travel by car?'), default=False, help_text=_('Do you request reimbursement of car-type travel expense?'))
-    statutory_declaration = models.BooleanField(_('Statutory declaration'), default=False, help_text=settings.STATUTORY_DECLARATION_TEXT)
-    statutory_declaration_date = models.DateTimeField(_('Date when statutory declaration was made'), null=True, default=None)
 
     @staticmethod
     def currency():

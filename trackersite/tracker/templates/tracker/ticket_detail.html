@@ -19,6 +19,7 @@
     {% if user_can_edit_documents %}<a href="{% url "edit_ticket_docs" ticket.id %}"><button class="btn btn-primary">{% trans "edit ticket documents" %}</button></a>{% endif %}
     {% if user.is_authenticated %}<a href="{% url "create_ticket" %}?ticket={{ ticket.id }}"><button class="btn btn-primary">{% trans "duplicate" %}</button></a>{% endif %}
     {% if user.is_authenticated %}<a href="{% url "watch_ticket" ticket.id %}"><button class="btn btn-primary">{% trans "watch settings" %}</button></a>{% endif %}
+    {% if user.is_authenticated and not ticket.requested_user == user %}<a href="{% url "sign_ticket" ticket.id %}"><button class="btn btn-primary">{% trans "add yourself as a driver" %}</button></a>{% endif %}
 </p>{% endif %}
 
 {% include "tracker/ticket_common_detail.html" with active_links=True %}
@@ -43,12 +44,14 @@
 </table>
 {% endif %}
 
-{% if ticket.document_set.count > 0 or ticket.statutory_declaration %}
-<h2 {% if ticket.document_set.count == 0 %}class="statutory-declaration"{% endif %}>{% trans "Documents" %}</h2>
-{% if ticket.statutory_declaration %}
-<div class="statutory-declaration">
-    {{ STATUTORY_DECLARATION_TEXT }} --{{ ticket.requested_by }}{% if ticket.statutory_declaration_date %}, {{ ticket.statutory_declaration_date }}{% endif %}
-</div>
+{% if ticket.document_set.count > 0 or ticket.signature_set.count > 0 %}
+<h2 {% if ticket.document_set.count == 0 %}class="signatures"{% endif %}>{% trans "Documents" %}</h2>
+{% if ticket.signature_set.count > 0 %}
+<ul class="signatures">
+    {% for sig in ticket.signature_set.all %}
+    {{ sig.signed_text }} --{{ sig.user }}{% if sig.created %}, {{ sig.created }}{% endif %}
+    {% endfor %}
+</ul>
 {% endif %}
 {% if user_can_see_documents %}
 <ul>{% for doc in ticket.document_set.all %}

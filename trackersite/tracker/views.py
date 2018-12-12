@@ -30,7 +30,7 @@ from social_django.models import UserSocialAuth
 import csv
 
 from tracker.templatetags.trackertags import money
-from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, Expediture, Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher
+from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, Expediture, Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher, Signature
 from tracker.models import ACK_TYPES, NOTIFICATION_TYPES
 from users.models import UserWrapper
 
@@ -214,12 +214,23 @@ subtopic_detail = SubtopicDetailView.as_view()
 
 
 class TicketForm(forms.ModelForm):
+    statutory_declaration = forms.BooleanField(label=_('Statutory declaration'), help_text=settings.STATUTORY_DECLARATION_TEXT, required=False)
+
     def __init__(self, *args, **kwargs):
         super(TicketForm, self).__init__(*args, **kwargs)
         self.fields['topic'].queryset = self.get_topic_queryset()
+        self.fields['statutory_declaration'].initial = self.instance.signature_set.filter(user=self.instance.requested_user).exists()
 
     def get_topic_queryset(self):
         return Topic.objects.filter(open_for_tickets=True)
+
+    def save(self, commit=True):
+        instance = super(TicketForm, self).save(commit=commit)
+        if self.cleaned_data.get('statutory_declaration') and instance.car_travel:
+            Signature.objects.create(signed_text=settings.STATUTORY_DECLARATION_TEXT, user=instance.requested_user, signed_ticket=instance)
+        elif not self.cleaned_data.get('statutory_declaration') or not instance.car_travel:
+            instance.signature_set.filter(user=self.instance.requested_user).delete()
+        return instance
 
     def _media(self):
         return super(TicketForm, self).media + forms.Media(js=('ticketform/common.js', 'ticketform/subtopics.js', 'ticketform/form.js'))
@@ -672,6 +683,36 @@ def create_ticket(request):
         'expeditures': expeditures,
         'preexpeditures': preexpeditures,
         'form_media': adminCore + ticketform.media + mediainfo.media + expeditures.media,
+    })
+
+
+class SignTicketForm(forms.Form):
+    statutory_declaration = forms.BooleanField(label=_('I confirm the above'), required=False)
+
+
+@login_required
+def sign_ticket(request, pk):
+    ticket = get_object_or_404(Ticket, id=pk)
+
+    if request.method == 'POST':
+        form = SignTicketForm(request.POST)
+        if form.is_valid():
+            if form.cleaned_data.get('statutory_declaration') and not Signature.objects.filter(signed_ticket=ticket, user=request.user).exists():
+                Signature.objects.create(signed_ticket=ticket, user=request.user, signed_text=settings.STATUTORY_DECLARATION_TEXT)
+                messages.success(request, _('You successfully added a statutory declaration to this ticket.'))
+            else:
+                Signature.objects.filter(signed_ticket=ticket, user=request.user).delete()
+                messages.success(request, _('You successfully removed a statutory declaration from this ticket.'))
+            return HttpResponseRedirect(ticket.get_absolute_url())
+    else:
+        initial = {
+            'statutory_declaration': Signature.objects.filter(signed_ticket=ticket, user=request.user).exists()
+        }
+        form = SignTicketForm(initial=initial)
+    return render(request, 'tracker/sign_ticket.html', {
+        'form': form,
+        'ticket': ticket,
+        'declaration': settings.STATUTORY_DECLARATION_TEXT,
     })
 
 
