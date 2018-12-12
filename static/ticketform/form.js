@@ -27,10 +27,10 @@
 
 			topicDesc.innerHTML = topic.form_description;
 			topicDesc.hidden = topic.form_description === '';
-			mediaInfoGroup.hidden = !!topic.ticket_media;
-			expeditureGroup.hidden = !!topic.ticket_expenses;
-			preexpeditureGroup.hidden = !!topic.ticket_preexpenses;
-			fieldCarTravel.hidden = !!topic.ticket_statutory_declaration;
+			mediaInfoGroup.hidden = !topic.ticket_media;
+			expeditureGroup.hidden = !topic.ticket_expenses;
+			preexpeditureGroup.hidden = !topic.ticket_preexpenses;
+			fieldCarTravel.hidden = !topic.ticket_statutory_declaration;
 		}
 
 		function refreshSubtopicDescription() {
