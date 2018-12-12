@@ -134,7 +134,7 @@ REST_FRAMEWORK = {
 # Setting this to False will remove the limitation
 MAX_NUMBER_OF_ROWS_ON_IMPORT = 100
 
-STATUTORY_DECLARATION_TEXT = 'I hereby declare that my travel expenses are true and accurate and that you spent money economically and effectivelly.'
+STATUTORY_DECLARATION_TEXT = 'I hereby declare that my travel expenses are true and accurate and that I spent money economically and effectivelly.'
 
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
