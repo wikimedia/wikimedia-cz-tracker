@@ -1622,16 +1622,9 @@ def importcsv(request):
                         messages.warning(request, too_much_rows_message)
                         break
                     ticket = Ticket.objects.get(id=line[header.index('ticket_id')])
-                    url = line[header.index('url')]
-                    description = line[header.index('description')]
-                    if 'number' in header:
-                        number = line[header.index('number')]
-                        if number == "":
-                            number = None
-                    else:
-                        number = None
+                    name = line[header.index('name')]
                     if ticket.can_edit(request.user) or request.user.is_staff:
-                        MediaInfo.objects.create(ticket=ticket, url=url, description=description, count=number)
+                        MediaInfo.objects.create(ticket=ticket, name=name)
                         ticket.save()
                     else:
                         raise PermissionDenied("You can't add media items to a ticket that you did not create.")
@@ -1701,9 +1694,9 @@ def importcsv(request):
                 response.writerow([_('Username'), _('Password'), _('First name'), _('Last name'), u'False', u'False', u'True', u'mail@address.example'])
                 return response
             elif giveexample == 'media':
-                response = HttpResponseCsv(['ticket_id', 'url', 'description', 'number'])
+                response = HttpResponseCsv(['ticket_id', 'name'])
                 response['Content-Disposition'] = 'attachment; filename="example-media.csv"'
-                response.writerow([_('Ticket ID'), u'http://link.cz', _('Description'), u'100'])
+                response.writerow([_('Ticket ID'), 'File:Name.jpg'])
                 return response
             else:
                 return HttpResponseBadRequest("You can't download an example file of an invalid object")
