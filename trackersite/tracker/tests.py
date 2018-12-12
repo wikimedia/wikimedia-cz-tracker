@@ -63,10 +63,6 @@ class SimpleTicketTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.context['topic_list']), 1)
 
-    def test_javascript_topic_list(self):
-        response = Client().get(reverse('topics_js'))
-        self.assertEqual(response.status_code, 200)
-
     def test_topic_detail(self):
         response = Client().get(reverse('topic_detail', kwargs={'pk': self.topic.id}))
         self.assertEqual(response.status_code, 200)

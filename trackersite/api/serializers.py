@@ -48,6 +48,18 @@ class GrantSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class TopicSerializer(serializers.HyperlinkedModelSerializer):
+    subtopics = serializers.SerializerMethodField()
+
+    def get_subtopics(self, Topic):
+        subtopics = []
+        for subtopic in Topic.subtopic_set.all():
+            subtopics.append({
+                "id": subtopic.id,
+                "name": subtopic.name,
+                "display_name": unicode(subtopic)
+            })
+        return subtopics
+
     class Meta:
         model = Topic
 

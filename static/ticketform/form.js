@@ -1,5 +1,12 @@
 {
-	document.addEventListener( 'DOMContentLoaded', () => {
+	document.addEventListener( 'DOMContentLoaded', async () => {
+		const topicsJson = await fetch( '/api/tracker/topics/' ),
+			subtopicsJson = await fetch( '/api/tracker/subtopics/' );
+
+		window.topicsList = await topicsJson.json();
+		window.subtopicsList = await subtopicsJson.json();
+		window.dispatchEvent( new CustomEvent( 'TopicsDataLoaded' ) );
+
 		const idTopic = document.querySelector( '#id_topic' ),
 			idSubtopic = document.querySelector( '#id_subtopic' ),
 			topicDesc = document.querySelector( '#topic_desc' ),
@@ -11,7 +18,7 @@
 
 		function refreshDescription() {
 			const topicId = idTopic.value,
-				topic = window.topicsTable[ topicId ];
+				topic = getTopicById( topicId );
 			if ( topicId === '' ) {
 				[ topicDesc, mediaInfoGroup, expeditureGroup, preexpeditureGroup, fieldCarTravel ]
 					.forEach( ( el ) => { el.hidden = true; } );
@@ -28,7 +35,7 @@
 
 		function refreshSubtopicDescription() {
 			const subtopicId = idSubtopic.value,
-				subtopic = window.subtopicsTable[ subtopicId ];
+				subtopic = getSubtopicById( subtopicId );
 			if ( subtopicId === '' ) {
 				subtopicDesc.hidden = true;
 				return;

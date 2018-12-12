@@ -212,30 +212,6 @@ class SubtopicDetailView(CommentPostedCatcher, DetailView):
 subtopic_detail = SubtopicDetailView.as_view()
 
 
-def topics_js(request):
-    data = {}
-    for t in Topic.objects.all():
-        data[t.id] = {}
-        for attr in ('form_description', 'ticket_media', 'ticket_expenses', 'ticket_preexpenses', 'ticket_statutory_declaration'):
-            data[t.id][attr] = getattr(t, attr)
-        data[t.id]['subtopic_set'] = []
-        for subtopic in t.subtopic_set.all():
-            data[t.id]['subtopic_set'].append({
-                "id": subtopic.id,
-                "name": subtopic.name,
-                "display_name": unicode(subtopic)
-            })
-
-    subtopics = {}
-    for s in Subtopic.objects.all():
-        subtopics[s.id] = {
-            "form_description": s.form_description
-        }
-
-    content = 'topicsTable = %s;\nsubtopicsTable = %s' % (json.dumps(data), json.dumps(subtopics))
-    return HttpResponse(content, content_type='text/javascript')
-
-
 class TicketForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(TicketForm, self).__init__(*args, **kwargs)
@@ -245,7 +221,7 @@ class TicketForm(forms.ModelForm):
         return Topic.objects.filter(open_for_tickets=True)
 
     def _media(self):
-        return super(TicketForm, self).media + forms.Media(js=('ticketform/common.js', 'ticketform/subtopics.js', 'ticketform/form.js', reverse('topics_js')))
+        return super(TicketForm, self).media + forms.Media(js=('ticketform/common.js', 'ticketform/subtopics.js', 'ticketform/form.js'))
     media = property(_media)
 
     class Meta:

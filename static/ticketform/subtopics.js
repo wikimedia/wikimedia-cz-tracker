@@ -1,19 +1,19 @@
 {
-	document.addEventListener( 'DOMContentLoaded', () => {
+	window.addEventListener( 'TopicsDataLoaded', () => {
 		const idTopic = document.querySelector( '#id_topic' ),
 			idSubtopic = document.querySelector( '#id_subtopic' );
 
 		function refreshSubtopics() {
 			const topicId = idTopic.value,
-				topic = window.topicsTable[ topicId ];
+				topic = getTopicById( topicId );
 			let i, subtopic,
 				subtopicsHtml = '<option value selected>---------</option>';
 			if ( topicId === '' ) {
 				idSubtopic.innerHTML = '<option value selected>---------</option>';
 				return;
 			}
-			for ( i = 0; i < topic.subtopic_set.length; i++ ) {
-				subtopic = topic.subtopic_set[ i ];
+			for ( i = 0; i < topic.subtopics.length; i++ ) {
+				subtopic = topic.subtopics[ i ];
 				subtopicsHtml += `<option value="${subtopic.id}">${subtopic.display_name}</option>`;
 			}
 			idSubtopic.innerHTML = subtopicsHtml;
