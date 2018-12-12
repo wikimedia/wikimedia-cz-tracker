@@ -3,6 +3,9 @@
         "wikimedia",
         "wikimedia/jquery"
     ],
+    "parserOptions": {
+        "ecmaVersion": 8
+    },
     "overrides": [
         {
             "files": "Gruntfile.js",
@@ -11,11 +14,9 @@
             }
         },
         {
-            "files": [
-                "static/toggleAllNotifs.js"
-            ],
-            "parserOptions": {
-                "ecmaVersion": 6
+            "files": "static/ticketform/common.js",
+            "rules": {
+                "no-unused-vars": "off"
             }
         }
     ],
@@ -25,8 +26,14 @@
     },
     "rules": {
         "arrow-parens": ["error", "as-needed", {
-                "requireForBlockBody": true
-            }],
-        "no-const-assign": "error"
+            "requireForBlockBody": true
+        }],
+        "no-const-assign": "error",
+        "one-const": "off",
+        "one-var": "off"
+    },
+    "globals": {
+        "getTopicById": true,
+        "getSubtopicById": true
     }
 }
