@@ -71,6 +71,7 @@ def tickets(request, lang):
             subtopic,
             ticket.requested_by_html(),
             money(ticket.preexpeditures()['amount'] or 0),
+            money(ticket.expeditures()['amount'] or 0),
             money(ticket.accepted_expeditures()),
             money(ticket.paid_expeditures()),
             unicode(ticket.state_str()),

@@ -386,6 +386,9 @@ class Ticket(CachedModel, ModelDiffMixin):
     def media_count(self):
         return self.mediainfo_set.aggregate(objects=models.Count('id'), media=models.Sum('count'))
 
+    def expeditures_amount(self):
+        return self.expeditures()['amount'] or 0
+
     @cached_getter
     def expeditures(self):
         return self.expediture_set.aggregate(count=models.Count('id'), amount=models.Sum('amount'))
