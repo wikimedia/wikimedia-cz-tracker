@@ -28,7 +28,7 @@ class CanEditMediaElseReadOnly(BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.method in SAFE_METHODS:
             return True
-        return obj.ticket.can_edit_documents(request.user)
+        return obj.ticket.can_edit(request.user)
 
 
 class IsSelf(BasePermission):
