@@ -1,7 +1,7 @@
 {
 	function processHiddencomment( el ) {
-		const hiddencomment = el.querySelector( '.hiddencomment' ),
-			unhide = el.querySelector( 'a.unhide' );
+		const hiddencomment = el.querySelector( 'div.hiddencomment' ),
+			unhide = el.querySelector( 'button.unhide' );
 
 		hiddencomment.hidden = true;
 		unhide.hidden = false;

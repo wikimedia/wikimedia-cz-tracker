@@ -167,11 +167,16 @@ td.checkbox_label {
 }
 
 .hide-switch > .unhide {
-	display: none;
+	cursor: pointer;
+	border: 0;
+	background: none;
+	text-decoration: underline;
+	color: #18bc9c;
+	margin-bottom: 15px;
 }
 
-.hiddencomment {
-	display: none;
+.hide-switch > .unhide:focus {
+	outline: 0;
 }
 
 .tools {

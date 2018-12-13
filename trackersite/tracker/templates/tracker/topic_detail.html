@@ -49,7 +49,7 @@
 
 <div class="comments_add">
     <div class="hide-switch">
-        <a href="#" class="unhide">{% trans "Add comment" %}</a>
+        <button class="unhide">{% trans "Add comment" %}</button>
         <div class="hiddencomment">
             <h3>{% trans "Add comment" %}</h3>
             {% url "topic_detail" pk=topic.id as next %}{% render_comment_form for topic %}
