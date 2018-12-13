@@ -82,6 +82,8 @@ TRACKER_CURRENCY = _('CZK')
 LANGUAGES = (
     ('en', _('English')),
     ('cs', _('Czech')),
+    ('fr', _('French')),
+    ('ar', _('Arabic')),
 )
 
 AUTHENTICATION_BACKENDS = (
