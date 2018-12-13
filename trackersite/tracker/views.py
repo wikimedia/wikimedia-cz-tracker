@@ -102,8 +102,12 @@ class TicketDetailView(CommentPostedCatcher, DetailView):
         context['user_can_edit_ticket'] = ticket.can_edit(user)
         admin_edit = user.is_staff and (user.has_perm('tracker.supervisor') or user.topic_set.filter(id=ticket.topic_id).exists())
         context['user_can_edit_ticket_in_admin'] = admin_edit
-        context['user_can_edit_documents'] = ticket.can_edit_documents(user)
-        context['user_can_see_documents'] = ticket.can_see_documents(user)
+        context['user_can_edit_documents'] = user.is_authenticated()
+        context['user_can_see_all_documents'] = ticket.can_see_all_documents(user)
+        if user.is_authenticated():
+            context['user_selfuploaded_docs'] = ticket.document_set.filter(uploader=user)
+        else:
+            context['user_selfuploaded_docs'] = ticket.document_set.none()
         context['user_can_copy_preexpeditures'] = ticket.can_copy_preexpeditures(user)
         context['user_admin_of_topic'] = user in ticket.topic.admin.all()
         return context
@@ -786,7 +790,7 @@ def edit_ticket(request, pk):
         'expeditures': expeditures,
         'preexpeditures': preexpeditures,
         'form_media': form_media,
-        'user_can_edit_documents': ticket.can_edit_documents(request.user),
+        'user_can_edit_documents': request.user.is_authenticated(),
         'user_can_copy_preexpeditures': ticket.can_copy_preexpeditures(request.user),
     })
 
@@ -797,7 +801,7 @@ class UploadDocumentForm(forms.Form):
     description = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'size': '60'}), label=_('description'))
 
 
-DOCUMENT_FIELDS = ('filename', 'description')
+DOCUMENT_FIELDS = ('filename', 'description', 'uploader')
 
 
 def document_formfield(f, **kwargs):
@@ -812,7 +816,7 @@ documentformset_factory = curry(
 )
 
 
-def document_view_required(access, ticket_id_field='pk'):
+def document_view_required(access, ticket_id_field='pk', document_name_field=None):
     """ Wrapper for document-accessing views (access=read|write)"""
     def actual_decorator(view):
         def wrapped_view(request, *args, **kwargs):
@@ -820,7 +824,11 @@ def document_view_required(access, ticket_id_field='pk'):
                 return redirect_to_login(request.path)
 
             ticket = get_object_or_404(Ticket, id=kwargs[ticket_id_field])
-            if (access == 'read' and ticket.can_see_documents(request.user)) or (access == 'write' and ticket.can_edit_documents(request.user)):
+            if document_name_field:
+                uploader = ticket.document_set.get(filename=kwargs[document_name_field]).uploader
+            else:
+                uploader = None
+            if (access == 'read' and (ticket.can_see_all_documents(request.user) or uploader == request.user)) or (access == 'write' and request.user.is_authenticated()):
                 return view(request, *args, **kwargs)
             else:
                 raise PermissionDenied("You cannot see this ticket's documents.")
@@ -834,9 +842,17 @@ def edit_ticket_docs(request, pk):
     DocumentFormSet = documentformset_factory(extra=0, can_delete=True)
 
     ticket = get_object_or_404(Ticket, id=pk)
+
+    filter = {
+        'ticket': ticket
+    }
+
+    if not ticket.can_see_all_documents(request.user):
+        filter['uploader'] = request.user
+
     if request.method == 'POST':
         try:
-            documents = DocumentFormSet(request.POST, prefix='docs', instance=ticket)
+            documents = DocumentFormSet(request.POST, prefix='docs', instance=ticket, queryset=Document.objects.filter(**filter))
         except forms.ValidationError, e:
             return HttpResponseBadRequest(unicode(e))
 
@@ -845,7 +861,7 @@ def edit_ticket_docs(request, pk):
             messages.success(request, _('Document changes for ticket %s saved.') % ticket)
             return HttpResponseRedirect(ticket.get_absolute_url())
     else:
-        documents = DocumentFormSet(prefix='docs', instance=ticket)
+        documents = DocumentFormSet(prefix='docs', instance=ticket, queryset=Document.objects.filter(**filter))
 
     return render(request, 'tracker/edit_ticket_docs.html', {
         'ticket': ticket,
@@ -886,7 +902,7 @@ def upload_ticket_doc(request, pk):
     })
 
 
-@document_view_required(access='read', ticket_id_field='ticket_id')
+@document_view_required(access='read', ticket_id_field='ticket_id', document_name_field='filename')
 def download_document(request, ticket_id, filename):
     ticket = get_object_or_404(Ticket, id=ticket_id)
     doc = ticket.document_set.get(filename=filename)

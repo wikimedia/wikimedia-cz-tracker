@@ -1035,7 +1035,7 @@ class DocumentAccessTests(TestCase):
 
         response = c.get(reverse('ticket_detail', kwargs={'pk': self.ticket.id}))
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.context['user_can_see_documents'], can_see)
+        self.assertEqual(response.context['user_can_see_all_documents'], can_see)
         self.assertEqual(response.context['user_can_edit_documents'], can_edit)
 
         response = c.get(reverse('edit_ticket_docs', kwargs={'pk': self.ticket.id}))
@@ -1055,7 +1055,7 @@ class DocumentAccessTests(TestCase):
         self.check_user_access(user=None, can_see=False, can_edit=False)
 
     def test_unrelated_user_access(self):
-        self.check_user_access(user=self.other_user, can_see=False, can_edit=False)
+        self.check_user_access(user=self.other_user, can_see=False, can_edit=True)
 
     def test_ticket_owner_access(self):
         self.check_user_access(user=self.owner, can_see=True, can_edit=True)
@@ -1065,7 +1065,7 @@ class DocumentAccessTests(TestCase):
         ou = self.other_user['user']
         ou.user_permissions.add(Permission.objects.get(content_type=topic_content, codename='see_all_docs'))
         ou.save()
-        self.check_user_access(user=self.other_user, can_see=True, can_edit=False)
+        self.check_user_access(user=self.other_user, can_see=True, can_edit=True)
 
     def test_supervisor_access(self):
         topic_content = ContentType.objects.get(app_label='tracker', model='Document')

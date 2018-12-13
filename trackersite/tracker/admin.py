@@ -57,8 +57,8 @@ class TicketAdmin(admin.ModelAdmin):
         if ticket is None:
             raise Http404
 
-        extra_context['user_can_edit_documents'] = ticket.can_edit_documents(request.user)
-        extra_context['user_can_see_documents'] = ticket.can_see_documents(request.user)
+        extra_context['user_can_edit_documents'] = request.user.is_authenticated()
+        extra_context['user_can_see_all_documents'] = ticket.can_see_all_documents(request.user)
         extra_context['add_ack_form'] = AddAckForm()
         return super(TicketAdmin, self).change_view(request, object_id, extra_context=extra_context)
 

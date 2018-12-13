@@ -53,12 +53,22 @@
     {% endfor %}
 </ul>
 {% endif %}
-{% if user_can_see_documents %}
+{% if user_can_see_all_documents %}
 <ul>{% for doc in ticket.document_set.all %}
     <li>{{ doc.html_item }}</li>
 {% endfor %}</ul>
 {% else %}
-<p>{% blocktrans count counter=ticket.document_set.count %}There is 1 document uploaded.{% plural %}There are {{ counter }} documents uploaded.{% endblocktrans %}</p>
+<p>
+    {% blocktrans count counter=ticket.document_set.count %}There is 1 document uploaded.{% plural %}There are {{ counter }} documents uploaded.{% endblocktrans %}
+    {% if user_can_edit_documents and user_selfuploaded_docs.count > 0 %}{% trans "As you are not an administrator, you can see only documents you uploaded below." %}{% endif %}
+</p>
+{% if user_can_edit_documents and user_selfuploaded_docs.count > 0 %}
+<ul>
+    {% for doc in user_selfuploaded_docs %}
+    <li>{{ doc.html_item }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 {% endif %}
 {% endif %}
 

@@ -432,7 +432,7 @@ class Ticket(CachedModel, ModelDiffMixin):
         acks = self.ack_set()
         return ('archive' not in acks) and ('close' not in acks) and (user == self.requested_user)
 
-    def can_see_documents(self, user):
+    def can_see_all_documents(self, user):
         """ Can given user see documents belonging to this ticket? """
         return (user == self.requested_user) or user.has_perm('tracker.see_all_docs') or user.has_perm('tracker.edit_all_docs')
 
@@ -828,6 +828,7 @@ class Document(Model):
     content_type = models.CharField(max_length=64)
     description = models.CharField(max_length=255, blank=True, help_text='Optional further description of the document')
     payload = models.FileField(upload_to='tickets/%Y/', storage=FileSystemStorage(location=settings.TRACKER_DOCS_ROOT))
+    uploader = models.ForeignKey('auth.User', null=True)
 
     def __unicode__(self):
         return self.filename
@@ -842,6 +843,15 @@ class Document(Model):
     def html_item(self):
         context = template.Context({'doc': self, 'detail': True})
         return DOCUMENT_INTRO_TEMPLATE.render(context)
+
+    def save(self, *args, **kwargs):
+        request = get_request()
+        if request:
+            self.uploader = request.user
+        else:
+            self.uploader = None
+
+        super(Document, self).save(*args, **kwargs)
 
     class Meta:
         # by default, everyone can see and edit documents that belong to his tickets
