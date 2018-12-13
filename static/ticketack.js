@@ -19,6 +19,7 @@
 
 	function submitAck( target, set ) {
 		const formData = new FormData( findParent( target, 'form' ) );
+		formData.append( 'locale', set.getAttribute( 'locale' ) );
 		fetch( set.getAttribute( 'data-add-handler' ), {
 			method: 'POST',
 			body: formData

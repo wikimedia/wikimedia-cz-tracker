@@ -5,7 +5,7 @@ from django.conf.urls import patterns, url
 from django.contrib import admin
 from django import forms
 from tracker import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, get_language, activate
 from django.http import Http404, HttpResponse, HttpResponseNotAllowed
 from django.template import RequestContext
 from django.template.loader import get_template
@@ -27,6 +27,7 @@ class PreexpeditureAdmin(admin.TabularInline):
 class AddAckForm(forms.Form):
     ack_type = forms.ChoiceField(choices=models.ACK_TYPES, label=_('Type'))
     comment = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'size': '40'}))
+    locale = forms.CharField(required=False, max_length=255, widget=forms.HiddenInput())
 
 
 class AddAckActionForm(ActionForm):
@@ -73,9 +74,18 @@ class TicketAdmin(admin.ModelAdmin):
     actions = (add_ack, )
 
     @staticmethod
-    def _render(request, template_name, context_data):
+    def _render(request, template_name, context_data, locale=None):
         c = RequestContext(request, context_data)
-        return get_template(template_name).render(c)
+        curr_lang = get_language()
+        if locale is not None and locale in [x[0] for x in models.LANGUAGE_CHOICES]:
+            try:
+                activate(locale)
+                rendered = get_template(template_name).render(c)
+            finally:
+                activate(curr_lang)
+        else:
+            rendered = get_template(template_name).render(c)
+        return rendered
 
     def add_ack(self, request, object_id):
         ticket = models.Ticket.objects.get(id=object_id)
@@ -96,7 +106,7 @@ class TicketAdmin(admin.ModelAdmin):
                     }))
                 ack = ticket.ticketack_set.create(ack_type=form.cleaned_data['ack_type'], added_by=request.user, comment=form.cleaned_data['comment'])
                 return HttpResponse(json.dumps({
-                    'form': self._render(request, 'admin/tracker/ticket/ack_line.html', {'ack': ack}),
+                    'form': self._render(request, 'admin/tracker/ticket/ack_line.html', {'ack': ack}, locale=form.cleaned_data['locale']),
                     'id': ack.id,
                     'success': True,
                 }))
