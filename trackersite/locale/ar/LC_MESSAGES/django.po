@@ -1,59 +1,53 @@
-# Translation of Tracker to Czech (čeština)
+# Translation of Tracker to Arabic (العربية)
 # Exported from translatewiki.net
 #
-# Author: Martin Urbanec
+# Author: ديفيد
 msgid ""
 msgstr ""
 ""
-"Project-Id-Version: HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-09 23:31+0100\n"
 "PO-Revision-Date: 2018-12-13 08:23:33+0000\n"
-"Last-Translator: Petr Novák <petr.novak@cosmoboy.cz>\n"
-"Language-Team: none <none@example.org>\n"
-"Language: cs\n"
-"MIME-Version: 1.0\n"
+"X-POT-Import-Date: 2018-12-11 13:18:00+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ( (n >= 2 && n <= 4) ? 1 : 2 );\n"
-"X-POT-Import-Date: 2018-12-11 13:18:00+0000\n"
+"Language: ar\n"
 "X-Generator: MediaWiki 1.33.0-alpha; Translate 2018-11-05\n"
+"Plural-Forms: nplurals=6; plural=(n == 0) ? 0 : ( (n == 1) ? 1 : ( (n == 2) ? 2 : ( (n%100 >= 3 && n%100 <= 10) ? 3 : ( (n%100 >= 11 && n%100 <= 99) ? 4 : 5 ) ) ) );\n"
 
 #: api/serializers.py:76
 msgid "Deposit should be zero when creating a ticket"
-msgstr "Záloha musí být při vytváření nového tiketu nulová"
+msgstr "يجب أن يكون الإيداع صفرا عند إنشاء تذكرة"
 
 #: api/serializers.py:79
 msgid "Cannot edit deposit once a ticket has been preaccepted"
-msgstr "Nemůžete editovat zálohu tiketu, jakmile byl předschválen"
+msgstr "لا يمكن تحرير الوديعة بمجرد أن يتم قبول التذكرة"
 
 #: api/serializers.py:84 api/serializers.py:87
 msgid "Deposit should be lower or equal to the sum of preexpeditures"
-msgstr "Záloha musí být nižší nebo rovna celkové sumě plánovaných výdajů"
+msgstr "يجب أن يكون الإيداع أقل من أو مساويا لمجموع الدفعات المسبقة"
 
 #: api/serializers.py:101
 msgid "You can not add media to this ticket."
-msgstr "K tomuto tiketu nemůžete přidat média."
+msgstr "لا يمكنك إضافة وسائط إلى هذه التذكرة."
 
 #: api/serializers.py:103
 msgid "You can not edit the media of this ticket."
-msgstr "Nemůžete editovat média tohoto tiketu."
+msgstr "لا يمكنك تحرير وسائط هذه التذكرة."
 
 #: api/serializers.py:120
 msgid "You can not add expiditures to this ticket."
-msgstr "K tomuto tiketu nemůžete přidat reálné výdaje."
+msgstr "لا يمكنك إضافة نفقات إلى هذه التذكرة."
 
 #: api/serializers.py:122
 msgid "You can not edit expiditures of this ticket."
-msgstr "Nemůžete editovat reálné výdaje tohoto tiketu."
+msgstr "لا يمكنك تحرير نفقات هذه التذكرة."
 
 #: api/serializers.py:135
 msgid "You can not add preexpiditures to this ticket."
-msgstr "K tomuto tiketu nemáte právo přidávat plánované výdaje."
+msgstr "لا يمكنك إضافة نفقات مسبقة إلى هذه التذكرة."
 
 #: api/serializers.py:137
 msgid "You can not edit preexpiditures of this ticket."
-msgstr "Nemáte právo editovat plánované výdaje tohoto tiketu."
+msgstr "لا يمكنك تحرير نفقات مسبقة لهذه التذكرة."
 
 #: common_settings.py:80 tracker/templates/tracker/grant_table.html:22
 #: tracker/templates/tracker/grant_table.html:23
@@ -65,199 +59,199 @@ msgstr "Nemáte právo editovat plánované výdaje tohoto tiketu."
 #: tracker/templates/tracker/topic_table.html:40
 #: tracker/templates/tracker/topic_table.html:41
 msgid "CZK"
-msgstr "Kč"
+msgstr "كرونة تشيكية"
 
 #: common_settings.py:83
 msgid "English"
-msgstr "angličtina"
+msgstr "الإنجليزية"
 
 #: common_settings.py:84
 msgid "Czech"
-msgstr "čeština"
+msgstr "التشيكية"
 
 #: customcomments/forms.py:21
 msgid "Your name"
-msgstr "Vaše název"
+msgstr "اسمك"
 
 #: customcomments/forms.py:22
 #: tracker/templates/tracker/ticketack_confirm_delete.html:13
 msgid "Comment"
-msgstr "Komentář"
+msgstr "تعليق"
 
 #: socialauth/pipeline.py:15
 msgid "Successfully linked your wikimedia account!"
-msgstr "Úspěšně jsme připojili váš wikimedia účet"
+msgstr "ربطت بنجاح حسابك في ويكيميديا!"
 
 #: socialauth/pipeline.py:21
 msgid "Your wikimedia account is no longer linked."
-msgstr "Váš Wikimedia účet již není připojen"
+msgstr "لم يعد حساب ويكيميديا الخاص بك مرتبطا."
 
 #: templates/403.html:3
 msgid "403 Forbidden"
-msgstr "403 Forbidden"
+msgstr "403 ممنوع"
 
 #: templates/403.html:7
 msgid "Forbidden"
-msgstr "Přístup odepřen"
+msgstr "ممنوع"
 
 #: templates/403.html:12
 msgid "You don't have permissions to do this!"
-msgstr "K tomuto kroku nemáte oprávnění"
+msgstr "ليست لديك صلاحية للقيام بذلك."
 
 #: templates/404.html:3
 msgid "404 Not Found"
-msgstr "404 Stránka nenalezena"
+msgstr "لم يتم العثور على 404"
 
 #: templates/404.html:7
 msgid "Not Found"
-msgstr "Stránka nenalezena"
+msgstr "لم يتم العثور عليه"
 
 #: templates/404.html:10
 #, python-format
 msgid "The requested URL %(request_path)s was not found on this server."
-msgstr "Požadovaná URL %(request_path)s na serveru nebyla nalezena."
+msgstr "لم يتم العثور على المسار المطلوب %(request_path) على هذا الخادم."
 
 #: templates/500.html:3 templates/500.html.py:7
 msgid "Internal Error"
-msgstr "Interní chyba"
+msgstr "خطأ داخلي"
 
 #: templates/500.html:10
 msgid "There was an error processing you request. Sorry about that."
-msgstr "Během zpracovávání vašeho požadavku nastala neznámá chyba. Omlouváme se."
+msgstr "حدث خطأ في معالجة طلبك، نأسف بشأن ذلك."
 
 #: templates/admin/base_site.html:4
 msgid "Tracker admin"
-msgstr "Správa trackeru"
+msgstr "إداري المقتفي"
 
 #: templates/admin/base_site.html:7
 msgid "Tracker site administration"
-msgstr "Správa trackeru"
+msgstr "إدارة موقع المقتفي"
 
 #: templates/base.html:31
 msgid "There is no email address associated with this account. Please update your details now."
-msgstr "K vašemu účtu momentálně není navázaná žádná e-mailová adresa. Prosím, aktualizujte své nastavení."
+msgstr "لا يوجد عنوان بريد إلكتروني مرتبط بهذا الحساب; يُرجَى تحديث تفاصيلك الآن."
 
 #: templates/base.html:34
 msgid "Update details"
-msgstr "Aktualizovat údaje"
+msgstr "تحديث التفاصيل"
 
 #: templates/base.html:54
 msgid "Toggle navigation"
-msgstr "Spustit navigaci"
+msgstr "تبديل التنقل"
 
 #: templates/base.html:68
 msgid "change password"
-msgstr "změnit heslo"
+msgstr "تغيير كلمة المرور"
 
 #: templates/base.html:69 tracker/templates/tracker/watch.html:8
 msgid "change my details"
-msgstr "změnit údaje"
+msgstr "تغيير تفاصيلي"
 
 #: templates/base.html:70 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
-msgstr "nastavení"
+msgstr "تفضيلات"
 
 #: templates/base.html:72
 msgid "admin"
-msgstr "administrace"
+msgstr "إداري"
 
 #: templates/base.html:74 templates/base.html.py:87
 msgid "change language"
-msgstr "změnit jazyk"
+msgstr "تغيير اللغة"
 
 #: templates/base.html:75 templates/base.html.py:88
 msgid "help"
-msgstr "nápověda"
+msgstr "مساعدة"
 
 #: templates/base.html:76
 msgid "logout"
-msgstr "odhlášení"
+msgstr "خروج"
 
 #: templates/base.html:81 templates/base.html.py:84
 #: users/templates/users/login.html:21
 msgid "login"
-msgstr "přihlášení"
+msgstr "تسجيل الدخول"
 
 #: templates/base.html:86 users/templates/users/register.html:15
 msgid "register"
-msgstr "zaregistrovat"
+msgstr "تسجيل"
 
 #: templates/base.html:102
 msgid "Warning"
-msgstr "Varování"
+msgstr "تحذير"
 
 #: templates/base.html:102
 msgid "You are not in production."
-msgstr "Nepoužíváte produkční verzi Trackeru"
+msgstr "أنت لست في الإنتاج."
 
 #: templates/choose_language.html:4 templates/choose_language.html.py:7
 msgid "Change language"
-msgstr "Změnit jazyk"
+msgstr "تغيير اللغة"
 
 #: templates/comments/form.html:17
 msgid "Post"
-msgstr "Odeslat"
+msgstr "نشر"
 
 #: templates/comments/form.html:18
 msgid "Preview"
-msgstr "Náhled"
+msgstr "معاينة"
 
 #: tracker/admin.py:28 tracker/admin.py:33
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
 msgid "Type"
-msgstr "Druh"
+msgstr "النوع"
 
 #: tracker/admin.py:41
 msgid "Add ack"
-msgstr "Přidat schválení"
+msgstr "أضف إشعار تأكيد"
 
 #: tracker/admin.py:147
 msgid "Mark selected topics as opened for new tickets"
-msgstr "Označit vybraná témata jako otevřená pro nové tikety"
+msgstr "تعليم الموضوعات المحددة كمفتوحة للتذاكر الجديدة"
 
 #: tracker/admin.py:154
 msgid "Mark selected topics as closed for new tickets"
-msgstr "Označit vybraná témata jako uzavřená pro nové tikety"
+msgstr "تعليم الموضوعات المحددة كمغلقة للتذاكر الجديدة"
 
 #: tracker/admin.py:182
 msgid "Modify this value by opening or closing topics in this grant to tickets"
-msgstr ""
+msgstr "تعديل هذه القيمة عن طريق فتح أو إغلاق المواضيع في هذه المنحة للتذاكر"
 
 #: tracker/feeds.py:12 tracker/templates/tracker/generic/ticket_list.html:7
 #: tracker/templates/tracker/topic_detail.html:5
 msgid "Latest tickets"
-msgstr "Nejnovější tikety"
+msgstr "أحدث التذاكر"
 
 #: tracker/feeds.py:13
 msgid "Recently changed tickets"
-msgstr "Naposledy změněné tikety"
+msgstr "تذاكر تغيرت مؤخرا"
 
 #: tracker/feeds.py:26 tracker/templates/tracker/generic/ticket_list.html:8
 #: tracker/templates/tracker/topic_detail.html:6
 msgid "Latest submitted tickets"
-msgstr "Nejnovější podané tikety"
+msgstr "أحدث التذاكر المقدمة"
 
 #: tracker/feeds.py:27
 msgid "Recently changed submitted tickets"
-msgstr "Naposledy změněné podané tikety"
+msgstr "تذاكر مقدمة تغيرت مؤخرا"
 
 #: tracker/models.py:35 tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
 msgid "n/a"
-msgstr "n/a"
+msgstr "غ/م"
 
 #: tracker/models.py:36 tracker/templates/tracker/export.html:246
 #: tracker/templates/tracker/grant_table.html:12
 #: tracker/templates/tracker/topic_finance.html:16
 #: tracker/templates/tracker/topic_table.html:14
 msgid "unpaid"
-msgstr "neplaceno"
+msgstr "غير مدفوع"
 
 #: tracker/models.py:37 tracker/templates/tracker/export.html:247
 #: tracker/templates/tracker/grant_table.html:13
 #: tracker/templates/tracker/topic_table.html:15
 msgid "partially paid"
-msgstr "částečně proplaceno"
+msgstr "مدفوع جزئيا"
 
 #: tracker/models.py:38 tracker/models.py:779
 #: tracker/templates/tracker/export.html:248
@@ -265,331 +259,331 @@ msgstr "částečně proplaceno"
 #: tracker/templates/tracker/topic_finance.html:17
 #: tracker/templates/tracker/topic_table.html:16
 msgid "paid"
-msgstr "proplaceno"
+msgstr "مدفوع"
 
 #: tracker/models.py:39 tracker/templates/tracker/export.html:249
 #: tracker/templates/tracker/grant_table.html:15
 #: tracker/templates/tracker/topic_finance.html:18
 #: tracker/templates/tracker/topic_table.html:17
 msgid "overpaid"
-msgstr "přeplaceno"
+msgstr "مدفوع بزيادة"
 
 #: tracker/models.py:43
 msgid "presubmitted"
-msgstr "podáno k předschválení"
+msgstr "مقدم سابقا"
 
 #: tracker/models.py:44
 msgid "preaccepted"
-msgstr "předschváleno"
+msgstr "مقبول سابقا"
 
 #: tracker/models.py:45
 msgid "submitted"
-msgstr "podáno ke schválení"
+msgstr "مقدم"
 
 #: tracker/models.py:46
 msgid "accepted"
-msgstr "schváleno"
+msgstr "مقبول"
 
 #: tracker/models.py:47
 msgid "expense documents submitted"
-msgstr "účtenky poslány"
+msgstr "تم تقديم وثائق المصروفات"
 
 #: tracker/models.py:48
 msgid "expense documents filed"
-msgstr "účtenky přijaty"
+msgstr "تم تقديم وثائق النفقة"
 
 #: tracker/models.py:49 tracker/models.py:327
 #: tracker/templates/tracker/export.html:52
 #: tracker/templates/tracker/export.html:53
 msgid "archived"
-msgstr "archivováno"
+msgstr "مؤرشف"
 
 #: tracker/models.py:50 tracker/models.py:325
 #: tracker/templates/tracker/export.html:55
 #: tracker/templates/tracker/export.html:56
 msgid "closed"
-msgstr "uzavřeno"
+msgstr "مغلق"
 
 #: tracker/models.py:54
 msgid "All notifications"
-msgstr "Všechny notifikace"
+msgstr "كل الإشعارات"
 
 #: tracker/models.py:55
 msgid "Comment added"
-msgstr "Komentář přidán"
+msgstr "تمت إضافة التعليق"
 
 #: tracker/models.py:56
 msgid "Supervisor notes changed"
-msgstr "Poznámky schvalovatele byly změněny"
+msgstr "ملاحظات المشرف تغيرت"
 
 #: tracker/models.py:57
 msgid "New ticket was created"
-msgstr "Nový ticket byl vytvořen"
+msgstr "تم إنشاء تذكرة جديدة"
 
 #: tracker/models.py:58
 msgid "Ticket was deleted"
-msgstr "Tiket byl smazán"
+msgstr "تم حذف تذكرة"
 
 #: tracker/models.py:59
 msgid "Ack added"
-msgstr "Potvrzení přidáno"
+msgstr "تمت إضافة إشعار تأكيد"
 
 #: tracker/models.py:60
 msgid "Ack removed"
-msgstr "Potvrzení odebráno"
+msgstr "تمت إزالة إشعار تأكيد"
 
 #: tracker/models.py:61
 msgid "Ticket changed"
-msgstr "Tiket se změnil"
+msgstr "تغيرت تذكرة"
 
 #: tracker/models.py:62
 msgid "New preexpediture was created"
-msgstr "Nový plánovaný výdaj byl vytvořen"
+msgstr "تم إنشاء نفقة سابقة جديدة"
 
 #: tracker/models.py:63
 msgid "Preexpeditures changed"
-msgstr "Plánované výdaje se změnily"
+msgstr "تم تغيير نفقات مسبقة جديدة"
 
 #: tracker/models.py:64
 msgid "New expediture was created"
-msgstr "Nový reálný výdaj byl vytvořen"
+msgstr "تم إنشاء نفقة جديدة"
 
 #: tracker/models.py:65
 msgid "Expeditures changed"
-msgstr "Reálné výdaje se změnily"
+msgstr "النفقات تغيرت"
 
 #: tracker/models.py:66
 msgid "New media was created"
-msgstr "Nová média byla vytvořena"
+msgstr "تم إنشاء وسائط جديدة"
 
 #: tracker/models.py:67
 msgid "Media changed"
-msgstr "Média se změnily"
+msgstr "الوسائط تغيرت"
 
 #: tracker/models.py:126
 msgid "unknown"
-msgstr "neznámé"
+msgstr "غير معروف"
 
 #: tracker/models.py:149 tracker/models.py:992
 msgid "created"
-msgstr "vytvořeno"
+msgstr "تم الإنشاء"
 
 #: tracker/models.py:219
 msgid "updated"
-msgstr "aktualizováno"
+msgstr "تم التحديث"
 
 #: tracker/models.py:220
 msgid "event date"
-msgstr "datum akce"
+msgstr "\nتاريخ الحدث"
 
 #: tracker/models.py:220
 msgid "Date of the event this ticket is about"
-msgstr "Datum akce, které se týká tento tiket"
+msgstr "تاريخ حدث هذه التذكرة"
 
 #: tracker/models.py:221 tracker/models.py:362
 #: tracker/templates/feeds/ticket_description.html:3
 msgid "requested by"
-msgstr "žadatel"
+msgstr "مطلوب من"
 
 #: tracker/models.py:221
 msgid "User who created/requested for this ticket"
-msgstr "Uživatel co vytvořil nebo žádá o tento tiket"
+msgstr "المستخدم الذي أنشأ/طلب هذه التذكرة"
 
 #: tracker/models.py:222
 msgid "requested by (text)"
-msgstr "žadatel (textově)"
+msgstr "طُلِب بواسطة (نص)"
 
 #: tracker/models.py:222
 msgid "Text description of who requested for this ticket, in case user is not filled in"
-msgstr "Textové označení žadatele, použije se pokud nevyplníte uživatele"
+msgstr "الوصف النصي لمن طلب هذه التذكرة، في حالة عدم ملء المستخدم"
 
 #: tracker/models.py:223 tracker/models.py:554 tracker/models.py:619
 #: tracker/views.py:778
 msgid "name"
-msgstr "název"
+msgstr "الاسم"
 
 #: tracker/models.py:223
 msgid "Name for the ticket"
-msgstr "Jméno tiketu"
+msgstr "اسم للتذكرة"
 
 #: tracker/models.py:224 tracker/models.py:557 tracker/views.py:585
 msgid "topic"
-msgstr "téma"
+msgstr "الموضوع"
 
 #: tracker/models.py:224
 msgid "Project topic this ticket belongs to"
-msgstr "Projektové téma, do kterého tento tiket patří"
+msgstr "موضوع المشروع الذي تنتمي هذه التذكرة إليه"
 
 #: tracker/models.py:225
 msgid "subtopic"
-msgstr "podtéma"
+msgstr "الموضوع الفرعي"
 
 #: tracker/models.py:225
 msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
-msgstr "Podtéma, do kterého tento tiket patří (pokud nevíte, nechte prázdné)"
+msgstr "الموضوع الفرعي المشروع الذي تنتمي هذه التذكرة إليه (إذا كنت لا تعرف، اترك هذا فارغا)"
 
 #: tracker/models.py:226
 msgid "rating percentage"
-msgstr "ohodnocení"
+msgstr "نسبة التقييم"
 
 #: tracker/models.py:226
 msgid "Rating percentage set by topic administrator"
-msgstr "Procentuální ohodnocení stanovené schvalovatelem"
+msgstr "النسبة المئوية للتقييم التي تم تعيينها من قبل إداري الموضوع"
 
 #: tracker/models.py:227
 msgid "report mandatory"
-msgstr "povinný report"
+msgstr "تقرير إلزامي"
 
 #: tracker/models.py:227 tracker/templates/tracker/export.html:73
 #: tracker/templates/tracker/export.html:75
 #: tracker/templates/tracker/ticket_common_detail.html:14
 msgid "Is report mandatory?"
-msgstr "Je report povinný?"
+msgstr "هل التقرير إلزامي؟"
 
 #: tracker/models.py:228
 msgid "report url"
-msgstr "odkaz na report"
+msgstr "الإبلاغ عن مسار"
 
 #: tracker/models.py:228
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
-msgstr "URL na váš report, pokud nějaký chcete podat (nebo pokud je report z této akce povinný z rozhodnutí správce tématu)."
+msgstr "مسار لتقريرك، إذا كنت تريد الإبلاغ عن شيء ما (أو إذا كان تقريرك إلزاميا حسب إداري موضوع)."
 
 #: tracker/models.py:229
 msgid "event url"
-msgstr "odkaz na akci"
+msgstr "مسار الحدث"
 
 #: tracker/models.py:229
 msgid "Link to a public page describing the event, if it exist"
-msgstr "Odkažte na veřejnou stránku popisující akci, pokud existuje"
+msgstr "رابط إلى صفحة عامة تصف الحدث، إذا كانت موجودة"
 
 #: tracker/models.py:230 tracker/models.py:555 tracker/models.py:626
 #: tracker/models.py:708 tracker/models.py:761 tracker/models.py:776
 #: tracker/models.py:798 tracker/models.py:931 tracker/views.py:779
 msgid "description"
-msgstr "popis"
+msgstr "الوصف"
 
 #: tracker/models.py:230
 msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there."
-msgstr "Místo pro další poznámky. Pokud zadáváte informace o cestě, napište kam jste jeli a co jste tam dělali."
+msgstr "مساحة لمزيد من الملاحظات، إذا كنت تقوم بإدخال رحلة فأخبرنا أين ذهبت وماذا فعلت هناك."
 
 #: tracker/models.py:231
 msgid "supervisor notes"
-msgstr "poznámky schvalovatele"
+msgstr "ملاحظات المشرف"
 
 #: tracker/models.py:231
 msgid "This space is for notes of project supervisors and accounting staff."
-msgstr "Místo pro poznámky schvalovatelů nebo účetních."
+msgstr "هذه المساحة لملاحظات مشرفي المشروع وموظفي المحاسبة."
 
 #: tracker/models.py:232
 msgid "deposit"
-msgstr "záloha"
+msgstr "الوديعة"
 
 #: tracker/models.py:234
 msgid "If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."
-msgstr "Pokud žádáte finanční zálohu, vyplňte zde její výši. Maximální výše je výše plánovaných výdajů. Pokud zálohu nežádáte, vyplňte nulu."
+msgstr "إذا كنت تطلب إيداعا ماليا، فيُرجى ملء مبلغه، الحد الأقصى للمبلغ هو مجموع النفقات المسبقة، إذا لم تكن تطلب إيداعا، فاملأ 0 هنا."
 
 #: tracker/models.py:236
 msgid "payment status"
-msgstr "stav platby"
+msgstr "حالة السداد"
 
 #: tracker/models.py:237
 msgid "imported"
-msgstr "importovaný"
+msgstr "مستورد"
 
 #: tracker/models.py:237
 msgid "Was this ticket imported from older Tracker version?"
-msgstr "Byl tento tiket importován ze starší verze Trackeru?"
+msgstr "هل تم استيراد هذه التذكرة من إصدار متتبع أقدم؟"
 
 #: tracker/models.py:238
 msgid "enable comments"
-msgstr "povolit komentáře"
+msgstr "تمكين التعليقات"
 
 #: tracker/models.py:238
 msgid "Can users comment on this ticket?"
-msgstr "Mohou uživatelé na tomto tiketu komentovat?"
+msgstr "يمكن للمستخدمين التعليق على هذه التذكرة؟"
 
 #: tracker/models.py:239
 msgid "Did you travel by car?"
-msgstr "Cestovali jste autem?"
+msgstr "هل سافرت بالسيارة؟"
 
 #: tracker/models.py:239
 msgid "Do you request reimbursement of car-type travel expense?"
-msgstr "Požadujete proplacení cestovních výdajů, které vznikly jízdou autem?"
+msgstr "هل تطلب سداد نفقات السفر من نوع السيارة؟"
 
 #: tracker/models.py:240
 msgid "Statutory declaration"
-msgstr "Čestné prohlášení"
+msgstr "تصريح قانوني"
 
 #: tracker/models.py:241
 msgid "Date when statutory declaration was made"
-msgstr "Datum uskutečnění čestného prohlášení"
+msgstr "التاريخ عند تقديم تصريح قانوني"
 
 #: tracker/models.py:321
 msgid "historical"
-msgstr "historický"
+msgstr "تاريخي"
 
 #: tracker/models.py:330
 msgid "waiting for content rating"
-msgstr "čeká na posouzení obsahu"
+msgstr "في انتظار تقييم المحتوى"
 
 #: tracker/models.py:333 tracker/templates/tracker/export.html:49
 #: tracker/templates/tracker/export.html:50
 msgid "complete"
-msgstr "hotovo"
+msgstr "كامل"
 
 #: tracker/models.py:335 tracker/templates/tracker/export.html:46
 msgid "waiting for filing of documents"
-msgstr "čeká na přijetí účtenek"
+msgstr "في انتظار تقديم المستندات"
 
 #: tracker/models.py:337 tracker/templates/tracker/export.html:43
 #: tracker/templates/tracker/export.html:44
 msgid "waiting for document submission"
-msgstr "čeká na odeslání účtenek"
+msgstr "في انتظار تقديم الوثائق"
 
 #: tracker/models.py:340 tracker/models.py:347
 #: tracker/templates/tracker/export.html:40
 msgid "waiting for approval"
-msgstr "čeká na schválení"
+msgstr "بانتظار الموافقة"
 
 #: tracker/models.py:342 tracker/templates/tracker/export.html:37
 msgid "waiting for submitting"
-msgstr "čeká na podání ke schválení"
+msgstr "في انتظار التقديم"
 
 #: tracker/models.py:345 tracker/templates/tracker/export.html:34
 #: tracker/templates/tracker/export.html:35
 msgid "waiting for preapproval"
-msgstr "čeká na předschválení"
+msgstr "في انتظار الموافقة المسبقة"
 
 #: tracker/models.py:349 tracker/templates/tracker/export.html:31
 #: tracker/templates/tracker/export.html:32
 msgid "draft"
-msgstr "koncept"
+msgstr "مسودة"
 
 #: tracker/models.py:351 tracker/templates/tracker/export.html:30
 msgid "state"
-msgstr "stav"
+msgstr "الحالة"
 
 #: tracker/models.py:374 tracker/templates/tracker/admin_user_list.html:26
 msgid "E-mail"
-msgstr "E-mail"
+msgstr "البريد الإلكتروني"
 
 #: tracker/models.py:375 tracker/models.py:879
 #: tracker/templates/tracker/admin_user_list.html:31
 #: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
-msgstr "Jiný kontakt"
+msgstr "جهة اتصال أخرى"
 
 #: tracker/models.py:379
 msgid "no tracker account listed"
-msgstr "účet neuveden"
+msgstr "لا يوجد حساب متعقب"
 
 #: tracker/models.py:380
 msgid "Requester details"
-msgstr "Další údaje o žadateli"
+msgstr "تفاصيل مقدم الطلب"
 
 #: tracker/models.py:482 tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Ticket"
-msgstr "Tiket"
+msgstr "تذكرة"
 
 #: tracker/models.py:483 tracker/templates/tracker/cluster_detail.html:12
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -604,94 +598,94 @@ msgstr "Tiket"
 #: tracker/templates/tracker/user_detail.html:22
 #: tracker/templates/tracker/user_list.html:13
 msgid "Tickets"
-msgstr "Tikety"
+msgstr "تذاكر"
 
 #: tracker/models.py:555 tracker/models.py:556
 msgid "Description shown to users who enter tickets for this subtopic"
-msgstr "Popis zobrazovaný uživatelům kteří do podtématu zadávají nové tikety"
+msgstr "إظهار الوصف للمستخدمين الذين يدخلون تذاكر لهذا الموضوع الفرعي"
 
 #: tracker/models.py:556 tracker/models.py:627
 msgid "form description"
-msgstr "popis formuláře"
+msgstr "وصف النموذج"
 
 #: tracker/models.py:557
 msgid "Topic where this subtopic belongs"
-msgstr "Téma pod který toto podtéma patří"
+msgstr "الموضوع الذي ينتمي إليه هذا الموضوع الفرعي"
 
 #: tracker/models.py:612 tracker/templates/tracker/index.html:24
 #: tracker/templates/tracker/ticket_common_detail.html:12
 #: tracker/templates/tracker/ticket_table.html:16
 #: tracker/templates/tracker/ticket_table.html:32
 msgid "Subtopic"
-msgstr "Subtéma"
+msgstr "الموضوع الفرعي"
 
 #: tracker/models.py:613 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
-msgstr "Subtémata"
+msgstr "المواضيع الفرعية"
 
 #: tracker/models.py:620 tracker/views.py:614
 msgid "grant"
-msgstr "grant"
+msgstr "منحة"
 
 #: tracker/models.py:620
 msgid "Grant project where this topic belongs"
-msgstr "Grant pod který toto téma patří"
+msgstr "مشروع منحة حيث ينتمي هذا الموضوع"
 
 #: tracker/models.py:621
 msgid "open for tickets"
-msgstr "otevřeno pro tikety"
+msgstr "مفتوح للتذاكر"
 
 #: tracker/models.py:621
 msgid "Is this topic open for ticket submissions from users?"
-msgstr "Je toto téma otevřené pro nové tikety od uživatelů?"
+msgstr "هل هذا الموضوع مفتوح لإرسالات التذاكر من المستخدمين؟"
 
 #: tracker/models.py:622
 msgid "ticket media"
-msgstr "média tiketu"
+msgstr "وسائط التذاكر"
 
 #: tracker/models.py:622
 msgid "Does this topic track ticket media items?"
-msgstr "Používá tohle téma u tiketů informace o médiích?"
+msgstr "هل يتناول هذا الموضوع عناصر وسائط التذاكر؟"
 
 #: tracker/models.py:623
 msgid "ticket expenses"
-msgstr "výdaje tiketu"
+msgstr "مصاريف التذكرة"
 
 #: tracker/models.py:623
 msgid "Does this topic track ticket expenses?"
-msgstr "Používá tohle téma u tiketů informace o výdajích?"
+msgstr "هل هذا الموضوع يتتبع نفقات التذاكر؟"
 
 #: tracker/models.py:624
 msgid "ticket preexpenses"
-msgstr "plánované výdaje tiketu"
+msgstr "نفقات التذاكر المسبقة"
 
 #: tracker/models.py:624
 msgid "Does this topic track preexpenses?"
-msgstr "Používá tohle téma u tiketů informace o plánovaných výdajích?"
+msgstr "هل يقوم هذا الموضوع بتتبع عمليات الدفع المسبق؟"
 
 #: tracker/models.py:625
 msgid "require statutory declaration"
-msgstr "požadovat čestná prohlášení"
+msgstr "يتطلب تصريحا قانونيا"
 
 #: tracker/models.py:625
 msgid "Does this topic require statutory declaration for car travelling?"
-msgstr "Vyžaduje toto téma čestné prohlášení pro proplacení jízdy autem?"
+msgstr "هل يتطلب هذا الموضوع إعلانا قانونيا عن السفر بالسيارة؟"
 
 #: tracker/models.py:626 tracker/models.py:708
 msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
-msgstr "Detailní popis; HTML je zatím povoleno, konce řádků jsou zachovány"
+msgstr "وصف مفصل: HTML مسموح الآن، يتم تحليل فواصل الأسطر تلقائيا"
 
 #: tracker/models.py:627
 msgid "Description shown to users who enter tickets for this topic"
-msgstr "Popis zobrazovaný uživatelům kteří do tématu zadávají nové tikety"
+msgstr "إظهار الوصف للمستخدمين الذين يدخلون تذاكر لهذا الموضوع"
 
 #: tracker/models.py:628
 msgid "topic administrator"
-msgstr "správce tématu"
+msgstr "إداري الموضوع"
 
 #: tracker/models.py:628
 msgid "Selected users will have administration access to this topic."
-msgstr "Zvolení uživatelé budou mít správcovský přístup k tématu."
+msgstr "سيتمكن المستخدمون المختارون من الوصول الإداري لهذا الموضوع."
 
 #: tracker/models.py:695 tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/index.html:23
@@ -702,37 +696,37 @@ msgstr "Zvolení uživatelé budou mít správcovský přístup k tématu."
 #: tracker/templates/tracker/topic_finance.html:11
 #: tracker/templates/tracker/topic_table.html:5
 msgid "Topic"
-msgstr "Téma"
+msgstr "موضوع"
 
 #: tracker/models.py:696 tracker/templates/tracker/export.html:61
 #: tracker/templates/tracker/export.html:212
 #: tracker/templates/tracker/import.html:26
 msgid "Topics"
-msgstr "Témata"
+msgstr "مواضيع"
 
 #: tracker/models.py:705
 msgid "full name"
-msgstr "dlouhý název"
+msgstr "الاسم الكامل"
 
 #: tracker/models.py:705
 msgid "Full name for headlines and such"
-msgstr "Plné jméno pro nadpisy a podoble"
+msgstr "الاسم الكامل للعناوين الرئيسية وهكذا"
 
 #: tracker/models.py:706
 msgid "short name"
-msgstr "krátký název"
+msgstr "اسم قصير"
 
 #: tracker/models.py:706
 msgid "Shorter name for use in tables"
-msgstr "Krátké jméno pro použití v tabulkách"
+msgstr "اسم أقصر للاستخدام في الجداول"
 
 #: tracker/models.py:707
 msgid "slug"
-msgstr "slug"
+msgstr "بزاق"
 
 #: tracker/models.py:707
 msgid "Shortcut for usage in URLs"
-msgstr "Zkratka pro použití v adresách URL"
+msgstr "اختصار للاستخدام في المسارات"
 
 #: tracker/models.py:746 tracker/templates/tracker/grant_table.html:5
 #: tracker/templates/tracker/index.html:22
@@ -743,73 +737,73 @@ msgstr "Zkratka pro použití v adresách URL"
 #: tracker/templates/tracker/topic_table.html:6
 #: tracker/templates/tracker/transaction_list.html:15
 msgid "Grant"
-msgstr "Grant"
+msgstr "منحة"
 
 #: tracker/models.py:747 tracker/templates/tracker/export.html:141
 #: tracker/templates/tracker/import.html:34
 msgid "Grants"
-msgstr "Granty"
+msgstr "منح"
 
 #: tracker/models.py:760 tracker/models.py:775 tracker/models.py:797
 #: tracker/views.py:540
 msgid "ticket"
-msgstr "tiket"
+msgstr "تذكرة"
 
 #: tracker/models.py:760
 msgid "Ticket this media info belongs to"
-msgstr "Tiket ke kterému patří tato média"
+msgstr "التذكرة التي تنتمي إليها معلومات الوسائط هذه"
 
 #: tracker/models.py:761
 msgid "Item description to show"
-msgstr "Popis položky do seznamu"
+msgstr "وصف العنصر للعرض"
 
 #: tracker/models.py:762
 msgid "URL"
-msgstr "URL"
+msgstr "المسار"
 
 #: tracker/models.py:762
 msgid "Link to media files"
-msgstr "Odkaz na soubory"
+msgstr "وصلة لملفات الوسائط"
 
 #: tracker/models.py:763
 msgid "count"
-msgstr "počet"
+msgstr "العدد"
 
 #: tracker/models.py:763
 msgid "Number of files"
-msgstr "Počet souborů"
+msgstr "عدد الملفات"
 
 #: tracker/models.py:769 tracker/models.py:770
 msgid "Ticket media"
-msgstr "Média tiketu"
+msgstr "وسائط التذاكر"
 
 #: tracker/models.py:775
 msgid "Ticket this expediture belongs to"
-msgstr "Tiket ke kterému tento reálný výdaj patří"
+msgstr "التذكرة التي تنتمي هذه النفقة إليها"
 
 #: tracker/models.py:776
 msgid "Description of this expediture"
-msgstr "Popis tohoto reálného výdaje"
+msgstr "وصف هذه النفقة"
 
 #: tracker/models.py:777 tracker/models.py:799 tracker/models.py:930
 msgid "amount"
-msgstr "částka"
+msgstr "المبلغ"
 
 #: tracker/models.py:777
 msgid "Expediture amount in"
-msgstr "Vydaná částka v"
+msgstr "كمية الإنفاق في"
 
 #: tracker/models.py:778 tracker/models.py:932
 msgid "accounting info"
-msgstr "účetní údaje"
+msgstr "المعلومات المحاسبية"
 
 #: tracker/models.py:778
 msgid "Accounting info, this is editable only through admin field"
-msgstr "Účetní poznámky; toto pole lze editovat jen v administraci"
+msgstr "معلومات المحاسبة، هي قابلة للتحرير فقط من خلال حقل الإداري"
 
 #: tracker/models.py:780 tracker/models.py:800
 msgid "wage"
-msgstr "mzdový"
+msgstr "الأجر"
 
 #: tracker/models.py:783 tracker/models.py:803
 #, python-format
@@ -818,123 +812,123 @@ msgstr "%(description)s (%(amount)s %(currency)s)"
 
 #: tracker/models.py:791
 msgid "Ticket expediture"
-msgstr "Reálný výdaj tiketu"
+msgstr "نفقة التذكرة"
 
 #: tracker/models.py:792
 msgid "Ticket expeditures"
-msgstr "Reálné výdaje tiketu"
+msgstr "نفقات التذاكر"
 
 #: tracker/models.py:797
 msgid "Ticket this preexpediture belogns to"
-msgstr "Tiket ke kterému tento plánovaný výdaj patří"
+msgstr "التذكرة التي تنتمي هذه النفقة المسبقة إليها"
 
 #: tracker/models.py:798
 msgid "Description of this preexpediture"
-msgstr "Popis tohoto plánovaného výdaje"
+msgstr "وصف هذه النفقة المسبقة"
 
 #: tracker/models.py:799
 msgid "Preexpediture amount in"
-msgstr "Položka rozpočtu v "
+msgstr "كمية الإنفاق المسبق في"
 
 #: tracker/models.py:806
 msgid "Ticket preexpediture"
-msgstr "Plánovaný výdaj tiketu"
+msgstr "نفقة التذكرة المسبقة"
 
 #: tracker/models.py:807
 msgid "Ticket preexpeditures"
-msgstr "Plánované výdaje tiketu"
+msgstr "نفقات التذاكر المسبقة"
 
 #: tracker/models.py:818 tracker/views.py:778
 msgid "We need a sane file name, such as my-invoice123.jpg"
-msgstr "Jméno souboru musí vypadat jako jméno bez speciálních znaků; použijte něco jako faktura-za-ocet123.jpg"
+msgstr "حتاج إلى اسم ملف عاقل ، مثل فاتورتي.jpg"
 
 #: tracker/models.py:849
 msgid "Ignored acks"
-msgstr ""
+msgstr "تجاهل إشعارات التأكيد"
 
 #: tracker/models.py:850
 msgid "Muted notifications"
-msgstr "Ztlumit notifikace"
+msgstr "إشعارات صامتة"
 
 #: tracker/models.py:851
 msgid "Email language"
-msgstr "Jazyk e-mailů"
+msgstr "لغة البريد الإلكتروني"
 
 #: tracker/models.py:852
 msgid "Display items"
-msgstr "Zobrazit položek"
+msgstr "عرض العناصر"
 
 #: tracker/models.py:852
 msgid "How many items should we display in tables at once"
-msgstr "Kolik máme najednou zobrazit položek v tabulce"
+msgstr "عدد العناصر التي يجب أن نعرضها في الجداول في وقت واحد"
 
 #: tracker/models.py:871
 msgid "Tracker user preference"
-msgstr "Nastavení"
+msgstr "تفضيل مستخدم المقتفي"
 
 #: tracker/models.py:872
 msgid "Tracker user preferences"
-msgstr "Nastavení"
+msgstr "تفضيلات المستخدم المقتفي"
 
 #: tracker/models.py:877
 msgid "Username on mediawiki"
-msgstr "Uživatelské jméno MediaWiki"
+msgstr "اسم المستخدم على ميدياويكي"
 
 #: tracker/models.py:878 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
-msgstr "Bankovní účet"
+msgstr "الحساب المصرفي"
 
 #: tracker/models.py:878
 msgid "Bank account information for money transfers"
-msgstr "Údaje o účtu pro bankovní převody"
+msgstr "معلومات الحساب المصرفي للتحويلات المالية"
 
 #: tracker/models.py:879
 msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
-msgstr "Další kontakt (např. účet na wiki); může se hodit třeba pokud budou schvalovatelé potřebovat nějaká upřesnění"
+msgstr "جهة اتصال أخرى مثل حساب ويكي، يمكن أن تكون مفيدة في حالة حاجة إداريي الموضوع إلى توضيح بعض المعلومات"
 
 #: tracker/models.py:880 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
-msgstr "Další identifikační údaje"
+msgstr "هوية أخرى"
 
 #: tracker/models.py:880
 msgid "Address, or other identification information, so we know who are we sending money to"
-msgstr "Adresa, rodné číslo, nebo něco podobného pro případné doplnění do účetnictví"
+msgstr "العنوان، أو غيرها من المعلومات التعريفية; حتى نعرف إلى من نرسل الأموال"
 
 #: tracker/models.py:908
 msgid "Tracker profile"
-msgstr "Profil uživatele"
+msgstr "الملف الشخصي للمتعقب"
 
 #: tracker/models.py:909
 msgid "Tracker profiles"
-msgstr "Profily uživatelů"
+msgstr "الملفات الشخصية للمتعقبين"
 
 #: tracker/models.py:927
 msgid "date"
-msgstr "datum"
+msgstr "التاريخ"
 
 #: tracker/models.py:928 tracker/models.py:947
 msgid "other party"
-msgstr "druhá strana"
+msgstr "الطرف الآخر"
 
 #: tracker/models.py:928
 msgid "The other party; user who sent or received the payment"
-msgstr "Druhá strana převodu: uživatel který poslal nebo dostal platbu"
+msgstr "الطرف الآخر: المستخدم الذي أرسل أو تلقى الدفعة"
 
 #: tracker/models.py:929
 msgid "other party (text)"
-msgstr "druhá strana (text)"
+msgstr "الطرف الآخر (نص)"
 
 #: tracker/models.py:929
 msgid "The other party; this text is used when user is not selected"
-msgstr "Druhá strana převodu; tento text je použit není-li vyplněn uživatel"
+msgstr "الطرف الآخر: يتم استخدام هذا النص عندما لا يتم تحديد المستخدم"
 
 #: tracker/models.py:930
 msgid "Payment amount; Positive value means transaction to the user, negative is a transaction from the user"
-msgstr "Převedená částka. Kladná hodnota znamená platbu uživateli, záporná že uživatel dal peníze nám"
+msgstr "مبلغ الدفعة:  القيمة الموجبة تعني معاملة إلى المستخدم، والسلبية هي معاملة من المستخدم"
 
 #: tracker/models.py:931
 msgid "Description of this transaction"
-msgstr "Popis převodu"
+msgstr "وصف هذه الصفقة"
 
 #: tracker/models.py:932 tracker/templates/feeds/transaction_description.html:6
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -943,194 +937,197 @@ msgstr "Popis převodu"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1683
 msgid "Accounting info"
-msgstr "Účetní údaje"
+msgstr "المعلومات المحاسبية"
 
 #: tracker/models.py:933
 msgid "related tickets"
-msgstr "související tikety"
+msgstr "تذاكر ذات صلة"
 
 #: tracker/models.py:933
 msgid "Tickets this trackaction is related to"
-msgstr "Tikety ke kterým se tato platba vztahuje"
+msgstr "التذاكر المرتبطة بهذه العملية"
 
 #: tracker/models.py:969
 msgid "Transaction"
-msgstr "Platba"
+msgstr "عملية تجارية"
 
 #: tracker/models.py:970 tracker/templates/tracker/cluster_detail.html:18
 #: tracker/templates/tracker/ticket_detail.html:27
 #: tracker/templates/tracker/user_detail.html:19
 msgid "Transactions"
-msgstr "Platby"
+msgstr "المعاملات"
 
 #: tracker/models.py:994
 msgid "comment"
-msgstr "komentář"
+msgstr "تعليق"
 
 #: tracker/models.py:1098
 #, python-format
 msgid "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> by user <tt>%(user)s</tt>"
-msgstr "K ticketu <a href=\"%(ticket_url)s\">%(ticket)s</a> byl přidán uživatelem <tt>%(user)s</tt> komentář <tt>%(comment)s</tt>"
+msgstr "تمت إضافة التعليق <tt>%(comment)s</tt> إلى التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a> بواسطة المستخدم <tt>%(user)s</tt>"
 
 #: tracker/models.py:1127
 #, python-format
 msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
-msgstr "Ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> byl vytvořen uživatelem <tt>%(user)s</tt> v tématu <tt>%(topic)s</tt>"
+msgstr "المستخدم <tt>%(user)s</tt> أنشأ التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a> في موضوع <tt>%(topic)s</tt>."
 
 #: tracker/models.py:1142
 #, python-format
 msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "U ticketu <a href=\"%(ticket_url)s\">%(ticket)s</a> uživatel %(user)s změnil poznámky schvalovatele."
+msgstr "قام المستخدم <tt>%(user)s</tt>  بتغيير ملاحظات المشرف على التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1161
 #, python-format
 msgid "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "U ticketu <a href=\"%(ticket_url)s\">%(ticket)s</a> uživatel %(user)s změnil popisek."
+msgstr "قام المستخدم <tt>%(user)s</tt> بتغيير وصف التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1164
 #, python-format
 msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "U ticketu <a href=\"%(ticket_url)s\">%(ticket)s</a> uživatel %(user)s změnil název."
+msgstr "قام المستخدم <tt>%(user)s</tt> بتغيير اسم التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1167
 #, python-format
 msgid "User <tt>%(user)s</tt> changed link to report of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "U ticketu <a href=\"%(ticket_url)s\">%(ticket)s</a> uživatel %(user)s změnil odkaz na report."
+msgstr "المستخدم <tt>%(user)s</tt> غير الرابط إلى تقرير التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1170
 #, python-format
 msgid "User <tt>%(user)s</tt> changed requested deposit of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "U ticketu <a href=\"%(ticket_url)s\">%(ticket)s</a> uživatel %(user)s změnil požadovanou zálohu."
+msgstr "المستخدم <tt>%(user)s</tt> قام بتغيير الإيداع المطلوب للتذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1179
 #, python-format
 msgid "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "U ticketu <a href=\"%(ticket_url)s\">%(ticket)s</a> uživatel %(user)s změnil příznak povinného reportu"
+msgstr "قام المستخدم <tt>%(user)s</tt> بتغيير حقل التذكرة \"هل التقرير إلزامي؟\" <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1191
 #, python-format
 msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
-msgstr "Tiket \"%(ticket)s\" byl smazán uživatelem %(user)s"
+msgstr "تم حذف التذكرة \"%(ticket)s\" بواسطة المستخدم %(user)s"
 
 #: tracker/models.py:1207
 #, python-format
 msgid "User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "Ticketu <a href='%(ticket_url)s'>%(ticket)s</a> byl přidán stav <tt>%(ack_type)s</tt> uživatelem <tt>%(user)s</tt>"
+msgstr "أضاف المستخدم <tt>%(user)s</tt> إشعار التأكيد <tt>%(ack_type)s</tt> إلى التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1219
 #, python-format
 msgid "User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
-msgstr "U ticketu <a href=\"%(ticket_url)s\">%(ticket)s</a> uživatel %(ack_type)s odebral stav <tt>%(user)s</tt>"
+msgstr "قام المستخدم <tt>%(user)s</tt> بإزالة إشعار التأكيد <tt>%(ack_type)s</tt> من التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
 #: tracker/models.py:1247
 #, python-format
 msgid "User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "K tiketu <a href=\"%(ticket_url)s\">%(ticket)s</a>  uživatel %(user)s přidal plánované výdaje <tt>%(expeditures)s</tt>"
+msgstr "أضاف المستخدم <tt>%(user)s</tt> النفقات المخطط لها <tt>%(expeditures)s</tt> إلى التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1265
 #, python-format
 msgid "User <tt>%(user)s</tt> changed planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "Uživatel %(user)s změnil plánovaný výdaj <tt>%(expeditures)s</tt> tiketu <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+msgstr "قام المستخدم er <tt>%(user)s</tt> بتغيير النفقات المخطط لها <tt>%(expeditures)s</tt> للتذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1278
 #, python-format
 msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "Uživatel %(usr)s odstranil plánovaný výdaj <tt>%(expediture)s</tt> tiketu <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "أزال المستخدم <tt>%(user)s</tt> النفقات المخطط لها <tt>%(expeditures)s</tt> من التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
 #: tracker/models.py:1296
 #, python-format
 msgid "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "K tiketu <a href=\"%(ticket_url)s\">%(ticket)s</a>  uživatel %(user)s přidal reálné výdaje <tt>%(expeditures)s</tt>"
+msgstr "أضاف المستخدم <tt>%(user)s</tt> النفقات الحقيقية <tt>%(expeditures)s</tt> إلى التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1314
 #, python-format
 msgid "User <tt>%(user)s</tt> changed real expeditures <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "Uživatel %(user)s změnil reálný výdaj <tt>%(expeditures)s</tt> tiketu <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+msgstr "قام المستخدم er <tt>%(user)s</tt> بتغيير النفقات الحقيقية <tt>%(expeditures)s</tt> للتذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1327
 #, python-format
 msgid "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "Uživatel %(user)s odstranil reálný výdaj <tt>%(expeditures)s</tt> tiketu <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+msgstr "أزال المستخدم <tt>%(user)s</tt> النفقات الحقيقية <tt>%(expeditures)s</tt> من التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
 #: tracker/models.py:1340
 #, python-format
 msgid "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "K tiketu <a href=\"%(ticket_url)s\">%(ticket)s</a>  uživatel %(user)s přidal média"
+msgstr "أضاف المستخدم <tt>%(user)s</tt> وسائط إلى التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1343
 #, python-format
 msgid "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "Uživatel %(user)s změnil média tiketu <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+msgstr "قام المستخدم <tt>%(user)s</tt> بتغيير وسائط التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1355
 #, python-format
 msgid "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "Uživatel %(user)s odstranil média tiketu <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+msgstr "قام المستخدم <tt>%(user)s</tt>بإزالة الوسائط من التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "REMOVE"
-msgstr "ODEBRAT"
+msgstr "إزالة"
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "Really remove?"
-msgstr "Opravdu odebrat?"
+msgstr "الإزالة حقا؟"
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "YES"
-msgstr "ANO"
+msgstr "نعم"
 
 #: tracker/templates/admin/tracker/ticket/ack_norating_error.html:2
 msgid "You must fill rating percentage before you will be able to accept the ticket."
-msgstr "Musíte vyplnit ohodnocení předtím, než budete moci tento ticket schválit."
+msgstr "يجب أن تملأ النسبة المئوية للتقييم قبل أن تتمكن من قبول التذكرة."
 
 #: tracker/templates/admin/tracker/ticket/ack_noreport_error.html:2
 msgid "You cannot accept ticket when a report is mandatory and no report was given"
-msgstr "Nemůžete schválit ticket, pokud je nevyplněný odkaz na report a zároveň je report povinný"
+msgstr "لا يمكنك قبول التذكرة عندما يكون التقرير إلزاميا ولم يتم تقديم أي تقرير"
 
 #: tracker/templates/admin/tracker/ticket/add_ack.html:3
 msgid "add new ack"
-msgstr "Přidat nový příznak"
+msgstr "إضافة إشعار تأكيد جديد"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:9
 #: tracker/templates/tracker/ticket_common_detail.html:6 tracker/views.py:1681
 #: tracker/views.py:1690 tracker/views.py:1700
 msgid "Ticket ID"
-msgstr "ID tiketu"
+msgstr "معرف التذكرة"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:12
 msgid "Approvals"
-msgstr "Schválení"
+msgstr "الموافقات"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:16
 msgid "ADD ACK"
-msgstr "PŘIDAT PŘÍZNAK"
+msgstr "إضافة إشعار تأكيد"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:33
 msgid "Ticket documents"
-msgstr "Doklady tiketu"
+msgstr "وثائق التذاكر"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:36
 #: tracker/templates/tracker/edit_ticket.html:10
 #: tracker/templates/tracker/ticket_detail.html:19
 msgid "edit ticket documents"
-msgstr "upravit doklady"
+msgstr "تحرير وثائق التذكرة"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:43
 msgid "There are no documents uploaded for this ticket."
-msgstr "K tiketu nebyly nahrány žádné doklady."
+msgstr "لا توجد وثائق مرفوعة لهذه التذكرة."
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:46
 #: tracker/templates/tracker/ticket_detail.html:58
 #, python-format
 msgid "There is 1 document uploaded."
 msgid_plural "There are %(counter)s documents uploaded."
-msgstr[0] "Nahrán 1 doklad."
-msgstr[1] "Nahrány %(counter)s doklady."
-msgstr[2] "Nahráno %(counter)s dokladů."
+msgstr[0] "هناك مستند واحد مرفوع."
+msgstr[1] "هناك %(counter)s مستندات مرفوعة."
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
-msgstr "stav"
+msgstr "الحالة"
 
 #: tracker/templates/feeds/transaction_description.html:2
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1138,7 +1135,7 @@ msgstr "stav"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22
 msgid "Date"
-msgstr "Datum"
+msgstr "التاريخ"
 
 #: tracker/templates/feeds/transaction_description.html:3
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1146,7 +1143,7 @@ msgstr "Datum"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_list.html:13
 msgid "User"
-msgstr "Uživatel"
+msgstr "المستخدم"
 
 #: tracker/templates/feeds/transaction_description.html:4
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1158,7 +1155,7 @@ msgstr "Uživatel"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22
 msgid "Amount"
-msgstr "Částka"
+msgstr "الكمية"
 
 #: tracker/templates/feeds/transaction_description.html:5
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1169,56 +1166,56 @@ msgstr "Částka"
 #: tracker/views.py:1667 tracker/views.py:1672 tracker/views.py:1681
 #: tracker/views.py:1690 tracker/views.py:1700
 msgid "Description"
-msgstr "Popis"
+msgstr "الوصف"
 
 #: tracker/templates/notification/notification_html.html:4
 msgid "List of new tickets"
-msgstr "Seznam nových tiketů"
+msgstr "قائمة التذاكر الجديدة"
 
 #: tracker/templates/notification/notification_html.html:13
 msgid "List of deleted tickets"
-msgstr "Seznam smazaných tiketů"
+msgstr "قائمة التذاكر المحذوفة"
 
 #: tracker/templates/notification/notification_html.html:22
 msgid "The state of a watched ticket was changed"
-msgstr "Změna stavu sledovaných tiketů"
+msgstr "تم تغيير حالة تذكرة مراقبة"
 
 #: tracker/templates/notification/notification_html.html:31
 msgid "Supervisor notes on a watched ticket were changed"
-msgstr "Změna poznámek schvalovatele u sledovaných ticketů"
+msgstr "تم تغيير ملاحظات المشرف على تذكرة مراقبة"
 
 #: tracker/templates/notification/notification_html.html:40
 msgid "Changes were made to a watched ticket"
-msgstr "Změna sledovaného tiketu"
+msgstr "تم إجراء تغييرات على تذكرة مراقبة"
 
 #: tracker/templates/notification/notification_html.html:49
 msgid "The preexpenditures of a watched ticket were changed"
-msgstr "Změna plánovaných výdajů u sledovaných tiketů"
+msgstr "تم تغيير النفقات المسبقة لتذكرة مراقبة"
 
 #: tracker/templates/notification/notification_html.html:58
 msgid "The expenditures of a watched ticket were changed"
-msgstr "Změna reálných výdajů u sledovaných tiketů"
+msgstr "تم تغيير نفقات تذكرة مراقبة"
 
 #: tracker/templates/notification/notification_html.html:67
 msgid "Medias of a watched ticket"
-msgstr "Změna médií u sledovaných tiketů"
+msgstr "وسائط تذكرة مراقبة"
 
 #: tracker/templates/notification/notification_html.html:77
 msgid "A comment was added to a watched ticket"
-msgstr "Seznam přidaných komentářů k sledovaným ticketům"
+msgstr "تمت إضافة تعليق إلى تذكرة مراقبة"
 
 #: tracker/templates/notification/notification_html.html:86
 msgid "Tracker notifications"
-msgstr "Tracker notifikace"
+msgstr "إخطارات المقتفي"
 
 #: tracker/templates/notification/notification_subject.txt:1
 msgid "List of changes of watched tickets"
-msgstr "Přehled změn ve vámi sledovaných tiketech"
+msgstr "قائمة التغييرات في التذاكر المراقبة"
 
 #: tracker/templates/tracker/admin_index_override.html:10
 #, python-format
 msgid "Models available in the %(name)s application."
-msgstr "Modely v aplikaci %(name)s"
+msgstr "النماذج المتاحة في تطبيق %(name)s."
 
 #: tracker/templates/tracker/admin_index_override.html:11
 #, python-format
@@ -1229,56 +1226,56 @@ msgstr "%(name)s"
 #: tracker/templates/tracker/ticketack_add.html:4
 #: tracker/templates/tracker/ticketack_add.html:8
 msgid "Add"
-msgstr "Přidat"
+msgstr "إضافة"
 
 #: tracker/templates/tracker/admin_index_override.html:27
 msgid "Change"
-msgstr "Změnit"
+msgstr "تغيير"
 
 #: tracker/templates/tracker/admin_index_override.html:39
 #: tracker/templates/tracker/user_list.html:4
 #: tracker/templates/tracker/user_list.html:8
 msgid "User list"
-msgstr "Seznam uživatelů"
+msgstr "قائمة المستخدم"
 
 #: tracker/templates/tracker/admin_index_override.html:40
 #: tracker/templates/tracker/admin_user_list.html:16
 msgid "Tracker users"
-msgstr "Uživatelé"
+msgstr "مستخدمو المقتفي"
 
 #: tracker/templates/tracker/admin_index_override.html:45
 msgid "You don't have permission to edit anything."
-msgstr "Nemáte právo nic editovat"
+msgstr "ليست لديك صلاحية لتعديل أي شيء."
 
 #: tracker/templates/tracker/admin_user_list.html:8
 #: tracker/templates/tracker/export.html:67
 #: tracker/templates/tracker/export.html:274
 #: tracker/templates/tracker/import.html:60
 msgid "Users"
-msgstr "Uživatelé"
+msgstr "مستخدمون"
 
 #: tracker/templates/tracker/admin_user_list.html:13
 msgid "Home"
-msgstr "Domů"
+msgstr "الرئيسية"
 
 #: tracker/templates/tracker/admin_user_list.html:25
 #: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1695
 msgid "Username"
-msgstr "Přihlašovací jméno"
+msgstr "اسم المستخدم"
 
 #: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1695
 msgid "First name"
-msgstr "Křestní jméno"
+msgstr "الاسم الأول"
 
 #: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1695
 msgid "Last name"
-msgstr "Příjmení"
+msgstr "الاسم الأخير"
 
 #: tracker/templates/tracker/cluster_detail.html:4
 #: tracker/templates/tracker/cluster_detail.html:8
 #, python-format
 msgid "Cluster %(cid)s"
-msgstr "Slepenec %(cid)s"
+msgstr "الكتلة (%(cid)s"
 
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/edit_ticket.html:7
@@ -1305,155 +1302,155 @@ msgstr "Slepenec %(cid)s"
 #: tracker/templates/tracker/user_list.html:7
 #: tracker/templates/tracker/watch.html:8
 msgid "index"
-msgstr "začátek"
+msgstr "فهرس"
 
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/generic/ticket_list.html:12
 msgid "transactions"
-msgstr "platby"
+msgstr "المعاملات"
 
 #: tracker/templates/tracker/cluster_detail.html:10
 #: tracker/templates/tracker/ticket_detail.html:28
 msgid "Payment status"
-msgstr "Stav platby"
+msgstr "حالة السداد"
 
 #: tracker/templates/tracker/cluster_detail.html:14
 msgid "Total tickets"
-msgstr "Celkem tikety"
+msgstr "مجموع التذاكر"
 
 #: tracker/templates/tracker/cluster_detail.html:26
 msgid "Total transactions"
-msgstr "Celkem platby"
+msgstr "مجموع المعاملات"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:4
 #: tracker/templates/tracker/dumpaccounts/index.html:7
 msgid "Overview of"
-msgstr "Přehled"
+msgstr "نظرة عامة على"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:8
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:9
 msgid "Generated on"
-msgstr "Generováno dne"
+msgstr "تم التوليد في"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Unpaid"
-msgstr "Neplaceno"
+msgstr "غير مدفوع"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/export.html:207
 msgid "Paid"
-msgstr "Proplaceno"
+msgstr "مدفوع"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Overpaid"
-msgstr "Přeplaceno"
+msgstr "مدفوع بزيادة"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:17
 #: tracker/templates/tracker/grant_table.html:34
 #: tracker/templates/tracker/topic_table.html:38
 #: tracker/templates/tracker/user_list.html:28
 msgid "Total"
-msgstr "Celkem"
+msgstr "الإجمالي"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:29
 msgid "ID"
-msgstr "ID"
+msgstr "المعرف"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/ticket_table.html:22
 msgid "Status"
-msgstr "Stav"
+msgstr "الحالة"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Accepted"
-msgstr "Schváleno"
+msgstr "مقبول"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Payment"
-msgstr "Platba"
+msgstr "الدفع"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:36
 msgid "There are no tickets in this topic."
-msgstr "V tomto tématu nejsou žádné tikety."
+msgstr "لا توجد تذاكر في هذا الموضوع."
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:13
 #: tracker/templates/tracker/ticket_detail.html:47
 msgid "Documents"
-msgstr "Doklady"
+msgstr "المستندات"
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
 msgid "There aren't any documents here."
-msgstr "V tomto tiketu nejsou žádné dokumenty."
+msgstr "لا توجد أية وثائق هنا."
 
 #: tracker/templates/tracker/edit_ticket.html:4
 #: tracker/templates/tracker/edit_ticket.html:8
 msgid "Edit"
-msgstr "Upravit"
+msgstr "تعديل"
 
 #: tracker/templates/tracker/edit_ticket.html:10
 #: tracker/templates/tracker/ticket_detail.html:17
 msgid "copy preexpeditures to expeditures"
-msgstr "zkopírovat plánované výdaje do reálných"
+msgstr "نسخ النفقات المسبقة إلى النفقات"
 
 #: tracker/templates/tracker/edit_ticket.html:14
 #: tracker/templates/tracker/edit_ticket_docs.html:16
 msgid "save"
-msgstr "uložit"
+msgstr "حفظ"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:4
 #: tracker/templates/tracker/edit_ticket_docs.html:8
 msgid "Edit documents"
-msgstr "Upravit doklady"
+msgstr "تحرير الوثائق"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:7
 #: tracker/templates/tracker/upload_ticket_doc.html:25
 msgid "edit"
-msgstr "upravit"
+msgstr "تعديل"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:10
 msgid "upload new document"
-msgstr "nahrát nový doklad"
+msgstr "رفع وثيقة جديدة"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:14
 msgid "document"
-msgstr "doklad"
+msgstr "وثيقة"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:17
 #: tracker/templates/tracker/ticket_form.html:25
 #: tracker/templates/tracker/upload_ticket_doc.html:36
 #, python-format
 msgid "Fields marked with %(mark)s are required."
-msgstr "Pole označená %(mark)s jsou povinná."
+msgstr "الحقول المعلمة بـ%(mark)s مطلوبة."
 
 #: tracker/templates/tracker/export.html:12
 #: tracker/templates/tracker/export.html:15
 #: tracker/templates/tracker/generic/ticket_list.html:35
 #: tracker/templates/tracker/index.html:40
 msgid "Export"
-msgstr "Export"
+msgstr "تصدير"
 
 #: tracker/templates/tracker/export.html:18
 msgid "Only filters with at least one checked checkbox are applied. You can either check all checkboxes or none of them, it's the same. "
-msgstr "Budou aplikované pouze filtry s alespoň jedním checkboxem. Můžete zaškrtnout všechny checkboxy nebo ani jeden, má to stejný význam."
+msgstr "يتم فقط تطبيق المرشحات التي تحتوي على صندوق اختيار واحد على الأقل، يمكنك إما اختيار جميع صناديق الاختيار أو لا شيء منها، هو نفسه. "
 
 #: tracker/templates/tracker/export.html:38
 msgid "waiting for submitting "
-msgstr "čeká na podání ke schválení"
+msgstr "في انتظار التقديم "
 
 #: tracker/templates/tracker/export.html:41
 msgid "waiting for approval "
-msgstr "čeká na schválení"
+msgstr "بانتظار الموافقة "
 
 #: tracker/templates/tracker/export.html:47
 msgid "waiting for filing of documents "
-msgstr "čeká na přijetí účtenek"
+msgstr "في انتظار تقديم الوثائق "
 
 #: tracker/templates/tracker/export.html:59
 msgid "custom"
-msgstr "vlastní"
+msgstr "تخصيص"
 
 #: tracker/templates/tracker/export.html:78
 #: tracker/templates/tracker/export.html:149
@@ -1463,7 +1460,7 @@ msgstr "vlastní"
 #: tracker/templates/tracker/ticket_table.html:19
 #: tracker/templates/tracker/ticket_table.html:34
 msgid "Preexpeditures"
-msgstr "Plánované výdaje"
+msgstr "النفقات المسبقة"
 
 #: tracker/templates/tracker/export.html:82
 #: tracker/templates/tracker/export.html:102
@@ -1476,7 +1473,7 @@ msgstr "Plánované výdaje"
 #: tracker/templates/tracker/export.html:301
 #: tracker/templates/tracker/export.html:320
 msgid "Larger or equal"
-msgstr "Větší nebo rovno"
+msgstr "أكبر أو يساوي"
 
 #: tracker/templates/tracker/export.html:90
 #: tracker/templates/tracker/export.html:110
@@ -1489,14 +1486,14 @@ msgstr "Větší nebo rovno"
 #: tracker/templates/tracker/export.html:309
 #: tracker/templates/tracker/export.html:328
 msgid "Smaller or equal"
-msgstr "Menší nebo rovno"
+msgstr "أصغر أو يساوي"
 
 #: tracker/templates/tracker/export.html:98
 #: tracker/templates/tracker/export.html:179
 #: tracker/templates/tracker/ticket_common_detail.html:61
 #: tracker/templates/tracker/ticket_form.html:20
 msgid "Expeditures"
-msgstr "Reálné výdaje"
+msgstr "النفقات"
 
 #: tracker/templates/tracker/export.html:118
 #: tracker/templates/tracker/index.html:27
@@ -1505,72 +1502,72 @@ msgstr "Reálné výdaje"
 #: tracker/templates/tracker/ticket_table.html:35
 #: tracker/templates/tracker/user_list.html:13
 msgid "Accepted expeditures"
-msgstr "Schválené reálné výdaje"
+msgstr "النفقات المقبولة"
 
 #: tracker/templates/tracker/export.html:145
 msgid "You can't filter grants by any fields"
-msgstr "Granty není možné filtrovat"
+msgstr "لا يمكنك تصفية المنح بأية حقول"
 
 #: tracker/templates/tracker/export.html:174
 #: tracker/templates/tracker/export.html:204
 msgid "Wage"
-msgstr "Mzdový"
+msgstr "الأجر"
 
 #: tracker/templates/tracker/export.html:216
 msgid "Supervisors"
-msgstr "Schvalovatelé"
+msgstr "مشرفون"
 
 #: tracker/templates/tracker/export.html:222
 msgid "Number of tickets"
-msgstr "Počet ticketů"
+msgstr "عدد التذاكر"
 
 #: tracker/templates/tracker/export.html:242
 msgid "Number of tickets in certain payment state"
-msgstr "Počet ticketů v určitém stavu plateb"
+msgstr "عدد التذاكر في حالة دفع معينة"
 
 #: tracker/templates/tracker/export.html:245
 msgid "N/A"
-msgstr "NúA"
+msgstr "غ/م"
 
 #: tracker/templates/tracker/export.html:278
 msgid "Number of tickets created"
-msgstr "Počet vytvořených ticketů"
+msgstr "عدد التذاكر المنشأة"
 
 #: tracker/templates/tracker/export.html:297
 msgid "Amount of accepted expeditures"
-msgstr "Suma schválených reálných výdajů"
+msgstr "مقدار المصروفات المقبولة"
 
 #: tracker/templates/tracker/export.html:316
 msgid "Amount of paid expeditures"
-msgstr "Suma placených reálných výdajů"
+msgstr "مقدار المصروفات المدفوعة"
 
 #: tracker/templates/tracker/export.html:338
 msgid "normal"
-msgstr "normální"
+msgstr "عادي"
 
 #: tracker/templates/tracker/export.html:343
 msgid "staff"
-msgstr "s administračním přístupem"
+msgstr "الطاقم"
 
 #: tracker/templates/tracker/export.html:348
 msgid "superuser"
-msgstr "superuživatel"
+msgstr "مستخدم خارق"
 
 #: tracker/templates/tracker/generic/create_ticket.html:4
 #: tracker/templates/tracker/generic/create_ticket.html:8
 msgid "Create ticket"
-msgstr "Vytvořit tiket"
+msgstr "إنشاء تذكرة"
 
 #: tracker/templates/tracker/generic/create_ticket.html:13
 msgid "You'll be able to edit everything you've filled in even after submitting the form."
-msgstr "Vše co jste vyplnili budete moci dále editovat i po odeslání formuláře."
+msgstr "ستتمكن من تعديل كل شيء قمت بملئه حتى بعد إرسال النموذج."
 
 #: tracker/templates/tracker/generic/ticket_list.html:4
 #: tracker/templates/tracker/generic/ticket_list.html:15
 #: tracker/templates/tracker/index.html:3
 #: tracker/templates/tracker/index.html:15
 msgid "Ticket list"
-msgstr "Seznam tiketů"
+msgstr "قائمة التذاكر"
 
 #: tracker/templates/tracker/generic/ticket_list.html:12
 #: tracker/templates/tracker/index.html:12
@@ -1580,99 +1577,99 @@ msgstr "Seznam tiketů"
 #: tracker/templates/tracker/topic_detail.html:14
 #: tracker/templates/tracker/topic_finance.html:7
 msgid "topics"
-msgstr "témata"
+msgstr "المواضيع"
 
 #: tracker/templates/tracker/generic/ticket_list.html:12
 #: tracker/templates/tracker/index.html:12
 #: tracker/templates/tracker/user_detail.html:8
 msgid "users"
-msgstr "uživatelé"
+msgstr "المستخدمون"
 
 #: tracker/templates/tracker/generic/ticket_list.html:13
 #: tracker/templates/tracker/generic/ticket_list.html:32
 #: tracker/templates/tracker/index.html:13
 #: tracker/templates/tracker/user_detail.html:9
 msgid "Create new ticket"
-msgstr "Vytvořit nový tiket"
+msgstr "إنشاء تذكرة جديدة"
 
 #: tracker/templates/tracker/generic/ticket_list.html:22
 #: tracker/templates/tracker/user_detail.html:15
 msgid "No tickets available."
-msgstr "Nejsou k dispozici žádné tikety."
+msgstr "لا توجد تذاكر متاحة."
 
 #: tracker/templates/tracker/generic/ticket_list.html:33
 #: tracker/templates/tracker/import.html:4
 #: tracker/templates/tracker/import.html:7
 #: tracker/templates/tracker/index.html:37
 msgid "Import"
-msgstr "Import"
+msgstr "استيراد"
 
 #: tracker/templates/tracker/generic/topic_list.html:4
 #: tracker/templates/tracker/generic/topic_list.html:8
 msgid "Topic list"
-msgstr "Seznam témat"
+msgstr "قائمة المواضيع"
 
 #: tracker/templates/tracker/generic/topic_list.html:13
 #: tracker/templates/tracker/grant_list.html:12
 msgid "Topics closed for new tickets"
-msgstr "Témata uzavřená pro nové tikety"
+msgstr "المواضيع مغلقة للتذاكر الجديدة"
 
 #: tracker/templates/tracker/generic/topic_list.html:18
 msgid "topic finance"
-msgstr "platby dle témat"
+msgstr "تمويل الموضوع"
 
 #: tracker/templates/tracker/generic/topic_list.html:19
 msgid "topic ack overview"
-msgstr "přehled schválení"
+msgstr "نظرة عامة على إشعار تأكيد الموضوع"
 
 #: tracker/templates/tracker/grant_detail.html:9
 msgid "grants"
-msgstr "granty"
+msgstr "منح"
 
 #: tracker/templates/tracker/grant_detail.html:11
 #: tracker/templates/tracker/ticket_detail.html:21
 #: tracker/templates/tracker/topic_detail.html:25
 msgid "watch settings"
-msgstr "nastavení sledování"
+msgstr "إعدادات المراقبة"
 
 #: tracker/templates/tracker/grant_list.html:4
 #: tracker/templates/tracker/grant_list.html:8
 msgid "Grant list"
-msgstr "Seznam grantů"
+msgstr "قائمة المنح"
 
 #: tracker/templates/tracker/grant_table.html:7
 #: tracker/templates/tracker/topic_table.html:8
 msgid "Paid wages"
-msgstr "Placeno mezd"
+msgstr "الأجور المدفوعة"
 
 #: tracker/templates/tracker/grant_table.html:8
 #: tracker/templates/tracker/topic_table.html:9
 msgid "Paid together"
-msgstr "Placeno celkem"
+msgstr "دُفِعت معا"
 
 #: tracker/templates/tracker/grant_table.html:9
 #: tracker/templates/tracker/topic_table.html:10
 msgid "Tickets per payment status"
-msgstr "Tikety podle plateb"
+msgstr "التذاكر لكل حالة دفع"
 
 #: tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
 msgid "no payment required"
-msgstr "žádná platba není třeba"
+msgstr "لا يوجد دفع مطلوب"
 
 #: tracker/templates/tracker/grant_table.html:49
 #: tracker/templates/tracker/topic_table.html:53
 msgid "No topics available."
-msgstr "Nejsou k dispozici žádná témata."
+msgstr "لا توجد مواضيع متاحة."
 
 #: tracker/templates/tracker/import.html:10
 #, python-format
 msgid " Be warned that you need permission to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows. If you'll submit a file CSV with more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows, only the first %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s will be processed. If you really need to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s of objects, please contact the systemadmin."
-msgstr "Pokud k tomu nemáte oprávnění, nemůžete importovat více než %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s řádků. Pokud pošlete větší CSV, bude importováno pouze prvních %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s řádků. Pokud opravdu potřebujte importovat tolik objektů, kontaktujte systémového administrátora."
+msgstr "كن حذرا من أنك تحتاج إلى صلاحية لاستيراد أكثر من %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s من الصفوف، إذا أرسلت ملفا بتنسيق CSV بأكثر من %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s من الصفوف، فستتم معالجة أول %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s فقط، إذا كنت تريد بالفعل استيراد أكثر من %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s من الكائنات، فيُرجَى الاتصال بإداري النظام."
 
 #: tracker/templates/tracker/import.html:14
 msgid "What kind of objects are you importing?"
-msgstr "Jaký druh objektů hodláte importovat?"
+msgstr "ما نوع الكائنات التي تستوردها؟"
 
 #: tracker/templates/tracker/import.html:19
 #: tracker/templates/tracker/import.html:26
@@ -1682,853 +1679,856 @@ msgstr "Jaký druh objektů hodláte importovat?"
 #: tracker/templates/tracker/import.html:53
 #: tracker/templates/tracker/import.html:60
 msgid "example file"
-msgstr "vzorový soubor"
+msgstr "مثال ملف"
 
 #: tracker/templates/tracker/import.html:41
 msgid "Preexpenses"
-msgstr "Plánované výdaje"
+msgstr "النفقات المسبقة"
 
 #: tracker/templates/tracker/import.html:47
 msgid "Expenses"
-msgstr "Výdaje"
+msgstr "نفقات"
 
 #: tracker/templates/tracker/import.html:53
 #: tracker/templates/tracker/ticket_common_detail.html:35
 #: tracker/templates/tracker/ticket_table.html:18
 #: tracker/templates/tracker/user_list.html:13
 msgid "Media"
-msgstr "Média"
+msgstr "وسائط"
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_common_detail.html:9
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:29
 msgid "Event date"
-msgstr "Datum akce"
+msgstr "تاريخ الحدث"
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:29
 msgid "Name"
-msgstr "Název"
+msgstr "الاسم"
 
 #: tracker/templates/tracker/index.html:25
 #: tracker/templates/tracker/ticket_common_detail.html:10
 #: tracker/templates/tracker/ticket_table.html:17
 #: tracker/templates/tracker/ticket_table.html:33
 msgid "Requested by"
-msgstr "Žadatel"
+msgstr "مطلوب من"
 
 #: tracker/templates/tracker/index.html:28
 #: tracker/templates/tracker/ticket_common_detail.html:72
 #: tracker/templates/tracker/ticket_table.html:21
 #: tracker/templates/tracker/ticket_table.html:36
 msgid "Paid expeditures"
-msgstr "Zaplacené výdaje"
+msgstr "نفقات مدفوعة"
 
 #: tracker/templates/tracker/index.html:29
 #: tracker/templates/tracker/ticket_common_detail.html:13
 #: tracker/templates/tracker/ticket_table.html:37
 msgid "State"
-msgstr "Stav"
+msgstr "الحالة"
 
 #: tracker/templates/tracker/index.html:30
 #: tracker/templates/tracker/ticket_common_detail.html:8
 #: tracker/templates/tracker/ticket_table.html:23
 #: tracker/templates/tracker/ticket_table.html:38
 msgid "Last changed"
-msgstr "Naposledy změněno"
+msgstr "آخر تغيير"
 
 #: tracker/templates/tracker/paginator.html:4
 msgid "previous"
-msgstr "předchozí"
+msgstr "السابق"
 
 #: tracker/templates/tracker/paginator.html:8
 msgid "next"
-msgstr "následující"
+msgstr "التالي"
 
 #: tracker/templates/tracker/preferences.html:4
 #: tracker/templates/tracker/preferences.html:14
 msgid "Preferences"
-msgstr "Nastavení"
+msgstr "تفضيلات"
 
 #: tracker/templates/tracker/preferences.html:18
 msgid "Mute notifications"
-msgstr "Ztlumit notifikace"
+msgstr "كتم الإشعارات"
 
 #: tracker/templates/tracker/preferences.html:33
 msgid "Ignore ack types"
-msgstr "Ignorované typy příznaků"
+msgstr "تجاهل أنواع إشعار التأكيد"
 
 #: tracker/templates/tracker/preferences.html:46
 msgid "Other"
-msgstr "Ostatní"
+msgstr "أخرى"
 
 #: tracker/templates/tracker/preferences.html:51
 #: tracker/templates/tracker/ticket_form.html:24
 #: tracker/templates/tracker/user_details_change.html:18
 #: tracker/templates/tracker/watch.html:32
 msgid "Save"
-msgstr "Uložit"
+msgstr "Save"
 
 #: tracker/templates/tracker/preferences.html:53
 msgid "Wikimedia account"
-msgstr "Wikimedia účet"
+msgstr "حساب ويكيميديا"
 
 #: tracker/templates/tracker/preferences.html:57
 msgid "Your account is connected to Wikimedia account"
-msgstr "Váš účet je připojen k Wikimedia účtu"
+msgstr "حسابك مرتبط بحساب ويكيميديا"
 
 #: tracker/templates/tracker/preferences.html:67
 msgid "Disconnect Wikimedia account"
-msgstr "Odpojit Wikimedia účet"
+msgstr "افصل حساب ويكيميديا"
 
 #: tracker/templates/tracker/preferences.html:71
 msgid "In order to disconnect your Wikimedia account, you first need to"
-msgstr "Abyste odpojili svůj účet Wikimedia, nejprve musíte"
+msgstr "من أجل فصل حساب ويكيميديا الخاص بك; عليك أولا"
 
 #: tracker/templates/tracker/preferences.html:71
 msgid "set a password."
-msgstr "nastavit heslo"
+msgstr "ضبط كلمة مرور."
 
 #: tracker/templates/tracker/preferences.html:76
 msgid "Link Wikimedia account"
-msgstr "Připojit Wikimedia účet"
+msgstr "ربط حساب ويكيميديا"
 
 #: tracker/templates/tracker/preferences.html:79
 msgid "Account actions"
-msgstr "Akce účtu"
+msgstr "إجراءات الحساب"
 
 #: tracker/templates/tracker/preferences.html:81
 #: tracker/templates/tracker/user_deactivate.html:4
 #: tracker/templates/tracker/user_deactivate.html:11
 msgid "Deactivate account"
-msgstr "Deaktivovat účet"
+msgstr "تعطيل الحساب"
 
 #: tracker/templates/tracker/subtopic_detail.html:10
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "add ticket"
-msgstr "přidat tiket"
+msgstr "إضافة تذكرة"
 
 #: tracker/templates/tracker/subtopic_detail.html:16
 msgid "Total for this subtopic"
-msgstr "Celkem za toto podtéma"
+msgstr "الإجمالي لهذا الموضوع الفرعي"
 
 #: tracker/templates/tracker/tabular_formset.html:12
 msgid "delete"
-msgstr "smazat"
+msgstr "حذف"
 
 #: tracker/templates/tracker/tabular_formset.html:21
 msgid "Delete the item"
-msgstr "Smazat položku"
+msgstr "حذف العنصر"
 
 #: tracker/templates/tracker/tabular_formset.html:91
 #, python-format
 msgid "Add another %(formset_item_name)s"
-msgstr "Přidat další %(formset_item_name)s"
+msgstr "أضف %(formset_item_name)s أخرى"
 
 #: tracker/templates/tracker/tabular_formset.html:94
 #: tracker/templates/tracker/ticketack_confirm_delete.html:4
 #: tracker/templates/tracker/ticketack_confirm_delete.html:8
 msgid "Remove"
-msgstr "Odebrat"
+msgstr "إزالة"
 
 #: tracker/templates/tracker/ticket_common_detail.html:7
 #: tracker/templates/tracker/ticket_common_detail.html:51
 #: tracker/templates/tracker/ticket_common_detail.html:66
 msgid "Created"
-msgstr "Vytvořeno"
+msgstr "تم الإنشاء"
 
 #: tracker/templates/tracker/ticket_common_detail.html:9
 msgid "unset"
-msgstr "neuvedeno"
+msgstr "إلغاء التعيين"
 
 #: tracker/templates/tracker/ticket_common_detail.html:14
 #: tracker/templates/tracker/ticket_common_detail.html:51
 msgid "Yes"
-msgstr "Ano"
+msgstr "نعم"
 
 #: tracker/templates/tracker/ticket_common_detail.html:14
 #: tracker/templates/tracker/ticket_common_detail.html:51
 msgid "No"
-msgstr "Ne"
+msgstr "لا"
 
 #: tracker/templates/tracker/ticket_common_detail.html:15
 msgid "Report URL"
-msgstr "Odkaz na report"
+msgstr "مسار التقرير"
 
 #: tracker/templates/tracker/ticket_common_detail.html:15
 msgid "No report filled"
-msgstr "Žádný report nebyl vyplněn"
+msgstr "لا يوجد أي تقرير ممتلئ"
 
 #: tracker/templates/tracker/ticket_common_detail.html:17
 msgid "Deposit"
-msgstr "Záloha"
+msgstr "الوديعة"
 
 #: tracker/templates/tracker/ticket_common_detail.html:18
 msgid "Event URL"
-msgstr "Odkaz na akci"
+msgstr "مسار الحدث"
 
 #: tracker/templates/tracker/ticket_common_detail.html:19
 msgid "Rating percentage"
-msgstr "Ohodnocení"
+msgstr "نسبة التقييم"
 
 #: tracker/templates/tracker/ticket_common_detail.html:21
 msgid "remove"
-msgstr "odebrat"
+msgstr "إزالة"
 
 #: tracker/templates/tracker/ticket_common_detail.html:24
 msgid "Confirm"
-msgstr "Potvrdit"
+msgstr "تأكيد"
 
 #: tracker/templates/tracker/ticket_common_detail.html:32
 msgid "Supervisor notes"
-msgstr "Poznámky schvalovatele"
+msgstr "ملاحظات المشرف"
 
 #: tracker/templates/tracker/ticket_common_detail.html:36
 msgid "Number of objects"
-msgstr "Počet objektů"
+msgstr "عدد الأشياء"
 
 #: tracker/templates/tracker/ticket_common_detail.html:37
 msgid "Number of media files"
-msgstr "Počet souborů"
+msgstr "عدد ملفات الوسائط"
 
 #: tracker/templates/tracker/ticket_common_detail.html:48
 #: tracker/templates/tracker/ticket_common_detail.html:63
 msgid "Item"
-msgstr "Položka"
+msgstr "العنصر"
 
 #: tracker/templates/tracker/ticket_common_detail.html:48
 #: tracker/templates/tracker/ticket_common_detail.html:63
 msgid "Wage?"
-msgstr "Mzdový?"
+msgstr "أجر؟"
 
 #: tracker/templates/tracker/ticket_common_detail.html:55
 msgid "Total preexpeditures"
-msgstr "Celkem plánované výdaje"
+msgstr "مجموع النفقات المسبقة"
 
 #: tracker/templates/tracker/ticket_common_detail.html:63
 msgid "Paid?"
-msgstr "Proplaceno?"
+msgstr "مدفوع؟"
 
 #: tracker/templates/tracker/ticket_common_detail.html:66
 msgid "Yes,No"
-msgstr "Ano,Ne"
+msgstr "نعم،لا"
 
 #: tracker/templates/tracker/ticket_common_detail.html:70
 msgid "Total expeditures"
-msgstr "Celkem reálné výdaje"
+msgstr "مجموع النفقات"
 
 #: tracker/templates/tracker/ticket_detail.html:16
 msgid "edit ticket"
-msgstr "upravit tiket"
+msgstr "تحرير التذكرة"
 
 #: tracker/templates/tracker/ticket_detail.html:18
 msgid "edit in admin"
-msgstr "editovat v administraci"
+msgstr "تحرير في الإدارة"
 
 #: tracker/templates/tracker/ticket_detail.html:20
 msgid "duplicate"
-msgstr "duplikovat"
+msgstr "مكرر"
 
 #: tracker/templates/tracker/ticket_detail.html:28
 #, python-format
 msgid "part of <a href=\"%(c_link)s\">cluster %(c_id)s</a>: total tickets %(total_tickets)s&nbsp;%(cr)s, total transactions %(total_transactions)s&nbsp;%(cr)s"
-msgstr "patří do <a href=\"%(c_link)s\">slepence %(c_id)s</a>: tikety celkem %(total_tickets)s&nbsp;%(cr)s, platby celkem %(total_transactions)s&nbsp;%(cr)s"
+msgstr "جزء من <a href=\"%(c_link)s\">cluster %(c_id)s</a>: إجمالي التذاكر %(total_tickets)s&nbsp;%(cr)s، إجمالي المعاملات %(total_transactions)s&nbsp;%(cr)s"
 
 #: tracker/templates/tracker/ticket_detail.html:38
 msgid "Associated transactions total"
-msgstr "Přiřazené platby celkem"
+msgstr "مجموع المعاملات المرتبطة"
 
 #: tracker/templates/tracker/ticket_detail.html:64
 #: tracker/templates/tracker/ticket_detail.html:68
 #: tracker/templates/tracker/topic_detail.html:43
 #: tracker/templates/tracker/topic_detail.html:46
 msgid "Comments"
-msgstr "Komentáře"
+msgstr "التعليقات"
 
 #: tracker/templates/tracker/ticket_detail.html:69
 #: tracker/templates/tracker/topic_detail.html:47
 msgid "There are no comments yet."
-msgstr "Zatím žádné komentáře."
+msgstr "لا توجد تعليقات حتى الآن."
 
 #: tracker/templates/tracker/ticket_detail.html:76
 #: tracker/templates/tracker/ticket_detail.html:78
 #: tracker/templates/tracker/topic_detail.html:52
 #: tracker/templates/tracker/topic_detail.html:54
 msgid "Add comment"
-msgstr "Přidat komentář"
+msgstr "أضف تعليقا"
 
 #: tracker/templates/tracker/ticket_form.html:11
 msgid "Related files"
-msgstr "Odkazy na soubory"
+msgstr "الملفات ذات الصلة"
 
 #: tracker/templates/tracker/ticket_form.html:11 tracker/views.py:777
 msgid "file"
-msgstr "soubor"
+msgstr "ملف"
 
 #: tracker/templates/tracker/ticket_form.html:15
 msgid "preexpediture"
-msgstr "plánovaný výdaj"
+msgstr "النفقات المسبقة"
 
 #: tracker/templates/tracker/ticket_form.html:20
 msgid "expediture"
-msgstr "reálný výdaj"
+msgstr "النفقات"
 
 #: tracker/templates/tracker/ticket_form.html:24
 msgid "submit"
-msgstr "odeslat"
+msgstr "إرسال"
 
 #: tracker/templates/tracker/ticket_table.html:24
 msgid "Media item list"
-msgstr "Seznam médií"
+msgstr "قائمة عناصر الوسائط"
 
 #: tracker/templates/tracker/ticket_table.html:24
 #: tracker/templates/tracker/user_list.html:14
 msgid "Item count"
-msgstr "Počet položek"
+msgstr "عدد الأصناف"
 
 #: tracker/templates/tracker/ticket_table.html:24
 #: tracker/templates/tracker/user_list.html:14
 msgid "Itm."
-msgstr "Pol."
+msgstr ""
 
 #: tracker/templates/tracker/ticket_table.html:25
 #: tracker/templates/tracker/user_list.html:14
 msgid "File count"
-msgstr "Počet souborů"
+msgstr "عدد الملفات"
 
 #: tracker/templates/tracker/ticket_table.html:25
 #: tracker/templates/tracker/user_list.html:14
 msgid "Fil."
-msgstr "Soub."
+msgstr ""
 
 #: tracker/templates/tracker/ticketack_add.html:7
 #: tracker/templates/tracker/ticketack_confirm_delete.html:7
 msgid "confirmations"
-msgstr "schválení"
+msgstr "تأكيدات"
 
 #: tracker/templates/tracker/ticketack_add.html:21
 #: tracker/templates/tracker/ticketack_confirm_delete.html:16
 msgid "Submit"
-msgstr "Odeslat"
+msgstr "إرسال"
 
 #: tracker/templates/tracker/ticketack_add.html:26
 #: tracker/templates/tracker/ticketack_confirm_delete.html:17
 msgid "back to ticket"
-msgstr "zpět na tiket"
+msgstr "العودة الى التذكرة"
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:11
 msgid "Added"
-msgstr "Přidáno"
+msgstr "تمت إضافته"
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:12
 msgid "Added by"
-msgstr "Přidal"
+msgstr "أُضِيف بواسطة"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:4
 #: tracker/templates/tracker/topic_content_acks_per_user.html:8
 msgid "Topic ack overview"
-msgstr "Přehled schválení"
+msgstr "نظرة عامة على إشعار تأكيد الموضوع"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:12
 msgid "Supervisor"
-msgstr "Schvalovatel"
+msgstr "مشرف"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:15
 msgid "Ack count"
-msgstr "Počet schválení"
+msgstr "عدد  إشعارات التأكيد"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:27
 msgid "download csv"
-msgstr "stáhnout csv"
+msgstr "تنزيل بصيغة csv"
 
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "Topic is open for new tickets"
-msgstr "Téma je otevřené pro nové tikety"
+msgstr "الموضوع مفتوح للتذاكر الجديدة"
 
 #: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrators"
-msgstr "Schvalovatelé tématu"
+msgstr "إداريو الموضوع"
 
 #: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrator"
-msgstr "Schvalovatel tématu"
+msgstr "إداري الموضوع"
 
 #: tracker/templates/tracker/topic_detail.html:38
 msgid "Total for this topic"
-msgstr "Celkem za toto téma"
+msgstr "الإجمالي لهذا الموضوع"
 
 #: tracker/templates/tracker/topic_finance.html:4
 #: tracker/templates/tracker/topic_finance.html:8
 msgid "Topic finance"
-msgstr "Platby dle témat"
+msgstr "تمويل الموضوع"
 
 #: tracker/templates/tracker/topic_finance.html:13
 msgid "Amounts per payment status"
-msgstr "Částky podle stavu platby"
+msgstr "المبالغ لكل حالة دفع"
 
 #: tracker/templates/tracker/topic_finance.html:34
 #, python-format
 msgid "Total %(gname)s"
-msgstr "%(gname)s celkem"
+msgstr "الإجمالي %(gname)s"
 
 #: tracker/templates/tracker/topic_finance.html:44
 msgid "Marked topics involve partial payments that have no clear relation to topic, and have been split equally among possible candidates."
-msgstr "Označená témata mají částečné platby které nemohou být jednoznačně přiřazeny, a proto byly rovnoměrně rozděleny mezi témata kterých se mohou týkat."
+msgstr "تتضمن الموضوعات المعلمة المدفوعات الجزئية التي ليست لها علاقة واضحة بالموضوع، وتم تقسيمها بالتساوي بين المرشحين المحتملين."
 
 #: tracker/templates/tracker/topic_table.html:11
 msgid "Administrators"
-msgstr "Schvalovatelé"
+msgstr "الإداريون"
 
 #: tracker/templates/tracker/transaction_list.html:4
 #: tracker/templates/tracker/transaction_list.html:12
 msgid "Transaction list"
-msgstr "Seznam plateb"
+msgstr "قائمة المعاملات"
 
 #: tracker/templates/tracker/transaction_list.html:7
 msgid "Latest transactions"
-msgstr "Nejnovější platby"
+msgstr "أحدث المعاملات"
 
 #: tracker/templates/tracker/transaction_list.html:22
 #: tracker/templates/tracker/user_detail.html:31
 #: tracker/templates/tracker/user_list.html:13
 msgid "Transactions total"
-msgstr "Platby celkem"
+msgstr "مجموع المعاملات"
 
 #: tracker/templates/tracker/transaction_list.html:24
 msgid "No transactions available."
-msgstr "Nejsou k dispozici žádné platby."
+msgstr "لا توجد معاملات متاحة."
 
 #: tracker/templates/tracker/transaction_list.html:26
 msgid "download as csv"
-msgstr "stáhnout csv"
+msgstr "تنزيل بصيغة csv"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:22
 #: tracker/templates/tracker/upload_ticket_doc.html:26
 msgid "Upload document"
-msgstr "Nahrání dokladu"
+msgstr "رفع المستند"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:25
 msgid "documents"
-msgstr "doklady"
+msgstr "مستندات"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:35
 msgid "upload"
-msgstr "nahrát"
+msgstr "رفع"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:35
 msgid "upload and add another"
-msgstr "nahrát a přidat další"
+msgstr "رفع وإضافة آخر"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:36
 msgid "This document, including its file name and description, will be visible only to the ticket owner and specially privileged users."
-msgstr "Tento doklad, včetně popisu a jména souboru, bude viditelný pouze pro vlastníka tiketu a uživatele se zvláštním oprávněním."
+msgstr "سيكون هذا المستند، بما في ذلك اسم ملفه ووصفه، مرئيا فقط لمالك التذكرة والمستخدمين المميزين بشكل خاص."
 
 #: tracker/templates/tracker/user_deactivate.html:14
 msgid "Deactivating your account will mean that it is no longer possible to login."
-msgstr "Deaktivace vašeho účtu znamená, že se již nebudete moci přihlásit."
+msgstr "سيؤدي إلغاء تنشيط حسابك إلى عدم إمكانية تسجيل الدخول."
 
 #: tracker/templates/tracker/user_deactivate.html:15
 msgid "Deactivation is irreversible without the intervention of an admin."
-msgstr "Deaktivaci účtu nelze vrátit zpět bez správce systému."
+msgstr "التعطيل لا رجعة فيه دون تدخل إداري."
 
 #: tracker/templates/tracker/user_deactivate.html:16
 msgid "You can contact an admin by replying to the email which confirms the deactivation."
-msgstr "Můžete kontaktovat správce tak, že odpovíte na e-mail, který potvrzuje deaktivaci."
+msgstr "يمكنك الاتصال بأحد الإداريين عن طريق الرد على الرسالة الإلكترونية التي تؤكد إلغاء التنشيط."
 
 #: tracker/templates/tracker/user_deactivate.html:18
 msgid "The following account will be deactivated:"
-msgstr "Bude deaktivován následující účet:"
+msgstr "سيتم إلغاء تنشيط الحساب التالي:"
 
 #: tracker/templates/tracker/user_deactivate.html:20
 msgid "Username:"
-msgstr "Uživatelské jméno:"
+msgstr "اسم المستخدم:"
 
 #: tracker/templates/tracker/user_deactivate.html:21
 msgid "Email:"
-msgstr "E-mail:"
+msgstr "البريد الإلكتروني:"
 
 #: tracker/templates/tracker/user_deactivate.html:32
 msgid "Deactivate my account"
-msgstr "Deaktivovat účet"
+msgstr "تعطيل حسابي"
 
 #: tracker/templates/tracker/user_deactivate_email.html:3
 msgid "Tracker account deactivated"
-msgstr "Účet deaktivován"
+msgstr "تم تعطيل حساب المقتفي"
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "Your tracker account with username "
-msgstr "Váš Tracker účet s uživatelským jménem "
+msgstr "حساب المتعقب الخاص بك مع اسم المستخدم /"
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "has been deactivated."
-msgstr "byl deaktivován."
+msgstr "تم تعطيله."
 
 #: tracker/templates/tracker/user_deactivate_email.html:6
 msgid "Deactivation cannot be undone without the intervention of an admin."
-msgstr "Deaktivaci účtu nelze vrátit zpět bez správce systému."
+msgstr "لا يمكن التراجع عن التعطيل دون تدخل إداري."
 
 #: tracker/templates/tracker/user_deactivate_email.html:7
 msgid "You can contact an admin by replying to this email."
-msgstr "Správce můžete kontaktovat odpovězením na tento mail."
+msgstr "يمكنك الاتصال بأحد الإداريين عن طريق الرد على هذه الرسالة الإلكترونية."
 
 #: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
-msgstr "Tracker"
+msgstr "المقتفي"
 
 #: tracker/templates/tracker/user_detail.html:13
 msgid "Total for this user"
-msgstr "Celkem tento uživatel"
+msgstr "الإجمالي لهذا المستخدم"
 
 #: tracker/templates/tracker/user_detail.html:32
 msgid "Accepted expeditures total"
-msgstr "Schválené reálné výdaje celkem"
+msgstr "مجموع المصروفات المقبولة"
 
 #: tracker/templates/tracker/user_details_change.html:4
 #: tracker/templates/tracker/user_details_change.html:9
 msgid "My details"
-msgstr "Moje údaje"
+msgstr "تفاصيلي"
 
 #: tracker/templates/tracker/user_details_change.html:19
 #: users/templates/users/register.html:16
 msgid "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them."
-msgstr "Používáním Trackeru souhlasíte se zpracováním vašich osobních údajů, které používáme ke správnému zpracování vašich plateb a vedení účetnictví v našem spolku. Udání e-mailu je povinné; můžete být požádáni o vyplnění i dalších údajů. Data nejsou předávána třetím stranám a mají k nim přístup pouze pověření zástupci spolku."
+msgstr "باستخدام المتعقب، توافق على معالجة البيانات، نحن نستخدم بياناتك لعرض جميع المدفوعات بشكل صحيح ولمحاسبتنا، يجب أن تعطينا عنوان بريدك الإلكتروني، قد يُطلَب منك تقديم تفاصيل إضافية لنا، لا يتم إعطاء البيانات إلى أطراف ثالثة ولا يُسمَح إلا للموظفين المصرح لهم بالدخول إليها."
 
 #: tracker/templates/tracker/user_list.html:23
 msgid "Tickets not assigned to any tracker user"
-msgstr "Tikety nepřiřazené žádnému uživateli trackeru"
+msgstr "التذاكر غير مخصصة لأي مستخدم متتبع"
 
 #: tracker/templates/tracker/user_list.html:23
 msgid "unassigned"
-msgstr "neurčen"
+msgstr "غير معين"
 
 #: tracker/templates/tracker/watch.html:4
 #: tracker/templates/tracker/watch.html:11
 msgid "Watch"
-msgstr "Sledovat"
+msgstr "راقب"
 
 #: tracker/templates/tracker/watch.html:19
 msgid "All"
-msgstr "Všechny"
+msgstr "الكل"
 
 #: tracker/views.py:89
 msgid "Comment posted, thank you."
-msgstr "Komentář přidán, děkujeme."
+msgstr "تم نشر التعليق، شكرا لك."
 
 #: tracker/views.py:136
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
-msgstr "Schválení \"%(confirmation)s\" přidáno k tiketu %(ticket_id)s"
+msgstr "تمت إضافة تأكيد التذكرة %(ticket_id)s \"%(confirmation)s\" ."
 
 #: tracker/views.py:172
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been deleted."
-msgstr "Schválení \"%(confirmation)s\" smazáno z tiketu %(ticket_id)s"
+msgstr "تم حذف تأكيد التذكرة٪ %(ticket_id)s \"%(confirmation)s\"."
 
 #: tracker/views.py:276
 msgid "Your deposit is bigger than your preexpeditures"
-msgstr "Vámi požadovaná záloha je vyšší než vámi zadané plánované výdaje"
+msgstr "وديعتك أكبر من نفقاتك السابقة"
 
 #: tracker/views.py:293
 msgid "You are required to do statutory declaration"
-msgstr "Vyžaduje se po vás učinit čestné prohlášení"
+msgstr "مطلوب منك القيام بالإعلان القانوني"
 
 #: tracker/views.py:309
 msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."
-msgstr "Podtéma musí souhlasit s tématem, které jste vybral. Nejspíše máte vypnutý JavaScript."
+msgstr "يجب أن ينتمي الموضوع الفرعي إلى الموضوع الذي استخدمته، ربما لديك جافا سكريبت متوقفة."
 
 #: tracker/views.py:416
 msgid "We've updated your preferences"
-msgstr "Aktualizovali jsme vaše nastavení"
+msgstr "لقد قمنا بتحديث تفضيلاتك"
 
 #: tracker/views.py:464
 msgid "Please enter your password to confirm the deactivation of your account."
-msgstr "Pro potvrzení deaktivace účtu zadejte prosím své heslo"
+msgstr "يُرجَى إدخال كلمة مرورك لتأكيد إلغاء تنشيط حسابك."
 
 #: tracker/views.py:479
 msgid "Account deactivation"
-msgstr "Deaktivace účtu"
+msgstr "تعطيل الحساب"
 
 #: tracker/views.py:486
 msgid "Your account has been deactivated."
-msgstr "Váš účet byl deaktivován"
+msgstr "تم تعطيل حسابك."
 
 #: tracker/views.py:489
 msgid "Password is incorrect."
-msgstr "Heslo je nesprávné"
+msgstr "كلمة المرور غير صحيحة."
 
 #: tracker/views.py:521
 #, python-format
 msgid "Ticket's %s watching settings are changed."
-msgstr "Události sledované u tiketu %s byly změněny."
+msgstr "تم تغيير إعدادات مراقبة التذكرة %s."
 
 #: tracker/views.py:570
 #, python-format
 msgid "Topic's %s watching settings are changed."
-msgstr "Události sledované u tématu %s byly změněny."
+msgstr "تم تغيير إعدادات مراقبة الموضوع %s."
 
 #: tracker/views.py:600
 #, python-format
 msgid "%s's watching settings are changed."
-msgstr "Nastavení sledování u %s byly změněny."
+msgstr "تم تغيير إعدادات مراقبة %s."
 
 #: tracker/views.py:654
 #, python-format
 msgid "Ticket %s is created"
-msgstr "Vytvořen tiket %s."
+msgstr "تم إنشاء التذكرة %s"
 
 #: tracker/views.py:744
 #, python-format
 msgid "Ticket %s saved."
-msgstr "Tiket %s uložen."
+msgstr "تم حفظ التذكرة %s."
 
 #: tracker/views.py:827
 #, python-format
 msgid "Document changes for ticket %s saved."
-msgstr "Změny dokladů pro tiket %s uloženy."
+msgstr "تم حفظ تغييرات وثيقة التذكرة %s."
 
 #: tracker/views.py:854
 #, python-format
 msgid "File %(filename)s has been saved."
-msgstr "Soubor %(filename)s uložen."
+msgstr "تم حفظ الملف %(filename)s."
 
 #: tracker/views.py:1042
 msgid "Your details have been saved."
-msgstr "Vaše údaje byly uloženy"
+msgstr "تم حفظ تفاصيلك."
 
 #: tracker/views.py:1488
 msgid "You must fill the form validly"
-msgstr "Musíte formulář vyplnit validně"
+msgstr "يجب عليك ملء النموذج بشكل صحيح"
 
 #: tracker/views.py:1507
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
-msgstr "Nemáte právo importovat více než %(input_row_limit)s řádků. Prvních %(input_row_limit)s  z nich bylo již naimportováno. "
+msgstr "ليست لديك صلاحية لاستيراد أكثر من %(input_row_limit)s من الصفوف; تم بالفعل استيراد أول %(input_row_limit)s من الصفوف."
 
 #: tracker/views.py:1652
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do. "
-msgstr ""
+msgstr "قام النموذج بإرجاع قيم غريبة; يُرجَى الاتصال بإداري النظام وقل له ما حاولت القيام به. "
 
 #: tracker/views.py:1654
 msgid "Your CSV file was imported. "
-msgstr "Váš CSV soubor byl importován"
+msgstr "تم استيراد ملف CSV الخاص بك. "
 
 #: tracker/views.py:1662
 msgid "Name of a ticket"
-msgstr "Jméno tiketu"
+msgstr "اسم التذكرة"
 
 #: tracker/views.py:1662 tracker/views.py:1667
 msgid "Name of a topic"
-msgstr "Jméno tématu"
+msgstr "اسم الموضوع"
 
 #: tracker/views.py:1667
 msgid "Name of a grant"
-msgstr ""
+msgstr "اسم المنحة"
 
 #: tracker/views.py:1667
 msgid "Form description"
-msgstr "popis formuláře"
+msgstr "وصف النموذج"
 
 #: tracker/views.py:1672
 msgid "Full name"
-msgstr "dlouhý název"
+msgstr "الاسم الكامل"
 
 #: tracker/views.py:1672
 msgid "Short name"
-msgstr "krátký název"
+msgstr "اسم قصير"
 
 #: tracker/views.py:1672
 msgid "Slug"
-msgstr ""
+msgstr "بزاق"
 
 #: tracker/views.py:1695
 msgid "Password"
-msgstr "Heslo"
+msgstr "كلمة السر"
 
 #: tracker/views.py:1717
 msgid "Preexpeditures were succesfully copied to expeditures."
-msgstr ""
+msgstr "تم بنجاح نسخ النفقات المسبقة إلى النفقات"
 
 #: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
-msgstr "Původní heslo"
+msgstr "كلمة المرور القديمة"
 
 #: users/templates/users/login.html:4
 msgid "Login"
-msgstr "Přihlášení"
+msgstr "تسجيل الدخول"
 
 #: users/templates/users/login.html:7
 msgid "You need to log in to access the following page."
-msgstr "Pro přístup k následující stránce je vyžadováno přihlášení."
+msgstr "تحتاج إلى تسجيل الدخول للوصول إلى الصفحة التالية."
 
 #: users/templates/users/login.html:10
 msgid "Your username and password didn't match. Please try again."
-msgstr "Přihlašovací údaje nesouhlasí. Zkuste to znovu, prosím."
+msgstr "اسم المستخدم وكلمة المرور غير متطابقين; حاول مرة اخرى."
 
 #: users/templates/users/login.html:26
 msgid "Don't have an acount?"
-msgstr "Nemáte účet?"
+msgstr "ليس لديك حساب؟"
 
 #: users/templates/users/login.html:26 users/templates/users/register.html:6
 msgid "Register"
-msgstr "Zaregistrovat"
+msgstr "تسجيل"
 
 #: users/templates/users/login.html:27
 msgid "Forgot password?"
-msgstr "Zapomněli jste heslo?"
+msgstr "هل نسيت كلمة المرور؟"
 
 #: users/templates/users/login.html:27
 msgid "Reset password"
-msgstr "Obnovit heslo"
+msgstr "إعادة تعيين كلمة المرور"
 
 #: users/templates/users/login.html:28
 msgid "Login with Meta Wiki"
-msgstr "Přihlásit se pomocí Meta Wiki"
+msgstr "تسجيل الدخول باستخدام ميتا ويكي"
 
 #: users/templates/users/logout.html:4
 msgid "Logged out"
-msgstr "Odhlášeno"
+msgstr "تم تسجيل الخروج"
 
 #: users/templates/users/logout.html:7
 msgid "Bye!"
-msgstr "Nashledanou!"
+msgstr "وداعا!"
 
 #: users/templates/users/logout.html:8
 msgid "Go to index."
-msgstr "Přejít na hlavní stránku."
+msgstr "الذهاب إلى الفهرس."
 
 #: users/templates/users/password_change.html:5
 #: users/templates/users/password_change.html:16 users/views.py:66
 msgid "Password change"
-msgstr "Změna hesla"
+msgstr "تغيير كلمة السر"
 
 #: users/templates/users/password_change.html:12
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
-msgstr[0] "Prosím opravte chybu níže."
-msgstr[1] "Prosím opravte chyby níže."
+msgstr[0] "الرجاء تصحيح الخطأ أدناه."
+msgstr[1] "الرجاء تصحيح الأخطاء أدناه."
 msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 #: users/templates/users/password_change.html:19
 msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
-msgstr "Prosím zadejte pro kontrolu své původní heslo, a potom dvakrát nové heslo (abychom mohli vyloučit překlepy)."
+msgstr "الرجاء إدخال كلمة المرور القديمة; من أجل الأمان، ثم أدخل كلمة المرور الجديدة مرتين حتى نتمكن من التحقق من أنك قمت بكتابتها بشكل صحيح."
 
 #: users/templates/users/password_change.html:21
 #: users/templates/users/password_reset_confirm.html:12
 msgid "Please enter your new password twice so we can verify you typed it in correctly."
-msgstr "Prosím zadejte nové heslo dvakrát pro kontrolu překlepů."
+msgstr "يُرجَى إدخال كلمة المرور الجديدة مرتين حتى نتمكن من التحقق من كتابتك لها بشكل صحيح."
 
 #: users/templates/users/password_change.html:33
 msgid "New password"
-msgstr "Nové heslo"
+msgstr "كلمة السر الجديدة"
 
 #: users/templates/users/password_change.html:38
 msgid "Password (again)"
-msgstr "Heslo (znovu)"
+msgstr "أدخل كلمة السر مرة أخرى)"
 
 #: users/templates/users/password_change.html:42
 #: users/templates/users/password_reset_confirm.html:19
 msgid "Change my password"
-msgstr "Změnit heslo"
+msgstr "تغيير كلمة مروري"
 
 #: users/templates/users/password_change_done.html:4
 #: users/templates/users/password_change_done.html:7
 msgid "Password change successful"
-msgstr "Změna hesla proběhla úspěšně"
+msgstr "تم تغيير كلمة المرور بنجاح"
 
 #: users/templates/users/password_change_done.html:8
 msgid "Your password was changed."
-msgstr "Vaše heslo bylo změněno"
+msgstr "تم تغيير كلمة مرورك بنجاح"
 
 #: users/templates/users/password_reset.html:4
 #: users/templates/users/password_reset.html:8
 #: users/templates/users/password_reset_confirm.html:4
 msgid "Password reset"
-msgstr "Obnovení hesla"
+msgstr "إعادة ضبط كلمة السر"
 
 #: users/templates/users/password_reset.html:10
 msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
-msgstr "Zapomněli jste heslo? Zadejte svoji e-mailovou adresu, pošleme vám instrukce pro jeho obnovení."
+msgstr "هل نسيت كلمة المرور؟ أدخل عنوان بريدك الإلكتروني أدناه، وسنرسل إليك تعليمات بالبريد الإلكتروني لإعداد واحدة جديدة."
 
 #: users/templates/users/password_reset.html:14
 msgid "E-mail address:"
-msgstr "E-mailová adresa:"
+msgstr "عنوان البريد الإلكتروني:"
 
 #: users/templates/users/password_reset.html:14
 msgid "Reset my password"
-msgstr "Obnovit heslo"
+msgstr "إعادة تعيين كلمة مروري"
 
 #: users/templates/users/password_reset_complete.html:4
 #: users/templates/users/password_reset_complete.html:8
 msgid "Password reset complete"
-msgstr "Obnova hesla dokončena"
+msgstr "اكتملت إعادة ضبط كلمة المرور"
 
 #: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
-msgstr "Vaše nové heslo bylo nastaveno. Nyní se můžete přihlásit."
+msgstr "تم تعيين كلمة مرورك، بإمكانك الآن الاستمرار وتسجيل الدخول."
 
 #: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
-msgstr "Přihlášení"
+msgstr "تسجيل الدخول"
 
 #: users/templates/users/password_reset_confirm.html:10
 msgid "Enter new password"
-msgstr "Zadejte nové heslo"
+msgstr "أدخل كلمة المرور الجديدة"
 
 #: users/templates/users/password_reset_confirm.html:16
 msgid "New password:"
-msgstr "Nové heslo:"
+msgstr "كلمة السر الجديدة:"
 
 #: users/templates/users/password_reset_confirm.html:18
 msgid "Confirm password:"
-msgstr "Kontrola hesla:"
+msgstr "تأكيد كلمة المرور:"
 
 #: users/templates/users/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
-msgstr "Obnovení hesla neuspělo"
+msgstr "إعادة ضبط كلمة المرور غير ناجحة"
 
 #: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
-msgstr "Odkaz na reset hesla je neplatný, nejspíš proto že už byl jednou použit. Prosím požádejte si o obnovu hesla znovu."
+msgstr "كان رابط إعادة تعيين كلمة المرور غير صالح; ربما لأنه تم استخدامه بالفعل; يرجى طلب إعادة تعيين كلمة مرور جديدة."
 
 #: users/templates/users/password_reset_done.html:4
 #: users/templates/users/password_reset_done.html:8
 msgid "Password reset successful"
-msgstr "Obnovení hesla bylo úspěšné"
+msgstr "تمت إعادة ضبط كلمة المرور بنجاح"
 
 #: users/templates/users/password_reset_done.html:10
 msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
-msgstr "Na zadanou e-mailovou adresu jsme poslali pokyny pro nastavení hesla. Za chvíli by měly dorazit."
+msgstr "لقد أرسلنا إليك تعليمات عبر البريد الإلكتروني لتعيين كلمة مرورك على عنوان البريد الإلكتروني الذي أرسلته، يجب أن تستلمها بعد قليل."
 
 #: users/templates/users/password_reset_email.html:2
 #, python-format
 msgid "You're receiving this e-mail because you requested a password reset for your user account at %(site_name)s."
-msgstr "Obdrželi jste tento e-mail, protože byl vyžádán reset hesla pro vaše uživatelské jméno na %(site_name)s."
+msgstr "أنت تتلقى رسالة البريد الإلكتروني هذه لأنك طلبت إعادة تعيين كلمة المرور لحساب المستخدم الخاص بك على %(site_name)s"
 
 #: users/templates/users/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr "Přejděte na následující stránku a zadejte nové heslo:"
+msgstr "يُرجَى الانتقال إلى الصفحة التالية واختيار كلمة مرور جديدة:"
 
 #: users/templates/users/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
-msgstr "Pro jistotu vaše uživatelské jméno:"
+msgstr "اسم المستخدم الخاص بك، في حالة النسيان:"
 
 #: users/templates/users/password_reset_email.html:10
 msgid "Thanks for using our site!"
-msgstr "Děkujeme za používání našeho webu!"
+msgstr "شكرا لاستخدام موقعنا!"
 
 #: users/templates/users/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
-msgstr "Tým aplikace %(site_name)s"
+msgstr "فريق %(site_name)s"
 
 #: users/views.py:21
 msgid "Will be used for password recovery and notifications, if you enable them."
-msgstr "Bude použit pro obnovení hesla a e-mailová upozornění, pokud si je zapnete."
+msgstr "سيتم استخدامه لاستعادة كلمة المرور والإشعارات، إذا قمت بتمكينها."
 
 #: users/views.py:36
 #, python-format
 msgid "User %s created."
-msgstr "Vytvořen uživatel %s."
+msgstr "تم إنشاء المستخدم %s."
 
