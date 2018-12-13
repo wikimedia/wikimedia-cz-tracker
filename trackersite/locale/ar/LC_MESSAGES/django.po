@@ -109,7 +109,7 @@ msgstr "لم يتم العثور عليه"
 #: templates/404.html:10
 #, python-format
 msgid "The requested URL %(request_path)s was not found on this server."
-msgstr "لم يتم العثور على المسار المطلوب %(request_path) على هذا الخادم."
+msgstr "لم يتم العثور على المسار المطلوب %(request_path)s على هذا الخادم."
 
 #: templates/500.html:3 templates/500.html.py:7
 msgid "Internal Error"
@@ -374,7 +374,7 @@ msgstr "تم التحديث"
 
 #: tracker/models.py:220
 msgid "event date"
-msgstr "\nتاريخ الحدث"
+msgstr "تاريخ الحدث"
 
 #: tracker/models.py:220
 msgid "Date of the event this ticket is about"
@@ -1029,7 +1029,7 @@ msgstr "قام المستخدم er <tt>%(user)s</tt> بتغيير النفقات
 #: tracker/models.py:1278
 #, python-format
 msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "أزال المستخدم <tt>%(user)s</tt> النفقات المخطط لها <tt>%(expeditures)s</tt> من التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+msgstr "أزال المستخدم <tt>%(user)s</tt> النفقات المخطط لها <tt>%(expediture)s</tt> من التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
 #: tracker/models.py:1296
 #, python-format

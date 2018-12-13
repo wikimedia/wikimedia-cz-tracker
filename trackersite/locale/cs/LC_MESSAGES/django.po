@@ -1035,7 +1035,7 @@ msgstr "Uživatel %(user)s změnil plánovaný výdaj <tt>%(expeditures)s</tt> t
 #: tracker/models.py:1278
 #, python-format
 msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "Uživatel %(usr)s odstranil plánovaný výdaj <tt>%(expediture)s</tt> tiketu <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "Uživatel %(user)s odstranil plánovaný výdaj <tt>%(expediture)s</tt> tiketu <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1296
 #, python-format
