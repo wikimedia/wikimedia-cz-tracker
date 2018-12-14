@@ -1,6 +1,7 @@
 {
 	function dataTablesInit() {
-		if ( document.querySelector( '#disabledatatables' ) && document.querySelector( '#disabledatatables' ).textContent.length === 0 ) {
+		const disabledatatables = document.querySelector( '#disabledatatables' );
+		if ( disabledatatables === null || disabledatatables.textContent.length === 0 ) {
 			const LANGUAGE = document.querySelector( 'meta[http-equiv="Content-Language"]' ).getAttribute( 'content' );
 
 			fetch( '/api/tracker/languages/', { headers: { Accept: 'application/json' } } ).then( response => response.json() )
