@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load i18n widget_tweaks %}
 
+{% block title %}{% trans "Add statutory declaration to" %}: {{ticket}}{% endblock title %}
+
 {% block content %}
 <h1>{% trans "Add statutory declaration to" %}: {{ticket}}</h1>
 <p>{{ declaration }}</p>
