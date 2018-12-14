@@ -24,7 +24,7 @@
     <tbody>
         {% for item in user_obj.transaction_set.all %}
         <tr><td>{{item.date}}</td><td>{{item.description}}</td><td class="money">{{item.amount|money}}</td>
-        <td>{% for ticket in item.tickets_by_id %}<a href="{{ticket.get_absolute_url}}" title="{{ticket.summary}} ({{ticket.sort_date}})">{{ticket.id}}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+        <td>{% for ticket in item.tickets_by_id %}<a href="{{ticket.get_absolute_url}}" title="{{ticket.name}} ({{ticket.sort_date}})">{{ticket.id}}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</td>
         <td>{{item.accounting_info}}</td></tr>{% endfor %}
     </tbody>
     <tfoot>
