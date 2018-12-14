@@ -816,7 +816,7 @@ class Preexpediture(Model):
 
 # introductory chunk for the template
 _('uploader')  # FIXME: Workaround to make Django know "uploader" as localizable string
-DOCUMENT_INTRO_TEMPLATE = template.Template('{% load i18n %}<a href="{% url "download_document" doc.ticket.id doc.filename %}">{{doc.filename}}</a>, {% trans "uploader" %}: {{doc.uploader}}{% if detail and doc.description %}: {{doc.description}}{% endif %} <small>({{doc.content_type}}; {{doc.size|filesizeformat}})</small>')
+DOCUMENT_INTRO_TEMPLATE = template.Template('{% load i18n %}<a href="{% url "download_document" doc.ticket.id doc.filename %}">{{doc.filename}}</a> {% if detail and doc.description %}: {{doc.description}}; {% endif %}{% if doc.uploader %}{% trans "uploader" %}: {{doc.uploader}}{% endif %} <small>({{doc.content_type}}; {{doc.size|filesizeformat}})</small>')
 
 
 class Document(Model):
