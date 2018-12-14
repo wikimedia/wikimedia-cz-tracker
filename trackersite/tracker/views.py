@@ -803,7 +803,7 @@ class UploadDocumentForm(forms.Form):
     description = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'size': '60'}), label=_('description'))
 
 
-DOCUMENT_FIELDS = ('filename', 'description', 'uploader')
+DOCUMENT_FIELDS = ('filename', 'description')
 
 
 def document_formfield(f, **kwargs):
