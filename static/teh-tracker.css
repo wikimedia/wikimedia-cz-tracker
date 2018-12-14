@@ -202,7 +202,7 @@ span.helptext {
 	font-size: smaller;
 }
 
-.field_topic {
+.field-topic {
 	margin-bottom: 0;
 }
 
@@ -366,7 +366,7 @@ input[ type='checkbox' ] {
 	max-height: 20px;
 }
 
-td.field_wage input.form-control[ type='checkbox' ] {
+td.field-wage input.form-control[ type='checkbox' ] {
 	margin: 12.5px;
 }
 

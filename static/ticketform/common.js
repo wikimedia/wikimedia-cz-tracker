@@ -1,6 +1,6 @@
 {
 	function statutoryDeclaration() {
-		const fieldStatuatoryDeclaration = document.querySelector( '.field_statutory_declaration' ),
+		const fieldStatuatoryDeclaration = document.querySelector( '.field-statutory_declaration' ),
 			idCarTravel = document.querySelector( '#id_car_travel' );
 		fieldStatuatoryDeclaration.hidden = !idCarTravel.checked;
 	}
@@ -24,7 +24,7 @@
 	}
 
 	document.addEventListener( 'DOMContentLoaded', () => {
-		document.querySelector( '.field_car_travel' ).addEventListener( 'change', statutoryDeclaration );
+		document.querySelector( '.field-car_travel' ).addEventListener( 'change', statutoryDeclaration );
 		statutoryDeclaration();
 	} );
 }

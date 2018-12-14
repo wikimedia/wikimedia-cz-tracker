@@ -14,7 +14,7 @@
 			mediaInfoGroup = document.querySelector( '#mediainfo-group' ),
 			expeditureGroup = document.querySelector( '#expediture-group' ),
 			preexpeditureGroup = document.querySelector( '#preexpediture-group' ),
-			fieldCarTravel = document.querySelector( '.field_car_travel' );
+			fieldCarTravel = document.querySelector( '.field-car_travel' );
 
 		function refreshDescription() {
 			const topicId = idTopic.value,
