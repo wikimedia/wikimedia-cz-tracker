@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-15 16:52+0100\n"
+"POT-Creation-Date: 2018-12-15 22:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2251,7 +2251,7 @@ msgid "Tracker account deactivated"
 msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
-msgid "Your tracker account with username "
+msgid "Your tracker account with username"
 msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
