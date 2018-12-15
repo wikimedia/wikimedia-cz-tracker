@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; <a href="{% url "user_details_change" %}">{% trans "change my details" %}</a></p>
+<p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; <a href="{{object.get_absolute_url}}">{{object}}</a></p>
 
 <h1>
     {% trans "Watch" %} {{objecttype}}: {{object}}
