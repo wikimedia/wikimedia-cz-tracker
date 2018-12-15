@@ -10,7 +10,7 @@ def statutory_declarations_to_extra_object(apps, schema_editor):
     Signature = apps.get_model('tracker', 'Signature')
 
     for t in Ticket.objects.all():
-        if t.requested_user is not None:
+        if t.requested_user is not None and t.statutory_declaration:
             Signature.objects.create(signed_ticket=t, signed_text=settings.STATUTORY_DECLARATION_TEXT, user=t.requested_user, created=t.statutory_declaration_date)
 
 def statutory_declarations_to_ticket(apps, schema_editor):
