@@ -42,6 +42,15 @@ def add_ack(modeladmin, request, queryset):
 add_ack.short_description = _('Add ack')
 
 
+class SignatureAdmin(admin.TabularInline):
+    model = models.Signature
+    fields = ('created', 'user', 'signed_text')
+    readonly_fields = fields
+
+    def has_add_permission(self, request):
+        return False
+
+
 class TicketAdmin(admin.ModelAdmin):
     def queryset(self, request):
         qs = super(TicketAdmin, self).queryset(request)
@@ -69,7 +78,7 @@ class TicketAdmin(admin.ModelAdmin):
     list_filter = ('topic', 'subtopic', 'payment_status')
     date_hierarchy = 'event_date'
     search_fields = ['id', 'requested_user__username', 'requested_text', 'name']
-    inlines = [MediaInfoAdmin, PreexpeditureAdmin, ExpeditureAdmin]
+    inlines = [SignatureAdmin, MediaInfoAdmin, PreexpeditureAdmin, ExpeditureAdmin]
     action_form = AddAckActionForm
     actions = (add_ack, )
 
