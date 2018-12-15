@@ -39,6 +39,14 @@ class UserViewSet(viewsets.ModelViewSet):
         else:
             return User.objects.filter(is_active=True)
 
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+
+        if pk == "me" and self.request.user.is_authenticated():
+            return self.request.user
+
+        return super(UserViewSet, self).get_object()
+
     def get_serializer_class(self):
         if self.request.user and self.request.user.is_staff:
             return UserSerializerAdmin
@@ -57,6 +65,14 @@ class TrackerProfileViewSet(viewsets.ModelViewSet):
             return TrackerProfile.objects.all()
         else:
             return TrackerProfile.objects.filter(user=self.request.user)
+
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+
+        if pk == "me" and self.request.user.is_authenticated():
+            return self.request.user.trackerprofile
+
+        return super(TrackerProfileViewSet, self).get_object()
 
 
 class PermissionViewSet(viewsets.ModelViewSet):
