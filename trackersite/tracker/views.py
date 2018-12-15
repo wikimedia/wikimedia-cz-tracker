@@ -697,8 +697,10 @@ class SignTicketForm(forms.Form):
 @login_required
 def sign_ticket(request, pk):
     ticket = get_object_or_404(Ticket, id=pk)
-    if not ticket.topic.ticket_statutory_declaration:
+    if not ticket.topic.ticket_statutory_declaration or not ticket.car_travel:
         raise PermissionDenied(_('You cannot add statutory declaration to a ticket that does not support it.'))
+    elif request.user == ticket.requested_user:
+        raise PermissionDenied(_('You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this.'))
 
     if request.method == 'POST':
         form = SignTicketForm(request.POST)
