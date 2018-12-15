@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-15 00:34+0100\n"
+"POT-Creation-Date: 2018-12-15 16:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,7 +198,7 @@ msgstr ""
 msgid "You are not in production."
 msgstr ""
 
-#: templates/choose_language.html:4 templates/choose_language.html.py:7
+#: templates/choose_language.html:5 templates/choose_language.html.py:8
 msgid "Change language"
 msgstr ""
 
@@ -551,6 +551,7 @@ msgid "complete"
 msgstr ""
 
 #: tracker/models.py:339 tracker/templates/tracker/export.html:46
+#: tracker/templates/tracker/export.html:47
 msgid "waiting for filing of documents"
 msgstr ""
 
@@ -561,10 +562,12 @@ msgstr ""
 
 #: tracker/models.py:344 tracker/models.py:351
 #: tracker/templates/tracker/export.html:40
+#: tracker/templates/tracker/export.html:41
 msgid "waiting for approval"
 msgstr ""
 
 #: tracker/models.py:346 tracker/templates/tracker/export.html:37
+#: tracker/templates/tracker/export.html:38
 msgid "waiting for submitting"
 msgstr ""
 
@@ -1501,19 +1504,7 @@ msgstr ""
 #: tracker/templates/tracker/export.html:18
 msgid ""
 "Only filters with at least one checked checkbox are applied. You can either "
-"check all checkboxes or none of them, it's the same. "
-msgstr ""
-
-#: tracker/templates/tracker/export.html:38
-msgid "waiting for submitting "
-msgstr ""
-
-#: tracker/templates/tracker/export.html:41
-msgid "waiting for approval "
-msgstr ""
-
-#: tracker/templates/tracker/export.html:47
-msgid "waiting for filing of documents "
+"check all checkboxes or none of them, it's the same."
 msgstr ""
 
 #: tracker/templates/tracker/export.html:59
@@ -2442,11 +2433,11 @@ msgstr ""
 #: tracker/views.py:1688
 msgid ""
 "The form has returned strange values. Please contact the systemadmin and "
-"tell him what you tried to do. "
+"tell him what you tried to do."
 msgstr ""
 
 #: tracker/views.py:1690
-msgid "Your CSV file was imported. "
+msgid "Your CSV file was imported."
 msgstr ""
 
 #: tracker/views.py:1698
