@@ -7,14 +7,43 @@ from django.db.utils import IntegrityError, DataError
 from tracker.models import Grant, Topic, Subtopic, Ticket
 
 USERNAME_PREFIX = "ExampleUser_"
+USER_PASSWORD = "ExamplePassword"
+
+ADMINNAME_PREFIX = "AdminUser_"
+ADMIN_PASSWORD = USER_PASSWORD
 
 
 class Command(BaseCommand):
     help = 'Add example data to database.'
 
-    def generate_and_add_users(self, amount=4):
+    def _create_user(self, name_prefix, name_suffix, password):
         first_names = ["John", "Emilia", "Lisa", "Nathan", "Bob", "Lucas"]
         last_names = ["Smith", "Johnson", "Williams", "Jones", "Garcia", "Miller"]
+
+        return User.objects.create_user(
+            name_prefix + str(name_suffix),
+            email="{}{}@notreal.example".format(name_prefix, name_suffix),
+            password=password,
+            first_name=choice(first_names),
+            last_name=choice(last_names)
+        )
+
+    def generate_and_add_admins(self, amount=4):
+        try:
+            last_example_admin = User.objects.filter(username__startswith=ADMINNAME_PREFIX).order_by('pk').reverse()[0]
+        except IndexError:
+            # no example admins
+            start_num = 1
+        else:
+            start_num = int(last_example_admin.username[-1]) + 1
+        for n in range(start_num, start_num + amount):
+            try:
+                self._create_user(ADMINNAME_PREFIX, n, ADMIN_PASSWORD)
+            except IntegrityError:
+                # Admin already exists.
+                pass
+
+    def generate_and_add_users(self, amount=4):
         try:
             last_example_user = User.objects.filter(username__startswith=USERNAME_PREFIX).order_by('pk').reverse()[0]
         except IndexError:
@@ -24,13 +53,7 @@ class Command(BaseCommand):
             start_num = int(last_example_user.username[-1]) + 1
         for n in range(start_num, start_num + amount):
             try:
-                User.objects.create_user(
-                    USERNAME_PREFIX + str(n),
-                    email="user{}@notreal.example".format(n),
-                    password="ExamplePassword",
-                    first_name=choice(first_names),
-                    last_name=choice(last_names)
-                )
+                self._create_user(USERNAME_PREFIX, n, USER_PASSWORD)
             except IntegrityError:
                 # User already exists.
                 pass
@@ -51,8 +74,9 @@ class Command(BaseCommand):
     def generate_and_add_topics(self, amount=12):
         grant_objects = Grant.objects.all()
         topic_query_list = []
+        admins = User.objects.filter(username__startswith=ADMINNAME_PREFIX)
         for n in range(1, amount + 1):
-            topic_query_list.append(Topic(
+            topic = Topic(
                 name="Topic number {}".format(n),
                 # This should be fine for selecting grants,
                 # since the DB is small if/when you run this command
@@ -67,7 +91,13 @@ class Command(BaseCommand):
                 ticket_media=True,
                 ticket_expenses=True,
                 ticket_preexpenses=True,
-            ))
+            )
+            if admins.exists():
+                topic.save()
+                topic.admin.add(choice(admins))
+            else:
+                topic_query_list.append(topic)
+
         Topic.objects.bulk_create(topic_query_list)
 
     def generate_and_add_subtopics(self, amount=20):
@@ -129,6 +159,7 @@ class Command(BaseCommand):
         Ticket.objects.bulk_create(ticket_query_list)
 
     def add_arguments(self, parser):
+        parser.add_argument('--admins', dest='amount_admins', default=4, help='Amount of admins to be generated.')
         parser.add_argument('--users', dest='amount_users', default=4, help='Amount of users to be generated.')
         parser.add_argument('--grants', dest='amount_grants', default=4, help='Amount of grants to be generated.')
         parser.add_argument('--topics', dest='amount_topics', default=12, help='Amount of topics to be generated.')
@@ -147,7 +178,7 @@ class Command(BaseCommand):
                                   ' types.'))
 
     def handle(self, **options):
-        to_be_generated = ["users", "grants", "topics", "subtopics", "tickets"]
+        to_be_generated = ["admins", "users", "grants", "topics", "subtopics", "tickets"]
 
         if options["only_generate"]:
             to_be_generated = options["only_generate"].split(",")
@@ -156,7 +187,8 @@ class Command(BaseCommand):
             for item in options["do_not_generate"].split(","):
                 to_be_generated.remove(item)
 
-        # Maybe check for errors in here, and raise a custom error so developers know what they missed?
+        if "admins" in to_be_generated:
+            self.generate_and_add_admins(int(options["amount_admins"]))
         if "users" in to_be_generated:
             self.generate_and_add_users(int(options["amount_users"]))
         if "grants" in to_be_generated:
