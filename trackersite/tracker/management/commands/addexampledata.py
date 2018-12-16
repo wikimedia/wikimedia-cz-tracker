@@ -1,5 +1,6 @@
 from datetime import datetime
 from random import choice, randint
+from re import search
 from pytz import UTC
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
@@ -35,7 +36,7 @@ class Command(BaseCommand):
             # no example admins
             start_num = 1
         else:
-            start_num = int(last_example_admin.username[-1]) + 1
+            start_num = int(search(r'(\d+)$', last_example_admin.username).group(0)) + 1
         for n in range(start_num, start_num + amount):
             try:
                 self._create_user(ADMINNAME_PREFIX, n, ADMIN_PASSWORD)
@@ -50,7 +51,7 @@ class Command(BaseCommand):
             # no example users
             start_num = 1
         else:
-            start_num = int(last_example_user.username[-1]) + 1
+            start_num = int(search(r'(\d+)$', last_example_user.username).group(0)) + 1
         for n in range(start_num, start_num + amount):
             try:
                 self._create_user(USERNAME_PREFIX, n, USER_PASSWORD)
@@ -59,11 +60,19 @@ class Command(BaseCommand):
                 pass
 
     def generate_and_add_grants(self, amount=4):
+        shortname_prefix = "ExampleG"
+        try:
+            last_example_grant = Grant.objects.filter(short_name__startswith=shortname_prefix).order_by('pk').reverse()[0]
+        except IndexError:
+            start_num = 1
+        else:
+            start_num = int(search(r'(\d+)$', last_example_grant.short_name).group(0)) + 1
+
         grant_query_list = []
-        for n in range(1, amount + 1):
+        for n in range(start_num, start_num + amount):
             grant_query_list.append(Grant(
                 full_name="Grant number {}".format(n),
-                short_name="ExampleG{}".format(n),
+                short_name="{}{}".format(shortname_prefix, n),
                 slug="exampleg{}".format(n),
                 description=("Detailed grant description. "
                              "Allows for HTML. "
@@ -72,12 +81,20 @@ class Command(BaseCommand):
         Grant.objects.bulk_create(grant_query_list)
 
     def generate_and_add_topics(self, amount=12):
+        name_prefix = "Topic number "
+        try:
+            last_example_topic = Topic.objects.filter(name__startswith=name_prefix).order_by('pk').reverse()[0]
+        except IndexError:
+            start_num = 1
+        else:
+            start_num = int(search(r'(\d+)$', last_example_topic.name).group(0)) + 1
+
         grant_objects = Grant.objects.all()
         topic_query_list = []
         admins = User.objects.filter(username__startswith=ADMINNAME_PREFIX)
-        for n in range(1, amount + 1):
+        for n in range(start_num, start_num + amount):
             topic = Topic(
-                name="Topic number {}".format(n),
+                name="{}{}".format(name_prefix, n),
                 # This should be fine for selecting grants,
                 # since the DB is small if/when you run this command
                 grant=choice(grant_objects),
@@ -101,11 +118,19 @@ class Command(BaseCommand):
         Topic.objects.bulk_create(topic_query_list)
 
     def generate_and_add_subtopics(self, amount=20):
+        name_prefix = "Subtopic number "
+        try:
+            last_example_subtopic = Subtopic.objects.filter(name__startswith=name_prefix).order_by('pk').reverse()[0]
+        except IndexError:
+            start_num = 1
+        else:
+            start_num = int(search(r'(\d+)$', last_example_subtopic.name).group(0)) + 1
+
         topic_objects = Topic.objects.all()
         subtopic_query_list = []
-        for n in range(1, amount + 1):
+        for n in range(start_num, start_num + amount):
             subtopic_query_list.append(Subtopic(
-                name="Subtopic number {}".format(n),
+                name="{}{}".format(name_prefix, n),
                 description=("Description shown to users who enter "
                              "tickets for this subtopic"),
                 topic=choice(topic_objects)
@@ -114,6 +139,14 @@ class Command(BaseCommand):
         Subtopic.objects.bulk_create(subtopic_query_list)
 
     def generate_and_add_tickets(self, amount=60):
+        name_prefix = "Example ticket number "
+        try:
+            last_example_ticket = Ticket.objects.filter(name__startswith=name_prefix).order_by('pk').reverse()[0]
+        except IndexError:
+            start_num = 1
+        else:
+            start_num = int(search(r'(\d+)$', last_example_ticket.name).group(0)) + 1
+
         def generate_random_date():
             year_today = datetime.today().year
             # probably shouldn't matter, but preventing future dates.
@@ -132,7 +165,7 @@ class Command(BaseCommand):
         topic_objects = Topic.objects.all()
         subtopic_objects = Subtopic.objects.all()
         ticket_query_list = []
-        for n in range(1, amount + 1):
+        for n in range(start_num, start_num + amount):
             created_and_updated = generate_random_date()
             topic = choice(topic_objects)
             try:
@@ -146,7 +179,7 @@ class Command(BaseCommand):
                 updated=created_and_updated,
                 event_date=generate_random_date(),
                 requested_user=choice(user_objects),
-                name="Example ticket number {}".format(n),
+                name="{}{}".format(name_prefix, n),
                 topic=topic,
                 subtopic=subtopic,
                 rating_percentage=randint(0, 100),
