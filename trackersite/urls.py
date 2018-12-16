@@ -29,5 +29,6 @@ urlpatterns = patterns(
     url(r'^js/i18n\.js$', 'django.views.i18n.javascript_catalog', js_info_dict),
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api-token-auth/', 'rest_framework.authtoken.views.obtain_auth_token'),
     url(r'^robots\.txt$', lambda x: HttpResponse("User-agent: *\nDisallow: /\n", content_type="text/plain")),
 )
