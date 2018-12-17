@@ -1,7 +1,5 @@
 from django.contrib.auth.models import User, Group, Permission
-from tracker.models import (
-    Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile, TrackerPreferences
-)
+from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, MediaInfoOld, Expediture, Preexpediture, TrackerProfile, TrackerPreferences
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
 from rest_framework import serializers
@@ -126,6 +124,11 @@ class MediaInfoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         read_only_fields = ('updated', 'categories', 'width', 'height', 'usages')
         model = MediaInfo
+
+
+class MediaInfoOldSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = MediaInfoOld
 
 
 class ExpeditureAdminSerializer(serializers.HyperlinkedModelSerializer):

@@ -9,6 +9,7 @@ from serializers import (
     Subtopic, SubtopicSerializer,
     Ticket, TicketSerializer, TicketNoAdminUpdateSerializer,
     MediaInfo, MediaInfoSerializer,
+    MediaInfoOld, MediaInfoOldSerializer,
     Expediture, ExpeditureSerializer, ExpeditureAdminSerializer,
     Preexpediture, PreexpeditureSerializer,
     ContentTypeSerializer,
@@ -158,6 +159,14 @@ class MediaInfoViewSet(viewsets.ModelViewSet):
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+
+class MediaInfoOldViewSet(viewsets.ModelViewSet):
+    queryset = MediaInfoOld.objects.all()
+    serializer_class = MediaInfoOldSerializer
+    permission_classes = (ReadOnly, )
+    filter_fields = ('ticket', )
+    search_fields = ('name', )
 
 
 class ExpeditureViewSet(viewsets.ModelViewSet):

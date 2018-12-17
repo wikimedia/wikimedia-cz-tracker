@@ -9,6 +9,7 @@ from viewsets import (
     SubtopicViewSet,
     TicketViewSet,
     MediaInfoViewSet,
+    MediaInfoOldViewSet,
     ExpeditureViewSet,
     PreexpeditureViewSet,
     ContentTypeViewSet,
@@ -29,6 +30,7 @@ router.register(r'tracker/topics', TopicViewSet)
 router.register(r'tracker/subtopics', SubtopicViewSet)
 router.register(r'tracker/tickets', TicketViewSet)
 router.register(r'tracker/mediainfo', MediaInfoViewSet)
+router.register(r'tracker/mediainfoold', MediaInfoOldViewSet)
 router.register(r'tracker/expeditures', ExpeditureViewSet)
 router.register(r'tracker/preexpeditures', PreexpeditureViewSet)
 router.register(r'tracker/languages', LanguagesViewSet, base_name="Languages")
