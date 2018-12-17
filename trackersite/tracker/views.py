@@ -104,7 +104,7 @@ class TicketDetailView(CommentPostedCatcher, DetailView):
         context['user_can_edit_ticket'] = ticket.can_edit(user)
         admin_edit = user.is_staff and (user.has_perm('tracker.supervisor') or user.topic_set.filter(id=ticket.topic_id).exists())
         context['user_can_edit_ticket_in_admin'] = admin_edit
-        context['user_can_edit_documents'] = user.is_authenticated()
+        context['user_can_edit_documents'] = ticket.is_editable(user)
         context['user_can_see_all_documents'] = ticket.can_see_all_documents(user)
         if user.is_authenticated():
             context['user_selfuploaded_docs'] = ticket.document_set.filter(uploader=user)
@@ -830,6 +830,10 @@ def document_view_required(access, ticket_id_field='pk', document_name_field=Non
                 return redirect_to_login(request.path)
 
             ticket = get_object_or_404(Ticket, id=kwargs[ticket_id_field])
+
+            if not ticket.is_editable(request.user):
+                raise PermissionDenied(_("You cannot edit this ticket documents, as it's no longer editable"))
+
             if document_name_field:
                 uploader = ticket.document_set.get(filename=kwargs[document_name_field]).uploader
             else:
