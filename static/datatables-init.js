@@ -6,10 +6,18 @@
 
 			fetch( '/api/tracker/languages/', { headers: { Accept: 'application/json' } } ).then( response => response.json() )
 				.then( ( data ) => {
-					const fullLanguage = data[ LANGUAGE.toLowerCase() ],
-						url = `https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/${fullLanguage}.json`,
-						columnDefs = JSON.parse( document.querySelector( '#custom-columnDefs-datatables' ).textContent ) || null,
-						ordering = JSON.parse( document.querySelector( '#custom-ordering-datatables' ).textContent ) || [ [ 0, 'asc ' ] ];
+					const fullLanguage = data[ LANGUAGE.toLowerCase() ];
+					const url = `https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/${fullLanguage}.json`;
+
+					const columnsDefsElem = document.querySelector( '#custom-columnDefs-datatables' );
+					const orderingElem = document.querySelector( '#custom-ordering-datatables' );
+
+					const columnDefs = ( columnsDefsElem !== null ) ?
+						JSON.parse( columnsDefsElem.textContent ) :
+						null;
+					const ordering = ( orderingElem !== null ) ?
+						JSON.parse( orderingElem.textContent ) :
+						[ [ 0, 'asc ' ] ];
 
 					fetch( '/user/display_items', { headers: { Accept: 'application/json' } } ).then( response => response.json() )
 						.then( ( displayItems ) => {
