@@ -1764,6 +1764,10 @@ def mediawiki_api(request):
         data = json.loads(request.body)
     else:
         data = request.GET
+
+    if data.get('action') not in ('query', ):
+        raise PermissionDenied(_('Executing API call with any action than whitelisted is prohibited.'))
+
     user = None
     if request.user.is_authenticated():
         user = request.user
