@@ -2275,7 +2275,7 @@ msgstr "Le mot de passe est incorrect."
 #: tracker/views.py:513
 #, python-format
 msgid "Ticket's %s watching settings are changed."
-msgstr "Les paramètres de suivi des tickets ont été modifiés."
+msgstr "Les paramètres de suivi des tickets ont été modifiés.<!-- Ticket %s -->"
 
 #: tracker/views.py:562
 #, python-format

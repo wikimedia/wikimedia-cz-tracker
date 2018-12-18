@@ -2280,7 +2280,7 @@ msgstr ""
 #: tracker/views.py:562
 #, python-format
 msgid "Topic's %s watching settings are changed."
-msgstr "주제의 주시 중인 설정 $s건이 변경되었습니다."
+msgstr "주제의 주시 중인 설정 $s건이 변경되었습니다.<!-- %s -->"
 
 #: tracker/views.py:592
 #, python-format
@@ -2559,5 +2559,5 @@ msgstr ""
 #: users/views.py:36
 #, python-format
 msgid "User %s created."
-msgstr "$s 사용자를 만들었습니다."
+msgstr "$s 사용자를 만들었습니다.<!-- %s -->"
 
