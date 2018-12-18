@@ -136,3 +136,6 @@ GOOGLE_ANALYTICS = None
 SOCIAL_AUTH_MEDIAWIKI_KEY = 'key'
 SOCIAL_AUTH_MEDIAWIKI_SECRET = 'secret'
 SOCIAL_AUTH_MEDIAWIKI_URL = 'https://meta.wikimedia.org/w/index.php'
+
+MEDIAINFO_MEDIAWIKI_URL = 'https://commons.wikimedia.org/w/api.php' # MediaWiki endpoint used as API endpoint for MediaWiki class, so the /api/mediawiki proxy won't be an open proxy
+MEDIAINFO_MEDIAWIKI_TEMPLATE = u'Fotíme Česko' # Template name used to mark photos reported in Tracker. Set to None to disable.
