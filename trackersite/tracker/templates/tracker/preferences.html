@@ -14,19 +14,24 @@
     {% trans "Preferences" %}
 </h1>
 <div class="container">
-    <form enctype="multipart/form-data" class="form-horizontal" method="POST">
+    <form enctype="multipart/form-data" class="form-horizontal notif-form" method="POST">
         <h3>{% trans "Mute notifications" %}</h3>
         {% csrf_token %}
         <table class="dataTable">
             <tbody>
             {% for notification_type in notification_types %}
-                <tr>
-                    <td class="checkbox_label"><label for="{{notification_type.0}}">{{notification_type.1}}</label></td>
-                    <td>
-                        <input type="checkbox" name="{{notification_type.0}}" id="{{notification_type.0}}"
-                            {% if notification_type.2 or notification_types.0.2 %}checked{% endif %}>
-                    </td>
-                </tr>
+            <tr>
+                <td class="checkbox_label"><label for="{{notification_type.0}}">{{notification_type.1}}</label></td>
+                <td>
+                {% if notification_type.0 == "muted" %}
+                    <input type="checkbox" name="{{notification_type.0}}" class="all-checkbox" id="{{notification_type.0}}"
+                           {% if notification_type.2 or notification_types.0.2 %}checked{% endif %}>
+                {% else %}
+                    <input type="checkbox" name="{{notification_type.0}}"  class="otherNotifTypes" id="{{notification_type.0}}"
+                           {% if notification_type.2 or notification_types.0.2 %}checked{% endif %}>
+                {% endif %}
+                </td>
+            </tr>
             {% endfor %}
             </tbody>
         </table>
@@ -82,11 +87,5 @@
     </a>
 </div>
 <br>
-<script>
-    $('#muted').click( ev => {
-        Array.from(document.querySelector('#DataTables_Table_0').querySelectorAll('input[type=\'checkbox\']'))
-            .filter(el => el.id !== 'muted')
-            .forEach(el => { el.checked = ev.target.checked })
-    })
-</script>
+<script src="/static/toggleAllNotifs.js"></script>
 {% endblock %}

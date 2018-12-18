@@ -1,5 +1,5 @@
 document.addEventListener( 'DOMContentLoaded', () => {
-	const allButton = document.querySelector( '#all' ),
+	const allButton = document.querySelector( '#all, .all-checkbox' ),
 		otherNotifTypes = document.querySelectorAll( '.notif-form input.otherNotifTypes[type=checkbox]' );
 
 	allButton.addEventListener( 'change', () => {
