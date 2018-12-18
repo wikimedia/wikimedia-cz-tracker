@@ -20,6 +20,7 @@ from django.utils.html import strip_tags, escape
 from django.http import JsonResponse
 from django.views.generic import ListView, DetailView, FormView, DeleteView
 from django.contrib.admin import widgets as adminwidgets
+from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.template.loader import get_template
@@ -33,6 +34,7 @@ from tracker.templatetags.trackertags import money
 from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, Expediture, Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher, Signature
 from tracker.models import ACK_TYPES, NOTIFICATION_TYPES
 from users.models import UserWrapper
+from socialauth.api import MediaWiki
 
 TICKET_EXCLUDE_FIELDS = (
             'created', 'updated', 'requested_user', 'requested_text',
@@ -1754,3 +1756,15 @@ def copypreexpeditures(request, pk):
         e = Expediture.objects.create(ticket=ticket, description=pe.description, amount=pe.amount, wage=pe.wage)
     messages.success(request, _('Preexpeditures were succesfully copied to expeditures.'))
     return HttpResponseRedirect(ticket.get_absolute_url())
+
+
+@csrf_exempt
+def mediawiki_api(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+    else:
+        data = request.GET
+    user = None
+    if request.user.is_authenticated():
+        user = request.user
+    return HttpResponse(MediaWiki(user=user).request(payload=data, method=request.method).content, content_type='application/json')
