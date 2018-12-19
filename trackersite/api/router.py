@@ -1,6 +1,7 @@
 from viewsets import (
     UserViewSet,
     PermissionViewSet,
+    TrackerPreferencesViewSet,
     TrackerProfileViewSet,
     GroupViewSet,
     GrantViewSet,
@@ -21,6 +22,7 @@ router.register(r'contenttypes', ContentTypeViewSet)
 router.register(r'auth/users', UserViewSet)
 router.register(r'auth/permissions', PermissionViewSet)
 router.register(r'auth/groups', GroupViewSet)
+router.register(r'tracker/trackerpreferences', TrackerPreferencesViewSet)
 router.register(r'tracker/trackerprofile', TrackerProfileViewSet)
 router.register(r'tracker/grants', GrantViewSet)
 router.register(r'tracker/topics', TopicViewSet)

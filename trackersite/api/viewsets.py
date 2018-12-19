@@ -1,6 +1,7 @@
 from serializers import (
     User, UserSerializerAdmin, UserSerializer,
     TrackerProfile, TrackerProfileSerializer,
+    TrackerPreferences, TrackerPreferencesSerializer,
     Permission, PermissionSerializer,
     Group, GroupSerializer,
     Grant, GrantSerializer,
@@ -14,7 +15,8 @@ from serializers import (
 )
 from rest_framework import viewsets
 from rest_framework.response import Response
-from permissions import ReadOnly, CanEditTicketElseReadOnly, CanEditExpedituresElseReadOnly, IsSelf
+from permissions import (ReadOnly, CanEditTicketElseReadOnly, CanEditExpedituresElseReadOnly, IsSelfTrackerProfile,
+                         IsOwnTrackerPreferences)
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import activate
 from django.conf import settings
@@ -54,10 +56,20 @@ class UserViewSet(viewsets.ModelViewSet):
             return UserSerializer
 
 
+class TrackerPreferencesViewSet(viewsets.ModelViewSet):
+    queryset = TrackerPreferences.objects.none()
+    serializer_class = TrackerPreferencesSerializer
+    permission_classes = (IsOwnTrackerPreferences, )
+
+    def get_queryset(self):
+        if self.request.user.is_authenticated():
+            return TrackerPreferences.objects.filter(user=self.request.user)
+
+
 class TrackerProfileViewSet(viewsets.ModelViewSet):
     queryset = TrackerProfile.objects.none()
     serializer_class = TrackerProfileSerializer
-    permission_classes = (IsSelf, )
+    permission_classes = (IsSelfTrackerProfile,)
     filter_fields = ('user', )
 
     def get_queryset(self):

@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User, Group, Permission
-from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile
+from tracker.models import (
+    Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile, TrackerPreferences
+)
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
 from rest_framework import serializers
@@ -23,6 +25,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         exclude = ('password', 'email', "first_name", "last_name")
+
+
+class TrackerPreferencesSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        read_only_fields = ('user', )
+        model = TrackerPreferences
 
 
 class TrackerProfileSerializer(serializers.HyperlinkedModelSerializer):
