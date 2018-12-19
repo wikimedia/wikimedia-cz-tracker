@@ -47,15 +47,6 @@ def ticket_list(request, page):
     return render(request, 'tracker/index.html', {"LANGUAGE": get_language()})
 
 
-def display_items(request):
-    if request.user.is_authenticated():
-        num = request.user.trackerpreferences.display_items
-    else:
-        num = 25
-
-    return HttpResponse(num, content_type='text/plain')
-
-
 def tickets(request, lang):
     tickets = []
     for ticket in Ticket.objects.order_by('-id'):

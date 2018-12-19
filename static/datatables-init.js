@@ -19,10 +19,10 @@
 						JSON.parse( orderingElem.textContent ) :
 						[ [ 0, 'asc ' ] ];
 
-					fetch( '/user/display_items', { headers: { Accept: 'application/json' } } ).then( response => response.json() )
-						.then( ( displayItems ) => {
+					fetch( '/api/tracker/trackerpreferences/', { headers: { Accept: 'application/json' } } ).then( response => response.json() )
+						.then( ( jsonPreferences ) => {
 							$( 'table' ).DataTable( {
-								pageLength: displayItems,
+								pageLength: jsonPreferences[ 0 ] ? jsonPreferences[ 0 ].display_items : 25,
 								order: ordering,
 								columnDefs,
 								language: { url }

@@ -41,9 +41,10 @@
 <button class="btn btn-primary">{% trans "Export" %}</button>
 </a>
 <script>
-    fetch('/user/display_items').then(response => response.json())
-        .then( display_items => {
-            const LANGUAGE = '{{LANGUAGE}}'
+    fetch('/api/tracker/trackerpreferences/').then(response => response.json())
+        .then( jsonPreferences => {
+            const LANGUAGE = '{{LANGUAGE}}',
+                display_items = jsonPreferences[0] ? jsonPreferences[0].display_items : 25;
             fetch('/api/tracker/languages/', { headers: { Accept: 'application/json' }}).then( response => response.json())
                 .then(function (data) {
                     const fullLanguage = data[LANGUAGE.toLowerCase()],
