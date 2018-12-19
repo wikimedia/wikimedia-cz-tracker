@@ -1,4 +1,7 @@
 {% load i18n widget_tweaks %}
+<!-- i18n-lint disable -->
+<span class="hidden" id="disabledatatables">yes</span>
+<!-- i18n-lint enable -->
 <form class="form-horizontal" method="post" action="{{action}}" id="form">
 {{ ticketform.non_field_errors }}
 {% for field in ticketform %}
