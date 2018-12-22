@@ -1,5 +1,6 @@
 teh-tracker
 ===========
+
 [![Build Status](https://integration.wikimedia.org/ci/job/wikimedia-cz-tracker-tox-docker/badge/icon)](https://integration.wikimedia.org/ci/view/WMF/job/wikimedia-cz-tracker-tox-docker/)
 
 This is a Django app designed to track [Wikimedia CZ](https://www.wikimedia.cz/) projects and money. We kind of hope it might be useful for someone else too.
