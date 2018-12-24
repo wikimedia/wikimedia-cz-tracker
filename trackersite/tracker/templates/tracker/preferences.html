@@ -24,11 +24,11 @@
                 <td class="checkbox_label"><label for="{{notification_type.0}}">{{notification_type.1}}</label></td>
                 <td>
                 {% if notification_type.0 == "muted" %}
-                    <input type="checkbox" name="{{notification_type.0}}" class="all-checkbox" id="{{notification_type.0}}"
-                           {% if notification_type.2 or notification_types.0.2 %}checked{% endif %}>
+                    <input type="checkbox" name="muted" class="all-checkbox" id="muted"
+                        {% if notification_type.2 or notification_types.0.2 %}checked{% endif %}>
                 {% else %}
                     <input type="checkbox" name="{{notification_type.0}}"  class="otherNotifTypes" id="{{notification_type.0}}"
-                           {% if notification_type.2 or notification_types.0.2 %}checked{% endif %}>
+                        {% if notification_type.2 or notification_types.0.2 %}checked{% endif %}>
                 {% endif %}
                 </td>
             </tr>
