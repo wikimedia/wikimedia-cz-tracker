@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2018-12-17 08:09:56+0000\n"
-"X-POT-Import-Date: 2018-12-17 07:05:47+0000\n"
+"PO-Revision-Date: 2018-12-27 10:05:31+0000\n"
+"X-POT-Import-Date: 2018-12-19 17:30:30+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
@@ -152,7 +152,7 @@ msgstr "تبديل التنقل"
 msgid "change password"
 msgstr "تغيير كلمة المرور"
 
-#: templates/base.html:69 tracker/templates/tracker/watch.html:8
+#: templates/base.html:69
 msgid "change my details"
 msgstr "تغيير تفاصيلي"
 
@@ -214,15 +214,15 @@ msgstr "النوع"
 msgid "Add ack"
 msgstr "أضف إشعار تأكيد"
 
-#: tracker/admin.py:157
+#: tracker/admin.py:166
 msgid "Mark selected topics as opened for new tickets"
 msgstr "تعليم الموضوعات المحددة كمفتوحة للتذاكر الجديدة"
 
-#: tracker/admin.py:164
+#: tracker/admin.py:173
 msgid "Mark selected topics as closed for new tickets"
 msgstr "تعليم الموضوعات المحددة كمغلقة للتذاكر الجديدة"
 
-#: tracker/admin.py:192
+#: tracker/admin.py:201
 msgid "Modify this value by opening or closing topics in this grant to tickets"
 msgstr "تعديل هذه القيمة عن طريق فتح أو إغلاق المواضيع في هذه المنحة للتذاكر"
 
@@ -411,7 +411,7 @@ msgid "Text description of who requested for this ticket, in case user is not fi
 msgstr "الوصف النصي لمن طلب هذه التذكرة، في حالة عدم ملء المستخدم"
 
 #: tracker/models.py:229 tracker/models.py:561 tracker/models.py:626
-#: tracker/views.py:802
+#: tracker/views.py:804
 msgid "name"
 msgstr "الاسم"
 
@@ -471,7 +471,7 @@ msgstr "رابط إلى صفحة عامة تصف الحدث، إذا كانت م
 
 #: tracker/models.py:236 tracker/models.py:562 tracker/models.py:633
 #: tracker/models.py:715 tracker/models.py:768 tracker/models.py:783
-#: tracker/models.py:805 tracker/models.py:949 tracker/views.py:803
+#: tracker/models.py:805 tracker/models.py:949 tracker/views.py:805
 msgid "description"
 msgstr "الوصف"
 
@@ -850,7 +850,7 @@ msgstr "نفقات التذاكر المسبقة"
 msgid "uploader"
 msgstr "الرافع"
 
-#: tracker/models.py:826 tracker/views.py:802
+#: tracker/models.py:826 tracker/views.py:804
 msgid "We need a sane file name, such as my-invoice123.jpg"
 msgstr "حتاج إلى اسم ملف عاقل ، مثل فاتورتي.jpg"
 
@@ -947,7 +947,7 @@ msgstr "وصف هذه الصفقة"
 #: tracker/templates/tracker/ticket_common_detail.html:64
 #: tracker/templates/tracker/ticket_detail.html:32
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1719
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1721
 msgid "Accounting info"
 msgstr "المعلومات المحاسبية"
 
@@ -1098,8 +1098,8 @@ msgid "add new ack"
 msgstr "إضافة إشعار تأكيد جديد"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:10
-#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1717
-#: tracker/views.py:1726 tracker/views.py:1736
+#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1719
+#: tracker/views.py:1728 tracker/views.py:1738
 msgid "Ticket ID"
 msgstr "معرف التذكرة"
 
@@ -1174,9 +1174,9 @@ msgstr "الكمية"
 #: tracker/templates/tracker/ticket_common_detail.html:30
 #: tracker/templates/tracker/ticket_detail.html:32
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1698
-#: tracker/views.py:1703 tracker/views.py:1708 tracker/views.py:1717
-#: tracker/views.py:1726 tracker/views.py:1736
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1700
+#: tracker/views.py:1705 tracker/views.py:1710 tracker/views.py:1719
+#: tracker/views.py:1728 tracker/views.py:1738
 msgid "Description"
 msgstr "الوصف"
 
@@ -1271,15 +1271,15 @@ msgid "Home"
 msgstr "الرئيسية"
 
 #: tracker/templates/tracker/admin_user_list.html:25
-#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1731
+#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1733
 msgid "Username"
 msgstr "اسم المستخدم"
 
-#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1731
+#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1733
 msgid "First name"
 msgstr "الاسم الأول"
 
-#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1731
+#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1733
 msgid "Last name"
 msgstr "الاسم الأخير"
 
@@ -1982,7 +1982,7 @@ msgstr "أضف تعليقا"
 msgid "Related files"
 msgstr "الملفات ذات الصلة"
 
-#: tracker/templates/tracker/ticket_form.html:11 tracker/views.py:801
+#: tracker/templates/tracker/ticket_form.html:11 tracker/views.py:803
 msgid "file"
 msgstr "ملف"
 
@@ -2230,6 +2230,10 @@ msgstr "الكل"
 msgid "Comment posted, thank you."
 msgstr "تم نشر التعليق، شكرا لك."
 
+#: tracker/views.py:130
+msgid "You cannot add ack to a ticket you do not own."
+msgstr "لا يمكنك إضافة إشعار تأكيد إلى تذكرة لا تملكها."
+
 #: tracker/views.py:141
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
@@ -2304,83 +2308,87 @@ msgstr "أؤكد ما سبق"
 msgid "You cannot add statutory declaration to a ticket that does not support it."
 msgstr "لا يمكنك إضافة تعريف قانوني إلى تذكرة لا يدعمها."
 
-#: tracker/views.py:708
+#: tracker/views.py:703
+msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
+msgstr "لا يمكنك استخدام هذا العرض لإضافة تعريف قانوني إلى تذكرة قمت بإنشائها، استخدم زر تعديل التذاكر لهذا."
+
+#: tracker/views.py:710
 msgid "You successfully added a statutory declaration to this ticket."
 msgstr "قمت بنجاح بإضافة تصريح قانوني لهذه التذكرة."
 
-#: tracker/views.py:711
+#: tracker/views.py:713
 msgid "You successfully removed a statutory declaration from this ticket."
 msgstr "قمت بنجاح بإزالة تصريح قانوني من هذه التذكرة."
 
-#: tracker/views.py:768
+#: tracker/views.py:770
 #, python-format
 msgid "Ticket %s saved."
 msgstr "تم حفظ التذكرة %s."
 
-#: tracker/views.py:863
+#: tracker/views.py:865
 #, python-format
 msgid "Document changes for ticket %s saved."
 msgstr "تم حفظ تغييرات وثيقة التذكرة %s."
 
-#: tracker/views.py:890
+#: tracker/views.py:892
 #, python-format
 msgid "File %(filename)s has been saved."
 msgstr "تم حفظ الملف %(filename)s."
 
-#: tracker/views.py:1078
+#: tracker/views.py:1080
 msgid "Your details have been saved."
 msgstr "تم حفظ تفاصيلك."
 
-#: tracker/views.py:1524
+#: tracker/views.py:1526
 msgid "You must fill the form validly"
 msgstr "يجب عليك ملء النموذج بشكل صحيح"
 
-#: tracker/views.py:1543
+#: tracker/views.py:1545
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
 msgstr "ليست لديك صلاحية لاستيراد أكثر من %(input_row_limit)s من الصفوف; تم بالفعل استيراد أول %(input_row_limit)s من الصفوف."
 
-#: tracker/views.py:1688
+#: tracker/views.py:1690
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
 msgstr "قام النموذج بإرجاع قيم غريبة; يُرجَى الاتصال بإداري النظام وقل له ما حاولت القيام به."
 
-#: tracker/views.py:1690
+#: tracker/views.py:1692
 msgid "Your CSV file was imported."
 msgstr "تم استيراد ملف CSV الخاص بك."
 
-#: tracker/views.py:1698
+#: tracker/views.py:1700
 msgid "Name of a ticket"
 msgstr "اسم التذكرة"
 
-#: tracker/views.py:1698 tracker/views.py:1703
+#: tracker/views.py:1700 tracker/views.py:1705
 msgid "Name of a topic"
 msgstr "اسم الموضوع"
 
-#: tracker/views.py:1703
+#: tracker/views.py:1705
 msgid "Name of a grant"
 msgstr "اسم المنحة"
 
-#: tracker/views.py:1703
+#: tracker/views.py:1705
 msgid "Form description"
 msgstr "وصف النموذج"
 
-#: tracker/views.py:1708
+#: tracker/views.py:1710
 msgid "Full name"
 msgstr "الاسم الكامل"
 
-#: tracker/views.py:1708
+#: tracker/views.py:1710
 msgid "Short name"
 msgstr "اسم قصير"
 
-#: tracker/views.py:1708
+#: tracker/views.py:1710
 msgid "Slug"
 msgstr "بزاق"
 
-#: tracker/views.py:1731
+#: tracker/views.py:1733
 msgid "Password"
 msgstr "كلمة السر"
 
-#: tracker/views.py:1753
+#: tracker/views.py:1755
 msgid "Preexpeditures were succesfully copied to expeditures."
 msgstr "تم بنجاح نسخ النفقات المسبقة إلى النفقات"
 

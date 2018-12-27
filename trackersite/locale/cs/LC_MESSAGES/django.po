@@ -2,13 +2,14 @@
 # Exported from translatewiki.net
 #
 # Author: Martin Urbanec
+# Author: Patriccck
 msgid ""
 msgstr ""
 ""
 "Project-Id-Version: HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-09 23:31+0100\n"
-"PO-Revision-Date: 2018-12-17 08:09:56+0000\n"
+"PO-Revision-Date: 2018-12-27 10:05:31+0000\n"
 "Last-Translator: Petr Novák <petr.novak@cosmoboy.cz>\n"
 "Language-Team: none <none@example.org>\n"
 "Language: cs\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ( (n >= 2 && n <= 4) ? 1 : 2 );\n"
-"X-POT-Import-Date: 2018-12-17 07:05:47+0000\n"
+"X-POT-Import-Date: 2018-12-19 17:30:30+0000\n"
 "X-Generator: MediaWiki 1.33.0-alpha; Translate 2018-11-05\n"
 
 #: api/serializers.py:88
@@ -157,7 +158,7 @@ msgstr "Spustit navigaci"
 msgid "change password"
 msgstr "změnit heslo"
 
-#: templates/base.html:69 tracker/templates/tracker/watch.html:8
+#: templates/base.html:69
 msgid "change my details"
 msgstr "změnit údaje"
 
@@ -219,15 +220,15 @@ msgstr "Druh"
 msgid "Add ack"
 msgstr "Přidat schválení"
 
-#: tracker/admin.py:157
+#: tracker/admin.py:166
 msgid "Mark selected topics as opened for new tickets"
 msgstr "Označit vybraná témata jako otevřená pro nové tikety"
 
-#: tracker/admin.py:164
+#: tracker/admin.py:173
 msgid "Mark selected topics as closed for new tickets"
 msgstr "Označit vybraná témata jako uzavřená pro nové tikety"
 
-#: tracker/admin.py:192
+#: tracker/admin.py:201
 msgid "Modify this value by opening or closing topics in this grant to tickets"
 msgstr ""
 
@@ -416,7 +417,7 @@ msgid "Text description of who requested for this ticket, in case user is not fi
 msgstr "Textové označení žadatele, použije se pokud nevyplníte uživatele"
 
 #: tracker/models.py:229 tracker/models.py:561 tracker/models.py:626
-#: tracker/views.py:802
+#: tracker/views.py:804
 msgid "name"
 msgstr "název"
 
@@ -476,7 +477,7 @@ msgstr "Odkažte na veřejnou stránku popisující akci, pokud existuje"
 
 #: tracker/models.py:236 tracker/models.py:562 tracker/models.py:633
 #: tracker/models.py:715 tracker/models.py:768 tracker/models.py:783
-#: tracker/models.py:805 tracker/models.py:949 tracker/views.py:803
+#: tracker/models.py:805 tracker/models.py:949 tracker/views.py:805
 msgid "description"
 msgstr "popis"
 
@@ -855,7 +856,7 @@ msgstr "Plánované výdaje tiketu"
 msgid "uploader"
 msgstr ""
 
-#: tracker/models.py:826 tracker/views.py:802
+#: tracker/models.py:826 tracker/views.py:804
 msgid "We need a sane file name, such as my-invoice123.jpg"
 msgstr "Jméno souboru musí vypadat jako jméno bez speciálních znaků; použijte něco jako faktura-za-ocet123.jpg"
 
@@ -889,7 +890,7 @@ msgstr "Nastavení"
 
 #: tracker/models.py:895
 msgid "Username on mediawiki"
-msgstr "Uživatelské jméno MediaWiki"
+msgstr "Uživatelské jméno na MediaWiki"
 
 #: tracker/models.py:896 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
@@ -952,7 +953,7 @@ msgstr "Popis převodu"
 #: tracker/templates/tracker/ticket_common_detail.html:64
 #: tracker/templates/tracker/ticket_detail.html:32
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1719
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1721
 msgid "Accounting info"
 msgstr "Účetní údaje"
 
@@ -1103,8 +1104,8 @@ msgid "add new ack"
 msgstr "Přidat nový příznak"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:10
-#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1717
-#: tracker/views.py:1726 tracker/views.py:1736
+#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1719
+#: tracker/views.py:1728 tracker/views.py:1738
 msgid "Ticket ID"
 msgstr "ID tiketu"
 
@@ -1124,7 +1125,7 @@ msgstr "Doklady tiketu"
 #: tracker/templates/tracker/edit_ticket.html:10
 #: tracker/templates/tracker/ticket_detail.html:19
 msgid "edit ticket documents"
-msgstr "upravit doklady"
+msgstr "upravit dokumenty"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:43
 msgid "There are no documents uploaded for this ticket."
@@ -1176,9 +1177,9 @@ msgstr "Částka"
 #: tracker/templates/tracker/ticket_common_detail.html:30
 #: tracker/templates/tracker/ticket_detail.html:32
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1698
-#: tracker/views.py:1703 tracker/views.py:1708 tracker/views.py:1717
-#: tracker/views.py:1726 tracker/views.py:1736
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1700
+#: tracker/views.py:1705 tracker/views.py:1710 tracker/views.py:1719
+#: tracker/views.py:1728 tracker/views.py:1738
 msgid "Description"
 msgstr "Popis"
 
@@ -1273,15 +1274,15 @@ msgid "Home"
 msgstr "Domů"
 
 #: tracker/templates/tracker/admin_user_list.html:25
-#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1731
+#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1733
 msgid "Username"
 msgstr "Přihlašovací jméno"
 
-#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1731
+#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1733
 msgid "First name"
 msgstr "Křestní jméno"
 
-#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1731
+#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1733
 msgid "Last name"
 msgstr "Příjmení"
 
@@ -1532,7 +1533,7 @@ msgstr "Počet ticketů v určitém stavu plateb"
 
 #: tracker/templates/tracker/export.html:245
 msgid "N/A"
-msgstr "NúA"
+msgstr "N/A"
 
 #: tracker/templates/tracker/export.html:278
 msgid "Number of tickets created"
@@ -1984,7 +1985,7 @@ msgstr "Přidat komentář"
 msgid "Related files"
 msgstr "Odkazy na soubory"
 
-#: tracker/templates/tracker/ticket_form.html:11 tracker/views.py:801
+#: tracker/templates/tracker/ticket_form.html:11 tracker/views.py:803
 msgid "file"
 msgstr "soubor"
 
@@ -2127,7 +2128,7 @@ msgstr "Nahrání dokladu"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "documents"
-msgstr "doklady"
+msgstr "dokumenty"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload"
@@ -2232,6 +2233,10 @@ msgstr "Všechny"
 msgid "Comment posted, thank you."
 msgstr "Komentář přidán, děkujeme."
 
+#: tracker/views.py:130
+msgid "You cannot add ack to a ticket you do not own."
+msgstr ""
+
 #: tracker/views.py:141
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
@@ -2260,7 +2265,7 @@ msgstr "Podtéma musí souhlasit s tématem, které jste vybral. Nejspíše mát
 
 #: tracker/views.py:408
 msgid "We've updated your preferences"
-msgstr "Aktualizovali jsme vaše nastavení"
+msgstr "Vaše nastavení bylo aktualizováno"
 
 #: tracker/views.py:456
 msgid "Please enter your password to confirm the deactivation of your account."
@@ -2306,83 +2311,87 @@ msgstr ""
 msgid "You cannot add statutory declaration to a ticket that does not support it."
 msgstr ""
 
-#: tracker/views.py:708
+#: tracker/views.py:703
+msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
+msgstr ""
+
+#: tracker/views.py:710
 msgid "You successfully added a statutory declaration to this ticket."
 msgstr ""
 
-#: tracker/views.py:711
+#: tracker/views.py:713
 msgid "You successfully removed a statutory declaration from this ticket."
 msgstr ""
 
-#: tracker/views.py:768
+#: tracker/views.py:770
 #, python-format
 msgid "Ticket %s saved."
 msgstr "Tiket %s uložen."
 
-#: tracker/views.py:863
+#: tracker/views.py:865
 #, python-format
 msgid "Document changes for ticket %s saved."
 msgstr "Změny dokladů pro tiket %s uloženy."
 
-#: tracker/views.py:890
+#: tracker/views.py:892
 #, python-format
 msgid "File %(filename)s has been saved."
 msgstr "Soubor %(filename)s uložen."
 
-#: tracker/views.py:1078
+#: tracker/views.py:1080
 msgid "Your details have been saved."
 msgstr "Vaše údaje byly uloženy"
 
-#: tracker/views.py:1524
+#: tracker/views.py:1526
 msgid "You must fill the form validly"
 msgstr "Musíte formulář vyplnit validně"
 
-#: tracker/views.py:1543
+#: tracker/views.py:1545
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
 msgstr "Nemáte právo importovat více než %(input_row_limit)s řádků. Prvních %(input_row_limit)s  z nich bylo již naimportováno. "
 
-#: tracker/views.py:1688
+#: tracker/views.py:1690
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
 msgstr ""
 
-#: tracker/views.py:1690
+#: tracker/views.py:1692
 msgid "Your CSV file was imported."
 msgstr ""
 
-#: tracker/views.py:1698
+#: tracker/views.py:1700
 msgid "Name of a ticket"
 msgstr "Jméno tiketu"
 
-#: tracker/views.py:1698 tracker/views.py:1703
+#: tracker/views.py:1700 tracker/views.py:1705
 msgid "Name of a topic"
 msgstr "Jméno tématu"
 
-#: tracker/views.py:1703
+#: tracker/views.py:1705
 msgid "Name of a grant"
 msgstr "Jméno grantu"
 
-#: tracker/views.py:1703
+#: tracker/views.py:1705
 msgid "Form description"
 msgstr "popis formuláře"
 
-#: tracker/views.py:1708
+#: tracker/views.py:1710
 msgid "Full name"
 msgstr "dlouhý název"
 
-#: tracker/views.py:1708
+#: tracker/views.py:1710
 msgid "Short name"
 msgstr "krátký název"
 
-#: tracker/views.py:1708
+#: tracker/views.py:1710
 msgid "Slug"
 msgstr ""
 
-#: tracker/views.py:1731
+#: tracker/views.py:1733
 msgid "Password"
 msgstr "Heslo"
 
-#: tracker/views.py:1753
+#: tracker/views.py:1755
 msgid "Preexpeditures were succesfully copied to expeditures."
 msgstr "Plánované výdaje byly úspěšně zkopírované do reálných."
 

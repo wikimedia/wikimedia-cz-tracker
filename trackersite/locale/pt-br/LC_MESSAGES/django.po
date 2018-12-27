@@ -1,17 +1,17 @@
-# Translation of Tracker to Danish (dansk)
+# Translation of Tracker to Brazilian Portuguese (português do Brasil)
 # Exported from translatewiki.net
 #
-# Author: Saederup92
+# Author: Eduardo Addad de Oliveira
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2018-12-27 10:05:31+0000\n"
+"PO-Revision-Date: 2018-12-27 10:05:32+0000\n"
 "X-POT-Import-Date: 2018-12-19 17:30:30+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
+"Language: pt-BR\n"
 "X-Generator: MediaWiki 1.33.0-alpha; Translate 2018-11-05\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: api/serializers.py:88
 msgid "Deposit should be zero when creating a ticket"
@@ -31,7 +31,7 @@ msgstr ""
 
 #: api/serializers.py:115
 msgid "You can not edit the media of this ticket."
-msgstr ""
+msgstr "Você não pode editar a mídia deste ingresso."
 
 #: api/serializers.py:132
 msgid "You can not add expiditures to this ticket."
@@ -43,7 +43,7 @@ msgstr ""
 
 #: api/serializers.py:147
 msgid "You can not add preexpiditures to this ticket."
-msgstr ""
+msgstr "Você não pode adicionar preexpiditures a este ticket."
 
 #: api/serializers.py:149
 msgid "You can not edit preexpiditures of this ticket."
@@ -63,28 +63,28 @@ msgstr "CZK"
 
 #: common_settings.py:83
 msgid "English"
-msgstr "Engelsk"
+msgstr "Inglês"
 
 #: common_settings.py:84
 msgid "Czech"
-msgstr "Tjekkisk"
+msgstr "Checo"
 
 #: common_settings.py:85
 msgid "French"
-msgstr "Fransk"
+msgstr "Francês"
 
 #: common_settings.py:86
 msgid "Arabic"
-msgstr "Arabisk"
+msgstr "Árabe"
 
 #: customcomments/forms.py:21
 msgid "Your name"
-msgstr "Dit navn"
+msgstr "Seu nome"
 
 #: customcomments/forms.py:22
 #: tracker/templates/tracker/ticketack_confirm_delete.html:13
 msgid "Comment"
-msgstr ""
+msgstr "Comentário"
 
 #: socialauth/pipeline.py:15
 msgid "Successfully linked your wikimedia account!"
@@ -96,23 +96,23 @@ msgstr ""
 
 #: templates/403.html:3
 msgid "403 Forbidden"
-msgstr ""
+msgstr "403 Proibido"
 
 #: templates/403.html:7
 msgid "Forbidden"
-msgstr ""
+msgstr "Proibido"
 
 #: templates/403.html:12
 msgid "You don't have permissions to do this!"
-msgstr "Dette har du ikke til at gøre!"
+msgstr ""
 
 #: templates/404.html:3
 msgid "404 Not Found"
-msgstr "404 Ikke fundet"
+msgstr "404 Não encontrado"
 
 #: templates/404.html:7
 msgid "Not Found"
-msgstr "Ikke fundet"
+msgstr "Não encontrado"
 
 #: templates/404.html:10
 #, python-format
@@ -121,7 +121,7 @@ msgstr ""
 
 #: templates/500.html:3 templates/500.html.py:7
 msgid "Internal Error"
-msgstr "Intern fejl"
+msgstr ""
 
 #: templates/500.html:10
 msgid "There was an error processing you request. Sorry about that."
@@ -129,7 +129,7 @@ msgstr ""
 
 #: templates/admin/base_site.html:4
 msgid "Tracker admin"
-msgstr "Tracker administrator"
+msgstr ""
 
 #: templates/admin/base_site.html:7
 msgid "Tracker site administration"
@@ -137,7 +137,7 @@ msgstr ""
 
 #: templates/base.html:31
 msgid "There is no email address associated with this account. Please update your details now."
-msgstr ""
+msgstr "Não há endereço de e-mail associado a essa conta. Por favor, atualize seus detalhes agora."
 
 #: templates/base.html:34
 msgid "Update details"
@@ -145,69 +145,69 @@ msgstr ""
 
 #: templates/base.html:54
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Alternar de navegação"
 
 #: templates/base.html:68
 msgid "change password"
-msgstr "ændre adgangskode"
+msgstr "alterar Senha"
 
 #: templates/base.html:69
 msgid "change my details"
-msgstr "ændre mine detaljer"
+msgstr ""
 
 #: templates/base.html:70 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
-msgstr "indstillinger"
+msgstr ""
 
 #: templates/base.html:72
 msgid "admin"
-msgstr "administrator"
+msgstr "administrador"
 
 #: templates/base.html:74 templates/base.html.py:87
 msgid "change language"
-msgstr "vælg sprog"
+msgstr "mudar idioma"
 
 #: templates/base.html:75 templates/base.html.py:88
 msgid "help"
-msgstr "hjælp"
+msgstr "ajuda"
 
 #: templates/base.html:76
 msgid "logout"
-msgstr "log af"
+msgstr ""
 
 #: templates/base.html:81 templates/base.html.py:84
 #: users/templates/users/login.html:21
 msgid "login"
-msgstr "log på"
+msgstr "entrar"
 
 #: templates/base.html:86 users/templates/users/register.html:15
 msgid "register"
-msgstr "registrer"
+msgstr ""
 
 #: templates/base.html:102
 msgid "Warning"
-msgstr "Asvarsel"
+msgstr "Aviso"
 
 #: templates/base.html:102
 msgid "You are not in production."
-msgstr ""
+msgstr "Você não está em produção."
 
 #: templates/choose_language.html:5 templates/choose_language.html.py:8
 msgid "Change language"
-msgstr "Skift sprog"
+msgstr "Mudar idioma"
 
 #: templates/comments/form.html:17
 msgid "Post"
-msgstr ""
+msgstr "Publicar"
 
 #: templates/comments/form.html:18
 msgid "Preview"
-msgstr ""
+msgstr "Pré-visualizar"
 
 #: tracker/admin.py:28 tracker/admin.py:34
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
 msgid "Type"
-msgstr "Type"
+msgstr "Tipo"
 
 #: tracker/admin.py:42
 msgid "Add ack"
@@ -223,7 +223,7 @@ msgstr ""
 
 #: tracker/admin.py:201
 msgid "Modify this value by opening or closing topics in this grant to tickets"
-msgstr ""
+msgstr "Modifique este valor abrindo ou fechando tópicos nesta concessão para ingressos"
 
 #: tracker/feeds.py:12 tracker/templates/tracker/generic/ticket_list.html:7
 #: tracker/templates/tracker/topic_detail.html:5
@@ -246,20 +246,20 @@ msgstr ""
 #: tracker/models.py:35 tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
 msgid "n/a"
-msgstr ""
+msgstr "n/d"
 
 #: tracker/models.py:36 tracker/templates/tracker/export.html:246
 #: tracker/templates/tracker/grant_table.html:12
 #: tracker/templates/tracker/topic_finance.html:16
 #: tracker/templates/tracker/topic_table.html:14
 msgid "unpaid"
-msgstr ""
+msgstr "não remunerado"
 
 #: tracker/models.py:37 tracker/templates/tracker/export.html:247
 #: tracker/templates/tracker/grant_table.html:13
 #: tracker/templates/tracker/topic_table.html:15
 msgid "partially paid"
-msgstr "delvist betalt"
+msgstr "parcialmente pago"
 
 #: tracker/models.py:38 tracker/models.py:786
 #: tracker/templates/tracker/export.html:248
@@ -267,7 +267,7 @@ msgstr "delvist betalt"
 #: tracker/templates/tracker/topic_finance.html:17
 #: tracker/templates/tracker/topic_table.html:16
 msgid "paid"
-msgstr "betalt"
+msgstr "pago"
 
 #: tracker/models.py:39 tracker/templates/tracker/export.html:249
 #: tracker/templates/tracker/grant_table.html:15
@@ -286,15 +286,15 @@ msgstr ""
 
 #: tracker/models.py:45
 msgid "submitted"
-msgstr "indsend"
+msgstr ""
 
 #: tracker/models.py:46
 msgid "accepted"
-msgstr "accepteret"
+msgstr "aceito"
 
 #: tracker/models.py:47
 msgid "expense documents submitted"
-msgstr ""
+msgstr "documentos de despesas enviados"
 
 #: tracker/models.py:48
 msgid "expense documents filed"
@@ -304,13 +304,13 @@ msgstr ""
 #: tracker/templates/tracker/export.html:52
 #: tracker/templates/tracker/export.html:53
 msgid "archived"
-msgstr "arkiveret"
+msgstr ""
 
 #: tracker/models.py:50 tracker/models.py:329
 #: tracker/templates/tracker/export.html:55
 #: tracker/templates/tracker/export.html:56
 msgid "closed"
-msgstr "lukket"
+msgstr "fechado"
 
 #: tracker/models.py:54
 msgid "All notifications"
@@ -318,7 +318,7 @@ msgstr ""
 
 #: tracker/models.py:55
 msgid "Comment added"
-msgstr "Kommentar tilføjet"
+msgstr ""
 
 #: tracker/models.py:56
 msgid "Supervisor notes changed"
@@ -326,7 +326,7 @@ msgstr ""
 
 #: tracker/models.py:57
 msgid "New ticket was created"
-msgstr ""
+msgstr "Novo ingresso foi criado"
 
 #: tracker/models.py:58
 msgid "Ticket was deleted"
@@ -354,7 +354,7 @@ msgstr ""
 
 #: tracker/models.py:64
 msgid "New expediture was created"
-msgstr ""
+msgstr "Nova expedição foi criada"
 
 #: tracker/models.py:65
 msgid "Expeditures changed"
@@ -362,7 +362,7 @@ msgstr ""
 
 #: tracker/models.py:66
 msgid "New media was created"
-msgstr "Nyt medie blev oprettet"
+msgstr ""
 
 #: tracker/models.py:67
 msgid "Media changed"
@@ -370,23 +370,23 @@ msgstr ""
 
 #: tracker/models.py:126
 msgid "unknown"
-msgstr "ukendt"
+msgstr "desconhecido"
 
 #: tracker/models.py:149 tracker/models.py:1010
 msgid "created"
-msgstr ""
+msgstr "criado"
 
 #: tracker/models.py:220
 msgid "Signed text"
-msgstr ""
+msgstr "Texto assinado"
 
 #: tracker/models.py:225
 msgid "updated"
-msgstr "opdateret"
+msgstr "atualizado"
 
 #: tracker/models.py:226
 msgid "event date"
-msgstr "dato for begivenhed"
+msgstr "data do evento"
 
 #: tracker/models.py:226
 msgid "Date of the event this ticket is about"
@@ -395,11 +395,11 @@ msgstr ""
 #: tracker/models.py:227 tracker/models.py:366
 #: tracker/templates/feeds/ticket_description.html:3
 msgid "requested by"
-msgstr "anmodet af"
+msgstr "solicitado por"
 
 #: tracker/models.py:227
 msgid "User who created/requested for this ticket"
-msgstr ""
+msgstr "Usuário que criou/solicitou este ingresso"
 
 #: tracker/models.py:228
 msgid "requested by (text)"
@@ -412,7 +412,7 @@ msgstr ""
 #: tracker/models.py:229 tracker/models.py:561 tracker/models.py:626
 #: tracker/views.py:804
 msgid "name"
-msgstr "navn"
+msgstr "nome"
 
 #: tracker/models.py:229
 msgid "Name for the ticket"
@@ -428,7 +428,7 @@ msgstr ""
 
 #: tracker/models.py:231
 msgid "subtopic"
-msgstr ""
+msgstr "subtópico"
 
 #: tracker/models.py:231
 msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
@@ -436,7 +436,7 @@ msgstr ""
 
 #: tracker/models.py:232
 msgid "rating percentage"
-msgstr ""
+msgstr "porcentagem de avaliação"
 
 #: tracker/models.py:232
 msgid "Rating percentage set by topic administrator"
@@ -472,7 +472,7 @@ msgstr ""
 #: tracker/models.py:715 tracker/models.py:768 tracker/models.py:783
 #: tracker/models.py:805 tracker/models.py:949 tracker/views.py:805
 msgid "description"
-msgstr "beskrivelse"
+msgstr "descrição"
 
 #: tracker/models.py:236
 msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there."
@@ -488,7 +488,7 @@ msgstr ""
 
 #: tracker/models.py:238
 msgid "deposit"
-msgstr ""
+msgstr "depósito"
 
 #: tracker/models.py:240
 msgid "If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."
@@ -496,11 +496,11 @@ msgstr ""
 
 #: tracker/models.py:242
 msgid "payment status"
-msgstr "status på betaling"
+msgstr "status do pagamento"
 
 #: tracker/models.py:243
 msgid "imported"
-msgstr "importeret"
+msgstr ""
 
 #: tracker/models.py:243
 msgid "Was this ticket imported from older Tracker version?"
@@ -508,7 +508,7 @@ msgstr ""
 
 #: tracker/models.py:244
 msgid "enable comments"
-msgstr "aktiver kommentarer"
+msgstr "ativar comentários"
 
 #: tracker/models.py:244
 msgid "Can users comment on this ticket?"
@@ -516,15 +516,15 @@ msgstr ""
 
 #: tracker/models.py:245
 msgid "Did you travel by car?"
-msgstr "Rejser du i bil?"
+msgstr ""
 
 #: tracker/models.py:245
 msgid "Do you request reimbursement of car-type travel expense?"
-msgstr ""
+msgstr "Você solicita reembolso de despesas de viagem do tipo carro?"
 
 #: tracker/models.py:325
 msgid "historical"
-msgstr "historisk"
+msgstr "histórico"
 
 #: tracker/models.py:334
 msgid "waiting for content rating"
@@ -533,7 +533,7 @@ msgstr ""
 #: tracker/models.py:337 tracker/templates/tracker/export.html:49
 #: tracker/templates/tracker/export.html:50
 msgid "complete"
-msgstr "færdiggjort"
+msgstr ""
 
 #: tracker/models.py:339 tracker/templates/tracker/export.html:46
 #: tracker/templates/tracker/export.html:47
@@ -559,20 +559,20 @@ msgstr ""
 #: tracker/models.py:349 tracker/templates/tracker/export.html:34
 #: tracker/templates/tracker/export.html:35
 msgid "waiting for preapproval"
-msgstr ""
+msgstr "aguardando pré-aprovação"
 
 #: tracker/models.py:353 tracker/templates/tracker/export.html:31
 #: tracker/templates/tracker/export.html:32
 msgid "draft"
-msgstr "udkast"
+msgstr "rascunho"
 
 #: tracker/models.py:355 tracker/templates/tracker/export.html:30
 msgid "state"
-msgstr "status"
+msgstr "estado"
 
 #: tracker/models.py:378 tracker/templates/tracker/admin_user_list.html:26
 msgid "E-mail"
-msgstr "E-mail"
+msgstr ""
 
 #: tracker/models.py:379 tracker/models.py:897
 #: tracker/templates/tracker/admin_user_list.html:31
@@ -609,7 +609,7 @@ msgstr ""
 
 #: tracker/models.py:562 tracker/models.py:563
 msgid "Description shown to users who enter tickets for this subtopic"
-msgstr ""
+msgstr "Descrição mostrada aos usuários que inserem ingressos para este subtópico"
 
 #: tracker/models.py:563 tracker/models.py:634
 msgid "form description"
@@ -617,14 +617,14 @@ msgstr ""
 
 #: tracker/models.py:564
 msgid "Topic where this subtopic belongs"
-msgstr ""
+msgstr "Tópico onde este subtópico pertence"
 
 #: tracker/models.py:619 tracker/templates/tracker/index.html:24
 #: tracker/templates/tracker/ticket_common_detail.html:13
 #: tracker/templates/tracker/ticket_table.html:16
 #: tracker/templates/tracker/ticket_table.html:33
 msgid "Subtopic"
-msgstr ""
+msgstr "Sub tópico"
 
 #: tracker/models.py:620 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
@@ -644,7 +644,7 @@ msgstr ""
 
 #: tracker/models.py:628
 msgid "Is this topic open for ticket submissions from users?"
-msgstr ""
+msgstr "Este tópico está aberto para envios de tickets de usuários?"
 
 #: tracker/models.py:629
 msgid "ticket media"
@@ -672,7 +672,7 @@ msgstr ""
 
 #: tracker/models.py:632
 msgid "require statutory declaration"
-msgstr ""
+msgstr "requer declaração estatutária"
 
 #: tracker/models.py:632
 msgid "Does this topic require statutory declaration for car travelling?"
@@ -688,7 +688,7 @@ msgstr ""
 
 #: tracker/models.py:635
 msgid "topic administrator"
-msgstr ""
+msgstr "administrador do tópico"
 
 #: tracker/models.py:635
 msgid "Selected users will have administration access to this topic."
@@ -713,7 +713,7 @@ msgstr ""
 
 #: tracker/models.py:712
 msgid "full name"
-msgstr "fulde navn"
+msgstr "nome completo"
 
 #: tracker/models.py:712
 msgid "Full name for headlines and such"
@@ -721,7 +721,7 @@ msgstr ""
 
 #: tracker/models.py:713
 msgid "short name"
-msgstr "kort navn"
+msgstr "nome curto"
 
 #: tracker/models.py:713
 msgid "Shorter name for use in tables"
@@ -744,12 +744,12 @@ msgstr ""
 #: tracker/templates/tracker/topic_table.html:6
 #: tracker/templates/tracker/transaction_list.html:15
 msgid "Grant"
-msgstr ""
+msgstr "Conceder"
 
 #: tracker/models.py:754 tracker/templates/tracker/export.html:141
 #: tracker/templates/tracker/import.html:34
 msgid "Grants"
-msgstr ""
+msgstr "Subsídios"
 
 #: tracker/models.py:767 tracker/models.py:782 tracker/models.py:804
 #: tracker/views.py:532
@@ -766,7 +766,7 @@ msgstr ""
 
 #: tracker/models.py:769
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: tracker/models.py:769
 msgid "Link to media files"
@@ -774,11 +774,11 @@ msgstr ""
 
 #: tracker/models.py:770
 msgid "count"
-msgstr ""
+msgstr "contagem"
 
 #: tracker/models.py:770
 msgid "Number of files"
-msgstr "Antal filer"
+msgstr "Número de arquivos"
 
 #: tracker/models.py:776 tracker/models.py:777
 msgid "Ticket media"
@@ -794,7 +794,7 @@ msgstr ""
 
 #: tracker/models.py:784 tracker/models.py:806 tracker/models.py:948
 msgid "amount"
-msgstr "beløb"
+msgstr ""
 
 #: tracker/models.py:784
 msgid "Expediture amount in"
@@ -855,7 +855,7 @@ msgstr ""
 
 #: tracker/models.py:867
 msgid "Ignored acks"
-msgstr ""
+msgstr "Acks ignorados"
 
 #: tracker/models.py:868
 msgid "Muted notifications"
@@ -863,7 +863,7 @@ msgstr ""
 
 #: tracker/models.py:869
 msgid "Email language"
-msgstr "Sprog for e-mail"
+msgstr "Idioma do e-mail"
 
 #: tracker/models.py:870
 msgid "Display items"
@@ -883,11 +883,11 @@ msgstr ""
 
 #: tracker/models.py:895
 msgid "Username on mediawiki"
-msgstr "Brugernavn på mediawiki"
+msgstr "nome de usuário no mediawiki"
 
 #: tracker/models.py:896 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
-msgstr "Bankkonto"
+msgstr ""
 
 #: tracker/models.py:896
 msgid "Bank account information for money transfers"
@@ -899,7 +899,7 @@ msgstr ""
 
 #: tracker/models.py:898 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
-msgstr ""
+msgstr "Outra identificação"
 
 #: tracker/models.py:898
 msgid "Address, or other identification information, so we know who are we sending money to"
@@ -907,15 +907,15 @@ msgstr ""
 
 #: tracker/models.py:926
 msgid "Tracker profile"
-msgstr "Tracker-profil"
+msgstr ""
 
 #: tracker/models.py:927
 msgid "Tracker profiles"
-msgstr "Tracker-profiler"
+msgstr ""
 
 #: tracker/models.py:945
 msgid "date"
-msgstr "dato"
+msgstr "data"
 
 #: tracker/models.py:946 tracker/models.py:965
 msgid "other party"
@@ -960,13 +960,13 @@ msgstr ""
 
 #: tracker/models.py:987
 msgid "Transaction"
-msgstr "Transaktion"
+msgstr ""
 
 #: tracker/models.py:988 tracker/templates/tracker/cluster_detail.html:18
 #: tracker/templates/tracker/ticket_detail.html:28
 #: tracker/templates/tracker/user_detail.html:19
 msgid "Transactions"
-msgstr "Transaktioner"
+msgstr "Transações"
 
 #: tracker/models.py:1012
 msgid "comment"
@@ -1074,19 +1074,19 @@ msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "REMOVE"
-msgstr "FJERN"
+msgstr "REMOVER"
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "Really remove?"
-msgstr "Vil du virkelig fjerne?"
+msgstr "Realmente remover?"
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "YES"
-msgstr "JA"
+msgstr "SIM"
 
 #: tracker/templates/admin/tracker/ticket/ack_norating_error.html:2
 msgid "You must fill rating percentage before you will be able to accept the ticket."
-msgstr ""
+msgstr "Você deve preencher a porcentagem de classificação antes de poder aceitar o ingresso."
 
 #: tracker/templates/admin/tracker/ticket/ack_noreport_error.html:2
 msgid "You cannot accept ticket when a report is mandatory and no report was given"
@@ -1104,7 +1104,7 @@ msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:13
 msgid "Approvals"
-msgstr ""
+msgstr "Aprovações"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:17
 msgid "ADD ACK"
@@ -1134,7 +1134,7 @@ msgstr[1] ""
 
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
-msgstr "status"
+msgstr ""
 
 #: tracker/templates/feeds/transaction_description.html:2
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1142,7 +1142,7 @@ msgstr "status"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22
 msgid "Date"
-msgstr "Dato"
+msgstr "Data"
 
 #: tracker/templates/feeds/transaction_description.html:3
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1150,7 +1150,7 @@ msgstr "Dato"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_list.html:13
 msgid "User"
-msgstr "Bruger"
+msgstr "Usuário"
 
 #: tracker/templates/feeds/transaction_description.html:4
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1162,7 +1162,7 @@ msgstr "Bruger"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22
 msgid "Amount"
-msgstr "Beløb"
+msgstr "Montante"
 
 #: tracker/templates/feeds/transaction_description.html:5
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1173,7 +1173,7 @@ msgstr "Beløb"
 #: tracker/views.py:1705 tracker/views.py:1710 tracker/views.py:1719
 #: tracker/views.py:1728 tracker/views.py:1738
 msgid "Description"
-msgstr "Beskrivelse"
+msgstr ""
 
 #: tracker/templates/notification/notification_html.html:4
 msgid "List of new tickets"
@@ -1189,7 +1189,7 @@ msgstr ""
 
 #: tracker/templates/notification/notification_html.html:31
 msgid "Supervisor notes on a watched ticket were changed"
-msgstr ""
+msgstr "Notas do supervisor em um ingresso assistido foram alteradas"
 
 #: tracker/templates/notification/notification_html.html:40
 msgid "Changes were made to a watched ticket"
@@ -1233,50 +1233,50 @@ msgstr ""
 #: tracker/templates/tracker/ticketack_add.html:4
 #: tracker/templates/tracker/ticketack_add.html:8
 msgid "Add"
-msgstr "Tilføj"
+msgstr "Adicionar"
 
 #: tracker/templates/tracker/admin_index_override.html:27
 msgid "Change"
-msgstr ""
+msgstr "Mudar"
 
 #: tracker/templates/tracker/admin_index_override.html:39
 #: tracker/templates/tracker/user_list.html:4
 #: tracker/templates/tracker/user_list.html:8
 msgid "User list"
-msgstr "Brugerliste"
+msgstr "Lista de usuários"
 
 #: tracker/templates/tracker/admin_index_override.html:40
 #: tracker/templates/tracker/admin_user_list.html:16
 msgid "Tracker users"
-msgstr "Tracker-brugere"
+msgstr ""
 
 #: tracker/templates/tracker/admin_index_override.html:45
 msgid "You don't have permission to edit anything."
-msgstr ""
+msgstr "Você não tem permissão para editar nada."
 
 #: tracker/templates/tracker/admin_user_list.html:8
 #: tracker/templates/tracker/export.html:67
 #: tracker/templates/tracker/export.html:274
 #: tracker/templates/tracker/import.html:60
 msgid "Users"
-msgstr "Brugere"
+msgstr "Usuários"
 
 #: tracker/templates/tracker/admin_user_list.html:13
 msgid "Home"
-msgstr "Hjem"
+msgstr "Início"
 
 #: tracker/templates/tracker/admin_user_list.html:25
 #: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1733
 msgid "Username"
-msgstr "Brugernavn"
+msgstr "Nome de usuário"
 
 #: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1733
 msgid "First name"
-msgstr "Fornavn"
+msgstr ""
 
 #: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1733
 msgid "Last name"
-msgstr "Efternavn"
+msgstr "Último Nome"
 
 #: tracker/templates/tracker/cluster_detail.html:4
 #: tracker/templates/tracker/cluster_detail.html:8
@@ -1314,12 +1314,12 @@ msgstr ""
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/generic/ticket_list.html:12
 msgid "transactions"
-msgstr "tranksaktioner"
+msgstr ""
 
 #: tracker/templates/tracker/cluster_detail.html:10
 #: tracker/templates/tracker/ticket_detail.html:29
 msgid "Payment status"
-msgstr "Status på betaling"
+msgstr "Status do pagamento"
 
 #: tracker/templates/tracker/cluster_detail.html:14
 msgid "Total tickets"
@@ -1327,7 +1327,7 @@ msgstr ""
 
 #: tracker/templates/tracker/cluster_detail.html:26
 msgid "Total transactions"
-msgstr ""
+msgstr "Total de transações"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:4
 #: tracker/templates/tracker/dumpaccounts/index.html:7
@@ -1337,34 +1337,34 @@ msgstr ""
 #: tracker/templates/tracker/dumpaccounts/index.html:8
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:9
 msgid "Generated on"
-msgstr "Genereret den"
+msgstr "Gerado em"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Unpaid"
-msgstr ""
+msgstr "Não remunerado"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/export.html:207
 msgid "Paid"
-msgstr "Betalt"
+msgstr "Pago"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Overpaid"
-msgstr ""
+msgstr "Excesso de pagamento"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:17
 #: tracker/templates/tracker/grant_table.html:34
 #: tracker/templates/tracker/topic_table.html:38
 #: tracker/templates/tracker/user_list.html:28
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:30
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/ticket_table.html:23
@@ -1373,11 +1373,11 @@ msgstr "Status"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Accepted"
-msgstr "Accepteret"
+msgstr "Aceito"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Payment"
-msgstr "Betaling"
+msgstr "Pagamento"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:36
 msgid "There are no tickets in this topic."
@@ -1386,16 +1386,16 @@ msgstr ""
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:13
 #: tracker/templates/tracker/ticket_detail.html:48
 msgid "Documents"
-msgstr "Dokumenter"
+msgstr ""
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
 msgid "There aren't any documents here."
-msgstr "Der er ingen dokumenter at finde her."
+msgstr ""
 
 #: tracker/templates/tracker/edit_ticket.html:4
 #: tracker/templates/tracker/edit_ticket.html:8
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: tracker/templates/tracker/edit_ticket.html:10
 #: tracker/templates/tracker/ticket_detail.html:17
@@ -1405,25 +1405,25 @@ msgstr ""
 #: tracker/templates/tracker/edit_ticket.html:14
 #: tracker/templates/tracker/edit_ticket_docs.html:16
 msgid "save"
-msgstr "gem"
+msgstr "salvar"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:4
 #: tracker/templates/tracker/edit_ticket_docs.html:8
 msgid "Edit documents"
-msgstr "Rediger dokumenter"
+msgstr "Editar documentos"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:7
 #: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "edit"
-msgstr "rediger"
+msgstr "editar"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:10
 msgid "upload new document"
-msgstr "upload nyt dokument"
+msgstr ""
 
 #: tracker/templates/tracker/edit_ticket_docs.html:14
 msgid "document"
-msgstr "dokument"
+msgstr "documento"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:17
 #: tracker/templates/tracker/ticket_form.html:25
@@ -1437,15 +1437,15 @@ msgstr ""
 #: tracker/templates/tracker/generic/ticket_list.html:35
 #: tracker/templates/tracker/index.html:41
 msgid "Export"
-msgstr "Eksportér"
+msgstr "Exportar"
 
 #: tracker/templates/tracker/export.html:18
 msgid "Only filters with at least one checked checkbox are applied. You can either check all checkboxes or none of them, it's the same."
-msgstr ""
+msgstr "Somente filtros com pelo menos uma caixa de seleção marcada são aplicados. Você pode marcar todas as caixas de seleção ou nenhuma delas, é o mesmo."
 
 #: tracker/templates/tracker/export.html:59
 msgid "custom"
-msgstr ""
+msgstr "personalizar"
 
 #: tracker/templates/tracker/export.html:78
 #: tracker/templates/tracker/export.html:149
@@ -1455,7 +1455,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:19
 #: tracker/templates/tracker/ticket_table.html:35
 msgid "Preexpeditures"
-msgstr ""
+msgstr "Pré Despesas"
 
 #: tracker/templates/tracker/export.html:82
 #: tracker/templates/tracker/export.html:102
@@ -1468,7 +1468,7 @@ msgstr ""
 #: tracker/templates/tracker/export.html:301
 #: tracker/templates/tracker/export.html:320
 msgid "Larger or equal"
-msgstr "Større eller lige"
+msgstr ""
 
 #: tracker/templates/tracker/export.html:90
 #: tracker/templates/tracker/export.html:110
@@ -1500,7 +1500,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:37
 #: tracker/templates/tracker/user_list.html:13
 msgid "Accepted expeditures"
-msgstr ""
+msgstr "Despesas aceitas"
 
 #: tracker/templates/tracker/export.html:145
 msgid "You can't filter grants by any fields"
@@ -1525,7 +1525,7 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:245
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: tracker/templates/tracker/export.html:278
 msgid "Number of tickets created"
@@ -1533,7 +1533,7 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:297
 msgid "Amount of accepted expeditures"
-msgstr ""
+msgstr "Quantidade de despesas aceitas"
 
 #: tracker/templates/tracker/export.html:316
 msgid "Amount of paid expeditures"
@@ -1545,7 +1545,7 @@ msgstr "normal"
 
 #: tracker/templates/tracker/export.html:343
 msgid "staff"
-msgstr "personale"
+msgstr ""
 
 #: tracker/templates/tracker/export.html:348
 msgid "superuser"
@@ -1575,20 +1575,20 @@ msgstr ""
 #: tracker/templates/tracker/topic_detail.html:14
 #: tracker/templates/tracker/topic_finance.html:7
 msgid "topics"
-msgstr ""
+msgstr "tópicos"
 
 #: tracker/templates/tracker/generic/ticket_list.html:12
 #: tracker/templates/tracker/index.html:12
 #: tracker/templates/tracker/user_detail.html:8
 msgid "users"
-msgstr "brugere"
+msgstr ""
 
 #: tracker/templates/tracker/generic/ticket_list.html:13
 #: tracker/templates/tracker/generic/ticket_list.html:32
 #: tracker/templates/tracker/index.html:13
 #: tracker/templates/tracker/user_detail.html:9
 msgid "Create new ticket"
-msgstr ""
+msgstr "Criar novo ingresso"
 
 #: tracker/templates/tracker/generic/ticket_list.html:22
 #: tracker/templates/tracker/user_detail.html:15
@@ -1600,7 +1600,7 @@ msgstr ""
 #: tracker/templates/tracker/import.html:7
 #: tracker/templates/tracker/index.html:38
 msgid "Import"
-msgstr "Importer"
+msgstr "Importar"
 
 #: tracker/templates/tracker/generic/topic_list.html:4
 #: tracker/templates/tracker/generic/topic_list.html:8
@@ -1658,7 +1658,7 @@ msgstr ""
 #: tracker/templates/tracker/grant_table.html:49
 #: tracker/templates/tracker/topic_table.html:53
 msgid "No topics available."
-msgstr ""
+msgstr "Nenhum tópico disponível."
 
 #: tracker/templates/tracker/import.html:10
 #, python-format
@@ -1677,7 +1677,7 @@ msgstr ""
 #: tracker/templates/tracker/import.html:53
 #: tracker/templates/tracker/import.html:60
 msgid "example file"
-msgstr ""
+msgstr "arquivo de exemplo"
 
 #: tracker/templates/tracker/import.html:41
 msgid "Preexpenses"
@@ -1685,34 +1685,34 @@ msgstr ""
 
 #: tracker/templates/tracker/import.html:47
 msgid "Expenses"
-msgstr "Udgifter"
+msgstr "Despesas"
 
 #: tracker/templates/tracker/import.html:53
 #: tracker/templates/tracker/ticket_common_detail.html:36
 #: tracker/templates/tracker/ticket_table.html:18
 #: tracker/templates/tracker/user_list.html:13
 msgid "Media"
-msgstr "Medier"
+msgstr "Mídia"
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_common_detail.html:10
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:30
 msgid "Event date"
-msgstr ""
+msgstr "Data do evento"
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:30
 msgid "Name"
-msgstr "Navn"
+msgstr "Nome"
 
 #: tracker/templates/tracker/index.html:25
 #: tracker/templates/tracker/ticket_common_detail.html:11
 #: tracker/templates/tracker/ticket_table.html:17
 #: tracker/templates/tracker/ticket_table.html:34
 msgid "Requested by"
-msgstr "Anmodet af"
+msgstr "Solicitado por"
 
 #: tracker/templates/tracker/index.html:29
 #: tracker/templates/tracker/ticket_common_detail.html:73
@@ -1725,27 +1725,27 @@ msgstr ""
 #: tracker/templates/tracker/ticket_common_detail.html:14
 #: tracker/templates/tracker/ticket_table.html:39
 msgid "State"
-msgstr "Status"
+msgstr "Estado"
 
 #: tracker/templates/tracker/index.html:31
 #: tracker/templates/tracker/ticket_common_detail.html:9
 #: tracker/templates/tracker/ticket_table.html:24
 #: tracker/templates/tracker/ticket_table.html:40
 msgid "Last changed"
-msgstr "Sidst ændret"
+msgstr "Última alteração"
 
 #: tracker/templates/tracker/paginator.html:4
 msgid "previous"
-msgstr "forrige"
+msgstr "anteriores"
 
 #: tracker/templates/tracker/paginator.html:8
 msgid "next"
-msgstr "næste"
+msgstr "próximo"
 
 #: tracker/templates/tracker/preferences.html:4
 #: tracker/templates/tracker/preferences.html:14
 msgid "Preferences"
-msgstr ""
+msgstr "Preferências"
 
 #: tracker/templates/tracker/preferences.html:18
 msgid "Mute notifications"
@@ -1757,18 +1757,18 @@ msgstr ""
 
 #: tracker/templates/tracker/preferences.html:46
 msgid "Other"
-msgstr "Andet"
+msgstr "Outro"
 
 #: tracker/templates/tracker/preferences.html:51
 #: tracker/templates/tracker/ticket_form.html:24
 #: tracker/templates/tracker/user_details_change.html:18
 #: tracker/templates/tracker/watch.html:32
 msgid "Save"
-msgstr "Gem"
+msgstr "Salvar"
 
 #: tracker/templates/tracker/preferences.html:53
 msgid "Wikimedia account"
-msgstr "Wikimedia-konto"
+msgstr "Conta da Wikimedia"
 
 #: tracker/templates/tracker/preferences.html:57
 msgid "Your account is connected to Wikimedia account"
@@ -1776,7 +1776,7 @@ msgstr ""
 
 #: tracker/templates/tracker/preferences.html:67
 msgid "Disconnect Wikimedia account"
-msgstr ""
+msgstr "Desconectar a conta da Wikimedia"
 
 #: tracker/templates/tracker/preferences.html:71
 msgid "In order to disconnect your Wikimedia account, you first need to"
@@ -1784,7 +1784,7 @@ msgstr ""
 
 #: tracker/templates/tracker/preferences.html:71
 msgid "set a password."
-msgstr ""
+msgstr "definir senha."
 
 #: tracker/templates/tracker/preferences.html:76
 msgid "Link Wikimedia account"
@@ -1798,23 +1798,23 @@ msgstr ""
 #: tracker/templates/tracker/user_deactivate.html:4
 #: tracker/templates/tracker/user_deactivate.html:11
 msgid "Deactivate account"
-msgstr "Deaktiver konto"
+msgstr "Desativar conta"
 
 #: tracker/templates/tracker/sign_ticket.html:4
 #: tracker/templates/tracker/sign_ticket.html:7
 msgid "Add statutory declaration to"
-msgstr ""
+msgstr "Adicionar declaração estatutária a"
 
 #: tracker/templates/tracker/sign_ticket.html:13
 #: tracker/templates/tracker/ticketack_add.html:21
 #: tracker/templates/tracker/ticketack_confirm_delete.html:16
 msgid "Submit"
-msgstr "Indsend"
+msgstr "Enviar"
 
 #: tracker/templates/tracker/subtopic_detail.html:10
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "add ticket"
-msgstr ""
+msgstr "adicionar ingresso"
 
 #: tracker/templates/tracker/subtopic_detail.html:16
 msgid "Total for this subtopic"
@@ -1822,11 +1822,11 @@ msgstr ""
 
 #: tracker/templates/tracker/tabular_formset.html:12
 msgid "delete"
-msgstr "slet"
+msgstr "apagar"
 
 #: tracker/templates/tracker/tabular_formset.html:21
 msgid "Delete the item"
-msgstr ""
+msgstr "Eliminar este item"
 
 #: tracker/templates/tracker/tabular_formset.html:91
 #, python-format
@@ -1837,27 +1837,27 @@ msgstr ""
 #: tracker/templates/tracker/ticketack_confirm_delete.html:4
 #: tracker/templates/tracker/ticketack_confirm_delete.html:8
 msgid "Remove"
-msgstr "Fjern"
+msgstr "Remover"
 
 #: tracker/templates/tracker/ticket_common_detail.html:8
 #: tracker/templates/tracker/ticket_common_detail.html:52
 #: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Created"
-msgstr "Oprettet"
+msgstr "Criado"
 
 #: tracker/templates/tracker/ticket_common_detail.html:10
 msgid "unset"
-msgstr ""
+msgstr "não definido"
 
 #: tracker/templates/tracker/ticket_common_detail.html:15
 #: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "Yes"
-msgstr "Ja"
+msgstr "Sim"
 
 #: tracker/templates/tracker/ticket_common_detail.html:15
 #: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "No"
-msgstr "Nej"
+msgstr "Não"
 
 #: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "Report URL"
@@ -1869,7 +1869,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:18
 msgid "Deposit"
-msgstr ""
+msgstr "Depósito"
 
 #: tracker/templates/tracker/ticket_common_detail.html:19
 msgid "Event URL"
@@ -1881,11 +1881,11 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:22
 msgid "remove"
-msgstr "fjern"
+msgstr "remover"
 
 #: tracker/templates/tracker/ticket_common_detail.html:25
 msgid "Confirm"
-msgstr "Bekræft"
+msgstr "Confirmar"
 
 #: tracker/templates/tracker/ticket_common_detail.html:33
 msgid "Supervisor notes"
@@ -1893,16 +1893,16 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:37
 msgid "Number of objects"
-msgstr "Antal objekter"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:38
 msgid "Number of media files"
-msgstr "Antal mediefiler"
+msgstr "Número de arquivos de mídia"
 
 #: tracker/templates/tracker/ticket_common_detail.html:49
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Item"
-msgstr ""
+msgstr "Item"
 
 #: tracker/templates/tracker/ticket_common_detail.html:49
 #: tracker/templates/tracker/ticket_common_detail.html:64
@@ -1915,11 +1915,11 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Paid?"
-msgstr "Betalt?"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Yes,No"
-msgstr "Ja,Nej"
+msgstr "Sim,Não"
 
 #: tracker/templates/tracker/ticket_common_detail.html:71
 msgid "Total expeditures"
@@ -1935,11 +1935,11 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:20
 msgid "duplicate"
-msgstr ""
+msgstr "duplicado"
 
 #: tracker/templates/tracker/ticket_detail.html:22
 msgid "add yourself as a driver"
-msgstr "tilføj dig selv som chauffør"
+msgstr "adicione-se como motorista"
 
 #: tracker/templates/tracker/ticket_detail.html:29
 #, python-format
@@ -1952,26 +1952,26 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:63
 msgid "As you are not an administrator, you can see only documents you uploaded below."
-msgstr ""
+msgstr "Como você não é um administrador, pode ver apenas os documentos enviados abaixo."
 
 #: tracker/templates/tracker/ticket_detail.html:77
 #: tracker/templates/tracker/ticket_detail.html:81
 #: tracker/templates/tracker/topic_detail.html:43
 #: tracker/templates/tracker/topic_detail.html:46
 msgid "Comments"
-msgstr "Kommentarer"
+msgstr "Comentários"
 
 #: tracker/templates/tracker/ticket_detail.html:82
 #: tracker/templates/tracker/topic_detail.html:47
 msgid "There are no comments yet."
-msgstr "Der er endnu ingen kommentarer."
+msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:89
 #: tracker/templates/tracker/ticket_detail.html:91
 #: tracker/templates/tracker/topic_detail.html:52
 #: tracker/templates/tracker/topic_detail.html:54
 msgid "Add comment"
-msgstr "Tilføj kommentar"
+msgstr "Adicionar comentário"
 
 #: tracker/templates/tracker/ticket_form.html:11
 msgid "Related files"
@@ -1979,7 +1979,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_form.html:11 tracker/views.py:803
 msgid "file"
-msgstr "fil"
+msgstr "arquivo"
 
 #: tracker/templates/tracker/ticket_form.html:15
 msgid "preexpediture"
@@ -1991,7 +1991,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_form.html:24
 msgid "submit"
-msgstr "indsend"
+msgstr "enviar"
 
 #: tracker/templates/tracker/ticket_table.html:25
 msgid "Media item list"
@@ -2000,7 +2000,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:25
 #: tracker/templates/tracker/user_list.html:14
 msgid "Item count"
-msgstr ""
+msgstr "Contagem de itens"
 
 #: tracker/templates/tracker/ticket_table.html:25
 #: tracker/templates/tracker/user_list.html:14
@@ -2020,7 +2020,7 @@ msgstr ""
 #: tracker/templates/tracker/ticketack_add.html:7
 #: tracker/templates/tracker/ticketack_confirm_delete.html:7
 msgid "confirmations"
-msgstr "bekræftelser"
+msgstr ""
 
 #: tracker/templates/tracker/ticketack_add.html:26
 #: tracker/templates/tracker/ticketack_confirm_delete.html:17
@@ -2029,11 +2029,11 @@ msgstr ""
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:11
 msgid "Added"
-msgstr "Tilføjet"
+msgstr "Adicionado"
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:12
 msgid "Added by"
-msgstr "Tilføjet af"
+msgstr ""
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:4
 #: tracker/templates/tracker/topic_content_acks_per_user.html:8
@@ -2042,7 +2042,7 @@ msgstr ""
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:12
 msgid "Supervisor"
-msgstr ""
+msgstr "Supervisor"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:15
 msgid "Ack count"
@@ -2050,7 +2050,7 @@ msgstr ""
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:27
 msgid "download csv"
-msgstr "hent csv"
+msgstr ""
 
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "Topic is open for new tickets"
@@ -2088,7 +2088,7 @@ msgstr ""
 
 #: tracker/templates/tracker/topic_table.html:11
 msgid "Administrators"
-msgstr "Administratorer"
+msgstr "Administradores"
 
 #: tracker/templates/tracker/transaction_list.html:4
 #: tracker/templates/tracker/transaction_list.html:12
@@ -2097,7 +2097,7 @@ msgstr ""
 
 #: tracker/templates/tracker/transaction_list.html:7
 msgid "Latest transactions"
-msgstr "Seneste transaktioner"
+msgstr "Últimas transações"
 
 #: tracker/templates/tracker/transaction_list.html:22
 #: tracker/templates/tracker/user_detail.html:31
@@ -2107,24 +2107,24 @@ msgstr ""
 
 #: tracker/templates/tracker/transaction_list.html:24
 msgid "No transactions available."
-msgstr "Ingen transaktioner tilgængelige."
+msgstr "Nenhuma transação disponível."
 
 #: tracker/templates/tracker/transaction_list.html:26
 msgid "download as csv"
-msgstr "hent som csv"
+msgstr ""
 
 #: tracker/templates/tracker/upload_ticket_doc.html:21
 #: tracker/templates/tracker/upload_ticket_doc.html:25
 msgid "Upload document"
-msgstr "Overfør dokument"
+msgstr ""
 
 #: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "documents"
-msgstr "dokumenter"
+msgstr ""
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload"
-msgstr ""
+msgstr "carregar"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload and add another"
@@ -2144,15 +2144,15 @@ msgstr ""
 
 #: tracker/templates/tracker/user_deactivate.html:16
 msgid "You can contact an admin by replying to the email which confirms the deactivation."
-msgstr ""
+msgstr "Você pode entrar em contato com um administrador respondendo ao e-mail que confirma a desativação."
 
 #: tracker/templates/tracker/user_deactivate.html:18
 msgid "The following account will be deactivated:"
-msgstr "Følgende konto vil blive deaktiveret:"
+msgstr ""
 
 #: tracker/templates/tracker/user_deactivate.html:20
 msgid "Username:"
-msgstr "Brugernavn:"
+msgstr ""
 
 #: tracker/templates/tracker/user_deactivate.html:21
 msgid "Email:"
@@ -2160,23 +2160,23 @@ msgstr "E-mail:"
 
 #: tracker/templates/tracker/user_deactivate.html:32
 msgid "Deactivate my account"
-msgstr "Deaktiver min konto"
+msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:3
 msgid "Tracker account deactivated"
-msgstr "Tracker-konto deaktiveret"
+msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "Your tracker account with username"
-msgstr "Din tracker-konto med brugernavn"
+msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "has been deactivated."
-msgstr "er blevet deaktiveret."
+msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:6
 msgid "Deactivation cannot be undone without the intervention of an admin."
-msgstr ""
+msgstr "A desativação não pode ser desfeita sem a intervenção de um administrador."
 
 #: tracker/templates/tracker/user_deactivate_email.html:7
 msgid "You can contact an admin by replying to this email."
@@ -2184,11 +2184,11 @@ msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
-msgstr "Tracker"
+msgstr ""
 
 #: tracker/templates/tracker/user_detail.html:13
 msgid "Total for this user"
-msgstr "Samlet for denne bruger"
+msgstr ""
 
 #: tracker/templates/tracker/user_detail.html:32
 msgid "Accepted expeditures total"
@@ -2197,7 +2197,7 @@ msgstr ""
 #: tracker/templates/tracker/user_details_change.html:4
 #: tracker/templates/tracker/user_details_change.html:9
 msgid "My details"
-msgstr "Mine detaljer"
+msgstr "Meus detalhes"
 
 #: tracker/templates/tracker/user_details_change.html:19
 #: users/templates/users/register.html:16
@@ -2219,7 +2219,7 @@ msgstr ""
 
 #: tracker/templates/tracker/watch.html:19
 msgid "All"
-msgstr "Alle"
+msgstr "Todos"
 
 #: tracker/views.py:90
 msgid "Comment posted, thank you."
@@ -2257,7 +2257,7 @@ msgstr ""
 
 #: tracker/views.py:408
 msgid "We've updated your preferences"
-msgstr ""
+msgstr "Atualizamos suas preferências"
 
 #: tracker/views.py:456
 msgid "Please enter your password to confirm the deactivation of your account."
@@ -2265,15 +2265,15 @@ msgstr ""
 
 #: tracker/views.py:471
 msgid "Account deactivation"
-msgstr "Deaktivering af konto"
+msgstr ""
 
 #: tracker/views.py:478
 msgid "Your account has been deactivated."
-msgstr "Din konto er blevet deaktiveret."
+msgstr ""
 
 #: tracker/views.py:481
 msgid "Password is incorrect."
-msgstr "Adgangskoden er forkert."
+msgstr ""
 
 #: tracker/views.py:513
 #, python-format
@@ -2297,11 +2297,11 @@ msgstr ""
 
 #: tracker/views.py:694
 msgid "I confirm the above"
-msgstr "Jeg bekræfter det ovenstående"
+msgstr "Eu confirmo o acima"
 
 #: tracker/views.py:701
 msgid "You cannot add statutory declaration to a ticket that does not support it."
-msgstr ""
+msgstr "Você não pode adicionar uma declaração estatutária a um ticket que não a suporta."
 
 #: tracker/views.py:703
 msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
@@ -2332,11 +2332,11 @@ msgstr ""
 
 #: tracker/views.py:1080
 msgid "Your details have been saved."
-msgstr "Dine detaljer blev gemt."
+msgstr "Seus detalhes foram salvos."
 
 #: tracker/views.py:1526
 msgid "You must fill the form validly"
-msgstr ""
+msgstr "Você deve preencher o formulário validamente"
 
 #: tracker/views.py:1545
 #, python-format
@@ -2345,11 +2345,11 @@ msgstr ""
 
 #: tracker/views.py:1690
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
-msgstr ""
+msgstr "O formulário retornou valores estranhos. Por favor, entre em contato com o systemadmin e diga a ele o que você tentou fazer."
 
 #: tracker/views.py:1692
 msgid "Your CSV file was imported."
-msgstr "Din CSV-fil blev importeret."
+msgstr ""
 
 #: tracker/views.py:1700
 msgid "Name of a ticket"
@@ -2369,11 +2369,11 @@ msgstr ""
 
 #: tracker/views.py:1710
 msgid "Full name"
-msgstr "Fulde navn"
+msgstr "Nome completo"
 
 #: tracker/views.py:1710
 msgid "Short name"
-msgstr "Kort navn"
+msgstr "Nome curto"
 
 #: tracker/views.py:1710
 msgid "Slug"
@@ -2381,19 +2381,19 @@ msgstr ""
 
 #: tracker/views.py:1733
 msgid "Password"
-msgstr "Adgangskode"
+msgstr "Senha"
 
 #: tracker/views.py:1755
 msgid "Preexpeditures were succesfully copied to expeditures."
-msgstr ""
+msgstr "Pre gastos foram copiados com sucesso para despesas."
 
 #: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
-msgstr "Gammel adgangskode"
+msgstr "Senha antiga"
 
 #: users/templates/users/login.html:4
 msgid "Login"
-msgstr "Log på"
+msgstr ""
 
 #: users/templates/users/login.html:7
 msgid "You need to log in to access the following page."
@@ -2405,31 +2405,31 @@ msgstr ""
 
 #: users/templates/users/login.html:26
 msgid "Don't have an acount?"
-msgstr "Har du ikke en konto?"
+msgstr ""
 
 #: users/templates/users/login.html:26 users/templates/users/register.html:6
 msgid "Register"
-msgstr "Registrér"
+msgstr "Registrar"
 
 #: users/templates/users/login.html:27
 msgid "Forgot password?"
-msgstr "Glemt adgangskode?"
+msgstr "Esqueceu a senha?"
 
 #: users/templates/users/login.html:27
 msgid "Reset password"
-msgstr "Nulstil adgangskode"
+msgstr "Redefinir senha"
 
 #: users/templates/users/login.html:28
 msgid "Login with Meta Wiki"
-msgstr "Log på med Meta-Wiki"
+msgstr ""
 
 #: users/templates/users/logout.html:4
 msgid "Logged out"
-msgstr "Logget af"
+msgstr "Saiu"
 
 #: users/templates/users/logout.html:7
 msgid "Bye!"
-msgstr "Farvel!"
+msgstr "Tchau!"
 
 #: users/templates/users/logout.html:8
 msgid "Go to index."
@@ -2438,7 +2438,7 @@ msgstr ""
 #: users/templates/users/password_change.html:5
 #: users/templates/users/password_change.html:16 users/views.py:66
 msgid "Password change"
-msgstr "Ændring af adgangskode"
+msgstr "Mudança de senha"
 
 #: users/templates/users/password_change.html:12
 #, invalid-plural
@@ -2458,16 +2458,16 @@ msgstr ""
 
 #: users/templates/users/password_change.html:33
 msgid "New password"
-msgstr "Ny adgangskode"
+msgstr "Nova senha"
 
 #: users/templates/users/password_change.html:38
 msgid "Password (again)"
-msgstr ""
+msgstr "Senha (novamente)"
 
 #: users/templates/users/password_change.html:42
 #: users/templates/users/password_reset_confirm.html:19
 msgid "Change my password"
-msgstr "Skift min adgangskode"
+msgstr "Alterar minha senha"
 
 #: users/templates/users/password_change_done.html:4
 #: users/templates/users/password_change_done.html:7
@@ -2476,7 +2476,7 @@ msgstr ""
 
 #: users/templates/users/password_change_done.html:8
 msgid "Your password was changed."
-msgstr "Din adgangskode blev ændret."
+msgstr "Sua senha foi alterada."
 
 #: users/templates/users/password_reset.html:4
 #: users/templates/users/password_reset.html:8
@@ -2490,7 +2490,7 @@ msgstr ""
 
 #: users/templates/users/password_reset.html:14
 msgid "E-mail address:"
-msgstr "E-mailadresse:"
+msgstr "Endereço de e-mail:"
 
 #: users/templates/users/password_reset.html:14
 msgid "Reset my password"
@@ -2499,31 +2499,31 @@ msgstr ""
 #: users/templates/users/password_reset_complete.html:4
 #: users/templates/users/password_reset_complete.html:8
 msgid "Password reset complete"
-msgstr "Adgangskoden blev nulstillet"
+msgstr ""
 
 #: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
-msgstr ""
+msgstr "Sua senha foi definida. Você pode ir em frente e entrar agora."
 
 #: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
-msgstr "Log på"
+msgstr "Entrar"
 
 #: users/templates/users/password_reset_confirm.html:10
 msgid "Enter new password"
-msgstr "Indtast ny adgangskode"
+msgstr ""
 
 #: users/templates/users/password_reset_confirm.html:16
 msgid "New password:"
-msgstr "Ny adgangskode:"
+msgstr "Nova senha:"
 
 #: users/templates/users/password_reset_confirm.html:18
 msgid "Confirm password:"
-msgstr "Bekræft adgangskode:"
+msgstr ""
 
 #: users/templates/users/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
-msgstr ""
+msgstr "Senha redefinida sem sucesso"
 
 #: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
@@ -2549,11 +2549,11 @@ msgstr ""
 
 #: users/templates/users/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
-msgstr "Dit brugernavn, hvis du nu skulle have glemt det:"
+msgstr ""
 
 #: users/templates/users/password_reset_email.html:10
 msgid "Thanks for using our site!"
-msgstr "Tak fordi du bruger vores side!"
+msgstr ""
 
 #: users/templates/users/password_reset_email.html:12
 #, python-format
@@ -2562,7 +2562,7 @@ msgstr ""
 
 #: users/views.py:21
 msgid "Will be used for password recovery and notifications, if you enable them."
-msgstr ""
+msgstr "Será usado para recuperação de senha e notificações, se você ativá-las."
 
 #: users/views.py:36
 #, python-format
