@@ -1,36 +1,36 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block title %}
-    {% trans "Watch" %} {{objecttype}}: {{object}}
+	{% trans "Watch" %} {{objecttype}}: {{object}}
 {% endblock %}
 
 {% block content %}
 <p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; <a href="{{object.get_absolute_url}}">{{object}}</a></p>
 
 <h1>
-    {% trans "Watch" %} {{objecttype}}: {{object}}
+	{% trans "Watch" %} {{objecttype}}: {{object}}
 </h1>
 <tr class="container">
-    <form enctype="multipart/form-data" class="form-horizontal notif-form" method="POST">
-        {% csrf_token %}
-        <table class="dataTable">
-            <tbody>
-                <tr>
-                    <td><label for="all">{% trans "All" %}</label></td>
-                    <td><input type="checkbox" {% if watches_all_notifications %} checked {% endif %} name="all" id="all"></td>
-                </tr>
+	<form enctype="multipart/form-data" class="form-horizontal notif-form" method="POST">
+		{% csrf_token %}
+		<table class="dataTable">
+			<tbody>
+				<tr>
+					<td><label for="all">{% trans "All" %}</label></td>
+					<td><input type="checkbox" {% if watches_all_notifications %} checked {% endif %} name="all" id="all"></td>
+				</tr>
 
-                <br>
-            {% for notification_type in notification_types %}
-                <tr>
-                    <td><label for="{{notification_type.0}}">{{notification_type.1}}</label></td>
-                    <td><input type="checkbox" name="{{notification_type.0}}" id="{{notification_type.0}}" class="otherNotifTypes" {% if notification_type.2 %}checked{% endif %}></td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-        <input class="form-control" type="submit" value="{% trans "Save" %}" />
-    </form>
+				<br>
+			{% for notification_type in notification_types %}
+				<tr>
+					<td><label for="{{notification_type.0}}">{{notification_type.1}}</label></td>
+					<td><input type="checkbox" name="{{notification_type.0}}" id="{{notification_type.0}}" class="otherNotifTypes" {% if notification_type.2 %}checked{% endif %}></td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		<input class="form-control" type="submit" value="{% trans "Save" %}" />
+	</form>
 </div>
 
 <script src="/static/toggleAllNotifs.js"></script>

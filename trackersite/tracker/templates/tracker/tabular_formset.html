@@ -2,103 +2,103 @@
 <div id="{{ formset.prefix }}-group">
 {{ formset.management_form }}
 <fieldset{% if not formset_title %} class="noframe"{% endif %}>
-    {% if formset_title %}<h2>{{ formset_title }}</h2>{% endif %}
-    {{ formset.non_form_errors }}
-    <table class="table table-striped table-hover">
-        <thead><tr>
-            {% if use_inline_intro %}<th></th>{% endif %}
-            {% for field in formset.0.visible_fields %}
-                {% if field.name == "DELETE" %}
-                    <th>{% trans "delete" %}</th>
-                {% else %}
-                    <th{% if field.field.required %} class="required"{% endif %}>{% trans field.name %}</th>
-                {% endif %}
-            {% endfor %}
-        </tr><tr>
-            {% if use_inline_intro %}<td></td>{% endif %}
-            {% for field in formset.0.visible_fields %}
-                {% if field.name == "DELETE" %}
-                    <td class="helptext">{% trans "Delete the item" %}</td>
-                {% else %}
-                    <td class="helptext">{% trans field.help_text %}</td>
-                {% endif %}
-            {% endfor %}
-        </tr></thead>
+	{% if formset_title %}<h2>{{ formset_title }}</h2>{% endif %}
+	{{ formset.non_form_errors }}
+	<table class="table table-striped table-hover">
+		<thead><tr>
+			{% if use_inline_intro %}<th></th>{% endif %}
+			{% for field in formset.0.visible_fields %}
+				{% if field.name == "DELETE" %}
+					<th>{% trans "delete" %}</th>
+				{% else %}
+					<th{% if field.field.required %} class="required"{% endif %}>{% trans field.name %}</th>
+				{% endif %}
+			{% endfor %}
+		</tr><tr>
+			{% if use_inline_intro %}<td></td>{% endif %}
+			{% for field in formset.0.visible_fields %}
+				{% if field.name == "DELETE" %}
+					<td class="helptext">{% trans "Delete the item" %}</td>
+				{% else %}
+					<td class="helptext">{% trans field.help_text %}</td>
+				{% endif %}
+			{% endfor %}
+		</tr></thead>
 
-        <tbody id="{{section}}">
-        {% for inline_admin_form in formset %}
-            {% if inline_admin_form.form.non_field_errors %}
-            <tr><td>{{ inline_admin_form.form.non_field_errors }}</td></tr>
-            {% endif %}
-            <tr id="{{ formset.prefix }}-{% if not forloop.last or not inline_admin_form.empty_permitted %}{{ forloop.counter0 }}{% else %}empty{% endif %}" {% if forloop.last and inline_admin_form.empty_permitted  %}class="empty-form"{% endif %}>
-                <td class="hidden">
-                    {% for field in inline_admin_form.hidden_fields %}{{ field|add_class:"form-control" }}{% endfor %}
-                </td>
-                {% if use_inline_intro %}<td>{{inline_admin_form.instance.inline_intro}}</td>{% endif %}
-                {% for field in inline_admin_form.visible_fields %}
-                    <td class="field_{{ field.name }}{% if field.field.required %} required{% endif %}">
-                        {{ field.errors.as_ul }}
-                        {{ field|add_class:"form-control" }}
-                    </td>
-                {% endfor %}
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+		<tbody id="{{section}}">
+		{% for inline_admin_form in formset %}
+			{% if inline_admin_form.form.non_field_errors %}
+			<tr><td>{{ inline_admin_form.form.non_field_errors }}</td></tr>
+			{% endif %}
+			<tr id="{{ formset.prefix }}-{% if not forloop.last or not inline_admin_form.empty_permitted %}{{ forloop.counter0 }}{% else %}empty{% endif %}" {% if forloop.last and inline_admin_form.empty_permitted  %}class="empty-form"{% endif %}>
+				<td class="hidden">
+					{% for field in inline_admin_form.hidden_fields %}{{ field|add_class:"form-control" }}{% endfor %}
+				</td>
+				{% if use_inline_intro %}<td>{{inline_admin_form.instance.inline_intro}}</td>{% endif %}
+				{% for field in inline_admin_form.visible_fields %}
+					<td class="field_{{ field.name }}{% if field.field.required %} required{% endif %}">
+						{{ field.errors.as_ul }}
+						{{ field|add_class:"form-control" }}
+					</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
 </fieldset>
 </div>
 
 <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', () => {
-        const rows = "#{{ formset.prefix }}-group fieldset tbody tr";
-        const reinitDateTimeShortCuts = () => {
-            // Reinitialize the calendar and clock widgets by force
-            if (typeof DateTimeShortcuts != "undefined") {
-                $(".datetimeshortcuts").remove();
-                DateTimeShortcuts.init();
-            }
-        }
-        const updateSelectFilter = () => {
-            // If any SelectFilter widgets are a part of the new form,
-            // instantiate a new SelectFilter instance for it.
-            if (typeof SelectFilter != "undefined"){
-                $(".selectfilter").each((index, value) => {
-                    const namearr = value.name.split('-');
-                    SelectFilter.init(value.id, namearr[namearr.length-1], false, "{{STATIC_URL}}admin/");
-                });
-                $(".selectfilterstacked").each((index, value) => {
-                    const namearr = value.name.split('-');
-                    SelectFilter.init(value.id, namearr[namearr.length-1], true, "{{STATIC_URL}}admin/");
-                });
-            }
-        }
-        const initPrepopulatedFields = row => {
-            row.find('.prepopulated_field').each(() => {
-                const field = $(this),
-                    input = field.find('input, select, textarea'),
-                    dependency_list = input.data('dependency_list') || [];
-                const dependencies = [];
-                dependency_list.forEach(fieldName => {
-                    dependencies.push('#' + row.find(field_name).find('input, select, textarea').attr('id'));
-                })
-                if (dependencies.length) {
-                    input.prepopulate(dependencies, input.attr('maxlength'));
-                }
-            });
-        }
-        $(rows).formset({
-            prefix: "{{ formset.prefix }}",
-            addText: "{% blocktrans %}Add another {{ formset_item_name }}{% endblocktrans %}",
-            formCssClass: "dynamic-{{ formset.prefix }}",
-            deleteCssClass: "inline-deletelink",
-            deleteText: "{% trans "Remove" %}",
-            emptyCssClass: "empty-form",
-            added: (row => {
-                row.find('.field_DELETE .delete').empty();
-                initPrepopulatedFields(row);
-                reinitDateTimeShortCuts();
-                updateSelectFilter();
-            })
-        });
-    });
+	document.addEventListener('DOMContentLoaded', () => {
+		const rows = "#{{ formset.prefix }}-group fieldset tbody tr";
+		const reinitDateTimeShortCuts = () => {
+			// Reinitialize the calendar and clock widgets by force
+			if (typeof DateTimeShortcuts != "undefined") {
+				$(".datetimeshortcuts").remove();
+				DateTimeShortcuts.init();
+			}
+		}
+		const updateSelectFilter = () => {
+			// If any SelectFilter widgets are a part of the new form,
+			// instantiate a new SelectFilter instance for it.
+			if (typeof SelectFilter != "undefined"){
+				$(".selectfilter").each((index, value) => {
+					const namearr = value.name.split('-');
+					SelectFilter.init(value.id, namearr[namearr.length-1], false, "{{STATIC_URL}}admin/");
+				});
+				$(".selectfilterstacked").each((index, value) => {
+					const namearr = value.name.split('-');
+					SelectFilter.init(value.id, namearr[namearr.length-1], true, "{{STATIC_URL}}admin/");
+				});
+			}
+		}
+		const initPrepopulatedFields = row => {
+			row.find('.prepopulated_field').each(() => {
+				const field = $(this),
+					input = field.find('input, select, textarea'),
+					dependency_list = input.data('dependency_list') || [];
+				const dependencies = [];
+				dependency_list.forEach(fieldName => {
+					dependencies.push('#' + row.find(field_name).find('input, select, textarea').attr('id'));
+				})
+				if (dependencies.length) {
+					input.prepopulate(dependencies, input.attr('maxlength'));
+				}
+			});
+		}
+		$(rows).formset({
+			prefix: "{{ formset.prefix }}",
+			addText: "{% blocktrans %}Add another {{ formset_item_name }}{% endblocktrans %}",
+			formCssClass: "dynamic-{{ formset.prefix }}",
+			deleteCssClass: "inline-deletelink",
+			deleteText: "{% trans "Remove" %}",
+			emptyCssClass: "empty-form",
+			added: (row => {
+				row.find('.field_DELETE .delete').empty();
+				initPrepopulatedFields(row);
+				reinitDateTimeShortCuts();
+				updateSelectFilter();
+			})
+		});
+	});
 </script>

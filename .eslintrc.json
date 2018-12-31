@@ -1,39 +1,39 @@
 {
-    "extends": [
-        "wikimedia",
-        "wikimedia/jquery"
-    ],
-    "parserOptions": {
-        "ecmaVersion": 8
-    },
-    "overrides": [
-        {
-            "files": "Gruntfile.js",
-            "env":  {
-                "commonjs": true
-            }
-        },
-        {
-            "files": "static/ticketform/common.js",
-            "rules": {
-                "no-unused-vars": "off"
-            }
-        }
-    ],
-    "env": {
-        "browser": true,
-        "es6": true
-    },
-    "rules": {
-        "arrow-parens": ["error", "as-needed", {
-            "requireForBlockBody": true
-        }],
-        "no-const-assign": "error",
-        "one-const": "off",
-        "one-var": "off"
-    },
-    "globals": {
-        "getTopicById": true,
-        "getSubtopicById": true
-    }
+	"extends": [
+		"wikimedia",
+		"wikimedia/jquery"
+	],
+	"parserOptions": {
+		"ecmaVersion": 8
+	},
+	"overrides": [
+		{
+			"files": "Gruntfile.js",
+			"env":  {
+				"commonjs": true
+			}
+		},
+		{
+			"files": "static/ticketform/common.js",
+			"rules": {
+				"no-unused-vars": "off"
+			}
+		}
+	],
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"rules": {
+		"arrow-parens": ["error", "as-needed", {
+			"requireForBlockBody": true
+		}],
+		"no-const-assign": "error",
+		"one-const": "off",
+		"one-var": "off"
+	},
+	"globals": {
+		"getTopicById": true,
+		"getSubtopicById": true
+	}
 }

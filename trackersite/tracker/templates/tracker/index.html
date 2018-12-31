@@ -6,7 +6,7 @@
 {% block content %}
 <style>
 .container {
-    width: 100% !important;
+	width: 100% !important;
 }
 </style>
 <p class="nav">{% trans "index" %} | <a href="{% url "topic_list" %}">{% trans "topics" %}</a> | <a href="{% url "user_list" %}">{% trans "users" %}</a></p>
@@ -17,22 +17,22 @@
 <div class="hidden" id="disabledatatables">yes</div>
 <!-- i18n-lint enable -->
 <table class="responsive">
-    <thead>
-        <tr><th data-priority="2">{% trans "ID" %} <i class="fa "></i></th><th data-priority="11">{% trans "Event date" %}</th><th data-priority="1">{% trans "Name" %} <i class="fa "></i></th>
-            <th data-priority="7"><abbr title="{% trans "Grant" %}">{% filter slice:":2" %}{% trans "Grant" %}{% endfilter %}<abbr></th>
-            <th data-priority="3">{% trans "Topic" %} <i class="fa "></i></th>
-            <th data-priority="4">{% trans "Subtopic" %}</th>
-            <th data-priority="5">{% trans "Requested by" %}</th>
-            <th data-priority="8">{% trans "Preexpeditures" %}</th>
-            <th data-priority="9">{% trans "Expeditures" %}</th>
-            <th data-priority="9">{% trans "Accepted expeditures" %}</th>
-            <th data-priority="10">{% trans "Paid expeditures" %}</th>
-            <th data-priority="6">{% trans "State" %}</th>
-            <th data-priority="12">{% trans "Last changed" %} <i class="fa "></i></th></tr>
-    </thead>
-    <tbody>
+	<thead>
+		<tr><th data-priority="2">{% trans "ID" %} <i class="fa "></i></th><th data-priority="11">{% trans "Event date" %}</th><th data-priority="1">{% trans "Name" %} <i class="fa "></i></th>
+			<th data-priority="7"><abbr title="{% trans "Grant" %}">{% filter slice:":2" %}{% trans "Grant" %}{% endfilter %}<abbr></th>
+			<th data-priority="3">{% trans "Topic" %} <i class="fa "></i></th>
+			<th data-priority="4">{% trans "Subtopic" %}</th>
+			<th data-priority="5">{% trans "Requested by" %}</th>
+			<th data-priority="8">{% trans "Preexpeditures" %}</th>
+			<th data-priority="9">{% trans "Expeditures" %}</th>
+			<th data-priority="9">{% trans "Accepted expeditures" %}</th>
+			<th data-priority="10">{% trans "Paid expeditures" %}</th>
+			<th data-priority="6">{% trans "State" %}</th>
+			<th data-priority="12">{% trans "Last changed" %} <i class="fa "></i></th></tr>
+	</thead>
+	<tbody>
 
-    </tbody>
+	</tbody>
 </table>
 <a href="{% url "importcsv" %}">
 <button class="btn btn-primary">{% trans "Import" %}</button>
@@ -41,28 +41,28 @@
 <button class="btn btn-primary">{% trans "Export" %}</button>
 </a>
 <script>
-    fetch('/api/tracker/trackerpreferences/').then(response => response.json())
-        .then( jsonPreferences => {
-            const LANGUAGE = '{{LANGUAGE}}',
-                display_items = jsonPreferences[0] ? jsonPreferences[0].display_items : 25;
-            fetch('/api/tracker/languages/', { headers: { Accept: 'application/json' }}).then( response => response.json())
-                .then(function (data) {
-                    const fullLanguage = data[LANGUAGE.toLowerCase()],
-                        url = `https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/${fullLanguage}.json`;
+	fetch('/api/tracker/trackerpreferences/').then(response => response.json())
+		.then( jsonPreferences => {
+			const LANGUAGE = '{{LANGUAGE}}',
+				display_items = jsonPreferences[0] ? jsonPreferences[0].display_items : 25;
+			fetch('/api/tracker/languages/', { headers: { Accept: 'application/json' }}).then( response => response.json())
+				.then(function (data) {
+					const fullLanguage = data[LANGUAGE.toLowerCase()],
+						url = `https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/${fullLanguage}.json`;
 
-                    $('table').DataTable({
-                        order: [[0, "desc"]],
-                        columnDefs: [
-                            { type: 'date-with-none', targets: 1 },
-                            { type: 'money', targets: [7, 8, 9] }
-                        ],
-                        language: {
-                            url
-                        },
-                        pageLength: display_items,
-                        ajax: '/tickets/json/{{LANGUAGE}}.json'
-                    });
-                });
-    });
+					$('table').DataTable({
+						order: [[0, "desc"]],
+						columnDefs: [
+							{ type: 'date-with-none', targets: 1 },
+							{ type: 'money', targets: [7, 8, 9] }
+						],
+						language: {
+							url
+						},
+						pageLength: display_items,
+						ajax: '/tickets/json/{{LANGUAGE}}.json'
+					});
+				});
+	});
 </script>
 {% endblock %}

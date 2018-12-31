@@ -11,80 +11,80 @@
 <p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; </p>
 
 <h1>
-    {% trans "Preferences" %}
+	{% trans "Preferences" %}
 </h1>
 <div class="container">
-    <form enctype="multipart/form-data" class="form-horizontal notif-form" method="POST">
-        <h3>{% trans "Mute notifications" %}</h3>
-        {% csrf_token %}
-        <table class="dataTable">
-            <tbody>
-            {% for notification_type in notification_types %}
-            <tr>
-                <td class="checkbox_label"><label for="{{notification_type.0}}">{{notification_type.1}}</label></td>
-                <td>
-                {% if notification_type.0 == "muted" %}
-                    <input type="checkbox" name="muted" class="all-checkbox" id="muted"
-                        {% if notification_type.2 or notification_types.0.2 %}checked{% endif %}>
-                {% else %}
-                    <input type="checkbox" name="{{notification_type.0}}"  class="otherNotifTypes" id="{{notification_type.0}}"
-                        {% if notification_type.2 or notification_types.0.2 %}checked{% endif %}>
-                {% endif %}
-                </td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-        <h3>{% trans "Ignore ack types" %}</h3>
-        <table class="dataTable">
-            <tbody>
-            {% for ack_type in ack_types %}
-                <tr>
-                    <td class="checkbox_label"><label for="{{ack_type.0}}">{{ack_type.1}}</label></td>
-                    <!-- htmllint id-no-dup="false" -->
-                    <td><input type="checkbox" name="{{ack_type.0}}" id="{{ack_type.0}}" {% if ack_type.2 %}checked{% endif %}></td>
-                    <!-- htmllint id-no-dup="$previous" -->
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-        <h3>{% trans "Other"%}</h3>
-        {% for field in preferences_form %}
-            {{ field.error }}
-            {{ field.label_tag }} {{ field|add_class:"form-control" }}
-        {% endfor %}
-        <input class="form-control" type="submit" value="{% trans "Save" %}" />
-    </form>
-    <h3>{% trans "Wikimedia account" %}</h3>
-    {% if mediawiki_connect_data.is_connected %}
-    <tr>
-        <td class="checkbox_label"><label>
-            {% trans "Your account is connected to Wikimedia account" %}
-            <a href="https://meta.wikimedia.org/wiki/User:{{mediawiki_connect_data.username}}">{{mediawiki_connect_data.username}}</a>.
-        </label></td>
-    </tr>
-    <tr>
-        <td>
-            {% if mediawiki_connect_data.has_password %}
-            <form action="{% url 'social:disconnect' 'mediawiki' %}?next={% url 'preferences' %}" method="post">
-                {% csrf_token %}
-                <button class="btn btn-warning">
-                    {% trans "Disconnect Wikimedia account" %}
-                </button>
-            </form>
-            {% else %}
-            <label>{% trans "In order to disconnect your Wikimedia account, you first need to" %} <a href="{% url 'password_change' %}">{% trans "set a password." %}</a></label>
-            {% endif %}
-        </td>
-    </tr>
-    {% else %}
-    <a href="{% url 'social:begin' 'mediawiki' %}?next={% url 'preferences' %}"><button class="btn btn-primary">{% trans "Link Wikimedia account" %}</button></a>
-    {% endif %}
-    <br>
-    <h3>{% trans "Account actions" %}</h3>
-    <a href="{% url 'deactivate_account' %}">
-        <button class="btn btn-danger">{% trans "Deactivate account" %}</button>
-    </a>
+	<form enctype="multipart/form-data" class="form-horizontal notif-form" method="POST">
+		<h3>{% trans "Mute notifications" %}</h3>
+		{% csrf_token %}
+		<table class="dataTable">
+			<tbody>
+			{% for notification_type in notification_types %}
+			<tr>
+				<td class="checkbox_label"><label for="{{notification_type.0}}">{{notification_type.1}}</label></td>
+				<td>
+				{% if notification_type.0 == "muted" %}
+					<input type="checkbox" name="muted" class="all-checkbox" id="muted"
+						{% if notification_type.2 or notification_types.0.2 %}checked{% endif %}>
+				{% else %}
+					<input type="checkbox" name="{{notification_type.0}}"  class="otherNotifTypes" id="{{notification_type.0}}"
+						{% if notification_type.2 or notification_types.0.2 %}checked{% endif %}>
+				{% endif %}
+				</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		<h3>{% trans "Ignore ack types" %}</h3>
+		<table class="dataTable">
+			<tbody>
+			{% for ack_type in ack_types %}
+				<tr>
+					<td class="checkbox_label"><label for="{{ack_type.0}}">{{ack_type.1}}</label></td>
+					<!-- htmllint id-no-dup="false" -->
+					<td><input type="checkbox" name="{{ack_type.0}}" id="{{ack_type.0}}" {% if ack_type.2 %}checked{% endif %}></td>
+					<!-- htmllint id-no-dup="$previous" -->
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		<h3>{% trans "Other"%}</h3>
+		{% for field in preferences_form %}
+			{{ field.error }}
+			{{ field.label_tag }} {{ field|add_class:"form-control" }}
+		{% endfor %}
+		<input class="form-control" type="submit" value="{% trans "Save" %}" />
+	</form>
+	<h3>{% trans "Wikimedia account" %}</h3>
+	{% if mediawiki_connect_data.is_connected %}
+	<tr>
+		<td class="checkbox_label"><label>
+			{% trans "Your account is connected to Wikimedia account" %}
+			<a href="https://meta.wikimedia.org/wiki/User:{{mediawiki_connect_data.username}}">{{mediawiki_connect_data.username}}</a>.
+		</label></td>
+	</tr>
+	<tr>
+		<td>
+			{% if mediawiki_connect_data.has_password %}
+			<form action="{% url 'social:disconnect' 'mediawiki' %}?next={% url 'preferences' %}" method="post">
+				{% csrf_token %}
+				<button class="btn btn-warning">
+					{% trans "Disconnect Wikimedia account" %}
+				</button>
+			</form>
+			{% else %}
+			<label>{% trans "In order to disconnect your Wikimedia account, you first need to" %} <a href="{% url 'password_change' %}">{% trans "set a password." %}</a></label>
+			{% endif %}
+		</td>
+	</tr>
+	{% else %}
+	<a href="{% url 'social:begin' 'mediawiki' %}?next={% url 'preferences' %}"><button class="btn btn-primary">{% trans "Link Wikimedia account" %}</button></a>
+	{% endif %}
+	<br>
+	<h3>{% trans "Account actions" %}</h3>
+	<a href="{% url 'deactivate_account' %}">
+		<button class="btn btn-danger">{% trans "Deactivate account" %}</button>
+	</a>
 </div>
 <br>
 <script src="/static/toggleAllNotifs.js"></script>

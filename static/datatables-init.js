@@ -22,7 +22,10 @@
 					fetch( '/api/tracker/trackerpreferences/', { headers: { Accept: 'application/json' } } ).then( response => response.json() )
 						.then( ( jsonPreferences ) => {
 							$( 'table' ).DataTable( {
-								pageLength: jsonPreferences[ 0 ] ? jsonPreferences[ 0 ].display_items : 25,
+								pageLength:
+									jsonPreferences[ 0 ] ?
+										jsonPreferences[ 0 ].display_items :
+										25,
 								order: ordering,
 								columnDefs,
 								language: { url }

@@ -27,9 +27,9 @@
 {% if topic.subtopic_set.count > 0 %}
 <h2>{% trans "Subtopics" %}</h2>
 <ul>
-    {% for subtopic in topic.subtopic_set.all %}
-    <li><a href="{% url "subtopic_detail" subtopic.id %} ">{{ subtopic }}</a></li>
-    {% endfor %}
+	{% for subtopic in topic.subtopic_set.all %}
+	<li><a href="{% url "subtopic_detail" subtopic.id %} ">{{ subtopic }}</a></li>
+	{% endfor %}
 </ul>
 {% endif %}
 
@@ -48,13 +48,13 @@
 {% endif %}
 
 <div class="comments_add">
-    <div class="hide-switch">
-        <button class="unhide">{% trans "Add comment" %}</button>
-        <div class="hiddencomment">
-            <h3>{% trans "Add comment" %}</h3>
-            {% url "topic_detail" pk=topic.id as next %}{% render_comment_form for topic %}
-        </div>
-    </div>
+	<div class="hide-switch">
+		<button class="unhide">{% trans "Add comment" %}</button>
+		<div class="hiddencomment">
+			<h3>{% trans "Add comment" %}</h3>
+			{% url "topic_detail" pk=topic.id as next %}{% render_comment_form for topic %}
+		</div>
+	</div>
 </div>
 
 {% endblock content %}

@@ -21,7 +21,7 @@ def expand_classes(apps, schema_editor):
     for watch in Watcher.objects.filter(watcher_type='Topic'):
         TopicWatcher.objects.create(topic=apps.get_model('tracker', watch.content_type.model).objects.get(id=watch.object_id), user=watch.user, notification_type=watch.notification_type, ack_type=watch.ack_type)
     for watch in Watcher.objects.filter(watcher_type='Ticket'):
-         TicketWatcher.objects.create(ticket=apps.get_model('tracker', watch.content_type.model).objects.get(id=watch.object_id), user=watch.user, notification_type=watch.notification_type, ack_type=watch.ack_type)
+        TicketWatcher.objects.create(ticket=apps.get_model('tracker', watch.content_type.model).objects.get(id=watch.object_id), user=watch.user, notification_type=watch.notification_type, ack_type=watch.ack_type)
 
 class Migration(migrations.Migration):
 

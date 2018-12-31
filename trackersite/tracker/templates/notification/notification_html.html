@@ -3,72 +3,72 @@
 {% if ticket_new_notifs.count > 0 %}
 <h1>{% trans "List of new tickets" %}</h1>
 <ul>
-    {% for notif in ticket_new_notifs %}
-    <li>{{notif.fired}}: {{notif}}</li>
-    {% endfor %}
+	{% for notif in ticket_new_notifs %}
+	<li>{{notif.fired}}: {{notif}}</li>
+	{% endfor %}
 </ul>
 {% endif %}
 
 {% if ticket_delete_notifs.count > 0 %}
 <h1>{% trans "List of deleted tickets" %}</h1>
 <ul>
-    {% for notif in ticket_delete_notifs %}
-    <li>{{notif.fired}}: {{notif}}</li>
-    {% endfor %}
+	{% for notif in ticket_delete_notifs %}
+	<li>{{notif.fired}}: {{notif}}</li>
+	{% endfor %}
 </ul>
 {% endif %}
 
 {% if ack_notifs.count > 0 %}
 <h1>{% trans "The state of a watched ticket was changed" %}</h1>
 <ul>
-    {% for notif in ack_notifs %}
-    <li>{{notif.fired}}: {{notif}}</li>
-    {% endfor %}
+	{% for notif in ack_notifs %}
+	<li>{{notif.fired}}: {{notif}}</li>
+	{% endfor %}
 </ul>
 {% endif %}
 
 {% if supervisor_notes_notifs.count > 0 %}
 <h1>{% trans "Supervisor notes on a watched ticket were changed" %}</h1>
 <ul>
-    {% for notif in supervisor_notes_notifs %}
-    <li>{{notif.fired}}: {{notif}}</li>
-    {% endfor %}
+	{% for notif in supervisor_notes_notifs %}
+	<li>{{notif.fired}}: {{notif}}</li>
+	{% endfor %}
 </ul>
 {% endif %}
 
 {% if ticket_change_notifs.count > 0 %}
 <h1>{% trans "Changes were made to a watched ticket" %}</h1>
 <ul>
-    {% for notif in ticket_change_notifs %}
-    <li>{{notif.fired}}: {{notif}}</li>
-    {% endfor %}
+	{% for notif in ticket_change_notifs %}
+	<li>{{notif.fired}}: {{notif}}</li>
+	{% endfor %}
 </ul>
 {% endif %}
 
 {% if preexpeditures_notifs.count > 0 %}
 <h1>{% trans "The preexpenditures of a watched ticket were changed" %}</h1>
 <ul>
-    {% for notif in preexpeditures_notifs %}
-    <li>{{notif.fired}}: {{notif}}</li>
-    {% endfor %}
+	{% for notif in preexpeditures_notifs %}
+	<li>{{notif.fired}}: {{notif}}</li>
+	{% endfor %}
 </ul>
 {% endif %}
 
 {% if expeditures_notifs.count > 0 %}
 <h1>{% trans "The expenditures of a watched ticket were changed" %}</h1>
 <ul>
-    {% for notif in expeditures_notifs %}
-    <li>{{notif.fired}}: {{notif}}</li>
-    {% endfor %}
+	{% for notif in expeditures_notifs %}
+	<li>{{notif.fired}}: {{notif}}</li>
+	{% endfor %}
 </ul>
 {% endif %}
 
 {% if media_notifs.count > 0 %}
 <h1>{% trans "Medias of a watched ticket" %}</h1>
 <ul>
-    {% for notif in media_notifs %}
-    <li>{{notif.fired}}: {{notif}}</li>
-    {% endfor %}
+	{% for notif in media_notifs %}
+	<li>{{notif.fired}}: {{notif}}</li>
+	{% endfor %}
 </ul>
 {% endif %}
 
@@ -76,9 +76,9 @@
 {% if comment_notifs.count > 0 %}
 <h1>{% trans "A comment was added to a watched ticket" %}</h1>
 <ul>
-    {% for notif in comment_notifs %}
-    <li>{{notif.fired}}: {{notif}}</li>
-    {% endfor %}
+	{% for notif in comment_notifs %}
+	<li>{{notif.fired}}: {{notif}}</li>
+	{% endfor %}
 </ul>
 {% endif %}
 

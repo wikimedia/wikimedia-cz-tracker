@@ -1,0 +1,36 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.py]
+indent_style = space
+# Clashes with E128
+# indent_size = 4
+
+[*.{css,js,html,json,md,ini}]
+indent_style = tab
+indent_size = 4
+
+[{package.json,package-lock.json}]
+indent_style = space
+indent_size = 2
+
+[__init__.py]
+# `eclint` isn't smart enough to handle this rule with empty files
+insert_final_newline = false
+
+[*.{po,pot}]
+insert_final_newline = unset
+
+[*.{css,js}]
+block_comment_start = /*
+block_comment = *
+block_comment_end = */
+
+[*.html]
+block_comment_start = <!--
+block_comment_end = -->

@@ -2343,7 +2343,7 @@
 						for ( k=0, kLen=columns.length ; k<kLen ; k++ )
 						{
 							if ( aTargets[j] == "_all" ||
-							     $(columns[k].nTh).hasClass( aTargets[j] ) )
+								$(columns[k].nTh).hasClass( aTargets[j] ) )
 							{
 								fn( k, def );
 							}
@@ -2596,7 +2596,7 @@
 			};
 		}
 		else if ( typeof mSource === 'string' && (mSource.indexOf('.') !== -1 ||
-			      mSource.indexOf('[') !== -1 || mSource.indexOf('(') !== -1) )
+				mSource.indexOf('[') !== -1 || mSource.indexOf('(') !== -1) )
 		{
 			/* If there is a . in the source string then the data source is in a
 			 * nested object so we loop over the data for each level to get the next
@@ -2711,7 +2711,7 @@
 			};
 		}
 		else if ( typeof mSource === 'string' && (mSource.indexOf('.') !== -1 ||
-			      mSource.indexOf('[') !== -1 || mSource.indexOf('(') !== -1) )
+				mSource.indexOf('[') !== -1 || mSource.indexOf('(') !== -1) )
 		{
 			/* Like the get, we need to get data from a nested object */
 			var setData = function (data, val, src) {
@@ -2827,7 +2827,7 @@
 	}
 
 
-	 /**
+	/**
 	 * Take an array of integers (index array) and remove a target integer (value - not
 	 * the key!)
 	 *  @param {array} a Index array to target
@@ -3099,7 +3099,7 @@
 
 				// Need to create the HTML if new, or if a rendering function is defined
 				if ( (!nTrIn || oCol.mRender || oCol.mData !== i) &&
-					 (!$.isPlainObject(oCol.mData) || oCol.mData._ !== i+'.display')
+					(!$.isPlainObject(oCol.mData) || oCol.mData._ !== i+'.display')
 				) {
 					nTd.innerHTML = _fnGetCellData( oSettings, iRow, i, 'display' );
 				}
@@ -3232,7 +3232,7 @@
 		}
 
 		/* ARIA role for the rows */
-	 	$(thead).find('>tr').attr('role', 'row');
+		$(thead).find('>tr').attr('role', 'row');
 
 		/* Deal with the footer - add classes if required */
 		$(thead).find('>tr>th, >tr>td').addClass( classes.sHeaderTH );
@@ -3335,7 +3335,7 @@
 
 					/* Expand the cell to cover as many rows as needed */
 					while ( aoLocal[i+iRowspan] !== undefined &&
-					        aoLocal[i][j].cell == aoLocal[i+iRowspan][j].cell )
+						aoLocal[i][j].cell == aoLocal[i+iRowspan][j].cell )
 					{
 						aApplied[i+iRowspan][j] = 1;
 						iRowspan++;
@@ -3343,7 +3343,7 @@
 
 					/* Expand the cell to cover as many columns as needed */
 					while ( aoLocal[i][j+iColspan] !== undefined &&
-					        aoLocal[i][j].cell == aoLocal[i][j+iColspan].cell )
+						aoLocal[i][j].cell == aoLocal[i][j+iColspan].cell )
 					{
 						/* Must update the applied array over the rows for the columns */
 						for ( k=0 ; k<iRowspan ; k++ )
@@ -3711,7 +3711,7 @@
 		var bUnique;
 		var fnShiftCol = function ( a, i, j ) {
 			var k = a[i];
-	                while ( k[j] ) {
+			while ( k[j] ) {
 				j++;
 			}
 			return j;
@@ -3735,7 +3735,7 @@
 			nCell = nTr.firstChild;
 			while ( nCell ) {
 				if ( nCell.nodeName.toUpperCase() == "TD" ||
-				     nCell.nodeName.toUpperCase() == "TH" )
+					nCell.nodeName.toUpperCase() == "TH" )
 				{
 					/* Get the col and rowspan attributes from the DOM and sanitise them */
 					iColspan = nCell.getAttribute('colspan') * 1;
@@ -3796,7 +3796,7 @@
 			for ( var j=0, jLen=aLayout[i].length ; j<jLen ; j++ )
 			{
 				if ( aLayout[i][j].unique &&
-					 (!aReturn[j] || !oSettings.bSortCellsTop) )
+					(!aReturn[j] || !oSettings.bSortCellsTop) )
 				{
 					aReturn[j] = aLayout[i][j].cell;
 				}
@@ -4394,11 +4394,12 @@
 		else {
 			// New search - start from the master array
 			if ( invalidated ||
-				 force ||
-				 prevSearch.length > input.length ||
-				 input.indexOf(prevSearch) !== 0 ||
-				 settings.bSorted // On resort, the display master needs to be
-				                  // re-filtered since indexes will have changed
+				force ||
+				prevSearch.length > input.length ||
+				input.indexOf(prevSearch) !== 0 ||
+				// On resort, the display master needs to be
+				// re-filtered since indexes will have changed
+				settings.bSorted
 			) {
 				settings.aiDisplay = displayMaster.slice();
 			}
@@ -4951,7 +4952,7 @@
 
 			if ( start < 0 )
 			{
-			  start = 0;
+				start = 0;
 			}
 		}
 		else if ( action == "next" )
@@ -5541,8 +5542,8 @@
 		 * nor scrolling used
 		 */
 		if ( ie67 || ! userInputs && ! scrollX && ! scrollY &&
-		     columnCount == _fnVisbleColumns( oSettings ) &&
-		     columnCount == headerCells.length
+			columnCount == _fnVisbleColumns( oSettings ) &&
+			columnCount == headerCells.length
 		) {
 			for ( i=0 ; i<columnCount ; i++ ) {
 				var colIdx = _fnVisibleToColumnIndex( oSettings, i );
@@ -8685,7 +8686,7 @@
 					return { // use a new object, in case someone changes the values
 						row:    el._DT_CellIndex.row,
 						column: el._DT_CellIndex.column
-	 				};
+					};
 				} )
 				.toArray();
 
@@ -14103,12 +14104,12 @@
 			 *
 			 * The functions defined take two parameters:
 			 *
-		     *  1. `{*}` Data from the column cell to be analysed
-		     *  2. `{settings}` DataTables settings object. This can be used to
-		     *     perform context specific type detection - for example detection
-		     *     based on language settings such as using a comma for a decimal
-		     *     place. Generally speaking the options from the settings will not
-		     *     be required
+			 *  1. `{*}` Data from the column cell to be analysed
+			 *  2. `{settings}` DataTables settings object. This can be used to
+			 *     perform context specific type detection - for example detection
+			 *     based on language settings such as using a comma for a decimal
+			 *     place. Generally speaking the options from the settings will not
+			 *     be required
 			 *
 			 * Each function is expected to return:
 			 *
@@ -14159,7 +14160,7 @@
 			 *
 			 * The functions defined take a single parameter:
 			 *
-		     *  1. `{*}` Data from the column cell to be prepared for searching
+			 *  1. `{*}` Data from the column cell to be prepared for searching
 			 *
 			 * Each function is expected to return:
 			 *
@@ -14198,7 +14199,7 @@
 			 *
 			 * `{type}-pre`: Functions defined take a single parameter:
 			 *
-		     *  1. `{*}` Data from the column cell to be prepared for ordering
+			 *  1. `{*}` Data from the column cell to be prepared for ordering
 			 *
 			 * And return:
 			 *
@@ -14207,8 +14208,8 @@
 			 * `{type}-asc` and `{type}-desc`: Functions are typical Javascript sort
 			 * functions, taking two parameters:
 			 *
-		     *  1. `{*}` Data to compare to the second parameter
-		     *  2. `{*}` Data to compare to the first parameter
+			 *  1. `{*}` Data to compare to the second parameter
+			 *  2. `{*}` Data to compare to the first parameter
 			 *
 			 * And returning:
 			 *
@@ -14429,8 +14430,8 @@
 		},
 
 		first_last_numbers: function (page, pages) {
-	 		return ['first', _numbers(page, pages), 'last'];
-	 	},
+			return ['first', _numbers(page, pages), 'last'];
+		},
 
 		// For testing and plug-ins to use
 		_numbers: _numbers,
@@ -15021,9 +15022,10 @@
 		_fnRenderer: _fnRenderer,
 		_fnDataSource: _fnDataSource,
 		_fnRowAttributes: _fnRowAttributes,
-		_fnCalculateEnd: function () {} // Used by a lot of plug-ins, but redundant
-		                                // in 1.10, so this dead-end function is
-		                                // added to prevent errors
+		// Used by a lot of plug-ins, but redundant
+		// in 1.10, so this dead-end function is
+		// added to prevent errors
+		_fnCalculateEnd: function () {}
 	} );
 
 
@@ -16594,9 +16596,9 @@ $(document).on( 'preInit.dt.dtr', function (e, settings, json) {
 	}
 
 	if ( $(settings.nTable).hasClass( 'responsive' ) ||
-		 $(settings.nTable).hasClass( 'dt-responsive' ) ||
-		 settings.oInit.responsive ||
-		 DataTable.defaults.responsive
+		$(settings.nTable).hasClass( 'dt-responsive' ) ||
+		settings.oInit.responsive ||
+		DataTable.defaults.responsive
 	) {
 		var init = settings.oInit.responsive;
 		console.log(init);

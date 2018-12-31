@@ -9,17 +9,17 @@
 
 <table class="table table-striped table-hover">
 <tr>
-    <th>{% trans "Supervisor" %}</th>
-    <th>{% trans "Grant" %}</th>
-    <th>{% trans "Topic" %}</th>
-    <th>{% trans "Ack count" %}</th>
+	<th>{% trans "Supervisor" %}</th>
+	<th>{% trans "Grant" %}</th>
+	<th>{% trans "Topic" %}</th>
+	<th>{% trans "Ack count" %}</th>
 </tr>
 {% for row in acks %}
 <tr>
-    <td>{{row.user.get_html_link}}</td>
-    <td><a href="{{row.grant.get_absolute_url}}">{{row.grant}}</a></td>
-    <td><a href="{{row.topic.get_absolute_url}}">{{row.topic}}</a></td>
-    <td>{{row.ack_count}}</td>
+	<td>{{row.user.get_html_link}}</td>
+	<td><a href="{{row.grant.get_absolute_url}}">{{row.grant}}</a></td>
+	<td><a href="{{row.topic.get_absolute_url}}">{{row.topic}}</a></td>
+	<td>{{row.ack_count}}</td>
 </tr>{% endfor %}
 
 </table>

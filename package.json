@@ -4,7 +4,7 @@
   "description": "Wikimedia Czech Republic's expense tracking app",
   "main": "index.js",
   "scripts": {
-    "test": "grunt lint"
+    "test": "grunt lint && eclint check $(git ls-files)"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/wikimedia/wikimedia-cz-tracker#readme",
   "devDependencies": {
+    "eclint": "^2.8.1",
     "eslint-config-wikimedia": "^0.9.0",
     "grunt": "^1.0.3",
     "grunt-eslint": "^21.0.0",

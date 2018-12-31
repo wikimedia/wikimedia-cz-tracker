@@ -18,25 +18,25 @@
 <th>{% trans "overpaid" %}</th>
 </tr>
 {% for gitem in grants %}
-    {% if not forloop.first %}<tr><td colspan="{% if have_fuzzy %}7{% else %}6{% endif %}"></td></tr>{% endif %}
-    <tr><td rowspan="{{gitem.rows}}"><a href="{{gitem.grant.get_absolute_url}}" title="{{gitem.grant.full_name}}">{{gitem.grant.short_name}}</a></td>
-    {% for titem in gitem.topics %}
-        {% if not forloop.first %}<tr>{% endif %}
-        <td><a href="{% url "topic_detail" titem.topic.id %}">{{titem.topic.name}}</a></td>
-        <td>{{titem.topic.ticket_set.count}}</td>
-        <td class="money payment-cell {% if titem.finance.unpaid %}unpaid{% else %}n_a{% endif %}">{{titem.finance.unpaid|money}}</td>
-        <td class="money payment-cell{% if titem.finance.paid %} paid{% endif %}">{{titem.finance.paid|money}}</td>
-        <td class="money payment-cell {% if titem.finance.overpaid %}overpaid{% else %}n_a{% endif %}">{{titem.finance.overpaid|money}}</td>
-        {% if have_fuzzy %}<td>{% if titem.finance.fuzzy %}✱{% endif %}</td>{% endif %}
-    </tr>
-    {% endfor %}{# /topics #}
-    <tr class="total highlight mid-total">
-        <td colspan="2">{% blocktrans with gname=gitem.grant.short_name%}Total {{gname}}{% endblocktrans %}</td>
-        <td class="money payment-cell">{{gitem.finance.unpaid|money}}</td>
-        <td class="money payment-cell">{{gitem.finance.paid|money}}</td>
-        <td class="money payment-cell">{{gitem.finance.overpaid|money}}</td>
-        {% if have_fuzzy %}<td></td>{% endif %}
-    </tr>
+	{% if not forloop.first %}<tr><td colspan="{% if have_fuzzy %}7{% else %}6{% endif %}"></td></tr>{% endif %}
+	<tr><td rowspan="{{gitem.rows}}"><a href="{{gitem.grant.get_absolute_url}}" title="{{gitem.grant.full_name}}">{{gitem.grant.short_name}}</a></td>
+	{% for titem in gitem.topics %}
+		{% if not forloop.first %}<tr>{% endif %}
+		<td><a href="{% url "topic_detail" titem.topic.id %}">{{titem.topic.name}}</a></td>
+		<td>{{titem.topic.ticket_set.count}}</td>
+		<td class="money payment-cell {% if titem.finance.unpaid %}unpaid{% else %}n_a{% endif %}">{{titem.finance.unpaid|money}}</td>
+		<td class="money payment-cell{% if titem.finance.paid %} paid{% endif %}">{{titem.finance.paid|money}}</td>
+		<td class="money payment-cell {% if titem.finance.overpaid %}overpaid{% else %}n_a{% endif %}">{{titem.finance.overpaid|money}}</td>
+		{% if have_fuzzy %}<td>{% if titem.finance.fuzzy %}✱{% endif %}</td>{% endif %}
+	</tr>
+	{% endfor %}{# /topics #}
+	<tr class="total highlight mid-total">
+		<td colspan="2">{% blocktrans with gname=gitem.grant.short_name%}Total {{gname}}{% endblocktrans %}</td>
+		<td class="money payment-cell">{{gitem.finance.unpaid|money}}</td>
+		<td class="money payment-cell">{{gitem.finance.paid|money}}</td>
+		<td class="money payment-cell">{{gitem.finance.overpaid|money}}</td>
+		{% if have_fuzzy %}<td></td>{% endif %}
+	</tr>
 {% endfor %}{# /grant #}
 </table>
 
