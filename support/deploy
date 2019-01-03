@@ -4,7 +4,7 @@ set -e
 scriptdir="`dirname \"$0\"`"
 cd $scriptdir/../
 if [ "$1" != "--no-pull" ]; then
-    git checkout master
+    git checkout $(cat deploy/branch 2> /dev/null || echo master)
     git pull --ff-only
 fi
 source deploy/pyenv/bin/activate
