@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2018-12-31 17:10:59+0000\n"
+"PO-Revision-Date: 2019-01-03 15:56:34+0000\n"
 "X-POT-Import-Date: 2018-12-19 17:30:30+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,7 +15,7 @@ msgstr ""
 
 #: api/serializers.py:88
 msgid "Deposit should be zero when creating a ticket"
-msgstr ""
+msgstr "Talletuksen tulee olla nolla tikettiä luodessa"
 
 #: api/serializers.py:91
 msgid "Cannot edit deposit once a ticket has been preaccepted"
@@ -198,7 +198,7 @@ msgstr "Vaihda kieltä"
 
 #: templates/comments/form.html:17
 msgid "Post"
-msgstr ""
+msgstr "Kommentti"
 
 #: templates/comments/form.html:18
 msgid "Preview"
@@ -207,7 +207,7 @@ msgstr "Esikatselu"
 #: tracker/admin.py:28 tracker/admin.py:34
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
 msgid "Type"
-msgstr ""
+msgstr "Tyyppi"
 
 #: tracker/admin.py:42
 msgid "Add ack"
@@ -219,7 +219,7 @@ msgstr ""
 
 #: tracker/admin.py:173
 msgid "Mark selected topics as closed for new tickets"
-msgstr ""
+msgstr "Merkitse valitut aiheet suljetuiksi uusille tiketeille"
 
 #: tracker/admin.py:201
 msgid "Modify this value by opening or closing topics in this grant to tickets"
@@ -228,7 +228,7 @@ msgstr ""
 #: tracker/feeds.py:12 tracker/templates/tracker/generic/ticket_list.html:7
 #: tracker/templates/tracker/topic_detail.html:5
 msgid "Latest tickets"
-msgstr ""
+msgstr "Viimeisimmät tiketit"
 
 #: tracker/feeds.py:13
 msgid "Recently changed tickets"
@@ -286,11 +286,11 @@ msgstr ""
 
 #: tracker/models.py:45
 msgid "submitted"
-msgstr ""
+msgstr "lähetetty"
 
 #: tracker/models.py:46
 msgid "accepted"
-msgstr ""
+msgstr "hyväksytty"
 
 #: tracker/models.py:47
 msgid "expense documents submitted"
@@ -428,7 +428,7 @@ msgstr ""
 
 #: tracker/models.py:231
 msgid "subtopic"
-msgstr ""
+msgstr "alaaihe"
 
 #: tracker/models.py:231
 msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
@@ -624,11 +624,11 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:16
 #: tracker/templates/tracker/ticket_table.html:33
 msgid "Subtopic"
-msgstr ""
+msgstr "Ala-aihe"
 
 #: tracker/models.py:620 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
-msgstr ""
+msgstr "Ala-aiheet"
 
 #: tracker/models.py:627 tracker/views.py:606
 msgid "grant"
@@ -640,7 +640,7 @@ msgstr ""
 
 #: tracker/models.py:628
 msgid "open for tickets"
-msgstr ""
+msgstr "avoin tiketeille"
 
 #: tracker/models.py:628
 msgid "Is this topic open for ticket submissions from users?"
@@ -703,7 +703,7 @@ msgstr ""
 #: tracker/templates/tracker/topic_finance.html:11
 #: tracker/templates/tracker/topic_table.html:5
 msgid "Topic"
-msgstr ""
+msgstr "Aihe"
 
 #: tracker/models.py:703 tracker/templates/tracker/export.html:61
 #: tracker/templates/tracker/export.html:212
@@ -770,7 +770,7 @@ msgstr "URL-osoite"
 
 #: tracker/models.py:769
 msgid "Link to media files"
-msgstr ""
+msgstr "Linkki mediatiedostoihin"
 
 #: tracker/models.py:770
 msgid "count"
@@ -778,7 +778,7 @@ msgstr ""
 
 #: tracker/models.py:770
 msgid "Number of files"
-msgstr ""
+msgstr "Tiedostojen lukumäärä"
 
 #: tracker/models.py:776 tracker/models.py:777
 msgid "Ticket media"
@@ -794,7 +794,7 @@ msgstr ""
 
 #: tracker/models.py:784 tracker/models.py:806 tracker/models.py:948
 msgid "amount"
-msgstr ""
+msgstr "summa"
 
 #: tracker/models.py:784
 msgid "Expediture amount in"
@@ -899,7 +899,7 @@ msgstr ""
 
 #: tracker/models.py:898 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
-msgstr ""
+msgstr "Muu tunniste"
 
 #: tracker/models.py:898
 msgid "Address, or other identification information, so we know who are we sending money to"
@@ -1134,7 +1134,7 @@ msgstr[1] ""
 
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
-msgstr ""
+msgstr "tila"
 
 #: tracker/templates/feeds/transaction_description.html:2
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1369,11 +1369,11 @@ msgstr "Tunniste"
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/ticket_table.html:23
 msgid "Status"
-msgstr ""
+msgstr "Tila"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Accepted"
-msgstr ""
+msgstr "Hyväksytty"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Payment"
@@ -1610,7 +1610,7 @@ msgstr "Aiheluettelo"
 #: tracker/templates/tracker/generic/topic_list.html:13
 #: tracker/templates/tracker/grant_list.html:12
 msgid "Topics closed for new tickets"
-msgstr ""
+msgstr "Aiheet suljettu uusille tiketeille"
 
 #: tracker/templates/tracker/generic/topic_list.html:18
 msgid "topic finance"
@@ -1798,7 +1798,7 @@ msgstr "Tilitoiminnot"
 #: tracker/templates/tracker/user_deactivate.html:4
 #: tracker/templates/tracker/user_deactivate.html:11
 msgid "Deactivate account"
-msgstr "Poista tili käytöstä"
+msgstr "Poista tunnus käytöstä"
 
 #: tracker/templates/tracker/sign_ticket.html:4
 #: tracker/templates/tracker/sign_ticket.html:7
@@ -1927,7 +1927,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:16
 msgid "edit ticket"
-msgstr ""
+msgstr "muokkaa tikettiä"
 
 #: tracker/templates/tracker/ticket_detail.html:18
 msgid "edit in admin"
@@ -1935,7 +1935,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:20
 msgid "duplicate"
-msgstr ""
+msgstr "monista"
 
 #: tracker/templates/tracker/ticket_detail.html:22
 msgid "add yourself as a driver"
@@ -2116,11 +2116,11 @@ msgstr "lataa csv-muodossa"
 #: tracker/templates/tracker/upload_ticket_doc.html:21
 #: tracker/templates/tracker/upload_ticket_doc.html:25
 msgid "Upload document"
-msgstr ""
+msgstr "Tallenna asiakirja"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "documents"
-msgstr ""
+msgstr "asiakirjat"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload"
@@ -2160,7 +2160,7 @@ msgstr "Sähköposti:"
 
 #: tracker/templates/tracker/user_deactivate.html:32
 msgid "Deactivate my account"
-msgstr "Poista tilini käytöstä"
+msgstr "Poista tunnukseni käytöstä"
 
 #: tracker/templates/tracker/user_deactivate_email.html:3
 msgid "Tracker account deactivated"
@@ -2184,7 +2184,7 @@ msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
-msgstr ""
+msgstr "Tracker"
 
 #: tracker/templates/tracker/user_detail.html:13
 msgid "Total for this user"
@@ -2265,11 +2265,11 @@ msgstr ""
 
 #: tracker/views.py:471
 msgid "Account deactivation"
-msgstr ""
+msgstr "Tunnuksen poistaminen käytöstä"
 
 #: tracker/views.py:478
 msgid "Your account has been deactivated."
-msgstr ""
+msgstr "Tunnuksesi on poistettu käytöstä."
 
 #: tracker/views.py:481
 msgid "Password is incorrect."
@@ -2293,11 +2293,11 @@ msgstr ""
 #: tracker/views.py:646
 #, python-format
 msgid "Ticket %s is created"
-msgstr ""
+msgstr "Tiketti %s on luotu"
 
 #: tracker/views.py:694
 msgid "I confirm the above"
-msgstr ""
+msgstr "Vahvistan edellä mainitun"
 
 #: tracker/views.py:701
 msgid "You cannot add statutory declaration to a ticket that does not support it."
@@ -2353,11 +2353,11 @@ msgstr ""
 
 #: tracker/views.py:1700
 msgid "Name of a ticket"
-msgstr ""
+msgstr "Tiketin nimi"
 
 #: tracker/views.py:1700 tracker/views.py:1705
 msgid "Name of a topic"
-msgstr ""
+msgstr "Aiheen nimi"
 
 #: tracker/views.py:1705
 msgid "Name of a grant"
@@ -2438,7 +2438,7 @@ msgstr ""
 #: users/templates/users/password_change.html:5
 #: users/templates/users/password_change.html:16 users/views.py:66
 msgid "Password change"
-msgstr ""
+msgstr "Salasanan vaihto"
 
 #: users/templates/users/password_change.html:12
 #, invalid-plural
@@ -2454,7 +2454,7 @@ msgstr ""
 #: users/templates/users/password_change.html:21
 #: users/templates/users/password_reset_confirm.html:12
 msgid "Please enter your new password twice so we can verify you typed it in correctly."
-msgstr ""
+msgstr "Anna uusi salasanasi kahdesti, jotta voimme varmistaa että kirjoitit sen oikein."
 
 #: users/templates/users/password_change.html:33
 msgid "New password"
@@ -2472,11 +2472,11 @@ msgstr "Muuta salasanani"
 #: users/templates/users/password_change_done.html:4
 #: users/templates/users/password_change_done.html:7
 msgid "Password change successful"
-msgstr ""
+msgstr "Salasanan vaihtaminen onnistui."
 
 #: users/templates/users/password_change_done.html:8
 msgid "Your password was changed."
-msgstr ""
+msgstr "Salasanasi on vaihdettu."
 
 #: users/templates/users/password_reset.html:4
 #: users/templates/users/password_reset.html:8

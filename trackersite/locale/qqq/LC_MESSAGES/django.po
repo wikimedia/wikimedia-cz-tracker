@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2018-12-27 10:05:33+0000\n"
+"PO-Revision-Date: 2019-01-03 15:56:36+0000\n"
 "X-POT-Import-Date: 2018-12-19 17:30:30+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -106,7 +106,7 @@ msgstr ""
 
 #: templates/403.html:12
 msgid "You don't have permissions to do this!"
-msgstr ""
+msgstr "A generic \"Access denied\" error message."
 
 #: templates/404.html:3
 msgid "404 Not Found"
@@ -296,7 +296,7 @@ msgstr ""
 
 #: tracker/models.py:47
 msgid "expense documents submitted"
-msgstr ""
+msgstr "One of acks an user can add to a ticket, to certify that expense documents were submitted to the chapter (by mail for instance)."
 
 #: tracker/models.py:48
 msgid "expense documents filed"
@@ -540,7 +540,7 @@ msgstr ""
 #: tracker/models.py:339 tracker/templates/tracker/export.html:46
 #: tracker/templates/tracker/export.html:47
 msgid "waiting for filing of documents"
-msgstr ""
+msgstr "State of a ticket, meaning the user submitted the documents to the chapter, but the chapter didn't confirm delivery of such docs yet."
 
 #: tracker/models.py:341 tracker/templates/tracker/export.html:43
 #: tracker/templates/tracker/export.html:44
@@ -1114,7 +1114,7 @@ msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:33
 msgid "Ticket documents"
-msgstr ""
+msgstr "Displayed in ticket admin, headline under a list of the tickets."
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:36
 #: tracker/templates/tracker/edit_ticket.html:10
@@ -1124,7 +1124,7 @@ msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:43
 msgid "There are no documents uploaded for this ticket."
-msgstr ""
+msgstr "Displayed in admin interface, a message meaning there are no documents uploaded yet."
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:46
 #: tracker/templates/tracker/ticket_detail.html:62
@@ -1388,7 +1388,7 @@ msgstr ""
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:13
 #: tracker/templates/tracker/ticket_detail.html:48
 msgid "Documents"
-msgstr ""
+msgstr "Under this headline a list of (expense) documents (whatever proves the expenses user specified in the ticket), like reciepts, invoices and others."
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
 msgid "There aren't any documents here."
@@ -1412,7 +1412,7 @@ msgstr "{{Identical|Save}}"
 #: tracker/templates/tracker/edit_ticket_docs.html:4
 #: tracker/templates/tracker/edit_ticket_docs.html:8
 msgid "Edit documents"
-msgstr ""
+msgstr "A button's description pointing to an interface allowing authorized users to edit list of documents. By document we mean anything that proves expenses the user specified, like invoices, reciepts etc."
 
 #: tracker/templates/tracker/edit_ticket_docs.html:7
 #: tracker/templates/tracker/upload_ticket_doc.html:24
@@ -1954,7 +1954,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:63
 msgid "As you are not an administrator, you can see only documents you uploaded below."
-msgstr ""
+msgstr "A notice that informs user they don't see all documents in the system. By document we mean anything that proves expenses the user specified, like invoices, reciepts etc."
 
 #: tracker/templates/tracker/ticket_detail.html:77
 #: tracker/templates/tracker/ticket_detail.html:81
@@ -2122,7 +2122,7 @@ msgstr ""
 
 #: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "documents"
-msgstr ""
+msgstr "By document we mean anything that proves expenses the user specified, like invoices, reciepts etc."
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload"

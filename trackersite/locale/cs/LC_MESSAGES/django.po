@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-09 23:31+0100\n"
-"PO-Revision-Date: 2018-12-31 17:10:59+0000\n"
+"PO-Revision-Date: 2019-01-03 15:56:33+0000\n"
 "Last-Translator: Petr Novák <petr.novak@cosmoboy.cz>\n"
 "Language-Team: none <none@example.org>\n"
 "Language: cs\n"
@@ -1125,7 +1125,7 @@ msgstr "Doklady tiketu"
 #: tracker/templates/tracker/edit_ticket.html:10
 #: tracker/templates/tracker/ticket_detail.html:19
 msgid "edit ticket documents"
-msgstr "upravit dokumenty"
+msgstr "upravit doklady"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:43
 msgid "There are no documents uploaded for this ticket."
@@ -1398,7 +1398,7 @@ msgstr "Doklady"
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
 msgid "There aren't any documents here."
-msgstr "V tomto tiketu nejsou žádné dokumenty."
+msgstr "V tomto tiketu nejsou žádné doklady."
 
 #: tracker/templates/tracker/edit_ticket.html:4
 #: tracker/templates/tracker/edit_ticket.html:8
@@ -2128,7 +2128,7 @@ msgstr "Nahrání dokladu"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "documents"
-msgstr "dokumenty"
+msgstr "doklady"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload"
