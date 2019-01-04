@@ -27,6 +27,7 @@ from django.template.loader import get_template
 from django.template import Context
 from sendfile import sendfile
 from django.utils.translation import get_language
+from request_provider.signals import get_request
 from social_django.models import UserSocialAuth
 import csv
 
@@ -224,7 +225,7 @@ class TicketForm(forms.ModelForm):
     def save(self, commit=True):
         instance = super(TicketForm, self).save(commit=commit)
         if self.cleaned_data.get('statutory_declaration') and instance.car_travel:
-            Signature.objects.create(signed_text=settings.STATUTORY_DECLARATION_TEXT, user=instance.requested_user, signed_ticket=instance)
+            Signature.objects.create(signed_text=settings.STATUTORY_DECLARATION_TEXT, user=get_request().user, signed_ticket=instance)
         elif not self.cleaned_data.get('statutory_declaration') or not instance.car_travel:
             instance.signature_set.filter(user=self.instance.requested_user).delete()
         return instance
@@ -604,10 +605,9 @@ def create_ticket(request):
         check_statutory_declaration(ticketform)
         check_subtopic(ticketform)
         if ticketform.is_valid() and expeditures.is_valid() and preexpeditures.is_valid():
-            ticket = ticketform.save(commit=False)
+            ticket = ticketform.save()
             ticket.requested_user = request.user
             ticket.save()
-            ticketform.save_m2m()
             if ticket.topic.ticket_expenses:
                 expeditures.instance = ticket
                 expeditures.save()
