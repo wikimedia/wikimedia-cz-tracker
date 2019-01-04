@@ -5,7 +5,7 @@
 <!-- i18n-lint disable -->
 <div class="hidden" id="disabledatatables">yes</div>
 <!-- i18n-lint enable -->
-<h1>{% trans "List of medias" %}: {{ ticket.name }}</h1>
+<h1>{% trans "List of linked media" %}: {{ ticket.name }}</h1>
 <p>{% trans "Last updated" %}: {{ ticket.media_updated }} (<a href="{% url "update_media" ticket.id %}">{% trans "update" %}</a>)</p>
 <table>
 	<thead>
