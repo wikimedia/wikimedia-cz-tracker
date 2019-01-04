@@ -145,3 +145,5 @@ MESSAGE_TAGS = {
 }
 
 MANUAL_LINK = 'https://www.wikimedia.cz/web/Manuál_na_tracker'
+
+PRODUCTION_URL = "https://tracker.wikimedia.cz"

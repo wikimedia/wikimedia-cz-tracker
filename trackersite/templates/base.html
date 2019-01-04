@@ -99,7 +99,7 @@ $( '#emailModal' ).on('hidden.bs.modal', (e) => {
 	<!-- htmllint attr-no-dup="$previous" -->
 	{% endfor %}
 	{% if not PRODUCTION %}
-	<div class="alert alert-warning">{% trans "Warning" %}: {% trans "You are not in production." %}</div>
+	<div class="alert alert-warning">{% trans "Warning" %}: {% blocktrans %}You are not in production. If you want to request reimbursement of expenses, go to <a href="{{ PRODUCTION_URL }}">{{ PRODUCTION_URL }}</a>.{% endblocktrans %}</div>
 	{% endif %}
 </div>
 {% endif %}

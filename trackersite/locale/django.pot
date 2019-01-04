@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 10:07+0100\n"
+"POT-Creation-Date: 2019-01-04 10:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -199,7 +199,10 @@ msgid "Warning"
 msgstr ""
 
 #: templates/base.html:102
-msgid "You are not in production."
+#, python-format
+msgid ""
+"You are not in production. If you want to request reimbursement of expenses, "
+"go to <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>."
 msgstr ""
 
 #: templates/choose_language.html:5 templates/choose_language.html.py:8
