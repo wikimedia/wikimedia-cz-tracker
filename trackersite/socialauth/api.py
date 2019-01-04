@@ -9,7 +9,7 @@ class MediaWiki():
         if api_url:
             self.api_url = api_url
         else:
-            self.api_url = settings.MEDIAINFO_MEDIAWIKI_URL
+            self.api_url = settings.MEDIAINFO_MEDIAWIKI_API
 
         if self.user:
             provider = user.social_auth.filter(provider="mediawiki")

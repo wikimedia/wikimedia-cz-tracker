@@ -29,6 +29,7 @@ import json
 from jsonfield import JSONField
 from socialauth.api import MediaWiki
 from background_task import background
+from background_task.models import Task
 
 from users.models import UserWrapper
 from django_comments.moderation import CommentModerator, moderator
@@ -226,6 +227,7 @@ class Signature(Model):
 class Ticket(CachedModel, ModelDiffMixin):
     """ One unit of tracked / paid stuff. """
     updated = models.DateTimeField(_('updated'))
+    media_updated = models.DateTimeField(_('media_updated'), default=None, null=True)
     event_date = models.DateField(_('event date'), blank=True, null=True, help_text=_('Date of the event this ticket is about'))
     requested_user = models.ForeignKey('auth.User', verbose_name=_('requested by'), blank=True, null=True, help_text=_('User who created/requested for this ticket'))
     requested_text = models.CharField(verbose_name=_('requested by (text)'), blank=True, max_length=30, help_text=_('Text description of who requested for this ticket, in case user is not filled in'))
@@ -489,6 +491,34 @@ class Ticket(CachedModel, ModelDiffMixin):
     def possible_user_acks(self):
         """ List of PossibleAck objects, that can be added by ticket requester. """
         return [PossibleAck(ack_type) for ack_type in self.possible_user_ack_types()]
+
+    @staticmethod
+    @background(schedule=10)
+    def update_medias(ticket_id):
+        ticket = Ticket.objects.get(id=ticket_id)
+        mw = MediaWiki(user=None)
+        for media in ticket.mediainfo_set.all():
+            data = mw.request({
+                "action": "query",
+                "format": "json",
+                "prop": "imageinfo|categories|globalusage",
+                "titles": media.name,
+                "iiprop": "dimensions"
+            }).json()["query"]["pages"]
+            data = data[data.keys()[0]]
+            media.width = data["imageinfo"][0]["width"]
+            media.height = data["imageinfo"][0]["height"]
+
+            media.categories = []
+            for category in data["categories"]:
+                media.categories.append('<a href="%s">%s</a>' % (settings.MEDIAINFO_MEDIAWIKI_ARTICLE + category["title"], category["title"]))
+
+            media.usages = []
+            for usage in data["globalusage"]:
+                media.usages.append('<a href="%s">%s</a> (%s)' % (usage["url"], usage["title"], usage["wiki"]))
+            media.save(no_update=True)   # We don't need to schedule another updating
+        ticket.media_updated = datetime.datetime.now(tz=utc)
+        ticket.save()
 
     def flush_cache(self):
         super(Ticket, self).flush_cache()
@@ -789,7 +819,6 @@ class MediaInfoOld(Model):
 class MediaInfo(Model):
     """ Media related to particular tickets. """
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'), help_text=_('Ticket this media info belongs to'))
-    updated = models.DateTimeField(_('updated'), null=True)
     name = models.CharField(_('name'), max_length=255, blank=True)
     width = models.IntegerField(_('width'), null=True)
     height = models.IntegerField(_('height'), null=True)
@@ -808,7 +837,7 @@ class MediaInfo(Model):
     @staticmethod
     @background(schedule=10)
     def remove_from_mediawiki(media_name, user_id):
-        mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_URL)
+        mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
         mw.put_content(media_name, MediaInfo.strip_template(mw.get_content(media_name, rvsection=1)), section=1)
 
     @staticmethod
@@ -828,16 +857,28 @@ class MediaInfo(Model):
             template += u"|%s=%s" % (param.decode('utf-8'), str(parameters[param]).decode('utf-8'))
         template += u'}}'
 
-        mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_URL)
+        mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
         old = mw.get_content(media.name, rvsection=1)
         if template not in old:
             mw.put_content(media.name,  MediaInfo.strip_template(old) + u"\n" + template, section=1)
 
-    def save(self, *args, **kwargs):
+    def mediawiki_link(self):
+        return settings.MEDIAINFO_MEDIAWIKI_ARTICLE + self.name
+
+    def save(self, no_update=False, *args, **kwargs):
         super(MediaInfo, self).save(*args, **kwargs)
 
         if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE:
             MediaInfo.add_to_mediawiki(self.id, get_request().user.id)
+
+        if no_update:
+            update_medias = True
+            for task in Task.objects.filter(task_name="tracker.models.update_medias"):
+                if json.loads(task.task_params)[0][0] == self.id:
+                    update_medias = False
+
+            if update_medias:
+                Ticket.update_medias(self.ticket.id)
 
     def delete(self, *args, **kwargs):
         if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE:

@@ -12,7 +12,7 @@
 <p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; <a href="{% url "topic_list" %}">{% trans "topics" %}</a> &gt; <a href="{{ ticket.topic.grant.get_absolute_url }}">{{ ticket.topic.grant.short_name }}</a> &gt; <a href="{% url "topic_detail" ticket.topic.id %}">{{ ticket.topic }}</a> &gt;{% if ticket.subtopic %} <a href="{% url "subtopic_detail" ticket.subtopic_id %}">{{ ticket.subtopic }}</a> &gt;{% endif %}</p>
 <div id="ticket_id">{{ ticket.id }}</div>
 <h1>{{ ticket.name }}</h1>
-{% if user_can_edit_ticket or user_can_edit_ticket_in_admin or user.is_authenticated %}<p class="screenonly">
+<p class="screenonly">
 	{% if user_can_edit_ticket %}<a href="{% url "edit_ticket" ticket.id %}"><button class="btn btn-primary">{% trans "edit ticket" %}</button></a>{% endif %}
 	{% if user_can_copy_preexpeditures %}<a href="{% url "copypreexpeditures" ticket.id %}"><button class="btn btn-primary">{% trans "copy preexpeditures to expeditures" %}</button></a>{% endif %}
 	{% if user_can_edit_ticket_in_admin %}<a href="{% url "admin:tracker_ticket_change" ticket.id %}"><button class="btn btn-primary">{% trans "edit in admin" %}</button></a>{% endif %}
@@ -20,7 +20,8 @@
 	{% if user.is_authenticated %}<a href="{% url "create_ticket" %}?ticket={{ ticket.id }}"><button class="btn btn-primary">{% trans "duplicate" %}</button></a>{% endif %}
 	{% if user.is_authenticated %}<a href="{% url "watch_ticket" ticket.id %}"><button class="btn btn-primary">{% trans "watch settings" %}</button></a>{% endif %}
 	{% if user.is_authenticated and not ticket.requested_user == user and ticket.topic.ticket_statutory_declaration and ticket.car_travel %}<a href="{% url "sign_ticket" ticket.id %}"><button class="btn btn-primary">{% trans "add yourself as a driver" %}</button></a>{% endif %}
-</p>{% endif %}
+	{% if ticket.mediainfo_set.count > 0 %}<a class="btn btn-primary" href="{% url "show_media" ticket.id %}">{% trans "show media" %}</a>{% endif %}
+</p>
 
 {% include "tracker/ticket_common_detail.html" with active_links=True %}
 

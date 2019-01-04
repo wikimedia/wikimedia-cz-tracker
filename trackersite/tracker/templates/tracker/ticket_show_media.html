@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ ticket.name }}{% endblock %}
+{% block content %}
+<!-- i18n-lint disable -->
+<div class="hidden" id="disabledatatables">yes</div>
+<!-- i18n-lint enable -->
+<h1>{% trans "List of medias" %}: {{ ticket.name }}</h1>
+<p>{% trans "Last updated" %}: {{ ticket.media_updated }} (<a href="{% url "update_media" ticket.id %}">{% trans "update" %}</a>)</p>
+<table>
+	<thead>
+		<tr>
+			<th>{% trans "File name" %}</th>
+			<th>{% trans "Dimension" %}</th>
+			<th>{% trans "Categories" %}</th>
+			<th>{% trans "Used in" %}</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for media in medias %}
+		<tr>
+			<td><a href="{{ media.mediawiki_link }}">{{ media.name }}</a></td>
+			<td>{% if media.width and media.height %}{{ media.width }}x{{ media.height }}{% else %}{% trans "Unknown" %}{% endif %}</td>
+			<td>
+				<ul>
+					{% for category in media.categories %}
+					<li>{{ category|safe }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+			<td>
+					<ul>
+						{% for usage in media.usages %}
+						<li>{{ usage|safe }}</li>
+						{% endfor %}
+					</ul>
+				</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

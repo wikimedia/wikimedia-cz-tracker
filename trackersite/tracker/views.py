@@ -37,7 +37,7 @@ from users.models import UserWrapper
 from socialauth.api import MediaWiki
 
 TICKET_EXCLUDE_FIELDS = (
-            'created', 'updated', 'requested_user', 'requested_text',
+            'created', 'media_updated', 'updated', 'requested_user', 'requested_text',
             'custom_state', 'rating_percentage', 'supervisor_notes', 'cluster', 'payment_status',
             'mandatory_report', 'imported', 'enable_comments', 'statutory_declaration_date',
         )
@@ -1731,3 +1731,19 @@ def mediawiki_api(request):
     if request.user.is_authenticated():
         user = request.user
     return HttpResponse(MediaWiki(user=user).request(payload=data, method=request.method).content, content_type='application/json')
+
+
+def show_media(request, ticket_id):
+    ticket = get_object_or_404(Ticket, id=ticket_id)
+    return render(request, 'tracker/ticket_show_media.html', {
+        'ticket': ticket,
+        'medias': ticket.mediainfo_set.all(),
+    })
+
+
+@login_required
+def update_media(request, ticket_id):
+    ticket = get_object_or_404(Ticket, id=ticket_id)  # this is here to ensure 404 when ticket doesn't exist
+    Ticket.update_medias(ticket.id)
+    messages.success(request, _('Updating of medias for this ticket was successfully scheduled.'))
+    return HttpResponseRedirect(reverse('show_media', kwargs={"ticket_id": ticket_id}))

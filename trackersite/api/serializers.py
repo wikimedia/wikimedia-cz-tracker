@@ -79,7 +79,7 @@ class TicketSerializer(serializers.HyperlinkedModelSerializer):
     state_str = serializers.ReadOnlyField()
 
     class Meta:
-        read_only_fields = ('updated', 'created', 'cluster', 'payment_status', 'imported')
+        read_only_fields = ('media_updated', 'updated', 'created', 'cluster', 'payment_status', 'imported')
         exclude = ('cluster', )
         model = Ticket
 
@@ -122,7 +122,7 @@ class MediaInfoSerializer(serializers.HyperlinkedModelSerializer):
         return ticket
 
     class Meta:
-        read_only_fields = ('updated', 'categories', 'width', 'height', 'usages')
+        read_only_fields = ('categories', 'width', 'height', 'usages')
         model = MediaInfo
 
 
