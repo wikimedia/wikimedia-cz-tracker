@@ -694,7 +694,7 @@ def sign_ticket(request, pk):
 
 
 @login_required
-def add_media(request, ticket_id):
+def manage_media(request, ticket_id):
     ticket = get_object_or_404(Ticket, id=ticket_id)
     if not ticket.can_edit(request.user):
         raise PermissionDenied('You cannot edit this ticket')

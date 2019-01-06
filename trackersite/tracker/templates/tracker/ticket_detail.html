@@ -21,7 +21,7 @@
 	{% if user.is_authenticated %}<a href="{% url "watch_ticket" ticket.id %}"><button class="btn btn-primary">{% trans "watch settings" %}</button></a>{% endif %}
 	{% if user.is_authenticated and not ticket.requested_user == user and ticket.topic.ticket_statutory_declaration and ticket.car_travel %}<a href="{% url "sign_ticket" ticket.id %}"><button class="btn btn-primary">{% trans "add yourself as a driver" %}</button></a>{% endif %}
 	{% if ticket.mediainfo_set.count > 0 %}<a class="btn btn-primary" href="{% url "show_media" ticket.id %}">{% trans "show media" %}</a>{% endif %}
-	{% if user_can_edit_ticket %}<a href="{% url "add_media" ticket.id %}"><button class="btn btn-primary">{% trans "add ticket media" %}</button></a>{% endif %}
+	{% if user_can_edit_ticket %}<a href="{% url "manage_media" ticket.id %}"><button class="btn btn-primary">{% trans "manage media" %}</button></a>{% endif %}
 </p>
 
 {% include "tracker/ticket_common_detail.html" with active_links=True %}
