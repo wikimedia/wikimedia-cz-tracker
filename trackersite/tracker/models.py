@@ -822,6 +822,8 @@ class MediaInfo(Model):
     name = models.CharField(_('name'), max_length=255, blank=True)
     width = models.IntegerField(_('width'), null=True)
     height = models.IntegerField(_('height'), null=True)
+    thumb_url = models.URLField(_('URL'), max_length=500, null=True, blank=True)
+    canonicaltitle = models.CharField(_('cannonical title'), max_length=255, null=True)
     categories = JSONField(_('categories'), null=False, default=[])
     usages = JSONField(_('usages'), null=False, default=[])
 
@@ -865,6 +867,37 @@ class MediaInfo(Model):
     def mediawiki_link(self):
         return settings.MEDIAINFO_MEDIAWIKI_ARTICLE + self.name
 
+    def get_mediawiki_data(self, width=None):
+        if settings.MEDIAINFO_MEDIAWIKI_API:
+            mw = MediaWiki(user=None)
+            data = mw.request({
+                "action": "query",
+                "format": "json",
+                "prop": "imageinfo",
+                "titles": self.name,
+                "iiprop": "url|canonicaltitle",
+                "iiurlwidth": width
+            }).json()['query']['pages']
+            data = data[data.keys()[0]]['imageinfo'][0]
+
+            if width:
+                url = data['thumburl']
+            else:
+                url = data['url']
+
+            return {
+                "url": url,
+                "canonicaltitle": data['canonicaltitle'],
+            }
+
+    @staticmethod
+    def store_mediawiki_data(media_id):
+        media = MediaInfo.objects.get(id=media_id)
+        data = media.get_mediawiki_data(width=200)
+        media.thumb_url = data['url']
+        media.canonicaltitle = data['canonicaltitle']
+        media.save(no_update=True)
+
     def save(self, no_update=False, *args, **kwargs):
         super(MediaInfo, self).save(*args, **kwargs)
 
@@ -872,6 +905,7 @@ class MediaInfo(Model):
             MediaInfo.add_to_mediawiki(self.id, get_request().user.id)
 
         if not no_update:
+            MediaInfo.store_mediawiki_data(self.id)
             update_medias = True
             for task in Task.objects.filter(task_name="tracker.models.update_medias"):
                 if json.loads(task.task_params)[0][0] == self.id:
