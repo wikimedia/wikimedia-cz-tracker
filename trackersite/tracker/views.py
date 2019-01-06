@@ -1759,3 +1759,13 @@ def update_media(request, ticket_id):
     Ticket.update_medias(ticket.id)
     messages.success(request, _('Updating of medias for this ticket was successfully scheduled.'))
     return HttpResponseRedirect(reverse('show_media', kwargs={"ticket_id": ticket_id}))
+
+
+def update_media_success(request, ticket_id):
+    messages.success(request, _('List of media was successfully updated'))
+    return HttpResponseRedirect(reverse('ticket_detail', kwargs={"pk": ticket_id}))
+
+
+def update_media_error(request, ticket_id):
+    messages.error(request, _('There was an error while processing your request'))
+    return HttpResponseRedirect(reverse('ticket_detail', kwargs={"pk": ticket_id}))

@@ -9,7 +9,7 @@
 
 	const selectionSubmit = document.querySelector( '#selection-submit' );
 
-	selectionSubmit.addEventListener( 'click', () => {
+	selectionSubmit.addEventListener( 'click', async () => {
 		const inputs = document.querySelectorAll( '.search-results input[type="checkbox"]' );
 
 		const requestData = [ ...inputs ]
@@ -21,16 +21,25 @@
 				};
 			} );
 
-		fetch( '/api/tracker/mediainfo/', {
-			method: 'POST',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-				'X-CSRFToken': cookies.getItem( 'csrftoken' )
-			},
-			body: JSON.stringify( requestData ),
-			credentials: 'same-origin'
-		} );
+		try {
+			let resp = await fetch( '/api/tracker/mediainfo/', {
+				method: 'POST',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json',
+					'X-CSRFToken': cookies.getItem( 'csrftoken' )
+				},
+				body: JSON.stringify( requestData ),
+				credentials: 'same-origin'
+			} );
+
+			if ( resp.status >= 400 ) {
+				window.location.href += 'error/';
+			}
+			window.location.href += 'success/';
+		} catch ( err ) {
+			window.location.href += 'error/';
+		}
 	} );
 
 	const imageContainer = document.querySelector( '.search-results' );
