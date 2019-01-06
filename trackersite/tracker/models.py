@@ -871,7 +871,7 @@ class MediaInfo(Model):
         if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE:
             MediaInfo.add_to_mediawiki(self.id, get_request().user.id)
 
-        if no_update:
+        if not no_update:
             update_medias = True
             for task in Task.objects.filter(task_name="tracker.models.update_medias"):
                 if json.loads(task.task_params)[0][0] == self.id:
