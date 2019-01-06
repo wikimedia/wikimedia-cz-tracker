@@ -459,3 +459,7 @@ input[ type='search' ] {
 section.commons-selection label {
 	margin-left: 0.5em;
 }
+
+.ticket-actions {
+	line-height: 3.2em;
+}
