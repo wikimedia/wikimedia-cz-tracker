@@ -23,6 +23,7 @@ urlpatterns = patterns(
     url(r'^ticket/new/$', 'tracker.views.create_ticket', name='create_ticket'),
     url(r'^ticket/(?P<ticket_id>\d+)/media/show/$', 'tracker.views.show_media', name='show_media'),
     url(r'^ticket/(?P<ticket_id>\d+)/media/update/$', 'tracker.views.update_media', name='update_media'),
+    url(r'^ticket/(?P<ticket_id>\d+)/media/add/$', 'tracker.views.add_media', name='add_media'),
     url(r'^topics/$', 'tracker.views.topic_list', name='topic_list'),
     url(r'^topics/finance/$', 'tracker.views.topic_finance', name='topic_finance'),
     url(r'^topics/acks/$', 'tracker.views.topic_content_acks_per_user', name='topic_content_acks_per_user'),

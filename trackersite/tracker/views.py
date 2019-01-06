@@ -694,6 +694,18 @@ def sign_ticket(request, pk):
 
 
 @login_required
+def add_media(request, ticket_id):
+    ticket = get_object_or_404(Ticket, id=ticket_id)
+    if not ticket.can_edit(request.user):
+        raise PermissionDenied('You cannot edit this ticket')
+
+    return render(request, 'tracker/ticket_media.html', {
+        'ticket': ticket_id,
+        'ticket_name': ticket
+    })
+
+
+@login_required
 def edit_ticket(request, pk):
     ticket = get_object_or_404(Ticket, id=pk)
     if not ticket.can_edit(request.user):

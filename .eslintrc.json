@@ -18,6 +18,12 @@
 			"rules": {
 				"no-unused-vars": "off"
 			}
+		},
+		{
+			"files": "static/get-images.js",
+			"rules": {
+				"no-unused-vars": "off"
+			}
 		}
 	],
 	"env": {
@@ -30,10 +36,12 @@
 		}],
 		"no-const-assign": "error",
 		"one-const": "off",
-		"one-var": "off"
+		"one-var": "off",
+		"no-use-before-define": "off"
 	},
 	"globals": {
 		"getTopicById": true,
-		"getSubtopicById": true
+		"getSubtopicById": true,
+		"cookies": true
 	}
 }

@@ -422,3 +422,39 @@ td.field-wage input.form-control[ type='checkbox' ] {
 	margin-left: 0;
 	margin-right: 0;
 }
+
+.search-results {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.search-result {
+	width: 200px;
+	text-align: center;
+	margin-right: 1em;
+}
+
+.search-result img {
+	cursor: pointer;
+	display: block;
+	margin: 0 auto;
+	max-height: 200px;
+	max-width: 200px;
+	object-fit: scale-down;
+}
+
+.btn-secondary,
+.btn-secondary:focus,
+.btn-secondary:hover,
+.btn-secondary:active {
+	color: #2c3e50;
+}
+
+input[ type='search' ] {
+	-webkit-appearance: textfield;
+}
+
+section.commons-selection label {
+	margin-left: 0.5em;
+}

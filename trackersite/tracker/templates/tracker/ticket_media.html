@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Manage media for" %}: {{ticket_name}}{% endblock title %}
+
+{% block content %}
+<section class="commons-selection">
+	<h2>{% trans "Add new media" %}</h2>
+	<div class="row">
+		<div class="col-md-6">
+			<form action="javascript:void(0);">
+				<label for="by-name-input">{% trans "Filename prefix" %}</label>
+				<input type="search" name="by-name-input" id="by-name-input">
+				<button type="submit" id="by-name-submit" class="btn btn-secondary">{% trans "Search" %}</button>
+			</form>
+			<form action="javascript:void(0);">
+				<label for="by-user-input">{% trans "Mediawiki username" %}</label>
+				<input type="text" name="by-user-input" id="by-user-input">
+				<button type="submit" id="by-user-submit" class="btn btn-secondary">{% trans "Search" %}</button>
+			</form>
+		</div>
+		<div class="col-md-6">
+			<form action="javascript:void(0);">
+				<div class="form-group">
+					<label for="limit">{% trans "Number of images to fetch" %}</label>
+					<input type="number" name="limit" value=25 max=500 id="limit">
+				</div>
+				<div class="form-group">
+					<label for="category">{% trans "Category to filter by" %}</label>
+					<input type="text" name="category" id="category">
+				</div>
+			</form>
+		</div>
+	</div>
+	<hr>
+
+	<form action="javascript:void(0);">
+		{% csrf_token %}
+
+		<input type="hidden" name="ticket" value="{{ticket}}" id="ticket-number">
+
+		<section class="search-results">
+			<!-- Results will be filled in via /static/get-images.js -->
+		</section>
+
+		<div class="text-center">
+			<button id="load-more" class="btn btn-secondary hidden">{% trans "Load more" %}</button>
+		</div>
+
+		<br>
+
+		<input type="submit" value="Choose selected photos" id="selection-submit" class="btn btn-primary">
+	</form>
+</section>
+
+<script src="/static/cookies.min.js"></script>
+<script src="/static/commons-selection.js"></script>
+{% endblock content %}
