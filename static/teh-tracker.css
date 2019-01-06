@@ -423,7 +423,8 @@ td.field-wage input.form-control[ type='checkbox' ] {
 	margin-right: 0;
 }
 
-.search-results {
+.search-results,
+.existing-search-results {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;

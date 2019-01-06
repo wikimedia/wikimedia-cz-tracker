@@ -42,6 +42,28 @@
 		}
 	} );
 
+	const deletionSubmit = document.querySelector( '#deletion-submit' );
+	deletionSubmit.addEventListener( 'click', () => {
+		const inputs = document.querySelectorAll( '.existing-search-results input[type="checkbox"]' );
+
+		const urls = [ ...inputs ]
+			.filter( input => input.checked )
+			.map( ( input ) => {
+				return input.getAttribute( 'data-media-api-url' );
+			} );
+
+		for ( const url of urls ) {
+			fetch( url, {
+				method: 'DELETE',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json',
+					'X-CSRFToken': cookies.getItem( 'csrftoken' )
+				}
+			} );
+		}
+	} );
+
 	const imageContainer = document.querySelector( '.search-results' );
 
 	const limitElement = document.querySelector( '#limit' );
@@ -50,6 +72,12 @@
 
 	const byNameSubmit = document.querySelector( '#by-name-submit' );
 	const byUserSubmit = document.querySelector( '#by-user-submit' );
+
+	const existingImages = await ( await fetch( `/api/tracker/mediainfo/?ticket=${ticketNumber}` ) ).json();
+	let existingImageNames = [];
+	for ( const image of existingImages ) {
+		existingImageNames.push( image.canonicaltitle );
+	}
 
 	let previousFetchMethod;
 
@@ -66,6 +94,7 @@
 	} );
 
 	byUserSubmit.click(); // Load default set of images
+	fetchAndFillExistingImages();
 
 	loadMoreButton.addEventListener( 'click', async () => {
 		const input = document.querySelector( `#by-${ previousFetchMethod }-input` ).value;
@@ -106,9 +135,12 @@
 		}
 
 		for ( const image of images ) {
+			if ( existingImageNames.includes( image.canonicaltitle ) ) {
+				continue;
+			}
 			const imageElem = document.createElement( 'div' );
 			imageElem.classList.add( 'search-result' );
-			imageElem.innerHTML = generateImageHtml( image );
+			imageElem.innerHTML = generateImageHtml( image, 'new' );
 
 			imageContainer.appendChild( imageElem );
 		}
@@ -118,6 +150,30 @@
 		for ( const [ i, image ] of Object.entries( imageElems ) ) {
 			image.addEventListener( 'click', () => {
 				const checkbox = document.querySelectorAll( '.search-results input' )[ i ];
+
+				checkbox.checked = !( checkbox.checked );
+			} );
+		}
+	}
+
+	async function fetchAndFillExistingImages() {
+		const existingImageContainer = document.querySelector( '.existing-search-results' );
+		removeChildren( existingImageContainer );
+
+		for ( const image of existingImages ) {
+			image.apiUrl = image.url;
+			const imageElem = document.createElement( 'div' );
+			imageElem.classList.add( 'search-result' );
+			imageElem.innerHTML = generateImageHtml( image, 'existing' );
+
+			existingImageContainer.appendChild( imageElem );
+		}
+
+		const imageElems = document.querySelectorAll( '.search-result img' );
+
+		for ( const [ i, image ] of Object.entries( imageElems ) ) {
+			image.addEventListener( 'click', () => {
+				const checkbox = document.querySelectorAll( '.existing-search-results input' )[ i ];
 
 				checkbox.checked = !( checkbox.checked );
 			} );
@@ -200,12 +256,24 @@
 		};
 	}
 
-	function generateImageHtml( image ) {
-		return `
-			<img src="${ fileToThumb( image ) }" alt="" height=${ Math.max( image.height, 200 ) }>
+	function generateImageHtml( image, idExtra ) {
+		let thumbUrl;
+		if ( image.thumb_url !== undefined ) {
+			thumbUrl = image.thumb_url;
+		} else {
+			thumbUrl = fileToThumb( image );
+		}
 
-			<input type="checkbox" name="File:${ image.name }" id="File:${ image.name }">
-			<label for="File:${ image.name }">Select</label>
+		let extraCheckboxAttr = '';
+		if ( image.apiUrl ) {
+			extraCheckboxAttr = `data-media-api-url="${ image.apiUrl }"`;
+		}
+
+		return `
+			<img src="${ thumbUrl }" alt="" height=${ Math.max( image.height, 200 ) }>
+
+			<input type="checkbox" name="${ image.canonicaltitle }" id="${ idExtra }-${ image.canonicaltitle }" ${ extraCheckboxAttr }>
+			<label for="${ idExtra }-${ image.canonicaltitle }">Select</label>
 
 			<p>
 				<a href="${ image.descriptionurl }">

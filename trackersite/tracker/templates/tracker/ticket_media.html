@@ -52,6 +52,17 @@
 
 		<input type="submit" value="{% trans "Choose selected photos" %}" id="selection-submit" class="btn btn-primary">
 	</form>
+
+	<h2>{% trans "Remove existing media" %}</h2>
+	<form action="javascript:void(0);">
+		{% csrf_token %}
+
+		<section class="existing-search-results">
+			<!-- Results will be filled in via /static/commons-selection.js -->
+		</section>
+
+		<input type="submit" value="{% trans "Delete selected photos" %}" id="deletion-submit" class="btn btn-primary">
+	</form>
 </section>
 
 <script src="/static/cookies.min.js"></script>
