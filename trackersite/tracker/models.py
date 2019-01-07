@@ -901,7 +901,7 @@ class MediaInfo(Model):
     def save(self, no_update=False, *args, **kwargs):
         super(MediaInfo, self).save(*args, **kwargs)
 
-        if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE:
+        if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE and not no_update:
             MediaInfo.add_to_mediawiki(self.id, get_request().user.id)
 
         if not no_update:
