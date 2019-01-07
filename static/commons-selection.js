@@ -52,15 +52,25 @@
 				return input.getAttribute( 'data-media-api-url' );
 			} );
 
-		for ( const url of urls ) {
-			fetch( url, {
-				method: 'DELETE',
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-					'X-CSRFToken': cookies.getItem( 'csrftoken' )
+		try {
+			for ( const url of urls ) {
+				let resp = fetch( url, {
+					method: 'DELETE',
+					headers: {
+						Accept: 'application/json',
+						'Content-Type': 'application/json',
+						'X-CSRFToken': cookies.getItem( 'csrftoken' )
+					}
+				} );
+
+				if ( resp.status >= 400 ) {
+					window.location.href += 'error/';
 				}
-			} );
+			}
+
+			window.location.href += 'success/';
+		} catch ( err ) {
+			window.location.href += 'error/';
 		}
 	} );
 
