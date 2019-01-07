@@ -609,16 +609,16 @@ class Subtopic(CachedModel):
         return reverse('subtopic_detail', kwargs={'pk': self.id})
 
     @cached_getter
-    def media_old_count(self):
-        return MediaInfoOld.objects.extra(where=['ticket_id in (select ticket_id from tracker_ticket where subtopic_id = %s)'], params=[self.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
+    def media_count(self):
+        return MediaInfoOld.objects.extra(where=['ticket_id in (select id from tracker_ticket where subtopic_id = %s)'], params=[self.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
 
     @cached_getter
     def expeditures(self):
-        return Expediture.objects.extra(where=['ticket_id in (select ticket_id from tracker_ticket where subtopic_id = %s)'], params=[self.id]).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
+        return Expediture.objects.extra(where=['ticket_id in (select id from tracker_ticket where subtopic_id = %s)'], params=[self.id]).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
 
     @cached_getter
     def preexpeditures(self):
-        return Preexpediture.objects.extra(where=['ticket_id in (select ticket_id from tracker_ticket where subtopic_id = %s)'], params=[self.id]).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
+        return Preexpediture.objects.extra(where=['ticket_id in (select id from tracker_ticket where subtopic_id = %s)'], params=[self.id]).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
 
     @cached_getter
     def accepted_expeditures(self):
