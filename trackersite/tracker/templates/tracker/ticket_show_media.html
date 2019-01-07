@@ -24,14 +24,14 @@
 			<td>
 				<ul>
 					{% for category in media.categories %}
-					<li>{{ category|safe }}</li>
+					<li><a href="{{MEDIAINFO_MEDIAWIKI_ARTICLE}}{{category}}">{{category}}</a></li>
 					{% endfor %}
 				</ul>
 			</td>
 			<td>
 					<ul>
 						{% for usage in media.usages %}
-						<li>{{ usage|safe }}</li>
+						<li><a href="{{usage.0}}">{{usage.1}}</a> ({{usage.2}})</li>
 						{% endfor %}
 					</ul>
 				</td>

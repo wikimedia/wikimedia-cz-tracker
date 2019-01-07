@@ -511,11 +511,11 @@ class Ticket(CachedModel, ModelDiffMixin):
 
             media.categories = []
             for category in data["categories"]:
-                media.categories.append('<a href="%s">%s</a>' % (settings.MEDIAINFO_MEDIAWIKI_ARTICLE + category["title"], category["title"]))
+                media.categories.append(category["title"])
 
             media.usages = []
             for usage in data["globalusage"]:
-                media.usages.append('<a href="%s">%s</a> (%s)' % (usage["url"], usage["title"], usage["wiki"]))
+                media.usages.append((usage["url"], usage["title"], usage["wiki"]))
             media.save(no_update=True)   # We don't need to schedule another updating
         ticket.media_updated = datetime.datetime.now(tz=utc)
         ticket.save()
