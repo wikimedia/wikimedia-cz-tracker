@@ -38,5 +38,19 @@
 		</tr>
 		{% endfor %}
 	</tbody>
+	<tfoot>
+		<tr>
+			<td>{% trans "Number of files" %}</td>
+			<td>{{ ticket.mediainfo_set.count }}</td>
+		</tr>
+		<tr>
+			<td>{% trans "Number of usages" %}</td>
+			<td>{{usages_count}}</td>
+		</tr>
+		<tr>
+			<td>{% trans "Number of Wikidata items" %}</td>
+			<td>{{wikidata_usages_count}}</td>
+		</tr>
+	</tfoot>
 </table>
 {% endblock %}
