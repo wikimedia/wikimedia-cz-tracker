@@ -43,7 +43,7 @@
 	} );
 
 	const deletionSubmit = document.querySelector( '#deletion-submit' );
-	deletionSubmit.addEventListener( 'click', () => {
+	deletionSubmit.addEventListener( 'click', async () => {
 		const inputs = document.querySelectorAll( '.existing-search-results input[type="checkbox"]' );
 
 		const urls = [ ...inputs ]
@@ -54,7 +54,7 @@
 
 		try {
 			for ( const url of urls ) {
-				let resp = fetch( url, {
+				let resp = await fetch( url, {
 					method: 'DELETE',
 					headers: {
 						Accept: 'application/json',
