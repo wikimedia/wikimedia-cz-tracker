@@ -700,8 +700,7 @@ def manage_media(request, ticket_id):
         raise PermissionDenied('You cannot edit this ticket')
 
     return render(request, 'tracker/ticket_media.html', {
-        'ticket': ticket_id,
-        'ticket_name': ticket
+        'ticket': ticket
     })
 
 

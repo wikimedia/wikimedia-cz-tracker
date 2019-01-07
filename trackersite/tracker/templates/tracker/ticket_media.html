@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}{% trans "Manage media for" %}: {{ticket_name}}{% endblock title %}
+{% block title %}{% trans "Manage media for" %}: {{ticket}}{% endblock title %}
 
 {% block content %}
 <section class="commons-selection">
+	<p class="nav"><a href="{% url "ticket_list" %}" class="btn btn-primary">{% trans "index" %}</a> &gt; <a href="{% url "ticket_detail" ticket.id %}">{{ticket.name}}</a> &gt;</p>
 	<h2>{% trans "Add new media" %}</h2>
 	<div class="row">
 		<div class="col-md-6">
@@ -37,7 +38,7 @@
 	<form action="javascript:void(0);">
 		{% csrf_token %}
 
-		<input type="hidden" name="ticket" value="{{ticket}}" id="ticket-number">
+		<input type="hidden" name="ticket" value="{{ ticket.id }}" id="ticket-number">
 
 		<section class="search-results">
 			<!-- Results will be filled in via /static/get-images.js -->
