@@ -1,9 +1,8 @@
-# Translation of Tracker to Korean (한국어)
+# Translation of Tracker to Serbian (Cyrillic script) (српски (ћирилица)‎)
 # Exported from translatewiki.net
 #
-# Author: Garam
-# Author: SeoJeongHo
-# Author: Ykhwong
+# Author: BadDog
+# Author: Zoranzoki21
 msgid ""
 msgstr ""
 ""
@@ -11,9 +10,9 @@ msgstr ""
 "X-POT-Import-Date: 2019-01-06 17:30:34+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
+"Language: sr-Cyrl\n"
 "X-Generator: MediaWiki 1.33.0-alpha; Translate 2018-11-05\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=3; plural=(n%10 == 1 && n%100 != 11) ? 0 : ( (n%10 >= 2 && n%10 <= 4 && (n%100 < 10 || n%100 >= 20)) ? 1 : 2 );\n"
 
 #: api/serializers.py:94
 msgid "Deposit should be zero when creating a ticket"
@@ -29,11 +28,11 @@ msgstr ""
 
 #: api/serializers.py:119
 msgid "You can not add media to this ticket."
-msgstr "이 티켓에 미디어를 추가할 수 없습니다."
+msgstr ""
 
 #: api/serializers.py:121
 msgid "You can not edit the media of this ticket."
-msgstr "이 티켓의 미디어를 편집할 수 없습니다."
+msgstr ""
 
 #: api/serializers.py:144
 msgid "You can not add expiditures to this ticket."
@@ -61,44 +60,44 @@ msgstr ""
 #: tracker/templates/tracker/topic_table.html:40
 #: tracker/templates/tracker/topic_table.html:41
 msgid "CZK"
-msgstr "CZK"
+msgstr ""
 
 #: common_settings.py:84
 msgid "English"
-msgstr "영어"
+msgstr "Енглески"
 
 #: common_settings.py:85
 msgid "Czech"
-msgstr "체코어"
+msgstr "Чешки"
 
 #: common_settings.py:86
 msgid "French"
-msgstr "프랑스어"
+msgstr "Француски"
 
 #: common_settings.py:87
 msgid "Arabic"
-msgstr "아랍어"
+msgstr "Арапски"
 
 #: common_settings.py:88
 msgid "Danish"
-msgstr "덴마크어"
+msgstr "дански"
 
 #: customcomments/forms.py:21
 msgid "Your name"
-msgstr "이름"
+msgstr "Ваше име"
 
 #: customcomments/forms.py:22
 #: tracker/templates/tracker/ticketack_confirm_delete.html:13
 msgid "Comment"
-msgstr ""
+msgstr "Коментар"
 
 #: socialauth/pipeline.py:15
 msgid "Successfully linked your wikimedia account!"
-msgstr "위키미디어 계정에 성공적으로 연결했습니다!"
+msgstr ""
 
 #: socialauth/pipeline.py:21
 msgid "Your wikimedia account is no longer linked."
-msgstr "위키미디어 계정은 더 이상 연결되어 있지 않습니다."
+msgstr ""
 
 #: templates/403.html:3
 msgid "403 Forbidden"
@@ -110,11 +109,11 @@ msgstr ""
 
 #: templates/403.html:12
 msgid "You don't have permissions to do this!"
-msgstr "이 작업을 수행할 권한이 없습니다!"
+msgstr "Немате дозволу да урадите ово!"
 
 #: templates/404.html:3
 msgid "404 Not Found"
-msgstr "404 찾을 수 없습니다"
+msgstr ""
 
 #: templates/404.html:7
 msgid "Not Found"
@@ -127,11 +126,11 @@ msgstr ""
 
 #: templates/500.html:3 templates/500.html.py:7
 msgid "Internal Error"
-msgstr "내부 오류"
+msgstr ""
 
 #: templates/500.html:10
 msgid "There was an error processing you request. Sorry about that."
-msgstr "요청 처리 중 오류가 발생했습니다. 죄송합니다."
+msgstr ""
 
 #: templates/admin/base_site.html:4
 msgid "Tracker admin"
@@ -147,7 +146,7 @@ msgstr ""
 
 #: templates/base.html:34
 msgid "Update details"
-msgstr "상세 정보 업데이트"
+msgstr "Ажурирај детаље"
 
 #: templates/base.html:54
 msgid "Toggle navigation"
@@ -155,7 +154,7 @@ msgstr ""
 
 #: templates/base.html:68
 msgid "change password"
-msgstr "비밀번호 바꾸기"
+msgstr "промени лозинку"
 
 #: templates/base.html:69
 msgid "change my details"
@@ -171,11 +170,11 @@ msgstr ""
 
 #: templates/base.html:74 templates/base.html.py:87
 msgid "change language"
-msgstr "언어 변경"
+msgstr "промени језик"
 
 #: templates/base.html:75 templates/base.html.py:88
 msgid "help"
-msgstr "도움말"
+msgstr "помоћ"
 
 #: templates/base.html:76
 msgid "logout"
@@ -184,15 +183,15 @@ msgstr ""
 #: templates/base.html:81 templates/base.html.py:84
 #: users/templates/users/login.html:21
 msgid "login"
-msgstr "로그인"
+msgstr "пријава"
 
 #: templates/base.html:86 users/templates/users/register.html:15
 msgid "register"
-msgstr "등록"
+msgstr ""
 
 #: templates/base.html:102
 msgid "Warning"
-msgstr "경고"
+msgstr "Упозорење"
 
 #: templates/base.html:102
 #, python-format
@@ -201,15 +200,15 @@ msgstr ""
 
 #: templates/choose_language.html:5 templates/choose_language.html.py:8
 msgid "Change language"
-msgstr "언어 변경"
+msgstr "Промени језик"
 
 #: templates/comments/form.html:17
 msgid "Post"
-msgstr ""
+msgstr "Објава"
 
 #: templates/comments/form.html:18
 msgid "Preview"
-msgstr "미리 보기"
+msgstr "Преглед"
 
 #: tracker/admin.py:24 tracker/admin.py:30
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
@@ -239,7 +238,7 @@ msgstr ""
 
 #: tracker/feeds.py:13
 msgid "Recently changed tickets"
-msgstr "최근 변경된 티켓"
+msgstr ""
 
 #: tracker/feeds.py:26 tracker/templates/tracker/generic/ticket_list.html:8
 #: tracker/templates/tracker/topic_detail.html:6
@@ -253,20 +252,20 @@ msgstr ""
 #: tracker/models.py:39 tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
 msgid "n/a"
-msgstr "해당 없음"
+msgstr ""
 
 #: tracker/models.py:40 tracker/templates/tracker/export.html:246
 #: tracker/templates/tracker/grant_table.html:12
 #: tracker/templates/tracker/topic_finance.html:16
 #: tracker/templates/tracker/topic_table.html:14
 msgid "unpaid"
-msgstr ""
+msgstr "неплаћено"
 
 #: tracker/models.py:41 tracker/templates/tracker/export.html:247
 #: tracker/templates/tracker/grant_table.html:13
 #: tracker/templates/tracker/topic_table.html:15
 msgid "partially paid"
-msgstr ""
+msgstr "делимично плаћено"
 
 #: tracker/models.py:42 tracker/models.py:900
 #: tracker/templates/tracker/export.html:248
@@ -274,7 +273,7 @@ msgstr ""
 #: tracker/templates/tracker/topic_finance.html:17
 #: tracker/templates/tracker/topic_table.html:16
 msgid "paid"
-msgstr ""
+msgstr "плаћено"
 
 #: tracker/models.py:43 tracker/templates/tracker/export.html:249
 #: tracker/templates/tracker/grant_table.html:15
@@ -297,7 +296,7 @@ msgstr ""
 
 #: tracker/models.py:50
 msgid "accepted"
-msgstr ""
+msgstr "прихваћено"
 
 #: tracker/models.py:51
 msgid "expense documents submitted"
@@ -317,11 +316,11 @@ msgstr ""
 #: tracker/templates/tracker/export.html:55
 #: tracker/templates/tracker/export.html:56
 msgid "closed"
-msgstr "닫힘"
+msgstr "затворено"
 
 #: tracker/models.py:58
 msgid "All notifications"
-msgstr "모든 알림"
+msgstr ""
 
 #: tracker/models.py:59
 msgid "Comment added"
@@ -329,15 +328,15 @@ msgstr ""
 
 #: tracker/models.py:60
 msgid "Supervisor notes changed"
-msgstr ""
+msgstr "Промењене напомене супервизора"
 
 #: tracker/models.py:61
 msgid "New ticket was created"
-msgstr "새 티켓이 만들어졌습니다"
+msgstr "Нов тикет је направљен"
 
 #: tracker/models.py:62
 msgid "Ticket was deleted"
-msgstr "티켓이 삭제되었습니다"
+msgstr "Тикет је избрисан"
 
 #: tracker/models.py:63
 msgid "Ack added"
@@ -349,7 +348,7 @@ msgstr ""
 
 #: tracker/models.py:65
 msgid "Ticket changed"
-msgstr "티켓이 변경됨"
+msgstr "Тикет је промењен"
 
 #: tracker/models.py:66
 msgid "New preexpediture was created"
@@ -369,7 +368,7 @@ msgstr ""
 
 #: tracker/models.py:70
 msgid "New media was created"
-msgstr "새 미디어가 만들어졌습니다"
+msgstr ""
 
 #: tracker/models.py:71
 msgid "Media changed"
@@ -389,7 +388,7 @@ msgstr ""
 
 #: tracker/models.py:229
 msgid "updated"
-msgstr ""
+msgstr "ажурирано"
 
 #: tracker/models.py:230
 msgid "media_updated"
@@ -397,7 +396,7 @@ msgstr ""
 
 #: tracker/models.py:231
 msgid "event date"
-msgstr "이벤트 날짜"
+msgstr "датум догађаја"
 
 #: tracker/models.py:231
 msgid "Date of the event this ticket is about"
@@ -406,11 +405,11 @@ msgstr ""
 #: tracker/models.py:232 tracker/models.py:371
 #: tracker/templates/feeds/ticket_description.html:3
 msgid "requested by"
-msgstr "요청자:"
+msgstr ""
 
 #: tracker/models.py:232
 msgid "User who created/requested for this ticket"
-msgstr "이 티켓을 만들거나 요청한 사용자"
+msgstr ""
 
 #: tracker/models.py:233
 msgid "requested by (text)"
@@ -423,15 +422,15 @@ msgstr ""
 #: tracker/models.py:234 tracker/models.py:600 tracker/models.py:665
 #: tracker/models.py:822 tracker/views.py:780
 msgid "name"
-msgstr "이름"
+msgstr ""
 
 #: tracker/models.py:234
 msgid "Name for the ticket"
-msgstr "티켓의 이름"
+msgstr ""
 
 #: tracker/models.py:235 tracker/models.py:603 tracker/views.py:555
 msgid "topic"
-msgstr "주제"
+msgstr ""
 
 #: tracker/models.py:235
 msgid "Project topic this ticket belongs to"
@@ -439,7 +438,7 @@ msgstr ""
 
 #: tracker/models.py:236
 msgid "subtopic"
-msgstr "하위 주제"
+msgstr "подтема"
 
 #: tracker/models.py:236
 msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
@@ -483,7 +482,7 @@ msgstr ""
 #: tracker/models.py:754 tracker/models.py:807 tracker/models.py:897
 #: tracker/models.py:919 tracker/models.py:1063 tracker/views.py:781
 msgid "description"
-msgstr "설명"
+msgstr ""
 
 #: tracker/models.py:241
 msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there."
@@ -507,7 +506,7 @@ msgstr ""
 
 #: tracker/models.py:247
 msgid "payment status"
-msgstr ""
+msgstr "статус плаћања"
 
 #: tracker/models.py:248
 msgid "imported"
@@ -519,7 +518,7 @@ msgstr ""
 
 #: tracker/models.py:249
 msgid "enable comments"
-msgstr ""
+msgstr "омогући коментарисање"
 
 #: tracker/models.py:249
 msgid "Can users comment on this ticket?"
@@ -535,7 +534,7 @@ msgstr ""
 
 #: tracker/models.py:330
 msgid "historical"
-msgstr ""
+msgstr "историјски"
 
 #: tracker/models.py:339
 msgid "waiting for content rating"
@@ -560,7 +559,7 @@ msgstr ""
 #: tracker/templates/tracker/export.html:40
 #: tracker/templates/tracker/export.html:41
 msgid "waiting for approval"
-msgstr "승인 대기"
+msgstr ""
 
 #: tracker/models.py:351 tracker/templates/tracker/export.html:37
 #: tracker/templates/tracker/export.html:38
@@ -575,21 +574,21 @@ msgstr ""
 #: tracker/models.py:358 tracker/templates/tracker/export.html:31
 #: tracker/templates/tracker/export.html:32
 msgid "draft"
-msgstr ""
+msgstr "радна верзија"
 
 #: tracker/models.py:360 tracker/templates/tracker/export.html:30
 msgid "state"
-msgstr "상태"
+msgstr "стање"
 
 #: tracker/models.py:383 tracker/templates/tracker/admin_user_list.html:26
 msgid "E-mail"
-msgstr "이메일"
+msgstr ""
 
 #: tracker/models.py:384 tracker/models.py:1011
 #: tracker/templates/tracker/admin_user_list.html:31
 #: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
-msgstr "다른 연락처"
+msgstr ""
 
 #: tracker/models.py:388
 msgid "no tracker account listed"
@@ -601,7 +600,7 @@ msgstr ""
 
 #: tracker/models.py:528 tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Ticket"
-msgstr "티켓"
+msgstr "Тикет"
 
 #: tracker/models.py:529 tracker/templates/tracker/cluster_detail.html:12
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -616,7 +615,7 @@ msgstr "티켓"
 #: tracker/templates/tracker/user_detail.html:22
 #: tracker/templates/tracker/user_list.html:13
 msgid "Tickets"
-msgstr "티켓"
+msgstr ""
 
 #: tracker/models.py:601 tracker/models.py:602
 msgid "Description shown to users who enter tickets for this subtopic"
@@ -635,11 +634,11 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:16
 #: tracker/templates/tracker/ticket_table.html:33
 msgid "Subtopic"
-msgstr "하위 주제"
+msgstr "Подтема"
 
 #: tracker/models.py:659 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
-msgstr "하위 주제"
+msgstr ""
 
 #: tracker/models.py:666 tracker/views.py:584
 msgid "grant"
@@ -659,7 +658,7 @@ msgstr ""
 
 #: tracker/models.py:668
 msgid "ticket media"
-msgstr "티켓 미디어"
+msgstr ""
 
 #: tracker/models.py:668
 msgid "Does this topic track ticket media items?"
@@ -691,19 +690,19 @@ msgstr ""
 
 #: tracker/models.py:672 tracker/models.py:754
 msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
-msgstr "자세한 설명입니다. 현재 기준으로 HTML은 허용되며 줄 바꿈은 자동 구문 분석됩니다"
+msgstr ""
 
 #: tracker/models.py:673
 msgid "Description shown to users who enter tickets for this topic"
-msgstr ""
+msgstr "Опис приказан корисницима који уносе тикете за ову тему"
 
 #: tracker/models.py:674
 msgid "topic administrator"
-msgstr "주제 관리자"
+msgstr "администратор теме"
 
 #: tracker/models.py:674
 msgid "Selected users will have administration access to this topic."
-msgstr "선택된 사용자는 이 주제의 관리 접근 권한을 받게 됩니다."
+msgstr ""
 
 #: tracker/models.py:741 tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/index.html:23
@@ -714,17 +713,17 @@ msgstr "선택된 사용자는 이 주제의 관리 접근 권한을 받게 됩�
 #: tracker/templates/tracker/topic_finance.html:11
 #: tracker/templates/tracker/topic_table.html:5
 msgid "Topic"
-msgstr "주제"
+msgstr ""
 
 #: tracker/models.py:742 tracker/templates/tracker/export.html:61
 #: tracker/templates/tracker/export.html:212
 #: tracker/templates/tracker/import.html:26
 msgid "Topics"
-msgstr "주제"
+msgstr ""
 
 #: tracker/models.py:751
 msgid "full name"
-msgstr ""
+msgstr "пуно име"
 
 #: tracker/models.py:751
 msgid "Full name for headlines and such"
@@ -732,7 +731,7 @@ msgstr ""
 
 #: tracker/models.py:752
 msgid "short name"
-msgstr ""
+msgstr "кратко име"
 
 #: tracker/models.py:752
 msgid "Shorter name for use in tables"
@@ -755,7 +754,7 @@ msgstr ""
 #: tracker/templates/tracker/topic_table.html:6
 #: tracker/templates/tracker/transaction_list.html:15
 msgid "Grant"
-msgstr ""
+msgstr "Додели"
 
 #: tracker/models.py:793 tracker/templates/tracker/export.html:141
 #: tracker/templates/tracker/import.html:34
@@ -765,7 +764,7 @@ msgstr ""
 #: tracker/models.py:806 tracker/models.py:821 tracker/models.py:896
 #: tracker/models.py:918 tracker/views.py:510
 msgid "ticket"
-msgstr "티켓"
+msgstr ""
 
 #: tracker/models.py:806 tracker/models.py:821
 msgid "Ticket this media info belongs to"
@@ -773,15 +772,15 @@ msgstr ""
 
 #: tracker/models.py:807
 msgid "Item description to show"
-msgstr ""
+msgstr "Опис ставке за приказ"
 
 #: tracker/models.py:808
 msgid "URL"
-msgstr "URL"
+msgstr "URL адреса"
 
 #: tracker/models.py:808
 msgid "Link to media files"
-msgstr ""
+msgstr "Веза ка медијским датотекама"
 
 #: tracker/models.py:809
 msgid "count"
@@ -789,28 +788,28 @@ msgstr ""
 
 #: tracker/models.py:809
 msgid "Number of files"
-msgstr "파일 수"
+msgstr "Број датотека"
 
 #: tracker/models.py:815 tracker/models.py:816 tracker/models.py:890
 #: tracker/models.py:891
 msgid "Ticket media"
-msgstr "티켓 미디어"
+msgstr ""
 
 #: tracker/models.py:823
 msgid "width"
-msgstr ""
+msgstr "ширина"
 
 #: tracker/models.py:824
 msgid "height"
-msgstr ""
+msgstr "висина"
 
 #: tracker/models.py:825
 msgid "categories"
-msgstr "분류"
+msgstr "категорије"
 
 #: tracker/models.py:826
 msgid "usages"
-msgstr ""
+msgstr "коришћења"
 
 #: tracker/models.py:896
 msgid "Ticket this expediture belongs to"
@@ -847,7 +846,7 @@ msgstr ""
 
 #: tracker/models.py:912
 msgid "Ticket expediture"
-msgstr "티켓 비용"
+msgstr ""
 
 #: tracker/models.py:913
 msgid "Ticket expeditures"
@@ -875,7 +874,7 @@ msgstr ""
 
 #: tracker/models.py:932
 msgid "uploader"
-msgstr "업로더"
+msgstr "отпремалац"
 
 #: tracker/models.py:940 tracker/views.py:780
 msgid "We need a sane file name, such as my-invoice123.jpg"
@@ -891,7 +890,7 @@ msgstr ""
 
 #: tracker/models.py:983
 msgid "Email language"
-msgstr "이메일 언어"
+msgstr ""
 
 #: tracker/models.py:984
 msgid "Display items"
@@ -899,7 +898,7 @@ msgstr ""
 
 #: tracker/models.py:984
 msgid "How many items should we display in tables at once"
-msgstr "한 번에 표에 표시할 항목 수"
+msgstr ""
 
 #: tracker/models.py:1003
 msgid "Tracker user preference"
@@ -911,11 +910,11 @@ msgstr ""
 
 #: tracker/models.py:1009
 msgid "Username on mediawiki"
-msgstr "미디어위키의 사용자 이름"
+msgstr "Корисничко име на MediaWiki-ју"
 
 #: tracker/models.py:1010 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
-msgstr "은행 계정"
+msgstr ""
 
 #: tracker/models.py:1010
 msgid "Bank account information for money transfers"
@@ -943,7 +942,7 @@ msgstr ""
 
 #: tracker/models.py:1059
 msgid "date"
-msgstr ""
+msgstr "датум"
 
 #: tracker/models.py:1060 tracker/models.py:1079
 msgid "other party"
@@ -981,7 +980,7 @@ msgstr ""
 
 #: tracker/models.py:1065
 msgid "related tickets"
-msgstr "관련 티켓"
+msgstr ""
 
 #: tracker/models.py:1065
 msgid "Tickets this trackaction is related to"
@@ -989,13 +988,13 @@ msgstr ""
 
 #: tracker/models.py:1101
 msgid "Transaction"
-msgstr "트랜잭션"
+msgstr ""
 
 #: tracker/models.py:1102 tracker/templates/tracker/cluster_detail.html:18
 #: tracker/templates/tracker/ticket_detail.html:30
 #: tracker/templates/tracker/user_detail.html:19
 msgid "Transactions"
-msgstr "트랜잭션"
+msgstr "Трансакције"
 
 #: tracker/models.py:1126
 msgid "comment"
@@ -1024,7 +1023,7 @@ msgstr ""
 #: tracker/models.py:1296
 #, python-format
 msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> 사용자가 <a href=\"%(ticket_url)s\">%(ticket)s</a> 티켓의 이름을 변경했습니다."
+msgstr ""
 
 #: tracker/models.py:1299
 #, python-format
@@ -1103,15 +1102,15 @@ msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "REMOVE"
-msgstr "제거"
+msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "Really remove?"
-msgstr "정말로 제거하시겠습니까?"
+msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "YES"
-msgstr "예"
+msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/ack_norating_error.html:2
 msgid "You must fill rating percentage before you will be able to accept the ticket."
@@ -1129,11 +1128,11 @@ msgstr ""
 #: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1692
 #: tracker/views.py:1701 tracker/views.py:1711
 msgid "Ticket ID"
-msgstr "티켓 ID"
+msgstr "ID карте"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:13
 msgid "Approvals"
-msgstr "승인"
+msgstr "Одобрења"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:17
 msgid "ADD ACK"
@@ -1141,7 +1140,7 @@ msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:33
 msgid "Ticket documents"
-msgstr "티켓 문서"
+msgstr "Документа тикета"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:36
 #: tracker/templates/tracker/edit_ticket.html:10
@@ -1159,10 +1158,12 @@ msgstr ""
 msgid "There is 1 document uploaded."
 msgid_plural "There are %(counter)s documents uploaded."
 msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
-msgstr "상태"
+msgstr ""
 
 #: tracker/templates/feeds/transaction_description.html:2
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1170,7 +1171,7 @@ msgstr "상태"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22
 msgid "Date"
-msgstr "날짜"
+msgstr "Датум"
 
 #: tracker/templates/feeds/transaction_description.html:3
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1178,7 +1179,7 @@ msgstr "날짜"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_list.html:13
 msgid "User"
-msgstr "사용자"
+msgstr ""
 
 #: tracker/templates/feeds/transaction_description.html:4
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1201,19 +1202,19 @@ msgstr ""
 #: tracker/views.py:1678 tracker/views.py:1683 tracker/views.py:1692
 #: tracker/views.py:1701
 msgid "Description"
-msgstr "설명"
+msgstr ""
 
 #: tracker/templates/notification/notification_html.html:4
 msgid "List of new tickets"
-msgstr "새 티켓 목록"
+msgstr ""
 
 #: tracker/templates/notification/notification_html.html:13
 msgid "List of deleted tickets"
-msgstr "삭제된 티켓 목록"
+msgstr "Листа избрисаних карата"
 
 #: tracker/templates/notification/notification_html.html:22
 msgid "The state of a watched ticket was changed"
-msgstr "주시 중인 티켓 상태가 변경되었습니다"
+msgstr ""
 
 #: tracker/templates/notification/notification_html.html:31
 msgid "Supervisor notes on a watched ticket were changed"
@@ -1237,7 +1238,7 @@ msgstr ""
 
 #: tracker/templates/notification/notification_html.html:77
 msgid "A comment was added to a watched ticket"
-msgstr "주시 중인 티켓에 댓글이 추가되었습니다"
+msgstr ""
 
 #: tracker/templates/notification/notification_html.html:86
 msgid "Tracker notifications"
@@ -1255,23 +1256,23 @@ msgstr ""
 #: tracker/templates/tracker/admin_index_override.html:11
 #, python-format
 msgid "%(name)s"
-msgstr "%(name)s"
+msgstr ""
 
 #: tracker/templates/tracker/admin_index_override.html:21
 #: tracker/templates/tracker/ticketack_add.html:4
 #: tracker/templates/tracker/ticketack_add.html:8
 msgid "Add"
-msgstr "추가"
+msgstr ""
 
 #: tracker/templates/tracker/admin_index_override.html:27
 msgid "Change"
-msgstr "변경"
+msgstr ""
 
 #: tracker/templates/tracker/admin_index_override.html:39
 #: tracker/templates/tracker/user_list.html:4
 #: tracker/templates/tracker/user_list.html:8
 msgid "User list"
-msgstr "사용자 목록"
+msgstr "Листа корисника"
 
 #: tracker/templates/tracker/admin_index_override.html:40
 #: tracker/templates/tracker/admin_user_list.html:16
@@ -1280,31 +1281,31 @@ msgstr ""
 
 #: tracker/templates/tracker/admin_index_override.html:45
 msgid "You don't have permission to edit anything."
-msgstr "어느 것도 편집할 권한이 없습니다."
+msgstr "Немате дозволу да нешто уређујете."
 
 #: tracker/templates/tracker/admin_user_list.html:8
 #: tracker/templates/tracker/export.html:67
 #: tracker/templates/tracker/export.html:274
 #: tracker/templates/tracker/import.html:60
 msgid "Users"
-msgstr "사용자"
+msgstr ""
 
 #: tracker/templates/tracker/admin_user_list.html:13
 msgid "Home"
-msgstr "처음"
+msgstr ""
 
 #: tracker/templates/tracker/admin_user_list.html:25
 #: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1706
 msgid "Username"
-msgstr "사용자 이름"
+msgstr ""
 
 #: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1706
 msgid "First name"
-msgstr "이름"
+msgstr ""
 
 #: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1706
 msgid "Last name"
-msgstr "성"
+msgstr ""
 
 #: tracker/templates/tracker/cluster_detail.html:4
 #: tracker/templates/tracker/cluster_detail.html:8
@@ -1337,17 +1338,17 @@ msgstr ""
 #: tracker/templates/tracker/user_list.html:7
 #: tracker/templates/tracker/watch.html:8
 msgid "index"
-msgstr ""
+msgstr "индекс"
 
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/generic/ticket_list.html:12
 msgid "transactions"
-msgstr "트랜잭션"
+msgstr ""
 
 #: tracker/templates/tracker/cluster_detail.html:10
 #: tracker/templates/tracker/ticket_detail.html:31
 msgid "Payment status"
-msgstr ""
+msgstr "Статус плаћања"
 
 #: tracker/templates/tracker/cluster_detail.html:14
 msgid "Total tickets"
@@ -1355,7 +1356,7 @@ msgstr ""
 
 #: tracker/templates/tracker/cluster_detail.html:26
 msgid "Total transactions"
-msgstr ""
+msgstr "Укупно трансакција"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:4
 #: tracker/templates/tracker/dumpaccounts/index.html:7
@@ -1365,11 +1366,11 @@ msgstr ""
 #: tracker/templates/tracker/dumpaccounts/index.html:8
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:9
 msgid "Generated on"
-msgstr ""
+msgstr "Генерисано на"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Unpaid"
-msgstr ""
+msgstr "Неплаћено"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/export.html:207
@@ -1392,20 +1393,20 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:30
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/ticket_table.html:23
 msgid "Status"
-msgstr "상태"
+msgstr "Статус"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Accepted"
-msgstr ""
+msgstr "Прихваћено"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Payment"
-msgstr ""
+msgstr "Плаћање"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:36
 msgid "There are no tickets in this topic."
@@ -1414,7 +1415,7 @@ msgstr ""
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:13
 #: tracker/templates/tracker/ticket_detail.html:50
 msgid "Documents"
-msgstr "문서"
+msgstr "Документи"
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
 msgid "There aren't any documents here."
@@ -1423,7 +1424,7 @@ msgstr ""
 #: tracker/templates/tracker/edit_ticket.html:4
 #: tracker/templates/tracker/edit_ticket.html:8
 msgid "Edit"
-msgstr "편집"
+msgstr "Уреди"
 
 #: tracker/templates/tracker/edit_ticket.html:10
 #: tracker/templates/tracker/ticket_detail.html:17
@@ -1433,17 +1434,17 @@ msgstr ""
 #: tracker/templates/tracker/edit_ticket.html:14
 #: tracker/templates/tracker/edit_ticket_docs.html:16
 msgid "save"
-msgstr "저장"
+msgstr "сачувај"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:4
 #: tracker/templates/tracker/edit_ticket_docs.html:8
 msgid "Edit documents"
-msgstr ""
+msgstr "Уреди документа"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:7
 #: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "edit"
-msgstr "편집"
+msgstr "уреди"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:10
 msgid "upload new document"
@@ -1451,7 +1452,7 @@ msgstr ""
 
 #: tracker/templates/tracker/edit_ticket_docs.html:14
 msgid "document"
-msgstr "문서"
+msgstr "документ"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:17
 #: tracker/templates/tracker/ticket_form.html:25
@@ -1465,7 +1466,7 @@ msgstr ""
 #: tracker/templates/tracker/generic/ticket_list.html:35
 #: tracker/templates/tracker/index.html:41
 msgid "Export"
-msgstr "내보내기"
+msgstr "Извоз"
 
 #: tracker/templates/tracker/export.html:18
 msgid "Only filters with at least one checked checkbox are applied. You can either check all checkboxes or none of them, it's the same."
@@ -1473,7 +1474,7 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:59
 msgid "custom"
-msgstr "사용자 지정"
+msgstr "прилагођено"
 
 #: tracker/templates/tracker/export.html:78
 #: tracker/templates/tracker/export.html:149
@@ -1496,7 +1497,7 @@ msgstr ""
 #: tracker/templates/tracker/export.html:301
 #: tracker/templates/tracker/export.html:320
 msgid "Larger or equal"
-msgstr "크거나 같음"
+msgstr ""
 
 #: tracker/templates/tracker/export.html:90
 #: tracker/templates/tracker/export.html:110
@@ -1509,7 +1510,7 @@ msgstr "크거나 같음"
 #: tracker/templates/tracker/export.html:309
 #: tracker/templates/tracker/export.html:328
 msgid "Smaller or equal"
-msgstr "작거나 같음"
+msgstr ""
 
 #: tracker/templates/tracker/export.html:98
 #: tracker/templates/tracker/export.html:179
@@ -1541,11 +1542,11 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:216
 msgid "Supervisors"
-msgstr ""
+msgstr "Супервизори"
 
 #: tracker/templates/tracker/export.html:222
 msgid "Number of tickets"
-msgstr "티켓 수"
+msgstr "Број тикета"
 
 #: tracker/templates/tracker/export.html:242
 msgid "Number of tickets in certain payment state"
@@ -1553,11 +1554,11 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:245
 msgid "N/A"
-msgstr "N/A"
+msgstr ""
 
 #: tracker/templates/tracker/export.html:278
 msgid "Number of tickets created"
-msgstr "생성된 티켓 수"
+msgstr ""
 
 #: tracker/templates/tracker/export.html:297
 msgid "Amount of accepted expeditures"
@@ -1569,7 +1570,7 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:338
 msgid "normal"
-msgstr ""
+msgstr "нормално"
 
 #: tracker/templates/tracker/export.html:343
 msgid "staff"
@@ -1582,11 +1583,11 @@ msgstr ""
 #: tracker/templates/tracker/generic/create_ticket.html:4
 #: tracker/templates/tracker/generic/create_ticket.html:8
 msgid "Create ticket"
-msgstr "티켓 만들기"
+msgstr ""
 
 #: tracker/templates/tracker/generic/create_ticket.html:13
 msgid "You'll be able to edit everything you've filled in even after submitting the form."
-msgstr "폼을 제출한 이후에도 채워넣은 모든 것을 편집할 수 있습니다."
+msgstr ""
 
 #: tracker/templates/tracker/generic/ticket_list.html:4
 #: tracker/templates/tracker/generic/ticket_list.html:15
@@ -1603,37 +1604,37 @@ msgstr ""
 #: tracker/templates/tracker/topic_detail.html:14
 #: tracker/templates/tracker/topic_finance.html:7
 msgid "topics"
-msgstr "주제"
+msgstr "тема"
 
 #: tracker/templates/tracker/generic/ticket_list.html:12
 #: tracker/templates/tracker/index.html:12
 #: tracker/templates/tracker/user_detail.html:8
 msgid "users"
-msgstr "사용자"
+msgstr ""
 
 #: tracker/templates/tracker/generic/ticket_list.html:13
 #: tracker/templates/tracker/generic/ticket_list.html:32
 #: tracker/templates/tracker/index.html:13
 #: tracker/templates/tracker/user_detail.html:9
 msgid "Create new ticket"
-msgstr "새 티켓 만들기"
+msgstr "Направи нову карту"
 
 #: tracker/templates/tracker/generic/ticket_list.html:22
 #: tracker/templates/tracker/user_detail.html:15
 msgid "No tickets available."
-msgstr "사용 가능한 티켓이 없습니다."
+msgstr "Карте нису доступне."
 
 #: tracker/templates/tracker/generic/ticket_list.html:33
 #: tracker/templates/tracker/import.html:4
 #: tracker/templates/tracker/import.html:7
 #: tracker/templates/tracker/index.html:38
 msgid "Import"
-msgstr "가져오기"
+msgstr "Увоз"
 
 #: tracker/templates/tracker/generic/topic_list.html:4
 #: tracker/templates/tracker/generic/topic_list.html:8
 msgid "Topic list"
-msgstr "주제 목록"
+msgstr "Списак тема"
 
 #: tracker/templates/tracker/generic/topic_list.html:13
 #: tracker/templates/tracker/grant_list.html:12
@@ -1656,7 +1657,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_detail.html:21
 #: tracker/templates/tracker/topic_detail.html:25
 msgid "watch settings"
-msgstr ""
+msgstr "подешавања надгледања"
 
 #: tracker/templates/tracker/grant_list.html:4
 #: tracker/templates/tracker/grant_list.html:8
@@ -1686,7 +1687,7 @@ msgstr ""
 #: tracker/templates/tracker/grant_table.html:49
 #: tracker/templates/tracker/topic_table.html:53
 msgid "No topics available."
-msgstr "사용 가능한 주제가 없습니다."
+msgstr "Нема доступних тема."
 
 #: tracker/templates/tracker/import.html:10
 #, python-format
@@ -1705,7 +1706,7 @@ msgstr ""
 #: tracker/templates/tracker/import.html:53
 #: tracker/templates/tracker/import.html:60
 msgid "example file"
-msgstr "예제 파일"
+msgstr ""
 
 #: tracker/templates/tracker/import.html:41
 msgid "Preexpenses"
@@ -1720,27 +1721,27 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:18
 #: tracker/templates/tracker/user_list.html:13
 msgid "Media"
-msgstr "미디어"
+msgstr ""
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_common_detail.html:10
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:30
 msgid "Event date"
-msgstr "이벤트 날짜"
+msgstr ""
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:30
 msgid "Name"
-msgstr "이름"
+msgstr ""
 
 #: tracker/templates/tracker/index.html:25
 #: tracker/templates/tracker/ticket_common_detail.html:11
 #: tracker/templates/tracker/ticket_table.html:17
 #: tracker/templates/tracker/ticket_table.html:34
 msgid "Requested by"
-msgstr "요청자:"
+msgstr "Захтевао/ла"
 
 #: tracker/templates/tracker/index.html:29
 #: tracker/templates/tracker/ticket_common_detail.html:73
@@ -1760,20 +1761,20 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:24
 #: tracker/templates/tracker/ticket_table.html:40
 msgid "Last changed"
-msgstr "마지막으로 바뀜"
+msgstr "Последња промена"
 
 #: tracker/templates/tracker/paginator.html:4
 msgid "previous"
-msgstr "이전"
+msgstr "претходно"
 
 #: tracker/templates/tracker/paginator.html:8
 msgid "next"
-msgstr "다음"
+msgstr ""
 
 #: tracker/templates/tracker/preferences.html:4
 #: tracker/templates/tracker/preferences.html:14
 msgid "Preferences"
-msgstr "환경 설정"
+msgstr ""
 
 #: tracker/templates/tracker/preferences.html:18
 msgid "Mute notifications"
@@ -1785,18 +1786,18 @@ msgstr ""
 
 #: tracker/templates/tracker/preferences.html:51
 msgid "Other"
-msgstr "기타"
+msgstr "Друго"
 
 #: tracker/templates/tracker/preferences.html:56
 #: tracker/templates/tracker/ticket_form.html:24
 #: tracker/templates/tracker/user_details_change.html:18
 #: tracker/templates/tracker/watch.html:32
 msgid "Save"
-msgstr "저장"
+msgstr "Сачувај"
 
 #: tracker/templates/tracker/preferences.html:58
 msgid "Wikimedia account"
-msgstr "위키미디어 계정"
+msgstr "Налог на Викимедији"
 
 #: tracker/templates/tracker/preferences.html:62
 msgid "Your account is connected to Wikimedia account"
@@ -1804,7 +1805,7 @@ msgstr ""
 
 #: tracker/templates/tracker/preferences.html:72
 msgid "Disconnect Wikimedia account"
-msgstr "위키미디어 계정 연결 해제"
+msgstr ""
 
 #: tracker/templates/tracker/preferences.html:76
 msgid "In order to disconnect your Wikimedia account, you first need to"
@@ -1812,11 +1813,11 @@ msgstr ""
 
 #: tracker/templates/tracker/preferences.html:76
 msgid "set a password."
-msgstr ""
+msgstr "постави лозинку."
 
 #: tracker/templates/tracker/preferences.html:81
 msgid "Link Wikimedia account"
-msgstr "위키미디어 계정 연결"
+msgstr ""
 
 #: tracker/templates/tracker/preferences.html:84
 msgid "Account actions"
@@ -1826,23 +1827,23 @@ msgstr ""
 #: tracker/templates/tracker/user_deactivate.html:4
 #: tracker/templates/tracker/user_deactivate.html:11
 msgid "Deactivate account"
-msgstr "계정 비활성화"
+msgstr "Деактивирај налог"
 
 #: tracker/templates/tracker/sign_ticket.html:4
 #: tracker/templates/tracker/sign_ticket.html:7
 msgid "Add statutory declaration to"
-msgstr ""
+msgstr "Додај законску декларацију"
 
 #: tracker/templates/tracker/sign_ticket.html:13
 #: tracker/templates/tracker/ticketack_add.html:21
 #: tracker/templates/tracker/ticketack_confirm_delete.html:16
 msgid "Submit"
-msgstr "제출"
+msgstr "Пошаљи"
 
 #: tracker/templates/tracker/subtopic_detail.html:10
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "add ticket"
-msgstr "티켓 추가"
+msgstr "додај тикет"
 
 #: tracker/templates/tracker/subtopic_detail.html:16
 msgid "Total for this subtopic"
@@ -1850,11 +1851,11 @@ msgstr ""
 
 #: tracker/templates/tracker/tabular_formset.html:12
 msgid "delete"
-msgstr "삭제"
+msgstr ""
 
 #: tracker/templates/tracker/tabular_formset.html:21
 msgid "Delete the item"
-msgstr "항목 삭제"
+msgstr ""
 
 #: tracker/templates/tracker/tabular_formset.html:91
 #, python-format
@@ -1865,13 +1866,13 @@ msgstr ""
 #: tracker/templates/tracker/ticketack_confirm_delete.html:4
 #: tracker/templates/tracker/ticketack_confirm_delete.html:8
 msgid "Remove"
-msgstr "제거"
+msgstr "Уклони"
 
 #: tracker/templates/tracker/ticket_common_detail.html:8
 #: tracker/templates/tracker/ticket_common_detail.html:52
 #: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Created"
-msgstr "생성됨"
+msgstr "Направљено"
 
 #: tracker/templates/tracker/ticket_common_detail.html:10
 msgid "unset"
@@ -1880,16 +1881,16 @@ msgstr ""
 #: tracker/templates/tracker/ticket_common_detail.html:15
 #: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "Yes"
-msgstr "예"
+msgstr "Да"
 
 #: tracker/templates/tracker/ticket_common_detail.html:15
 #: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "No"
-msgstr "아니오"
+msgstr "Не"
 
 #: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "Report URL"
-msgstr ""
+msgstr "Пријави URL адресу"
 
 #: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "No report filled"
@@ -1901,7 +1902,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:19
 msgid "Event URL"
-msgstr "이벤트 URL"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:20
 msgid "Rating percentage"
@@ -1909,11 +1910,11 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:22
 msgid "remove"
-msgstr "제거"
+msgstr "уклони"
 
 #: tracker/templates/tracker/ticket_common_detail.html:25
 msgid "Confirm"
-msgstr "확인"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:33
 msgid "Supervisor notes"
@@ -1921,7 +1922,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:36
 msgid "old"
-msgstr ""
+msgstr "старо"
 
 #: tracker/templates/tracker/ticket_common_detail.html:37
 msgid "Number of objects"
@@ -1929,12 +1930,12 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:38
 msgid "Number of media files"
-msgstr "미디어 파일 수"
+msgstr "Број медијских датотека"
 
 #: tracker/templates/tracker/ticket_common_detail.html:49
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Item"
-msgstr "항목"
+msgstr "Ставка"
 
 #: tracker/templates/tracker/ticket_common_detail.html:49
 #: tracker/templates/tracker/ticket_common_detail.html:64
@@ -1951,7 +1952,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Yes,No"
-msgstr "예,아니오"
+msgstr "Да,не"
 
 #: tracker/templates/tracker/ticket_common_detail.html:71
 msgid "Total expeditures"
@@ -1967,15 +1968,15 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:20
 msgid "duplicate"
-msgstr ""
+msgstr "дупликат"
 
 #: tracker/templates/tracker/ticket_detail.html:22
 msgid "add yourself as a driver"
-msgstr ""
+msgstr "додајте се као возач"
 
 #: tracker/templates/tracker/ticket_detail.html:23
 msgid "show media"
-msgstr "미디어 보기"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:24
 msgid "add ticket media"
@@ -1992,14 +1993,14 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:65
 msgid "As you are not an administrator, you can see only documents you uploaded below."
-msgstr ""
+msgstr "Пошто нисте администратор, видећете само документе које сте отпремили — испод."
 
 #: tracker/templates/tracker/ticket_detail.html:79
 #: tracker/templates/tracker/ticket_detail.html:83
 #: tracker/templates/tracker/topic_detail.html:43
 #: tracker/templates/tracker/topic_detail.html:46
 msgid "Comments"
-msgstr ""
+msgstr "Коментари"
 
 #: tracker/templates/tracker/ticket_detail.html:84
 #: tracker/templates/tracker/topic_detail.html:47
@@ -2011,7 +2012,7 @@ msgstr ""
 #: tracker/templates/tracker/topic_detail.html:52
 #: tracker/templates/tracker/topic_detail.html:54
 msgid "Add comment"
-msgstr "댓글 추가"
+msgstr "Додај коментар"
 
 #: tracker/templates/tracker/ticket_form.html:15
 msgid "preexpediture"
@@ -2023,7 +2024,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_form.html:24
 msgid "submit"
-msgstr "제출"
+msgstr "пошаљи"
 
 #: tracker/templates/tracker/ticket_media.html:4
 msgid "Manage media for"
@@ -2064,27 +2065,27 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_show_media.html:8
 msgid "List of linked media"
-msgstr "연결된 미디어 목록"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_show_media.html:9
 msgid "Last updated"
-msgstr ""
+msgstr "Последње ажурирање"
 
 #: tracker/templates/tracker/ticket_show_media.html:9
 msgid "update"
-msgstr ""
+msgstr "ажурирај"
 
 #: tracker/templates/tracker/ticket_show_media.html:13
 msgid "File name"
-msgstr "파일 이름"
+msgstr "Име датотеке"
 
 #: tracker/templates/tracker/ticket_show_media.html:14
 msgid "Dimension"
-msgstr ""
+msgstr "Димензија"
 
 #: tracker/templates/tracker/ticket_show_media.html:15
 msgid "Categories"
-msgstr "분류"
+msgstr "Категорије"
 
 #: tracker/templates/tracker/ticket_show_media.html:16
 msgid "Used in"
@@ -2092,16 +2093,16 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_show_media.html:23
 msgid "Unknown"
-msgstr "알 수 없음"
+msgstr "Непознато"
 
 #: tracker/templates/tracker/ticket_table.html:25
 msgid "Media item list"
-msgstr "미디어 항목 목록"
+msgstr "Листа медијских ставки"
 
 #: tracker/templates/tracker/ticket_table.html:25
 #: tracker/templates/tracker/user_list.html:14
 msgid "Item count"
-msgstr "항목 수"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_table.html:25
 #: tracker/templates/tracker/user_list.html:14
@@ -2126,15 +2127,15 @@ msgstr ""
 #: tracker/templates/tracker/ticketack_add.html:26
 #: tracker/templates/tracker/ticketack_confirm_delete.html:17
 msgid "back to ticket"
-msgstr "티켓으로 돌아가기"
+msgstr ""
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:11
 msgid "Added"
-msgstr ""
+msgstr "Додато"
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:12
 msgid "Added by"
-msgstr "추가한 사람:"
+msgstr ""
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:4
 #: tracker/templates/tracker/topic_content_acks_per_user.html:8
@@ -2151,7 +2152,7 @@ msgstr ""
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:27
 msgid "download csv"
-msgstr "csv로 다운로드"
+msgstr ""
 
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "Topic is open for new tickets"
@@ -2159,11 +2160,11 @@ msgstr ""
 
 #: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrators"
-msgstr "주제 관리자"
+msgstr ""
 
 #: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrator"
-msgstr "주제 관리자"
+msgstr ""
 
 #: tracker/templates/tracker/topic_detail.html:38
 msgid "Total for this topic"
@@ -2189,16 +2190,16 @@ msgstr ""
 
 #: tracker/templates/tracker/topic_table.html:11
 msgid "Administrators"
-msgstr "관리자"
+msgstr ""
 
 #: tracker/templates/tracker/transaction_list.html:4
 #: tracker/templates/tracker/transaction_list.html:12
 msgid "Transaction list"
-msgstr "트랜잭션 목록"
+msgstr ""
 
 #: tracker/templates/tracker/transaction_list.html:7
 msgid "Latest transactions"
-msgstr ""
+msgstr "Најновије трансакције"
 
 #: tracker/templates/tracker/transaction_list.html:22
 #: tracker/templates/tracker/user_detail.html:31
@@ -2208,24 +2209,24 @@ msgstr ""
 
 #: tracker/templates/tracker/transaction_list.html:24
 msgid "No transactions available."
-msgstr ""
+msgstr "Трансакције нису доступне."
 
 #: tracker/templates/tracker/transaction_list.html:26
 msgid "download as csv"
-msgstr "csv로 다운로드"
+msgstr ""
 
 #: tracker/templates/tracker/upload_ticket_doc.html:21
 #: tracker/templates/tracker/upload_ticket_doc.html:25
 msgid "Upload document"
-msgstr "문서 업로드"
+msgstr ""
 
 #: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "documents"
-msgstr "문서"
+msgstr ""
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload"
-msgstr "업로드"
+msgstr "отпремање"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload and add another"
@@ -2237,7 +2238,7 @@ msgstr ""
 
 #: tracker/templates/tracker/user_deactivate.html:14
 msgid "Deactivating your account will mean that it is no longer possible to login."
-msgstr ""
+msgstr "Деактивирање налога значиће да нећете више моћи да се пријавите."
 
 #: tracker/templates/tracker/user_deactivate.html:15
 msgid "Deactivation is irreversible without the intervention of an admin."
@@ -2249,19 +2250,19 @@ msgstr ""
 
 #: tracker/templates/tracker/user_deactivate.html:18
 msgid "The following account will be deactivated:"
-msgstr "다음의 계정이 비활성화됩니다:"
+msgstr ""
 
 #: tracker/templates/tracker/user_deactivate.html:20
 msgid "Username:"
-msgstr "사용자 이름:"
+msgstr ""
 
 #: tracker/templates/tracker/user_deactivate.html:21
 msgid "Email:"
-msgstr "이메일:"
+msgstr "Е-пошта:"
 
 #: tracker/templates/tracker/user_deactivate.html:32
 msgid "Deactivate my account"
-msgstr "내 계정 비활성화"
+msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:3
 msgid "Tracker account deactivated"
@@ -2281,7 +2282,7 @@ msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:7
 msgid "You can contact an admin by replying to this email."
-msgstr "이 이메일에 답변함으로써 관리자와 연락할 수 있습니다."
+msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
@@ -2289,7 +2290,7 @@ msgstr ""
 
 #: tracker/templates/tracker/user_detail.html:13
 msgid "Total for this user"
-msgstr ""
+msgstr "Укупно за овог корисника"
 
 #: tracker/templates/tracker/user_detail.html:32
 msgid "Accepted expeditures total"
@@ -2311,16 +2312,16 @@ msgstr ""
 
 #: tracker/templates/tracker/user_list.html:23
 msgid "unassigned"
-msgstr ""
+msgstr "недодељено"
 
 #: tracker/templates/tracker/watch.html:4
 #: tracker/templates/tracker/watch.html:11
 msgid "Watch"
-msgstr "주시"
+msgstr "Надгледај"
 
 #: tracker/templates/tracker/watch.html:19
 msgid "All"
-msgstr "모두"
+msgstr ""
 
 #: tracker/views.py:84
 msgid "Comment posted, thank you."
@@ -2362,19 +2363,19 @@ msgstr ""
 
 #: tracker/views.py:434
 msgid "Please enter your password to confirm the deactivation of your account."
-msgstr "계정의 비활성화를 확인하려면 비밀번호를 입력해 주십시오."
+msgstr ""
 
 #: tracker/views.py:449
 msgid "Account deactivation"
-msgstr "계정 비활성화"
+msgstr "Деактивирање налога"
 
 #: tracker/views.py:456
 msgid "Your account has been deactivated."
-msgstr "계정이 비활성화되었습니다."
+msgstr ""
 
 #: tracker/views.py:459
 msgid "Password is incorrect."
-msgstr "비밀번호가 잘못되었습니다."
+msgstr "Лозинка није тачна."
 
 #: tracker/views.py:491
 #, python-format
@@ -2384,7 +2385,7 @@ msgstr ""
 #: tracker/views.py:540
 #, python-format
 msgid "Topic's %s watching settings are changed."
-msgstr "주제의 주시 중인 설정 %s건이 변경되었습니다."
+msgstr ""
 
 #: tracker/views.py:570
 #, python-format
@@ -2398,11 +2399,11 @@ msgstr ""
 
 #: tracker/views.py:663
 msgid "I confirm the above"
-msgstr "상기 내용을 확인합니다"
+msgstr "Потврђујем горенаведено"
 
 #: tracker/views.py:670
 msgid "You cannot add statutory declaration to a ticket that does not support it."
-msgstr ""
+msgstr "Не можете да додате законску декларацију карти која је не подржава."
 
 #: tracker/views.py:672
 msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
@@ -2410,11 +2411,11 @@ msgstr ""
 
 #: tracker/views.py:679
 msgid "You successfully added a statutory declaration to this ticket."
-msgstr ""
+msgstr "Успешно сте додали законску декларацију овој карти."
 
 #: tracker/views.py:682
 msgid "You successfully removed a statutory declaration from this ticket."
-msgstr ""
+msgstr "Успешно сте уклонили законску декларацију са ове карте."
 
 #: tracker/views.py:748
 #, python-format
@@ -2423,11 +2424,11 @@ msgstr ""
 
 #: tracker/views.py:779
 msgid "file"
-msgstr "파일"
+msgstr "датотека"
 
 #: tracker/views.py:809
 msgid "You cannot edit this ticket documents, as it's no longer editable"
-msgstr "더 이상 편집이 불가능하므로 이 티켓 문서들을 편집할 수 없습니다"
+msgstr ""
 
 #: tracker/views.py:845
 #, python-format
@@ -2437,15 +2438,15 @@ msgstr ""
 #: tracker/views.py:872
 #, python-format
 msgid "File %(filename)s has been saved."
-msgstr "%(filename)s 파일이 저장되었습니다."
+msgstr ""
 
 #: tracker/views.py:1060
 msgid "Your details have been saved."
-msgstr "당신의 상세 사항이 저장되었습니다."
+msgstr "Ваши детаљи су сачувани."
 
 #: tracker/views.py:1506
 msgid "You must fill the form validly"
-msgstr "유효한 방식으로 폼을 채워야 합니다"
+msgstr ""
 
 #: tracker/views.py:1525
 #, python-format
@@ -2458,19 +2459,19 @@ msgstr ""
 
 #: tracker/views.py:1665
 msgid "Your CSV file was imported."
-msgstr "CSV 파일을 가져왔습니다."
+msgstr "Ваша CSV датотека је увезена."
 
 #: tracker/views.py:1673
 msgid "Name of a ticket"
-msgstr "티켓의 이름"
+msgstr ""
 
 #: tracker/views.py:1673 tracker/views.py:1678
 msgid "Name of a topic"
-msgstr "주제의 이름"
+msgstr ""
 
 #: tracker/views.py:1678
 msgid "Name of a grant"
-msgstr ""
+msgstr "Име додељивања"
 
 #: tracker/views.py:1678
 msgid "Form description"
@@ -2482,7 +2483,7 @@ msgstr ""
 
 #: tracker/views.py:1683
 msgid "Short name"
-msgstr "짧은 이름"
+msgstr ""
 
 #: tracker/views.py:1683
 msgid "Slug"
@@ -2490,7 +2491,7 @@ msgstr ""
 
 #: tracker/views.py:1706
 msgid "Password"
-msgstr "비밀번호"
+msgstr "Лозинка"
 
 #: tracker/views.py:1728
 msgid "Preexpeditures were succesfully copied to expeditures."
@@ -2506,62 +2507,64 @@ msgstr ""
 
 #: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
-msgstr "기존 비밀번호"
+msgstr "Стара лозинка"
 
 #: users/templates/users/login.html:4
 msgid "Login"
-msgstr "로그인"
+msgstr ""
 
 #: users/templates/users/login.html:7
 msgid "You need to log in to access the following page."
-msgstr "다음 페이지에 접근하려면 로그인해야 합니다."
+msgstr ""
 
 #: users/templates/users/login.html:10
 msgid "Your username and password didn't match. Please try again."
-msgstr "사용자 이름과 비밀번호가 일치하지 않습니다. 다시 시도해 주십시오."
+msgstr ""
 
 #: users/templates/users/login.html:26
 msgid "Don't have an acount?"
-msgstr "계정이 없나요?"
+msgstr ""
 
 #: users/templates/users/login.html:26 users/templates/users/register.html:6
 msgid "Register"
-msgstr "등록"
+msgstr "Регистрација"
 
 #: users/templates/users/login.html:27
 msgid "Forgot password?"
-msgstr "비밀번호를 잊으셨나요?"
+msgstr ""
 
 #: users/templates/users/login.html:27
 msgid "Reset password"
-msgstr "비밀번호 재설정"
+msgstr "Ресетовање лозинке"
 
 #: users/templates/users/login.html:28
 msgid "Login with Meta Wiki"
-msgstr "메타위키로 로그인"
+msgstr "Пријавите се помоћу Мета викија"
 
 #: users/templates/users/logout.html:4
 msgid "Logged out"
-msgstr "로그아웃됨"
+msgstr "Одјављени сте"
 
 #: users/templates/users/logout.html:7
 msgid "Bye!"
-msgstr "안녕히 가십시오!"
+msgstr "Довиђења!"
 
 #: users/templates/users/logout.html:8
 msgid "Go to index."
-msgstr "색인으로 이동합니다."
+msgstr ""
 
 #: users/templates/users/password_change.html:5
 #: users/templates/users/password_change.html:16 users/views.py:66
 msgid "Password change"
-msgstr "비밀번호 변경"
+msgstr "Промена лозинке"
 
 #: users/templates/users/password_change.html:12
 #, invalid-plural
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: users/templates/users/password_change.html:19
 msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
@@ -2570,43 +2573,43 @@ msgstr ""
 #: users/templates/users/password_change.html:21
 #: users/templates/users/password_reset_confirm.html:12
 msgid "Please enter your new password twice so we can verify you typed it in correctly."
-msgstr "입력을 올바르게 했는지 확인하기 위해 새 비밀번호를 두 번 입력해 주십시오."
+msgstr ""
 
 #: users/templates/users/password_change.html:33
 msgid "New password"
-msgstr "새 비밀번호"
+msgstr "Нова лозинка"
 
 #: users/templates/users/password_change.html:38
 msgid "Password (again)"
-msgstr "비밀번호(재입력)"
+msgstr ""
 
 #: users/templates/users/password_change.html:42
 #: users/templates/users/password_reset_confirm.html:19
 msgid "Change my password"
-msgstr "내 비밀번호 바꾸기"
+msgstr ""
 
 #: users/templates/users/password_change_done.html:4
 #: users/templates/users/password_change_done.html:7
 msgid "Password change successful"
-msgstr "비밀번호 변경 성공"
+msgstr ""
 
 #: users/templates/users/password_change_done.html:8
 msgid "Your password was changed."
-msgstr "비밀번호가 바뀌었습니다."
+msgstr "Ваша лозинка је промењена."
 
 #: users/templates/users/password_reset.html:4
 #: users/templates/users/password_reset.html:8
 #: users/templates/users/password_reset_confirm.html:4
 msgid "Password reset"
-msgstr "비밀번호 재설정"
+msgstr ""
 
 #: users/templates/users/password_reset.html:10
 msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
-msgstr "비밀번호를 잊으셨나요? 아래에 이메일 주소를 입력하시면 저희가 새 비밀번호를 설정하는 방법을 이메일로 전달드리겠습니다."
+msgstr ""
 
 #: users/templates/users/password_reset.html:14
 msgid "E-mail address:"
-msgstr "이메일 주소:"
+msgstr ""
 
 #: users/templates/users/password_reset.html:14
 msgid "Reset my password"
@@ -2615,40 +2618,40 @@ msgstr ""
 #: users/templates/users/password_reset_complete.html:4
 #: users/templates/users/password_reset_complete.html:8
 msgid "Password reset complete"
-msgstr "비밀번호 재설정 완료"
+msgstr "Ресетовање лозинке је завршено"
 
 #: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
-msgstr "비밀번호가 설정되었습니다. 계속해서 지금 로그인해도 됩니다."
+msgstr ""
 
 #: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
-msgstr "로그인"
+msgstr "Пријавите се"
 
 #: users/templates/users/password_reset_confirm.html:10
 msgid "Enter new password"
-msgstr "새 비밀번호 입력"
+msgstr "Унесите нову лозинку"
 
 #: users/templates/users/password_reset_confirm.html:16
 msgid "New password:"
-msgstr "새 비밀번호:"
+msgstr "Нова лозинка:"
 
 #: users/templates/users/password_reset_confirm.html:18
 msgid "Confirm password:"
-msgstr "비밀번호 확인:"
+msgstr "Потврдите лозинку:"
 
 #: users/templates/users/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
-msgstr "비밀번호 재설정 실패"
+msgstr ""
 
 #: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
-msgstr "비밀번호 재설정 링크가 유효하지 않습니다. 이미 사용되었을 수 있습니다. 새 비밀번호 재설정을 요청해 주십시오."
+msgstr ""
 
 #: users/templates/users/password_reset_done.html:4
 #: users/templates/users/password_reset_done.html:8
 msgid "Password reset successful"
-msgstr "비밀번호 재설정 성공"
+msgstr "Успешно ресетовање лозинке"
 
 #: users/templates/users/password_reset_done.html:10
 msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
@@ -2669,12 +2672,12 @@ msgstr ""
 
 #: users/templates/users/password_reset_email.html:10
 msgid "Thanks for using our site!"
-msgstr "저희 사이트를 이용해 주셔서 감사합니다!"
+msgstr ""
 
 #: users/templates/users/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
-msgstr "%(site_name)s 팀"
+msgstr ""
 
 #: users/views.py:21
 msgid "Will be used for password recovery and notifications, if you enable them."
@@ -2683,5 +2686,5 @@ msgstr ""
 #: users/views.py:36
 #, python-format
 msgid "User %s created."
-msgstr "%s 사용자를 만들었습니다."
+msgstr ""
 
