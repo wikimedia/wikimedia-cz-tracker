@@ -7,6 +7,7 @@
 <!-- i18n-lint enable -->
 <h1>{% trans "List of linked media" %}: {{ ticket.name }}</h1>
 <p>{% trans "Last updated" %}: {{ ticket.media_updated }} (<a href="{% url "update_media" ticket.id %}">{% trans "update" %}</a>)</p>
+<p>{% trans "Page will be updated within 24 hours." %}</p>
 <table>
 	<thead>
 		<tr>
