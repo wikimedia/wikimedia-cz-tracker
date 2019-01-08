@@ -55,4 +55,5 @@ urlpatterns = patterns(
     url(r'tickets/json/(?P<lang>.+).json$', 'tracker.views.tickets', name='tickets'),
     url(r'api/mediawiki', 'tracker.views.mediawiki_api', name='mediawiki_api'),
     url(r'api/email_all', 'tracker.views.email_all_users', name='email_all_users'),
+    url(r'api/email_admin', 'tracker.views.email_all_admins', name='email_all_admins'),
 )

@@ -1789,3 +1789,21 @@ def email_all_users(request):
     for u in User.objects.filter(is_active=True):
         u.email_user(mail_subject, mail_text, html_message=mail_html)
     return HttpResponse('Ok')
+
+
+@csrf_exempt
+def email_all_admins(request):
+    if request.GET.get('token') != settings.MAIL_ALL_TOKEN:
+        raise PermissionDenied()
+    mail_html = request.POST['body-html'] + "<hr><small>" + _('This mandatory notice was sent to all active Tracker administrators.') + "</small>"
+    mail_text = strip_tags(mail_html)
+    mail_subject = '[Tracker] ' + request.POST['Subject']
+    users = set()
+    for topic in Topic.objects.filter(open_for_tickets=True):
+        for u in topic.admin.filter(is_active=True):
+            users.add(u)
+
+    for u in users:
+        u.email_user(mail_subject, mail_text, html_message=mail_html)
+
+    return HttpResponse('Ok')
