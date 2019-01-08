@@ -1771,3 +1771,15 @@ def update_media_success(request, ticket_id):
 def update_media_error(request, ticket_id):
     messages.error(request, _('There was an error while processing your request'))
     return HttpResponseRedirect(reverse('ticket_detail', kwargs={"pk": ticket_id}))
+
+
+@csrf_exempt
+def email_all_users(request):
+    if request.GET.get('token') != settings.MAIL_ALL_TOKEN:
+        raise PermissionDenied()
+    mail_html = request.POST['body-html'] + "<hr><small>" + _('This mandatory notice was sent to all active Tracker users.') + "</small>"
+    mail_text = strip_tags(mail_html)
+    mail_subject = '[Tracker] ' + request.POST['Subject']
+    for u in User.objects.filter(is_active=True):
+        u.email_user(mail_subject, mail_text, html_message=mail_html)
+    return HttpResponse('Ok')

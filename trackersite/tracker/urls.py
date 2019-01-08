@@ -54,4 +54,5 @@ urlpatterns = patterns(
     url(r'^import/$', 'tracker.views.importcsv', name='importcsv'),
     url(r'tickets/json/(?P<lang>.+).json$', 'tracker.views.tickets', name='tickets'),
     url(r'api/mediawiki', 'tracker.views.mediawiki_api', name='mediawiki_api'),
+    url(r'api/email_all', 'tracker.views.email_all_users', name='email_all_users'),
 )
