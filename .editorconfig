@@ -6,6 +6,9 @@ end_of_line = lf
 trim_trailing_whitespace = true
 insert_final_newline = true
 
+[notification_subject.txt]
+insert_final_newline = false
+
 [*.py]
 indent_style = space
 # Clashes with E128
