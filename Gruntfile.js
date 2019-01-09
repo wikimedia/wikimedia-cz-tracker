@@ -56,5 +56,5 @@ module.exports = function gruntConfig( grunt ) {
 	grunt.loadNpmTasks( 'grunt-htmllint' );
 	grunt.loadNpmTasks( 'grunt-i18nlint' );
 	grunt.registerTask( 'default', [ 'lint' ] );
-	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'i18nlint' ] );
+	grunt.registerTask( 'lint', [ 'eslint', 'i18nlint' ] ); // Stylelint emergency disabled, T213247 --Urbanecm
 };
