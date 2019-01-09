@@ -12,6 +12,12 @@ from django.template.loader import get_template
 from django.contrib.admin.helpers import ActionForm
 
 
+class MediaInfoAdmin(admin.TabularInline):
+    model = models.MediaInfo
+    fields = ('name', 'width', 'height')
+    readonly_fields = ('width', 'height')
+
+
 class ExpeditureAdmin(admin.TabularInline):
     model = models.Expediture
 
@@ -74,7 +80,7 @@ class TicketAdmin(admin.ModelAdmin):
     list_filter = ('topic', 'subtopic', 'payment_status')
     date_hierarchy = 'event_date'
     search_fields = ['id', 'requested_user__username', 'requested_text', 'name']
-    inlines = [SignatureAdmin, PreexpeditureAdmin, ExpeditureAdmin]
+    inlines = [SignatureAdmin, MediaInfoAdmin, PreexpeditureAdmin, ExpeditureAdmin]
     action_form = AddAckActionForm
     actions = (add_ack, )
 
