@@ -26,6 +26,9 @@ indent_size = 2
 # `eclint` isn't smart enough to handle this rule with empty files
 insert_final_newline = false
 
+[trackersite/customcomments/__init__.py]
+insert_final_newline = true
+
 [*.{po,pot}]
 insert_final_newline = unset
 
