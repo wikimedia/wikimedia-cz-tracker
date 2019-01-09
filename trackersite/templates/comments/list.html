@@ -4,7 +4,7 @@
 			{{ comment.submit_date }} - {{ comment.name }}
 		</dt>
 		<dd>
-			<p>{{ comment.comment|linebreaks|urlize }}</p>
+			<p>{{ comment.comment|urlize|linebreaks }}</p>
 		</dd>
 	{% endfor %}
 </dl>
