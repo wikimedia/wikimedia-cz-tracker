@@ -432,10 +432,10 @@ class Ticket(CachedModel, ModelDiffMixin):
             return True
         return False
 
-    def is_editable(self, user=None):
+    def is_editable(self, user=None, allowAdmin=False):
         """Is this ticket editable through a non-admin interface?"""
         acks = self.ack_set()
-        if user is not None and user.has_perm('tracker.change_ticket'):
+        if user is not None and (allowAdmin and user.has_perm('tracker.change_ticket')):
             return True
         return ('archive' not in acks) and ('close' not in acks) and user.is_authenticated()
 
