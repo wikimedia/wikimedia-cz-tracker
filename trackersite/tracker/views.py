@@ -94,10 +94,9 @@ class TicketDetailView(CommentPostedCatcher, DetailView):
         ticket = self.object
         context = super(TicketDetailView, self).get_context_data(**kwargs)
         context['user_can_edit_ticket'] = ticket.can_edit(user)
-        context['user_can_edit_media'] = ticket.can_edit(user) and ticket.topic.ticket_media
         admin_edit = user.is_staff and (user.has_perm('tracker.supervisor') or user.topic_set.filter(id=ticket.topic_id).exists())
         context['user_can_edit_ticket_in_admin'] = admin_edit
-        context['user_can_edit_documents'] = ticket.is_editable(user, allowAdmin=True)
+        context['user_can_edit_documents'] = ticket.is_editable(user)
         context['user_can_see_all_documents'] = ticket.can_see_all_documents(user)
         if user.is_authenticated():
             context['user_selfuploaded_docs'] = ticket.document_set.filter(uploader=user)
@@ -697,7 +696,7 @@ def sign_ticket(request, pk):
 @login_required
 def manage_media(request, ticket_id):
     ticket = get_object_or_404(Ticket, id=ticket_id)
-    if not ticket.can_edit(request.user) or not ticket.topic.ticket_media:
+    if not ticket.can_edit(request.user):
         raise PermissionDenied('You cannot edit this ticket')
 
     return render(request, 'tracker/ticket_media.html', {
