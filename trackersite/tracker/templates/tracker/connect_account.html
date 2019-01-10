@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}
+{% trans "Connected account required" %}
+{% endblock %}
+{% block content %}
+<h1>{% trans "Permission denied" %}</h1>
+<p>{% trans "You need to connect Tracker account with your Wikimedia account. To do so, click on the button below." %}</p>
+<a href="{% url 'social:begin' 'mediawiki' %}?next={{next}}"><button class="btn btn-primary">{% trans "Link Wikimedia account" %}</button></a>
+{% endblock %}

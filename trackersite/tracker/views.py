@@ -696,6 +696,11 @@ def sign_ticket(request, pk):
 
 @login_required
 def manage_media(request, ticket_id):
+    if not request.user.social_auth.filter(provider='mediawiki').exists():
+        return render(request, 'tracker/connect_account.html', {
+            'next': reverse('manage_media', kwargs={'ticket_id': ticket_id})
+        }, status=403)
+
     ticket = get_object_or_404(Ticket, id=ticket_id)
     if not ticket.can_edit(request.user) or not ticket.topic.ticket_media:
         raise PermissionDenied('You cannot edit this ticket')
