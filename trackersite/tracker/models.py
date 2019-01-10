@@ -494,7 +494,7 @@ class Ticket(CachedModel, ModelDiffMixin):
 
     @staticmethod
     @background(schedule=10)
-    def update_medias(ticket_id):
+    def update_media(ticket_id):
         ticket = Ticket.objects.get(id=ticket_id)
         mw = MediaWiki(user=None)
         for media in ticket.mediainfo_set.all():
@@ -906,8 +906,8 @@ class MediaInfo(Model):
 
         if not no_update:
             MediaInfo.store_mediawiki_data(self.id)
-            if not Task.objects.filter(task_name="tracker.models.update_medias", task_params="[[%s], {}]" % self.ticket.id).exists():
-                Ticket.update_medias(self.ticket.id)
+            if not Task.objects.filter(task_name="tracker.models.update_media", task_params="[[%s], {}]" % self.ticket.id).exists():
+                Ticket.update_media(self.ticket.id)
 
     def delete(self, *args, **kwargs):
         if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE:
