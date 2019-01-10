@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-01-07 09:25:42+0000\n"
+"PO-Revision-Date: 2019-01-10 08:03:03+0000\n"
 "X-POT-Import-Date: 2019-01-06 17:30:34+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1979,7 +1979,7 @@ msgstr "미디어 보기"
 
 #: tracker/templates/tracker/ticket_detail.html:24
 msgid "add ticket media"
-msgstr ""
+msgstr "티켓 미디어 추가"
 
 #: tracker/templates/tracker/ticket_detail.html:31
 #, python-format
@@ -2031,7 +2031,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:8
 msgid "Add new media"
-msgstr ""
+msgstr "새 미디어 추가"
 
 #: tracker/templates/tracker/ticket_media.html:12
 msgid "Filename prefix"
@@ -2040,15 +2040,15 @@ msgstr ""
 #: tracker/templates/tracker/ticket_media.html:14
 #: tracker/templates/tracker/ticket_media.html:19
 msgid "Search"
-msgstr ""
+msgstr "검색"
 
 #: tracker/templates/tracker/ticket_media.html:17
 msgid "Mediawiki username"
-msgstr ""
+msgstr "미디어위키 사용자 이름"
 
 #: tracker/templates/tracker/ticket_media.html:25
 msgid "Number of images to fetch"
-msgstr ""
+msgstr "가져올 이미지 수"
 
 #: tracker/templates/tracker/ticket_media.html:29
 msgid "Category to filter by"
@@ -2056,7 +2056,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:47
 msgid "Load more"
-msgstr ""
+msgstr "더 불러오기"
 
 #: tracker/templates/tracker/ticket_media.html:52
 msgid "Choose selected photos"

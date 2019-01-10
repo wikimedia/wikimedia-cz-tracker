@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-01-07 09:25:44+0000\n"
+"PO-Revision-Date: 2019-01-10 08:03:05+0000\n"
 "X-POT-Import-Date: 2019-01-06 17:30:34+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -483,7 +483,7 @@ msgstr ""
 #: tracker/models.py:754 tracker/models.py:807 tracker/models.py:897
 #: tracker/models.py:919 tracker/models.py:1063 tracker/views.py:781
 msgid "description"
-msgstr ""
+msgstr "{{Identical|Description}}"
 
 #: tracker/models.py:241
 msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there."
@@ -798,7 +798,7 @@ msgstr ""
 
 #: tracker/models.py:823
 msgid "width"
-msgstr ""
+msgstr "{{Identical|Width}}"
 
 #: tracker/models.py:824
 msgid "height"
@@ -1851,7 +1851,7 @@ msgstr ""
 
 #: tracker/templates/tracker/tabular_formset.html:12
 msgid "delete"
-msgstr ""
+msgstr "{{Identical|Delete}}"
 
 #: tracker/templates/tracker/tabular_formset.html:21
 msgid "Delete the item"
@@ -1922,7 +1922,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:36
 msgid "old"
-msgstr ""
+msgstr "{{Identical|Old}}"
 
 #: tracker/templates/tracker/ticket_common_detail.html:37
 msgid "Number of objects"
@@ -2041,7 +2041,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_media.html:14
 #: tracker/templates/tracker/ticket_media.html:19
 msgid "Search"
-msgstr ""
+msgstr "{{Identical|Search}}"
 
 #: tracker/templates/tracker/ticket_media.html:17
 msgid "Mediawiki username"
@@ -2073,7 +2073,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_show_media.html:9
 msgid "update"
-msgstr ""
+msgstr "{{Identical|Update}}"
 
 #: tracker/templates/tracker/ticket_show_media.html:13
 msgid "File name"
@@ -2491,7 +2491,7 @@ msgstr "Slugs are the same as project hashtags. Do not translate this word."
 
 #: tracker/views.py:1706
 msgid "Password"
-msgstr ""
+msgstr "{{Identical|Passwuert}}"
 
 #: tracker/views.py:1728
 msgid "Preexpeditures were succesfully copied to expeditures."
