@@ -8,4 +8,4 @@ class Command(NoArgsCommand):
     def handle_noargs(self, **options):
         for ticket in Ticket.objects.all():
             if 'archive' not in ticket.ack_set():
-                Ticket.update_medias(ticket.id)
+                Ticket.update_media(ticket.id)

@@ -1764,7 +1764,7 @@ def show_media(request, ticket_id):
 @login_required
 def update_media(request, ticket_id):
     ticket = get_object_or_404(Ticket, id=ticket_id)  # this is here to ensure 404 when ticket doesn't exist
-    Ticket.update_medias(ticket.id)
+    Ticket.update_media(ticket.id)
     messages.success(request, _('Updating of medias for this ticket was successfully scheduled.'))
     return HttpResponseRedirect(reverse('show_media', kwargs={"ticket_id": ticket_id}))
 
