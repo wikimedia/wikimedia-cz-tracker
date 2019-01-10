@@ -3,7 +3,7 @@ import datetime
 import decimal
 
 from django_comments.signals import comment_was_posted
-from django.db.models.signals import pre_save, post_save, post_delete
+from django.db.models.signals import pre_save, post_save, pre_delete, post_delete
 from request_provider.signals import get_request
 from django.contrib.auth.models import User
 from django.contrib.admin.models import LogEntry, CHANGE
@@ -909,15 +909,17 @@ class MediaInfo(Model):
             if not Task.objects.filter(task_name="tracker.models.update_media", task_params="[[%s], {}]" % self.ticket.id).exists():
                 Ticket.update_media(self.ticket.id)
 
-    def delete(self, *args, **kwargs):
-        if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE:
-            MediaInfo.remove_from_mediawiki(self.name, get_request().user.id)
-
         super(MediaInfo, self).delete(*args, **kwargs)
 
     class Meta:
         verbose_name = _('Ticket media')
         verbose_name_plural = _('Ticket media')
+
+
+@receiver(pre_delete, sender=MediaInfo)
+def delete_mediainfo(sender, instance, **kwargs):
+    if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE:
+            MediaInfo.remove_from_mediawiki(instance.name, get_request().user.id)
 
 
 class Expediture(Model):
