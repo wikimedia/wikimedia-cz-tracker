@@ -5,6 +5,7 @@
 <!-- i18n-lint disable -->
 <div class="hidden" id="disabledatatables">yes</div>
 <!-- i18n-lint enable -->
+<p class="nav"><a href="{% url "ticket_list" %}" class="btn btn-primary">{% trans "index" %}</a> &gt; <a href="{% url "ticket_detail" ticket.id %}">{{ticket.name}}</a> &gt;</p>
 <h1>{% trans "List of linked media" %}: {{ ticket.name }}</h1>
 <p>{% trans "Last updated" %}: {{ ticket.media_updated }} (<a href="{% url "update_media" ticket.id %}">{% trans "update" %}</a>)</p>
 <p>{% trans "Page will be updated within 24 hours." %}</p>
