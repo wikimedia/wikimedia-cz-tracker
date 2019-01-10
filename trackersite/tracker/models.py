@@ -909,7 +909,6 @@ class MediaInfo(Model):
             if not Task.objects.filter(task_name="tracker.models.update_media", task_params="[[%s], {}]" % self.ticket.id).exists():
                 Ticket.update_media(self.ticket.id)
 
-
     class Meta:
         verbose_name = _('Ticket media')
         verbose_name_plural = _('Ticket media')
