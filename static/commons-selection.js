@@ -83,13 +83,14 @@
 	const byNameSubmit = document.querySelector( '#by-name-submit' );
 	const byUserSubmit = document.querySelector( '#by-user-submit' );
 
-	const existingImages = await ( await fetch( `/api/tracker/mediainfo/?ticket=${ticketNumber}` ) ).json();
+	const existingImages = await ( await fetch( `/api/tracker/mediainfo/?ticket=${ ticketNumber }` ) ).json();
 	let existingImageNames = [];
 	for ( const image of existingImages ) {
 		existingImageNames.push( image.canonicaltitle );
 	}
 
 	let previousFetchMethod;
+	let previousCheck;
 
 	byNameSubmit.addEventListener( 'click', async () => {
 		const name = document.querySelector( '#by-name-input' ).value;
@@ -105,6 +106,20 @@
 
 	byUserSubmit.click(); // Load default set of images
 	fetchAndFillExistingImages();
+
+	let shiftPressed = false;
+
+	window.addEventListener( 'keydown', ( e ) => {
+		if ( e.key === 'Shift' ) {
+			shiftPressed = true;
+		}
+	} );
+
+	window.addEventListener( 'keyup', ( e ) => {
+		if ( e.key === 'Shift' ) {
+			shiftPressed = false;
+		}
+	} );
 
 	loadMoreButton.addEventListener( 'click', async () => {
 		const input = document.querySelector( `#by-${ previousFetchMethod }-input` ).value;
@@ -155,15 +170,11 @@
 			imageContainer.appendChild( imageElem );
 		}
 
-		const imageElems = document.querySelectorAll( '.search-result img' );
+		const imageElements = document.querySelectorAll( '.search-results img' );
+		const [ ...checkboxes ] = document.querySelectorAll( '.search-results input[type=checkbox]' );
 
-		for ( const [ i, image ] of Object.entries( imageElems ) ) {
-			image.addEventListener( 'click', () => {
-				const checkbox = document.querySelectorAll( '.search-results input' )[ i ];
-
-				checkbox.checked = !( checkbox.checked );
-			} );
-		}
+		handleImageClick( imageElements, checkboxes );
+		handleShiftCheck( checkboxes );
 	}
 
 	async function fetchAndFillExistingImages() {
@@ -179,14 +190,48 @@
 			existingImageContainer.appendChild( imageElem );
 		}
 
-		const imageElems = document.querySelectorAll( '.search-result img' );
+		const imageElements = document.querySelectorAll( '.existing-search-results img' );
+		const [ ...checkboxes ] = document.querySelectorAll( '.existing-search-results input[type=checkbox]' );
 
-		for ( const [ i, image ] of Object.entries( imageElems ) ) {
+		handleImageClick( imageElements, checkboxes );
+		handleShiftCheck( checkboxes );
+	}
+
+	function handleImageClick( imageElements, checkboxes ) {
+		for ( const [ i, image ] of Object.entries( imageElements ) ) {
 			image.addEventListener( 'click', () => {
-				const checkbox = document.querySelectorAll( '.existing-search-results input' )[ i ];
+				const checkbox = checkboxes[ i ];
 
 				checkbox.checked = !( checkbox.checked );
+
+				checkbox.dispatchEvent( new Event( 'change' ) );
 			} );
+		}
+	}
+
+	function handleShiftCheck( checkboxes ) {
+		for ( let i = 0; i < checkboxes.length; i++ ) {
+			const checkbox = checkboxes[ i ];
+
+			const handler = ( ( latestCheck ) => {
+				return () => {
+					if ( shiftPressed ) {
+						const direction = ( latestCheck > previousCheck ) ? +1 : -1;
+
+						for (
+							let current = previousCheck + 1;
+							Math.abs( latestCheck - current ) > 0;
+							current += direction
+						) {
+							checkboxes[ current ].checked = !checkboxes[ current ].checked;
+						}
+					}
+
+					previousCheck = latestCheck;
+				};
+			} )( i );
+
+			checkbox.addEventListener( 'change', handler );
 		}
 	}
 

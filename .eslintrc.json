@@ -37,7 +37,8 @@
 		"no-const-assign": "error",
 		"one-const": "off",
 		"one-var": "off",
-		"no-use-before-define": "off"
+		"no-use-before-define": "off",
+		"no-loop-func": "off"
 	},
 	"globals": {
 		"getTopicById": true,

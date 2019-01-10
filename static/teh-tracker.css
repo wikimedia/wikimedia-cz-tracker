@@ -463,3 +463,11 @@ section.commons-selection label {
 .ticket-actions {
 	line-height: 3.2em;
 }
+
+.commons-selection {
+	/* Allows shift-clicking on labels to select multiple media */
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
