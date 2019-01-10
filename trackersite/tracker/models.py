@@ -906,12 +906,7 @@ class MediaInfo(Model):
 
         if not no_update:
             MediaInfo.store_mediawiki_data(self.id)
-            update_medias = True
-            for task in Task.objects.filter(task_name="tracker.models.update_medias"):
-                if json.loads(task.task_params)[0][0] == self.id:
-                    update_medias = False
-
-            if update_medias:
+            if not Task.objects.filter(task_name="tracker.models.update_medias", task_params="[[%s], {}]" % self.ticket.id).exists():
                 Ticket.update_medias(self.ticket.id)
 
     def delete(self, *args, **kwargs):
