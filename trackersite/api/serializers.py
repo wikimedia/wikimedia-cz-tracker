@@ -112,6 +112,10 @@ class TicketNoAdminUpdateSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class MediaInfoSerializer(serializers.HyperlinkedModelSerializer):
+    descriptionurl = serializers.SerializerMethodField()
+
+    def get_descriptionurl(self, instance):
+        return instance.mediawiki_link()
 
     def validate_ticket(self, ticket):
         request_user = self.context['request'].user
