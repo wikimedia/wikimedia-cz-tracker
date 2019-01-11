@@ -2146,10 +2146,8 @@ msgid "show media"
 msgstr "ukázat média"
 
 #: tracker/templates/tracker/ticket_detail.html:24
-#, fuzzy
-#| msgid "Manage media for"
 msgid "manage media"
-msgstr "Upravit média pro"
+msgstr "upravit média"
 
 #: tracker/templates/tracker/ticket_detail.html:31
 #, python-format
