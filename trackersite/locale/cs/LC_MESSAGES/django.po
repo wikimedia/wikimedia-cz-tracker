@@ -2243,13 +2243,11 @@ msgstr "Potvrdit výběr médií"
 
 #: tracker/templates/tracker/ticket_media.html:56
 msgid "Remove existing media"
-msgstr ""
+msgstr "Odebrat existující média"
 
 #: tracker/templates/tracker/ticket_media.html:64
-#, fuzzy
-#| msgid "Choose selected photos"
 msgid "Delete selected photos"
-msgstr "Potvrdit výběr médií"
+msgstr "Smazat vybraná média
 
 #: tracker/templates/tracker/ticket_show_media.html:9
 msgid "List of linked media"
