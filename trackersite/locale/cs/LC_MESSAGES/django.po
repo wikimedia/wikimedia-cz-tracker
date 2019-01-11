@@ -2245,7 +2245,7 @@ msgstr "Odebrat existující média"
 
 #: tracker/templates/tracker/ticket_media.html:64
 msgid "Delete selected photos"
-msgstr "Smazat vybraná média
+msgstr "Smazat vybraná média"
 
 #: tracker/templates/tracker/ticket_show_media.html:9
 msgid "List of linked media"
