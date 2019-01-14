@@ -32,7 +32,7 @@ from social_django.models import UserSocialAuth
 import csv
 
 from tracker.templatetags.trackertags import money
-from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, Expediture, Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher, Signature
+from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, MediaInfoOld, Expediture, Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher, Signature
 from tracker.models import ACK_TYPES, NOTIFICATION_TYPES
 from users.models import UserWrapper
 from socialauth.api import MediaWiki
@@ -995,7 +995,7 @@ def transactions_csv(request):
 def user_list(request):
     totals = {
         'ticket_count': Ticket.objects.count(),
-        'media': MediaInfo.objects.aggregate(objects=models.Count('id'), media=models.Sum('count')),
+        'media_count': MediaInfoOld.objects.aggregate(objects=models.Count('id'))['objects'] + MediaInfo.objects.aggregate(objects=models.Count('id'))['objects'],
         'accepted_expeditures': sum([t.accepted_expeditures() for t in Ticket.objects.filter(rating_percentage__gt=0)]),
         'transactions': Expediture.objects.filter(paid=True).aggregate(amount=models.Sum('amount'))['amount'],
     }

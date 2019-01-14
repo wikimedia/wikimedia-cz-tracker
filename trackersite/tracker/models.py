@@ -1043,6 +1043,9 @@ class TrackerProfile(models.Model):
     def get_absolute_url(self):
         return reverse('user_detail', kwargs={'username': self.user.username})
 
+    def media_count(self):
+        return sum([len(t.mediainfo_set.all()) for t in self.user.ticket_set.all()])
+
     def media_old_count(self):
         return MediaInfoOld.objects.extra(where=['ticket_id in (select id from tracker_ticket where requested_user_id = %s)'], params=[self.user.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
 
