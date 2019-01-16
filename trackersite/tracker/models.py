@@ -3,7 +3,7 @@ import datetime
 import decimal
 
 from django_comments.signals import comment_was_posted
-from django.db.models.signals import pre_save, post_save, pre_delete, post_delete
+from django.db.models.signals import pre_save, post_save, post_delete
 from request_provider.signals import get_request
 from django.contrib.auth.models import User
 from django.contrib.admin.models import LogEntry, CHANGE
@@ -914,7 +914,7 @@ class MediaInfo(Model):
         verbose_name_plural = _('Ticket media')
 
 
-@receiver(pre_delete, sender=MediaInfo)
+@receiver(post_delete, sender=MediaInfo)
 def delete_mediainfo(sender, instance, **kwargs):
     if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE:
             MediaInfo.remove_from_mediawiki(instance.name, get_request().user.id)
