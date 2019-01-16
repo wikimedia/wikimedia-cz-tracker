@@ -680,6 +680,10 @@ class Topic(CachedModel):
         return reverse('topic_detail', kwargs={'pk': self.id})
 
     @cached_getter
+    def media_count(self):
+        return sum([len(t.mediainfo_set.all()) for t in self.ticket_set.all()])
+
+    @cached_getter
     def media_old_count(self):
         return MediaInfoOld.objects.extra(where=['ticket_id in (select id from tracker_ticket where topic_id = %s)'], params=[self.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
 
