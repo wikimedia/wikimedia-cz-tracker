@@ -610,7 +610,7 @@ class Subtopic(CachedModel):
 
     @cached_getter
     def media_count(self):
-        return MediaInfoOld.objects.extra(where=['ticket_id in (select id from tracker_ticket where subtopic_id = %s)'], params=[self.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
+        return sum([len(t.mediainfo_set.all()) for t in self.ticket_set.all()])
 
     @cached_getter
     def expeditures(self):
