@@ -839,13 +839,19 @@ class MediaInfo(Model):
     @staticmethod
     @background(schedule=10)
     def remove_from_mediawiki(media_name, user_id):
-        mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
+        try:
+            mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
+        except User.DoesNotExist:
+            return
         mw.put_content(media_name, MediaInfo.strip_template(mw.get_content(media_name, rvsection=1)), section=1)
 
     @staticmethod
     @background(schedule=10)
     def add_to_mediawiki(media_id, user_id):
-        media = MediaInfo.objects.get(id=media_id)
+        try:
+            media = MediaInfo.objects.get(id=media_id)
+        except MediaInfo.DoesNotExist:
+            return
         parameters = {
             'rok': datetime.date.today().year,
             'podtéma': media.ticket.subtopic,
@@ -859,7 +865,10 @@ class MediaInfo(Model):
             template += u"|%s=%s" % (param.decode('utf-8'), str(parameters[param]).decode('utf-8'))
         template += u'}}'
 
-        mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
+        try:
+            mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
+        except User.DoesNotExist:
+            return
         old = mw.get_content(media.name, rvsection=1)
         if template not in old:
             mw.put_content(media.name,  MediaInfo.strip_template(old) + u"\n" + template, section=1)
