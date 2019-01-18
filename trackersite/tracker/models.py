@@ -1274,7 +1274,7 @@ def notify_comment(sender, comment, **kwargs):
             user = comment.user.username
         text = _('Comment <tt>%(comment)s</tt> was added to ticket <a href="%(ticket_url)s">%(ticket)s</a> by user <tt>%(user)s</tt>')
         text_data = {
-            'comment': comment.comment,
+            'comment': ((comment.comment[:75] + '..') if len(comment.comment) > 75 else comment.comment).replace('\r\n', ' '),
             'ticket_url': settings.BASE_URL + obj.get_absolute_url(),
             'ticket': obj,
             'user': user
