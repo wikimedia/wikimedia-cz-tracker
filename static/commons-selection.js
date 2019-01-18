@@ -258,7 +258,7 @@
 		const options = {
 			aisort: 'name',
 			aidir: 'ascending',
-			aiprefix: name,
+			aiprefix: name.replace( 'File:', '' ), // T214014
 			ailimit: limit
 		};
 
