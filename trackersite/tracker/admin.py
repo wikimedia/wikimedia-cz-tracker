@@ -63,13 +63,13 @@ class TicketAdmin(admin.ModelAdmin):
 
     def change_view(self, request, object_id, extra_context=None):
         extra_context = extra_context or {}
-        ticket = self.get_object(request, object_id)
+        self.ticket = self.get_object(request, object_id)
 
-        if ticket is None:
+        if self.ticket is None:
             raise Http404
 
-        extra_context['user_can_edit_documents'] = ticket.is_editable(request.user)
-        extra_context['user_can_see_all_documents'] = ticket.can_see_all_documents(request.user)
+        extra_context['user_can_edit_documents'] = self.ticket.is_editable(request.user)
+        extra_context['user_can_see_all_documents'] = self.ticket.can_see_all_documents(request.user)
         extra_context['add_ack_form'] = AddAckForm()
         return super(TicketAdmin, self).change_view(request, object_id, extra_context=extra_context)
 
@@ -148,6 +148,10 @@ class TicketAdmin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         obj.save(saved_from_admin=True)
+
+    def render_change_form(self, request, context, *args, **kwargs):
+        context['adminform'].form.fields['subtopic'].queryset = models.Subtopic.objects.filter(topic=self.ticket.topic)
+        return super(TicketAdmin, self).render_change_form(request, context, *args, **kwargs)
 
 
 admin.site.register(models.Ticket, TicketAdmin)
