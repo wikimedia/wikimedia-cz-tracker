@@ -86,6 +86,10 @@ LANGUAGES = (
     ('fr', _('French')),
     ('ar', _('Arabic')),
     ('da', _('Danish')),
+    ('fi', _('Finish')),
+    ('ko', _('Korean')),
+    ('pt', _('Portuguese')),
+    ('sv', _('Swedish')),
 )
 
 AUTHENTICATION_BACKENDS = (
