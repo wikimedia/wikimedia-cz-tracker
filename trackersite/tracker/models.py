@@ -238,7 +238,7 @@ class Ticket(CachedModel, ModelDiffMixin):
     mandatory_report = models.BooleanField(_('report mandatory'), default=False, help_text=_('Is report mandatory?'))
     report_url = models.CharField(_('report url'), blank=True, max_length=255, default='', help_text=_('URL to your report, if you want to report something (or if your report is mandatory per topic administrator).'))
     event_url = models.URLField(_('event url'), blank=True, help_text=_('Link to a public page describing the event, if it exist'))
-    description = models.TextField(_('description'), blank=True, help_text=_("Space for further notes. If you're entering a trip tell us where did you go and what you did there."))
+    description = models.TextField(_('description'), blank=True, help_text=_("Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description."))
     supervisor_notes = models.TextField(_('supervisor notes'), blank=True, help_text=_("This space is for notes of project supervisors and accounting staff."))
     deposit = DecimalRangeField(_('deposit'), default=0, min_value=0,
                                 decimal_places=2, max_digits=8,

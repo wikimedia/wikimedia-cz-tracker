@@ -1,10 +1,11 @@
+{% load trackertags %}
 <dl id="comments">
 	{% for comment in comment_list %}
 		<dt id="c{{ comment.id }}">
 			{{ comment.submit_date }} - {{ comment.name }}
 		</dt>
 		<dd>
-			<p>{{ comment.comment|urlize|linebreaks }}</p>
+			<p>{{ comment.comment|urlize|tracker_rich_text|linebreaks }}</p>
 		</dd>
 	{% endfor %}
 </dl>
