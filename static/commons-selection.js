@@ -87,7 +87,11 @@
 	const existingImages = await ( await fetch( `/api/tracker/mediainfo/?ticket=${ ticketNumber }` ) ).json();
 	let existingImageNames = [];
 	for ( const image of existingImages ) {
-		existingImageNames.push( image.canonicaltitle );
+		if ( image.canonicaltitle !== null ) {
+			existingImageNames.push( image.canonicaltitle );
+		} else {
+			existingImageNames.push( image.name );
+		}
 	}
 
 	let previousFetchMethod;

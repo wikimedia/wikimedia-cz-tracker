@@ -904,6 +904,7 @@ class MediaInfo(Model):
             }
 
     @staticmethod
+    @background(schedule=10)
     def store_mediawiki_data(media_id):
         media = MediaInfo.objects.get(id=media_id)
         data = media.get_mediawiki_data(width=200)
