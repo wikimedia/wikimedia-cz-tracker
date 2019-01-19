@@ -5,6 +5,7 @@ from django.conf import settings
 from django.utils.formats import number_format
 from tracker.models import Ticket
 import re
+import bleach
 
 register = template.Library()
 
@@ -20,7 +21,6 @@ def money(value):
 
 @register.filter
 def tracker_rich_text(value):
-    value_new = value
     for match in re.findall(r"#[0-9]+", value):
         try:
             ticket_id = int(match[1:])
@@ -31,5 +31,5 @@ def tracker_rich_text(value):
 
         ticket = Ticket.objects.get(id=ticket_id)
         text = '<a href="%s">%s</a>' % (ticket.get_absolute_url(), "%s: %s" % (match, ticket.name))
-        value_new = value_new.replace(match, text)
-    return mark_safe(value_new)
+        value = value.replace(match, text)
+    return mark_safe(bleach.clean(value, settings.ALLOWED_TAGS, settings.ALLOWED_ATTRIBUTES))

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-18 19:51+0100\n"
+"POT-Creation-Date: 2019-01-19 16:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -242,15 +242,15 @@ msgstr ""
 msgid "Add ack"
 msgstr ""
 
-#: tracker/admin.py:168
+#: tracker/admin.py:172
 msgid "Mark selected topics as opened for new tickets"
 msgstr ""
 
-#: tracker/admin.py:175
+#: tracker/admin.py:179
 msgid "Mark selected topics as closed for new tickets"
 msgstr ""
 
-#: tracker/admin.py:203
+#: tracker/admin.py:207
 msgid "Modify this value by opening or closing topics in this grant to tickets"
 msgstr ""
 
@@ -515,7 +515,7 @@ msgstr ""
 msgid ""
 "Space for further notes. If you're entering a trip tell us where did you go "
 "and what you did there. You can link to another tickets by adding #ticketid "
-"in your description."
+"in your description. You may use a limited subset of HTML."
 msgstr ""
 
 #: tracker/models.py:242

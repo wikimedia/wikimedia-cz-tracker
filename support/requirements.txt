@@ -10,6 +10,7 @@ django-request-provider
 pytz
 jsonfield
 django-background-tasks
+bleach
 
 # For API
 djangorestframework==3.3.3
