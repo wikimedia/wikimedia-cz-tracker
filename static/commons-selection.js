@@ -79,6 +79,7 @@
 	const limitElement = document.querySelector( '#limit' );
 	const categoryElement = document.querySelector( '#category' );
 	const loadMoreButton = document.querySelector( '#load-more' );
+	const loadingText = document.querySelector( '#loading' );
 
 	const byNameSubmit = document.querySelector( '#by-name-submit' );
 	const byUserSubmit = document.querySelector( '#by-user-submit' );
@@ -122,6 +123,9 @@
 	} );
 
 	loadMoreButton.addEventListener( 'click', async () => {
+		loadingText.classList.remove( 'hidden' );
+		loadMoreButton.classList.add( 'hidden' );
+
 		const input = document.querySelector( `#by-${ previousFetchMethod }-input` ).value;
 
 		let findFunction;
@@ -175,6 +179,8 @@
 
 		handleImageClick( imageElements, checkboxes );
 		handleShiftCheck( checkboxes );
+
+		loadingText.classList.add( 'hidden' );
 	}
 
 	async function fetchAndFillExistingImages() {
