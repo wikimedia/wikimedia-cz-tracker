@@ -227,7 +227,7 @@ class Signature(Model):
 class Ticket(CachedModel, ModelDiffMixin):
     """ One unit of tracked / paid stuff. """
     updated = models.DateTimeField(_('updated'))
-    media_updated = models.DateTimeField(_('media_updated'), default=None, null=True)
+    media_updated = models.DateTimeField(_('media updated'), default=None, null=True, help_text=_('Date when cached information about media were last updated. Used in "show media" view.'))
     event_date = models.DateField(_('event date'), blank=True, null=True, help_text=_('Date of the event this ticket is about'))
     requested_user = models.ForeignKey('auth.User', verbose_name=_('requested by'), blank=True, null=True, help_text=_('User who created/requested for this ticket'))
     requested_text = models.CharField(verbose_name=_('requested by (text)'), blank=True, max_length=30, help_text=_('Text description of who requested for this ticket, in case user is not filled in'))
