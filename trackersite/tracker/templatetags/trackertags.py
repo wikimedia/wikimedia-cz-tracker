@@ -22,7 +22,7 @@ def money(value):
 
 @register.filter
 def tracker_rich_text(value):
-    for match in re.findall(r"#[0-9]+", value):
+    for match in re.findall(r"(#[0-9]+)[ ,.;)\]]", value):
         try:
             ticket_id = int(match[1:])
         except ValueError:
