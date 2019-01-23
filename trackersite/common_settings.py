@@ -86,7 +86,7 @@ LANGUAGES = (
     ('fr', _('French')),
     ('ar', _('Arabic')),
     ('da', _('Danish')),
-    ('fi', _('Finish')),
+    ('fi', _('Finnish')),
     ('ko', _('Korean')),
     ('pt', _('Portuguese')),
     ('sv', _('Swedish')),
