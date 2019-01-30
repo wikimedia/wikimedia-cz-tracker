@@ -1,6 +1,6 @@
 {
 	document.addEventListener( 'DOMContentLoaded', async () => {
-		const topicsJson = await fetch( '/api/tracker/topics/' ),
+		const topicsJson = await fetch( '/api/tracker/topics/?open_for_tickets=true' ),
 			subtopicsJson = await fetch( '/api/tracker/subtopics/' );
 
 		window.topicsList = await topicsJson.json();
