@@ -392,6 +392,10 @@ class Ticket(CachedModel, ModelDiffMixin):
         return reverse('ticket_detail', kwargs={'pk': self.id})
 
     @cached_getter
+    def media_count(self):
+        return (self.mediainfoold_set.aggregate(media=models.Sum('count'))['media'] or 0) + self.mediainfo_set.count()
+
+    @cached_getter
     def media_old_count(self):
         return self.mediainfoold_set.aggregate(objects=models.Count('id'), media=models.Sum('count'))
 
@@ -681,11 +685,7 @@ class Topic(CachedModel):
 
     @cached_getter
     def media_count(self):
-        return sum([len(t.mediainfo_set.all()) for t in self.ticket_set.all()])
-
-    @cached_getter
-    def media_old_count(self):
-        return MediaInfoOld.objects.extra(where=['ticket_id in (select id from tracker_ticket where topic_id = %s)'], params=[self.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
+        return sum([len(t.mediainfo_set.all()) for t in self.ticket_set.all()]) + (MediaInfoOld.objects.extra(where=['ticket_id in (select id from tracker_ticket where topic_id = %s)'], params=[self.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))['media'] or 0)
 
     @cached_getter
     def expeditures(self):
@@ -1058,10 +1058,7 @@ class TrackerProfile(models.Model):
         return reverse('user_detail', kwargs={'username': self.user.username})
 
     def media_count(self):
-        return sum([len(t.mediainfo_set.all()) for t in self.user.ticket_set.all()])
-
-    def media_old_count(self):
-        return MediaInfoOld.objects.extra(where=['ticket_id in (select id from tracker_ticket where requested_user_id = %s)'], params=[self.user.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))
+        return sum([len(t.mediainfo_set.all()) for t in self.user.ticket_set.all()]) + (MediaInfoOld.objects.extra(where=['ticket_id in (select id from tracker_ticket where requested_user_id = %s)'], params=[self.user.id]).aggregate(media=models.Sum('count'))['media'] or 0)
 
     def accepted_expeditures(self):
         return sum([t.accepted_expeditures() for t in self.user.ticket_set.filter(rating_percentage__gt=0)])

@@ -995,7 +995,7 @@ def transactions_csv(request):
 def user_list(request):
     totals = {
         'ticket_count': Ticket.objects.count(),
-        'media_count': MediaInfoOld.objects.aggregate(objects=models.Count('id'))['objects'] + MediaInfo.objects.aggregate(objects=models.Count('id'))['objects'],
+        'media_count': MediaInfoOld.objects.aggregate(media=models.Sum('count'))['media'] + MediaInfo.objects.aggregate(objects=models.Count('id'))['objects'],
         'accepted_expeditures': sum([t.accepted_expeditures() for t in Ticket.objects.filter(rating_percentage__gt=0)]),
         'transactions': Expediture.objects.filter(paid=True).aggregate(amount=models.Sum('amount'))['amount'],
     }
@@ -1005,7 +1005,7 @@ def user_list(request):
     if userless.count() > 0:
         unassigned = {
             'ticket_count': userless.count(),
-            'media': MediaInfo.objects.extra(where=['ticket_id in (select id from tracker_ticket where requested_user_id is null)']).aggregate(objects=models.Count('id'), media=models.Sum('count')),
+            'media': MediaInfoOld.objects.extra(where=['ticket_id in (select id from tracker_ticket where requested_user_id is null)']).aggregate(objects=models.Count('id'), media=models.Sum('count')),
             'accepted_expeditures': sum([t.accepted_expeditures() for t in userless]),
         }
     else:

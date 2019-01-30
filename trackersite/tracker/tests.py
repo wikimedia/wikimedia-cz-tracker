@@ -133,9 +133,9 @@ class TicketSumTests(TestCase):
         empty_ticket = Ticket(topic=self.topic, requested_text='someone', name='empty ticket')
         empty_ticket.save()
 
-        self.assertEqual(0, empty_ticket.media_old_count()['objects'])
+        self.assertEqual(0, empty_ticket.media_count())
         self.assertEqual(0, empty_ticket.expeditures()['count'])
-        self.assertEqual(0, self.topic.media_old_count()['objects'])
+        self.assertEqual(0, self.topic.media_count())
         self.assertEqual(0, self.topic.expeditures()['count'])
 
     def test_full_ticket(self):
@@ -144,12 +144,13 @@ class TicketSumTests(TestCase):
         full_ticket.mediainfoold_set.create(description='Vague pictures')
         full_ticket.mediainfoold_set.create(description='Counted pictures', count=15)
         full_ticket.mediainfoold_set.create(description='Even more pictures', count=16)
+        full_ticket.mediainfo_set.create(name='test.jpg')
         full_ticket.expediture_set.create(description='Some expense', amount=99)
         full_ticket.expediture_set.create(description='Some other expense', amount=101)
 
-        self.assertEqual({'objects': 3, 'media': 31}, full_ticket.media_old_count())
+        self.assertEqual(32, full_ticket.media_count())
         self.assertEqual({'count': 2, 'amount': 200}, full_ticket.expeditures())
-        self.assertEqual({'objects': 3, 'media': 31}, self.topic.media_old_count())
+        self.assertEqual(32, self.topic.media_count())
         self.assertEqual({'count': 2, 'amount': 200}, self.topic.expeditures())
 
 
@@ -714,6 +715,8 @@ class SummaryTest(TestCase):
         self.ticket.expediture_set.create(description='foo', amount=200)
         self.ticket.expediture_set.create(description='foo', amount=100)
         self.ticket.mediainfoold_set.create(description='foo', count=5)
+        self.ticket.mediainfo_set.create(name='test.jpg')
+        self.ticket.mediainfo_set.create(name='test2.jpg')
 
         self.ticket2 = Ticket(name='foo', requested_user=self.user, topic=self.topic, rating_percentage=100)
         self.ticket2.save()
@@ -722,6 +725,7 @@ class SummaryTest(TestCase):
         self.ticket2.expediture_set.create(description='foo', amount=10)
         self.ticket2.mediainfoold_set.create(description='foo', count=5)
         self.ticket2.mediainfoold_set.create(description='foo', count=3)
+        self.ticket2.mediainfo_set.create(name='test.jpg')
 
     def test_topic_ticket_counts(self):
         self.assertEqual({'unpaid': 2}, self.topic.tickets_per_payment_status())
@@ -743,6 +747,7 @@ class SummaryTest(TestCase):
         self.ticket.rating_percentage = None
         self.ticket.save()
 
+        self.assertEqual(7, self.ticket.media_count())
         self.assertEqual({'objects': 1, 'media': 5}, self.ticket.media_old_count())
         self.assertEqual({'count': 2, 'amount': 300}, self.ticket.expeditures())
         self.assertEqual(0, self.ticket.accepted_expeditures())
@@ -755,13 +760,13 @@ class SummaryTest(TestCase):
         self.assertEqual(150, self.ticket.accepted_expeditures())
 
     def test_topic_name(self):
-        self.assertEqual({'objects': 3, 'media': 13}, self.topic.media_old_count())
+        self.assertEqual(16, self.topic.media_count())
         self.assertEqual({'count': 4, 'amount': 910}, self.topic.expeditures())
         self.assertEqual(150 + 610, self.topic.accepted_expeditures())
 
     def test_user_name(self):
         profile = self.user.trackerprofile
-        self.assertEqual({'objects': 3, 'media': 13}, profile.media_old_count())
+        self.assertEqual(16, profile.media_count())
         self.assertEqual(150 + 610, profile.accepted_expeditures())
 
     def test_topic_finance(self):
