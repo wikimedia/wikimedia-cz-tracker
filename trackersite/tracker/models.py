@@ -1234,7 +1234,7 @@ class Notification(models.Model):
         topicwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Topic', object_id=ticket.topic.id, notification_type=notification_type)])
         ticketwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id, notification_type=notification_type)])
         grantwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Grant', object_id=ticket.topic.grant.id, notification_type=notification_type)])
-        users = users.union(admins, topicwatchers, ticketwatchers, grantwatchers)
+        users = users.union(admins, additional, topicwatchers, ticketwatchers, grantwatchers)
 
         # Don't create a Notification again if there's already the exact same
         # notification in the database.
