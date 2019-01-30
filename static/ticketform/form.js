@@ -40,7 +40,7 @@
 			}
 
 			subtopicDesc.innerHTML = subtopic.form_description;
-			subtopicDesc.hidden = subtopic.form_description !== '';
+			subtopicDesc.hidden = subtopic.form_description === '';
 		}
 
 		idTopic.addEventListener( 'change', refreshDescription );
