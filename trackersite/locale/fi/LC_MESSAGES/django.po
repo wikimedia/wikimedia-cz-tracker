@@ -5,12 +5,12 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-01-21 09:13:28+0000\n"
+"PO-Revision-Date: 2019-01-30 22:59:50+0000\n"
 "X-POT-Import-Date: 2019-01-21 08:08:52+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
-"X-Generator: MediaWiki 1.33.0-alpha; Translate 2018-11-05\n"
+"X-Generator: MediaWiki 1.33.0-alpha; Translate 2019-01-17\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: api/serializers.py:94
@@ -83,19 +83,19 @@ msgstr "Tanska"
 
 #: common_settings.py:89
 msgid "Finish"
-msgstr ""
+msgstr "Suomi"
 
 #: common_settings.py:90
 msgid "Korean"
-msgstr ""
+msgstr "Korea"
 
 #: common_settings.py:91
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugali"
 
 #: common_settings.py:92
 msgid "Swedish"
-msgstr ""
+msgstr "Ruotsi"
 
 #: customcomments/forms.py:21
 msgid "Your name"
@@ -153,7 +153,7 @@ msgstr "Tracker-ylläpitäjä"
 
 #: templates/admin/base_site.html:7
 msgid "Tracker site administration"
-msgstr "Tracker sivuston ylläpito"
+msgstr "Tracker-sivuston ylläpito"
 
 #: templates/base.html:31
 msgid "There is no email address associated with this account. Please update your details now."
@@ -173,7 +173,7 @@ msgstr "vaihda salasana"
 
 #: templates/base.html:69
 msgid "change my details"
-msgstr "muuta tietojani"
+msgstr "muuta omia tietoja"
 
 #: templates/base.html:70 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
@@ -258,11 +258,11 @@ msgstr "Hiljattain muutetut tiketit"
 #: tracker/feeds.py:26 tracker/templates/tracker/generic/ticket_list.html:8
 #: tracker/templates/tracker/topic_detail.html:6
 msgid "Latest submitted tickets"
-msgstr ""
+msgstr "Viimeisimmät lähetetyt tiketit"
 
 #: tracker/feeds.py:27
 msgid "Recently changed submitted tickets"
-msgstr ""
+msgstr "Äskettäin muutetut lähetetyt tiketit"
 
 #: tracker/models.py:39 tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
@@ -572,18 +572,18 @@ msgstr ""
 #: tracker/models.py:346 tracker/templates/tracker/export.html:43
 #: tracker/templates/tracker/export.html:44
 msgid "waiting for document submission"
-msgstr ""
+msgstr "odottaa asiakirjan lisäämistä"
 
 #: tracker/models.py:349 tracker/models.py:356
 #: tracker/templates/tracker/export.html:40
 #: tracker/templates/tracker/export.html:41
 msgid "waiting for approval"
-msgstr ""
+msgstr "odottaa hyväksyntää"
 
 #: tracker/models.py:351 tracker/templates/tracker/export.html:37
 #: tracker/templates/tracker/export.html:38
 msgid "waiting for submitting"
-msgstr ""
+msgstr "odottaa lähettämistä"
 
 #: tracker/models.py:354 tracker/templates/tracker/export.html:34
 #: tracker/templates/tracker/export.html:35
@@ -607,7 +607,7 @@ msgstr "Sähköposti"
 #: tracker/templates/tracker/admin_user_list.html:31
 #: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
-msgstr ""
+msgstr "Muu sisältö"
 
 #: tracker/models.py:388
 msgid "no tracker account listed"
@@ -917,7 +917,7 @@ msgstr "Sähköpostin kieli"
 
 #: tracker/models.py:1026
 msgid "Display items"
-msgstr ""
+msgstr "Näytä kohteita"
 
 #: tracker/models.py:1026
 msgid "How many items should we display in tables at once"
@@ -1031,7 +1031,7 @@ msgstr "Käyttäjä <tt>%(user)s</tt> lisäsi kommentin <tt>%(comment)s</tt> tik
 #: tracker/models.py:1304
 #, python-format
 msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
-msgstr ""
+msgstr "Käyttäjä <tt>%(user)s</tt> loi tiketin <a href=\"%(ticket_url)s\">%(ticket)s</a> aiheessa <tt>%(topic)s</tt>."
 
 #: tracker/models.py:1319
 #, python-format
@@ -1587,7 +1587,7 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:222
 msgid "Number of tickets"
-msgstr ""
+msgstr "Tikettien lukumäärä"
 
 #: tracker/templates/tracker/export.html:242
 msgid "Number of tickets in certain payment state"
@@ -1663,7 +1663,7 @@ msgstr "Luo uusi tiketti"
 #: tracker/templates/tracker/generic/ticket_list.html:22
 #: tracker/templates/tracker/user_detail.html:15
 msgid "No tickets available."
-msgstr ""
+msgstr "Ei tikettejä saatavilla."
 
 #: tracker/templates/tracker/generic/ticket_list.html:33
 #: tracker/templates/tracker/import.html:4
@@ -1844,7 +1844,7 @@ msgstr "Käyttäjätunnuksesi on linkitetty Wikimedia-käyttäjätunnukseen"
 
 #: tracker/templates/tracker/preferences.html:72
 msgid "Disconnect Wikimedia account"
-msgstr "Katkaise yhteys Wikimedia-tunnukseen"
+msgstr "Katkaise yhteys Wikimedia-käyttäjätunnukseen"
 
 #: tracker/templates/tracker/preferences.html:76
 msgid "In order to disconnect your Wikimedia account, you first need to"
@@ -1852,7 +1852,7 @@ msgstr "Katkaistaksesi yhteyden Wikimedia-käyttäjätunnukseesi, sinun täytyy 
 
 #: tracker/templates/tracker/preferences.html:76
 msgid "set a password."
-msgstr "aseta salasana."
+msgstr "asettaa salasana."
 
 #: tracker/templates/tracker/preferences.html:84
 msgid "Account actions"
@@ -2144,7 +2144,7 @@ msgstr "Tuntematon"
 
 #: tracker/templates/tracker/ticket_show_media.html:49
 msgid "Number of usages"
-msgstr ""
+msgstr "Käyttömäärä"
 
 #: tracker/templates/tracker/ticket_show_media.html:53
 msgid "Number of Wikidata items"
@@ -2334,7 +2334,7 @@ msgstr ""
 #: tracker/templates/tracker/user_details_change.html:4
 #: tracker/templates/tracker/user_details_change.html:9
 msgid "My details"
-msgstr "Tietoni"
+msgstr "Omat tiedot"
 
 #: tracker/templates/tracker/user_details_change.html:19
 #: users/templates/users/register.html:16
@@ -2727,7 +2727,7 @@ msgstr "Kiitos, että käytät sivustoamme!"
 #: users/templates/users/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
-msgstr "%(site_name)s in työryhmä"
+msgstr "%(site_name)sin tiimi"
 
 #: users/views.py:21
 msgid "Will be used for password recovery and notifications, if you enable them."

@@ -5,12 +5,12 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-01-21 09:13:29+0000\n"
+"PO-Revision-Date: 2019-01-30 22:59:51+0000\n"
 "X-POT-Import-Date: 2019-01-21 08:08:52+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh-Hans\n"
-"X-Generator: MediaWiki 1.33.0-alpha; Translate 2018-11-05\n"
+"X-Generator: MediaWiki 1.33.0-alpha; Translate 2019-01-17\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: api/serializers.py:94
@@ -83,19 +83,19 @@ msgstr ""
 
 #: common_settings.py:89
 msgid "Finish"
-msgstr ""
+msgstr "芬兰语"
 
 #: common_settings.py:90
 msgid "Korean"
-msgstr ""
+msgstr "韩语"
 
 #: common_settings.py:91
 msgid "Portuguese"
-msgstr ""
+msgstr "葡萄牙语"
 
 #: common_settings.py:92
 msgid "Swedish"
-msgstr ""
+msgstr "瑞典语"
 
 #: customcomments/forms.py:21
 msgid "Your name"

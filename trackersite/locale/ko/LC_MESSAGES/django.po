@@ -7,12 +7,12 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-01-21 09:13:28+0000\n"
+"PO-Revision-Date: 2019-01-30 22:59:51+0000\n"
 "X-POT-Import-Date: 2019-01-21 08:08:52+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
-"X-Generator: MediaWiki 1.33.0-alpha; Translate 2018-11-05\n"
+"X-Generator: MediaWiki 1.33.0-alpha; Translate 2019-01-17\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: api/serializers.py:94
@@ -818,11 +818,11 @@ msgstr "티켓 미디어"
 
 #: tracker/models.py:827
 msgid "width"
-msgstr ""
+msgstr "너비"
 
 #: tracker/models.py:828
 msgid "height"
-msgstr ""
+msgstr "높이"
 
 #: tracker/models.py:830
 msgid "cannonical title"
@@ -1385,7 +1385,7 @@ msgstr ""
 
 #: tracker/templates/tracker/connect_account.html:4
 msgid "Connected account required"
-msgstr ""
+msgstr "연동 계정이 필요합니다"
 
 #: tracker/templates/tracker/connect_account.html:7
 msgid "Permission denied"
@@ -2113,7 +2113,7 @@ msgstr "연결된 미디어 목록"
 
 #: tracker/templates/tracker/ticket_show_media.html:10
 msgid "Last updated"
-msgstr ""
+msgstr "최근 업데이트"
 
 #: tracker/templates/tracker/ticket_show_media.html:10
 msgid "update"
@@ -2129,7 +2129,7 @@ msgstr "파일 이름"
 
 #: tracker/templates/tracker/ticket_show_media.html:16
 msgid "Dimension"
-msgstr ""
+msgstr "크기"
 
 #: tracker/templates/tracker/ticket_show_media.html:17
 msgid "Categories"
@@ -2145,11 +2145,11 @@ msgstr "알 수 없음"
 
 #: tracker/templates/tracker/ticket_show_media.html:49
 msgid "Number of usages"
-msgstr ""
+msgstr "사용 중인 문서 수"
 
 #: tracker/templates/tracker/ticket_show_media.html:53
 msgid "Number of Wikidata items"
-msgstr ""
+msgstr "위키데이터 항목 수"
 
 #: tracker/templates/tracker/ticket_table.html:18
 #: tracker/templates/tracker/user_list.html:13
