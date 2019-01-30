@@ -1212,6 +1212,8 @@ class Notification(models.Model):
 
     @staticmethod
     def fire_notification(ticket, raw_text, notification_type, sender, additional=set(), text_data={}, ack_type=None):
+        if sender is None:
+            return
         users = set([])
         if ticket.requested_user is not None:
             users = {ticket.requested_user}
