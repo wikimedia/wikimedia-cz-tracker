@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-20 21:22+0100\n"
+"POT-Creation-Date: 2019-01-30 20:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgid "Danish"
 msgstr ""
 
 #: common_settings.py:89
-msgid "Finish"
+msgid "Finnish"
 msgstr ""
 
 #: common_settings.py:90
@@ -233,6 +233,26 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
+#: templates/comments/preview.html:4 templates/comments/preview.html.py:16
+msgid "Preview your comment"
+msgstr ""
+
+#: templates/comments/preview.html:13
+msgid "Please correct the error below"
+msgid_plural ""
+"Please correct the\n"
+"\t\terrors below"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/comments/preview.html:32
+msgid " Post"
+msgstr ""
+
+#: templates/comments/preview.html:33
+msgid " Preview"
+msgstr ""
+
 #: tracker/admin.py:30 tracker/admin.py:36
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
 msgid "Type"
@@ -290,7 +310,7 @@ msgstr ""
 msgid "partially paid"
 msgstr ""
 
-#: tracker/models.py:42 tracker/models.py:942
+#: tracker/models.py:42 tracker/models.py:943
 #: tracker/templates/tracker/export.html:248
 #: tracker/templates/tracker/grant_table.html:14
 #: tracker/templates/tracker/topic_finance.html:17
@@ -401,7 +421,7 @@ msgstr ""
 msgid "unknown"
 msgstr ""
 
-#: tracker/models.py:153 tracker/models.py:1169
+#: tracker/models.py:153 tracker/models.py:1170
 msgid "created"
 msgstr ""
 
@@ -512,8 +532,8 @@ msgid "Link to a public page describing the event, if it exist"
 msgstr ""
 
 #: tracker/models.py:241 tracker/models.py:601 tracker/models.py:672
-#: tracker/models.py:758 tracker/models.py:811 tracker/models.py:939
-#: tracker/models.py:961 tracker/models.py:1108 tracker/views.py:786
+#: tracker/models.py:758 tracker/models.py:811 tracker/models.py:940
+#: tracker/models.py:962 tracker/models.py:1109 tracker/views.py:786
 msgid "description"
 msgstr ""
 
@@ -623,7 +643,7 @@ msgstr ""
 msgid "E-mail"
 msgstr ""
 
-#: tracker/models.py:384 tracker/models.py:1053
+#: tracker/models.py:384 tracker/models.py:1054
 #: tracker/templates/tracker/admin_user_list.html:31
 #: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
@@ -801,8 +821,8 @@ msgstr ""
 msgid "Grants"
 msgstr ""
 
-#: tracker/models.py:810 tracker/models.py:825 tracker/models.py:938
-#: tracker/models.py:960 tracker/views.py:511
+#: tracker/models.py:810 tracker/models.py:825 tracker/models.py:939
+#: tracker/models.py:961 tracker/views.py:511
 msgid "ticket"
 msgstr ""
 
@@ -830,8 +850,8 @@ msgstr ""
 msgid "Number of files"
 msgstr ""
 
-#: tracker/models.py:819 tracker/models.py:820 tracker/models.py:926
-#: tracker/models.py:927
+#: tracker/models.py:819 tracker/models.py:820 tracker/models.py:927
+#: tracker/models.py:928
 msgid "Ticket media"
 msgstr ""
 
@@ -855,170 +875,170 @@ msgstr ""
 msgid "usages"
 msgstr ""
 
-#: tracker/models.py:938
+#: tracker/models.py:939
 msgid "Ticket this expediture belongs to"
 msgstr ""
 
-#: tracker/models.py:939
+#: tracker/models.py:940
 msgid "Description of this expediture"
 msgstr ""
 
-#: tracker/models.py:940 tracker/models.py:962 tracker/models.py:1107
+#: tracker/models.py:941 tracker/models.py:963 tracker/models.py:1108
 msgid "amount"
 msgstr ""
 
-#: tracker/models.py:940
+#: tracker/models.py:941
 msgid "Expediture amount in"
 msgstr ""
 
-#: tracker/models.py:941 tracker/models.py:1109
+#: tracker/models.py:942 tracker/models.py:1110
 msgid "accounting info"
 msgstr ""
 
-#: tracker/models.py:941
+#: tracker/models.py:942
 msgid "Accounting info, this is editable only through admin field"
 msgstr ""
 
-#: tracker/models.py:943 tracker/models.py:963
+#: tracker/models.py:944 tracker/models.py:964
 msgid "wage"
 msgstr ""
 
-#: tracker/models.py:946 tracker/models.py:966
+#: tracker/models.py:947 tracker/models.py:967
 #, python-format
 msgid "%(description)s (%(amount)s %(currency)s)"
 msgstr ""
 
-#: tracker/models.py:954
+#: tracker/models.py:955
 msgid "Ticket expediture"
 msgstr ""
 
-#: tracker/models.py:955
+#: tracker/models.py:956
 msgid "Ticket expeditures"
 msgstr ""
 
-#: tracker/models.py:960
+#: tracker/models.py:961
 msgid "Ticket this preexpediture belongs to"
 msgstr ""
 
-#: tracker/models.py:961
+#: tracker/models.py:962
 msgid "Description of this preexpediture"
 msgstr ""
 
-#: tracker/models.py:962
+#: tracker/models.py:963
 msgid "Preexpediture amount in"
 msgstr ""
 
-#: tracker/models.py:969
+#: tracker/models.py:970
 msgid "Ticket preexpediture"
 msgstr ""
 
-#: tracker/models.py:970
+#: tracker/models.py:971
 msgid "Ticket preexpeditures"
 msgstr ""
 
-#: tracker/models.py:974
+#: tracker/models.py:975
 msgid "uploader"
 msgstr ""
 
-#: tracker/models.py:982 tracker/views.py:785
+#: tracker/models.py:983 tracker/views.py:785
 msgid "We need a sane file name, such as my-invoice123.jpg"
 msgstr ""
 
-#: tracker/models.py:1023
+#: tracker/models.py:1024
 msgid "Ignored acks"
 msgstr ""
 
-#: tracker/models.py:1024
+#: tracker/models.py:1025
 msgid "Muted notifications"
 msgstr ""
 
-#: tracker/models.py:1025
+#: tracker/models.py:1026
 msgid "Email language"
 msgstr ""
 
-#: tracker/models.py:1026
+#: tracker/models.py:1027
 msgid "Display items"
 msgstr ""
 
-#: tracker/models.py:1026
+#: tracker/models.py:1027
 msgid "How many items should we display in tables at once"
 msgstr ""
 
-#: tracker/models.py:1045
+#: tracker/models.py:1046
 msgid "Tracker user preference"
 msgstr ""
 
-#: tracker/models.py:1046
+#: tracker/models.py:1047
 msgid "Tracker user preferences"
 msgstr ""
 
-#: tracker/models.py:1051
+#: tracker/models.py:1052
 msgid "Username on mediawiki"
 msgstr ""
 
-#: tracker/models.py:1052 tracker/templates/tracker/admin_user_list.html:30
+#: tracker/models.py:1053 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
 msgstr ""
 
-#: tracker/models.py:1052
+#: tracker/models.py:1053
 msgid "Bank account information for money transfers"
 msgstr ""
 
-#: tracker/models.py:1053
+#: tracker/models.py:1054
 msgid ""
 "Other contact such as wiki account; can be useful in case of topic "
 "administrators need to clarify some information"
 msgstr ""
 
-#: tracker/models.py:1054 tracker/templates/tracker/admin_user_list.html:32
+#: tracker/models.py:1055 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
 msgstr ""
 
-#: tracker/models.py:1054
+#: tracker/models.py:1055
 msgid ""
 "Address, or other identification information, so we know who are we sending "
 "money to"
 msgstr ""
 
-#: tracker/models.py:1085
+#: tracker/models.py:1086
 msgid "Tracker profile"
 msgstr ""
 
-#: tracker/models.py:1086
+#: tracker/models.py:1087
 msgid "Tracker profiles"
 msgstr ""
 
-#: tracker/models.py:1104
+#: tracker/models.py:1105
 msgid "date"
 msgstr ""
 
-#: tracker/models.py:1105 tracker/models.py:1124
+#: tracker/models.py:1106 tracker/models.py:1125
 msgid "other party"
 msgstr ""
 
-#: tracker/models.py:1105
+#: tracker/models.py:1106
 msgid "The other party; user who sent or received the payment"
 msgstr ""
 
-#: tracker/models.py:1106
+#: tracker/models.py:1107
 msgid "other party (text)"
 msgstr ""
 
-#: tracker/models.py:1106
+#: tracker/models.py:1107
 msgid "The other party; this text is used when user is not selected"
 msgstr ""
 
-#: tracker/models.py:1107
+#: tracker/models.py:1108
 msgid ""
 "Payment amount; Positive value means transaction to the user, negative is a "
 "transaction from the user"
 msgstr ""
 
-#: tracker/models.py:1108
+#: tracker/models.py:1109
 msgid "Description of this transaction"
 msgstr ""
 
-#: tracker/models.py:1109
+#: tracker/models.py:1110
 #: tracker/templates/feeds/transaction_description.html:6
 #: tracker/templates/tracker/cluster_detail.html:19
 #: tracker/templates/tracker/ticket_common_detail.html:64
@@ -1028,160 +1048,160 @@ msgstr ""
 msgid "Accounting info"
 msgstr ""
 
-#: tracker/models.py:1110
+#: tracker/models.py:1111
 msgid "related tickets"
 msgstr ""
 
-#: tracker/models.py:1110
+#: tracker/models.py:1111
 msgid "Tickets this trackaction is related to"
 msgstr ""
 
-#: tracker/models.py:1146
+#: tracker/models.py:1147
 msgid "Transaction"
 msgstr ""
 
-#: tracker/models.py:1147 tracker/templates/tracker/cluster_detail.html:18
+#: tracker/models.py:1148 tracker/templates/tracker/cluster_detail.html:18
 #: tracker/templates/tracker/ticket_detail.html:30
 #: tracker/templates/tracker/user_detail.html:19
 msgid "Transactions"
 msgstr ""
 
-#: tracker/models.py:1171
+#: tracker/models.py:1172
 msgid "comment"
 msgstr ""
 
-#: tracker/models.py:1275
+#: tracker/models.py:1276
 #, python-format
 msgid ""
 "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">"
 "%(ticket)s</a> by user <tt>%(user)s</tt>"
 msgstr ""
 
-#: tracker/models.py:1304
+#: tracker/models.py:1305
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</"
 "a> in topic <tt>%(topic)s</tt>."
 msgstr ""
 
-#: tracker/models.py:1319
+#: tracker/models.py:1320
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href="
 "\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1338
+#: tracker/models.py:1339
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s"
 "\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1341
+#: tracker/models.py:1342
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">"
 "%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1344
+#: tracker/models.py:1345
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> changed link to report of ticket <a href="
 "\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1347
+#: tracker/models.py:1348
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> changed requested deposit of ticket <a href="
 "\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1356
+#: tracker/models.py:1357
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a "
 "href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1368
+#: tracker/models.py:1369
 #, python-format
 msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
 msgstr ""
 
-#: tracker/models.py:1384
+#: tracker/models.py:1385
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href="
 "\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1396
+#: tracker/models.py:1397
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href="
 "\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr ""
 
-#: tracker/models.py:1424
+#: tracker/models.py:1425
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to "
 "ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1442
+#: tracker/models.py:1443
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> changed planned expediture <tt>%(expeditures)s</tt> "
 "of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1455
+#: tracker/models.py:1456
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> "
 "from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1473
+#: tracker/models.py:1474
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to "
 "ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1491
+#: tracker/models.py:1492
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> changed real expeditures <tt>%(expeditures)s</tt> of "
 "ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1504
+#: tracker/models.py:1505
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> "
 "from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1517
+#: tracker/models.py:1518
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">"
 "%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1520
+#: tracker/models.py:1521
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">"
 "%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1532
+#: tracker/models.py:1533
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">"
@@ -1837,7 +1857,6 @@ msgid "Expenses"
 msgstr ""
 
 #: tracker/templates/tracker/import.html:53
-#: tracker/templates/tracker/ticket_common_detail.html:36
 msgid "Media"
 msgstr ""
 
@@ -2035,7 +2054,7 @@ msgid "Supervisor notes"
 msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:36
-msgid "old"
+msgid "Media (old)"
 msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:37
@@ -2178,15 +2197,23 @@ msgstr ""
 msgid "Load more"
 msgstr ""
 
-#: tracker/templates/tracker/ticket_media.html:53
+#: tracker/templates/tracker/ticket_media.html:49
+msgid "Loading..."
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:54
 msgid "Choose selected photos"
 msgstr ""
 
-#: tracker/templates/tracker/ticket_media.html:56
+#: tracker/templates/tracker/ticket_media.html:57
 msgid "Remove existing media"
 msgstr ""
 
-#: tracker/templates/tracker/ticket_media.html:64
+#: tracker/templates/tracker/ticket_media.html:58
+msgid "It can take up to five minutes for the images you added to show here. "
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:66
 msgid "Delete selected photos"
 msgstr ""
 
