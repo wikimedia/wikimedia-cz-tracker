@@ -1093,9 +1093,9 @@ class AdminUserListView(ListView):
     template_name = 'tracker/admin_user_list.html'
 
     def get_context_data(self, **kwargs):
-            context = super(AdminUserListView, self).get_context_data(**kwargs)
-            context['is_tracker_supervisor'] = self.request.user.has_perm('tracker.supervisor')
-            return context
+        context = super(AdminUserListView, self).get_context_data(**kwargs)
+        context['is_tracker_supervisor'] = self.request.user.has_perm('tracker.supervisor')
+        return context
 
 
 admin_user_list = login_required(AdminUserListView.as_view())
@@ -1688,18 +1688,18 @@ def importcsv(request):
                 response.writerow([_('Full name'), _('Short name'), _('Slug'), _('Description')])
                 return response
             elif giveexample == 'expense':
-                    fields = ['ticket_id', 'description', 'amount', 'wage']
-                    if request.user.is_staff:
-                        fields.append('accounting_info')
-                        fields.append('paid')
-                    response = HttpResponseCsv(fields)
-                    response['Content-Disposition'] = 'attachment; filename="example-expense.csv"'
-                    row = [_('Ticket ID'), _('Description'), u'100', u'False']
-                    if request.user.is_staff:
-                        row.append(_('Accounting info'))
-                        row.append(u'False')
-                    response.writerow(row)
-                    return response
+                fields = ['ticket_id', 'description', 'amount', 'wage']
+                if request.user.is_staff:
+                    fields.append('accounting_info')
+                    fields.append('paid')
+                response = HttpResponseCsv(fields)
+                response['Content-Disposition'] = 'attachment; filename="example-expense.csv"'
+                row = [_('Ticket ID'), _('Description'), u'100', u'False']
+                if request.user.is_staff:
+                    row.append(_('Accounting info'))
+                    row.append(u'False')
+                response.writerow(row)
+                return response
             elif giveexample == 'preexpense':
                 response = HttpResponseCsv(['ticket_id', 'description', 'amount', 'wage'])
                 response['Content-Disposition'] = 'attachment; filename="example-preexpense.csv"'

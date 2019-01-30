@@ -862,7 +862,7 @@ class MediaInfo(Model):
             'tiket': media.ticket.id,
         }
         if media.ticket.subtopic:
-                parameters['subtéma'] = media.ticket.subtopic
+            parameters['subtéma'] = media.ticket.subtopic
 
         template = u'{{%s' % settings.MEDIAINFO_MEDIAWIKI_TEMPLATE
         for param in parameters:
@@ -931,7 +931,7 @@ class MediaInfo(Model):
 @receiver(post_delete, sender=MediaInfo)
 def delete_mediainfo(sender, instance, **kwargs):
     if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE:
-            MediaInfo.remove_from_mediawiki(instance.name, get_request().user.id)
+        MediaInfo.remove_from_mediawiki(instance.name, get_request().user.id)
 
 
 class Expediture(Model):
