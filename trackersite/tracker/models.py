@@ -507,7 +507,8 @@ class Ticket(CachedModel, ModelDiffMixin):
                 "format": "json",
                 "prop": "imageinfo|categories|globalusage",
                 "titles": media.name,
-                "iiprop": "dimensions"
+                "iiprop": "dimensions",
+                "clprop": "hidden"
             }).json()["query"]["pages"]
             data = data[data.keys()[0]]
             media.width = data["imageinfo"][0]["width"]
@@ -515,7 +516,8 @@ class Ticket(CachedModel, ModelDiffMixin):
 
             media.categories = []
             for category in data["categories"]:
-                media.categories.append(category["title"])
+                if "hidden" not in category:
+                    media.categories.append(category["title"])
 
             media.usages = []
             for usage in data["globalusage"]:
