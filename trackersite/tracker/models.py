@@ -863,8 +863,6 @@ class MediaInfo(Model):
             'podtéma': media.ticket.subtopic,
             'tiket': media.ticket.id,
         }
-        if media.ticket.subtopic:
-            parameters['subtéma'] = media.ticket.subtopic
 
         template = u'{{%s' % settings.MEDIAINFO_MEDIAWIKI_TEMPLATE
         for param in parameters:
