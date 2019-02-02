@@ -1303,7 +1303,7 @@ def notify_ticket(sender, instance, created, raw, **kwargs):
     if created:
         text = _('User <tt>%(user)s</tt> created ticket <a href="%(ticket_url)s">%(ticket)s</a> in topic <tt>%(topic)s</tt>.')
         text_data = {
-            'user': instance.requested_by_html(),
+            'user': get_user(),
             'ticket_url': settings.BASE_URL + instance.get_absolute_url(),
             'ticket': instance,
             'topic': instance.topic
