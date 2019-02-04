@@ -33,7 +33,7 @@
 {% if ticket.supervisor_notes %}<h2>{% trans "Supervisor notes" %}</h2><div>{{ ticket.supervisor_notes|urlize|linebreaks }}</div>{% endif %}
 
 {% if ticket.media_old_count.objects > 0 %}
-<h2>{% trans "Media (old)" %})</h2>
+<h2>{% trans "Media (old)" %}</h2>
 <p>{% trans "Number of objects" %}: {{ ticket.media_old_count.objects }}
 {% if ticket.media_old_count.media %}<br />{% trans "Number of media files" %}: {{ ticket.media_old_count.media }}</p>{% endif %}
 <ul id="media_list">
