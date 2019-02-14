@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-02-04 08:15:20+0000\n"
+"PO-Revision-Date: 2019-02-14 08:31:47+0000\n"
 "X-POT-Import-Date: 2019-02-03 15:52:30+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -231,11 +231,10 @@ msgid "Preview your comment"
 msgstr "Pré-visualizar seu comentário"
 
 #: templates/comments/preview.html:13
-#, invalid-plural
 msgid "Please correct the error below"
 msgid_plural "Please correct the errors below"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Por favor, corrija o erro abaixo"
+msgstr[1] "Por favor corrija os erros abaixo"
 
 #: tracker/admin.py:30 tracker/admin.py:36
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
@@ -485,7 +484,7 @@ msgstr ""
 
 #: tracker/models.py:238
 msgid "report mandatory"
-msgstr ""
+msgstr "relatório obrigatório"
 
 #: tracker/models.py:238 tracker/templates/tracker/export.html:73
 #: tracker/templates/tracker/export.html:75
@@ -744,13 +743,13 @@ msgstr ""
 #: tracker/templates/tracker/topic_finance.html:11
 #: tracker/templates/tracker/topic_table.html:5
 msgid "Topic"
-msgstr ""
+msgstr "Tópico"
 
 #: tracker/models.py:748 tracker/templates/tracker/export.html:61
 #: tracker/templates/tracker/export.html:212
 #: tracker/templates/tracker/import.html:26
 msgid "Topics"
-msgstr ""
+msgstr "Tópicos"
 
 #: tracker/models.py:757
 msgid "full name"
@@ -795,7 +794,7 @@ msgstr "Subsídios"
 #: tracker/models.py:812 tracker/models.py:827 tracker/models.py:939
 #: tracker/models.py:961 tracker/views.py:511
 msgid "ticket"
-msgstr ""
+msgstr "pedido"
 
 #: tracker/models.py:812 tracker/models.py:827
 msgid "Ticket this media info belongs to"
@@ -803,7 +802,7 @@ msgstr ""
 
 #: tracker/models.py:813
 msgid "Item description to show"
-msgstr ""
+msgstr "Descrição do item a mostrar"
 
 #: tracker/models.py:814 tracker/models.py:831
 msgid "URL"
@@ -852,11 +851,11 @@ msgstr ""
 
 #: tracker/models.py:940
 msgid "Description of this expediture"
-msgstr ""
+msgstr "Descrição desta despesa"
 
 #: tracker/models.py:941 tracker/models.py:963 tracker/models.py:1105
 msgid "amount"
-msgstr ""
+msgstr "montante"
 
 #: tracker/models.py:941
 msgid "Expediture amount in"
@@ -921,7 +920,7 @@ msgstr "Acks ignorados"
 
 #: tracker/models.py:1025
 msgid "Muted notifications"
-msgstr ""
+msgstr "Notificações ignoradas"
 
 #: tracker/models.py:1026
 msgid "Email language"
@@ -929,7 +928,7 @@ msgstr "Idioma do e-mail"
 
 #: tracker/models.py:1027
 msgid "Display items"
-msgstr ""
+msgstr "Exibir itens"
 
 #: tracker/models.py:1027
 msgid "How many items should we display in tables at once"
@@ -949,11 +948,11 @@ msgstr "nome de usuário no mediawiki"
 
 #: tracker/models.py:1053 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
-msgstr ""
+msgstr "Conta bancária"
 
 #: tracker/models.py:1053
 msgid "Bank account information for money transfers"
-msgstr ""
+msgstr "Informações da conta bancária para transferências de dinheiro"
 
 #: tracker/models.py:1054
 msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
@@ -969,11 +968,11 @@ msgstr ""
 
 #: tracker/models.py:1083
 msgid "Tracker profile"
-msgstr ""
+msgstr "Perfil do rastreador"
 
 #: tracker/models.py:1084
 msgid "Tracker profiles"
-msgstr ""
+msgstr "Perfis de rastreador"
 
 #: tracker/models.py:1102
 msgid "date"
@@ -981,15 +980,15 @@ msgstr "data"
 
 #: tracker/models.py:1103 tracker/models.py:1122
 msgid "other party"
-msgstr ""
+msgstr "outra parte"
 
 #: tracker/models.py:1103
 msgid "The other party; user who sent or received the payment"
-msgstr ""
+msgstr "A outra festa; usuário que enviou ou recebeu o pagamento"
 
 #: tracker/models.py:1104
 msgid "other party (text)"
-msgstr ""
+msgstr "outra parte (texto)"
 
 #: tracker/models.py:1104
 msgid "The other party; this text is used when user is not selected"
@@ -1023,7 +1022,7 @@ msgstr ""
 
 #: tracker/models.py:1144
 msgid "Transaction"
-msgstr ""
+msgstr "Transação"
 
 #: tracker/models.py:1145 tracker/templates/tracker/cluster_detail.html:18
 #: tracker/templates/tracker/ticket_detail.html:30
@@ -1033,7 +1032,7 @@ msgstr "Transações"
 
 #: tracker/models.py:1169
 msgid "comment"
-msgstr ""
+msgstr "comentário"
 
 #: tracker/models.py:1275
 #, python-format
@@ -1163,7 +1162,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1697
 #: tracker/views.py:1706 tracker/views.py:1716
 msgid "Ticket ID"
-msgstr ""
+msgstr "Identificador do pedido"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:13
 msgid "Approvals"
@@ -1197,7 +1196,7 @@ msgstr[1] ""
 
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
-msgstr ""
+msgstr "status"
 
 #: tracker/templates/feeds/transaction_description.html:2
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1236,7 +1235,7 @@ msgstr "Montante"
 #: tracker/views.py:1683 tracker/views.py:1688 tracker/views.py:1697
 #: tracker/views.py:1706
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: tracker/templates/notification/notification_html.html:4
 msgid "List of new tickets"
@@ -1446,7 +1445,7 @@ msgstr "Total"
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:28
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/ticket_table.html:23
@@ -1468,7 +1467,7 @@ msgstr ""
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:13
 #: tracker/templates/tracker/ticket_detail.html:50
 msgid "Documents"
-msgstr ""
+msgstr "Documentos"
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
 msgid "There aren't any documents here."
@@ -1595,7 +1594,7 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:216
 msgid "Supervisors"
-msgstr ""
+msgstr "Supervisores"
 
 #: tracker/templates/tracker/export.html:222
 msgid "Number of tickets"
@@ -1627,16 +1626,16 @@ msgstr "normal"
 
 #: tracker/templates/tracker/export.html:343
 msgid "staff"
-msgstr ""
+msgstr "equipe"
 
 #: tracker/templates/tracker/export.html:348
 msgid "superuser"
-msgstr ""
+msgstr "superusuário"
 
 #: tracker/templates/tracker/generic/create_ticket.html:4
 #: tracker/templates/tracker/generic/create_ticket.html:8
 msgid "Create ticket"
-msgstr ""
+msgstr "Criar pedido"
 
 #: tracker/templates/tracker/generic/create_ticket.html:13
 msgid "You'll be able to edit everything you've filled in even after submitting the form."
@@ -1647,7 +1646,7 @@ msgstr ""
 #: tracker/templates/tracker/index.html:3
 #: tracker/templates/tracker/index.html:15
 msgid "Ticket list"
-msgstr ""
+msgstr "Lista de pedido"
 
 #: tracker/templates/tracker/generic/ticket_list.html:12
 #: tracker/templates/tracker/index.html:12
@@ -1663,7 +1662,7 @@ msgstr "tópicos"
 #: tracker/templates/tracker/index.html:12
 #: tracker/templates/tracker/user_detail.html:8
 msgid "users"
-msgstr ""
+msgstr "usuários"
 
 #: tracker/templates/tracker/generic/ticket_list.html:13
 #: tracker/templates/tracker/generic/ticket_list.html:32
@@ -1687,7 +1686,7 @@ msgstr "Importar"
 #: tracker/templates/tracker/generic/topic_list.html:4
 #: tracker/templates/tracker/generic/topic_list.html:8
 msgid "Topic list"
-msgstr ""
+msgstr "Lista de tópicos"
 
 #: tracker/templates/tracker/generic/topic_list.html:13
 #: tracker/templates/tracker/grant_list.html:12
@@ -1704,7 +1703,7 @@ msgstr ""
 
 #: tracker/templates/tracker/grant_detail.html:9
 msgid "grants"
-msgstr ""
+msgstr "subsídios"
 
 #: tracker/templates/tracker/grant_detail.html:11
 #: tracker/templates/tracker/ticket_detail.html:21
@@ -1735,7 +1734,7 @@ msgstr ""
 #: tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
 msgid "no payment required"
-msgstr ""
+msgstr "não é necessário pagamento"
 
 #: tracker/templates/tracker/grant_table.html:49
 #: tracker/templates/tracker/topic_table.html:53
@@ -1968,7 +1967,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:36
 msgid "Media (old)"
-msgstr ""
+msgstr "Media (velha)"
 
 #: tracker/templates/tracker/ticket_common_detail.html:37
 msgid "Number of objects"
@@ -2276,7 +2275,7 @@ msgstr ""
 
 #: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "documents"
-msgstr ""
+msgstr "documentos"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload"
@@ -2308,7 +2307,7 @@ msgstr ""
 
 #: tracker/templates/tracker/user_deactivate.html:20
 msgid "Username:"
-msgstr ""
+msgstr "Nome de usuário:"
 
 #: tracker/templates/tracker/user_deactivate.html:21
 msgid "Email:"
@@ -2316,7 +2315,7 @@ msgstr "E-mail:"
 
 #: tracker/templates/tracker/user_deactivate.html:32
 msgid "Deactivate my account"
-msgstr ""
+msgstr "Desativar minha conta"
 
 #: tracker/templates/tracker/user_deactivate_email.html:3
 msgid "Tracker account deactivated"
@@ -2336,15 +2335,15 @@ msgstr "A desativação não pode ser desfeita sem a intervenção de um adminis
 
 #: tracker/templates/tracker/user_deactivate_email.html:7
 msgid "You can contact an admin by replying to this email."
-msgstr ""
+msgstr "Você pode entrar em contato com um administrador respondendo a este e-mail."
 
 #: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
-msgstr ""
+msgstr "Rastreador"
 
 #: tracker/templates/tracker/user_detail.html:13
 msgid "Total for this user"
-msgstr ""
+msgstr "Total para este usuário"
 
 #: tracker/templates/tracker/user_detail.html:32
 msgid "Accepted expeditures total"
@@ -2358,7 +2357,7 @@ msgstr "Meus detalhes"
 #: tracker/templates/tracker/user_details_change.html:19
 #: users/templates/users/register.html:16
 msgid "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them."
-msgstr ""
+msgstr "Ao usar o Rastreador, você concorda com o processamento de dados. Usamos seus dados para exibir todos os pagamentos corretamente e para nossa contabilidade. Você deve nos dar seu endereço de e-mail; você pode ser solicitado a nos fornecer mais detalhes. Os dados não são fornecidos a terceiros e somente funcionários autorizados podem acessá-los."
 
 #: tracker/templates/tracker/user_list.html:22
 msgid "Tickets not assigned to any tracker user"
@@ -2371,7 +2370,7 @@ msgstr ""
 #: tracker/templates/tracker/watch.html:4
 #: tracker/templates/tracker/watch.html:11
 msgid "Watch"
-msgstr ""
+msgstr "Vigiar"
 
 #: tracker/templates/tracker/watch.html:19
 msgid "All"
@@ -2421,15 +2420,15 @@ msgstr ""
 
 #: tracker/views.py:450
 msgid "Account deactivation"
-msgstr ""
+msgstr "Desativação de conta"
 
 #: tracker/views.py:457
 msgid "Your account has been deactivated."
-msgstr ""
+msgstr "A sua conta foi desativada."
 
 #: tracker/views.py:460
 msgid "Password is incorrect."
-msgstr ""
+msgstr "A senha está incorreta."
 
 #: tracker/views.py:492
 #, python-format
@@ -2581,19 +2580,19 @@ msgstr "Senha antiga"
 
 #: users/templates/users/login.html:4
 msgid "Login"
-msgstr ""
+msgstr "Entrar"
 
 #: users/templates/users/login.html:7
 msgid "You need to log in to access the following page."
-msgstr ""
+msgstr "Você precisa entrar para acessar a seguinte página."
 
 #: users/templates/users/login.html:10
 msgid "Your username and password didn't match. Please try again."
-msgstr ""
+msgstr "Seu nome de usuário e senha não correspondem. Por favor, tente novamente."
 
 #: users/templates/users/login.html:26
 msgid "Don't have an acount?"
-msgstr ""
+msgstr "Não tem uma conta?"
 
 #: users/templates/users/login.html:26 users/templates/users/register.html:6
 msgid "Register"
@@ -2609,7 +2608,7 @@ msgstr "Redefinir senha"
 
 #: users/templates/users/login.html:28
 msgid "Login with Meta Wiki"
-msgstr ""
+msgstr "Entrar com Meta Wiki"
 
 #: users/templates/users/logout.html:4
 msgid "Logged out"
@@ -2660,7 +2659,7 @@ msgstr "Alterar minha senha"
 #: users/templates/users/password_change_done.html:4
 #: users/templates/users/password_change_done.html:7
 msgid "Password change successful"
-msgstr ""
+msgstr "Alteração de senha bem sucedida"
 
 #: users/templates/users/password_change_done.html:8
 msgid "Your password was changed."
@@ -2674,7 +2673,7 @@ msgstr ""
 
 #: users/templates/users/password_reset.html:10
 msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
-msgstr ""
+msgstr "Esqueceu sua senha? Digite seu endereço de e-mail abaixo e enviaremos instruções por e-mail para configurar um novo."
 
 #: users/templates/users/password_reset.html:14
 msgid "E-mail address:"
@@ -2682,12 +2681,12 @@ msgstr "Endereço de e-mail:"
 
 #: users/templates/users/password_reset.html:14
 msgid "Reset my password"
-msgstr ""
+msgstr "Redefinir minha senha"
 
 #: users/templates/users/password_reset_complete.html:4
 #: users/templates/users/password_reset_complete.html:8
 msgid "Password reset complete"
-msgstr ""
+msgstr "Redefinição de senha concluída"
 
 #: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
@@ -2699,7 +2698,7 @@ msgstr "Entrar"
 
 #: users/templates/users/password_reset_confirm.html:10
 msgid "Enter new password"
-msgstr ""
+msgstr "Inserir nova senha"
 
 #: users/templates/users/password_reset_confirm.html:16
 msgid "New password:"
@@ -2707,7 +2706,7 @@ msgstr "Nova senha:"
 
 #: users/templates/users/password_reset_confirm.html:18
 msgid "Confirm password:"
-msgstr ""
+msgstr "Confirmar senha:"
 
 #: users/templates/users/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
@@ -2715,12 +2714,12 @@ msgstr "Senha redefinida sem sucesso"
 
 #: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
-msgstr ""
+msgstr "O link de redefinição de senha era inválido, possivelmente porque já foi usado. Por favor, solicite uma nova redefinição de senha."
 
 #: users/templates/users/password_reset_done.html:4
 #: users/templates/users/password_reset_done.html:8
 msgid "Password reset successful"
-msgstr ""
+msgstr "A senha foi redefinida"
 
 #: users/templates/users/password_reset_done.html:10
 msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
@@ -2733,15 +2732,15 @@ msgstr ""
 
 #: users/templates/users/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr ""
+msgstr "Por favor, vá para a página seguinte e escolha uma nova senha:"
 
 #: users/templates/users/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
-msgstr ""
+msgstr "Seu nome de usuário, caso você tenha esquecido:"
 
 #: users/templates/users/password_reset_email.html:10
 msgid "Thanks for using our site!"
-msgstr ""
+msgstr "Obrigado por usar nosso site!"
 
 #: users/templates/users/password_reset_email.html:12
 #, python-format

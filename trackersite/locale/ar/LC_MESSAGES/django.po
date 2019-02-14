@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-02-04 08:15:19+0000\n"
+"PO-Revision-Date: 2019-02-14 08:31:46+0000\n"
 "X-POT-Import-Date: 2019-02-03 15:52:30+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -170,7 +170,7 @@ msgstr "تبديل التنقل"
 
 #: templates/base.html:68
 msgid "change password"
-msgstr "تغيير كلمة المرور"
+msgstr "تغيير كلمة السر"
 
 #: templates/base.html:69
 msgid "change my details"
@@ -2584,7 +2584,7 @@ msgstr "تم إرسال هذا الإشعار الإلزامي إلى جميع �
 
 #: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
-msgstr "كلمة المرور القديمة"
+msgstr "كلمة السر القديمة"
 
 #: users/templates/users/login.html:4
 msgid "Login"
@@ -2608,11 +2608,11 @@ msgstr "تسجيل"
 
 #: users/templates/users/login.html:27
 msgid "Forgot password?"
-msgstr "هل نسيت كلمة المرور؟"
+msgstr "هل نسيت كلمة السر؟"
 
 #: users/templates/users/login.html:27
 msgid "Reset password"
-msgstr "إعادة تعيين كلمة المرور"
+msgstr "إعادة تعيين كلمة السر"
 
 #: users/templates/users/login.html:28
 msgid "Login with Meta Wiki"
@@ -2647,7 +2647,7 @@ msgstr[5] ""
 
 #: users/templates/users/password_change.html:19
 msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
-msgstr "الرجاء إدخال كلمة المرور القديمة; من أجل الأمان، ثم أدخل كلمة المرور الجديدة مرتين حتى نتمكن من التحقق من أنك قمت بكتابتها بشكل صحيح."
+msgstr "الرجاء إدخال كلمة السر القديمة; من أجل الأمان، ثم أدخل كلمة السر الجديدة مرتين حتى نتمكن من التحقق من أنك قمت بكتابتها بشكل صحيح."
 
 #: users/templates/users/password_change.html:21
 #: users/templates/users/password_reset_confirm.html:12
@@ -2670,7 +2670,7 @@ msgstr "تغيير كلمة مروري"
 #: users/templates/users/password_change_done.html:4
 #: users/templates/users/password_change_done.html:7
 msgid "Password change successful"
-msgstr "تم تغيير كلمة المرور بنجاح"
+msgstr "تم تغيير كلمة السر بنجاح"
 
 #: users/templates/users/password_change_done.html:8
 msgid "Your password was changed."
@@ -2709,7 +2709,7 @@ msgstr "تسجيل الدخول"
 
 #: users/templates/users/password_reset_confirm.html:10
 msgid "Enter new password"
-msgstr "أدخل كلمة المرور الجديدة"
+msgstr "أدخل كلمة السر الجديدة"
 
 #: users/templates/users/password_reset_confirm.html:16
 msgid "New password:"
@@ -2717,11 +2717,11 @@ msgstr "كلمة السر الجديدة:"
 
 #: users/templates/users/password_reset_confirm.html:18
 msgid "Confirm password:"
-msgstr "تأكيد كلمة المرور:"
+msgstr "تأكيد كلمة السر:"
 
 #: users/templates/users/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
-msgstr "إعادة ضبط كلمة المرور غير ناجحة"
+msgstr "إعادة ضبط كلمة السر غير ناجحة"
 
 #: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
@@ -2730,7 +2730,7 @@ msgstr "كان رابط إعادة تعيين كلمة المرور غير صا�
 #: users/templates/users/password_reset_done.html:4
 #: users/templates/users/password_reset_done.html:8
 msgid "Password reset successful"
-msgstr "تمت إعادة ضبط كلمة المرور بنجاح"
+msgstr "تمت إعادة ضبط كلمة السر بنجاح"
 
 #: users/templates/users/password_reset_done.html:10
 msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."

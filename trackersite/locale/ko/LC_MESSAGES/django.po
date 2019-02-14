@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-02-04 08:15:20+0000\n"
+"PO-Revision-Date: 2019-02-14 08:31:47+0000\n"
 "X-POT-Import-Date: 2019-02-03 15:52:30+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -232,10 +232,9 @@ msgid "Preview your comment"
 msgstr ""
 
 #: templates/comments/preview.html:13
-#, invalid-plural
 msgid "Please correct the error below"
 msgid_plural "Please correct the errors below"
-msgstr[0] ""
+msgstr[0] "아래의 오류를 수정해 주십시오"
 
 #: tracker/admin.py:30 tracker/admin.py:36
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
@@ -2106,7 +2105,7 @@ msgstr "더 불러오기"
 
 #: tracker/templates/tracker/ticket_media.html:49
 msgid "Loading..."
-msgstr ""
+msgstr "불러오는 중..."
 
 #: tracker/templates/tracker/ticket_media.html:54
 msgid "Choose selected photos"
@@ -2118,7 +2117,7 @@ msgstr "기존 미디어 제거"
 
 #: tracker/templates/tracker/ticket_media.html:58
 msgid "It can take up to five minutes for the images you added to show here."
-msgstr ""
+msgstr "추가한 이미지가 여기에 표시되기까지 최대 5분이 소요될 수 있습니다."
 
 #: tracker/templates/tracker/ticket_media.html:66
 msgid "Delete selected photos"
