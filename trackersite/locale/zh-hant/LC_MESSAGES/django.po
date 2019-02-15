@@ -1189,7 +1189,7 @@ msgstr ""
 #, python-format
 msgid "There is 1 document uploaded."
 msgid_plural "There are %(counter)s documents uploaded."
-msgstr[0] "已上傳 1 個文件。"
+msgstr[0] "已上傳 %(counter)s 個文件。"
 
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
