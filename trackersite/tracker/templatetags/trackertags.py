@@ -21,6 +21,11 @@ def money(value):
 
 
 @register.filter
+def safe_html(value):
+    return mark_safe(bleach.clean(value, settings.ALLOWED_TAGS, settings.ALLOWED_ATTRIBUTES))
+
+
+@register.filter
 def tracker_rich_text(value):
     for match in re.findall(r"(#[0-9]+)[ ,.;)\]]", value):
         try:
@@ -41,4 +46,4 @@ def tracker_rich_text(value):
             user_detail_url = reverse('user_detail', kwargs={'username': users[0].username})
             value = value.replace('@%s' % user_name, '<a href="%s">@%s</a>' % (user_detail_url, user_name))
 
-    return mark_safe(bleach.clean(value, settings.ALLOWED_TAGS, settings.ALLOWED_ATTRIBUTES))
+    return mark_safe(value)
