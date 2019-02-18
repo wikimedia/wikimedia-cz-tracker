@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-02-14 08:31:46+0000\n"
+"PO-Revision-Date: 2019-02-18 07:20:19+0000\n"
 "X-POT-Import-Date: 2019-02-03 15:52:30+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1870,7 +1870,7 @@ msgstr "من أجل فصل حساب ويكيميديا الخاص بك; عليك
 
 #: tracker/templates/tracker/preferences.html:76
 msgid "set a password."
-msgstr "ضبط كلمة مرور."
+msgstr "ضبط كلمة سر."
 
 #: tracker/templates/tracker/preferences.html:84
 msgid "Account actions"
@@ -2725,7 +2725,7 @@ msgstr "إعادة ضبط كلمة السر غير ناجحة"
 
 #: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
-msgstr "كان رابط إعادة تعيين كلمة المرور غير صالح; ربما لأنه تم استخدامه بالفعل; يرجى طلب إعادة تعيين كلمة مرور جديدة."
+msgstr "كان رابط إعادة تعيين كلمة السر غير صالح; ربما لأنه تم استخدامه بالفعل; يرجى طلب إعادة تعيين كلمة سر جديدة."
 
 #: users/templates/users/password_reset_done.html:4
 #: users/templates/users/password_reset_done.html:8
@@ -2743,7 +2743,7 @@ msgstr "أنت تتلقى رسالة البريد الإلكتروني هذه ل
 
 #: users/templates/users/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr "يُرجَى الانتقال إلى الصفحة التالية واختيار كلمة مرور جديدة:"
+msgstr "يرجى الانتقال إلى الصفحة التالية واختيار كلمة سر جديدة:"
 
 #: users/templates/users/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
