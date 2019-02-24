@@ -9,7 +9,7 @@
 
 <p>{% if user.is_authenticated %}<a href="{% url "create_ticket" %}?subtopic={{subtopic.id}}">{% trans "add ticket" %}</a>{% else %}.{% endif %}</p>
 
-{% if subtopic.description %}<div>{{ subtopic.description|safe_html|urlize|tracker_rich_text|linebreaks }}</div>{% endif %}
+{% if subtopic.description %}<div>{{ subtopic.description|safe_html|tracker_rich_text|linebreaks }}</div>{% endif %}
 
 {% if subtopic.ticket_set.all|length > 0 %}
 <h2>{% trans "Tickets" %}</h2>

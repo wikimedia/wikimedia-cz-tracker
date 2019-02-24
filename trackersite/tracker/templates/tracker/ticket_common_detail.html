@@ -28,9 +28,9 @@
 {% endfor %}</ul></div>{% endif %}{% endwith %}{% endif %}
 
 {% if ticket.description %}<h2>{% trans "Description" %}</h2>
-<div>{{ ticket.description|safe_html|urlize|tracker_rich_text|linebreaks }}</div>{% endif %}
+<div>{{ ticket.description|safe_html|tracker_rich_text|linebreaks }}</div>{% endif %}
 
-{% if ticket.supervisor_notes %}<h2>{% trans "Supervisor notes" %}</h2><div>{{ ticket.supervisor_notes|safe_html|urlize|tracker_rich_text|linebreaks }}</div>{% endif %}
+{% if ticket.supervisor_notes %}<h2>{% trans "Supervisor notes" %}</h2><div>{{ ticket.supervisor_notes|safe_html|tracker_rich_text|linebreaks }}</div>{% endif %}
 
 {% if ticket.media_old_count.objects > 0 %}
 <h2>{% trans "Media (old)" %}</h2>

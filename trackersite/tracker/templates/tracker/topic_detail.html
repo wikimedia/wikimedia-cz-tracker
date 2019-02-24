@@ -14,7 +14,7 @@
 <p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt; <a href="{% url "topic_list" %}">{% trans "topics" %}</a> &gt; <a href="{{topic.grant.get_absolute_url}}">{{topic.grant.short_name}}</a> &gt;</p>
 <h1>{{ topic.name }}</h1>
 
-{% if topic.description %}<div>{{ topic.description|safe_html|urlize|tracker_rich_text|linebreaks }}</div>{% endif %}
+{% if topic.description %}<div>{{ topic.description|safe_html|tracker_rich_text|linebreaks }}</div>{% endif %}
 
 {% if topic.open_for_tickets %}<p>{% trans "Topic is open for new tickets" %}{% if user.is_authenticated %}: <a href="{% url "create_ticket" %}?topic={{topic.id}}">{% trans "add ticket" %}</a>{% else %}.{% endif %}</p>{% endif %}
 

@@ -46,4 +46,8 @@ def tracker_rich_text(value):
             user_detail_url = reverse('user_detail', kwargs={'username': users[0].username})
             value = value.replace('@%s' % user_name, '<a href="%s">@%s</a>' % (user_detail_url, user_name))
 
+    links = re.findall(r'[^\"](https?://[a-zA-Z.0-9/%:_]+)', value)
+    for link in links:
+        value = value.replace(link, '<a href="%s">%s</a>' % (link, link))
+
     return mark_safe(value)
