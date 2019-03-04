@@ -814,7 +814,7 @@ def document_view_required(access, ticket_id_field='pk', document_name_field=Non
                 raise PermissionDenied(_("You cannot edit this ticket documents, as it's no longer editable"))
 
             if document_name_field:
-                uploader = ticket.document_set.get(filename=kwargs[document_name_field]).uploader
+                uploader = get_object_or_404(ticket.document_set, filename=kwargs[document_name_field]).uploader
             else:
                 uploader = None
             if (access == 'read' and (ticket.can_see_all_documents(request.user) or uploader == request.user)) or (access == 'write' and request.user.is_authenticated()):
@@ -894,7 +894,7 @@ def upload_ticket_doc(request, pk):
 @document_view_required(access='read', ticket_id_field='ticket_id', document_name_field='filename')
 def download_document(request, ticket_id, filename):
     ticket = get_object_or_404(Ticket, id=ticket_id)
-    doc = ticket.document_set.get(filename=filename)
+    doc = get_object_or_404(ticket.document_set, filename=filename)
     return sendfile(request, doc.payload.path, mimetype=doc.content_type)
 
 
