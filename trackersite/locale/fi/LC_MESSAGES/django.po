@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-02-14 08:31:46+0000\n"
+"PO-Revision-Date: 2019-03-07 15:30:55+0000\n"
 "X-POT-Import-Date: 2019-02-03 15:52:30+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -784,7 +784,7 @@ msgstr ""
 #: tracker/templates/tracker/topic_table.html:6
 #: tracker/templates/tracker/transaction_list.html:15
 msgid "Grant"
-msgstr ""
+msgstr "Myöntänyt"
 
 #: tracker/models.py:799 tracker/templates/tracker/export.html:141
 #: tracker/templates/tracker/import.html:34
