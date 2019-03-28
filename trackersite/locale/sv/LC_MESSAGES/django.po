@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-02-04 08:15:21+0000\n"
+"PO-Revision-Date: 2019-03-28 18:47:48+0000\n"
 "X-POT-Import-Date: 2019-02-03 15:52:30+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,7 +28,7 @@ msgstr ""
 
 #: api/serializers.py:123
 msgid "You can not add media to this ticket."
-msgstr ""
+msgstr "Du kan inte lägga till media i detta ärende."
 
 #: api/serializers.py:125
 msgid "You can not edit the media of this ticket."
@@ -84,7 +84,7 @@ msgstr "Danska"
 
 #: common_settings.py:89
 msgid "Finnish"
-msgstr ""
+msgstr "Finska"
 
 #: common_settings.py:90
 msgid "Korean"
@@ -109,11 +109,11 @@ msgstr "Kommentar"
 
 #: socialauth/pipeline.py:15
 msgid "Successfully linked your wikimedia account!"
-msgstr ""
+msgstr "Du har länkat till Wikimedia-konto!"
 
 #: socialauth/pipeline.py:21
 msgid "Your wikimedia account is no longer linked."
-msgstr ""
+msgstr "Ditt Wikimedia-konto är inte längre länkat."
 
 #: templates/403.html:3
 msgid "403 Forbidden"
@@ -138,7 +138,7 @@ msgstr "Hittades inte"
 #: templates/404.html:10
 #, python-format
 msgid "The requested URL %(request_path)s was not found on this server."
-msgstr ""
+msgstr "Den begärda webbadressen %(request_path)s hittades inte på denna server."
 
 #: templates/500.html:3 templates/500.html.py:7
 msgid "Internal Error"
@@ -146,11 +146,11 @@ msgstr "Internt fel"
 
 #: templates/500.html:10
 msgid "There was an error processing you request. Sorry about that."
-msgstr ""
+msgstr "Ett fel uppstod när din begäran behandlades. Beklagar det."
 
 #: templates/admin/base_site.html:4
 msgid "Tracker admin"
-msgstr ""
+msgstr "Tracker-administratör"
 
 #: templates/admin/base_site.html:7
 msgid "Tracker site administration"
@@ -220,7 +220,7 @@ msgstr "Byt språk"
 
 #: templates/comments/form.html:17 templates/comments/preview.html:31
 msgid "Post"
-msgstr ""
+msgstr "Skicka"
 
 #: templates/comments/form.html:18 templates/comments/preview.html:32
 msgid "Preview"
@@ -228,14 +228,13 @@ msgstr "Förhandsvisa"
 
 #: templates/comments/preview.html:4 templates/comments/preview.html.py:15
 msgid "Preview your comment"
-msgstr ""
+msgstr "Förhandsvisa din kommentar"
 
 #: templates/comments/preview.html:13
-#, invalid-plural
 msgid "Please correct the error below"
 msgid_plural "Please correct the errors below"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Var god korrigera felet nedan"
+msgstr[1] "Var god korrigera felen nedan"
 
 #: tracker/admin.py:30 tracker/admin.py:36
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
@@ -359,7 +358,7 @@ msgstr ""
 
 #: tracker/models.py:61
 msgid "New ticket was created"
-msgstr ""
+msgstr "Nytt ärende skapades"
 
 #: tracker/models.py:62
 msgid "Ticket was deleted"
@@ -399,7 +398,7 @@ msgstr ""
 
 #: tracker/models.py:71
 msgid "Media changed"
-msgstr ""
+msgstr "Media ändrades"
 
 #: tracker/models.py:130
 msgid "unknown"
@@ -419,7 +418,7 @@ msgstr "uppdaterad"
 
 #: tracker/models.py:230
 msgid "media updated"
-msgstr ""
+msgstr "media uppdaterades"
 
 #: tracker/models.py:230
 msgid "Date when cached information about media were last updated. Used in \"show media\" view."
@@ -431,7 +430,7 @@ msgstr "händelsedatum"
 
 #: tracker/models.py:231
 msgid "Date of the event this ticket is about"
-msgstr ""
+msgstr "Händelsens datum som detta ärende handlar om"
 
 #: tracker/models.py:232 tracker/models.py:371
 #: tracker/templates/feeds/ticket_description.html:3
@@ -440,7 +439,7 @@ msgstr "begärd av"
 
 #: tracker/models.py:232
 msgid "User who created/requested for this ticket"
-msgstr ""
+msgstr "Användare som skapades/begärde detta ärende"
 
 #: tracker/models.py:233
 msgid "requested by (text)"
@@ -495,7 +494,7 @@ msgstr ""
 
 #: tracker/models.py:239
 msgid "report url"
-msgstr ""
+msgstr "rapportera webbadress"
 
 #: tracker/models.py:239
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
@@ -503,7 +502,7 @@ msgstr ""
 
 #: tracker/models.py:240
 msgid "event url"
-msgstr ""
+msgstr "händelsewebbadress"
 
 #: tracker/models.py:240
 msgid "Link to a public page describing the event, if it exist"
@@ -969,7 +968,7 @@ msgstr ""
 
 #: tracker/models.py:1083
 msgid "Tracker profile"
-msgstr ""
+msgstr "Tracker-profil"
 
 #: tracker/models.py:1084
 msgid "Tracker profiles"
@@ -1276,7 +1275,7 @@ msgstr ""
 
 #: tracker/templates/notification/notification_html.html:86
 msgid "Tracker notifications"
-msgstr ""
+msgstr "Tracker-aviseringar"
 
 #: tracker/templates/notification/notification_subject.txt:1
 msgid "List of changes of watched tickets"
@@ -1311,11 +1310,11 @@ msgstr "Användarlista"
 #: tracker/templates/tracker/admin_index_override.html:40
 #: tracker/templates/tracker/admin_user_list.html:16
 msgid "Tracker users"
-msgstr ""
+msgstr "Tracker-användare"
 
 #: tracker/templates/tracker/admin_index_override.html:45
 msgid "You don't have permission to edit anything."
-msgstr ""
+msgstr "Du har inte behörighet att redigera någonting."
 
 #: tracker/templates/tracker/admin_user_list.html:8
 #: tracker/templates/tracker/export.html:67
@@ -1409,7 +1408,7 @@ msgstr ""
 #: tracker/templates/tracker/connect_account.html:9
 #: tracker/templates/tracker/preferences.html:81
 msgid "Link Wikimedia account"
-msgstr ""
+msgstr "Länka Wikimedia-konto"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:4
 #: tracker/templates/tracker/dumpaccounts/index.html:7
@@ -1749,7 +1748,7 @@ msgstr ""
 
 #: tracker/templates/tracker/import.html:14
 msgid "What kind of objects are you importing?"
-msgstr ""
+msgstr "Vilka slags objekt importerar du?"
 
 #: tracker/templates/tracker/import.html:19
 #: tracker/templates/tracker/import.html:26
@@ -2107,7 +2106,7 @@ msgstr "Läs in mer"
 
 #: tracker/templates/tracker/ticket_media.html:49
 msgid "Loading..."
-msgstr ""
+msgstr "Läser in..."
 
 #: tracker/templates/tracker/ticket_media.html:54
 msgid "Choose selected photos"
@@ -2123,7 +2122,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:66
 msgid "Delete selected photos"
-msgstr ""
+msgstr "Radera markerade foton"
 
 #: tracker/templates/tracker/ticket_show_media.html:9
 msgid "List of linked media"
@@ -2139,7 +2138,7 @@ msgstr "uppdatera"
 
 #: tracker/templates/tracker/ticket_show_media.html:11
 msgid "Page will be updated within 24 hours."
-msgstr ""
+msgstr "Sidan kommer att uppdateras inom 24 timmar."
 
 #: tracker/templates/tracker/ticket_show_media.html:15
 msgid "File name"
@@ -2163,11 +2162,11 @@ msgstr "Okänd"
 
 #: tracker/templates/tracker/ticket_show_media.html:49
 msgid "Number of usages"
-msgstr ""
+msgstr "Antal användningar"
 
 #: tracker/templates/tracker/ticket_show_media.html:53
 msgid "Number of Wikidata items"
-msgstr ""
+msgstr "Antal Wikimediaobjekt"
 
 #: tracker/templates/tracker/ticket_table.html:18
 #: tracker/templates/tracker/user_list.html:13
@@ -2304,7 +2303,7 @@ msgstr ""
 
 #: tracker/templates/tracker/user_deactivate.html:18
 msgid "The following account will be deactivated:"
-msgstr ""
+msgstr "Följande konto kommer att inaktiveras:"
 
 #: tracker/templates/tracker/user_deactivate.html:20
 msgid "Username:"
@@ -2320,11 +2319,11 @@ msgstr "Inaktivera mitt konto"
 
 #: tracker/templates/tracker/user_deactivate_email.html:3
 msgid "Tracker account deactivated"
-msgstr ""
+msgstr "Tracker-kontot har inaktiverats"
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "Your tracker account with username"
-msgstr ""
+msgstr "Ditt tracker-konto med användarnamn"
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "has been deactivated."
@@ -2332,15 +2331,15 @@ msgstr "har inaktiverats."
 
 #: tracker/templates/tracker/user_deactivate_email.html:6
 msgid "Deactivation cannot be undone without the intervention of an admin."
-msgstr ""
+msgstr "En inaktivering kan inte ångras utan att en administratör ingriper."
 
 #: tracker/templates/tracker/user_deactivate_email.html:7
 msgid "You can contact an admin by replying to this email."
-msgstr ""
+msgstr "Du kan kontakta en administratör genom att svara på detta e-postmeddelande."
 
 #: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
-msgstr ""
+msgstr "Tracker"
 
 #: tracker/templates/tracker/user_detail.html:13
 msgid "Total for this user"
@@ -2413,11 +2412,11 @@ msgstr ""
 
 #: tracker/views.py:387
 msgid "We've updated your preferences"
-msgstr ""
+msgstr "Vi har uppdaterat dina inställningar"
 
 #: tracker/views.py:435
 msgid "Please enter your password to confirm the deactivation of your account."
-msgstr ""
+msgstr "Var god ange ditt lösenord för att bekräfta att ditt konto ska inaktiveras."
 
 #: tracker/views.py:450
 msgid "Account deactivation"
@@ -2425,7 +2424,7 @@ msgstr "Inaktivering av konto"
 
 #: tracker/views.py:457
 msgid "Your account has been deactivated."
-msgstr ""
+msgstr "Ditt konto har inaktiverats."
 
 #: tracker/views.py:460
 msgid "Password is incorrect."
@@ -2496,7 +2495,7 @@ msgstr "Filen %(filename)s sparades."
 
 #: tracker/views.py:1065
 msgid "Your details have been saved."
-msgstr ""
+msgstr "Dina detaljer har sparats."
 
 #: tracker/views.py:1511
 msgid "You must fill the form validly"
@@ -2585,7 +2584,7 @@ msgstr "Logga in"
 
 #: users/templates/users/login.html:7
 msgid "You need to log in to access the following page."
-msgstr ""
+msgstr "Du måste logga in för att komma åt följande sida."
 
 #: users/templates/users/login.html:10
 msgid "Your username and password didn't match. Please try again."
@@ -2597,7 +2596,7 @@ msgstr "Har du inget konto?"
 
 #: users/templates/users/login.html:26 users/templates/users/register.html:6
 msgid "Register"
-msgstr ""
+msgstr "Registrera"
 
 #: users/templates/users/login.html:27
 msgid "Forgot password?"
@@ -2629,20 +2628,19 @@ msgid "Password change"
 msgstr "Ändring av lösenord"
 
 #: users/templates/users/password_change.html:12
-#, invalid-plural
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Var god korrigera felet nedan."
+msgstr[1] "Var god korrigera felen nedan."
 
 #: users/templates/users/password_change.html:19
 msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
-msgstr ""
+msgstr "Var god ange ditt gamla lösenord, för säkerhets skull, och ange ditt nya lösenord två gånger så vi kan bekräfta att du skrev rätt."
 
 #: users/templates/users/password_change.html:21
 #: users/templates/users/password_reset_confirm.html:12
 msgid "Please enter your new password twice so we can verify you typed it in correctly."
-msgstr ""
+msgstr "Var god ange ditt nya lösenord två gånger så vi kan bekräfta att du skrev rätt."
 
 #: users/templates/users/password_change.html:33
 msgid "New password"
@@ -2674,7 +2672,7 @@ msgstr "Återställning av lösenord"
 
 #: users/templates/users/password_reset.html:10
 msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
-msgstr ""
+msgstr "Glömt ditt lösenord? Ange din e-postadress nedan så skickar vi instruktioner för att ordna ett nytt."
 
 #: users/templates/users/password_reset.html:14
 msgid "E-mail address:"
@@ -2691,7 +2689,7 @@ msgstr "Lösenordet återställdes"
 
 #: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
-msgstr ""
+msgstr "Ditt lösenord har ändrats. Du kan logga in nu."
 
 #: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
@@ -2711,11 +2709,11 @@ msgstr "Bekräfta lösenord:"
 
 #: users/templates/users/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
-msgstr ""
+msgstr "Lösenordet har återställts"
 
 #: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
-msgstr ""
+msgstr "Länken till lösenordsåterställningen är ogiltig, förmodligen eftersom den redan har använts. Var god begär en ny lösenordsåterställning."
 
 #: users/templates/users/password_reset_done.html:4
 #: users/templates/users/password_reset_done.html:8
@@ -2724,20 +2722,20 @@ msgstr "Lösenordet återställdes"
 
 #: users/templates/users/password_reset_done.html:10
 msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
-msgstr ""
+msgstr "Vi har skickat instruktioner till dig om hur du ordnar ditt lösenord på e-postadressen du angav. Du kommer få dem inom kort."
 
 #: users/templates/users/password_reset_email.html:2
 #, python-format
 msgid "You're receiving this e-mail because you requested a password reset for your user account at %(site_name)s."
-msgstr ""
+msgstr "Du får detta e-postmeddelande eftersom du begärde en lösenordsåterställningar för ditt användarkonto på %(site_name)s."
 
 #: users/templates/users/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr ""
+msgstr "Var god gå till följande sida och välj ett nytt lösenord:"
 
 #: users/templates/users/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
-msgstr ""
+msgstr "Ditt användarnamn, ifall du har glömt det:"
 
 #: users/templates/users/password_reset_email.html:10
 msgid "Thanks for using our site!"
@@ -2750,7 +2748,7 @@ msgstr "Gruppen %(site_name)s"
 
 #: users/views.py:21
 msgid "Will be used for password recovery and notifications, if you enable them."
-msgstr ""
+msgstr "Kommer att användas för lösenordsåterställningar och aviseringar, om du aktiverar dem."
 
 #: users/views.py:36
 #, python-format
