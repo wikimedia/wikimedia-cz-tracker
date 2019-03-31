@@ -1240,7 +1240,7 @@ def export(request):
             response = HttpResponseCsv(['id', 'created', 'updated', 'event_date', 'event_url', 'name', 'requested_by', 'grant', 'topic', 'subtopic', 'state', 'deposit', 'description', 'mandatory_report', 'accepted_expeditures', 'preexpeditures', 'expeditures'])
             response['Content-Disposition'] = 'attachment; filename="exported-tickets.csv"'
             for ticket in tickets:
-                response.writerow([ticket.id, ticket.created, ticket.updated, ticket.event_date, ticket.event_url, ticket.name, ticket.requested_by(), ticket.topic.grant.full_name, ticket.topic.name, str(ticket.subtopic), ticket.state_str(), ticket.deposit, ticket.description, ticket.mandatory_report, ticket.accepted_expeditures(), ticket.preexpeditures()['amount'], ticket.expeditures()['amount']])
+                response.writerow([ticket.id, ticket.created, ticket.updated, ticket.event_date, ticket.event_url, ticket.name, ticket.requested_by(), ticket.topic.grant.full_name, ticket.topic.name, unicode(ticket.subtopic), ticket.state_str(), ticket.deposit, ticket.description, ticket.mandatory_report, ticket.accepted_expeditures(), ticket.preexpeditures()['amount'], ticket.expeditures()['amount']])
             return response
         elif typ == 'grant':
             response = HttpResponseCsv(['full_name', 'short_name', 'slug', 'description'])
