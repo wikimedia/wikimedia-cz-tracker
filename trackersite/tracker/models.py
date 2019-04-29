@@ -983,7 +983,7 @@ class Document(Model):
         RegexValidator(r'^[-_\.A-Za-z0-9]+\.[A-Za-z0-9]+$', message=_(u'We need a sane file name, such as my-invoice123.jpg')),
     ])
     size = models.PositiveIntegerField()
-    content_type = models.CharField(max_length=64)
+    content_type = models.CharField(max_length=100)
     description = models.CharField(max_length=255, blank=True, help_text='Optional further description of the document')
     payload = models.FileField(upload_to='tickets/%Y/', storage=FileSystemStorage(location=settings.TRACKER_DOCS_ROOT))
     uploader = models.ForeignKey('auth.User', null=True)
