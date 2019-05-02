@@ -16,7 +16,7 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadReque
 from django.core.exceptions import PermissionDenied
 from django.utils.functional import curry
 from django.utils.translation import ugettext as _, ugettext_lazy
-from django.utils.html import strip_tags, escape
+from django.utils.html import strip_tags
 from django.http import JsonResponse
 from django.views.generic import ListView, DetailView, FormView, DeleteView
 from django.contrib.admin import widgets as adminwidgets
@@ -31,7 +31,6 @@ from request_provider.signals import get_request
 from social_django.models import UserSocialAuth
 import csv
 
-from tracker.templatetags.trackertags import money
 from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, MediaInfoOld, Expediture, Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher, Signature
 from tracker.models import ACK_TYPES, NOTIFICATION_TYPES
 from users.models import UserWrapper
@@ -49,29 +48,7 @@ def ticket_list(request, page):
 
 
 def tickets(request, lang):
-    tickets = []
-    for ticket in Ticket.objects.order_by('-id'):
-        subtopic = ticket.subtopic
-        if subtopic:
-            subtopic = '<a href="%s">%s</a>' % (ticket.subtopic.get_absolute_url(), ticket.subtopic)
-        else:
-            subtopic = ''
-        tickets.append([
-            '<a href="%s">%s</a>' % (ticket.get_absolute_url(), ticket.pk),
-            unicode(ticket.event_date),
-            '<a class="ticket-summary" href="%s">%s</a>' % (ticket.get_absolute_url(), escape(ticket.name)),
-            '<a href="%s">%s</a>' % (ticket.topic.grant.get_absolute_url(), ticket.topic.grant),
-            '<a href="%s">%s</a>' % (ticket.topic.get_absolute_url(), ticket.topic),
-            subtopic,
-            ticket.requested_by_html(),
-            money(ticket.preexpeditures()['amount'] or 0),
-            money(ticket.expeditures()['amount'] or 0),
-            money(ticket.accepted_expeditures()),
-            money(ticket.paid_expeditures()),
-            unicode(ticket.state_str()),
-            unicode(ticket.updated),
-        ])
-    return JsonResponse({"data": tickets})
+    return JsonResponse({"data": [ticket.get_cached_ticket() for ticket in Ticket.objects.order_by('-id')]})
 
 
 class CommentPostedCatcher(object):

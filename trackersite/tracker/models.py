@@ -30,6 +30,7 @@ from jsonfield import JSONField
 from socialauth.api import MediaWiki
 from background_task import background
 from background_task.models import Task
+from django.utils.formats import number_format
 
 from users.models import UserWrapper
 from django_comments.moderation import CommentModerator, moderator
@@ -139,6 +140,15 @@ def uber_ack(ack_type):
         'user_content': 'content',
         'user_docs': 'docs',
     }[ack_type]
+
+
+def money(value):
+    # TODO: Import this from tracker.templatetags.trackertags (Txxxxx)
+    if value == 0:
+        out = '0'
+    else:
+        out = number_format(value, 2)
+    return mark_safe(u'%s&nbsp;%s' % (out, settings.TRACKER_CURRENCY))
 
 
 class PercentageField(models.SmallIntegerField):
@@ -525,6 +535,28 @@ class Ticket(CachedModel, ModelDiffMixin):
             media.save(no_update=True)   # We don't need to schedule another updating
         ticket.media_updated = datetime.datetime.now(tz=utc)
         ticket.save()
+
+    def get_cached_ticket(self):
+        subtopic = self.subtopic
+        if subtopic:
+            subtopic = '<a href="%s">%s</a>' % (self.subtopic.get_absolute_url(), self.subtopic)
+        else:
+            subtopic = ''
+        return [
+            '<a href="%s">%s</a>' % (self.get_absolute_url(), self.pk),
+            unicode(self.event_date),
+            '<a class="ticket-summary" href="%s">%s</a>' % (self.get_absolute_url(), escape(self.name)),
+            '<a href="%s">%s</a>' % (self.topic.grant.get_absolute_url(), self.topic.grant),
+            '<a href="%s">%s</a>' % (self.topic.get_absolute_url(), self.topic),
+            subtopic,
+            self.requested_by_html(),
+            money(self.preexpeditures()['amount'] or 0),
+            money(self.expeditures()['amount'] or 0),
+            money(self.accepted_expeditures()),
+            money(self.paid_expeditures()),
+            unicode(self.state_str()),
+            unicode(self.updated),
+        ]
 
     def flush_cache(self):
         super(Ticket, self).flush_cache()
