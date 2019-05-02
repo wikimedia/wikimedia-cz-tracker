@@ -91,6 +91,18 @@ class SimpleTicketTest(TestCase):
         self.ticket1.save()
         self.assertEqual(self.ticket1.state_str(), 'historical')
 
+    def test_is_completed(self):
+        self.assertFalse(self.ticket1.is_completed)
+        self.ticket1.add_acks('archive')
+        self.assertTrue(self.ticket1.is_completed)
+        self.ticket1.ticketack_set.filter(ack_type='archive').delete()
+        self.assertFalse(self.ticket1.is_completed)
+
+        self.ticket1.add_acks('close')
+        self.assertTrue(self.ticket1.is_completed)
+        self.ticket1.ticketack_set.filter(ack_type='close').delete()
+        self.assertFalse(self.ticket1.is_completed)
+
 
 class OldRedirectTests(TestCase):
     def setUp(self):
@@ -966,16 +978,11 @@ class CacheTicketsTests(TestCase):
         self.ticket = Ticket.objects.create(name='ticket', topic=self.topic, requested_user=self.owner)
 
         # Run cache_tickets, to have script already run in tests; record if it fails
-        self.succeed = True
-        try:
-            call_command('cachetickets', *[], **{'base_path': '/tmp'})
-        except Exception:
-            self.succeed = False
-
-    def test_cachetickets_succeed(self):
-        self.assertTrue(self.succeed)
+        call_command('cachetickets', *[], **{'base_path': '/tmp'})
 
     def test_cachetickets_is_json(self):
+        for langcode, language in settings.LANGUAGES:
+            json.loads(open('/tmp/%s.json' % langcode).read())
         is_json = True
         try:
             for langcode, language in settings.LANGUAGES:

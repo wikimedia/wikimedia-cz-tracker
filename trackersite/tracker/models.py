@@ -259,6 +259,7 @@ class Ticket(CachedModel, ModelDiffMixin):
     imported = models.BooleanField(_('imported'), default=False, help_text=_('Was this ticket imported from older Tracker version?'))
     enable_comments = models.BooleanField(_('enable comments'), default=True, help_text=_('Can users comment on this ticket?'))
     car_travel = models.BooleanField(_('Did you travel by car?'), default=False, help_text=_('Do you request reimbursement of car-type travel expense?'))
+    is_completed = models.BooleanField(_('Is this ticket completed?'), default=False)
 
     @staticmethod
     def currency():
@@ -313,6 +314,9 @@ class Ticket(CachedModel, ModelDiffMixin):
 
         if not just_payment_status:
             self.update_payment_status(save_afterwards=False)
+
+        acks = self.ack_set()
+        self.is_completed = ('archive' in acks) or ('close' in acks)
 
         super(Ticket, self).save(*args, **kwargs)
 
@@ -1220,6 +1224,15 @@ class TicketAck(Model):
         else:
             return ''
 
+    def save(self, *args, **kwargs):
+        super(TicketAck, self).save(*args, **kwargs)
+
+        old_is_completed = self.ticket.is_completed
+        acks = self.ticket.ack_set()
+        self.ticket.is_completed = ('archive' in acks) or ('close' in acks)
+        if old_is_completed != self.ticket.is_completed:
+            self.ticket.save()
+
     @property
     def user_removable(self):
         """ If this ack can be removed by user (provided the ticket is not locked, user has rights, etc) """
@@ -1238,6 +1251,11 @@ def flush_ticket_after_ack_save(sender, instance, created, raw, **kwargs):
 @receiver(post_delete, sender=TicketAck)
 def flush_ticket_after_ack_delete(sender, instance, **kwargs):
     instance.ticket.update_payment_status()
+    old_is_completed = instance.ticket.is_completed
+    acks = instance.ticket.ack_set()
+    instance.ticket.is_completed = ('archive' in acks) or ('close' in acks)
+    if old_is_completed != instance.ticket.is_completed:
+        instance.ticket.save()
 
 
 class Notification(models.Model):
