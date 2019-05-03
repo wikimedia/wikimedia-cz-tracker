@@ -1734,6 +1734,7 @@ def show_media(request, ticket_id):
         'medias': ticket.mediainfo_set.all(),
         'usages_count': sum([len(m.usages) for m in ticket.mediainfo_set.all()]),
         'wikidata_usages_count': sum([len([u[2] for u in m.usages if u[2] == "www.wikidata.org"]) for m in ticket.mediainfo_set.all()]),
+        'photos_per_category': ticket.photos_per_category(),
         'MEDIAINFO_MEDIAWIKI_ARTICLE': settings.MEDIAINFO_MEDIAWIKI_ARTICLE,
     })
 

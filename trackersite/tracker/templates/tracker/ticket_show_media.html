@@ -55,4 +55,22 @@
 		</tr>
 	</tfoot>
 </table>
+
+<h2>{% trans 'Photos per category' %}</h2>
+<table>
+	<thead>
+		<tr>
+			<th>{% trans 'Category' %}</th>
+			<th>{% trans 'Number' %}</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for category, number in photos_per_category.items %}
+		<tr>
+			<td>{{ category }}</td>
+			<td>{{ number }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
 {% endblock %}

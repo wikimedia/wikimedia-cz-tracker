@@ -558,6 +558,16 @@ class Ticket(CachedModel, ModelDiffMixin):
             unicode(self.updated),
         ]
 
+    def photos_per_category(self):
+        photos_per_category = {}
+        for m in self.mediainfo_set.all():
+            for category in m.categories:
+                if category in photos_per_category:
+                    photos_per_category[category] += 1
+                else:
+                    photos_per_category[category] = 1
+        return photos_per_category
+
     def flush_cache(self):
         super(Ticket, self).flush_cache()
         self.topic.flush_cache()
