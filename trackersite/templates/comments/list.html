@@ -2,7 +2,7 @@
 <dl id="comments">
 	{% for comment in comment_list %}
 		<dt id="c{{ comment.id }}">
-			{{ comment.submit_date }} - {{ comment.name }} {% if comment.name != comment.user.username %}({{ comment.user }}){% endif %}
+			{{ comment.submit_date }} - {{ comment.name }} {% if comment.name != comment.user.username and comment.user %}({{ comment.user }}){% endif %}
 		</dt>
 		<dd>
 			<p>{{ comment.comment|safe_html|tracker_rich_text|linebreaks }}</p>
