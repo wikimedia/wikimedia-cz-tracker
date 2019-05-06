@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-02-04 08:15:21+0000\n"
+"PO-Revision-Date: 2019-05-06 15:28:12+0000\n"
 "X-POT-Import-Date: 2019-02-03 15:52:30+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,7 +84,7 @@ msgstr "дански"
 
 #: common_settings.py:89
 msgid "Finnish"
-msgstr ""
+msgstr "Фински"
 
 #: common_settings.py:90
 msgid "Korean"
@@ -109,19 +109,19 @@ msgstr "Коментар"
 
 #: socialauth/pipeline.py:15
 msgid "Successfully linked your wikimedia account!"
-msgstr ""
+msgstr "Успешно сте повезали Викимедијин налог!"
 
 #: socialauth/pipeline.py:21
 msgid "Your wikimedia account is no longer linked."
-msgstr ""
+msgstr "Ваш Викимедијин налог није више повезан."
 
 #: templates/403.html:3
 msgid "403 Forbidden"
-msgstr ""
+msgstr "403 Забрањено"
 
 #: templates/403.html:7
 msgid "Forbidden"
-msgstr ""
+msgstr "Забрањено"
 
 #: templates/403.html:12
 msgid "You don't have permissions to do this!"
@@ -129,11 +129,11 @@ msgstr "Немате дозволу да урадите ово!"
 
 #: templates/404.html:3
 msgid "404 Not Found"
-msgstr ""
+msgstr "404 Није пронађено"
 
 #: templates/404.html:7
 msgid "Not Found"
-msgstr ""
+msgstr "Није пронађено"
 
 #: templates/404.html:10
 #, python-format
@@ -142,7 +142,7 @@ msgstr ""
 
 #: templates/500.html:3 templates/500.html.py:7
 msgid "Internal Error"
-msgstr ""
+msgstr "Унутрашња грешка"
 
 #: templates/500.html:10
 msgid "There was an error processing you request. Sorry about that."
@@ -174,15 +174,15 @@ msgstr "промени лозинку"
 
 #: templates/base.html:69
 msgid "change my details"
-msgstr ""
+msgstr "промени моје детаље"
 
 #: templates/base.html:70 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
-msgstr ""
+msgstr "подешавања"
 
 #: templates/base.html:72
 msgid "admin"
-msgstr ""
+msgstr "администратор"
 
 #: templates/base.html:74 templates/base.html.py:87
 msgid "change language"
@@ -194,7 +194,7 @@ msgstr "помоћ"
 
 #: templates/base.html:76
 msgid "logout"
-msgstr ""
+msgstr "одјави ме"
 
 #: templates/base.html:81 templates/base.html.py:84
 #: users/templates/users/login.html:21
@@ -203,7 +203,7 @@ msgstr "пријава"
 
 #: templates/base.html:86 users/templates/users/register.html:15
 msgid "register"
-msgstr ""
+msgstr "региструјте се"
 
 #: templates/base.html:102
 msgid "Warning"
@@ -228,7 +228,7 @@ msgstr "Преглед"
 
 #: templates/comments/preview.html:4 templates/comments/preview.html.py:15
 msgid "Preview your comment"
-msgstr ""
+msgstr "Прегледајте свој коментар"
 
 #: templates/comments/preview.html:13
 #, invalid-plural
@@ -241,7 +241,7 @@ msgstr[2] ""
 #: tracker/admin.py:30 tracker/admin.py:36
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: tracker/admin.py:44
 msgid "Add ack"
@@ -262,16 +262,16 @@ msgstr ""
 #: tracker/feeds.py:12 tracker/templates/tracker/generic/ticket_list.html:7
 #: tracker/templates/tracker/topic_detail.html:5
 msgid "Latest tickets"
-msgstr ""
+msgstr "Најновији тикети"
 
 #: tracker/feeds.py:13
 msgid "Recently changed tickets"
-msgstr ""
+msgstr "Недавно промењени тикети"
 
 #: tracker/feeds.py:26 tracker/templates/tracker/generic/ticket_list.html:8
 #: tracker/templates/tracker/topic_detail.html:6
 msgid "Latest submitted tickets"
-msgstr ""
+msgstr "Најновији прослеђени тикети"
 
 #: tracker/feeds.py:27
 msgid "Recently changed submitted tickets"
@@ -1849,7 +1849,7 @@ msgstr "Сачувај"
 
 #: tracker/templates/tracker/preferences.html:58
 msgid "Wikimedia account"
-msgstr "Налог на Викимедији"
+msgstr "Викимедијин налог"
 
 #: tracker/templates/tracker/preferences.html:62
 msgid "Your account is connected to Wikimedia account"

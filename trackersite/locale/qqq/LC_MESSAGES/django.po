@@ -4,10 +4,11 @@
 # Author: Martin Urbanec
 # Author: Robby
 # Author: Wladek92
+# Author: Zoranzoki21
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-02-04 08:15:22+0000\n"
+"PO-Revision-Date: 2019-05-06 15:28:28+0000\n"
 "X-POT-Import-Date: 2019-02-03 15:52:30+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,7 +86,7 @@ msgstr ""
 
 #: common_settings.py:89
 msgid "Finnish"
-msgstr ""
+msgstr "Name of language."
 
 #: common_settings.py:90
 msgid "Korean"
