@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-08 16:25+0200\n"
+"POT-Creation-Date: 2019-05-08 19:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1150,56 +1150,100 @@ msgid ""
 "ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1484
+#: tracker/models.py:1487
 #, python-format
 msgid ""
-"User <tt>%(user)s</tt> changed planned expediture <tt>%(expeditures)s</tt> "
-"of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+"User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of "
+"ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
 msgstr ""
 
-#: tracker/models.py:1497
+#: tracker/models.py:1489
+#, python-format
+msgid ""
+"User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of "
+"ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
+msgstr ""
+
+#: tracker/models.py:1491
+#, python-format
+msgid ""
+"User <tt>%(user)s</tt> changed planned expediture from <tt>"
+"%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href="
+"\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1504
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> "
 "from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1515
+#: tracker/models.py:1522
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to "
 "ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1533
+#: tracker/models.py:1544
 #, python-format
 msgid ""
-"User <tt>%(user)s</tt> changed real expeditures <tt>%(expeditures)s</tt> of "
-"ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+"User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of "
+"ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as paid."
 msgstr ""
 
 #: tracker/models.py:1546
+#, python-format
+msgid ""
+"User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of "
+"ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not paid."
+msgstr ""
+
+#: tracker/models.py:1550
+#, python-format
+msgid ""
+"User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of "
+"ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
+msgstr ""
+
+#: tracker/models.py:1552
+#, python-format
+msgid ""
+"User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of "
+"ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
+msgstr ""
+
+#: tracker/models.py:1558
+#, python-format
+msgid ""
+"User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</"
+"tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">"
+"%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1572
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> "
 "from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1559
+#: tracker/models.py:1585
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">"
 "%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1562
+#: tracker/models.py:1588
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">"
 "%(ticket)s</a>."
 msgstr ""
 
-#: tracker/models.py:1574
+#: tracker/models.py:1600
 #, python-format
 msgid ""
 "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">"
