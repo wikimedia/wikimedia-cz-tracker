@@ -17,7 +17,7 @@ class InvalidOauth():
             request.method == 'GET' and not
             request.get_full_path().startswith('/api') and
             'oauth' not in request.get_full_path() and
-            request.user.is_authenticated and
+            request.user.is_authenticated() and
             settings.MEDIAINFO_MEDIAWIKI_API is not None
         ):
             # Verify MediaWiki token, if we have any to verify
