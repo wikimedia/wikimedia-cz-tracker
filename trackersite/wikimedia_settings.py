@@ -43,3 +43,4 @@ RECAPTCHA_PRIVATE_KEY = ''
 SENDFILE_BACKEND = 'sendfile.backends.development'
 BASE_URL = 'https://example.com'
 GOOGLE_ANALYTICS = None
+MEDIAINFO_MEDIAWIKI_API = None

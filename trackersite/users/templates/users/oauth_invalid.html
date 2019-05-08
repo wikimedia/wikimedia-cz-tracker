@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}
+{% blocktrans %}Connection to {{ provider }} account is no longer valid{% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+<h1>{% blocktrans %}Connection to {{ provider }} account is no longer valid{% endblocktrans %}</h1>
+<p>{% trans "To keep Tracker fully working, you should refresh the connection, by clicking the button below" %}:</p>
+<a class="btn btn-primary" href="{% url 'social:begin' provider %}?next={{ next }}">{% blocktrans %}Refresh connection with {{ provider }}{% endblocktrans %}</a>
+{% endblock %}

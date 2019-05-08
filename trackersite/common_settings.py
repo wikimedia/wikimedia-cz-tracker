@@ -17,6 +17,7 @@ MIDDLEWARE_CLASSES = (
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'request_provider.middleware.RequestProvider',
     'tracker.middleware.WarnIEUsers',
+    'tracker.middleware.InvalidOauth',
 )
 
 TEMPLATE_DIRS = (

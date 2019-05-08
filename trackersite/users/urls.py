@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, url
 from django.contrib.auth import views as auth
-from .views import password_change
+from .views import password_change, invalid_oauth_tokens
 
 urlpatterns = patterns(
     '',
@@ -24,4 +24,5 @@ urlpatterns = patterns(
     url(r'^password/reset/done/$', auth.password_reset_complete, name='password_reset_complete', kwargs={
         'template_name': 'users/password_reset_complete.html'
     }),
+    url(r'^oauth/(?P<provider>[a-z]+)/invalid/', invalid_oauth_tokens, name='invalid_oauth_tokens'),
 )

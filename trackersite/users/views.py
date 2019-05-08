@@ -10,6 +10,7 @@ from django.http import HttpResponseRedirect
 from django.template.response import TemplateResponse
 from django.utils.translation import ugettext as _
 from django.views.decorators.debug import sensitive_post_parameters
+from django.shortcuts import render
 
 from snowpenguin.django.recaptcha2.fields import ReCaptchaField
 from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
@@ -67,3 +68,11 @@ def password_change(request, template_name):
     }
 
     return TemplateResponse(request, template_name, context)
+
+
+@login_required
+def invalid_oauth_tokens(request, provider):
+    return render(request, 'users/oauth_invalid.html', {
+        'provider': provider,
+        'next': request.GET.get('next', '/')
+    })
