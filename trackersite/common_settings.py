@@ -16,6 +16,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'request_provider.middleware.RequestProvider',
+    'tracker.middleware.WarnIEUsers',
 )
 
 TEMPLATE_DIRS = (
