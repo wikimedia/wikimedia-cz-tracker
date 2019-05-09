@@ -60,6 +60,9 @@ class MediaWiki():
         if rvsection:
             payload["rvsection"] = rvsection
         data = self.request(payload).json()["query"]["pages"]
+        if "revisions" not in data[data.keys()[0]]:
+            raise ValueError("The requested content doesn't exist")
+
         return data[data.keys()[0]]["revisions"][0]["slots"][rvslot]["*"]
 
     def put_content(self, title, text, section=None, summary="Automated update by Tracker"):
