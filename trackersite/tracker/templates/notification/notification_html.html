@@ -72,6 +72,14 @@
 </ul>
 {% endif %}
 
+{% if document_notifs.count > 0 %}
+<h1>{% trans "Documents of a watched ticket were changed" %}</h1>
+<ul>
+	{% for notif in document_notifs %}
+	<li>{{notif.fired}}: {{notif}}</li>
+	{% endfor %}
+</ul>
+{% endif %}
 
 {% if comment_notifs.count > 0 %}
 <h1>{% trans "A comment was added to a watched ticket" %}</h1>

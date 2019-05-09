@@ -37,6 +37,7 @@ class Command(NoArgsCommand):
                 "ticket_delete_notifs": Notification.objects.filter(target_user=user, notification_type="ticket_delete"),
                 "comment_notifs": Notification.objects.filter(target_user=user, notification_type="comment"),
                 "supervisor_notes_notifs": Notification.objects.filter(target_user=user, notification_type="supervisor_notes"),
+                "document_notifs": Notification.objects.filter(target_user=user, notification_type="document"),
                 "BASE_URL": settings.BASE_URL,
             }
             c = Context(c_dict)

@@ -70,6 +70,7 @@ NOTIFICATION_TYPES = [
     ('expeditures_change', _('Expeditures changed')),
     ('media_new', _('New media was created')),
     ('media_change', _('Media changed')),
+    ('document', _('Document changed')),
 ]
 
 LANGUAGE_CHOICES = settings.LANGUAGES
@@ -1599,6 +1600,34 @@ def notify_del_media(sender, instance, **kwargs):
         }
         text = _('User <tt>%(user)s</tt> removed media from ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
         Notification.fire_notification(instance.ticket, text, "media_change", get_user(True), text_data=text_data)
+
+
+@receiver(post_save, sender=Document)
+def notify_document(sender, instance, created, **kwargs):
+    if len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type__in=["ticket_new", "document_new"])) == 0:
+        text_data = {
+            'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
+            'ticket': instance.ticket,
+            'user': get_user(),
+            'document_filename': instance.filename,
+            'document_description': instance.description or _('no description'),
+        }
+        text = _('User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>')
+        Notification.fire_notification(instance.ticket, text, "document", get_user(True), text_data=text_data)
+
+
+@receiver(post_delete, sender=Document)
+def notify_del_document(sender, instance, **kwargs):
+    if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type__in=["ticket_new", "document_new"])) == 0:
+        text_data = {
+            'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
+            'ticket': instance.ticket,
+            'user': get_user(),
+            'document_filename': instance.filename,
+            'document_description': instance.description or _('no description'),
+        }
+        text = _('User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>')
+        Notification.fire_notification(instance.ticket, text, "document", get_user(True), text_data=text_data)
 
 
 class PossibleAck(object):
