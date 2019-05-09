@@ -283,7 +283,7 @@ class Ticket(CachedModel, ModelDiffMixin):
     def save(self, *args, **kwargs):
         saved_from_admin = kwargs.pop('saved_from_admin', False)
         just_payment_status = kwargs.pop('just_payment_status', False)
-        if self.has_changed and get_request() and not saved_from_admin:
+        if self.has_changed and get_request() and not saved_from_admin and not just_payment_status:
             change_message = 'Changed ' + ', '.join(self.changed_fields) + "."
             ct = ContentType.objects.get_for_model(self)
             LogEntry.objects.log_action(
