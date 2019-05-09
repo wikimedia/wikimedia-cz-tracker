@@ -1,7 +1,7 @@
-# Translation of Tracker to Finnish (suomi)
+# Translation of Tracker to Esperanto (Esperanto)
 # Exported from translatewiki.net
 #
-# Author: Pyscowicz
+# Author: Mirin
 msgid ""
 msgstr ""
 ""
@@ -9,13 +9,13 @@ msgstr ""
 "X-POT-Import-Date: 2019-05-09 10:08:21+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi\n"
+"Language: eo\n"
 "X-Generator: MediaWiki 1.33.0-alpha; Translate 2019-01-17\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: api/serializers.py:94
 msgid "Deposit should be zero when creating a ticket"
-msgstr "Talletuksen tulee olla nolla tikettiä luodessa"
+msgstr ""
 
 #: api/serializers.py:97
 msgid "Cannot edit deposit once a ticket has been preaccepted"
@@ -27,19 +27,19 @@ msgstr ""
 
 #: api/serializers.py:127
 msgid "You can not add media to this ticket."
-msgstr "Et voi lisätä mediaa tähän tikettiin."
+msgstr ""
 
 #: api/serializers.py:129
 msgid "You can not edit the media of this ticket."
-msgstr "Et voi muokata tämän tiketin mediaa."
+msgstr ""
 
 #: api/serializers.py:152
 msgid "You can not add expiditures to this ticket."
-msgstr "Et voi lisätä kustannuksia tähän tikettiin."
+msgstr ""
 
 #: api/serializers.py:154
 msgid "You can not edit expiditures of this ticket."
-msgstr "Et voi muokata tämän tiketin kustannuksia."
+msgstr ""
 
 #: api/serializers.py:167
 msgid "You can not add preexpiditures to this ticket."
@@ -59,31 +59,31 @@ msgstr ""
 #: tracker/templates/tracker/topic_table.html:40
 #: tracker/templates/tracker/topic_table.html:41
 msgid "CZK"
-msgstr "CZK"
+msgstr "Ĉeĥiaj kronoj"
 
 #: common_settings.py:87
 msgid "English"
-msgstr "Englanti"
+msgstr "Angla"
 
 #: common_settings.py:88
 msgid "Czech"
-msgstr "Tšekki"
+msgstr "Ĉeĥa"
 
 #: common_settings.py:89
 msgid "French"
-msgstr "Ranska"
+msgstr "Franca"
 
 #: common_settings.py:90
 msgid "Arabic"
-msgstr "Arabia"
+msgstr "Araba"
 
 #: common_settings.py:91
 msgid "Danish"
-msgstr "Tanska"
+msgstr "Dana"
 
 #: common_settings.py:92
 msgid "Finnish"
-msgstr "Suomi"
+msgstr "Finna"
 
 #: common_settings.py:93
 msgid "Korean"
@@ -91,57 +91,57 @@ msgstr "Korea"
 
 #: common_settings.py:94
 msgid "Portuguese"
-msgstr "Portugali"
+msgstr "Portugala"
 
 #: common_settings.py:95
 msgid "Swedish"
-msgstr "Ruotsi"
+msgstr "Sveda"
 
 #: customcomments/forms.py:21
 msgid "Your name"
-msgstr "Nimesi"
+msgstr "Via nomo"
 
 #: customcomments/forms.py:22
 #: tracker/templates/tracker/ticketack_confirm_delete.html:13
 msgid "Comment"
-msgstr "Kommentti"
+msgstr "Komento"
 
 #: socialauth/pipeline.py:15
 msgid "Successfully linked your wikimedia account!"
-msgstr "Wikimedia-käyttäjätunnuksesi yhdistettiin onnistuneesti!"
+msgstr ""
 
 #: socialauth/pipeline.py:21
 msgid "Your wikimedia account is no longer linked."
-msgstr "Wikimedia-tunnuksesi ei ole enää yhdistettynä."
+msgstr ""
 
 #: templates/403.html:3
 msgid "403 Forbidden"
-msgstr "403 Kielletty"
+msgstr "403 Malpermesata"
 
 #: templates/403.html:7
 msgid "Forbidden"
-msgstr "Kielletty"
+msgstr "Malpermesata"
 
 #: templates/403.html:12
 msgid "You don't have permissions to do this!"
-msgstr "Sinulla ei ole oikeuksia tehdä tätä!"
+msgstr ""
 
 #: templates/404.html:3
 msgid "404 Not Found"
-msgstr "404 Ei löydetty"
+msgstr "404 Ne Trovita"
 
 #: templates/404.html:7
 msgid "Not Found"
-msgstr "Ei löydy"
+msgstr "Ne Trovita"
 
 #: templates/404.html:10
 #, python-format
 msgid "The requested URL %(request_path)s was not found on this server."
-msgstr "Pyydettyä URL-osoitetta %(request_path)s ei löytynyt tältä palvelimelta."
+msgstr ""
 
 #: templates/500.html:3 templates/500.html.py:7
 msgid "Internal Error"
-msgstr "Sisäinen virhe"
+msgstr "Interna Eraro"
 
 #: templates/500.html:10
 msgid "There was an error processing you request. Sorry about that."
@@ -149,11 +149,11 @@ msgstr ""
 
 #: templates/admin/base_site.html:4
 msgid "Tracker admin"
-msgstr "Tracker-ylläpitäjä"
+msgstr ""
 
 #: templates/admin/base_site.html:7
 msgid "Tracker site administration"
-msgstr "Tracker-sivuston ylläpito"
+msgstr ""
 
 #: templates/base.html:31
 msgid "There is no email address associated with this account. Please update your details now."
@@ -161,7 +161,7 @@ msgstr ""
 
 #: templates/base.html:34
 msgid "Update details"
-msgstr "Päivitä tiedot"
+msgstr "Ĝisdatigi detalojn"
 
 #: templates/base.html:54
 msgid "Toggle navigation"
@@ -169,44 +169,44 @@ msgstr ""
 
 #: templates/base.html:68
 msgid "change password"
-msgstr "vaihda salasana"
+msgstr "ŝanĝi pasvorton"
 
 #: templates/base.html:69
 msgid "change my details"
-msgstr "muuta omia tietoja"
+msgstr "ŝanĝi miajn detalojn"
 
 #: templates/base.html:70 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
-msgstr "asetukset"
+msgstr "agordoj"
 
 #: templates/base.html:72
 msgid "admin"
-msgstr "ylläpitäjä"
+msgstr "administrejo"
 
 #: templates/base.html:74 templates/base.html.py:87
 msgid "change language"
-msgstr "vaihda kieli"
+msgstr "ŝanĝi lingvon"
 
 #: templates/base.html:75 templates/base.html.py:88
 msgid "help"
-msgstr "ohje"
+msgstr "helpo"
 
 #: templates/base.html:76
 msgid "logout"
-msgstr "kirjaudu ulos"
+msgstr "elsaluti"
 
 #: templates/base.html:81 templates/base.html.py:84
 #: users/templates/users/login.html:21
 msgid "login"
-msgstr "kirjaudu"
+msgstr "ensaluti"
 
 #: templates/base.html:86 users/templates/users/register.html:15
 msgid "register"
-msgstr "rekisteröidy"
+msgstr "registrĝi"
 
 #: templates/base.html:102 templates/base.html.py:105
 msgid "Warning"
-msgstr "Varoitus"
+msgstr "Averto"
 
 #: templates/base.html:102
 #, python-format
@@ -219,19 +219,19 @@ msgstr ""
 
 #: templates/choose_language.html:5 templates/choose_language.html.py:8
 msgid "Change language"
-msgstr "Vaihda kieltä"
+msgstr "Ŝanĝi lingvon"
 
 #: templates/comments/form.html:17 templates/comments/preview.html:31
 msgid "Post"
-msgstr "Kommentti"
+msgstr "Afiŝi"
 
 #: templates/comments/form.html:18 templates/comments/preview.html:32
 msgid "Preview"
-msgstr "Esikatselu"
+msgstr "Antaŭrigardi"
 
 #: templates/comments/preview.html:4 templates/comments/preview.html.py:15
 msgid "Preview your comment"
-msgstr ""
+msgstr "Antaŭrigardi vian komenton"
 
 #: templates/comments/preview.html:13
 #, invalid-plural
@@ -243,7 +243,7 @@ msgstr[1] ""
 #: tracker/admin.py:30 tracker/admin.py:36
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
 msgid "Type"
-msgstr "Tyyppi"
+msgstr "Tipo"
 
 #: tracker/admin.py:44
 msgid "Add ack"
@@ -255,7 +255,7 @@ msgstr ""
 
 #: tracker/admin.py:179
 msgid "Mark selected topics as closed for new tickets"
-msgstr "Merkitse valitut aiheet suljetuiksi uusille tiketeille"
+msgstr ""
 
 #: tracker/admin.py:207
 msgid "Modify this value by opening or closing topics in this grant to tickets"
@@ -264,38 +264,38 @@ msgstr ""
 #: tracker/feeds.py:12 tracker/templates/tracker/generic/ticket_list.html:7
 #: tracker/templates/tracker/topic_detail.html:5
 msgid "Latest tickets"
-msgstr "Viimeisimmät tiketit"
+msgstr "Aktualaj biletoj"
 
 #: tracker/feeds.py:13
 msgid "Recently changed tickets"
-msgstr "Hiljattain muutetut tiketit"
+msgstr "Ĵus ŝanĝitaj biletoj"
 
 #: tracker/feeds.py:26 tracker/templates/tracker/generic/ticket_list.html:8
 #: tracker/templates/tracker/topic_detail.html:6
 msgid "Latest submitted tickets"
-msgstr "Viimeisimmät lähetetyt tiketit"
+msgstr ""
 
 #: tracker/feeds.py:27
 msgid "Recently changed submitted tickets"
-msgstr "Äskettäin muutetut lähetetyt tiketit"
+msgstr ""
 
 #: tracker/models.py:40 tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
 msgid "n/a"
-msgstr "n/a"
+msgstr ""
 
 #: tracker/models.py:41 tracker/templates/tracker/export.html:246
 #: tracker/templates/tracker/grant_table.html:12
 #: tracker/templates/tracker/topic_finance.html:16
 #: tracker/templates/tracker/topic_table.html:14
 msgid "unpaid"
-msgstr "maksamaton"
+msgstr "nepagita"
 
 #: tracker/models.py:42 tracker/templates/tracker/export.html:247
 #: tracker/templates/tracker/grant_table.html:13
 #: tracker/templates/tracker/topic_table.html:15
 msgid "partially paid"
-msgstr "osittain maksettu"
+msgstr "parte pagita"
 
 #: tracker/models.py:43 tracker/models.py:985
 #: tracker/templates/tracker/export.html:248
@@ -303,14 +303,14 @@ msgstr "osittain maksettu"
 #: tracker/templates/tracker/topic_finance.html:17
 #: tracker/templates/tracker/topic_table.html:16
 msgid "paid"
-msgstr "maksettu"
+msgstr "pagita"
 
 #: tracker/models.py:44 tracker/templates/tracker/export.html:249
 #: tracker/templates/tracker/grant_table.html:15
 #: tracker/templates/tracker/topic_finance.html:18
 #: tracker/templates/tracker/topic_table.html:17
 msgid "overpaid"
-msgstr "maksettu liikaa"
+msgstr "tropagita"
 
 #: tracker/models.py:48
 msgid "presubmitted"
@@ -322,11 +322,11 @@ msgstr ""
 
 #: tracker/models.py:50
 msgid "submitted"
-msgstr "lähetetty"
+msgstr "sendita"
 
 #: tracker/models.py:51
 msgid "accepted"
-msgstr "hyväksytty"
+msgstr "akceptita"
 
 #: tracker/models.py:52
 msgid "expense documents submitted"
@@ -340,21 +340,21 @@ msgstr ""
 #: tracker/templates/tracker/export.html:52
 #: tracker/templates/tracker/export.html:53
 msgid "archived"
-msgstr "arkistoitu"
+msgstr "enarkivigita"
 
 #: tracker/models.py:55 tracker/models.py:344
 #: tracker/templates/tracker/export.html:55
 #: tracker/templates/tracker/export.html:56
 msgid "closed"
-msgstr "suljettu"
+msgstr "fermita"
 
 #: tracker/models.py:59
 msgid "All notifications"
-msgstr "Kaikki ilmoitukset"
+msgstr ""
 
 #: tracker/models.py:60
 msgid "Comment added"
-msgstr "Kommentti lisätty"
+msgstr ""
 
 #: tracker/models.py:61
 msgid "Supervisor notes changed"
@@ -362,11 +362,11 @@ msgstr ""
 
 #: tracker/models.py:62
 msgid "New ticket was created"
-msgstr "Uusi tiketti luotiin"
+msgstr ""
 
 #: tracker/models.py:63
 msgid "Ticket was deleted"
-msgstr "Tiketti poistettiin"
+msgstr ""
 
 #: tracker/models.py:64
 msgid "Ack added"
@@ -378,7 +378,7 @@ msgstr ""
 
 #: tracker/models.py:66
 msgid "Ticket changed"
-msgstr "Tiketti muutettu"
+msgstr "Ŝanĝis bileton"
 
 #: tracker/models.py:67
 msgid "New preexpediture was created"
@@ -398,7 +398,7 @@ msgstr ""
 
 #: tracker/models.py:71
 msgid "New media was created"
-msgstr "Uusi media luotiin"
+msgstr ""
 
 #: tracker/models.py:72
 msgid "Media changed"
@@ -406,19 +406,19 @@ msgstr ""
 
 #: tracker/models.py:131
 msgid "unknown"
-msgstr "tuntematon"
+msgstr "nekonata"
 
 #: tracker/models.py:163 tracker/models.py:1209
 msgid "created"
-msgstr "luotu"
+msgstr "kreita"
 
 #: tracker/models.py:234
 msgid "Signed text"
-msgstr "Allekirjoitettu teksti"
+msgstr ""
 
 #: tracker/models.py:239
 msgid "updated"
-msgstr "päivitetty"
+msgstr "ĝisdatigita"
 
 #: tracker/models.py:240
 msgid "media updated"
@@ -430,7 +430,7 @@ msgstr ""
 
 #: tracker/models.py:241
 msgid "event date"
-msgstr ""
+msgstr "dato de evento"
 
 #: tracker/models.py:241
 msgid "Date of the event this ticket is about"
@@ -439,7 +439,7 @@ msgstr ""
 #: tracker/models.py:242 tracker/models.py:381
 #: tracker/templates/feeds/ticket_description.html:3
 msgid "requested by"
-msgstr "Pyytänyt"
+msgstr "petita de"
 
 #: tracker/models.py:242
 msgid "User who created/requested for this ticket"
@@ -447,7 +447,7 @@ msgstr ""
 
 #: tracker/models.py:243
 msgid "requested by (text)"
-msgstr "pyytänyt (text)"
+msgstr ""
 
 #: tracker/models.py:243
 msgid "Text description of who requested for this ticket, in case user is not filled in"
@@ -456,15 +456,15 @@ msgstr ""
 #: tracker/models.py:244 tracker/models.py:648 tracker/models.py:713
 #: tracker/models.py:870 tracker/views.py:762
 msgid "name"
-msgstr "nimi"
+msgstr "nomo"
 
 #: tracker/models.py:244
 msgid "Name for the ticket"
-msgstr "Nimi tiketille"
+msgstr ""
 
 #: tracker/models.py:245 tracker/models.py:651 tracker/views.py:533
 msgid "topic"
-msgstr "aihe"
+msgstr "temo"
 
 #: tracker/models.py:245
 msgid "Project topic this ticket belongs to"
@@ -472,7 +472,7 @@ msgstr ""
 
 #: tracker/models.py:246
 msgid "subtopic"
-msgstr "alaaihe"
+msgstr "subtemo"
 
 #: tracker/models.py:246
 msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
@@ -488,17 +488,17 @@ msgstr ""
 
 #: tracker/models.py:248
 msgid "report mandatory"
-msgstr ""
+msgstr "deviga raporto"
 
 #: tracker/models.py:248 tracker/templates/tracker/export.html:73
 #: tracker/templates/tracker/export.html:75
 #: tracker/templates/tracker/ticket_common_detail.html:15
 msgid "Is report mandatory?"
-msgstr ""
+msgstr "Ĉu raporto estas deviga?"
 
 #: tracker/models.py:249
 msgid "report url"
-msgstr ""
+msgstr "retadreso de raporto"
 
 #: tracker/models.py:249
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
@@ -516,7 +516,7 @@ msgstr ""
 #: tracker/models.py:802 tracker/models.py:855 tracker/models.py:982
 #: tracker/models.py:1004 tracker/models.py:1148 tracker/views.py:763
 msgid "description"
-msgstr "kuvaus"
+msgstr ""
 
 #: tracker/models.py:251
 msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description. You may use a limited subset of HTML."
@@ -532,7 +532,7 @@ msgstr ""
 
 #: tracker/models.py:253
 msgid "deposit"
-msgstr ""
+msgstr "deponi"
 
 #: tracker/models.py:255
 msgid "If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."
@@ -540,27 +540,27 @@ msgstr ""
 
 #: tracker/models.py:257
 msgid "payment status"
-msgstr ""
+msgstr "stato de pago"
 
 #: tracker/models.py:258
 msgid "imported"
-msgstr "tuotu"
+msgstr "enportita"
 
 #: tracker/models.py:258
 msgid "Was this ticket imported from older Tracker version?"
-msgstr "Tuotiinko tiketti vanhasta Trackerin versiosta?"
+msgstr ""
 
 #: tracker/models.py:259
 msgid "enable comments"
-msgstr "ota kommentit käyttöön"
+msgstr "ebligi komentojn"
 
 #: tracker/models.py:259
 msgid "Can users comment on this ticket?"
-msgstr "Voivatko käyttäjät kommentoida tässä tiketissä?"
+msgstr ""
 
 #: tracker/models.py:260
 msgid "Did you travel by car?"
-msgstr "Matkustitko autolla?"
+msgstr ""
 
 #: tracker/models.py:260
 msgid "Do you request reimbursement of car-type travel expense?"
@@ -568,7 +568,7 @@ msgstr ""
 
 #: tracker/models.py:340
 msgid "historical"
-msgstr "historiallinen"
+msgstr "historia"
 
 #: tracker/models.py:349
 msgid "waiting for content rating"
@@ -577,7 +577,7 @@ msgstr ""
 #: tracker/models.py:352 tracker/templates/tracker/export.html:49
 #: tracker/templates/tracker/export.html:50
 msgid "complete"
-msgstr ""
+msgstr "kompleta"
 
 #: tracker/models.py:354 tracker/templates/tracker/export.html:46
 #: tracker/templates/tracker/export.html:47
@@ -587,18 +587,18 @@ msgstr ""
 #: tracker/models.py:356 tracker/templates/tracker/export.html:43
 #: tracker/templates/tracker/export.html:44
 msgid "waiting for document submission"
-msgstr "odottaa asiakirjan lisäämistä"
+msgstr ""
 
 #: tracker/models.py:359 tracker/models.py:366
 #: tracker/templates/tracker/export.html:40
 #: tracker/templates/tracker/export.html:41
 msgid "waiting for approval"
-msgstr "odottaa hyväksyntää"
+msgstr ""
 
 #: tracker/models.py:361 tracker/templates/tracker/export.html:37
 #: tracker/templates/tracker/export.html:38
 msgid "waiting for submitting"
-msgstr "odottaa lähettämistä"
+msgstr ""
 
 #: tracker/models.py:364 tracker/templates/tracker/export.html:34
 #: tracker/templates/tracker/export.html:35
@@ -612,17 +612,17 @@ msgstr ""
 
 #: tracker/models.py:370 tracker/templates/tracker/export.html:30
 msgid "state"
-msgstr "tila"
+msgstr "stato"
 
 #: tracker/models.py:393 tracker/templates/tracker/admin_user_list.html:26
 msgid "E-mail"
-msgstr "Sähköposti"
+msgstr "Retpoŝta adreso"
 
 #: tracker/models.py:394 tracker/models.py:1096
 #: tracker/templates/tracker/admin_user_list.html:31
 #: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
-msgstr "Muu sisältö"
+msgstr ""
 
 #: tracker/models.py:398
 msgid "no tracker account listed"
@@ -634,7 +634,7 @@ msgstr ""
 
 #: tracker/models.py:576 tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Ticket"
-msgstr "Tiketti"
+msgstr "Bileto"
 
 #: tracker/models.py:577 tracker/templates/tracker/cluster_detail.html:12
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -649,7 +649,7 @@ msgstr "Tiketti"
 #: tracker/templates/tracker/user_detail.html:22
 #: tracker/templates/tracker/user_list.html:13
 msgid "Tickets"
-msgstr "Tiketit"
+msgstr "Biletoj"
 
 #: tracker/models.py:649 tracker/models.py:650
 msgid "Description shown to users who enter tickets for this subtopic"
@@ -668,15 +668,15 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:16
 #: tracker/templates/tracker/ticket_table.html:31
 msgid "Subtopic"
-msgstr "Ala-aihe"
+msgstr "Subtemo"
 
 #: tracker/models.py:707 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
-msgstr "Ala-aiheet"
+msgstr "Subtemoj"
 
 #: tracker/models.py:714 tracker/views.py:562
 msgid "grant"
-msgstr ""
+msgstr "gratifiko"
 
 #: tracker/models.py:714
 msgid "Grant project where this topic belongs"
@@ -684,7 +684,7 @@ msgstr ""
 
 #: tracker/models.py:715
 msgid "open for tickets"
-msgstr "avoin tiketeille"
+msgstr ""
 
 #: tracker/models.py:715
 msgid "Is this topic open for ticket submissions from users?"
@@ -732,7 +732,7 @@ msgstr ""
 
 #: tracker/models.py:722
 msgid "topic administrator"
-msgstr ""
+msgstr "administranto de temo"
 
 #: tracker/models.py:722
 msgid "Selected users will have administration access to this topic."
@@ -747,29 +747,29 @@ msgstr ""
 #: tracker/templates/tracker/topic_finance.html:11
 #: tracker/templates/tracker/topic_table.html:5
 msgid "Topic"
-msgstr "Aihe"
+msgstr "Temo"
 
 #: tracker/models.py:790 tracker/templates/tracker/export.html:61
 #: tracker/templates/tracker/export.html:212
 #: tracker/templates/tracker/import.html:26
 msgid "Topics"
-msgstr "Aiheet"
+msgstr "Temoj"
 
 #: tracker/models.py:799
 msgid "full name"
-msgstr "koko nimi"
+msgstr "kompleta nomo"
 
 #: tracker/models.py:799
 msgid "Full name for headlines and such"
-msgstr ""
+msgstr "Kompleta nomo por titoloj ktp."
 
 #: tracker/models.py:800
 msgid "short name"
-msgstr "lyhyt nimi"
+msgstr "mallonga nomo"
 
 #: tracker/models.py:800
 msgid "Shorter name for use in tables"
-msgstr ""
+msgstr "Mallonga nomo por uzo en tabelo"
 
 #: tracker/models.py:801
 msgid "slug"
@@ -788,7 +788,7 @@ msgstr ""
 #: tracker/templates/tracker/topic_table.html:6
 #: tracker/templates/tracker/transaction_list.html:15
 msgid "Grant"
-msgstr "Myöntänyt"
+msgstr ""
 
 #: tracker/models.py:841 tracker/templates/tracker/export.html:141
 #: tracker/templates/tracker/import.html:34
@@ -798,7 +798,7 @@ msgstr ""
 #: tracker/models.py:854 tracker/models.py:869 tracker/models.py:981
 #: tracker/models.py:1003 tracker/views.py:488
 msgid "ticket"
-msgstr "tiketti"
+msgstr ""
 
 #: tracker/models.py:854 tracker/models.py:869
 msgid "Ticket this media info belongs to"
@@ -810,32 +810,32 @@ msgstr ""
 
 #: tracker/models.py:856 tracker/models.py:873
 msgid "URL"
-msgstr "URL-osoite"
+msgstr "reteja adreso"
 
 #: tracker/models.py:856
 msgid "Link to media files"
-msgstr "Linkki mediatiedostoihin"
+msgstr ""
 
 #: tracker/models.py:857
 msgid "count"
-msgstr "määrä"
+msgstr ""
 
 #: tracker/models.py:857 tracker/templates/tracker/ticket_show_media.html:45
 msgid "Number of files"
-msgstr "Tiedostojen lukumäärä"
+msgstr ""
 
 #: tracker/models.py:863 tracker/models.py:864 tracker/models.py:969
 #: tracker/models.py:970
 msgid "Ticket media"
-msgstr "Tiketin media"
+msgstr ""
 
 #: tracker/models.py:871
 msgid "width"
-msgstr "leveys"
+msgstr "larĝo"
 
 #: tracker/models.py:872
 msgid "height"
-msgstr "korkeus"
+msgstr "alto"
 
 #: tracker/models.py:874
 msgid "cannonical title"
@@ -843,11 +843,11 @@ msgstr ""
 
 #: tracker/models.py:875
 msgid "categories"
-msgstr "luokat"
+msgstr "kategorioj"
 
 #: tracker/models.py:876
 msgid "usages"
-msgstr ""
+msgstr "uzado"
 
 #: tracker/models.py:981
 msgid "Ticket this expediture belongs to"
@@ -859,7 +859,7 @@ msgstr ""
 
 #: tracker/models.py:983 tracker/models.py:1005 tracker/models.py:1147
 msgid "amount"
-msgstr "summa"
+msgstr "kvanto"
 
 #: tracker/models.py:983
 msgid "Expediture amount in"
@@ -875,12 +875,12 @@ msgstr ""
 
 #: tracker/models.py:986 tracker/models.py:1006
 msgid "wage"
-msgstr ""
+msgstr "salajro"
 
 #: tracker/models.py:989 tracker/models.py:1009
 #, python-format
 msgid "%(description)s (%(amount)s %(currency)s)"
-msgstr "%(description)s (%(amount)s %(currency)s)"
+msgstr ""
 
 #: tracker/models.py:997
 msgid "Ticket expediture"
@@ -912,7 +912,7 @@ msgstr ""
 
 #: tracker/models.py:1017
 msgid "uploader"
-msgstr "tallentaja"
+msgstr "alŝutinto"
 
 #: tracker/models.py:1025 tracker/views.py:762
 msgid "We need a sane file name, such as my-invoice123.jpg"
@@ -924,15 +924,15 @@ msgstr ""
 
 #: tracker/models.py:1067
 msgid "Muted notifications"
-msgstr "Hiljennetyt ilmoitukset"
+msgstr ""
 
 #: tracker/models.py:1068
 msgid "Email language"
-msgstr "Sähköpostin kieli"
+msgstr "Retpoŝta lingvo"
 
 #: tracker/models.py:1069
 msgid "Display items"
-msgstr "Näytä kohteita"
+msgstr ""
 
 #: tracker/models.py:1069
 msgid "How many items should we display in tables at once"
@@ -948,11 +948,11 @@ msgstr ""
 
 #: tracker/models.py:1094
 msgid "Username on mediawiki"
-msgstr "Käyttäjänimi mediawikissä"
+msgstr ""
 
 #: tracker/models.py:1095 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
-msgstr "Pankkitili"
+msgstr "Banka konto"
 
 #: tracker/models.py:1095
 msgid "Bank account information for money transfers"
@@ -964,7 +964,7 @@ msgstr ""
 
 #: tracker/models.py:1097 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
-msgstr "Muu tunniste"
+msgstr ""
 
 #: tracker/models.py:1097
 msgid "Address, or other identification information, so we know who are we sending money to"
@@ -972,15 +972,15 @@ msgstr ""
 
 #: tracker/models.py:1125
 msgid "Tracker profile"
-msgstr "Tracker-profiili"
+msgstr ""
 
 #: tracker/models.py:1126
 msgid "Tracker profiles"
-msgstr "Tracker-profiilit"
+msgstr ""
 
 #: tracker/models.py:1144
 msgid "date"
-msgstr "päivämäärä"
+msgstr "dato"
 
 #: tracker/models.py:1145 tracker/models.py:1164
 msgid "other party"
@@ -1018,7 +1018,7 @@ msgstr ""
 
 #: tracker/models.py:1150
 msgid "related tickets"
-msgstr ""
+msgstr "rilataj biletoj"
 
 #: tracker/models.py:1150
 msgid "Tickets this trackaction is related to"
@@ -1036,17 +1036,17 @@ msgstr ""
 
 #: tracker/models.py:1211
 msgid "comment"
-msgstr "kommentti"
+msgstr "komento"
 
 #: tracker/models.py:1317
 #, python-format
 msgid "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> by user <tt>%(user)s</tt>"
-msgstr "Käyttäjä <tt>%(user)s</tt> lisäsi kommentin <tt>%(comment)s</tt> tikettiin <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+msgstr ""
 
 #: tracker/models.py:1346
 #, python-format
 msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
-msgstr "Käyttäjä <tt>%(user)s</tt> loi tiketin <a href=\"%(ticket_url)s\">%(ticket)s</a> aiheessa <tt>%(topic)s</tt>."
+msgstr ""
 
 #: tracker/models.py:1361
 #, python-format
@@ -1056,12 +1056,12 @@ msgstr ""
 #: tracker/models.py:1380
 #, python-format
 msgid "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "Käyttäjä <tt>%(user)s</tt> muutti tiketin <a href=\"%(ticket_url)s\">%(ticket)s</a> kuvausta."
+msgstr ""
 
 #: tracker/models.py:1383
 #, python-format
 msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "Käyttäjä <tt>%(user)s</tt> muutti tiketin <a href=\"%(ticket_url)s\">%(ticket)s</a> nimeä."
+msgstr ""
 
 #: tracker/models.py:1386
 #, python-format
@@ -1081,7 +1081,7 @@ msgstr ""
 #: tracker/models.py:1410
 #, python-format
 msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
-msgstr "Tiketti \"%(ticket)s\" poistettiin käyttäjän %(user)s toimesta"
+msgstr ""
 
 #: tracker/models.py:1426
 #, python-format
@@ -1156,7 +1156,7 @@ msgstr ""
 #: tracker/models.py:1585
 #, python-format
 msgid "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "Käyttäjä <tt>%(user)s</tt> lisäsi median tikettiin <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
 
 #: tracker/models.py:1588
 #, python-format
@@ -1166,19 +1166,19 @@ msgstr ""
 #: tracker/models.py:1600
 #, python-format
 msgid "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "Käyttäjä <tt>%(user)s</tt> poisti median tiketistä <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-
-#: tracker/templates/admin/tracker/ticket/ack_line.html:1
-msgid "REMOVE"
-msgstr "POISTA"
-
-#: tracker/templates/admin/tracker/ticket/ack_line.html:1
-msgid "Really remove?"
 msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
+msgid "REMOVE"
+msgstr "FORIGI"
+
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
+msgid "Really remove?"
+msgstr "Ĉu certe forigi?"
+
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "YES"
-msgstr "KYLLÄ"
+msgstr "JES"
 
 #: tracker/templates/admin/tracker/ticket/ack_norating_error.html:2
 msgid "You must fill rating percentage before you will be able to accept the ticket."
@@ -1196,7 +1196,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1674
 #: tracker/views.py:1683 tracker/views.py:1693
 msgid "Ticket ID"
-msgstr "Tiketin tunniste"
+msgstr "Identigilo de bileto"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:13
 msgid "Approvals"
@@ -1230,7 +1230,7 @@ msgstr[1] ""
 
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
-msgstr "tila"
+msgstr "stato"
 
 #: tracker/templates/feeds/transaction_description.html:2
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1238,7 +1238,7 @@ msgstr "tila"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22
 msgid "Date"
-msgstr "Päivämäärä"
+msgstr "Dato"
 
 #: tracker/templates/feeds/transaction_description.html:3
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1246,7 +1246,7 @@ msgstr "Päivämäärä"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_list.html:13
 msgid "User"
-msgstr "Käyttäjä"
+msgstr "Uzanto"
 
 #: tracker/templates/feeds/transaction_description.html:4
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1258,7 +1258,7 @@ msgstr "Käyttäjä"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22
 msgid "Amount"
-msgstr "Summa"
+msgstr "Kvanto"
 
 #: tracker/templates/feeds/transaction_description.html:5
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1269,15 +1269,15 @@ msgstr "Summa"
 #: tracker/views.py:1660 tracker/views.py:1665 tracker/views.py:1674
 #: tracker/views.py:1683
 msgid "Description"
-msgstr "Kuvaus"
+msgstr "Priskribo"
 
 #: tracker/templates/notification/notification_html.html:4
 msgid "List of new tickets"
-msgstr "Luettelo uusista tiketeistä"
+msgstr "Listo de novaj biletoj"
 
 #: tracker/templates/notification/notification_html.html:13
 msgid "List of deleted tickets"
-msgstr "Luettelo poistetuista tiketeistä"
+msgstr "Listo de forigitaj biletoj"
 
 #: tracker/templates/notification/notification_html.html:22
 msgid "The state of a watched ticket was changed"
@@ -1309,7 +1309,7 @@ msgstr ""
 
 #: tracker/templates/notification/notification_html.html:86
 msgid "Tracker notifications"
-msgstr "Tracker ilmoitukset"
+msgstr ""
 
 #: tracker/templates/notification/notification_subject.txt:1
 msgid "List of changes of watched tickets"
@@ -1329,22 +1329,22 @@ msgstr "%(name)s"
 #: tracker/templates/tracker/ticketack_add.html:4
 #: tracker/templates/tracker/ticketack_add.html:8
 msgid "Add"
-msgstr "Lisää"
+msgstr "Aldoni"
 
 #: tracker/templates/tracker/admin_index_override.html:27
 msgid "Change"
-msgstr "Muuta"
+msgstr "Ŝanĝi"
 
 #: tracker/templates/tracker/admin_index_override.html:39
 #: tracker/templates/tracker/user_list.html:4
 #: tracker/templates/tracker/user_list.html:8
 msgid "User list"
-msgstr "Käyttäjäluettelo"
+msgstr "Listo de uzantoj"
 
 #: tracker/templates/tracker/admin_index_override.html:40
 #: tracker/templates/tracker/admin_user_list.html:16
 msgid "Tracker users"
-msgstr "Tracker-käyttäjät"
+msgstr ""
 
 #: tracker/templates/tracker/admin_index_override.html:45
 msgid "You don't have permission to edit anything."
@@ -1355,24 +1355,24 @@ msgstr ""
 #: tracker/templates/tracker/export.html:274
 #: tracker/templates/tracker/import.html:60
 msgid "Users"
-msgstr "Käyttäjät"
+msgstr "Uzantoj"
 
 #: tracker/templates/tracker/admin_user_list.html:13
 msgid "Home"
-msgstr "Koti"
+msgstr "Ĉefpaĝo"
 
 #: tracker/templates/tracker/admin_user_list.html:25
 #: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1688
 msgid "Username"
-msgstr "Käyttäjänimi"
+msgstr "Uzantnomo"
 
 #: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1688
 msgid "First name"
-msgstr "Etunimi"
+msgstr "Antaŭnomo"
 
 #: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1688
 msgid "Last name"
-msgstr "Sukunimi"
+msgstr "Familinomo"
 
 #: tracker/templates/tracker/cluster_detail.html:4
 #: tracker/templates/tracker/cluster_detail.html:8
@@ -1407,7 +1407,7 @@ msgstr ""
 #: tracker/templates/tracker/user_list.html:7
 #: tracker/templates/tracker/watch.html:8
 msgid "index"
-msgstr "hakemisto"
+msgstr ""
 
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/generic/ticket_list.html:12
@@ -1417,11 +1417,11 @@ msgstr ""
 #: tracker/templates/tracker/cluster_detail.html:10
 #: tracker/templates/tracker/ticket_detail.html:31
 msgid "Payment status"
-msgstr ""
+msgstr "Stato de pago"
 
 #: tracker/templates/tracker/cluster_detail.html:14
 msgid "Total tickets"
-msgstr "Tiketit yhteensä"
+msgstr "Nombro de biletoj"
 
 #: tracker/templates/tracker/cluster_detail.html:26
 msgid "Total transactions"
@@ -1442,12 +1442,12 @@ msgstr ""
 #: tracker/templates/tracker/connect_account.html:9
 #: tracker/templates/tracker/preferences.html:81
 msgid "Link Wikimedia account"
-msgstr "Linkitä Wikimedia-käyttäjätunnus"
+msgstr "Ligi Vikimedian konton"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:4
 #: tracker/templates/tracker/dumpaccounts/index.html:7
 msgid "Overview of"
-msgstr ""
+msgstr "Superrigardo de"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:8
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:9
@@ -1456,61 +1456,61 @@ msgstr ""
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Unpaid"
-msgstr "Maksamaton"
+msgstr "Nepagita"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/export.html:207
 msgid "Paid"
-msgstr "Maksettu"
+msgstr "Pagita"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Overpaid"
-msgstr "Maksettu liikaa"
+msgstr "Tropagita"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:17
 #: tracker/templates/tracker/grant_table.html:34
 #: tracker/templates/tracker/topic_table.html:38
 #: tracker/templates/tracker/user_list.html:27
 msgid "Total"
-msgstr "Yhteensä"
+msgstr "Sumo"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:28
 msgid "ID"
-msgstr "Tunniste"
+msgstr "Identigilo"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/ticket_table.html:23
 msgid "Status"
-msgstr "Tila"
+msgstr "Stato"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Accepted"
-msgstr "Hyväksytty"
+msgstr "Akceptita"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Payment"
-msgstr "Maksu"
+msgstr "Pago"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:36
 msgid "There are no tickets in this topic."
-msgstr "Tässä aiheessa ei ole tikettejä."
+msgstr "Jen neniu bileto pri tiu temo."
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:13
 #: tracker/templates/tracker/ticket_detail.html:50
 msgid "Documents"
-msgstr "Asiakirjat"
+msgstr "Dokumentoj"
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
 msgid "There aren't any documents here."
-msgstr ""
+msgstr "Jen neniu dokumento ĉi tie."
 
 #: tracker/templates/tracker/edit_ticket.html:4
 #: tracker/templates/tracker/edit_ticket.html:8
 msgid "Edit"
-msgstr "Muokkaa"
+msgstr "Redakti"
 
 #: tracker/templates/tracker/edit_ticket.html:10
 #: tracker/templates/tracker/ticket_detail.html:17
@@ -1520,25 +1520,25 @@ msgstr ""
 #: tracker/templates/tracker/edit_ticket.html:14
 #: tracker/templates/tracker/edit_ticket_docs.html:16
 msgid "save"
-msgstr "tallenna"
+msgstr "konservi"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:4
 #: tracker/templates/tracker/edit_ticket_docs.html:8
 msgid "Edit documents"
-msgstr "Muokkaa asiakirjoja"
+msgstr "Redakti dokumentojn"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:7
 #: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "edit"
-msgstr "muokkaa"
+msgstr "redakti"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:10
 msgid "upload new document"
-msgstr "tallenna uusi asiakirja"
+msgstr "alŝuti novan dokumenton"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:14
 msgid "document"
-msgstr "asiakirja"
+msgstr "dokumento"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:17
 #: tracker/templates/tracker/ticket_form.html:25
@@ -1552,7 +1552,7 @@ msgstr ""
 #: tracker/templates/tracker/generic/ticket_list.html:35
 #: tracker/templates/tracker/index.html:41
 msgid "Export"
-msgstr "Vie"
+msgstr "Elporti"
 
 #: tracker/templates/tracker/export.html:18
 msgid "Only filters with at least one checked checkbox are applied. You can either check all checkboxes or none of them, it's the same."
@@ -1624,7 +1624,7 @@ msgstr ""
 #: tracker/templates/tracker/export.html:174
 #: tracker/templates/tracker/export.html:204
 msgid "Wage"
-msgstr ""
+msgstr "Salajro"
 
 #: tracker/templates/tracker/export.html:216
 msgid "Supervisors"
@@ -1632,7 +1632,7 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:222
 msgid "Number of tickets"
-msgstr "Tikettien lukumäärä"
+msgstr ""
 
 #: tracker/templates/tracker/export.html:242
 msgid "Number of tickets in certain payment state"
@@ -1640,11 +1640,11 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:245
 msgid "N/A"
-msgstr "–"
+msgstr ""
 
 #: tracker/templates/tracker/export.html:278
 msgid "Number of tickets created"
-msgstr "Luotujen tikettien lukumäärä"
+msgstr ""
 
 #: tracker/templates/tracker/export.html:297
 msgid "Amount of accepted expeditures"
@@ -1656,20 +1656,20 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:338
 msgid "normal"
-msgstr "normaali"
+msgstr "normala"
 
 #: tracker/templates/tracker/export.html:343
 msgid "staff"
-msgstr "henkilökunta"
+msgstr ""
 
 #: tracker/templates/tracker/export.html:348
 msgid "superuser"
-msgstr "superuser"
+msgstr ""
 
 #: tracker/templates/tracker/generic/create_ticket.html:4
 #: tracker/templates/tracker/generic/create_ticket.html:8
 msgid "Create ticket"
-msgstr "Luo tiketti"
+msgstr "Krei bileton"
 
 #: tracker/templates/tracker/generic/create_ticket.html:13
 msgid "You'll be able to edit everything you've filled in even after submitting the form."
@@ -1680,7 +1680,7 @@ msgstr ""
 #: tracker/templates/tracker/index.html:3
 #: tracker/templates/tracker/index.html:15
 msgid "Ticket list"
-msgstr "Tikettilista"
+msgstr ""
 
 #: tracker/templates/tracker/generic/ticket_list.html:12
 #: tracker/templates/tracker/index.html:12
@@ -1690,42 +1690,42 @@ msgstr "Tikettilista"
 #: tracker/templates/tracker/topic_detail.html:14
 #: tracker/templates/tracker/topic_finance.html:7
 msgid "topics"
-msgstr "aiheet"
+msgstr "temoj"
 
 #: tracker/templates/tracker/generic/ticket_list.html:12
 #: tracker/templates/tracker/index.html:12
 #: tracker/templates/tracker/user_detail.html:8
 msgid "users"
-msgstr "käyttäjät"
+msgstr "uzantoj"
 
 #: tracker/templates/tracker/generic/ticket_list.html:13
 #: tracker/templates/tracker/generic/ticket_list.html:32
 #: tracker/templates/tracker/index.html:13
 #: tracker/templates/tracker/user_detail.html:9
 msgid "Create new ticket"
-msgstr "Luo uusi tiketti"
+msgstr "Krei novan bileton"
 
 #: tracker/templates/tracker/generic/ticket_list.html:22
 #: tracker/templates/tracker/user_detail.html:15
 msgid "No tickets available."
-msgstr "Ei tikettejä saatavilla."
+msgstr "Neniu bileto disponas."
 
 #: tracker/templates/tracker/generic/ticket_list.html:33
 #: tracker/templates/tracker/import.html:4
 #: tracker/templates/tracker/import.html:7
 #: tracker/templates/tracker/index.html:38
 msgid "Import"
-msgstr "Tuo"
+msgstr "Enporti"
 
 #: tracker/templates/tracker/generic/topic_list.html:4
 #: tracker/templates/tracker/generic/topic_list.html:8
 msgid "Topic list"
-msgstr "Aiheluettelo"
+msgstr "Listo de temoj"
 
 #: tracker/templates/tracker/generic/topic_list.html:13
 #: tracker/templates/tracker/grant_list.html:12
 msgid "Topics closed for new tickets"
-msgstr "Aiheet suljettu uusille tiketeille"
+msgstr ""
 
 #: tracker/templates/tracker/generic/topic_list.html:18
 msgid "topic finance"
@@ -1738,28 +1738,28 @@ msgstr ""
 #: tracker/templates/tracker/grant_detail.html:9
 #: tracker/templates/tracker/index.html:12
 msgid "grants"
-msgstr ""
+msgstr "gratifikoj"
 
 #: tracker/templates/tracker/grant_detail.html:11
 #: tracker/templates/tracker/ticket_detail.html:21
 #: tracker/templates/tracker/topic_detail.html:25
 msgid "watch settings"
-msgstr "tarkkailuasetukset"
+msgstr ""
 
 #: tracker/templates/tracker/grant_list.html:4
 #: tracker/templates/tracker/grant_list.html:8
 msgid "Grant list"
-msgstr ""
+msgstr "Listo de gratifikoj"
 
 #: tracker/templates/tracker/grant_table.html:7
 #: tracker/templates/tracker/topic_table.html:8
 msgid "Paid wages"
-msgstr "Maksettu palkat"
+msgstr "Pagitaj salajroj"
 
 #: tracker/templates/tracker/grant_table.html:8
 #: tracker/templates/tracker/topic_table.html:9
 msgid "Paid together"
-msgstr "Maksettu yhdessä"
+msgstr "Kunpagita"
 
 #: tracker/templates/tracker/grant_table.html:9
 #: tracker/templates/tracker/topic_table.html:10
@@ -1774,7 +1774,7 @@ msgstr ""
 #: tracker/templates/tracker/grant_table.html:49
 #: tracker/templates/tracker/topic_table.html:53
 msgid "No topics available."
-msgstr "Ei aiheita saatavilla."
+msgstr ""
 
 #: tracker/templates/tracker/import.html:10
 #, python-format
@@ -1793,7 +1793,7 @@ msgstr ""
 #: tracker/templates/tracker/import.html:53
 #: tracker/templates/tracker/import.html:60
 msgid "example file"
-msgstr "esimerkkitiedosto"
+msgstr "ekzempla dosiero"
 
 #: tracker/templates/tracker/import.html:41
 msgid "Preexpenses"
@@ -1805,27 +1805,27 @@ msgstr ""
 
 #: tracker/templates/tracker/import.html:53
 msgid "Media"
-msgstr "Media"
+msgstr ""
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_common_detail.html:10
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:28
 msgid "Event date"
-msgstr ""
+msgstr "Dato de evento"
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:28
 msgid "Name"
-msgstr "Nimi"
+msgstr "Nomo"
 
 #: tracker/templates/tracker/index.html:25
 #: tracker/templates/tracker/ticket_common_detail.html:11
 #: tracker/templates/tracker/ticket_table.html:17
 #: tracker/templates/tracker/ticket_table.html:32
 msgid "Requested by"
-msgstr "Pyytänyt"
+msgstr "Petita de"
 
 #: tracker/templates/tracker/index.html:29
 #: tracker/templates/tracker/ticket_common_detail.html:73
@@ -1838,31 +1838,31 @@ msgstr ""
 #: tracker/templates/tracker/ticket_common_detail.html:14
 #: tracker/templates/tracker/ticket_table.html:37
 msgid "State"
-msgstr "Tila"
+msgstr "Stato"
 
 #: tracker/templates/tracker/index.html:31
 #: tracker/templates/tracker/ticket_common_detail.html:9
 #: tracker/templates/tracker/ticket_table.html:24
 #: tracker/templates/tracker/ticket_table.html:38
 msgid "Last changed"
-msgstr "Viimeksi muutettu"
+msgstr ""
 
 #: tracker/templates/tracker/paginator.html:4
 msgid "previous"
-msgstr "edellinen"
+msgstr ""
 
 #: tracker/templates/tracker/paginator.html:8
 msgid "next"
-msgstr "seuraava"
+msgstr ""
 
 #: tracker/templates/tracker/preferences.html:4
 #: tracker/templates/tracker/preferences.html:14
 msgid "Preferences"
-msgstr "Asetukset"
+msgstr "Agordoj"
 
 #: tracker/templates/tracker/preferences.html:18
 msgid "Mute notifications"
-msgstr "Hiljennä ilmoitukset"
+msgstr ""
 
 #: tracker/templates/tracker/preferences.html:38
 msgid "Ignore ack types"
@@ -1870,44 +1870,44 @@ msgstr ""
 
 #: tracker/templates/tracker/preferences.html:51
 msgid "Other"
-msgstr "Muu"
+msgstr "Alia"
 
 #: tracker/templates/tracker/preferences.html:56
 #: tracker/templates/tracker/ticket_form.html:24
 #: tracker/templates/tracker/user_details_change.html:18
 #: tracker/templates/tracker/watch.html:32
 msgid "Save"
-msgstr "Tallenna"
+msgstr "Konservi"
 
 #: tracker/templates/tracker/preferences.html:58
 msgid "Wikimedia account"
-msgstr "Wikimedia-käyttäjätunnus"
+msgstr "Vikimedia konto"
 
 #: tracker/templates/tracker/preferences.html:62
 msgid "Your account is connected to Wikimedia account"
-msgstr "Käyttäjätunnuksesi on linkitetty Wikimedia-käyttäjätunnukseen"
+msgstr ""
 
 #: tracker/templates/tracker/preferences.html:72
 msgid "Disconnect Wikimedia account"
-msgstr "Katkaise yhteys Wikimedia-käyttäjätunnukseen"
+msgstr ""
 
 #: tracker/templates/tracker/preferences.html:76
 msgid "In order to disconnect your Wikimedia account, you first need to"
-msgstr "Katkaistaksesi yhteyden Wikimedia-käyttäjätunnukseesi, sinun täytyy ensin"
+msgstr ""
 
 #: tracker/templates/tracker/preferences.html:76
 msgid "set a password."
-msgstr "asettaa salasana."
+msgstr ""
 
 #: tracker/templates/tracker/preferences.html:84
 msgid "Account actions"
-msgstr "Tilitoiminnot"
+msgstr ""
 
 #: tracker/templates/tracker/preferences.html:86
 #: tracker/templates/tracker/user_deactivate.html:4
 #: tracker/templates/tracker/user_deactivate.html:11
 msgid "Deactivate account"
-msgstr "Poista käyttäjätunnus käytöstä"
+msgstr ""
 
 #: tracker/templates/tracker/sign_ticket.html:4
 #: tracker/templates/tracker/sign_ticket.html:7
@@ -1918,24 +1918,24 @@ msgstr ""
 #: tracker/templates/tracker/ticketack_add.html:21
 #: tracker/templates/tracker/ticketack_confirm_delete.html:16
 msgid "Submit"
-msgstr "Lähetä"
+msgstr "Sendi"
 
 #: tracker/templates/tracker/subtopic_detail.html:10
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "add ticket"
-msgstr "lisää tiketti"
+msgstr "aldoni bileton"
 
 #: tracker/templates/tracker/subtopic_detail.html:16
 msgid "Total for this subtopic"
-msgstr ""
+msgstr "Sumo pri subtemo"
 
 #: tracker/templates/tracker/tabular_formset.html:12
 msgid "delete"
-msgstr "poista"
+msgstr "forigi"
 
 #: tracker/templates/tracker/tabular_formset.html:21
 msgid "Delete the item"
-msgstr ""
+msgstr "Forigi eron"
 
 #: tracker/templates/tracker/tabular_formset.html:91
 #, python-format
@@ -1946,13 +1946,13 @@ msgstr ""
 #: tracker/templates/tracker/ticketack_confirm_delete.html:4
 #: tracker/templates/tracker/ticketack_confirm_delete.html:8
 msgid "Remove"
-msgstr "Poista"
+msgstr "Forigi"
 
 #: tracker/templates/tracker/ticket_common_detail.html:8
 #: tracker/templates/tracker/ticket_common_detail.html:52
 #: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Created"
-msgstr "Luotu"
+msgstr "Kreita"
 
 #: tracker/templates/tracker/ticket_common_detail.html:10
 msgid "unset"
@@ -1961,12 +1961,12 @@ msgstr ""
 #: tracker/templates/tracker/ticket_common_detail.html:15
 #: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "Yes"
-msgstr "Kyllä"
+msgstr "Jes"
 
 #: tracker/templates/tracker/ticket_common_detail.html:15
 #: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "No"
-msgstr "Ei"
+msgstr "Ne"
 
 #: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "Report URL"
@@ -1978,7 +1978,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:18
 msgid "Deposit"
-msgstr ""
+msgstr "Deponi"
 
 #: tracker/templates/tracker/ticket_common_detail.html:19
 msgid "Event URL"
@@ -1990,11 +1990,11 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:22
 msgid "remove"
-msgstr "poista"
+msgstr "forigi"
 
 #: tracker/templates/tracker/ticket_common_detail.html:25
 msgid "Confirm"
-msgstr ""
+msgstr "Konfirmi"
 
 #: tracker/templates/tracker/ticket_common_detail.html:33
 msgid "Supervisor notes"
@@ -2006,21 +2006,21 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:37
 msgid "Number of objects"
-msgstr "Objektien lukumäärä"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:38
 msgid "Number of media files"
-msgstr "Mediatiedostojen lukumäärä"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:49
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Item"
-msgstr "Kohde"
+msgstr "Ero"
 
 #: tracker/templates/tracker/ticket_common_detail.html:49
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Wage?"
-msgstr ""
+msgstr "Ĉu salajro?"
 
 #: tracker/templates/tracker/ticket_common_detail.html:56
 msgid "Total preexpeditures"
@@ -2028,11 +2028,11 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Paid?"
-msgstr ""
+msgstr "Pagita?"
 
 #: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Yes,No"
-msgstr "Kyllä,Ei"
+msgstr "Jes,Ne"
 
 #: tracker/templates/tracker/ticket_common_detail.html:71
 msgid "Total expeditures"
@@ -2040,27 +2040,27 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:16
 msgid "edit ticket"
-msgstr "muokkaa tikettiä"
+msgstr "redakti bileton"
 
 #: tracker/templates/tracker/ticket_detail.html:18
 msgid "edit in admin"
-msgstr ""
+msgstr "redakti ĉe administrejo"
 
 #: tracker/templates/tracker/ticket_detail.html:20
 msgid "duplicate"
-msgstr "monista"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:22
 msgid "add yourself as a driver"
-msgstr ""
+msgstr "aldoni vin kiel ŝoforon"
 
 #: tracker/templates/tracker/ticket_detail.html:23
 msgid "show media"
-msgstr "näytä media"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:24
 msgid "manage media"
-msgstr "hallitse mediaa"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:31
 #, python-format
@@ -2080,31 +2080,31 @@ msgstr ""
 #: tracker/templates/tracker/topic_detail.html:43
 #: tracker/templates/tracker/topic_detail.html:46
 msgid "Comments"
-msgstr "Kommentit"
+msgstr "Komentoj"
 
 #: tracker/templates/tracker/ticket_detail.html:84
 #: tracker/templates/tracker/topic_detail.html:47
 msgid "There are no comments yet."
-msgstr ""
+msgstr "Jen ankoraŭ neniu komento."
 
 #: tracker/templates/tracker/ticket_detail.html:91
 #: tracker/templates/tracker/ticket_detail.html:93
 #: tracker/templates/tracker/topic_detail.html:52
 #: tracker/templates/tracker/topic_detail.html:54
 msgid "Add comment"
-msgstr "Lisää kommentti"
+msgstr "Komenti"
 
 #: tracker/templates/tracker/ticket_form.html:15
 msgid "preexpediture"
-msgstr "ennakkomaksut"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_form.html:20
 msgid "expediture"
-msgstr "menot"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_form.html:24
 msgid "submit"
-msgstr "lähetä"
+msgstr "sendi"
 
 #: tracker/templates/tracker/ticket_media.html:4
 msgid "Manage media for"
@@ -2112,20 +2112,20 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:9
 msgid "Add new media"
-msgstr "Lisää uusi media"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:13
 msgid "Filename prefix"
-msgstr "Tiedostonimen etuliite"
+msgstr "Prefikso de dosiera nomo"
 
 #: tracker/templates/tracker/ticket_media.html:15
 #: tracker/templates/tracker/ticket_media.html:20
 msgid "Search"
-msgstr "Haku"
+msgstr "Serĉi"
 
 #: tracker/templates/tracker/ticket_media.html:18
 msgid "Mediawiki username"
-msgstr "MediaWiki-käyttäjänimi"
+msgstr "uzantnomo ĉe MediaVikio"
 
 #: tracker/templates/tracker/ticket_media.html:26
 msgid "Number of images to fetch"
@@ -2137,7 +2137,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:48
 msgid "Load more"
-msgstr "Lataa lisää"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:49
 msgid "Loading..."
@@ -2145,11 +2145,11 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:54
 msgid "Choose selected photos"
-msgstr "Valitse valitut kuvat"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:57
 msgid "Remove existing media"
-msgstr "Poista nykyiset mediat"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:58
 msgid "It can take up to five minutes for the images you added to show here."
@@ -2157,51 +2157,51 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:66
 msgid "Delete selected photos"
-msgstr "Poista valitut valokuvat"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_show_media.html:9
 msgid "List of linked media"
-msgstr "Luettelo linkitetyistä medioista"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_show_media.html:10
 msgid "Last updated"
-msgstr "Viimeksi päivitetty"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_show_media.html:10
 msgid "update"
-msgstr "päivitä"
+msgstr "ĝisdatigi"
 
 #: tracker/templates/tracker/ticket_show_media.html:11
 msgid "Page will be updated within 24 hours."
-msgstr "Sivu päivitetään 24 tunnin kuluessa."
+msgstr ""
 
 #: tracker/templates/tracker/ticket_show_media.html:15
 msgid "File name"
-msgstr "Tiedostonimi"
+msgstr "Nomo de dosiero"
 
 #: tracker/templates/tracker/ticket_show_media.html:16
 msgid "Dimension"
-msgstr ""
+msgstr "Grando"
 
 #: tracker/templates/tracker/ticket_show_media.html:17
 msgid "Categories"
-msgstr "Luokat"
+msgstr "Kategorioj"
 
 #: tracker/templates/tracker/ticket_show_media.html:18
 msgid "Used in"
-msgstr ""
+msgstr "Uzata en"
 
 #: tracker/templates/tracker/ticket_show_media.html:25
 msgid "Unknown"
-msgstr "Tuntematon"
+msgstr "Nekonata"
 
 #: tracker/templates/tracker/ticket_show_media.html:49
 msgid "Number of usages"
-msgstr "Käyttömäärä"
+msgstr "Nombro de uzoj"
 
 #: tracker/templates/tracker/ticket_show_media.html:53
 msgid "Number of Wikidata items"
-msgstr ""
+msgstr "Nombro de Vikidatutmaj eroj"
 
 #: tracker/templates/tracker/ticket_show_media.html:59
 msgid "Photos per category"
@@ -2223,20 +2223,20 @@ msgstr ""
 #: tracker/templates/tracker/ticketack_add.html:7
 #: tracker/templates/tracker/ticketack_confirm_delete.html:7
 msgid "confirmations"
-msgstr ""
+msgstr "konfirmoj"
 
 #: tracker/templates/tracker/ticketack_add.html:26
 #: tracker/templates/tracker/ticketack_confirm_delete.html:17
 msgid "back to ticket"
-msgstr "takaisin tikettiin"
+msgstr "reen al bileto"
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:11
 msgid "Added"
-msgstr "Lisätty"
+msgstr "Aldonita"
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:12
 msgid "Added by"
-msgstr "Lisännyt"
+msgstr "Aldonita de"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:4
 #: tracker/templates/tracker/topic_content_acks_per_user.html:8
@@ -2253,11 +2253,11 @@ msgstr ""
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:27
 msgid "download csv"
-msgstr "lataa csv-muodossa"
+msgstr ""
 
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "Topic is open for new tickets"
-msgstr "Aihe on avoin uusille tiketeille"
+msgstr ""
 
 #: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrators"
@@ -2265,7 +2265,7 @@ msgstr ""
 
 #: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrator"
-msgstr ""
+msgstr "Administranto de temo"
 
 #: tracker/templates/tracker/topic_detail.html:38
 msgid "Total for this topic"
@@ -2283,7 +2283,7 @@ msgstr ""
 #: tracker/templates/tracker/topic_finance.html:34
 #, python-format
 msgid "Total %(gname)s"
-msgstr "Yhteensä %(gname)s"
+msgstr ""
 
 #: tracker/templates/tracker/topic_finance.html:44
 msgid "Marked topics involve partial payments that have no clear relation to topic, and have been split equally among possible candidates."
@@ -2291,7 +2291,7 @@ msgstr ""
 
 #: tracker/templates/tracker/topic_table.html:11
 msgid "Administrators"
-msgstr "Ylläpitäjät"
+msgstr "Administrantoj"
 
 #: tracker/templates/tracker/transaction_list.html:4
 #: tracker/templates/tracker/transaction_list.html:12
@@ -2313,24 +2313,24 @@ msgstr ""
 
 #: tracker/templates/tracker/transaction_list.html:26
 msgid "download as csv"
-msgstr "lataa csv-muodossa"
+msgstr ""
 
 #: tracker/templates/tracker/upload_ticket_doc.html:21
 #: tracker/templates/tracker/upload_ticket_doc.html:25
 msgid "Upload document"
-msgstr "Tallenna asiakirja"
+msgstr "Alŝuti dokumenton"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "documents"
-msgstr "asiakirjat"
+msgstr "dokumentoj"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload"
-msgstr "tallenna"
+msgstr "alŝuti"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload and add another"
-msgstr "tallenna ja lisää toinen"
+msgstr "alŝuti kaj aldoni alian"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:35
 msgid "This document, including its file name and description, will be visible only to the ticket owner and specially privileged users."
@@ -2354,15 +2354,15 @@ msgstr ""
 
 #: tracker/templates/tracker/user_deactivate.html:20
 msgid "Username:"
-msgstr "Käyttäjänimi:"
+msgstr "Uzantnomo:"
 
 #: tracker/templates/tracker/user_deactivate.html:21
 msgid "Email:"
-msgstr "Sähköposti:"
+msgstr "Retpoŝta adreso:"
 
 #: tracker/templates/tracker/user_deactivate.html:32
 msgid "Deactivate my account"
-msgstr "Poista käyttäjätunnukseni käytöstä"
+msgstr "Malaktivigi mian konton"
 
 #: tracker/templates/tracker/user_deactivate_email.html:3
 msgid "Tracker account deactivated"
@@ -2386,7 +2386,7 @@ msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
-msgstr "Tracker"
+msgstr ""
 
 #: tracker/templates/tracker/user_detail.html:13
 msgid "Total for this user"
@@ -2399,7 +2399,7 @@ msgstr ""
 #: tracker/templates/tracker/user_details_change.html:4
 #: tracker/templates/tracker/user_details_change.html:9
 msgid "My details"
-msgstr "Omat tiedot"
+msgstr "Miaj detaloj"
 
 #: tracker/templates/tracker/user_details_change.html:19
 #: users/templates/users/register.html:16
@@ -2421,11 +2421,11 @@ msgstr ""
 
 #: tracker/templates/tracker/watch.html:19
 msgid "All"
-msgstr "Kaikki"
+msgstr "Ĉiuj"
 
 #: tracker/views.py:61
 msgid "Comment posted, thank you."
-msgstr "Kommentti lähetetty, kiitos."
+msgstr "Afiŝis komenton, dankon."
 
 #: tracker/views.py:102
 msgid "You cannot add ack to a ticket you do not own."
@@ -2459,23 +2459,23 @@ msgstr ""
 
 #: tracker/views.py:364
 msgid "We've updated your preferences"
-msgstr "Olemme päivittäneet asetuksesi"
+msgstr "Ĝisdatigis viajn preferojn"
 
 #: tracker/views.py:412
 msgid "Please enter your password to confirm the deactivation of your account."
-msgstr "Syötä salasanasi vahvistaaksesi tunnuksesi käytöstäpoiston."
+msgstr ""
 
 #: tracker/views.py:427
 msgid "Account deactivation"
-msgstr "Tunnuksen poistaminen käytöstä"
+msgstr "Malaktivigo de konto"
 
 #: tracker/views.py:434
 msgid "Your account has been deactivated."
-msgstr "Tunnuksesi on poistettu käytöstä."
+msgstr "Malaktivigis vian konton."
 
 #: tracker/views.py:437
 msgid "Password is incorrect."
-msgstr "Salasana on väärä."
+msgstr "Ne ĝusta pasvorto."
 
 #: tracker/views.py:469
 #, python-format
@@ -2495,11 +2495,11 @@ msgstr ""
 #: tracker/views.py:595
 #, python-format
 msgid "Ticket %s is created"
-msgstr "Tiketti %s on luotu"
+msgstr "Kreis bileton %s"
 
 #: tracker/views.py:641
 msgid "I confirm the above"
-msgstr "Vahvistan edellä mainitun"
+msgstr "Mi konfirmas la ĉi-supron"
 
 #: tracker/views.py:648
 msgid "You cannot add statutory declaration to a ticket that does not support it."
@@ -2520,11 +2520,11 @@ msgstr ""
 #: tracker/views.py:730
 #, python-format
 msgid "Ticket %s saved."
-msgstr "Tiketti %s tallennettu."
+msgstr "Konservis bileton %s."
 
 #: tracker/views.py:761
 msgid "file"
-msgstr "tiedosto"
+msgstr "dosiero"
 
 #: tracker/views.py:791
 msgid "You cannot edit this ticket documents, as it's no longer editable"
@@ -2538,11 +2538,11 @@ msgstr ""
 #: tracker/views.py:854
 #, python-format
 msgid "File %(filename)s has been saved."
-msgstr "Tiedosto %(filename)s on tallennettu."
+msgstr ""
 
 #: tracker/views.py:1042
 msgid "Your details have been saved."
-msgstr "Tietosi on tallennettu."
+msgstr ""
 
 #: tracker/views.py:1488
 msgid "You must fill the form validly"
@@ -2559,19 +2559,19 @@ msgstr ""
 
 #: tracker/views.py:1647
 msgid "Your CSV file was imported."
-msgstr "CSV-tiedostosi on tuotu."
+msgstr ""
 
 #: tracker/views.py:1655
 msgid "Name of a ticket"
-msgstr "Tiketin nimi"
+msgstr "Nomo de bileto"
 
 #: tracker/views.py:1655 tracker/views.py:1660
 msgid "Name of a topic"
-msgstr "Aiheen nimi"
+msgstr "Nomo de temo"
 
 #: tracker/views.py:1660
 msgid "Name of a grant"
-msgstr ""
+msgstr "Nomo de gratifiko"
 
 #: tracker/views.py:1660
 msgid "Form description"
@@ -2579,11 +2579,11 @@ msgstr ""
 
 #: tracker/views.py:1665
 msgid "Full name"
-msgstr "Koko nimi"
+msgstr "Kompleta nomo"
 
 #: tracker/views.py:1665
 msgid "Short name"
-msgstr "Lyhyt nimi"
+msgstr "Mallonga nomo"
 
 #: tracker/views.py:1665
 msgid "Slug"
@@ -2591,7 +2591,7 @@ msgstr ""
 
 #: tracker/views.py:1688
 msgid "Password"
-msgstr "Salasana"
+msgstr "Pasvorto"
 
 #: tracker/views.py:1710
 msgid "Preexpeditures were succesfully copied to expeditures."
@@ -2623,47 +2623,47 @@ msgstr ""
 
 #: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
-msgstr "Vanha salasana"
+msgstr "Malnova pasvorto"
 
 #: users/templates/users/login.html:4
 msgid "Login"
-msgstr "Kirjaudu"
+msgstr "Ensaluti"
 
 #: users/templates/users/login.html:7
 msgid "You need to log in to access the following page."
-msgstr "Sinun täytyy kirjautua sisään päästäksesi seuraavalle sivulle."
+msgstr ""
 
 #: users/templates/users/login.html:10
 msgid "Your username and password didn't match. Please try again."
-msgstr "Käyttäjänimesi ja salasanasi eivät täsmää. Yritä uudelleen."
+msgstr ""
 
 #: users/templates/users/login.html:26
 msgid "Don't have an acount?"
-msgstr "Eikö sinulla ole tiliä?"
+msgstr "Ne havas konton?"
 
 #: users/templates/users/login.html:26 users/templates/users/register.html:6
 msgid "Register"
-msgstr "Rekisteröidy"
+msgstr "Registriĝi"
 
 #: users/templates/users/login.html:27
 msgid "Forgot password?"
-msgstr "Unohtuiko salasana?"
+msgstr "Forgesis pasvorton?"
 
 #: users/templates/users/login.html:27
 msgid "Reset password"
-msgstr "Nollaa salasana"
+msgstr ""
 
 #: users/templates/users/login.html:28
 msgid "Login with Meta Wiki"
-msgstr "Kirjaudu MetaWikin kautta"
+msgstr ""
 
 #: users/templates/users/logout.html:4
 msgid "Logged out"
-msgstr "Kirjautunut ulos"
+msgstr "Elsalutinta"
 
 #: users/templates/users/logout.html:7
 msgid "Bye!"
-msgstr "Näkemiin!"
+msgstr "Ĝis!"
 
 #: users/templates/users/logout.html:8
 msgid "Go to index."
@@ -2687,44 +2687,45 @@ msgstr ""
 #: users/templates/users/password_change.html:5
 #: users/templates/users/password_change.html:16 users/views.py:67
 msgid "Password change"
-msgstr "Salasanan vaihto"
+msgstr "Ŝanĝo de pasvorto"
 
 #: users/templates/users/password_change.html:12
+#, invalid-plural
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
-msgstr[0] "Korjaa alla oleva virhe."
-msgstr[1] "Korjaa alla olevat virheet."
+msgstr[0] ""
+msgstr[1] ""
 
 #: users/templates/users/password_change.html:19
 msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
-msgstr "Kirjoita vanha salasanasi turvallisuuden vuoksi ja kirjoita sitten uusi salasanasi kahdesti, jotta voimme varmistaa, että kirjoitit sen oikein."
+msgstr ""
 
 #: users/templates/users/password_change.html:21
 #: users/templates/users/password_reset_confirm.html:12
 msgid "Please enter your new password twice so we can verify you typed it in correctly."
-msgstr "Anna uusi salasanasi kahdesti, jotta voimme varmistaa että kirjoitit sen oikein."
+msgstr ""
 
 #: users/templates/users/password_change.html:33
 msgid "New password"
-msgstr "Uusi salasana"
+msgstr "Nova pasvorto"
 
 #: users/templates/users/password_change.html:38
 msgid "Password (again)"
-msgstr "Salasana (uudelleen)"
+msgstr "Pasvorto (refoje)"
 
 #: users/templates/users/password_change.html:42
 #: users/templates/users/password_reset_confirm.html:19
 msgid "Change my password"
-msgstr "Muuta salasanani"
+msgstr "Ŝanĝi mian pasvorton"
 
 #: users/templates/users/password_change_done.html:4
 #: users/templates/users/password_change_done.html:7
 msgid "Password change successful"
-msgstr "Salasanan vaihtaminen onnistui."
+msgstr "Sukcese ŝanĝis pasvorton"
 
 #: users/templates/users/password_change_done.html:8
 msgid "Your password was changed."
-msgstr "Salasanasi on vaihdettu."
+msgstr "Ŝanĝis vian pasvorton."
 
 #: users/templates/users/password_reset.html:4
 #: users/templates/users/password_reset.html:8
@@ -2738,40 +2739,40 @@ msgstr ""
 
 #: users/templates/users/password_reset.html:14
 msgid "E-mail address:"
-msgstr "Sähköpostiosoite:"
+msgstr "Retpoŝta adreso:"
 
 #: users/templates/users/password_reset.html:14
 msgid "Reset my password"
-msgstr "Nollaa salasanani"
+msgstr ""
 
 #: users/templates/users/password_reset_complete.html:4
 #: users/templates/users/password_reset_complete.html:8
 msgid "Password reset complete"
-msgstr "Salasanan nollaus suoritettu"
+msgstr ""
 
 #: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
-msgstr "Salasanasi on asetettu. Voit mennä eteenpäin ja kirjautua sisään nyt."
+msgstr ""
 
 #: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
-msgstr "Kirjaudu sisään"
+msgstr "Ensaluti"
 
 #: users/templates/users/password_reset_confirm.html:10
 msgid "Enter new password"
-msgstr "Aseta uusi salasana"
+msgstr "Entajpu novan pasvorton"
 
 #: users/templates/users/password_reset_confirm.html:16
 msgid "New password:"
-msgstr "Uusi salasana:"
+msgstr "Nova pasvorto:"
 
 #: users/templates/users/password_reset_confirm.html:18
 msgid "Confirm password:"
-msgstr "Vahvista salasana:"
+msgstr "Konfirmi pasvorton:"
 
 #: users/templates/users/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
-msgstr "Salasanan nollaus epäonnistui"
+msgstr ""
 
 #: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
@@ -2780,7 +2781,7 @@ msgstr ""
 #: users/templates/users/password_reset_done.html:4
 #: users/templates/users/password_reset_done.html:8
 msgid "Password reset successful"
-msgstr "Salasanan nollaus onnistui"
+msgstr ""
 
 #: users/templates/users/password_reset_done.html:10
 msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
@@ -2793,20 +2794,20 @@ msgstr ""
 
 #: users/templates/users/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr "Siirry seuraavalle sivulle ja valitse uusi salasana:"
+msgstr ""
 
 #: users/templates/users/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
-msgstr "Käyttäjänimesi, mikäli olet unohtanut:"
+msgstr ""
 
 #: users/templates/users/password_reset_email.html:10
 msgid "Thanks for using our site!"
-msgstr "Kiitos, että käytät sivustoamme!"
+msgstr "Dankon por uzi nian retejon!"
 
 #: users/templates/users/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
-msgstr "%(site_name)sin tiimi"
+msgstr "La teamo de %(site_name)s"
 
 #: users/views.py:22
 msgid "Will be used for password recovery and notifications, if you enable them."
@@ -2815,5 +2816,5 @@ msgstr ""
 #: users/views.py:37
 #, python-format
 msgid "User %s created."
-msgstr "Käyttäjä %s luotu."
+msgstr "Kreis uzanton %s."
 

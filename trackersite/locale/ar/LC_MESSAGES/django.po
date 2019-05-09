@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-02-18 07:20:19+0000\n"
-"X-POT-Import-Date: 2019-02-03 15:52:30+0000\n"
+"PO-Revision-Date: 2019-05-09 15:45:20+0000\n"
+"X-POT-Import-Date: 2019-05-09 10:08:21+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
@@ -26,31 +26,31 @@ msgstr "لا يمكن تحرير الوديعة بمجرد أن يتم قبول 
 msgid "Deposit should be lower or equal to the sum of preexpeditures"
 msgstr "يجب أن يكون الإيداع أقل من أو مساويا لمجموع الدفعات المسبقة"
 
-#: api/serializers.py:123
+#: api/serializers.py:127
 msgid "You can not add media to this ticket."
 msgstr "لا يمكنك إضافة وسائط إلى هذه التذكرة."
 
-#: api/serializers.py:125
+#: api/serializers.py:129
 msgid "You can not edit the media of this ticket."
 msgstr "لا يمكنك تحرير وسائط هذه التذكرة."
 
-#: api/serializers.py:148
+#: api/serializers.py:152
 msgid "You can not add expiditures to this ticket."
 msgstr "لا يمكنك إضافة نفقات إلى هذه التذكرة."
 
-#: api/serializers.py:150
+#: api/serializers.py:154
 msgid "You can not edit expiditures of this ticket."
 msgstr "لا يمكنك تحرير نفقات هذه التذكرة."
 
-#: api/serializers.py:163
+#: api/serializers.py:167
 msgid "You can not add preexpiditures to this ticket."
 msgstr "لا يمكنك إضافة نفقات مسبقة إلى هذه التذكرة."
 
-#: api/serializers.py:165
+#: api/serializers.py:169
 msgid "You can not edit preexpiditures of this ticket."
 msgstr "لا يمكنك تحرير نفقات مسبقة لهذه التذكرة."
 
-#: common_settings.py:81 tracker/templates/tracker/grant_table.html:22
+#: common_settings.py:84 tracker/templates/tracker/grant_table.html:22
 #: tracker/templates/tracker/grant_table.html:23
 #: tracker/templates/tracker/grant_table.html:36
 #: tracker/templates/tracker/grant_table.html:37
@@ -62,39 +62,39 @@ msgstr "لا يمكنك تحرير نفقات مسبقة لهذه التذكرة
 msgid "CZK"
 msgstr "كرونة تشيكية"
 
-#: common_settings.py:84
+#: common_settings.py:87
 msgid "English"
 msgstr "الإنجليزية"
 
-#: common_settings.py:85
+#: common_settings.py:88
 msgid "Czech"
 msgstr "التشيكية"
 
-#: common_settings.py:86
+#: common_settings.py:89
 msgid "French"
 msgstr "الفرنسية"
 
-#: common_settings.py:87
+#: common_settings.py:90
 msgid "Arabic"
 msgstr "العربية"
 
-#: common_settings.py:88
+#: common_settings.py:91
 msgid "Danish"
 msgstr "الدانماركية"
 
-#: common_settings.py:89
+#: common_settings.py:92
 msgid "Finnish"
 msgstr "الفنلندية"
 
-#: common_settings.py:90
+#: common_settings.py:93
 msgid "Korean"
 msgstr "الكورية"
 
-#: common_settings.py:91
+#: common_settings.py:94
 msgid "Portuguese"
 msgstr "البرتغالية"
 
-#: common_settings.py:92
+#: common_settings.py:95
 msgid "Swedish"
 msgstr "السويدية"
 
@@ -205,7 +205,7 @@ msgstr "تسجيل الدخول"
 msgid "register"
 msgstr "تسجيل"
 
-#: templates/base.html:102
+#: templates/base.html:102 templates/base.html.py:105
 msgid "Warning"
 msgstr "تحذير"
 
@@ -213,6 +213,10 @@ msgstr "تحذير"
 #, python-format
 msgid "You are not in production. If you want to request reimbursement of expenses, go to <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>."
 msgstr "أنت لست في الإنتاج، إذا كنت ترغب في طلب سداد النفقات، فانتقل إلى <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>."
+
+#: templates/base.html:105
+msgid "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox."
+msgstr "أنت تستخدم برنامج إنترنت إكسبلورر، ومع ذلك، يتطلب المتتبع ميزات حديثة لا يدعمها إنترنت إكسبلورر، نتيجة لذلك؛ قد لا يعمل المتتبع بشكل صحيح في إنترنت إكسبلورر؛ نوصيك باستخدام متصفح آخر، مثل كروم أو فيرفكس."
 
 #: templates/choose_language.html:5 templates/choose_language.html.py:8
 msgid "Change language"
@@ -279,25 +283,25 @@ msgstr "أحدث التذاكر المقدمة"
 msgid "Recently changed submitted tickets"
 msgstr "تذاكر مقدمة تغيرت مؤخرا"
 
-#: tracker/models.py:39 tracker/templates/tracker/grant_table.html:11
+#: tracker/models.py:40 tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
 msgid "n/a"
 msgstr "غ/م"
 
-#: tracker/models.py:40 tracker/templates/tracker/export.html:246
+#: tracker/models.py:41 tracker/templates/tracker/export.html:246
 #: tracker/templates/tracker/grant_table.html:12
 #: tracker/templates/tracker/topic_finance.html:16
 #: tracker/templates/tracker/topic_table.html:14
 msgid "unpaid"
 msgstr "غير مدفوع"
 
-#: tracker/models.py:41 tracker/templates/tracker/export.html:247
+#: tracker/models.py:42 tracker/templates/tracker/export.html:247
 #: tracker/templates/tracker/grant_table.html:13
 #: tracker/templates/tracker/topic_table.html:15
 msgid "partially paid"
 msgstr "مدفوع جزئيا"
 
-#: tracker/models.py:42 tracker/models.py:943
+#: tracker/models.py:43 tracker/models.py:985
 #: tracker/templates/tracker/export.html:248
 #: tracker/templates/tracker/grant_table.html:14
 #: tracker/templates/tracker/topic_finance.html:17
@@ -305,338 +309,338 @@ msgstr "مدفوع جزئيا"
 msgid "paid"
 msgstr "مدفوع"
 
-#: tracker/models.py:43 tracker/templates/tracker/export.html:249
+#: tracker/models.py:44 tracker/templates/tracker/export.html:249
 #: tracker/templates/tracker/grant_table.html:15
 #: tracker/templates/tracker/topic_finance.html:18
 #: tracker/templates/tracker/topic_table.html:17
 msgid "overpaid"
 msgstr "مدفوع بزيادة"
 
-#: tracker/models.py:47
+#: tracker/models.py:48
 msgid "presubmitted"
 msgstr "مقدم سابقا"
 
-#: tracker/models.py:48
+#: tracker/models.py:49
 msgid "preaccepted"
 msgstr "مقبول سابقا"
 
-#: tracker/models.py:49
+#: tracker/models.py:50
 msgid "submitted"
 msgstr "مقدم"
 
-#: tracker/models.py:50
+#: tracker/models.py:51
 msgid "accepted"
 msgstr "مقبول"
 
-#: tracker/models.py:51
+#: tracker/models.py:52
 msgid "expense documents submitted"
 msgstr "تم تقديم وثائق المصروفات"
 
-#: tracker/models.py:52
+#: tracker/models.py:53
 msgid "expense documents filed"
 msgstr "حقل وثائق النفقة"
 
-#: tracker/models.py:53 tracker/models.py:336
+#: tracker/models.py:54 tracker/models.py:346
 #: tracker/templates/tracker/export.html:52
 #: tracker/templates/tracker/export.html:53
 msgid "archived"
 msgstr "مؤرشف"
 
-#: tracker/models.py:54 tracker/models.py:334
+#: tracker/models.py:55 tracker/models.py:344
 #: tracker/templates/tracker/export.html:55
 #: tracker/templates/tracker/export.html:56
 msgid "closed"
 msgstr "مغلق"
 
-#: tracker/models.py:58
+#: tracker/models.py:59
 msgid "All notifications"
 msgstr "كل الإشعارات"
 
-#: tracker/models.py:59
+#: tracker/models.py:60
 msgid "Comment added"
 msgstr "تمت إضافة التعليق"
 
-#: tracker/models.py:60
+#: tracker/models.py:61
 msgid "Supervisor notes changed"
 msgstr "ملاحظات المشرف تغيرت"
 
-#: tracker/models.py:61
+#: tracker/models.py:62
 msgid "New ticket was created"
 msgstr "تم إنشاء تذكرة جديدة"
 
-#: tracker/models.py:62
+#: tracker/models.py:63
 msgid "Ticket was deleted"
 msgstr "تم حذف تذكرة"
 
-#: tracker/models.py:63
+#: tracker/models.py:64
 msgid "Ack added"
 msgstr "تمت إضافة إشعار تأكيد"
 
-#: tracker/models.py:64
+#: tracker/models.py:65
 msgid "Ack removed"
 msgstr "تمت إزالة إشعار تأكيد"
 
-#: tracker/models.py:65
+#: tracker/models.py:66
 msgid "Ticket changed"
 msgstr "تغيرت تذكرة"
 
-#: tracker/models.py:66
+#: tracker/models.py:67
 msgid "New preexpediture was created"
 msgstr "تم إنشاء نفقة سابقة جديدة"
 
-#: tracker/models.py:67
+#: tracker/models.py:68
 msgid "Preexpeditures changed"
 msgstr "تم تغيير نفقات مسبقة جديدة"
 
-#: tracker/models.py:68
+#: tracker/models.py:69
 msgid "New expediture was created"
 msgstr "تم إنشاء نفقة جديدة"
 
-#: tracker/models.py:69
+#: tracker/models.py:70
 msgid "Expeditures changed"
 msgstr "النفقات تغيرت"
 
-#: tracker/models.py:70
+#: tracker/models.py:71
 msgid "New media was created"
 msgstr "تم إنشاء وسائط جديدة"
 
-#: tracker/models.py:71
+#: tracker/models.py:72
 msgid "Media changed"
 msgstr "الوسائط تغيرت"
 
-#: tracker/models.py:130
+#: tracker/models.py:131
 msgid "unknown"
 msgstr "غير معروف"
 
-#: tracker/models.py:153 tracker/models.py:1167
+#: tracker/models.py:163 tracker/models.py:1209
 msgid "created"
 msgstr "تم الإنشاء"
 
-#: tracker/models.py:224
+#: tracker/models.py:234
 msgid "Signed text"
 msgstr "نص موقّع"
 
-#: tracker/models.py:229
+#: tracker/models.py:239
 msgid "updated"
 msgstr "تم التحديث"
 
-#: tracker/models.py:230
+#: tracker/models.py:240
 msgid "media updated"
 msgstr "تم تحديث الوسائط"
 
-#: tracker/models.py:230
+#: tracker/models.py:240
 msgid "Date when cached information about media were last updated. Used in \"show media\" view."
 msgstr "تاريخ آخر تحديث للمعلومات المخزنة مؤقتا عن الوسائط، يُستخدَم في طريقة عرض \"إظهار الوسائط\"."
 
-#: tracker/models.py:231
+#: tracker/models.py:241
 msgid "event date"
 msgstr "تاريخ الحدث"
 
-#: tracker/models.py:231
+#: tracker/models.py:241
 msgid "Date of the event this ticket is about"
 msgstr "تاريخ حدث هذه التذكرة"
 
-#: tracker/models.py:232 tracker/models.py:371
+#: tracker/models.py:242 tracker/models.py:381
 #: tracker/templates/feeds/ticket_description.html:3
 msgid "requested by"
 msgstr "مطلوب من"
 
-#: tracker/models.py:232
+#: tracker/models.py:242
 msgid "User who created/requested for this ticket"
 msgstr "المستخدم الذي أنشأ/طلب هذه التذكرة"
 
-#: tracker/models.py:233
+#: tracker/models.py:243
 msgid "requested by (text)"
 msgstr "طُلِب بواسطة (نص)"
 
-#: tracker/models.py:233
+#: tracker/models.py:243
 msgid "Text description of who requested for this ticket, in case user is not filled in"
 msgstr "الوصف النصي لمن طلب هذه التذكرة، في حالة عدم ملء المستخدم"
 
-#: tracker/models.py:234 tracker/models.py:606 tracker/models.py:671
-#: tracker/models.py:828 tracker/views.py:785
+#: tracker/models.py:244 tracker/models.py:648 tracker/models.py:713
+#: tracker/models.py:870 tracker/views.py:762
 msgid "name"
 msgstr "الاسم"
 
-#: tracker/models.py:234
+#: tracker/models.py:244
 msgid "Name for the ticket"
 msgstr "اسم للتذكرة"
 
-#: tracker/models.py:235 tracker/models.py:609 tracker/views.py:556
+#: tracker/models.py:245 tracker/models.py:651 tracker/views.py:533
 msgid "topic"
 msgstr "الموضوع"
 
-#: tracker/models.py:235
+#: tracker/models.py:245
 msgid "Project topic this ticket belongs to"
 msgstr "موضوع المشروع الذي تنتمي هذه التذكرة إليه"
 
-#: tracker/models.py:236
+#: tracker/models.py:246
 msgid "subtopic"
 msgstr "الموضوع الفرعي"
 
-#: tracker/models.py:236
+#: tracker/models.py:246
 msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
 msgstr "الموضوع الفرعي المشروع الذي تنتمي هذه التذكرة إليه (إذا كنت لا تعرف، اترك هذا فارغا)"
 
-#: tracker/models.py:237
+#: tracker/models.py:247
 msgid "rating percentage"
 msgstr "نسبة التقييم"
 
-#: tracker/models.py:237
+#: tracker/models.py:247
 msgid "Rating percentage set by topic administrator"
 msgstr "النسبة المئوية للتقييم التي تم تعيينها من قبل إداري الموضوع"
 
-#: tracker/models.py:238
+#: tracker/models.py:248
 msgid "report mandatory"
 msgstr "تقرير إلزامي"
 
-#: tracker/models.py:238 tracker/templates/tracker/export.html:73
+#: tracker/models.py:248 tracker/templates/tracker/export.html:73
 #: tracker/templates/tracker/export.html:75
 #: tracker/templates/tracker/ticket_common_detail.html:15
 msgid "Is report mandatory?"
 msgstr "هل التقرير إلزامي؟"
 
-#: tracker/models.py:239
+#: tracker/models.py:249
 msgid "report url"
 msgstr "الإبلاغ عن مسار"
 
-#: tracker/models.py:239
+#: tracker/models.py:249
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
 msgstr "مسار لتقريرك، إذا كنت تريد الإبلاغ عن شيء ما (أو إذا كان تقريرك إلزاميا حسب إداري موضوع)."
 
-#: tracker/models.py:240
+#: tracker/models.py:250
 msgid "event url"
 msgstr "مسار الحدث"
 
-#: tracker/models.py:240
+#: tracker/models.py:250
 msgid "Link to a public page describing the event, if it exist"
 msgstr "رابط إلى صفحة عامة تصف الحدث، إذا كانت موجودة"
 
-#: tracker/models.py:241 tracker/models.py:607 tracker/models.py:678
-#: tracker/models.py:760 tracker/models.py:813 tracker/models.py:940
-#: tracker/models.py:962 tracker/models.py:1106 tracker/views.py:786
+#: tracker/models.py:251 tracker/models.py:649 tracker/models.py:720
+#: tracker/models.py:802 tracker/models.py:855 tracker/models.py:982
+#: tracker/models.py:1004 tracker/models.py:1148 tracker/views.py:763
 msgid "description"
 msgstr "الوصف"
 
-#: tracker/models.py:241
+#: tracker/models.py:251
 msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description. You may use a limited subset of HTML."
 msgstr "مساحة لمزيد من الملاحظات، إذا كنت تقوم بإدخال رحلة، أخبرنا أين ذهبت وماذا فعلت هناك، يمكنك الربط بتذاكر أخرى عن طريق إضافة #ticketid في وصفك، يجوز لك استخدام مجموعة فرعية محدودة من HTML."
 
-#: tracker/models.py:242
+#: tracker/models.py:252
 msgid "supervisor notes"
 msgstr "ملاحظات المشرف"
 
-#: tracker/models.py:242
+#: tracker/models.py:252
 msgid "This space is for notes of project supervisors and accounting staff."
 msgstr "هذه المساحة لملاحظات مشرفي المشروع وموظفي المحاسبة."
 
-#: tracker/models.py:243
+#: tracker/models.py:253
 msgid "deposit"
 msgstr "الوديعة"
 
-#: tracker/models.py:245
+#: tracker/models.py:255
 msgid "If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."
 msgstr "إذا كنت تطلب إيداعا ماليا، فيُرجى ملء مبلغه، الحد الأقصى للمبلغ هو مجموع النفقات المسبقة، إذا لم تكن تطلب إيداعا، فاملأ 0 هنا."
 
-#: tracker/models.py:247
+#: tracker/models.py:257
 msgid "payment status"
 msgstr "حالة السداد"
 
-#: tracker/models.py:248
+#: tracker/models.py:258
 msgid "imported"
 msgstr "مستورد"
 
-#: tracker/models.py:248
+#: tracker/models.py:258
 msgid "Was this ticket imported from older Tracker version?"
 msgstr "هل تم استيراد هذه التذكرة من إصدار متتبع أقدم؟"
 
-#: tracker/models.py:249
+#: tracker/models.py:259
 msgid "enable comments"
 msgstr "تمكين التعليقات"
 
-#: tracker/models.py:249
+#: tracker/models.py:259
 msgid "Can users comment on this ticket?"
 msgstr "يمكن للمستخدمين التعليق على هذه التذكرة؟"
 
-#: tracker/models.py:250
+#: tracker/models.py:260
 msgid "Did you travel by car?"
 msgstr "هل سافرت بالسيارة؟"
 
-#: tracker/models.py:250
+#: tracker/models.py:260
 msgid "Do you request reimbursement of car-type travel expense?"
 msgstr "هل تطلب سداد نفقات السفر من نوع السيارة؟"
 
-#: tracker/models.py:330
+#: tracker/models.py:340
 msgid "historical"
 msgstr "تاريخي"
 
-#: tracker/models.py:339
+#: tracker/models.py:349
 msgid "waiting for content rating"
 msgstr "في انتظار تقييم المحتوى"
 
-#: tracker/models.py:342 tracker/templates/tracker/export.html:49
+#: tracker/models.py:352 tracker/templates/tracker/export.html:49
 #: tracker/templates/tracker/export.html:50
 msgid "complete"
 msgstr "كامل"
 
-#: tracker/models.py:344 tracker/templates/tracker/export.html:46
+#: tracker/models.py:354 tracker/templates/tracker/export.html:46
 #: tracker/templates/tracker/export.html:47
 msgid "waiting for filing of documents"
 msgstr "في انتظار تقديم المستندات"
 
-#: tracker/models.py:346 tracker/templates/tracker/export.html:43
+#: tracker/models.py:356 tracker/templates/tracker/export.html:43
 #: tracker/templates/tracker/export.html:44
 msgid "waiting for document submission"
 msgstr "في انتظار تقديم الوثائق"
 
-#: tracker/models.py:349 tracker/models.py:356
+#: tracker/models.py:359 tracker/models.py:366
 #: tracker/templates/tracker/export.html:40
 #: tracker/templates/tracker/export.html:41
 msgid "waiting for approval"
 msgstr "بانتظار الموافقة"
 
-#: tracker/models.py:351 tracker/templates/tracker/export.html:37
+#: tracker/models.py:361 tracker/templates/tracker/export.html:37
 #: tracker/templates/tracker/export.html:38
 msgid "waiting for submitting"
 msgstr "في انتظار التقديم"
 
-#: tracker/models.py:354 tracker/templates/tracker/export.html:34
+#: tracker/models.py:364 tracker/templates/tracker/export.html:34
 #: tracker/templates/tracker/export.html:35
 msgid "waiting for preapproval"
 msgstr "في انتظار الموافقة المسبقة"
 
-#: tracker/models.py:358 tracker/templates/tracker/export.html:31
+#: tracker/models.py:368 tracker/templates/tracker/export.html:31
 #: tracker/templates/tracker/export.html:32
 msgid "draft"
 msgstr "مسودة"
 
-#: tracker/models.py:360 tracker/templates/tracker/export.html:30
+#: tracker/models.py:370 tracker/templates/tracker/export.html:30
 msgid "state"
 msgstr "الحالة"
 
-#: tracker/models.py:383 tracker/templates/tracker/admin_user_list.html:26
+#: tracker/models.py:393 tracker/templates/tracker/admin_user_list.html:26
 msgid "E-mail"
 msgstr "البريد الإلكتروني"
 
-#: tracker/models.py:384 tracker/models.py:1054
+#: tracker/models.py:394 tracker/models.py:1096
 #: tracker/templates/tracker/admin_user_list.html:31
 #: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
 msgstr "جهة اتصال أخرى"
 
-#: tracker/models.py:388
+#: tracker/models.py:398
 msgid "no tracker account listed"
 msgstr "لا يوجد حساب متعقب مدرج"
 
-#: tracker/models.py:389
+#: tracker/models.py:399
 msgid "Requester details"
 msgstr "تفاصيل مقدم الطلب"
 
-#: tracker/models.py:534 tracker/templates/tracker/dumpaccounts/index.html:28
+#: tracker/models.py:576 tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Ticket"
 msgstr "تذكرة"
 
-#: tracker/models.py:535 tracker/templates/tracker/cluster_detail.html:12
+#: tracker/models.py:577 tracker/templates/tracker/cluster_detail.html:12
 #: tracker/templates/tracker/cluster_detail.html:19
 #: tracker/templates/tracker/export.html:25
 #: tracker/templates/tracker/grant_table.html:6
@@ -651,94 +655,94 @@ msgstr "تذكرة"
 msgid "Tickets"
 msgstr "تذاكر"
 
-#: tracker/models.py:607 tracker/models.py:608
+#: tracker/models.py:649 tracker/models.py:650
 msgid "Description shown to users who enter tickets for this subtopic"
 msgstr "إظهار الوصف للمستخدمين الذين يدخلون تذاكر لهذا الموضوع الفرعي"
 
-#: tracker/models.py:608 tracker/models.py:679
+#: tracker/models.py:650 tracker/models.py:721
 msgid "form description"
 msgstr "وصف النموذج"
 
-#: tracker/models.py:609
+#: tracker/models.py:651
 msgid "Topic where this subtopic belongs"
 msgstr "الموضوع الذي ينتمي إليه هذا الموضوع الفرعي"
 
-#: tracker/models.py:664 tracker/templates/tracker/index.html:24
+#: tracker/models.py:706 tracker/templates/tracker/index.html:24
 #: tracker/templates/tracker/ticket_common_detail.html:13
 #: tracker/templates/tracker/ticket_table.html:16
 #: tracker/templates/tracker/ticket_table.html:31
 msgid "Subtopic"
 msgstr "الموضوع الفرعي"
 
-#: tracker/models.py:665 tracker/templates/tracker/topic_detail.html:28
+#: tracker/models.py:707 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
 msgstr "المواضيع الفرعية"
 
-#: tracker/models.py:672 tracker/views.py:585
+#: tracker/models.py:714 tracker/views.py:562
 msgid "grant"
 msgstr "منحة"
 
-#: tracker/models.py:672
+#: tracker/models.py:714
 msgid "Grant project where this topic belongs"
 msgstr "مشروع منحة حيث ينتمي هذا الموضوع"
 
-#: tracker/models.py:673
+#: tracker/models.py:715
 msgid "open for tickets"
 msgstr "مفتوح للتذاكر"
 
-#: tracker/models.py:673
+#: tracker/models.py:715
 msgid "Is this topic open for ticket submissions from users?"
 msgstr "هل هذا الموضوع مفتوح لإرسالات التذاكر من المستخدمين؟"
 
-#: tracker/models.py:674
+#: tracker/models.py:716
 msgid "ticket media"
 msgstr "وسائط التذاكر"
 
-#: tracker/models.py:674
+#: tracker/models.py:716
 msgid "Does this topic track ticket media items?"
 msgstr "هل يتناول هذا الموضوع عناصر وسائط التذاكر؟"
 
-#: tracker/models.py:675
+#: tracker/models.py:717
 msgid "ticket expenses"
 msgstr "مصاريف التذكرة"
 
-#: tracker/models.py:675
+#: tracker/models.py:717
 msgid "Does this topic track ticket expenses?"
 msgstr "هل هذا الموضوع يتتبع نفقات التذاكر؟"
 
-#: tracker/models.py:676
+#: tracker/models.py:718
 msgid "ticket preexpenses"
 msgstr "نفقات التذاكر المسبقة"
 
-#: tracker/models.py:676
+#: tracker/models.py:718
 msgid "Does this topic track preexpenses?"
 msgstr "هل يقوم هذا الموضوع بتتبع عمليات الدفع المسبق؟"
 
-#: tracker/models.py:677
+#: tracker/models.py:719
 msgid "require statutory declaration"
 msgstr "يتطلب تصريحا قانونيا"
 
-#: tracker/models.py:677
+#: tracker/models.py:719
 msgid "Does this topic require statutory declaration for car travelling?"
 msgstr "هل يتطلب هذا الموضوع إعلانا قانونيا عن السفر بالسيارة؟"
 
-#: tracker/models.py:678 tracker/models.py:760
+#: tracker/models.py:720 tracker/models.py:802
 msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
 msgstr "وصف مفصل: HTML مسموح الآن، يتم تحليل فواصل الأسطر تلقائيا"
 
-#: tracker/models.py:679
+#: tracker/models.py:721
 msgid "Description shown to users who enter tickets for this topic"
 msgstr "إظهار الوصف للمستخدمين الذين يدخلون تذاكر لهذا الموضوع"
 
-#: tracker/models.py:680
+#: tracker/models.py:722
 msgid "topic administrator"
 msgstr "إداري الموضوع"
 
-#: tracker/models.py:680
+#: tracker/models.py:722
 msgid "Selected users will have administration access to this topic."
 msgstr "سيتمكن المستخدمون المختارون من الوصول الإداري لهذا الموضوع."
 
-#: tracker/models.py:747 tracker/templates/tracker/dumpaccounts/index.html:11
+#: tracker/models.py:789 tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/index.html:23
 #: tracker/templates/tracker/ticket_common_detail.html:12
 #: tracker/templates/tracker/ticket_table.html:15
@@ -749,37 +753,37 @@ msgstr "سيتمكن المستخدمون المختارون من الوصول �
 msgid "Topic"
 msgstr "موضوع"
 
-#: tracker/models.py:748 tracker/templates/tracker/export.html:61
+#: tracker/models.py:790 tracker/templates/tracker/export.html:61
 #: tracker/templates/tracker/export.html:212
 #: tracker/templates/tracker/import.html:26
 msgid "Topics"
 msgstr "مواضيع"
 
-#: tracker/models.py:757
+#: tracker/models.py:799
 msgid "full name"
 msgstr "الاسم الكامل"
 
-#: tracker/models.py:757
+#: tracker/models.py:799
 msgid "Full name for headlines and such"
 msgstr "الاسم الكامل للعناوين الرئيسية وهكذا"
 
-#: tracker/models.py:758
+#: tracker/models.py:800
 msgid "short name"
 msgstr "اسم قصير"
 
-#: tracker/models.py:758
+#: tracker/models.py:800
 msgid "Shorter name for use in tables"
 msgstr "اسم أقصر للاستخدام في الجداول"
 
-#: tracker/models.py:759
+#: tracker/models.py:801
 msgid "slug"
 msgstr "بزاق"
 
-#: tracker/models.py:759
+#: tracker/models.py:801
 msgid "Shortcut for usage in URLs"
 msgstr "اختصار للاستخدام في المسارات"
 
-#: tracker/models.py:798 tracker/templates/tracker/grant_table.html:5
+#: tracker/models.py:840 tracker/templates/tracker/grant_table.html:5
 #: tracker/templates/tracker/index.html:22
 #: tracker/templates/tracker/ticket_table.html:14
 #: tracker/templates/tracker/ticket_table.html:29
@@ -790,350 +794,380 @@ msgstr "اختصار للاستخدام في المسارات"
 msgid "Grant"
 msgstr "منحة"
 
-#: tracker/models.py:799 tracker/templates/tracker/export.html:141
+#: tracker/models.py:841 tracker/templates/tracker/export.html:141
 #: tracker/templates/tracker/import.html:34
 msgid "Grants"
 msgstr "منح"
 
-#: tracker/models.py:812 tracker/models.py:827 tracker/models.py:939
-#: tracker/models.py:961 tracker/views.py:511
+#: tracker/models.py:854 tracker/models.py:869 tracker/models.py:981
+#: tracker/models.py:1003 tracker/views.py:488
 msgid "ticket"
 msgstr "تذكرة"
 
-#: tracker/models.py:812 tracker/models.py:827
+#: tracker/models.py:854 tracker/models.py:869
 msgid "Ticket this media info belongs to"
 msgstr "التذكرة التي تنتمي إليها معلومات الوسائط هذه"
 
-#: tracker/models.py:813
+#: tracker/models.py:855
 msgid "Item description to show"
 msgstr "وصف العنصر للعرض"
 
-#: tracker/models.py:814 tracker/models.py:831
+#: tracker/models.py:856 tracker/models.py:873
 msgid "URL"
 msgstr "المسار"
 
-#: tracker/models.py:814
+#: tracker/models.py:856
 msgid "Link to media files"
 msgstr "وصلة لملفات الوسائط"
 
-#: tracker/models.py:815
+#: tracker/models.py:857
 msgid "count"
 msgstr "العدد"
 
-#: tracker/models.py:815 tracker/templates/tracker/ticket_show_media.html:45
+#: tracker/models.py:857 tracker/templates/tracker/ticket_show_media.html:45
 msgid "Number of files"
 msgstr "عدد الملفات"
 
-#: tracker/models.py:821 tracker/models.py:822 tracker/models.py:927
-#: tracker/models.py:928
+#: tracker/models.py:863 tracker/models.py:864 tracker/models.py:969
+#: tracker/models.py:970
 msgid "Ticket media"
 msgstr "وسائط التذاكر"
 
-#: tracker/models.py:829
+#: tracker/models.py:871
 msgid "width"
 msgstr "العرض"
 
-#: tracker/models.py:830
+#: tracker/models.py:872
 msgid "height"
 msgstr "الارتفاع"
 
-#: tracker/models.py:832
+#: tracker/models.py:874
 msgid "cannonical title"
 msgstr "العنوان الأساسي"
 
-#: tracker/models.py:833
+#: tracker/models.py:875
 msgid "categories"
 msgstr "تصنيفات"
 
-#: tracker/models.py:834
+#: tracker/models.py:876
 msgid "usages"
 msgstr "الاستخدامات"
 
-#: tracker/models.py:939
+#: tracker/models.py:981
 msgid "Ticket this expediture belongs to"
 msgstr "التذكرة التي تنتمي هذه النفقة إليها"
 
-#: tracker/models.py:940
+#: tracker/models.py:982
 msgid "Description of this expediture"
 msgstr "وصف هذه النفقة"
 
-#: tracker/models.py:941 tracker/models.py:963 tracker/models.py:1105
+#: tracker/models.py:983 tracker/models.py:1005 tracker/models.py:1147
 msgid "amount"
 msgstr "المبلغ"
 
-#: tracker/models.py:941
+#: tracker/models.py:983
 msgid "Expediture amount in"
 msgstr "كمية الإنفاق في"
 
-#: tracker/models.py:942 tracker/models.py:1107
+#: tracker/models.py:984 tracker/models.py:1149
 msgid "accounting info"
 msgstr "المعلومات المحاسبية"
 
-#: tracker/models.py:942
+#: tracker/models.py:984
 msgid "Accounting info, this is editable only through admin field"
 msgstr "معلومات المحاسبة، هي قابلة للتحرير فقط من خلال حقل الإداري"
 
-#: tracker/models.py:944 tracker/models.py:964
+#: tracker/models.py:986 tracker/models.py:1006
 msgid "wage"
 msgstr "الأجر"
 
-#: tracker/models.py:947 tracker/models.py:967
+#: tracker/models.py:989 tracker/models.py:1009
 #, python-format
 msgid "%(description)s (%(amount)s %(currency)s)"
 msgstr "%(description)s (%(amount)s %(currency)s)"
 
-#: tracker/models.py:955
+#: tracker/models.py:997
 msgid "Ticket expediture"
 msgstr "نفقة التذكرة"
 
-#: tracker/models.py:956
+#: tracker/models.py:998
 msgid "Ticket expeditures"
 msgstr "نفقات التذاكر"
 
-#: tracker/models.py:961
+#: tracker/models.py:1003
 msgid "Ticket this preexpediture belongs to"
 msgstr "التذكرة التي تنتمي هذه النفقة المسبقة إليها"
 
-#: tracker/models.py:962
+#: tracker/models.py:1004
 msgid "Description of this preexpediture"
 msgstr "وصف هذه النفقة المسبقة"
 
-#: tracker/models.py:963
+#: tracker/models.py:1005
 msgid "Preexpediture amount in"
 msgstr "كمية الإنفاق المسبق في"
 
-#: tracker/models.py:970
+#: tracker/models.py:1012
 msgid "Ticket preexpediture"
 msgstr "نفقة التذكرة المسبقة"
 
-#: tracker/models.py:971
+#: tracker/models.py:1013
 msgid "Ticket preexpeditures"
 msgstr "نفقات التذاكر المسبقة"
 
-#: tracker/models.py:975
+#: tracker/models.py:1017
 msgid "uploader"
 msgstr "الرافع"
 
-#: tracker/models.py:983 tracker/views.py:785
+#: tracker/models.py:1025 tracker/views.py:762
 msgid "We need a sane file name, such as my-invoice123.jpg"
 msgstr "نحتاج إلى اسم ملف عاقل ، مثل فاتورتي.jpg"
 
-#: tracker/models.py:1024
+#: tracker/models.py:1066
 msgid "Ignored acks"
 msgstr "تم تجاهل إشعارات التأكيد"
 
-#: tracker/models.py:1025
+#: tracker/models.py:1067
 msgid "Muted notifications"
 msgstr "إشعارات صامتة"
 
-#: tracker/models.py:1026
+#: tracker/models.py:1068
 msgid "Email language"
 msgstr "لغة البريد الإلكتروني"
 
-#: tracker/models.py:1027
+#: tracker/models.py:1069
 msgid "Display items"
 msgstr "عرض العناصر"
 
-#: tracker/models.py:1027
+#: tracker/models.py:1069
 msgid "How many items should we display in tables at once"
 msgstr "عدد العناصر التي يجب أن نعرضها في الجداول في وقت واحد"
 
-#: tracker/models.py:1046
+#: tracker/models.py:1088
 msgid "Tracker user preference"
 msgstr "تفضيل مستخدم المقتفي"
 
-#: tracker/models.py:1047
+#: tracker/models.py:1089
 msgid "Tracker user preferences"
 msgstr "تفضيلات مستخدم المقتفي"
 
-#: tracker/models.py:1052
+#: tracker/models.py:1094
 msgid "Username on mediawiki"
 msgstr "اسم المستخدم على ميدياويكي"
 
-#: tracker/models.py:1053 tracker/templates/tracker/admin_user_list.html:30
+#: tracker/models.py:1095 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
 msgstr "الحساب المصرفي"
 
-#: tracker/models.py:1053
+#: tracker/models.py:1095
 msgid "Bank account information for money transfers"
 msgstr "معلومات الحساب المصرفي للتحويلات المالية"
 
-#: tracker/models.py:1054
+#: tracker/models.py:1096
 msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
 msgstr "جهة اتصال أخرى مثل حساب ويكي، يمكن أن تكون مفيدة في حالة حاجة إداريي الموضوع إلى توضيح بعض المعلومات"
 
-#: tracker/models.py:1055 tracker/templates/tracker/admin_user_list.html:32
+#: tracker/models.py:1097 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
 msgstr "هوية أخرى"
 
-#: tracker/models.py:1055
+#: tracker/models.py:1097
 msgid "Address, or other identification information, so we know who are we sending money to"
 msgstr "العنوان، أو غيرها من المعلومات التعريفية; حتى نعرف إلى من نرسل الأموال"
 
-#: tracker/models.py:1083
+#: tracker/models.py:1125
 msgid "Tracker profile"
 msgstr "الملف الشخصي للمتعقب"
 
-#: tracker/models.py:1084
+#: tracker/models.py:1126
 msgid "Tracker profiles"
 msgstr "الملفات الشخصية للمتعقبين"
 
-#: tracker/models.py:1102
+#: tracker/models.py:1144
 msgid "date"
 msgstr "التاريخ"
 
-#: tracker/models.py:1103 tracker/models.py:1122
+#: tracker/models.py:1145 tracker/models.py:1164
 msgid "other party"
 msgstr "الطرف الآخر"
 
-#: tracker/models.py:1103
+#: tracker/models.py:1145
 msgid "The other party; user who sent or received the payment"
 msgstr "الطرف الآخر: المستخدم الذي أرسل أو تلقى الدفعة"
 
-#: tracker/models.py:1104
+#: tracker/models.py:1146
 msgid "other party (text)"
 msgstr "الطرف الآخر (نص)"
 
-#: tracker/models.py:1104
+#: tracker/models.py:1146
 msgid "The other party; this text is used when user is not selected"
 msgstr "الطرف الآخر: يتم استخدام هذا النص عندما لا يتم تحديد المستخدم"
 
-#: tracker/models.py:1105
+#: tracker/models.py:1147
 msgid "Payment amount; Positive value means transaction to the user, negative is a transaction from the user"
 msgstr "مبلغ الدفعة:  القيمة الموجبة تعني معاملة إلى المستخدم، والسلبية هي معاملة من المستخدم"
 
-#: tracker/models.py:1106
+#: tracker/models.py:1148
 msgid "Description of this transaction"
 msgstr "وصف هذه الصفقة"
 
-#: tracker/models.py:1107
+#: tracker/models.py:1149
 #: tracker/templates/feeds/transaction_description.html:6
 #: tracker/templates/tracker/cluster_detail.html:19
 #: tracker/templates/tracker/ticket_common_detail.html:64
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1699
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1676
 msgid "Accounting info"
 msgstr "المعلومات المحاسبية"
 
-#: tracker/models.py:1108
+#: tracker/models.py:1150
 msgid "related tickets"
 msgstr "تذاكر ذات صلة"
 
-#: tracker/models.py:1108
+#: tracker/models.py:1150
 msgid "Tickets this trackaction is related to"
 msgstr "التذاكر المرتبطة بهذه العملية"
 
-#: tracker/models.py:1144
+#: tracker/models.py:1186
 msgid "Transaction"
 msgstr "عملية تجارية"
 
-#: tracker/models.py:1145 tracker/templates/tracker/cluster_detail.html:18
+#: tracker/models.py:1187 tracker/templates/tracker/cluster_detail.html:18
 #: tracker/templates/tracker/ticket_detail.html:30
 #: tracker/templates/tracker/user_detail.html:19
 msgid "Transactions"
 msgstr "المعاملات"
 
-#: tracker/models.py:1169
+#: tracker/models.py:1211
 msgid "comment"
 msgstr "تعليق"
 
-#: tracker/models.py:1275
+#: tracker/models.py:1317
 #, python-format
 msgid "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> by user <tt>%(user)s</tt>"
 msgstr "تمت إضافة التعليق <tt>%(comment)s</tt> إلى التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a> بواسطة المستخدم <tt>%(user)s</tt>"
 
-#: tracker/models.py:1304
+#: tracker/models.py:1346
 #, python-format
 msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
 msgstr "المستخدم <tt>%(user)s</tt> أنشأ التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a> في موضوع <tt>%(topic)s</tt>."
 
-#: tracker/models.py:1319
+#: tracker/models.py:1361
 #, python-format
 msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "قام المستخدم <tt>%(user)s</tt>  بتغيير ملاحظات المشرف على التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1338
+#: tracker/models.py:1380
 #, python-format
 msgid "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "قام المستخدم <tt>%(user)s</tt> بتغيير وصف التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1341
+#: tracker/models.py:1383
 #, python-format
 msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "قام المستخدم <tt>%(user)s</tt> بتغيير اسم التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1344
+#: tracker/models.py:1386
 #, python-format
 msgid "User <tt>%(user)s</tt> changed link to report of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "المستخدم <tt>%(user)s</tt> غير الرابط إلى تقرير التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1347
+#: tracker/models.py:1389
 #, python-format
 msgid "User <tt>%(user)s</tt> changed requested deposit of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "المستخدم <tt>%(user)s</tt> قام بتغيير الإيداع المطلوب للتذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1356
+#: tracker/models.py:1398
 #, python-format
 msgid "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "قام المستخدم <tt>%(user)s</tt> بتغيير حقل التذكرة \"هل التقرير إلزامي؟\" <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1368
+#: tracker/models.py:1410
 #, python-format
 msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
 msgstr "تم حذف التذكرة \"%(ticket)s\" بواسطة المستخدم %(user)s"
 
-#: tracker/models.py:1384
+#: tracker/models.py:1426
 #, python-format
 msgid "User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "أضاف المستخدم <tt>%(user)s</tt> إشعار التأكيد <tt>%(ack_type)s</tt> إلى التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1396
+#: tracker/models.py:1438
 #, python-format
 msgid "User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "قام المستخدم <tt>%(user)s</tt> بإزالة إشعار التأكيد <tt>%(ack_type)s</tt> من التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
-#: tracker/models.py:1424
+#: tracker/models.py:1466
 #, python-format
 msgid "User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "أضاف المستخدم <tt>%(user)s</tt> النفقات المخطط لها <tt>%(expeditures)s</tt> إلى التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1442
+#: tracker/models.py:1487
 #, python-format
-msgid "User <tt>%(user)s</tt> changed planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "قام المستخدم er <tt>%(user)s</tt> بتغيير النفقات المخطط لها <tt>%(expeditures)s</tt> للتذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
+msgstr "المستخدم <tt>%(user)s</tt> حدد أن النفقات المخطط لها <tt>%(expeditures)s</tt> للتذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a> أجر."
 
-#: tracker/models.py:1455
+#: tracker/models.py:1489
+#, python-format
+msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
+msgstr "المستخدم <tt>%(user)s</tt> حدد أن النفقات المخطط لها <tt>%(expeditures)s</tt> للتذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a> ليست أجرا."
+
+#: tracker/models.py:1491
+#, python-format
+msgid "User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "قام المستخدم <tt>%(user)s</tt> بتغيير المصروفات المخطط لها من <tt>%(old_expediture)s</tt> إلى <tt>%(expeditures)s</tt> التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1504
 #, python-format
 msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "أزال المستخدم <tt>%(user)s</tt> النفقات المخطط لها <tt>%(expediture)s</tt> من التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
-#: tracker/models.py:1473
+#: tracker/models.py:1522
 #, python-format
 msgid "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "أضاف المستخدم <tt>%(user)s</tt> النفقات الحقيقية <tt>%(expeditures)s</tt> إلى التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1491
+#: tracker/models.py:1544
 #, python-format
-msgid "User <tt>%(user)s</tt> changed real expeditures <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "قام المستخدم er <tt>%(user)s</tt> بتغيير النفقات الحقيقية <tt>%(expeditures)s</tt> للتذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as paid."
+msgstr "قام المستخدم <tt>%(user)s</tt> بتعيين الإنفاق الحقيقي <tt>%(expeditures)s</tt> التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a> كمدفوعة."
 
-#: tracker/models.py:1504
+#: tracker/models.py:1546
+#, python-format
+msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not paid."
+msgstr "قام المستخدم <tt>%(user)s</tt> بتعيين الإنفاق الحقيقي <tt>%(expeditures)s</tt> التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a> كغير مدفوعة."
+
+#: tracker/models.py:1550
+#, python-format
+msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
+msgstr "قام المستخدم <tt>%(user)s</tt> بتعيين الإنفاق الحقيقي <tt>%(expeditures)s</tt> التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a> كأجر."
+
+#: tracker/models.py:1552
+#, python-format
+msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
+msgstr "قام المستخدم <tt>%(user)s</tt> بتعيين الإنفاق الحقيقي <tt>%(expeditures)s</tt> التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a> على أنها ليست أجرا."
+
+#: tracker/models.py:1558
+#, python-format
+msgid "User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "قام المستخدم <tt>%(user)s</tt> بتغيير المصروفات المخطط لها من <tt>%(old_expediture)s</tt> إلى <tt>%(expeditures)s</tt> للتذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1572
 #, python-format
 msgid "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "أزال المستخدم <tt>%(user)s</tt> النفقات الحقيقية <tt>%(expeditures)s</tt> من التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
-#: tracker/models.py:1517
+#: tracker/models.py:1585
 #, python-format
 msgid "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "أضاف المستخدم <tt>%(user)s</tt> وسائط إلى التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1520
+#: tracker/models.py:1588
 #, python-format
 msgid "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "قام المستخدم <tt>%(user)s</tt> بتغيير وسائط التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1532
+#: tracker/models.py:1600
 #, python-format
 msgid "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "قام المستخدم <tt>%(user)s</tt>بإزالة الوسائط من التذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
@@ -1163,8 +1197,8 @@ msgid "add new ack"
 msgstr "إضافة إشعار تأكيد جديد"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:10
-#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1697
-#: tracker/views.py:1706 tracker/views.py:1716
+#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1674
+#: tracker/views.py:1683 tracker/views.py:1693
 msgid "Ticket ID"
 msgstr "معرف التذكرة"
 
@@ -1239,9 +1273,9 @@ msgstr "الكمية"
 #: tracker/templates/tracker/ticket_common_detail.html:30
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1678
-#: tracker/views.py:1683 tracker/views.py:1688 tracker/views.py:1697
-#: tracker/views.py:1706
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1655
+#: tracker/views.py:1660 tracker/views.py:1665 tracker/views.py:1674
+#: tracker/views.py:1683
 msgid "Description"
 msgstr "الوصف"
 
@@ -1336,15 +1370,15 @@ msgid "Home"
 msgstr "الرئيسية"
 
 #: tracker/templates/tracker/admin_user_list.html:25
-#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1711
+#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1688
 msgid "Username"
 msgstr "اسم المستخدم"
 
-#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1711
+#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1688
 msgid "First name"
 msgstr "الاسم الأول"
 
-#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1711
+#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1688
 msgid "Last name"
 msgstr "الاسم الأخير"
 
@@ -1710,6 +1744,7 @@ msgid "topic ack overview"
 msgstr "نظرة عامة على إشعار تأكيد الموضوع"
 
 #: tracker/templates/tracker/grant_detail.html:9
+#: tracker/templates/tracker/index.html:12
 msgid "grants"
 msgstr "منح"
 
@@ -2176,6 +2211,18 @@ msgstr "عدد الاستخدامات"
 msgid "Number of Wikidata items"
 msgstr "عدد عناصر ويكي بيانات"
 
+#: tracker/templates/tracker/ticket_show_media.html:59
+msgid "Photos per category"
+msgstr "الصور لكل تصنيف"
+
+#: tracker/templates/tracker/ticket_show_media.html:63
+msgid "Category"
+msgstr "التصنيف"
+
+#: tracker/templates/tracker/ticket_show_media.html:64
+msgid "Number"
+msgstr "الرقم"
+
 #: tracker/templates/tracker/ticket_table.html:18
 #: tracker/templates/tracker/user_list.html:13
 msgid "Media count"
@@ -2384,201 +2431,201 @@ msgstr "راقب"
 msgid "All"
 msgstr "الكل"
 
-#: tracker/views.py:84
+#: tracker/views.py:61
 msgid "Comment posted, thank you."
 msgstr "تم نشر التعليق، شكرا لك."
 
-#: tracker/views.py:125
+#: tracker/views.py:102
 msgid "You cannot add ack to a ticket you do not own."
 msgstr "لا يمكنك إضافة إشعار تأكيد إلى تذكرة لا تملكها."
 
-#: tracker/views.py:136
+#: tracker/views.py:113
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
 msgstr "تمت إضافة تأكيد التذكرة %(ticket_id)s \"%(confirmation)s\" ."
 
-#: tracker/views.py:172
+#: tracker/views.py:149
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been deleted."
 msgstr "تم حذف تأكيد التذكرة٪ %(ticket_id)s \"%(confirmation)s\"."
 
-#: tracker/views.py:216
+#: tracker/views.py:193
 msgid "Statutory declaration"
 msgstr "تصريح قانوني"
 
-#: tracker/views.py:263
+#: tracker/views.py:240
 msgid "Your deposit is bigger than your preexpeditures"
 msgstr "وديعتك أكبر من نفقاتك السابقة"
 
-#: tracker/views.py:280
+#: tracker/views.py:257
 msgid "You are required to do statutory declaration"
 msgstr "مطلوب منك القيام بالإعلان القانوني"
 
-#: tracker/views.py:296
+#: tracker/views.py:273
 msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."
 msgstr "يجب أن ينتمي الموضوع الفرعي إلى الموضوع الذي استخدمته، ربما لديك جافا سكريبت متوقفة."
 
-#: tracker/views.py:387
+#: tracker/views.py:364
 msgid "We've updated your preferences"
 msgstr "لقد قمنا بتحديث تفضيلاتك"
 
-#: tracker/views.py:435
+#: tracker/views.py:412
 msgid "Please enter your password to confirm the deactivation of your account."
 msgstr "يُرجَى إدخال كلمة مرورك لتأكيد إلغاء تنشيط حسابك."
 
-#: tracker/views.py:450
+#: tracker/views.py:427
 msgid "Account deactivation"
 msgstr "تعطيل الحساب"
 
-#: tracker/views.py:457
+#: tracker/views.py:434
 msgid "Your account has been deactivated."
 msgstr "تم تعطيل حسابك."
 
-#: tracker/views.py:460
+#: tracker/views.py:437
 msgid "Password is incorrect."
 msgstr "كلمة المرور غير صحيحة."
 
-#: tracker/views.py:492
+#: tracker/views.py:469
 #, python-format
 msgid "Ticket's %s watching settings are changed."
 msgstr "تم تغيير إعدادات مراقبة التذكرة %s."
 
-#: tracker/views.py:541
+#: tracker/views.py:518
 #, python-format
 msgid "Topic's %s watching settings are changed."
 msgstr "تم تغيير إعدادات مراقبة الموضوع %s."
 
-#: tracker/views.py:571
+#: tracker/views.py:548
 #, python-format
 msgid "%s's watching settings are changed."
 msgstr "تم تغيير إعدادات مراقبة %s."
 
-#: tracker/views.py:618
+#: tracker/views.py:595
 #, python-format
 msgid "Ticket %s is created"
 msgstr "تم إنشاء التذكرة %s"
 
-#: tracker/views.py:664
+#: tracker/views.py:641
 msgid "I confirm the above"
 msgstr "أؤكد ما سبق"
 
-#: tracker/views.py:671
+#: tracker/views.py:648
 msgid "You cannot add statutory declaration to a ticket that does not support it."
 msgstr "لا يمكنك إضافة تعريف قانوني إلى تذكرة لا تدعمه."
 
-#: tracker/views.py:673
+#: tracker/views.py:650
 msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
 msgstr "لا يمكنك استخدام هذا العرض لإضافة تعريف قانوني إلى تذكرة قمت بإنشائها، استخدم زر تعديل التذاكر لهذا."
 
-#: tracker/views.py:680
+#: tracker/views.py:657
 msgid "You successfully added a statutory declaration to this ticket."
 msgstr "قمت بنجاح بإضافة تصريح قانوني لهذه التذكرة."
 
-#: tracker/views.py:683
+#: tracker/views.py:660
 msgid "You successfully removed a statutory declaration from this ticket."
 msgstr "قمت بنجاح بإزالة تصريح قانوني من هذه التذكرة."
 
-#: tracker/views.py:753
+#: tracker/views.py:730
 #, python-format
 msgid "Ticket %s saved."
 msgstr "تم حفظ التذكرة %s."
 
-#: tracker/views.py:784
+#: tracker/views.py:761
 msgid "file"
 msgstr "ملف"
 
-#: tracker/views.py:814
+#: tracker/views.py:791
 msgid "You cannot edit this ticket documents, as it's no longer editable"
 msgstr "لا يمكنك تحرير مستندات هذه التذكرة; لأنها لم تعد قابلة للتعديل"
 
-#: tracker/views.py:850
+#: tracker/views.py:827
 #, python-format
 msgid "Document changes for ticket %s saved."
 msgstr "تم حفظ تغييرات وثيقة التذكرة %s."
 
-#: tracker/views.py:877
+#: tracker/views.py:854
 #, python-format
 msgid "File %(filename)s has been saved."
 msgstr "تم حفظ الملف %(filename)s."
 
-#: tracker/views.py:1065
+#: tracker/views.py:1042
 msgid "Your details have been saved."
 msgstr "تم حفظ تفاصيلك."
 
-#: tracker/views.py:1511
+#: tracker/views.py:1488
 msgid "You must fill the form validly"
 msgstr "يجب عليك ملء النموذج بشكل صحيح"
 
-#: tracker/views.py:1530
+#: tracker/views.py:1507
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
 msgstr "ليست لديك صلاحية لاستيراد أكثر من %(input_row_limit)s من الصفوف; تم بالفعل استيراد أول %(input_row_limit)s من الصفوف."
 
-#: tracker/views.py:1668
+#: tracker/views.py:1645
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
 msgstr "قام النموذج بإرجاع قيم غريبة; يُرجَى الاتصال بإداري النظام وقل له ما حاولت القيام به."
 
-#: tracker/views.py:1670
+#: tracker/views.py:1647
 msgid "Your CSV file was imported."
 msgstr "تم استيراد ملف CSV الخاص بك."
 
-#: tracker/views.py:1678
+#: tracker/views.py:1655
 msgid "Name of a ticket"
 msgstr "اسم التذكرة"
 
-#: tracker/views.py:1678 tracker/views.py:1683
+#: tracker/views.py:1655 tracker/views.py:1660
 msgid "Name of a topic"
 msgstr "اسم الموضوع"
 
-#: tracker/views.py:1683
+#: tracker/views.py:1660
 msgid "Name of a grant"
 msgstr "اسم المنحة"
 
-#: tracker/views.py:1683
+#: tracker/views.py:1660
 msgid "Form description"
 msgstr "وصف النموذج"
 
-#: tracker/views.py:1688
+#: tracker/views.py:1665
 msgid "Full name"
 msgstr "الاسم الكامل"
 
-#: tracker/views.py:1688
+#: tracker/views.py:1665
 msgid "Short name"
 msgstr "اسم قصير"
 
-#: tracker/views.py:1688
+#: tracker/views.py:1665
 msgid "Slug"
 msgstr "بزاق"
 
-#: tracker/views.py:1711
+#: tracker/views.py:1688
 msgid "Password"
 msgstr "كلمة السر"
 
-#: tracker/views.py:1733
+#: tracker/views.py:1710
 msgid "Preexpeditures were succesfully copied to expeditures."
 msgstr "تم بنجاح نسخ النفقات المسبقة إلى النفقات"
 
-#: tracker/views.py:1745
+#: tracker/views.py:1722
 msgid "Executing API call with any action than whitelisted is prohibited."
 msgstr "يحظر تنفيذ اتصال واجهة برمجة التطبيقات بأي إجراء غير مدرج في القائمة البيضاء."
 
-#: tracker/views.py:1768
+#: tracker/views.py:1746
 msgid "Updating of medias for this ticket was successfully scheduled."
 msgstr "تمت بنجاح جدولة تحديث الوسائط لهذه التذكرة."
 
-#: tracker/views.py:1773
+#: tracker/views.py:1751
 msgid "List of media was successfully updated"
 msgstr "تم تحديث قائمة الوسائط بنجاح"
 
-#: tracker/views.py:1778
+#: tracker/views.py:1756
 msgid "There was an error while processing your request"
 msgstr "حدث خطأ أثناء معالجة طلبك."
 
-#: tracker/views.py:1786
+#: tracker/views.py:1764
 msgid "This mandatory notice was sent to all active Tracker users."
 msgstr "تم إرسال هذا الإشعار الإلزامي إلى جميع مستخدمي المتتبع النشطين."
 
-#: tracker/views.py:1798
+#: tracker/views.py:1776
 msgid "This mandatory notice was sent to all active Tracker administrators."
 msgstr "تم إرسال هذا الإشعار الإلزامي إلى جميع إداريي المتتبع النشطين."
 
@@ -2630,8 +2677,23 @@ msgstr "وداعا!"
 msgid "Go to index."
 msgstr "الذهاب إلى الفهرس."
 
+#: users/templates/users/oauth_invalid.html:4
+#: users/templates/users/oauth_invalid.html:8
+#, python-format
+msgid "Connection to %(provider)s account is no longer valid"
+msgstr "لم يعد الاتصال بحساب %(provider)s صالحا"
+
+#: users/templates/users/oauth_invalid.html:9
+msgid "To keep Tracker fully working, you should refresh the connection, by clicking the button below"
+msgstr "للحفاظ على عمل المتتبع بالكامل؛ يجب عليك تحديث الاتصال، بالنقر فوق الزر أدناه"
+
+#: users/templates/users/oauth_invalid.html:10
+#, python-format
+msgid "Refresh connection with %(provider)s"
+msgstr "تحديث الاتصال ب%(provider)s"
+
 #: users/templates/users/password_change.html:5
-#: users/templates/users/password_change.html:16 users/views.py:66
+#: users/templates/users/password_change.html:16 users/views.py:67
 msgid "Password change"
 msgstr "تغيير كلمة السر"
 
@@ -2758,11 +2820,11 @@ msgstr "شكرا لاستخدام موقعنا!"
 msgid "The %(site_name)s team"
 msgstr "فريق %(site_name)s"
 
-#: users/views.py:21
+#: users/views.py:22
 msgid "Will be used for password recovery and notifications, if you enable them."
 msgstr "سيتم استخدامه لاستعادة كلمة المرور والإشعارات، إذا قمت بتمكينها."
 
-#: users/views.py:36
+#: users/views.py:37
 #, python-format
 msgid "User %s created."
 msgstr "تم إنشاء المستخدم %s."
