@@ -134,7 +134,7 @@ class LanguagesViewSet(viewsets.ViewSet):
 
 class TicketViewSet(viewsets.ModelViewSet):
     queryset = Ticket.objects.all()
-    search_fields = ('summary', 'description')
+    search_fields = ('name', 'description')
     permission_classes = (CanEditTicketElseReadOnly, )
 
     def get_serializer_class(self):
