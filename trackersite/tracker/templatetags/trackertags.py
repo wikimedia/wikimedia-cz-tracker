@@ -13,8 +13,8 @@ register = template.Library()
 
 @register.filter
 def money(value):
-    if value == 0:
-        out = '0'
+    if value == 0 or value == '' or value is None:
+        return ''
     else:
         out = number_format(value, 2)
     return mark_safe(u'%s&nbsp;%s' % (out, settings.TRACKER_CURRENCY))
