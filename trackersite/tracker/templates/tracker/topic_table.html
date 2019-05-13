@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n trackertags %}
 {% if topic_list %}
 <span class="hidden" id="custom-columnDefs-datatables">[{"type": "money", "targets": [2,3]}]</span>
 <table id="topic_table" class="table table-striped table-hover"><thead><tr>
@@ -22,8 +22,8 @@
 <td><a href="{% url "topic_detail" topic.id %}">{{topic.name}}</a></td>
 {% if show_grants %}<td><a href="{{topic.grant.get_absolute_url}}" title="{{topic.grant.full_name}}">{{topic.grant.short_name}}</a></td>{% endif %}
 <td>{{topic.ticket_set.count}}</td>
-<td>{{topic.paid_wages}} {% trans "CZK" %}</td>
-<td>{{topic.paid_together}} {% trans "CZK" %}</td>
+<td>{{topic.paid_wages|money}}</td>
+<td>{{topic.paid_together|money}}</td>
 <td {% if tpps.n_a %}class="payment-cell n_a" {% endif %}>{{tpps.n_a}}</td>
 <td {% if tpps.unpaid %}class="payment-cell unpaid"{% endif %}>{{tpps.unpaid}}</td>
 <td {% if tpps.partially_paid %}class="payment-cell partially_paid"{% endif %}>{{tpps.partially_paid}}</td>
@@ -37,8 +37,8 @@
 <tr>
 <td>{% trans "Total" %}</td>
 <td>{{grant.total_tickets}}</td>
-<td>{{grant.total_paid_wages}} {% trans "CZK" %}</td>
-<td>{{grant.total_paid_together}} {% trans "CZK" %}</td>
+<td>{{grant.total_paid_wages|money}}</td>
+<td>{{grant.total_paid_together|money}}</td>
 <td></td>
 <td></td>
 <td></td>
