@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-05-09 15:45:22+0000\n"
+"PO-Revision-Date: 2019-05-13 13:24:58+0000\n"
 "X-POT-Import-Date: 2019-05-09 10:08:21+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2202,11 +2202,11 @@ msgstr "維基數據項目號碼"
 
 #: tracker/templates/tracker/ticket_show_media.html:59
 msgid "Photos per category"
-msgstr ""
+msgstr "各分類照片"
 
 #: tracker/templates/tracker/ticket_show_media.html:63
 msgid "Category"
-msgstr ""
+msgstr "分類"
 
 #: tracker/templates/tracker/ticket_show_media.html:64
 msgid "Number"

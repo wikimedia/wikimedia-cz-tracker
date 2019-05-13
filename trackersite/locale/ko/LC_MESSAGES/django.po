@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-05-09 15:45:21+0000\n"
+"PO-Revision-Date: 2019-05-13 13:24:57+0000\n"
 "X-POT-Import-Date: 2019-05-09 10:08:21+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -217,7 +217,7 @@ msgstr ""
 
 #: templates/base.html:105
 msgid "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox."
-msgstr ""
+msgstr "인터넷 익스플로를 사용 중입니다. 그러나 트래커는 인터넷 익스플로러가 지원하지 않는 현대적인 기능들을 요구합니다. 그러므로 트래커는 인터넷 익스플로러와는 적절히 동작하지 않을 수 있습니다. 크롬이나 파이어폭스 등의 다른 브라우저의 사용을 권장합니다."
 
 #: templates/choose_language.html:5 templates/choose_language.html.py:8
 msgid "Change language"
