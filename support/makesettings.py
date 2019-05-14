@@ -26,7 +26,7 @@ def main():
 
     context = Context(options)
     target = open(target_path, 'wb')
-    target.write(template.render(context))
+    target.write(template.render(context).encode('utf-8'))
     target.close()
 
 
