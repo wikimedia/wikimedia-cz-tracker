@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-# Django project settings for Wikimedia-CI
+# Django project settings for Wikimedia Continous Integration
+# THIS IS NOT AN EXAMPLE CONFIGURATION
+# If you want to generate settings.py, use support/makesettings.py
 import os
 
 import common_settings as _common
