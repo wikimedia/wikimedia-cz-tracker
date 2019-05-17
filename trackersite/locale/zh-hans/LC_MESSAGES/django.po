@@ -3,15 +3,16 @@
 #
 # Author: A Chinese Wikipedian
 # Author: Angrydog001
+# Author: 科劳
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-05-09 15:45:22+0000\n"
+"PO-Revision-Date: 2019-05-17 10:55:24+0000\n"
 "X-POT-Import-Date: 2019-05-09 10:08:21+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh-Hans\n"
-"X-Generator: MediaWiki 1.33.0-alpha; Translate 2019-01-17\n"
+"X-Generator: MediaWiki 1.33.0-alpha; Translate 2019-04-24\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: api/serializers.py:94
@@ -216,7 +217,7 @@ msgstr ""
 
 #: templates/base.html:105
 msgid "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox."
-msgstr ""
+msgstr "您似乎在使用Internet Explorer浏览。Internet Explorer可能不支持部分网页功能，因此可能无法正常浏览；我们推荐您使用更新版本的浏览器，比如Chrome，或者Firefox。"
 
 #: templates/choose_language.html:5 templates/choose_language.html.py:8
 msgid "Change language"
@@ -2204,11 +2205,11 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_show_media.html:59
 msgid "Photos per category"
-msgstr ""
+msgstr "每个分类下的照片数"
 
 #: tracker/templates/tracker/ticket_show_media.html:63
 msgid "Category"
-msgstr ""
+msgstr "分类"
 
 #: tracker/templates/tracker/ticket_show_media.html:64
 msgid "Number"
@@ -2672,7 +2673,7 @@ msgstr ""
 #: users/templates/users/oauth_invalid.html:8
 #, python-format
 msgid "Connection to %(provider)s account is no longer valid"
-msgstr ""
+msgstr "与%(provider)s的连接已断开"
 
 #: users/templates/users/oauth_invalid.html:9
 msgid "To keep Tracker fully working, you should refresh the connection, by clicking the button below"
@@ -2681,7 +2682,7 @@ msgstr ""
 #: users/templates/users/oauth_invalid.html:10
 #, python-format
 msgid "Refresh connection with %(provider)s"
-msgstr ""
+msgstr "刷新到%(provider)s的网络连接"
 
 #: users/templates/users/password_change.html:5
 #: users/templates/users/password_change.html:16 users/views.py:67

@@ -5,12 +5,12 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-05-13 13:24:58+0000\n"
+"PO-Revision-Date: 2019-05-17 10:55:24+0000\n"
 "X-POT-Import-Date: 2019-05-09 10:08:21+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh-Hant\n"
-"X-Generator: MediaWiki 1.33.0-alpha; Translate 2019-01-17\n"
+"X-Generator: MediaWiki 1.33.0-alpha; Translate 2019-04-24\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: api/serializers.py:94
@@ -215,7 +215,7 @@ msgstr "您未在生產裡，若您想要請求費用補貼請前往 <a href=\"%
 
 #: templates/base.html:105
 msgid "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox."
-msgstr ""
+msgstr "您正使用著 Internet Explorer。然而 Tracker 所需要的新功能，是 Internet Explorer 不支援的。因此，Tracker 在 Internet Explorer 上可能會無法完整運作。我們建議您使用別種瀏覽器，像是 Chrome 或是 Firefox。"
 
 #: templates/choose_language.html:5 templates/choose_language.html.py:8
 msgid "Change language"
@@ -1099,17 +1099,17 @@ msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticke
 #: tracker/models.py:1487
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
-msgstr ""
+msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>計劃支出<tt>%(expeditures)s</tt>設定為報酬。"
 
 #: tracker/models.py:1489
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
-msgstr ""
+msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>計劃支出<tt>%(expeditures)s</tt>設定為非報酬。"
 
 #: tracker/models.py:1491
 #, python-format
 msgid "User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>更改計劃支出從<tt>%(old_expediture)s</tt>成為<tt>%(expeditures)s</tt>。"
 
 #: tracker/models.py:1504
 #, python-format
@@ -1124,27 +1124,27 @@ msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticke
 #: tracker/models.py:1544
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as paid."
-msgstr ""
+msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>實際支出<tt>%(expeditures)s</tt>設定為已付款。"
 
 #: tracker/models.py:1546
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not paid."
-msgstr ""
+msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>實際支出<tt>%(expeditures)s</tt>設定為未付款。"
 
 #: tracker/models.py:1550
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
-msgstr ""
+msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>實際支出<tt>%(expeditures)s</tt>設定為報酬。"
 
 #: tracker/models.py:1552
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
-msgstr ""
+msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>實際支出<tt>%(expeditures)s</tt>設定為非報酬。"
 
 #: tracker/models.py:1558
 #, python-format
 msgid "User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>更改實際支出從<tt>%(old_expediture)s</tt>成為<tt>%(expeditures)s</tt>。"
 
 #: tracker/models.py:1572
 #, python-format
@@ -2210,7 +2210,7 @@ msgstr "分類"
 
 #: tracker/templates/tracker/ticket_show_media.html:64
 msgid "Number"
-msgstr ""
+msgstr "號碼"
 
 #: tracker/templates/tracker/ticket_table.html:18
 #: tracker/templates/tracker/user_list.html:13
@@ -2670,16 +2670,16 @@ msgstr "前往索引頁面。"
 #: users/templates/users/oauth_invalid.html:8
 #, python-format
 msgid "Connection to %(provider)s account is no longer valid"
-msgstr ""
+msgstr "連接到%(provider)s的帳號已不再有效"
 
 #: users/templates/users/oauth_invalid.html:9
 msgid "To keep Tracker fully working, you should refresh the connection, by clicking the button below"
-msgstr ""
+msgstr "要維持 Tracker 完整運作，您必須透過點擊下方按鈕來重新整理連接"
 
 #: users/templates/users/oauth_invalid.html:10
 #, python-format
 msgid "Refresh connection with %(provider)s"
-msgstr ""
+msgstr "重新整理與%(provider)s的連接"
 
 #: users/templates/users/password_change.html:5
 #: users/templates/users/password_change.html:16 users/views.py:67
