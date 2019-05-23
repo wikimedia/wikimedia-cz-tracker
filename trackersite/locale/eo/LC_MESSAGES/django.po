@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-05-17 10:55:23+0000\n"
+"PO-Revision-Date: 2019-05-23 12:49:30+0000\n"
 "X-POT-Import-Date: 2019-05-09 10:08:21+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -149,11 +149,11 @@ msgstr ""
 
 #: templates/admin/base_site.html:4
 msgid "Tracker admin"
-msgstr ""
+msgstr "Administrejo de Tracker"
 
 #: templates/admin/base_site.html:7
 msgid "Tracker site administration"
-msgstr ""
+msgstr "Administrado de retejo de Tracker"
 
 #: templates/base.html:31
 msgid "There is no email address associated with this account. Please update your details now."
@@ -247,7 +247,7 @@ msgstr "Tipo"
 
 #: tracker/admin.py:44
 msgid "Add ack"
-msgstr ""
+msgstr "Aldoni agnoskon"
 
 #: tracker/admin.py:172
 msgid "Mark selected topics as opened for new tickets"
@@ -318,7 +318,7 @@ msgstr ""
 
 #: tracker/models.py:49
 msgid "preaccepted"
-msgstr ""
+msgstr "antaŭakceptita"
 
 #: tracker/models.py:50
 msgid "submitted"
@@ -370,11 +370,11 @@ msgstr ""
 
 #: tracker/models.py:64
 msgid "Ack added"
-msgstr ""
+msgstr "Aldonis agnoskon"
 
 #: tracker/models.py:65
 msgid "Ack removed"
-msgstr ""
+msgstr "Forigis agnoskon"
 
 #: tracker/models.py:66
 msgid "Ticket changed"
@@ -460,7 +460,7 @@ msgstr "nomo"
 
 #: tracker/models.py:244
 msgid "Name for the ticket"
-msgstr ""
+msgstr "Nomo de etikedo"
 
 #: tracker/models.py:245 tracker/models.py:651 tracker/views.py:533
 msgid "topic"
@@ -506,7 +506,7 @@ msgstr ""
 
 #: tracker/models.py:250
 msgid "event url"
-msgstr ""
+msgstr "retadreso de evento"
 
 #: tracker/models.py:250
 msgid "Link to a public page describing the event, if it exist"
@@ -516,7 +516,7 @@ msgstr ""
 #: tracker/models.py:802 tracker/models.py:855 tracker/models.py:982
 #: tracker/models.py:1004 tracker/models.py:1148 tracker/views.py:763
 msgid "description"
-msgstr ""
+msgstr "priskribo"
 
 #: tracker/models.py:251
 msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description. You may use a limited subset of HTML."
@@ -608,7 +608,7 @@ msgstr ""
 #: tracker/models.py:368 tracker/templates/tracker/export.html:31
 #: tracker/templates/tracker/export.html:32
 msgid "draft"
-msgstr ""
+msgstr "malneto"
 
 #: tracker/models.py:370 tracker/templates/tracker/export.html:30
 msgid "state"
@@ -622,7 +622,7 @@ msgstr "Retpoŝta adreso"
 #: tracker/templates/tracker/admin_user_list.html:31
 #: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
-msgstr ""
+msgstr "Alia kontakto"
 
 #: tracker/models.py:398
 msgid "no tracker account listed"
@@ -657,7 +657,7 @@ msgstr ""
 
 #: tracker/models.py:650 tracker/models.py:721
 msgid "form description"
-msgstr ""
+msgstr "priskribo de formularo"
 
 #: tracker/models.py:651
 msgid "Topic where this subtopic belongs"
@@ -788,17 +788,17 @@ msgstr ""
 #: tracker/templates/tracker/topic_table.html:6
 #: tracker/templates/tracker/transaction_list.html:15
 msgid "Grant"
-msgstr ""
+msgstr "Gratifiko"
 
 #: tracker/models.py:841 tracker/templates/tracker/export.html:141
 #: tracker/templates/tracker/import.html:34
 msgid "Grants"
-msgstr ""
+msgstr "Gratifikoj"
 
 #: tracker/models.py:854 tracker/models.py:869 tracker/models.py:981
 #: tracker/models.py:1003 tracker/views.py:488
 msgid "ticket"
-msgstr ""
+msgstr "etikedo"
 
 #: tracker/models.py:854 tracker/models.py:869
 msgid "Ticket this media info belongs to"
@@ -818,11 +818,11 @@ msgstr ""
 
 #: tracker/models.py:857
 msgid "count"
-msgstr ""
+msgstr "nombro"
 
 #: tracker/models.py:857 tracker/templates/tracker/ticket_show_media.html:45
 msgid "Number of files"
-msgstr ""
+msgstr "Nombro de dosieroj"
 
 #: tracker/models.py:863 tracker/models.py:864 tracker/models.py:969
 #: tracker/models.py:970
@@ -920,7 +920,7 @@ msgstr ""
 
 #: tracker/models.py:1066
 msgid "Ignored acks"
-msgstr ""
+msgstr "Ignorataj agnoskoj"
 
 #: tracker/models.py:1067
 msgid "Muted notifications"
@@ -932,7 +932,7 @@ msgstr "Retpoŝta lingvo"
 
 #: tracker/models.py:1069
 msgid "Display items"
-msgstr ""
+msgstr "Montri erojn"
 
 #: tracker/models.py:1069
 msgid "How many items should we display in tables at once"
@@ -940,15 +940,15 @@ msgstr ""
 
 #: tracker/models.py:1088
 msgid "Tracker user preference"
-msgstr ""
+msgstr "Prefero de uzanto de Tracker"
 
 #: tracker/models.py:1089
 msgid "Tracker user preferences"
-msgstr ""
+msgstr "Preferoj de uzanto de Tracker"
 
 #: tracker/models.py:1094
 msgid "Username on mediawiki"
-msgstr ""
+msgstr "Uzantnomo ĉe MediaVikio"
 
 #: tracker/models.py:1095 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
@@ -1014,7 +1014,7 @@ msgstr ""
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1676
 msgid "Accounting info"
-msgstr ""
+msgstr "Informo pri Konto"
 
 #: tracker/models.py:1150
 msgid "related tickets"
@@ -1026,13 +1026,13 @@ msgstr ""
 
 #: tracker/models.py:1186
 msgid "Transaction"
-msgstr ""
+msgstr "Transakcio"
 
 #: tracker/models.py:1187 tracker/templates/tracker/cluster_detail.html:18
 #: tracker/templates/tracker/ticket_detail.html:30
 #: tracker/templates/tracker/user_detail.html:19
 msgid "Transactions"
-msgstr ""
+msgstr "Transakcioj"
 
 #: tracker/models.py:1211
 msgid "comment"
@@ -1190,7 +1190,7 @@ msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/add_ack.html:3
 msgid "add new ack"
-msgstr ""
+msgstr "aldoni novan agnoskon"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:10
 #: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1674
@@ -1200,21 +1200,21 @@ msgstr "Identigilo de bileto"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:13
 msgid "Approvals"
-msgstr ""
+msgstr "Aproboj"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:17
 msgid "ADD ACK"
-msgstr ""
+msgstr "ALDONI AGNOSKON"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:33
 msgid "Ticket documents"
-msgstr ""
+msgstr "Dokumentoj pri etikedo"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:36
 #: tracker/templates/tracker/edit_ticket.html:10
 #: tracker/templates/tracker/ticket_detail.html:19
 msgid "edit ticket documents"
-msgstr ""
+msgstr "redakti dokumentojn pri etikedo"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:43
 msgid "There are no documents uploaded for this ticket."

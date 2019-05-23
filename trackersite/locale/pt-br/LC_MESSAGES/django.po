@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-05-17 10:55:24+0000\n"
+"PO-Revision-Date: 2019-05-23 12:49:31+0000\n"
 "X-POT-Import-Date: 2019-05-09 10:08:21+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -318,11 +318,11 @@ msgstr ""
 
 #: tracker/models.py:49
 msgid "preaccepted"
-msgstr ""
+msgstr "pré-aceito"
 
 #: tracker/models.py:50
 msgid "submitted"
-msgstr ""
+msgstr "submetido"
 
 #: tracker/models.py:51
 msgid "accepted"
@@ -334,13 +334,13 @@ msgstr "documentos de despesas enviados"
 
 #: tracker/models.py:53
 msgid "expense documents filed"
-msgstr ""
+msgstr "documentos de despesa arquivados"
 
 #: tracker/models.py:54 tracker/models.py:346
 #: tracker/templates/tracker/export.html:52
 #: tracker/templates/tracker/export.html:53
 msgid "archived"
-msgstr ""
+msgstr "arquivado"
 
 #: tracker/models.py:55 tracker/models.py:344
 #: tracker/templates/tracker/export.html:55
@@ -354,11 +354,11 @@ msgstr "Todas as notificações"
 
 #: tracker/models.py:60
 msgid "Comment added"
-msgstr ""
+msgstr "Comentário adicionado"
 
 #: tracker/models.py:61
 msgid "Supervisor notes changed"
-msgstr ""
+msgstr "Notas do supervisor alteradas"
 
 #: tracker/models.py:62
 msgid "New ticket was created"
@@ -366,23 +366,23 @@ msgstr "Novo pedido foi criado"
 
 #: tracker/models.py:63
 msgid "Ticket was deleted"
-msgstr ""
+msgstr "O pedido foi eliminado"
 
 #: tracker/models.py:64
 msgid "Ack added"
-msgstr ""
+msgstr "Ack adicionado"
 
 #: tracker/models.py:65
 msgid "Ack removed"
-msgstr ""
+msgstr "Ack removido"
 
 #: tracker/models.py:66
 msgid "Ticket changed"
-msgstr ""
+msgstr "Pedido alterado"
 
 #: tracker/models.py:67
 msgid "New preexpediture was created"
-msgstr ""
+msgstr "Novo pré-contrato foi criado"
 
 #: tracker/models.py:68
 msgid "Preexpeditures changed"
