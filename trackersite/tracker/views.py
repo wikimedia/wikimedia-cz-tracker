@@ -202,7 +202,7 @@ class TicketForm(forms.ModelForm):
 
     def save(self, commit=True):
         instance = super(TicketForm, self).save(commit=commit)
-        if self.cleaned_data.get('statutory_declaration') and instance.car_travel:
+        if self.cleaned_data.get('statutory_declaration') and instance.car_travel and not instance.signature_set.filter(user=get_request().user).exists():
             Signature.objects.create(signed_text=settings.STATUTORY_DECLARATION_TEXT, user=get_request().user, signed_ticket=instance)
         elif not self.cleaned_data.get('statutory_declaration') or not instance.car_travel:
             instance.signature_set.filter(user=self.instance.requested_user).delete()
