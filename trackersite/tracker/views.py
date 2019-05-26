@@ -39,7 +39,7 @@ from socialauth.api import MediaWiki
 TICKET_EXCLUDE_FIELDS = (
             'created', 'media_updated', 'updated', 'requested_user', 'requested_text',
             'custom_state', 'rating_percentage', 'supervisor_notes', 'cluster', 'payment_status',
-            'mandatory_report', 'imported', 'enable_comments', 'statutory_declaration_date',
+            'mandatory_report', 'imported', 'enable_comments', 'statutory_declaration_date', 'is_completed'
         )
 
 
