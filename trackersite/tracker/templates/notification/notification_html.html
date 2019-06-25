@@ -90,26 +90,6 @@
 </ul>
 {% endif %}
 
-{% if ready_tickets.precontent|length > 0 %}
-<h1>{% trans "List of tickets pending preapproval" %}</h1>
-<strong>{% trans "Please note those tickets doesn't necessarily have to be ready for preapproval. Always check before preapproving. You are responsible for your own actions." %}</strong>
-<ul>
-	{% for ticket in ready_tickets.precontent %}
-	<li><a href="{{BASE_URL}}{{ticket.get_absolute_url}}">{{ ticket }}</a></li>
-	{% endfor %}
-</ul>
-{% endif %}
-
-{% if ready_tickets.content|length > 0 %}
-<h1>{% trans "List of tickets pending approval" %}</h1>
-<strong>{% trans "Please note those tickets doesn't necessarily have to be ready for approval. Always check before approving. You are responsible for your own actions." %}</strong>
-<ul>
-	{% for ticket in ready_tickets.content %}
-	<li><a href="{{BASE_URL}}{{ticket.get_absolute_url}}">{{ ticket }}</a></li>
-	{% endfor %}
-</ul>
-{% endif %}
-
 -- <br>
 <a href="{{BASE_URL}}">{% trans "Tracker notifications" %}</a>
 {% endautoescape %}

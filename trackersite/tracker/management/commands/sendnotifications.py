@@ -1,5 +1,5 @@
 from django.core.management.base import NoArgsCommand
-from tracker.models import Notification, Ticket
+from tracker.models import Notification
 from django.contrib.auth.models import User
 from django.template.loader import get_template
 from django.template import Context
@@ -21,25 +21,12 @@ class Command(NoArgsCommand):
         else:
             return User.objects.get(username=user)
 
-    def get_ready_tickets_for_user(self, user):
-        admin_of = user.topic_set.all()
-        res = {
-            'precontent': [],
-            'content': [],
-        }
-        for topic in admin_of:
-            res['precontent'] += self.ready_tickets_precontent.get(topic, [])
-            res['content'] += self.ready_tickets_content.get(topic, [])
-        return res
-
     def process_user(self, user, email_user=None, dry_run=False):
         if email_user is None:
             email_user = user
         if not email_user.email:
             return
-        ready_tickets = self.get_ready_tickets_for_user(user)
-        ready_sum = sum([len(ready_tickets[x]) for x in ready_tickets])
-        if len(Notification.objects.filter(target_user=user)) > 0 or ready_sum < 0:
+        if len(Notification.objects.filter(target_user=user)) > 0:
             c_dict = {
                 "ack_notifs": Notification.objects.filter(target_user=user, notification_type__in=["ack_add", "ack_remove"]),
                 "ticket_change_notifs": Notification.objects.filter(target_user=user, notification_type__in=["ticket_change", "ticket_change_all"]),
@@ -51,7 +38,6 @@ class Command(NoArgsCommand):
                 "comment_notifs": Notification.objects.filter(target_user=user, notification_type="comment"),
                 "supervisor_notes_notifs": Notification.objects.filter(target_user=user, notification_type="supervisor_notes"),
                 "document_notifs": Notification.objects.filter(target_user=user, notification_type="document"),
-                "ready_tickets": ready_tickets,
                 "BASE_URL": settings.BASE_URL,
             }
             c = Context(c_dict)
@@ -108,20 +94,6 @@ class Command(NoArgsCommand):
         email_user = None
         if options['email_user']:
             email_user = self.get_user_object(options['email_user'][0])
-
-        # Precalculate list of ready tickets
-        self.ready_tickets_precontent = {}
-        self.ready_tickets_content = {}
-        for ticket in Ticket.objects.all():
-            if ticket.can_ack_be_added('precontent'):
-                if ticket.topic not in self.ready_tickets_precontent:
-                    self.ready_tickets_precontent[ticket.topic] = []
-                self.ready_tickets_precontent[ticket.topic].append(ticket)
-
-            if ticket.can_ack_be_added('content'):
-                if ticket.topic not in self.ready_tickets_content:
-                    self.ready_tickets_content[ticket.topic] = []
-                self.ready_tickets_content[ticket.topic].append(ticket)
 
         # Process notifications
         for user in users:

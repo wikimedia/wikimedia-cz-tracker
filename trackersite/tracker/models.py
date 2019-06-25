@@ -31,7 +31,6 @@ from socialauth.api import MediaWiki
 from background_task import background
 from background_task.models import Task
 from django.utils.formats import number_format
-from django.utils import timezone
 
 from users.models import UserWrapper
 from django_comments.moderation import CommentModerator, moderator
@@ -77,7 +76,6 @@ NOTIFICATION_TYPES = [
 LANGUAGE_CHOICES = settings.LANGUAGES
 
 USER_EDITABLE_ACK_TYPES = ('user_precontent', 'user_content', 'user_docs')
-WAIT_NEEDED_ACK_TYPES = ('precontent', 'content')
 
 
 class ModelDiffMixin(object):
@@ -578,30 +576,6 @@ class Ticket(CachedModel, ModelDiffMixin):
     def flush_cache(self):
         super(Ticket, self).flush_cache()
         self.topic.flush_cache()
-
-    def can_ack_be_added(self, ack):
-        """
-        A waiting period (defined in settings.py under TRACKER_MIN_WAIT_DAYS) must pass before
-        certain acks (defined here as WAIT_NEEDED_ACK_TYPES) can be added. This period
-        shall be counted when adding that ack is requested. This method calculates if
-        such ack can be added, so this policy is satisfied.
-        """
-        if ack not in WAIT_NEEDED_ACK_TYPES:
-            return True
-
-        acks = self.ack_set()
-        not_archived = ('archive' not in acks) and ('close' not in acks)
-        not_added = ack not in acks
-
-        user_ack = self.ticketack_set.filter(ack_type='user_%s' % ack)
-        if user_ack.exists():
-            user_ack = user_ack[0]
-        else:
-            return False
-
-        can_be_added_on = user_ack.added + datetime.timedelta(days=settings.TRACKER_MIN_WAIT_DAYS)
-
-        return not_archived and not_added and timezone.now() > can_be_added_on
 
     class Meta:
         verbose_name = _('Ticket')
