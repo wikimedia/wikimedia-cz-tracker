@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 18:52+0200\n"
+"POT-Creation-Date: 2019-06-28 12:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1420,10 +1420,11 @@ msgid "List of tickets pending preapproval"
 msgstr ""
 
 #: tracker/templates/notification/notification_html.html:95
+#, python-format
 msgid ""
-"Please note those tickets doesn't necessarily have to be ready for "
-"preapproval. Always check before preapproving. You are responsible for your "
-"own actions."
+"These tickets may be ready for preapproval. Before you preapprove them, "
+"always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s"
+"\">financial policy</a>."
 msgstr ""
 
 #: tracker/templates/notification/notification_html.html:104
@@ -1431,9 +1432,11 @@ msgid "List of tickets pending approval"
 msgstr ""
 
 #: tracker/templates/notification/notification_html.html:105
+#, python-format
 msgid ""
-"Please note those tickets doesn't necessarily have to be ready for approval. "
-"Always check before approving. You are responsible for your own actions."
+"These tickets may be ready for approval. Before you approve them, always "
+"check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s"
+"\">financial policy</a>."
 msgstr ""
 
 #: tracker/templates/notification/notification_html.html:114
