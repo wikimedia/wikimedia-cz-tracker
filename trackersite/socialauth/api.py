@@ -48,7 +48,7 @@ class MediaWiki():
             "type": type
         }).json()["query"]["tokens"]["%stoken" % type]
 
-    def get_content(self, title, rvslot="main", rvsection=None):
+    def get_content(self, title, rvslot="main"):
         payload = {
             "action": "query",
             "format": "json",
@@ -57,15 +57,14 @@ class MediaWiki():
             "rvprop": "content",
             "rvslots": rvslot
         }
-        if rvsection:
-            payload["rvsection"] = rvsection
+
         data = self.request(payload).json()["query"]["pages"]
         if "revisions" not in data[data.keys()[0]]:
             raise ValueError("The requested content doesn't exist")
 
         return data[data.keys()[0]]["revisions"][0]["slots"][rvslot]["*"]
 
-    def put_content(self, title, text, section=None, summary="Automated update by Tracker"):
+    def put_content(self, title, text, summary="Automated update by Tracker"):
         payload = {
             "action": "edit",
             "format": "json",
@@ -74,6 +73,5 @@ class MediaWiki():
             "summary": summary,
             "token": self.get_token()
         }
-        if section:
-            payload["section"] = section
+
         return self.request(payload)

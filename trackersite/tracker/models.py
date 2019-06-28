@@ -919,13 +919,33 @@ class MediaInfo(Model):
         return re.sub(regex, "", text)
 
     @staticmethod
+    def get_template_end_position(text, template):
+        # TODO: First letter of template should be case-insensitive
+        opening_tag = "{{" + template
+        if opening_tag not in text:
+            return -1
+
+        position = text.find(opening_tag)
+        open_brackets = 0
+
+        for idx in range(position, len(text) - 1):
+            if text[idx] == '{':
+                open_brackets += 1
+            elif text[idx] == '}':
+                open_brackets -= 1
+            if open_brackets == 0:
+                return idx + 1
+
+        return -1
+
+    @staticmethod
     @background(schedule=10)
     def remove_from_mediawiki(media_name, user_id):
         try:
             mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
         except User.DoesNotExist:
             return
-        mw.put_content(media_name, MediaInfo.strip_template(mw.get_content(media_name, rvsection=1)), section=1)
+        mw.put_content(media_name, MediaInfo.strip_template(mw.get_content(media_name)))
 
     @staticmethod
     @background(schedule=10)
@@ -949,9 +969,19 @@ class MediaInfo(Model):
             mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
         except User.DoesNotExist:
             return
-        old = mw.get_content(media.name, rvsection=1)
+
+        old = mw.get_content(media.name)
+
         if template not in old:
-            mw.put_content(media.name,  MediaInfo.strip_template(old) + u"\n" + template, section=1)
+            old = MediaInfo.strip_template(old)
+            insert_to = MediaInfo.get_template_end_position(old, settings.MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE)
+
+            if insert_to != -1:
+                new = old[:insert_to] + u"\n" + template + old[insert_to:]
+                mw.put_content(media.name, new)
+                return
+
+            mw.put_content(media.name, old + u"\n" + template)
 
     def mediawiki_link(self):
         return settings.MEDIAINFO_MEDIAWIKI_ARTICLE + self.name
