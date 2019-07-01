@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-10 15:37+0100\n"
-"PO-Revision-Date: 2019-06-24 15:24:06+0000\n"
+"PO-Revision-Date: 2019-07-01 08:04:59+0000\n"
 "Last-Translator: Petr Novák <petr.novak@cosmoboy.cz>\n"
 "Language-Team: none <none@example.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ( (n >= 2 && n <= 4) ? 1 : 2 );\n"
-"X-POT-Import-Date: 2019-06-22 18:30:51+0000\n"
+"X-POT-Import-Date: 2019-06-28 17:02:37+0000\n"
 "X-Generator: MediaWiki 1.34.0-alpha; Translate 2019-04-24\n"
 
 #: api/serializers.py:94
@@ -1339,16 +1339,18 @@ msgid "List of tickets pending preapproval"
 msgstr "Seznam tiketů čekající na předschválení"
 
 #: tracker/templates/notification/notification_html.html:95
-msgid "Please note those tickets doesn't necessarily have to be ready for preapproval. Always check before preapproving. You are responsible for your own actions."
-msgstr "Prosím, vezměte na vědomí, že tikety uvedené v seznamu níže nemusí být nutně připravené k předschválení. Před předschválením vždy tiket zkontrolujte. Jste zodpovědný za to, co v systému uděláte."
+#, python-format
+msgid "These tickets may be ready for preapproval. Before you preapprove them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
+msgstr "Toto je seznam tiketů, které jsou možná zralé na předschválení. Předtím, než je předschválíte, vždy ověřte, že splňují <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">finanční pravidla spolku</a>."
 
 #: tracker/templates/notification/notification_html.html:104
 msgid "List of tickets pending approval"
 msgstr "Seznam tiketů čekající na schválení"
 
 #: tracker/templates/notification/notification_html.html:105
-msgid "Please note those tickets doesn't necessarily have to be ready for approval. Always check before approving. You are responsible for your own actions."
-msgstr "Prosím, vezměte na vědomí, že tikety uvedené v seznamu níže nemusí být nutně připravené ke schválení. Před schválením vždy tiket zkontrolujte. Jste zodpovědný za to, co v systému uděláte."
+#, python-format
+msgid "These tickets may be ready for approval. Before you approve them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
+msgstr "Toto je seznam tiketů, které jsou možná zralé na schválení. Předtím, než je schválíte, vždy ověřte, že splňují <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">finanční pravidla spolku</a>."
 
 #: tracker/templates/notification/notification_html.html:114
 msgid "Tracker notifications"

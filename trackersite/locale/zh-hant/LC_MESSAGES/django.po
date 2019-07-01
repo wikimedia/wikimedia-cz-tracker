@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-06-24 15:24:08+0000\n"
-"X-POT-Import-Date: 2019-06-22 18:30:51+0000\n"
+"PO-Revision-Date: 2019-07-01 08:05:01+0000\n"
+"X-POT-Import-Date: 2019-06-28 17:02:37+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh-Hant\n"
@@ -1327,16 +1327,18 @@ msgid "List of tickets pending preapproval"
 msgstr "待預先批准的案件清單"
 
 #: tracker/templates/notification/notification_html.html:95
-msgid "Please note those tickets doesn't necessarily have to be ready for preapproval. Always check before preapproving. You are responsible for your own actions."
-msgstr "請注意這些案件並非一定要先準備好預先批准。請在預先批准前先做檢查，並請對自行採取的行為負責。"
+#, python-format
+msgid "These tickets may be ready for preapproval. Before you preapprove them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
+msgstr "這些案件已準備好預先批准。在您預先批准之前，請遵循我們的<a href=\"%(TRACKER_FINANCIAL_POLICY)s\">財務方針</a>來檢查。"
 
 #: tracker/templates/notification/notification_html.html:104
 msgid "List of tickets pending approval"
 msgstr "待批准的案件清單"
 
 #: tracker/templates/notification/notification_html.html:105
-msgid "Please note those tickets doesn't necessarily have to be ready for approval. Always check before approving. You are responsible for your own actions."
-msgstr "請注意這些案件並非一定要先準備好批准。請在批准前先做檢查，並請對自行採取的行為負責。"
+#, python-format
+msgid "These tickets may be ready for approval. Before you approve them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
+msgstr "這些案件已準備好批准。在您批准之前，請遵循我們的<a href=\"%(TRACKER_FINANCIAL_POLICY)s\">財務方針</a>來檢查。"
 
 #: tracker/templates/notification/notification_html.html:114
 msgid "Tracker notifications"
