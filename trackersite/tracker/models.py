@@ -590,6 +590,9 @@ class Ticket(CachedModel, ModelDiffMixin):
             return True
 
         acks = self.ack_set()
+        if ack == "precontent" and "content" in acks:
+            return False   # HACK: To not include approved tickets that are "waiting for preapproval"
+
         not_archived = ('archive' not in acks) and ('close' not in acks)
         not_added = ack not in acks
 
