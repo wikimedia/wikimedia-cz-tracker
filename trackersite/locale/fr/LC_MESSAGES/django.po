@@ -1,13 +1,14 @@
 # Translation of Tracker to French (français)
 # Exported from translatewiki.net
 #
+# Author: Derugon
 # Author: Gomoko
 # Author: Tomri5
 # Author: Wladek92
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-07-01 08:05:00+0000\n"
+"PO-Revision-Date: 2019-07-05 05:47:44+0000\n"
 "X-POT-Import-Date: 2019-06-28 17:02:37+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -565,7 +566,7 @@ msgstr "Demandez-vous le remboursement des dépenses de voyage de type voiture�
 
 #: tracker/models.py:264
 msgid "Is this ticket completed?"
-msgstr "Le ticket est-il terminé ?"
+msgstr "Le ticket est-il terminé&nbsp;?"
 
 #: tracker/models.py:347
 msgid "historical"
@@ -1176,12 +1177,12 @@ msgstr "aucune description"
 #: tracker/models.py:1659
 #, python-format
 msgid "User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
-msgstr ""
+msgstr "L’utilisateur <tt>%(user)s</tt> a ajouté le document <tt>%(document_filename)s (%(document_description)s)</tt> au billet <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
 #: tracker/models.py:1673
 #, python-format
 msgid "User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
-msgstr ""
+msgstr "L’utilisateur <tt>%(user)s</tt> a retiré le document <tt>%(document_filename)s (%(document_description)s)</tt> du billet <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "REMOVE"
@@ -1320,7 +1321,7 @@ msgstr "Medias d'un ticket suivi"
 
 #: tracker/templates/notification/notification_html.html:76
 msgid "Documents of a watched ticket were changed"
-msgstr "Les documents d'un ticket surveillé ont été modifiés"
+msgstr "Les documents d’un ticket surveillé ont été modifiés"
 
 #: tracker/templates/notification/notification_html.html:85
 msgid "A comment was added to a watched ticket"
@@ -1328,21 +1329,21 @@ msgstr "Un commentaire a été ajouté à un ticket suivi"
 
 #: tracker/templates/notification/notification_html.html:94
 msgid "List of tickets pending preapproval"
-msgstr "Liste des tickets en attente de préapprobation"
+msgstr "Liste des tickets en attente de pré-approbation"
 
 #: tracker/templates/notification/notification_html.html:95
 #, python-format
 msgid "These tickets may be ready for preapproval. Before you preapprove them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
-msgstr ""
+msgstr "Ces billets peuvent être prêts à être pré-approuvés. Avant de les pré-approuver, toujours vérifier qu’ils sont conformes envers notre <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">politique financière</a>."
 
 #: tracker/templates/notification/notification_html.html:104
 msgid "List of tickets pending approval"
-msgstr ""
+msgstr "Liste des billets en attente d’approbation"
 
 #: tracker/templates/notification/notification_html.html:105
 #, python-format
 msgid "These tickets may be ready for approval. Before you approve them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
-msgstr ""
+msgstr "Ces billets peuvent être prêts à être approuvés. Avant de les approuver, veuillez toujours vérifier qu’ils se conforment à notre <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">politique financière</a>."
 
 #: tracker/templates/notification/notification_html.html:114
 msgid "Tracker notifications"
