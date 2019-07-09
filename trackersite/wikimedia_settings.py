@@ -46,3 +46,5 @@ SENDFILE_BACKEND = 'sendfile.backends.development'
 BASE_URL = 'https://example.com'
 GOOGLE_ANALYTICS = None
 MEDIAINFO_MEDIAWIKI_API = None
+PRODUCTION_URL = "https://tracker.wikimedia.cz"
+MANUAL_LINK = None

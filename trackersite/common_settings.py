@@ -151,9 +151,5 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-MANUAL_LINK = 'https://www.wikimedia.cz/web/Manuál_na_tracker'
-
-PRODUCTION_URL = "https://tracker.wikimedia.cz"
-
 ALLOWED_TAGS = ['a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em', 'i', 'li', 'ol', 'strong', 'ul']
 ALLOWED_ATTRIBUTES = {'a': ['href', 'title'], 'acronym': ['title'], 'abbr': ['title']}
