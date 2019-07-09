@@ -47,4 +47,4 @@ BASE_URL = 'https://example.com'
 GOOGLE_ANALYTICS = None
 MEDIAINFO_MEDIAWIKI_API = None
 PRODUCTION_URL = "https://tracker.wikimedia.cz"
-MANUAL_LINK = None
+TRACKER_MANUAL_LINK = None

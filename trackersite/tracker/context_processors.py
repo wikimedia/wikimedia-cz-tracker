@@ -9,6 +9,6 @@ def public_settings(request):
         'PRODUCTION': settings.PRODUCTION,
         'PRODUCTION_URL': settings.PRODUCTION_URL,
         'GOOGLE_ANALYTICS': settings.GOOGLE_ANALYTICS,
-        'MANUAL_LINK': settings.MANUAL_LINK,
+        'MANUAL_LINK': settings.TRACKER_MANUAL_LINK,
         'STATUTORY_DECLARATION_TEXT': settings.STATUTORY_DECLARATION_TEXT,
     }

@@ -140,5 +140,5 @@ SOCIAL_AUTH_MEDIAWIKI_URL = 'https://meta.wikimedia.org/w/index.php'
 MEDIAINFO_MEDIAWIKI_ARTICLE = 'https://commons.wikimedia.org/wiki/'
 MEDIAINFO_MEDIAWIKI_API = 'https://commons.wikimedia.org/w/api.php' # MediaWiki endpoint used as API endpoint for MediaWiki class, so the /api/mediawiki proxy won't be an open proxy
 MEDIAINFO_MEDIAWIKI_TEMPLATE = u'Fotíme Česko' # Template name used to mark photos reported in Tracker. Set to None to disable.
-MANUAL_LINK = 'http://url/to/manual.txt' # or None to disable link
+TRACKER_MANUAL_LINK = 'http://url/to/manual.txt' # or None to disable link
 PRODUCTION_URL = "http://url/to/production/tracker" # used in "not in production" warning, when PRODUCTION=False
