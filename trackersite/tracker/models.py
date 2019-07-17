@@ -1388,7 +1388,7 @@ class Notification(models.Model):
 def notify_comment(sender, comment, **kwargs):
     obj = comment.content_object
     if type(obj) == Ticket:
-        if comment.name == comment.user.username:
+        if comment.user is not None and comment.name == comment.user.username:
             user = comment.name
         else:
             user = '%s (%s)' % (comment.name, comment.user.username)
