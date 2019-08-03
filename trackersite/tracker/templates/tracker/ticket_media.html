@@ -12,12 +12,10 @@
 			<form action="javascript:void(0);">
 				<label for="by-name-input">{% trans "Filename prefix" %}</label>
 				<input type="search" name="by-name-input" id="by-name-input">
-				<button type="submit" id="by-name-submit" class="btn btn-secondary">{% trans "Search" %}</button>
 			</form>
 			<form action="javascript:void(0);">
 				<label for="by-user-input">{% trans "Mediawiki username" %}</label>
 				<input type="text" name="by-user-input" id="by-user-input">
-				<button type="submit" id="by-user-submit" class="btn btn-secondary">{% trans "Search" %}</button>
 			</form>
 		</div>
 		<div class="col-md-6">
@@ -32,6 +30,8 @@
 				</div>
 			</form>
 		</div>
+		<!-- TODO: Change back to btn-secondary, once we change its color -->
+		<button type="submit" id="btn-search" class="btn btn-success form-control">{% trans "Search" %}</button>
 	</div>
 	<hr>
 

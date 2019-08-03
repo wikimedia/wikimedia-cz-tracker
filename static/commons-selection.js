@@ -81,8 +81,7 @@
 	const loadMoreButton = document.querySelector( '#load-more' );
 	const loadingText = document.querySelector( '#loading' );
 
-	const byNameSubmit = document.querySelector( '#by-name-submit' );
-	const byUserSubmit = document.querySelector( '#by-user-submit' );
+	const btnSearch = document.querySelector( '#btn-search' );
 
 	const existingImages = await ( await fetch( `/api/tracker/mediainfo/?ticket=${ ticketNumber }` ) ).json();
 	let existingImageNames = [];
@@ -94,22 +93,15 @@
 		}
 	}
 
-	let previousFetchMethod;
 	let previousCheck;
 
-	byNameSubmit.addEventListener( 'click', async () => {
+	btnSearch.addEventListener( 'click', async () => {
 		const name = document.querySelector( '#by-name-input' ).value;
-		await fetchAndFillImages( name, findByName );
-		previousFetchMethod = 'name';
-	} );
-
-	byUserSubmit.addEventListener( 'click', async () => {
 		const user = document.querySelector( '#by-user-input' ).value;
-		await fetchAndFillImages( user, findByUser );
-		previousFetchMethod = 'user';
+		await fetchAndFillImages( name, user );
 	} );
 
-	byUserSubmit.click(); // Load default set of images
+	btnSearch.click(); // Load default set of images
 	fetchAndFillExistingImages();
 
 	let shiftPressed = false;
@@ -130,28 +122,22 @@
 		loadingText.classList.remove( 'hidden' );
 		loadMoreButton.classList.add( 'hidden' );
 
-		const input = document.querySelector( `#by-${ previousFetchMethod }-input` ).value;
-
-		let findFunction;
-
-		if ( previousFetchMethod === 'name' ) {
-			findFunction = findByName;
-		} else if ( previousFetchMethod === 'user' ) {
-			findFunction = findByUser;
-		}
+		const name = document.querySelector( '#by-name-input' ).value;
+		const user = document.querySelector( '#by-user-input' ).value;
 
 		await fetchAndFillImages(
-			input,
+			name,
+			user,
 			findFunction,
 			loadMoreButton.getAttribute( 'data-continue' )
 		);
 	} );
 
-	async function fetchAndFillImages( input, findFunction, continueFrom ) {
+	async function fetchAndFillImages( name, user, continueFrom ) {
 		const limit = parseInt( limitElement.value ) || undefined;
 		const category = categoryElement.value;
 
-		const response = await findFunction( input, limit, continueFrom );
+		const response = await findFunction( name, user, limit, continueFrom );
 
 		if ( response.continue !== undefined ) {
 			loadMoreButton.classList.remove( 'hidden' );
@@ -245,7 +231,7 @@
 		}
 	}
 
-	async function findByUser( user = mwUsername, limit = 25, continueFrom ) {
+	async function findFunction( name = '', user = mwUsername, limit = 25, continueFrom ) {
 		if ( user === '' ) {
 			return [];
 		}
@@ -261,22 +247,8 @@
 			options.aicontinue = continueFrom;
 		}
 
-		return await getImages( options );
-	}
-
-	async function findByName( name, limit = 25, continueFrom ) {
-		const options = {
-			aisort: 'name',
-			aidir: 'ascending',
-			aiprefix: name.replace( 'File:', '' ), // T214014
-			ailimit: limit
-		};
-
-		if ( continueFrom !== undefined ) {
-			options.aicontinue = continueFrom;
-		}
-
-		return await getImages( options );
+		const filteredName = name.replace( 'File:', '' ).replace( ' ', '_' ); // T214014
+		return await getImages( options, filteredName );
 	}
 
 	function filterByCategory( images, category ) {
@@ -294,7 +266,7 @@
 		} );
 	}
 
-	async function getImages( requestParams = {} ) {
+	async function getImages( requestParams = {}, name = '' ) {
 		const properties = [
 			'timestamp', 'url', 'canonicaltitle', 'extmetadata', 'dimensions'
 		];
@@ -310,7 +282,22 @@
 		requestParams = Object.assign( defaultParams, requestParams );
 
 		const requestUrl = `/api/mediawiki/${ toQueryString( requestParams ) }`;
-		const resBody = await ( await fetch( requestUrl ) ).json();
+		let resBody = await ( await fetch( requestUrl ) ).json();
+		if ( name !== '' ) {
+			// Filter names locally, can't use aiprefix, because that requires ordering by name
+			// and not by timestamp.
+			let toRemove = [];
+			for ( let i = 0; i < resBody.query.allimages.length; i++ ) {
+				const element = resBody.query.allimages[ i ];
+				if ( !element.name.startsWith( name ) ) {
+					toRemove.push( i );
+				}
+			}
+			for ( let i = 0; i < toRemove.length; i++ ) {
+				const index = toRemove[ i ];
+				resBody.query.allimages.splice( index );
+			}
+		}
 
 		return {
 			images: resBody.query.allimages,
