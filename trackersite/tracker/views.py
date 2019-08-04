@@ -1093,7 +1093,7 @@ def export(request):
             topics = []
             for item in request.POST:
                 if item.startswith('ticket-topic-'):
-                    topics.append(Topic.objects.get(id=long(request.POST[item])))
+                    topics.append(Topic.objects.get(id=int(request.POST[item])))
             tmp = []
             if len(topics) != 0:
                 for topic in topics:
@@ -1105,7 +1105,7 @@ def export(request):
             users = []
             for item in request.POST:
                 if item.startswith('ticket-user-'):
-                    users.append(User.objects.get(id=long(request.POST[item])))
+                    users.append(User.objects.get(id=int(request.POST[item])))
             if len(users) != 0:
                 for user in users:
                     for ticket in tickets:
@@ -1272,7 +1272,7 @@ def export(request):
             users = []
             for item in request.POST:
                 if item.startswith('topics-user-'):
-                    users.append(User.objects.get(id=long(request.POST[item])))
+                    users.append(User.objects.get(id=int(request.POST[item])))
             topics = Topic.objects.all()
             if len(users) != 0:
                 tmp = []
