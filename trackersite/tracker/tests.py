@@ -801,7 +801,7 @@ class UserProfileTests(TestCase):
 class ImportTests(TestCase):
 
     def get_test_data(self, type):
-        csvfile = io.StringIO.StringIO()
+        csvfile = io.StringIO()
         csvwriter = csv.writer(csvfile, delimiter=';')
         if type == 'ticket':
             csvwriter.writerow(['event_date', 'name', 'topic', 'event_url', 'description', 'deposit'])
