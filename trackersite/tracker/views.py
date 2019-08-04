@@ -29,6 +29,7 @@ from sendfile import sendfile
 from django.utils.translation import get_language
 from request_provider.signals import get_request
 from social_django.models import UserSocialAuth
+from io import TextIOWrapper
 import csv
 
 from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, MediaInfoOld, Expediture, Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher, Signature
@@ -1506,7 +1507,7 @@ def importcsv(request):
         import_unlimited = not import_limit
         too_much_rows_message = _('You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported.') % {'input_row_limit': str(import_limit)}
         imported = 0
-        csvfile = request.FILES['csvfile']
+        csvfile = TextIOWrapper(request.FILES['csvfile'].file, encoding=request.encoding)
         header = None
         with csvfile:
             reader = csv.reader(csvfile, delimiter=';', quotechar='"')
@@ -1521,7 +1522,7 @@ def importcsv(request):
                     event_date = line[header.index('event_date')]
                     if event_date == "None":
                         event_date = None
-                    name = line[header.index('name')].decode('utf-8')
+                    name = line[header.index('name')]
                     topic = Topic.objects.filter(name=line[header.index('topic')])[0]
                     event_url = line[header.index('event_url')]
                     description = line[header.index('description')]
