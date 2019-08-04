@@ -9,7 +9,7 @@
 <h1>{% trans "List of linked media" %}: {{ ticket.name }}</h1>
 <p>{% trans "Last updated" %}: {{ ticket.media_updated }} (<a href="{% url "update_media" ticket.id %}">{% trans "update" %}</a>)</p>
 <p>{% trans "Page will be updated within 24 hours." %}</p>
-<table>
+<table class="table">
 	<thead>
 		<tr>
 			<th>{% trans "File name" %}</th>
@@ -57,7 +57,7 @@
 </table>
 
 <h2>{% trans 'Photos per category' %}</h2>
-<table>
+<table class="table">
 	<thead>
 		<tr>
 			<th>{% trans 'Category' %}</th>
