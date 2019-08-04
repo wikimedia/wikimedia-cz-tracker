@@ -32,6 +32,7 @@ from background_task import background
 from background_task.models import Task
 from django.utils.formats import number_format
 from django.utils import timezone
+from collections import OrderedDict
 
 from users.models import UserWrapper
 from django_comments.moderation import CommentModerator, moderator
@@ -573,7 +574,7 @@ class Ticket(CachedModel, ModelDiffMixin):
                     photos_per_category[category] += 1
                 else:
                     photos_per_category[category] = 1
-        return photos_per_category
+        return OrderedDict(sorted(photos_per_category.items(), key=lambda t: t[1], reverse=True))
 
     def flush_cache(self):
         super(Ticket, self).flush_cache()
