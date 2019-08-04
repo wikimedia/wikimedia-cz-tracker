@@ -552,7 +552,7 @@ class Ticket(CachedModel, ModelDiffMixin):
             money(self.accepted_expeditures()),
             money(self.paid_expeditures()),
             str(self.state_str()),
-            self.updated,
+            str(self.updated),
         ]
 
     def photos_per_category(self):
