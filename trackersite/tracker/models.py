@@ -288,17 +288,6 @@ class Ticket(CachedModel, ModelDiffMixin):
     def save(self, *args, **kwargs):
         saved_from_admin = kwargs.pop('saved_from_admin', False)
         just_payment_status = kwargs.pop('just_payment_status', False)
-        if self.has_changed and get_request() and not saved_from_admin and not just_payment_status:
-            change_message = 'Changed ' + ', '.join(self.changed_fields) + "."
-            ct = ContentType.objects.get_for_model(self)
-            LogEntry.objects.log_action(
-                user_id=get_request().user.id,
-                content_type_id=ct.pk,
-                object_id=self.pk,
-                object_repr=force_text(self),
-                action_flag=CHANGE,
-                change_message=change_message
-            )
 
         statutory_declaration_diff = self.get_field_diff('statutory_declaration')
         if statutory_declaration_diff and not statutory_declaration_diff[0] and statutory_declaration_diff[1]:
