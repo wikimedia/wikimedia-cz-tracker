@@ -18,4 +18,4 @@ django-filter==1.1
 django-rest-swagger==0.3.10
 
 # we'll presume MySQL as the database
-mysql-python
+mysql

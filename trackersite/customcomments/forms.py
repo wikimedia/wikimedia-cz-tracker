@@ -4,10 +4,10 @@ import datetime
 from django import forms
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-from django.utils.encoding import force_unicode
 from django.contrib.contenttypes.models import ContentType
 from django_comments.models import Comment
 from django_comments.forms import CommentSecurityForm, COMMENT_MAX_LENGTH
+from django.utils.encoding import force_text
 from request_provider.signals import get_request
 
 from snowpenguin.django.recaptcha2.fields import ReCaptchaField
@@ -60,7 +60,7 @@ class CustomCommentForm(CommentSecurityForm):
         """
         return dict(
             content_type=ContentType.objects.get_for_model(self.target_object),
-            object_pk=force_unicode(self.target_object._get_pk_val()),
+            object_pk=force_text(self.target_object._get_pk_val()),
             user_name=self.cleaned_data["name"],
             comment=self.cleaned_data["comment"],
             submit_date=datetime.datetime.now(),

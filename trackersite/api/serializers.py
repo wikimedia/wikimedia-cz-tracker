@@ -62,7 +62,7 @@ class TopicSerializer(serializers.HyperlinkedModelSerializer):
             subtopics.append({
                 "id": subtopic.id,
                 "name": subtopic.name,
-                "display_name": unicode(subtopic)
+                "display_name": subtopic
             })
         return subtopics
 

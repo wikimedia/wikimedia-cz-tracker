@@ -128,7 +128,7 @@ EMAIL_HOST = 'smtp.example.com'
 DEFAULT_FROM_EMAIL = 'Tracker <tracker@example.com>'
 SERVER_EMAIL = 'Webmaster <webmaster@example.com>'
 
-FILE_UPLOAD_PERMISSIONS = 0664
+FILE_UPLOAD_PERMISSIONS = 664
 BASE_URL = 'https://example.com'
 
 GOOGLE_ANALYTICS = None

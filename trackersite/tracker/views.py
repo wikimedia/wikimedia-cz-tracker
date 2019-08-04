@@ -576,8 +576,8 @@ def create_ticket(request):
             preexpeditures = PreexpeditureFormSet(request.POST, prefix='preexpediture')
             expeditures.media  # this seems to be a regression between Django 1.3 and 1.6
             preexpeditures.media  # test
-        except forms.ValidationError, e:
-            return HttpResponseBadRequest(unicode(e))
+        except forms.ValidationError as e:
+            return HttpResponseBadRequest(str(e))
 
         check_ticket_form_deposit(ticketform, preexpeditures)
         check_statutory_declaration(ticketform)
@@ -709,8 +709,8 @@ def edit_ticket(request, pk):
                 preexpeditures = PreexpeditureFormSet(request.POST, prefix='preexpediture', instance=ticket)
             else:
                 preexpeditures = None
-        except forms.ValidationError, e:
-            return HttpResponseBadRequest(unicode(e))
+        except forms.ValidationError as e:
+            return HttpResponseBadRequest(str(e))
 
         if 'precontent' not in ticket.ack_set() and 'content' not in ticket.ack_set():
             check_ticket_form_deposit(ticketform, preexpeditures)
@@ -819,8 +819,8 @@ def edit_ticket_docs(request, pk):
     if request.method == 'POST':
         try:
             documents = DocumentFormSet(request.POST, prefix='docs', instance=ticket, queryset=Document.objects.filter(**filter))
-        except forms.ValidationError, e:
-            return HttpResponseBadRequest(unicode(e))
+        except forms.ValidationError as e:
+            return HttpResponseBadRequest(str(e))
 
         if documents.is_valid():
             documents.save()
@@ -899,7 +899,7 @@ class HttpResponseCsv(HttpResponse):
         self.writerow(fields)
 
     def writerow(self, row):
-        self.write(u';'.join(map(lambda s: u'"' + unicode(s).replace('"', "'").replace('\r\n', ' ').replace('\n', ' ').replace('\r', ' ') + u'"', row)))
+        self.write(u';'.join(map(lambda s: u'"' + str(s).replace('"', "'").replace('\r\n', ' ').replace('\n', ' ').replace('\r', ' ') + u'"', row)))
         self.write(u'\r\n')
 
 
@@ -953,7 +953,7 @@ def transaction_list(request):
 
 def transactions_csv(request):
     response = HttpResponseCsv(
-        ['DATE', 'OTHER PARTY', 'AMOUNT ' + unicode(settings.TRACKER_CURRENCY), 'DESCRIPTION', 'TICKETS', 'GRANTS', 'ACCOUNTING INFO']
+        ['DATE', 'OTHER PARTY', 'AMOUNT ' + settings.TRACKER_CURRENCY, 'DESCRIPTION', 'TICKETS', 'GRANTS', 'ACCOUNTING INFO']
     )
 
     for tx in Transaction.objects.all():
@@ -962,7 +962,7 @@ def transactions_csv(request):
             tx.other_party(),
             tx.amount,
             tx.description,
-            u' '.join([unicode(t.id) for t in tx.tickets.all()]),
+            u' '.join([t.id for t in tx.tickets.all()]),
             u' '.join([g.short_name for g in tx.grant_set()]),
             tx.accounting_info,
         ])
@@ -1217,7 +1217,7 @@ def export(request):
             response = HttpResponseCsv(['id', 'created', 'updated', 'event_date', 'event_url', 'name', 'requested_by', 'grant', 'topic', 'subtopic', 'state', 'deposit', 'description', 'mandatory_report', 'accepted_expeditures', 'preexpeditures', 'expeditures', 'paid_expeditures'])
             response['Content-Disposition'] = 'attachment; filename="exported-tickets.csv"'
             for ticket in tickets:
-                response.writerow([ticket.id, ticket.created, ticket.updated, ticket.event_date, ticket.event_url, ticket.name, ticket.requested_by(), ticket.topic.grant.full_name, ticket.topic.name, unicode(ticket.subtopic), ticket.state_str(), ticket.deposit, ticket.description, ticket.mandatory_report, ticket.accepted_expeditures(), ticket.preexpeditures()['amount'], ticket.expeditures()['amount'], ticket.paid_expeditures()])
+                response.writerow([ticket.id, ticket.created, ticket.updated, ticket.event_date, ticket.event_url, ticket.name, ticket.requested_by(), ticket.topic.grant.full_name, ticket.topic.name, str(ticket.subtopic), ticket.state_str(), ticket.deposit, ticket.description, ticket.mandatory_report, ticket.accepted_expeditures(), ticket.preexpeditures()['amount'], ticket.expeditures()['amount'], ticket.paid_expeditures()])
             return response
         elif typ == 'grant':
             response = HttpResponseCsv(['full_name', 'short_name', 'slug', 'description'])
