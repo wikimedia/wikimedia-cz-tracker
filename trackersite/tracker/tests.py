@@ -79,7 +79,7 @@ class SimpleTicketTest(TestCase):
         url_kwargs = {'pk': topic_id} if topic_id is not None else {}
         response = Client().get(reverse(url_name, kwargs=url_kwargs))
         self.assertEqual(response.status_code, 200)
-        items_in_response = re.findall(r'<item>', response.content)  # ugly, mostly works
+        items_in_response = re.findall(r'<item>', response.content.decode('utf-8'))  # ugly, mostly works
         self.assertEqual(expected_ticket_count, len(items_in_response))
 
     def test_feeds(self):
