@@ -946,7 +946,8 @@ class DocumentAccessTests(TestCase):
         response = c.get(reverse('download_document', kwargs={'ticket_id': self.ticket.id, 'filename': self.doc['name']}))
         if can_see:
             self.assertEqual(response.status_code, 200)
-            self.assertEqual(''.join(response.streaming_content), self.doc['payload'])
+            file_bytes = b''.join(response.streaming_content)
+            self.assertEqual(file_bytes.decode('utf-8'), self.doc['payload'])
         else:
             self.assertEqual(response.status_code, deny_code)
 
