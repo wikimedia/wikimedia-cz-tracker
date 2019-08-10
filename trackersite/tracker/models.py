@@ -528,7 +528,7 @@ class Ticket(CachedModel, ModelDiffMixin):
                 "iiprop": "dimensions",
                 "clprop": "hidden"
             }).json()["query"]["pages"]
-            data = data[data.keys()[0]]
+            data = data[list(data.keys())[0]]
             media.width = data["imageinfo"][0]["width"]
             media.height = data["imageinfo"][0]["height"]
 
@@ -961,10 +961,10 @@ class MediaInfo(Model):
             'tiket': media.ticket.id,
         }
 
-        template = u'{{%s' % settings.MEDIAINFO_MEDIAWIKI_TEMPLATE
+        template = '{{%s' % settings.MEDIAINFO_MEDIAWIKI_TEMPLATE
         for param in parameters:
-            template += u"|%s=%s" % (param.decode('utf-8'), str(parameters[param]).decode('utf-8'))
-        template += u'}}'
+            template += "|%s=%s" % (param, str(parameters[param]))
+        template += '}}'
 
         try:
             mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
@@ -998,7 +998,7 @@ class MediaInfo(Model):
                 "iiprop": "url|canonicaltitle",
                 "iiurlwidth": width
             }).json()['query']['pages']
-            data = data[data.keys()[0]]['imageinfo'][0]
+            data = data[list(data.keys())[0]]['imageinfo'][0]
 
             if width:
                 url = data['thumburl']
