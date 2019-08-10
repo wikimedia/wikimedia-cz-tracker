@@ -1184,7 +1184,7 @@ class TrackerProfile(models.Model):
         return Transaction.objects.filter(other=self.user).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
 
     def __str__(self):
-        return self.user
+        return str(self.user)
 
     class Meta:
         verbose_name = _('Tracker profile')
