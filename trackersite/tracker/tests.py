@@ -32,9 +32,6 @@ class SimpleTicketTest(TestCase):
         self.ticket2 = Ticket(name='bar', requested_text='req2', topic=self.topic, description='bar bar')
         self.ticket2.save()
 
-        self.user = User(username='my_user')  # HACK: not used, but tests doesn't seem to pass without it
-        self.user.save()
-
     def test_ticket_timestamps(self):
         self.assertTrue(self.ticket2.created > self.ticket1.created)  # check ticket 2 is newer
 
