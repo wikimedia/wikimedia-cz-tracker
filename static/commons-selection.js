@@ -128,7 +128,6 @@
 		await fetchAndFillImages(
 			name,
 			user,
-			findFunction,
 			loadMoreButton.getAttribute( 'data-continue' )
 		);
 	} );
