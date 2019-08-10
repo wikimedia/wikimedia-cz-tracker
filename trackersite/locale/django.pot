@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-11 00:51+0200\n"
+"POT-Creation-Date: 2019-08-11 00:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2779,23 +2779,27 @@ msgstr ""
 msgid "Executing API call with any action than whitelisted is prohibited."
 msgstr ""
 
-#: tracker/views.py:1746
+#: tracker/views.py:1733
+msgid "No media to show are available"
+msgstr ""
+
+#: tracker/views.py:1748
 msgid "Updating of medias for this ticket was successfully scheduled."
 msgstr ""
 
-#: tracker/views.py:1751
+#: tracker/views.py:1753
 msgid "List of media was successfully updated"
 msgstr ""
 
-#: tracker/views.py:1756
+#: tracker/views.py:1758
 msgid "There was an error while processing your request"
 msgstr ""
 
-#: tracker/views.py:1764
+#: tracker/views.py:1766
 msgid "This mandatory notice was sent to all active Tracker users."
 msgstr ""
 
-#: tracker/views.py:1776
+#: tracker/views.py:1778
 msgid "This mandatory notice was sent to all active Tracker administrators."
 msgstr ""
 

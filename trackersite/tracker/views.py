@@ -1729,6 +1729,8 @@ def mediawiki_api(request):
 
 def show_media(request, ticket_id):
     ticket = get_object_or_404(Ticket, id=ticket_id)
+    if ticket.mediainfo_set.count() == 0:
+        raise PermissionDenied(_('No media to show are available'))
     return render(request, 'tracker/ticket_show_media.html', {
         'ticket': ticket,
         'medias': ticket.mediainfo_set.all(),
