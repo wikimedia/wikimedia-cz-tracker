@@ -1111,9 +1111,7 @@ class Document(Model):
 
     def save(self, *args, **kwargs):
         request = get_request()
-        # HACK: is_authenticated() should be always True at this point
-        # NOTE: Applied to resolve T229771
-        if request and request.user.is_authenticated():
+        if request:
             self.uploader = request.user
         else:
             self.uploader = None
