@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}{{ ticket.name }}{% endblock %}
+{% block title %}{% trans "Show media for" %}: {{ ticket.name }}{% endblock %}
 {% block content %}
 <!-- i18n-lint disable -->
 <div class="hidden" id="disabledatatables">yes</div>
