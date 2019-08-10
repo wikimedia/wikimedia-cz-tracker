@@ -27,7 +27,7 @@ from django.template.loader import get_template
 from django.template import Context
 from sendfile import sendfile
 from django.utils.translation import get_language
-from request_provider.signals import get_request
+from tracker.services import get_request
 from social_django.models import UserSocialAuth
 from io import TextIOWrapper
 import csv

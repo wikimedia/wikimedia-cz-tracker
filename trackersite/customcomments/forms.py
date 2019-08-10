@@ -8,7 +8,7 @@ from django.contrib.contenttypes.models import ContentType
 from django_comments.models import Comment
 from django_comments.forms import CommentSecurityForm, COMMENT_MAX_LENGTH
 from django.utils.encoding import force_text
-from request_provider.signals import get_request
+from tracker.services import get_request
 
 from snowpenguin.django.recaptcha2.fields import ReCaptchaField
 from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget

@@ -4,7 +4,7 @@ import decimal
 
 from django_comments.signals import comment_was_posted
 from django.db.models.signals import pre_save, post_save, post_delete
-from request_provider.signals import get_request
+from tracker.services import get_request
 from django.contrib.auth.models import User
 from django.contrib.admin.models import LogEntry, CHANGE
 from django.contrib.contenttypes.models import ContentType
