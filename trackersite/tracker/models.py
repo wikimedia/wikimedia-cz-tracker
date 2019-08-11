@@ -794,7 +794,7 @@ class Topic(CachedModel):
             for expediture in ticket.expediture_set.filter(wage=True, paid=True):
                 ticketsum.append(expediture.amount)
             if ticket.rating_percentage:
-                tosum.append(sum(ticketsum) * ticket.rating_percentage / 100)
+                tosum.append(decimal.Decimal(sum(ticketsum) * ticket.rating_percentage / 100))
         return sum(tosum)
 
     @cached_getter
@@ -805,7 +805,7 @@ class Topic(CachedModel):
             for expediture in ticket.expediture_set.filter(paid=True):
                 ticketsum.append(expediture.amount)
             if ticket.rating_percentage:
-                tosum.append(sum(ticketsum) * ticket.rating_percentage / 100)
+                tosum.append(decimal.Decimal(sum(ticketsum) * ticket.rating_percentage / 100))
         return sum(tosum)
 
     @cached_getter
