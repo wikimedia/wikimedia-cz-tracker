@@ -13,7 +13,7 @@ django-background-tasks
 bleach
 
 # For API
-djangorestframework==3.4.7
+djangorestframework==3.5.4
 django-filter==1.1
 django-rest-swagger==0.3.10
 
