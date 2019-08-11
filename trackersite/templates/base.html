@@ -6,6 +6,7 @@
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{{STATIC_URL}}admin/{% endfilter %}";</script>
 <script type="text/javascript" src="{% url "django.views.i18n.javascript_catalog" %}"></script>
 <script type="text/javascript" src="{{STATIC_URL}}datatables-init.js"></script>
+<script src="{{STATIC_URL}}common.js"></script>
 
 <!-- Datatables -->
 <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}jquery.dataTables.css">
@@ -91,8 +92,7 @@ $( '#emailModal' ).on('hidden.bs.modal', (e) => {
 	</div>
 	</div>
 </nav>
-{% if messages or not PRODUCTION or request.is_IE %}
-<div class="container">
+<div class="container error-container">
 	{% for message in messages %}
 	<!-- htmllint attr-no-dup="false" -->
 	<div {% if message.tags %}class="alert alert-{{ message.tags }} alert-dismissable" {% else %}class="alert alert-info alert-dismissable" {% endif %}><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ message }}</div>
@@ -105,7 +105,6 @@ $( '#emailModal' ).on('hidden.bs.modal', (e) => {
 	<div class="alert alert-warning">{% trans "Warning" %}: {% trans "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox." %}</div>
 	{% endif %}
 </div>
-{% endif %}
 <div class="container">
 {% block content %}{% endblock %}
 </div>

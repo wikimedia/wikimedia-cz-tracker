@@ -43,6 +43,7 @@
 	"globals": {
 		"getTopicById": true,
 		"getSubtopicById": true,
-		"cookies": true
+		"cookies": true,
+		"gettext": false
 	}
 }

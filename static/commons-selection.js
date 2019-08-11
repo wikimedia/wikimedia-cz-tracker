@@ -133,6 +133,17 @@
 	} );
 
 	async function fetchAndFillImages( name, user, continueFrom ) {
+		try {
+			await fetchAndFillImagesInternal( name, user, continueFrom );
+		} catch ( error ) {
+			window.showMessage(
+				gettext( 'Unknown error happened while fetching images you uploaded. Please contact the server admin.' ),
+				'alert-danger'
+			);
+		}
+	}
+
+	async function fetchAndFillImagesInternal( name, user, continueFrom ) {
 		const limit = parseInt( limitElement.value ) || undefined;
 		const category = categoryElement.value;
 
