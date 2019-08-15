@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-08-12 10:47:32+0000\n"
+"PO-Revision-Date: 2019-08-15 16:49:21+0000\n"
 "X-POT-Import-Date: 2019-08-11 00:31:05+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2557,7 +2557,7 @@ msgstr ""
 
 #: tracker/views.py:683
 msgid "You cannot edit this ticket"
-msgstr ""
+msgstr "이 티켓을 편집할 수 없습니다"
 
 #: tracker/views.py:730
 #, python-format

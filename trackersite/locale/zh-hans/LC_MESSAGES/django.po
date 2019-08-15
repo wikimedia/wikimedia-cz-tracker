@@ -3,11 +3,12 @@
 #
 # Author: A Chinese Wikipedian
 # Author: Angrydog001
+# Author: Looong
 # Author: 科劳
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-08-12 10:47:32+0000\n"
+"PO-Revision-Date: 2019-08-15 16:49:22+0000\n"
 "X-POT-Import-Date: 2019-08-11 00:31:05+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2196,7 +2197,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_show_media.html:3
 msgid "Show media for"
-msgstr ""
+msgstr "媒体显示为"
 
 #: tracker/templates/tracker/ticket_show_media.html:9
 msgid "List of linked media"
@@ -2558,7 +2559,7 @@ msgstr ""
 
 #: tracker/views.py:683
 msgid "You cannot edit this ticket"
-msgstr ""
+msgstr "你不能编辑这张票"
 
 #: tracker/views.py:730
 #, python-format
@@ -2646,7 +2647,7 @@ msgstr ""
 
 #: tracker/views.py:1733
 msgid "No media to show are available"
-msgstr ""
+msgstr "没有可显示的媒体"
 
 #: tracker/views.py:1748
 msgid "Updating of medias for this ticket was successfully scheduled."
