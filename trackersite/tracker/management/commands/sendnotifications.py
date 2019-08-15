@@ -1,3 +1,4 @@
+from __future__ import print_function
 from django.core.management.base import NoArgsCommand
 from tracker.models import Notification, Ticket
 from django.contrib.auth.models import User
