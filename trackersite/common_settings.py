@@ -15,7 +15,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
-    'request_provider.middleware.RequestProvider',
+    'crequest.middleware.CrequestMiddleware',
     'tracker.middleware.WarnIEUsers',
     'tracker.middleware.InvalidOauth',
 )
@@ -68,6 +68,7 @@ INSTALLED_APPS = (
     'rest_framework_swagger',
     'django_filters',
     'background_task',
+    'crequest',
 )
 
 USE_TZ = True
