@@ -59,10 +59,10 @@ class MediaWiki():
         }
 
         data = self.request(payload).json()["query"]["pages"]
-        if "revisions" not in data[list(data.keys())[0]]:
+        if "revisions" not in data[data.keys()[0]]:
             raise ValueError("The requested content doesn't exist")
 
-        return data[list(data.keys())[0]]["revisions"][0]["slots"][rvslot]["*"]
+        return data[data.keys()[0]]["revisions"][0]["slots"][rvslot]["*"]
 
     def put_content(self, title, text, summary="Automated update by Tracker"):
         payload = {

@@ -1,5 +1,4 @@
-from __future__ import absolute_import
-from .viewsets import (
+from viewsets import (
     UserViewSet,
     PermissionViewSet,
     TrackerPreferencesViewSet,

@@ -35,7 +35,6 @@ class TrackerPreferencesSerializer(serializers.HyperlinkedModelSerializer):
 class TrackerProfileSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         read_only_fields = ('mediawiki_username', 'user')
-        fields = '__all__'
         model = TrackerProfile
 
 
@@ -64,18 +63,16 @@ class TopicSerializer(serializers.HyperlinkedModelSerializer):
             subtopics.append({
                 "id": subtopic.id,
                 "name": subtopic.name,
-                "display_name": str(subtopic)
+                "display_name": unicode(subtopic)
             })
         return subtopics
 
     class Meta:
-        fields = '__all__'
         model = Topic
 
 
 class SubtopicSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        fields = '__all__'
         model = Subtopic
 
 
@@ -135,19 +132,16 @@ class MediaInfoSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         read_only_fields = ('categories', 'width', 'height', 'usages', 'canonicaltitle', 'thumb_url')
-        fields = '__all__'
         model = MediaInfo
 
 
 class MediaInfoOldSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        fields = '__all__'
         model = MediaInfoOld
 
 
 class ExpeditureAdminSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        fields = '__all__'
         model = Expediture
 
 
@@ -163,7 +157,6 @@ class ExpeditureSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         read_only_fields = ('accounting_info', 'paid')
-        fields = '__all__'
         model = Expediture
 
 
@@ -178,5 +171,4 @@ class PreexpeditureSerializer(serializers.HyperlinkedModelSerializer):
         return ticket
 
     class Meta:
-        fields = '__all__'
         model = Preexpediture
