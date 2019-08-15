@@ -28,6 +28,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class TrackerPreferencesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         read_only_fields = ('user', )
+        fields = '__all__'
         model = TrackerPreferences
 
 
