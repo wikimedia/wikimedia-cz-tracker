@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.utils.translation import ugettext as _
-from tracker.services import get_request
+from request_provider.signals import get_request
 
 
 def save_extra_data(backend, user, response, *args, **kwargs):
