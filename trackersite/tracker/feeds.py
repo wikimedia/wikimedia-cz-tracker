@@ -37,7 +37,7 @@ class TopicTicketsFeed(Feed):
         return get_object_or_404(Topic, id=pk)
 
     def title(self, topic):
-        return unicode(topic)
+        return topic
 
     def link(self, topic):
         return topic.get_absolute_url()

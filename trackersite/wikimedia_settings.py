@@ -2,6 +2,7 @@
 # Django project settings for Wikimedia Continous Integration
 # THIS IS NOT AN EXAMPLE CONFIGURATION
 # If you want to generate settings.py, use support/makesettings.py
+from __future__ import absolute_import
 import os
 
 import common_settings as _common
@@ -48,3 +49,5 @@ GOOGLE_ANALYTICS = None
 MEDIAINFO_MEDIAWIKI_API = None
 PRODUCTION_URL = "https://tracker.wikimedia.cz"
 TRACKER_MANUAL_LINK = None
+MEDIAINFO_MEDIAWIKI_TEMPLATE = None
+MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE = 'Information'

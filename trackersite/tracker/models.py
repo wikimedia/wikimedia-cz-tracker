@@ -4,7 +4,7 @@ import decimal
 
 from django_comments.signals import comment_was_posted
 from django.db.models.signals import pre_save, post_save, post_delete
-from request_provider.signals import get_request
+from tracker.services import get_request
 from django.contrib.auth.models import User
 from django.contrib.admin.models import LogEntry, CHANGE
 from django.contrib.contenttypes.models import ContentType
@@ -12,7 +12,6 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.dispatch import receiver
 from django.db import models
 from django.core.urlresolvers import reverse
-from django.utils.encoding import force_unicode
 from django.utils.translation import ugettext_lazy as _, string_concat, activate, deactivate
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
@@ -33,6 +32,7 @@ from background_task.models import Task
 from django.utils.formats import number_format
 from django.utils import timezone
 from collections import OrderedDict
+from django.utils.encoding import force_text
 
 from users.models import UserWrapper
 from django_comments.moderation import CommentModerator, moderator
@@ -228,7 +228,7 @@ class Watcher(Model):
     notification_type = models.CharField('notification_type', max_length=50, choices=NOTIFICATION_TYPES)
     ack_type = models.CharField('ack_type', max_length=50, null=True, choices=ACK_TYPES)
 
-    def __unicode__(self):
+    def __str__(self):
         return 'User %s is watching event %s on %s %s' % (self.user, self.notification_type, self.watcher_type, self.watched)
 
 
@@ -295,7 +295,7 @@ class Ticket(CachedModel, ModelDiffMixin):
                 user_id=get_request().user.id,
                 content_type_id=ct.pk,
                 object_id=self.pk,
-                object_repr=force_unicode(self),
+                object_repr=force_text(self),
                 action_flag=CHANGE,
                 change_message=change_message
             )
@@ -377,7 +377,7 @@ class Ticket(CachedModel, ModelDiffMixin):
     state_str.admin_order_field = 'state'
     state_str.short_description = _('state')
 
-    def __unicode__(self):
+    def __str__(self):
         return '%s: %s' % (self.id, self.name)
 
     @cached_getter
@@ -528,7 +528,7 @@ class Ticket(CachedModel, ModelDiffMixin):
                 "iiprop": "dimensions",
                 "clprop": "hidden"
             }).json()["query"]["pages"]
-            data = data[data.keys()[0]]
+            data = data[list(data.keys())[0]]
             media.width = data["imageinfo"][0]["width"]
             media.height = data["imageinfo"][0]["height"]
 
@@ -552,18 +552,18 @@ class Ticket(CachedModel, ModelDiffMixin):
             subtopic = ''
         return [
             '<a href="%s">%s</a>' % (self.get_absolute_url(), self.pk),
-            unicode(self.event_date),
+            str(self.event_date),
             '<a class="ticket-summary" href="%s">%s</a>' % (self.get_absolute_url(), escape(self.name)),
-            '<a href="%s">%s</a>' % (self.topic.grant.get_absolute_url(), self.topic.grant),
-            '<a href="%s">%s</a>' % (self.topic.get_absolute_url(), self.topic),
-            subtopic,
+            '<a href="%s">%s</a>' % (self.topic.grant.get_absolute_url(), str(self.topic.grant)),
+            '<a href="%s">%s</a>' % (self.topic.get_absolute_url(), str(self.topic)),
+            str(subtopic),
             self.requested_by_html(),
             money(self.preexpeditures()['amount'] or 0),
             money(self.expeditures()['amount'] or 0),
             money(self.accepted_expeditures()),
             money(self.paid_expeditures()),
-            unicode(self.state_str()),
-            unicode(self.updated),
+            str(self.state_str()),
+            str(self.updated),
         ]
 
     def photos_per_category(self):
@@ -685,7 +685,7 @@ class Subtopic(CachedModel):
     form_description = models.TextField(_('form description'), blank=True, help_text=_('Description shown to users who enter tickets for this subtopic'))
     topic = models.ForeignKey('tracker.Topic', verbose_name=_('topic'), help_text=_('Topic where this subtopic belongs'))
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def get_absolute_url(self):
@@ -756,7 +756,7 @@ class Topic(CachedModel):
     form_description = models.TextField(_('form description'), blank=True, help_text=_('Description shown to users who enter tickets for this topic'))
     admin = models.ManyToManyField('auth.User', verbose_name=_('topic administrator'), blank=True, help_text=_('Selected users will have administration access to this topic.'))
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def get_absolute_url(self):
@@ -794,7 +794,7 @@ class Topic(CachedModel):
             for expediture in ticket.expediture_set.filter(wage=True, paid=True):
                 ticketsum.append(expediture.amount)
             if ticket.rating_percentage:
-                tosum.append(sum(ticketsum) * ticket.rating_percentage / 100)
+                tosum.append(decimal.Decimal(sum(ticketsum) * ticket.rating_percentage / 100))
         return sum(tosum)
 
     @cached_getter
@@ -805,7 +805,7 @@ class Topic(CachedModel):
             for expediture in ticket.expediture_set.filter(paid=True):
                 ticketsum.append(expediture.amount)
             if ticket.rating_percentage:
-                tosum.append(sum(ticketsum) * ticket.rating_percentage / 100)
+                tosum.append(decimal.Decimal(sum(ticketsum) * ticket.rating_percentage / 100))
         return sum(tosum)
 
     @cached_getter
@@ -836,7 +836,7 @@ class Grant(CachedModel):
     slug = models.SlugField(_('slug'), help_text=_('Shortcut for usage in URLs'))
     description = models.TextField(_('description'), blank=True, help_text=_('Detailed description; HTML is allowed for now, line breaks are auto-parsed'))
 
-    def __unicode__(self):
+    def __str__(self):
         return self.full_name
 
     def open_for_tickets(self):
@@ -891,7 +891,7 @@ class MediaInfoOld(Model):
     url = models.URLField(_('URL'), blank=True, help_text=_('Link to media files'))
     count = models.PositiveIntegerField(_('count'), blank=True, null=True, help_text=_('Number of files'))
 
-    def __unicode__(self):
+    def __str__(self):
         return self.description
 
     class Meta:
@@ -910,7 +910,7 @@ class MediaInfo(Model):
     categories = JSONField(_('categories'), null=False, default=[])
     usages = JSONField(_('usages'), null=False, default=[])
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     @staticmethod
@@ -961,10 +961,10 @@ class MediaInfo(Model):
             'tiket': media.ticket.id,
         }
 
-        template = u'{{%s' % settings.MEDIAINFO_MEDIAWIKI_TEMPLATE
+        template = '{{%s' % settings.MEDIAINFO_MEDIAWIKI_TEMPLATE
         for param in parameters:
-            template += u"|%s=%s" % (param.decode('utf-8'), str(parameters[param]).decode('utf-8'))
-        template += u'}}'
+            template += "|%s=%s" % (param, str(parameters[param]))
+        template += '}}'
 
         try:
             mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
@@ -998,7 +998,7 @@ class MediaInfo(Model):
                 "iiprop": "url|canonicaltitle",
                 "iiurlwidth": width
             }).json()['query']['pages']
-            data = data[data.keys()[0]]['imageinfo'][0]
+            data = data[list(data.keys())[0]]['imageinfo'][0]
 
             if width:
                 url = data['thumburl']
@@ -1050,7 +1050,7 @@ class Expediture(Model):
     paid = models.BooleanField(_('paid'), default=False)
     wage = models.BooleanField(_('wage'), default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return _('%(description)s (%(amount)s %(currency)s)') % {'description': self.description, 'amount': self.amount, 'currency': settings.TRACKER_CURRENCY}
 
     def save(self, *args, **kwargs):
@@ -1070,7 +1070,7 @@ class Preexpediture(Model):
     amount = models.DecimalField(_('amount'), max_digits=8, decimal_places=2, help_text=string_concat(_('Preexpediture amount in'), ' ', settings.TRACKER_CURRENCY))
     wage = models.BooleanField(_('wage'), default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return _('%(description)s (%(amount)s %(currency)s)') % {'description': self.description, 'amount': self.amount, 'currency': settings.TRACKER_CURRENCY}
 
     class Meta:
@@ -1095,7 +1095,7 @@ class Document(Model):
     payload = models.FileField(upload_to='tickets/%Y/', storage=FileSystemStorage(location=settings.TRACKER_DOCS_ROOT))
     uploader = models.ForeignKey('auth.User', null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.filename
 
     def inline_intro(self):
@@ -1183,8 +1183,8 @@ class TrackerProfile(models.Model):
     def transactions(self):
         return Transaction.objects.filter(other=self.user).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
 
-    def __unicode__(self):
-        return unicode(self.user)
+    def __str__(self):
+        return str(self.user)
 
     class Meta:
         verbose_name = _('Tracker profile')
@@ -1215,7 +1215,7 @@ class Transaction(Model):
     tickets = models.ManyToManyField(Ticket, verbose_name=_('related tickets'), blank=True, help_text=_('Tickets this trackaction is related to'))
     cluster = models.ForeignKey('Cluster', blank=True, null=True, on_delete=models.SET_NULL)
 
-    def __unicode__(self):
+    def __str__(self):
         out = u'%s, %s %s' % (self.date, self.amount, settings.TRACKER_CURRENCY)
         if self.description is not None:
             out += ': ' + self.description
@@ -1235,7 +1235,7 @@ class Transaction(Model):
             return escape(self.other_text)
 
     def ticket_ids(self):
-        return u', '.join([unicode(t.id) for t in self.tickets.order_by('id')])
+        return u', '.join([str(t.id) for t in self.tickets.order_by('id')])
 
     def tickets_by_id(self):
         return self.tickets.order_by('id')
@@ -1263,8 +1263,8 @@ class Cluster(Model):
     def get_absolute_url(self):
         return reverse('cluster_detail', kwargs={'pk': self.id})
 
-    def __unicode__(self):
-        return unicode(self.id)
+    def __str__(self):
+        return self.id
 
 
 class TicketAck(Model):
@@ -1275,7 +1275,7 @@ class TicketAck(Model):
     added_by = models.ForeignKey('auth.User', blank=True, null=True)
     comment = models.CharField(_('comment'), blank=True, max_length=255)
 
-    def __unicode__(self):
+    def __str__(self):
         return u'%d %s by %s on %s' % (self.ticket_id, self.get_ack_type_display(), self.added_by, self.added)
 
     def added_by_html(self):
@@ -1325,7 +1325,7 @@ class Notification(models.Model):
     text = models.TextField('text', default="")
     notification_type = models.CharField('notification_type', max_length=50, choices=NOTIFICATION_TYPES, null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.text
 
     @staticmethod
@@ -1720,7 +1720,7 @@ class PossibleAck(object):
     def __eq__(self, other):
         return self.ack_type == other.ack_type
 
-    def __unicode__(self):
+    def __str__(self):
         return self.display
 
     @property

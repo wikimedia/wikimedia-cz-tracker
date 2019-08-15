@@ -1,4 +1,5 @@
-from serializers import (
+from __future__ import absolute_import
+from .serializers import (
     User, UserSerializerAdmin, UserSerializer,
     TrackerProfile, TrackerProfileSerializer,
     TrackerPreferences, TrackerPreferencesSerializer,
@@ -17,8 +18,8 @@ from serializers import (
 from rest_framework import viewsets
 from rest_framework import status
 from rest_framework.response import Response
-from permissions import (ReadOnly, CanEditTicketElseReadOnly, CanEditExpedituresElseReadOnly, IsSelfTrackerProfile,
-                         IsOwnTrackerPreferences)
+from .permissions import (ReadOnly, CanEditTicketElseReadOnly, CanEditExpedituresElseReadOnly, IsSelfTrackerProfile,
+                          IsOwnTrackerPreferences)
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import activate
 from django.conf import settings
