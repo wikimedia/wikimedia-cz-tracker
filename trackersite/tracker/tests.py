@@ -13,7 +13,7 @@ from django.contrib.auth.models import User, Permission
 from django.contrib.contenttypes.models import ContentType
 from django.core.files.base import ContentFile
 from django.core.management import call_command
-import StringIO
+import io
 import csv
 
 from users.models import UserWrapper
@@ -76,7 +76,7 @@ class SimpleTicketTest(TestCase):
         url_kwargs = {'pk': topic_id} if topic_id is not None else {}
         response = Client().get(reverse(url_name, kwargs=url_kwargs))
         self.assertEqual(response.status_code, 200)
-        items_in_response = re.findall(r'<item>', response.content)  # ugly, mostly works
+        items_in_response = re.findall(r'<item>', response.content.decode('utf-8'))  # ugly, mostly works
         self.assertEqual(expected_ticket_count, len(items_in_response))
 
     def test_feeds(self):
@@ -798,7 +798,7 @@ class UserProfileTests(TestCase):
 class ImportTests(TestCase):
 
     def get_test_data(self, type):
-        csvfile = StringIO.StringIO()
+        csvfile = io.StringIO()
         csvwriter = csv.writer(csvfile, delimiter=';')
         if type == 'ticket':
             csvwriter.writerow(['event_date', 'name', 'topic', 'event_url', 'description', 'deposit'])
@@ -943,7 +943,8 @@ class DocumentAccessTests(TestCase):
         response = c.get(reverse('download_document', kwargs={'ticket_id': self.ticket.id, 'filename': self.doc['name']}))
         if can_see:
             self.assertEqual(response.status_code, 200)
-            self.assertEqual(''.join(response.streaming_content), self.doc['payload'])
+            file_bytes = b''.join(response.streaming_content)
+            self.assertEqual(file_bytes.decode('utf-8'), self.doc['payload'])
         else:
             self.assertEqual(response.status_code, deny_code)
 
