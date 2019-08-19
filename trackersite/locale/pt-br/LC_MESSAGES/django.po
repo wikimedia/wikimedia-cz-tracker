@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-08-12 10:47:32+0000\n"
+"PO-Revision-Date: 2019-08-19 09:57:54+0000\n"
 "X-POT-Import-Date: 2019-08-11 00:31:05+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2646,7 +2646,7 @@ msgstr "A execução da chamada da API com qualquer ação além da lista de per
 
 #: tracker/views.py:1733
 msgid "No media to show are available"
-msgstr ""
+msgstr "Nenhuma mídia para mostrar está disponível"
 
 #: tracker/views.py:1748
 msgid "Updating of medias for this ticket was successfully scheduled."
