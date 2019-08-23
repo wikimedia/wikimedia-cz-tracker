@@ -955,11 +955,12 @@ class MediaInfo(Model):
             media = MediaInfo.objects.get(id=media_id)
         except MediaInfo.DoesNotExist:
             return
-        parameters = {
+        parameters_unsorted = {
             'rok': datetime.date.today().year,
             'podtéma': media.ticket.subtopic,
             'tiket': media.ticket.id,
         }
+        parameters = OrderedDict(sorted(parameters_unsorted.items(), key=lambda t: t[0]))
 
         template = '{{%s' % settings.MEDIAINFO_MEDIAWIKI_TEMPLATE
         for param in parameters:
