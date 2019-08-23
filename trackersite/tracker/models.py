@@ -916,7 +916,7 @@ class MediaInfo(Model):
     @staticmethod
     def strip_template(text):
         # TODO: First letter of template should be case-insensitive
-        regex = r"\n{{" + settings.MEDIAINFO_MEDIAWIKI_TEMPLATE + r"[^}]*}}"
+        regex = r"\n?{{" + settings.MEDIAINFO_MEDIAWIKI_TEMPLATE + r"[^}]*}}"
         return re.sub(regex, "", text)
 
     @staticmethod
