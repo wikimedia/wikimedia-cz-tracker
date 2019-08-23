@@ -946,7 +946,7 @@ class MediaInfo(Model):
             mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
         except User.DoesNotExist:
             return
-        mw.put_content(media_name, MediaInfo.strip_template(mw.get_content(media_name)))
+        mw.put_content(media_name, MediaInfo.strip_template(mw.get_content(media_name)), minor=True)
 
     @staticmethod
     @background(schedule=10)
@@ -983,7 +983,7 @@ class MediaInfo(Model):
                 mw.put_content(media.name, new)
                 return
 
-            mw.put_content(media.name, old + u"\n" + template)
+            mw.put_content(media.name, old + u"\n" + template, minor=True)
 
     def mediawiki_link(self):
         return settings.MEDIAINFO_MEDIAWIKI_ARTICLE + self.name

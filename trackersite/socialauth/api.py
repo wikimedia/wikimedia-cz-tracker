@@ -64,14 +64,15 @@ class MediaWiki():
 
         return data[list(data.keys())[0]]["revisions"][0]["slots"][rvslot]["*"]
 
-    def put_content(self, title, text, summary="Automated update by Tracker"):
+    def put_content(self, title, text, summary="Automated update by Tracker", minor=False):
         payload = {
             "action": "edit",
             "format": "json",
             "title": title,
             "text": text,
             "summary": summary,
-            "token": self.get_token()
+            "token": self.get_token(),
+            "minor": minor,
         }
 
         return self.request(payload)
