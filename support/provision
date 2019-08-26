@@ -1,0 +1,59 @@
+#!/bin/bash
+set -e
+
+trackerroot="`dirname \"$0\"`/.."
+trackersite="$trackerroot/trackersite"
+deploydir="$trackerroot/deploy"
+supportdir="$trackerroot/support"
+manage="$trackersite/manage.py"
+
+# Checks
+if [ "$1" != "--force" ]; then
+    if [ -e $deploydir ]; then
+        echo "ERROR: Deploy directory already exists. Are you sure you want to overwrite it?"
+        echo "Pass --force to bypass this check."
+        exit 100
+    fi
+    if [ -e $trackersite/settings.py ]; then
+        echo "ERROR: Settings file already exists. Are you sure you want to overwrite it?"
+        echo "Pass --force to bypass this check."
+        exit 101
+    fi
+fi
+
+if ! which python3 &> /dev/null; then
+    echo "FATAL: python3 not found. Forgot to add it to your PATH?"
+    exit 200
+fi
+
+# Create deploy dir and needed subdirectories
+echo "INFO: Creating necessary directories..."
+if [ -e $deploydir ]; then
+    echo "INFO: Deploy directory already exists, overwriting..."
+    rm -rf $deploydir
+fi
+mkdir $deploydir $deploydir/media $deploydir/private $deploydir/public
+
+# Provision virtualenv
+echo "INFO: Creating Python virtualenv..."
+virtualenv -p $(which python3) $deploydir/pyenv > /dev/null
+source $deploydir/pyenv/bin/activate
+echo "INFO: Installing Python dependencies..."
+pip install -r $supportdir/requirements.txt > /dev/null
+
+# Provision settings.py
+echo "INFO: Creating settings file..."
+if [ -e $trackersite/settings.py ]; then
+    echo "INFO: Settings file already exists, overwriting..."
+    rm -f $trackersite/settings.py
+fi
+python $supportdir/makesettings.py
+
+# Run migrations
+echo "INFO: Running database migrations..."
+python $manage migrate > /dev/null
+
+# Done!
+echo "INFO: Tracker is provisioned. You can run it by running python manage.py runserver in trackersite directory."
+deactivate
+exit 0
