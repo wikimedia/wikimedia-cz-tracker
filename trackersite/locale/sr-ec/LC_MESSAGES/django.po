@@ -1,4 +1,4 @@
-# Translation of Tracker to Serbian (Cyrillic script) (српски (ћирилица)‎)
+# Translation of Tracker - main to Serbian (Cyrillic script) (српски (ћирилица)‎)
 # Exported from translatewiki.net
 #
 # Author: BadDog
@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-08-12 10:47:32+0000\n"
-"X-POT-Import-Date: 2019-08-11 00:31:05+0000\n"
+"PO-Revision-Date: 2019-09-03 08:11:32+0000\n"
+"X-POT-Import-Date: 2019-08-26 05:26:44+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sr-Cyrl\n"

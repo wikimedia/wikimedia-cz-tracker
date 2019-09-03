@@ -1,4 +1,4 @@
-# Translation of Tracker to Zazaki (Zazaki)
+# Translation of Tracker - main to Zazaki (Zazaki)
 # Exported from translatewiki.net
 #
 # Author: Mirzali
@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-08-12 10:47:31+0000\n"
-"X-POT-Import-Date: 2019-08-11 00:31:05+0000\n"
+"PO-Revision-Date: 2019-09-03 08:11:30+0000\n"
+"X-POT-Import-Date: 2019-08-26 05:26:44+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: diq\n"

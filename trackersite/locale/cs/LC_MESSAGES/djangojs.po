@@ -1,0 +1,19 @@
+# Translation of Tracker - JavaScript to Czech (čeština)
+# Exported from translatewiki.net
+#
+# Author: Martin Urbanec
+msgid ""
+msgstr ""
+""
+"PO-Revision-Date: 2019-09-03 08:11:28+0000\n"
+"X-POT-Import-Date: 2019-08-26 05:26:53+0000\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
+"X-Generator: MediaWiki 1.34.0-alpha; Translate 2019-04-24\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ( (n >= 2 && n <= 4) ? 1 : 2 );\n"
+
+#: static/commons-selection.js:140
+msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
+msgstr "Při získávání vámi nahraných obrázků nastala neznámá chyba. Prosím, kontaktujte systémového administrátora."
+

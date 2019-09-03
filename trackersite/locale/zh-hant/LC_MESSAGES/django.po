@@ -1,12 +1,12 @@
-# Translation of Tracker to Traditional Chinese (中文（繁體）‎)
+# Translation of Tracker - main to Traditional Chinese (中文（繁體）‎)
 # Exported from translatewiki.net
 #
 # Author: Kly
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-08-12 10:47:32+0000\n"
-"X-POT-Import-Date: 2019-08-11 00:31:05+0000\n"
+"PO-Revision-Date: 2019-09-03 08:11:33+0000\n"
+"X-POT-Import-Date: 2019-08-26 05:26:44+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh-Hant\n"
@@ -433,7 +433,7 @@ msgstr "此案件有關的事項日期"
 #: tracker/models.py:246 tracker/models.py:389
 #: tracker/templates/feeds/ticket_description.html:3
 msgid "requested by"
-msgstr "請求由"
+msgstr "請求出自"
 
 #: tracker/models.py:246
 msgid "User who created/requested for this ticket"
@@ -441,7 +441,7 @@ msgstr "建立/請求此案件的使用者"
 
 #: tracker/models.py:247
 msgid "requested by (text)"
-msgstr "請求由（文字）"
+msgstr "請求出自（文字）"
 
 #: tracker/models.py:247
 msgid "Text description of who requested for this ticket, in case user is not filled in"
@@ -1237,7 +1237,7 @@ msgstr "此案件沒有文件上傳。"
 #, python-format
 msgid "There is 1 document uploaded."
 msgid_plural "There are %(counter)s documents uploaded."
-msgstr[0] "已上傳 %(counter)s 個文件。"
+msgstr[0] "已上傳 1 個文件。"
 
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
@@ -1858,7 +1858,7 @@ msgstr "名稱"
 #: tracker/templates/tracker/ticket_table.html:17
 #: tracker/templates/tracker/ticket_table.html:32
 msgid "Requested by"
-msgstr "請求由"
+msgstr "請求出自"
 
 #: tracker/templates/tracker/index.html:29
 #: tracker/templates/tracker/ticket_common_detail.html:73

@@ -1,0 +1,19 @@
+# Translation of Tracker - JavaScript to Tarantino (tarandíne)
+# Exported from translatewiki.net
+#
+# Author: Joetaras
+msgid ""
+msgstr ""
+""
+"PO-Revision-Date: 2019-09-03 08:11:28+0000\n"
+"X-POT-Import-Date: 2019-08-26 05:26:53+0000\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nap-x-tara\n"
+"X-Generator: MediaWiki 1.34.0-alpha; Translate 2019-04-24\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: static/commons-selection.js:140
+msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
+msgstr "Ha assute 'n'errore scanusciute mendre ca ste analizzave le immaggine ca è carecate. Pe piacere condatte l'amministratore d'u server."
+
