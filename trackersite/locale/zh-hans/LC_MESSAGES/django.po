@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-09-03 08:11:33+0000\n"
+"PO-Revision-Date: 2019-09-09 17:39:30+0000\n"
 "X-POT-Import-Date: 2019-08-26 05:26:44+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,7 +74,7 @@ msgstr "阿拉伯语"
 
 #: common_settings.py:91
 msgid "Danish"
-msgstr ""
+msgstr "丹麦语"
 
 #: common_settings.py:92
 msgid "Finnish"
@@ -775,7 +775,7 @@ msgstr ""
 
 #: tracker/models.py:836
 msgid "slug"
-msgstr ""
+msgstr "重击"
 
 #: tracker/models.py:836
 msgid "Shortcut for usage in URLs"
@@ -795,7 +795,7 @@ msgstr ""
 #: tracker/models.py:876 tracker/templates/tracker/export.html:141
 #: tracker/templates/tracker/import.html:34
 msgid "Grants"
-msgstr ""
+msgstr "授权"
 
 #: tracker/models.py:889 tracker/models.py:904 tracker/models.py:1046
 #: tracker/models.py:1068 tracker/views.py:488
@@ -833,11 +833,11 @@ msgstr ""
 
 #: tracker/models.py:906
 msgid "width"
-msgstr ""
+msgstr "宽"
 
 #: tracker/models.py:907
 msgid "height"
-msgstr ""
+msgstr "高"
 
 #: tracker/models.py:909
 msgid "cannonical title"
@@ -845,11 +845,11 @@ msgstr ""
 
 #: tracker/models.py:910
 msgid "categories"
-msgstr ""
+msgstr "分类"
 
 #: tracker/models.py:911
 msgid "usages"
-msgstr ""
+msgstr "用法"
 
 #: tracker/models.py:1046
 msgid "Ticket this expediture belongs to"
@@ -861,7 +861,7 @@ msgstr ""
 
 #: tracker/models.py:1048 tracker/models.py:1070 tracker/models.py:1212
 msgid "amount"
-msgstr ""
+msgstr "总额"
 
 #: tracker/models.py:1048
 msgid "Expediture amount in"
@@ -1890,7 +1890,7 @@ msgstr "前一条"
 
 #: tracker/templates/tracker/paginator.html:8
 msgid "next"
-msgstr ""
+msgstr "下一项"
 
 #: tracker/templates/tracker/preferences.html:4
 #: tracker/templates/tracker/preferences.html:14
@@ -1955,7 +1955,7 @@ msgstr ""
 #: tracker/templates/tracker/ticketack_add.html:21
 #: tracker/templates/tracker/ticketack_confirm_delete.html:16
 msgid "Submit"
-msgstr ""
+msgstr "发布"
 
 #: tracker/templates/tracker/subtopic_detail.html:10
 #: tracker/templates/tracker/topic_detail.html:19
@@ -2173,11 +2173,11 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:48
 msgid "Load more"
-msgstr ""
+msgstr "加载更多"
 
 #: tracker/templates/tracker/ticket_media.html:49
 msgid "Loading..."
-msgstr ""
+msgstr "正在加载..."
 
 #: tracker/templates/tracker/ticket_media.html:54
 msgid "Choose selected photos"
@@ -2209,7 +2209,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_show_media.html:10
 msgid "update"
-msgstr ""
+msgstr "更新"
 
 #: tracker/templates/tracker/ticket_show_media.html:11
 msgid "Page will be updated within 24 hours."
@@ -2272,11 +2272,11 @@ msgstr ""
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:11
 msgid "Added"
-msgstr ""
+msgstr "已添加"
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:12
 msgid "Added by"
-msgstr ""
+msgstr "加入自"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:4
 #: tracker/templates/tracker/topic_content_acks_per_user.html:8
@@ -2331,7 +2331,7 @@ msgstr ""
 
 #: tracker/templates/tracker/topic_table.html:11
 msgid "Administrators"
-msgstr ""
+msgstr "系统管理员"
 
 #: tracker/templates/tracker/transaction_list.html:4
 #: tracker/templates/tracker/transaction_list.html:12
@@ -2394,11 +2394,11 @@ msgstr ""
 
 #: tracker/templates/tracker/user_deactivate.html:20
 msgid "Username:"
-msgstr ""
+msgstr "用户名："
 
 #: tracker/templates/tracker/user_deactivate.html:21
 msgid "Email:"
-msgstr ""
+msgstr "邮件："
 
 #: tracker/templates/tracker/user_deactivate.html:32
 msgid "Deactivate my account"
@@ -2426,7 +2426,7 @@ msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
-msgstr ""
+msgstr "被跟踪的"
 
 #: tracker/templates/tracker/user_detail.html:13
 msgid "Total for this user"
@@ -2457,11 +2457,11 @@ msgstr ""
 #: tracker/templates/tracker/watch.html:4
 #: tracker/templates/tracker/watch.html:11
 msgid "Watch"
-msgstr ""
+msgstr "匹配"
 
 #: tracker/templates/tracker/watch.html:19
 msgid "All"
-msgstr ""
+msgstr "所有"
 
 #: tracker/views.py:61
 msgid "Comment posted, thank you."
@@ -2623,19 +2623,19 @@ msgstr ""
 
 #: tracker/views.py:1665
 msgid "Full name"
-msgstr ""
+msgstr "全名"
 
 #: tracker/views.py:1665
 msgid "Short name"
-msgstr ""
+msgstr "简称"
 
 #: tracker/views.py:1665
 msgid "Slug"
-msgstr ""
+msgstr "重击"
 
 #: tracker/views.py:1688
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 #: tracker/views.py:1710
 msgid "Preexpeditures were succesfully copied to expeditures."
@@ -2754,16 +2754,16 @@ msgstr ""
 
 #: users/templates/users/password_change.html:33
 msgid "New password"
-msgstr ""
+msgstr "新密码"
 
 #: users/templates/users/password_change.html:38
 msgid "Password (again)"
-msgstr ""
+msgstr "确认密码"
 
 #: users/templates/users/password_change.html:42
 #: users/templates/users/password_reset_confirm.html:19
 msgid "Change my password"
-msgstr ""
+msgstr "更新我的密码"
 
 #: users/templates/users/password_change_done.html:4
 #: users/templates/users/password_change_done.html:7
@@ -2778,7 +2778,7 @@ msgstr ""
 #: users/templates/users/password_reset.html:8
 #: users/templates/users/password_reset_confirm.html:4
 msgid "Password reset"
-msgstr ""
+msgstr "重置密码"
 
 #: users/templates/users/password_reset.html:10
 msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
@@ -2786,11 +2786,11 @@ msgstr ""
 
 #: users/templates/users/password_reset.html:14
 msgid "E-mail address:"
-msgstr ""
+msgstr "邮件地址："
 
 #: users/templates/users/password_reset.html:14
 msgid "Reset my password"
-msgstr ""
+msgstr "重新输入密码"
 
 #: users/templates/users/password_reset_complete.html:4
 #: users/templates/users/password_reset_complete.html:8
@@ -2803,23 +2803,23 @@ msgstr ""
 
 #: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
-msgstr ""
+msgstr "登录"
 
 #: users/templates/users/password_reset_confirm.html:10
 msgid "Enter new password"
-msgstr ""
+msgstr "输入新密码"
 
 #: users/templates/users/password_reset_confirm.html:16
 msgid "New password:"
-msgstr ""
+msgstr "新密码："
 
 #: users/templates/users/password_reset_confirm.html:18
 msgid "Confirm password:"
-msgstr ""
+msgstr "确认新密码："
 
 #: users/templates/users/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
-msgstr ""
+msgstr "密码重置成功。"
 
 #: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
@@ -2828,7 +2828,7 @@ msgstr ""
 #: users/templates/users/password_reset_done.html:4
 #: users/templates/users/password_reset_done.html:8
 msgid "Password reset successful"
-msgstr ""
+msgstr "密码重置成功"
 
 #: users/templates/users/password_reset_done.html:10
 msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
