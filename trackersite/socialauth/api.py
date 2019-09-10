@@ -5,6 +5,8 @@ from django.conf import settings
 
 class MediaWiki():
     def __init__(self, user=None, api_url=None):
+        self.session = requests.Session()
+        self.session.headers.update({'User-Agent': 'Tracker (tracker@wikimedia.cz; https://tracker.wikimedia.cz)'})
         self.user = user
         if api_url:
             self.api_url = api_url
@@ -36,9 +38,9 @@ class MediaWiki():
         elif authorized_only:
             raise ValueError("Given user isn't connected with any MediaWiki account and you require authorized request only.")
         if method == "POST":
-            return requests.post(self.api_url, data=payload, **kwargs)
+            return self.session.post(self.api_url, data=payload, **kwargs)
         else:
-            return requests.get(self.api_url, params=payload, **kwargs)
+            return self.session.get(self.api_url, params=payload, **kwargs)
 
     def get_token(self, type="csrf"):
         return self.request({
