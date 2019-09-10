@@ -1232,13 +1232,6 @@ msgstr "編輯案件文件"
 msgid "There are no documents uploaded for this ticket."
 msgstr "此案件沒有文件上傳。"
 
-#: tracker/templates/admin/tracker/ticket/change_form.html:46
-#: tracker/templates/tracker/ticket_detail.html:64
-#, python-format
-msgid "There is 1 document uploaded."
-msgid_plural "There are %(counter)s documents uploaded."
-msgstr[0] "已上傳 1 個文件。"
-
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
 msgstr "狀態"
