@@ -533,7 +533,7 @@ class Ticket(CachedModel, ModelDiffMixin):
             media.height = data["imageinfo"][0]["height"]
 
             media.categories = []
-            for category in data["categories"]:
+            for category in data.get("categories", []):
                 if "hidden" not in category:
                     media.categories.append(category["title"])
 
