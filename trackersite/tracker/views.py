@@ -1732,11 +1732,17 @@ def show_media(request, ticket_id):
     ticket = get_object_or_404(Ticket, id=ticket_id)
     if ticket.mediainfo_set.count() == 0:
         raise PermissionDenied(_('No media to show are available'))
+    wikidata_usages = []
+    for m in ticket.mediainfo_set.all():
+        for usage in m.usages:
+            if usage[2] == "www.wikidata.org":
+                wikidata_usages.append(usage[1])
     return render(request, 'tracker/ticket_show_media.html', {
         'ticket': ticket,
         'medias': ticket.mediainfo_set.all(),
         'usages_count': sum([len(m.usages) for m in ticket.mediainfo_set.all()]),
-        'wikidata_usages_count': sum([len([u[2] for u in m.usages if u[2] == "www.wikidata.org"]) for m in ticket.mediainfo_set.all()]),
+        'wikidata_usages_count': len(wikidata_usages),
+        'unique_wikidata_usages_count': len(set(wikidata_usages)),
         'photos_per_category': ticket.photos_per_category(),
         'MEDIAINFO_MEDIAWIKI_ARTICLE': settings.MEDIAINFO_MEDIAWIKI_ARTICLE,
     })
