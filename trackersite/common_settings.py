@@ -94,6 +94,7 @@ LANGUAGES = (
     ('ko', _('Korean')),
     ('pt', _('Portuguese')),
     ('sv', _('Swedish')),
+    ('zh-hant', _('Chinese-traditional')),
 )
 
 AUTHENTICATION_BACKENDS = (

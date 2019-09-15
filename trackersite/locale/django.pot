@@ -93,6 +93,10 @@ msgstr ""
 msgid "Swedish"
 msgstr ""
 
+#: common_settings.py:97
+msgid "Chinese-traditional"
+msgstr ""
+
 #: customcomments/forms.py:21
 msgid "Your name"
 msgstr ""
