@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-09-12 14:23:58+0000\n"
-"X-POT-Import-Date: 2019-09-12 10:30:41+0000\n"
+"PO-Revision-Date: 2019-09-16 17:17:23+0000\n"
+"X-POT-Import-Date: 2019-09-15 16:30:42+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
@@ -91,6 +91,10 @@ msgstr "Portugais"
 #: common_settings.py:96
 msgid "Swedish"
 msgstr "Suédois"
+
+#: common_settings.py:97
+msgid "Chinese-traditional"
+msgstr "Chinois traditionnel"
 
 #: customcomments/forms.py:21
 msgid "Your name"

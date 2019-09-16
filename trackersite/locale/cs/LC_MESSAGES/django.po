@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-10 15:37+0100\n"
-"PO-Revision-Date: 2019-09-12 14:23:56+0000\n"
+"PO-Revision-Date: 2019-09-16 17:17:21+0000\n"
 "Last-Translator: Petr Novák <petr.novak@cosmoboy.cz>\n"
 "Language-Team: none <none@example.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ( (n >= 2 && n <= 4) ? 1 : 2 );\n"
-"X-POT-Import-Date: 2019-09-12 10:30:41+0000\n"
+"X-POT-Import-Date: 2019-09-15 16:30:42+0000\n"
 "X-Generator: MediaWiki 1.34.0-alpha; Translate 2019-04-24\n"
 
 #: api/serializers.py:98
@@ -96,6 +96,10 @@ msgstr "portugalština"
 #: common_settings.py:96
 msgid "Swedish"
 msgstr "švédština"
+
+#: common_settings.py:97
+msgid "Chinese-traditional"
+msgstr ""
 
 #: customcomments/forms.py:21
 msgid "Your name"
@@ -1336,7 +1340,7 @@ msgstr "Seznam přidaných komentářů k sledovaným ticketům"
 
 #: tracker/templates/notification/notification_html.html:94
 msgid "List of tickets pending preapproval"
-msgstr "Seznam tiketů čekající na předschválení"
+msgstr "Seznam tiketů čekajících na předschválení"
 
 #: tracker/templates/notification/notification_html.html:95
 #, python-format
@@ -1345,7 +1349,7 @@ msgstr "Toto je seznam tiketů, které jsou možná zralé na předschválení. 
 
 #: tracker/templates/notification/notification_html.html:104
 msgid "List of tickets pending approval"
-msgstr "Seznam tiketů čekající na schválení"
+msgstr "Seznam tiketů čekajících na schválení"
 
 #: tracker/templates/notification/notification_html.html:105
 #, python-format
