@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-09-16 17:17:24+0000\n"
+"PO-Revision-Date: 2019-09-19 12:52:48+0000\n"
 "X-POT-Import-Date: 2019-09-15 16:30:42+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1240,7 +1240,7 @@ msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:46
 #: tracker/templates/tracker/ticket_detail.html:64
-#, invalid-plural, python-format
+#, python-format
 msgid "There is 1 document uploaded."
 msgid_plural "There are %(counter)s documents uploaded."
 msgstr[0] ""
@@ -2745,7 +2745,6 @@ msgid "Password change"
 msgstr "Mudança de senha"
 
 #: users/templates/users/password_change.html:12
-#, invalid-plural
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] ""

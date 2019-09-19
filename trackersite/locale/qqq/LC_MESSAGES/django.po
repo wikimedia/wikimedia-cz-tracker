@@ -8,13 +8,13 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-09-16 17:17:29+0000\n"
+"PO-Revision-Date: 2019-09-19 12:52:52+0000\n"
 "X-POT-Import-Date: 2019-09-15 16:30:42+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: qqq\n"
 "X-Generator: MediaWiki 1.34.0-alpha; Translate 2019-04-24\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: api/serializers.py:98
 msgid "Deposit should be zero when creating a ticket"
@@ -233,11 +233,9 @@ msgid "Preview your comment"
 msgstr ""
 
 #: templates/comments/preview.html:13
-#, invalid-plural
 msgid "Please correct the error below"
 msgid_plural "Please correct the errors below"
 msgstr[0] ""
-msgstr[1] ""
 
 #: tracker/admin.py:30 tracker/admin.py:36
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
@@ -1243,11 +1241,10 @@ msgstr "Displayed in admin interface, a message meaning there are no documents u
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:46
 #: tracker/templates/tracker/ticket_detail.html:64
-#, invalid-plural, python-format
+#, python-format
 msgid "There is 1 document uploaded."
 msgid_plural "There are %(counter)s documents uploaded."
 msgstr[0] ""
-msgstr[1] ""
 
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
@@ -2748,11 +2745,9 @@ msgid "Password change"
 msgstr ""
 
 #: users/templates/users/password_change.html:12
-#, invalid-plural
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] ""
-msgstr[1] ""
 
 #: users/templates/users/password_change.html:19
 msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
