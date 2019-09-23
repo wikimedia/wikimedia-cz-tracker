@@ -3,12 +3,13 @@
 #
 # Author: Martin Urbanec
 # Author: Robby
+# Author: Verdy p
 # Author: Wladek92
 # Author: Zoranzoki21
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-09-19 12:52:52+0000\n"
+"PO-Revision-Date: 2019-09-23 16:13:02+0000\n"
 "X-POT-Import-Date: 2019-09-15 16:30:42+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1056,7 +1057,7 @@ msgstr ""
 #: tracker/models.py:1441
 #, python-format
 msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "'''Warning:''' the HTML \"tt\" tag usually renders with monospaced fonts, not suitable for some international scripts when the replaced content of the placeholder is not necessarily in English (e.g. people name, topics). This should better use an HTML \"bdi\" tag, possibly surrounding by suitable quotation marks or link anchor tags."
 
 #: tracker/models.py:1460
 #, python-format
