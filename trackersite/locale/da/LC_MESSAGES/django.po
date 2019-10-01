@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-09-19 12:52:46+0000\n"
+"PO-Revision-Date: 2019-10-01 14:53:12+0000\n"
 "X-POT-Import-Date: 2019-09-15 16:30:42+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -285,7 +285,7 @@ msgstr ""
 #: tracker/templates/tracker/topic_finance.html:16
 #: tracker/templates/tracker/topic_table.html:14
 msgid "unpaid"
-msgstr ""
+msgstr "ubetalt"
 
 #: tracker/models.py:44 tracker/templates/tracker/export.html:247
 #: tracker/templates/tracker/grant_table.html:13
@@ -306,7 +306,7 @@ msgstr "betalt"
 #: tracker/templates/tracker/topic_finance.html:18
 #: tracker/templates/tracker/topic_table.html:17
 msgid "overpaid"
-msgstr ""
+msgstr "overbetalt"
 
 #: tracker/models.py:50
 msgid "presubmitted"
