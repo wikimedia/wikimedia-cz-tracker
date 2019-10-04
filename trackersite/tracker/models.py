@@ -529,8 +529,8 @@ class Ticket(CachedModel, ModelDiffMixin):
                 "clprop": "hidden"
             }).json()["query"]["pages"]
             data = data[list(data.keys())[0]]
-            media.width = data["imageinfo"][0].get("width")
-            media.height = data["imageinfo"][0].get("height")
+            media.width = data.get("imageinfo", [{}])[0].get("width")
+            media.height = data.get("imageinfo", [{}])[0].get("height")
 
             media.categories = []
             for category in data.get("categories", []):
