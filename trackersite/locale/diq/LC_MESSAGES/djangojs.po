@@ -1,19 +1,19 @@
-# Translation of Tracker - JavaScript to British English (British English)
+# Translation of Tracker - JavaScript to Zazaki (Zazaki)
 # Exported from translatewiki.net
 #
-# Author: Cblair91
+# Author: Orbot707
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-10-14 15:52:41+0000\n"
+"PO-Revision-Date: 2019-10-14 15:52:40+0000\n"
 "X-POT-Import-Date: 2019-08-26 05:26:53+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en-GB\n"
+"Language: diq\n"
 "X-Generator: MediaWiki 1.35.0-alpha; Translate 2019-04-24\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: static/commons-selection.js:140
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
-msgstr "Unknown error happened while fetching images you uploaded. Please contact the server admin."
+msgstr "Gırotenê resimê ke şıma bar kerdış dê xırabey veciyê. Idarekarê serveriya irtibat kewê"
 
