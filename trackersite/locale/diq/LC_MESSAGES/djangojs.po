@@ -1,11 +1,12 @@
 # Translation of Tracker - JavaScript to Zazaki (Zazaki)
 # Exported from translatewiki.net
 #
+# Author: Mirzali
 # Author: Orbot707
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-10-14 15:52:40+0000\n"
+"PO-Revision-Date: 2019-10-28 15:52:44+0000\n"
 "X-POT-Import-Date: 2019-08-26 05:26:53+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,5 +16,5 @@ msgstr ""
 
 #: static/commons-selection.js:140
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
-msgstr "Gırotenê resimê ke şıma bar kerdış dê xırabey veciyê. Idarekarê serveriya irtibat kewê"
+msgstr "Gırewtena resımanê ke şıma bar kerdê, yew xetaya nêzanayiye veciye. Kerem ke, be idarekarê serveri ra irtıbat kewe."
 
