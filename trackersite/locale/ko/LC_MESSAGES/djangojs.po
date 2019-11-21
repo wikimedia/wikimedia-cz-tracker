@@ -1,0 +1,19 @@
+# Translation of Tracker - JavaScript to Korean (한국어)
+# Exported from translatewiki.net
+#
+# Author: Ykhwong
+msgid ""
+msgstr ""
+""
+"PO-Revision-Date: 2019-11-21 14:23:05+0000\n"
+"X-POT-Import-Date: 2019-08-26 05:26:53+0000\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko\n"
+"X-Generator: MediaWiki 1.35.0-alpha; Translate 2019-04-24\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: static/commons-selection.js:140
+msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
+msgstr "업로드한 이미지를 가져오는 동안 알 수 없는 오류가 발생했습니다. 서버 관리자에게 문의해 주십시오."
+
