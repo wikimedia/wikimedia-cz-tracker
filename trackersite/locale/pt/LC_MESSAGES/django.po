@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-11-07 15:36:47+0000\n"
+"PO-Revision-Date: 2019-11-28 16:01:33+0000\n"
 "X-POT-Import-Date: 2019-09-15 16:30:42+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -191,12 +191,12 @@ msgstr "ajuda"
 
 #: templates/base.html:77
 msgid "logout"
-msgstr "terminar sessão"
+msgstr "sair"
 
 #: templates/base.html:82 templates/base.html.py:85
 #: users/templates/users/login.html:21
 msgid "login"
-msgstr "iniciar sessão"
+msgstr "entrar"
 
 #: templates/base.html:87 users/templates/users/register.html:15
 msgid "register"
@@ -225,11 +225,11 @@ msgstr "Publicar"
 
 #: templates/comments/form.html:18 templates/comments/preview.html:32
 msgid "Preview"
-msgstr "Pré-visualizar"
+msgstr "Antever"
 
 #: templates/comments/preview.html:4 templates/comments/preview.html.py:15
 msgid "Preview your comment"
-msgstr "Pré-visualizar o seu comentário"
+msgstr "Antever o seu comentário"
 
 #: templates/comments/preview.html:13
 msgid "Please correct the error below"
@@ -499,7 +499,7 @@ msgstr ""
 
 #: tracker/models.py:253
 msgid "report url"
-msgstr "reportar url"
+msgstr "reportar URL"
 
 #: tracker/models.py:253
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
@@ -621,7 +621,7 @@ msgstr "estado"
 
 #: tracker/models.py:401 tracker/templates/tracker/admin_user_list.html:26
 msgid "E-mail"
-msgstr "E-mail"
+msgstr "Correio eletrónico"
 
 #: tracker/models.py:402 tracker/models.py:1162
 #: tracker/templates/tracker/admin_user_list.html:31
@@ -737,7 +737,7 @@ msgstr ""
 
 #: tracker/models.py:757
 msgid "topic administrator"
-msgstr "administrador de tópico"
+msgstr "administrador de tópicos"
 
 #: tracker/models.py:757
 msgid "Selected users will have administration access to this topic."
@@ -1193,7 +1193,7 @@ msgstr "REMOVER"
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "Really remove?"
-msgstr "Deseja remover?"
+msgstr "Deseja mesmo remover?"
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "YES"
@@ -1405,7 +1405,7 @@ msgstr "Início"
 #: tracker/templates/tracker/admin_user_list.html:25
 #: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1689
 msgid "Username"
-msgstr "Nome de Utilizador"
+msgstr "Nome de utilizador"
 
 #: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1689
 msgid "First name"
@@ -1466,11 +1466,11 @@ msgstr ""
 
 #: tracker/templates/tracker/cluster_detail.html:26
 msgid "Total transactions"
-msgstr "Total das transações"
+msgstr "Total de transações"
 
 #: tracker/templates/tracker/connect_account.html:4
 msgid "Connected account required"
-msgstr "Obrigatória conta associada"
+msgstr "A conta associada é obrigatória"
 
 #: tracker/templates/tracker/connect_account.html:7
 msgid "Permission denied"
@@ -1520,7 +1520,7 @@ msgstr "Total"
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:28
 msgid "ID"
-msgstr "Id."
+msgstr "Identificador"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/ticket_table.html:23
@@ -1938,11 +1938,11 @@ msgstr ""
 
 #: tracker/templates/tracker/preferences.html:76
 msgid "set a password."
-msgstr "defina uma palavra-passe."
+msgstr "definir uma palavra-passe."
 
 #: tracker/templates/tracker/preferences.html:84
 msgid "Account actions"
-msgstr "Ações de conta"
+msgstr "Operações sobre contas"
 
 #: tracker/templates/tracker/preferences.html:86
 #: tracker/templates/tracker/user_deactivate.html:4
@@ -1976,7 +1976,7 @@ msgstr "eliminar"
 
 #: tracker/templates/tracker/tabular_formset.html:21
 msgid "Delete the item"
-msgstr "Eliminar o item"
+msgstr "Eliminar o elemento"
 
 #: tracker/templates/tracker/tabular_formset.html:91
 #, python-format
@@ -2023,7 +2023,7 @@ msgstr "Depósito"
 
 #: tracker/templates/tracker/ticket_common_detail.html:19
 msgid "Event URL"
-msgstr "URL do Evento"
+msgstr "URL do evento"
 
 #: tracker/templates/tracker/ticket_common_detail.html:20
 msgid "Rating percentage"
@@ -2089,7 +2089,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:20
 msgid "duplicate"
-msgstr "duplicar"
+msgstr "duplicado"
 
 #: tracker/templates/tracker/ticket_detail.html:22
 msgid "add yourself as a driver"
@@ -2331,7 +2331,7 @@ msgstr ""
 #: tracker/templates/tracker/topic_finance.html:34
 #, python-format
 msgid "Total %(gname)s"
-msgstr "Total %(gname)s"
+msgstr "Total de %(gname)s"
 
 #: tracker/templates/tracker/topic_finance.html:44
 msgid "Marked topics involve partial payments that have no clear relation to topic, and have been split equally among possible candidates."
@@ -2811,7 +2811,7 @@ msgstr ""
 
 #: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
-msgstr "Iniciar sessão"
+msgstr "Entrar"
 
 #: users/templates/users/password_reset_confirm.html:10
 msgid "Enter new password"
