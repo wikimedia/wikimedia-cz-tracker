@@ -846,6 +846,14 @@ def upload_ticket_doc(request, pk):
             doc = Document(ticket=ticket)
             payload = upload.cleaned_data['file']
             filename = upload.cleaned_data['name']
+            existingDocuments = Document.objects.filter(filename=filename, ticket=ticket)
+            if existingDocuments.count() > 0:
+                messages.error(request, _('There is already a document with that name. Please try to reupload with a different name.'))
+                return render(request, 'tracker/upload_ticket_doc.html', {
+                    'ticket': ticket,
+                    'upload': upload,
+                    'form_media': adminCore + upload.media,
+                })
             doc.filename = filename
             doc.size = payload.size
             doc.content_type = payload.content_type
