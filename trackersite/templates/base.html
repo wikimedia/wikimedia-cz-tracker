@@ -73,7 +73,9 @@ $( '#emailModal' ).on('hidden.bs.modal', (e) => {
 					<li><a href="{% url "admin:index" %}">{% trans "admin" %}</a></li>
 				{% endif%}
 				<li><a href="{% url "choose_language" %}">{% trans "change language" %}</a></li>
-				<li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
+				{% if MANUAL_LINK %}
+					<li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
+				{% endif %}
 				<li><a href="{% url "tracker_logout" %}">{% trans "logout" %}</a></li>
 			{% else %}
 				{% url 'tracker_logout' as tracker_logout_url %}
@@ -86,7 +88,9 @@ $( '#emailModal' ).on('hidden.bs.modal', (e) => {
 				{% endif %}
 				<li><a href="{% url "register" %}">{% trans "register" %}</a></li>
 				<li><a href="{% url "choose_language" %}">{% trans "change language" %}</a></li>
-				<li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
+				{% if MANUAL_LINK %}
+					<li><a href="{{ MANUAL_LINK }}">{% trans "help" %}</a></li>
+				{% endif %}
 			{% endif %}
 		</ul>
 	</div>
