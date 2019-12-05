@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-10-14 15:52:44+0000\n"
-"X-POT-Import-Date: 2019-09-15 16:30:42+0000\n"
+"PO-Revision-Date: 2019-12-05 14:48:10+0000\n"
+"X-POT-Import-Date: 2019-12-05 13:30:56+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
@@ -1019,7 +1019,7 @@ msgstr "Description de cette transaction"
 #: tracker/templates/tracker/ticket_common_detail.html:64
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1677
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1685
 msgid "Accounting info"
 msgstr "Informations comptables"
 
@@ -1214,8 +1214,8 @@ msgid "add new ack"
 msgstr "ajouter un nouvel acquittement"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:10
-#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1675
-#: tracker/views.py:1684 tracker/views.py:1694
+#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1683
+#: tracker/views.py:1692 tracker/views.py:1702
 msgid "Ticket ID"
 msgstr "ID de ticket"
 
@@ -1286,9 +1286,9 @@ msgstr "Montant"
 #: tracker/templates/tracker/ticket_common_detail.html:30
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1656
-#: tracker/views.py:1661 tracker/views.py:1666 tracker/views.py:1675
-#: tracker/views.py:1684
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1664
+#: tracker/views.py:1669 tracker/views.py:1674 tracker/views.py:1683
+#: tracker/views.py:1692
 msgid "Description"
 msgstr "Description"
 
@@ -1405,15 +1405,15 @@ msgid "Home"
 msgstr "Accueil"
 
 #: tracker/templates/tracker/admin_user_list.html:25
-#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1689
+#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1697
 msgid "Username"
 msgstr "Nom d’utilisateur"
 
-#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1689
+#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1697
 msgid "First name"
 msgstr "Prénom"
 
-#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1689
+#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1697
 msgid "Last name"
 msgstr "Nom de famille"
 
@@ -2589,93 +2589,97 @@ msgstr "Vous ne pouvez plus mettre à jour les documents de ce ticket car il n�
 msgid "Document changes for ticket %s saved."
 msgstr "Modifications de document du ticket %s enregistrées."
 
-#: tracker/views.py:855
+#: tracker/views.py:851
+msgid "There is already a document with that name. Please try to reupload with a different name."
+msgstr ""
+
+#: tracker/views.py:863
 #, python-format
 msgid "File %(filename)s has been saved."
 msgstr "Le fichier %(filename)s a été enregistré."
 
-#: tracker/views.py:1043
+#: tracker/views.py:1051
 msgid "Your details have been saved."
 msgstr "Vos détails ont été enregistrés."
 
-#: tracker/views.py:1489
+#: tracker/views.py:1497
 msgid "You must fill the form validly"
 msgstr "Vous devez remplir le formulaire proprement"
 
-#: tracker/views.py:1508
+#: tracker/views.py:1516
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
 msgstr "Vous n’avez pas la permission d’importer plus de %(input_row_limit)s lignes. Les premières %(input_row_limit)s lignes ont déjà été importées."
 
-#: tracker/views.py:1646
+#: tracker/views.py:1654
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
 msgstr "Ce formulaire a renvoyé des valeurs étranges. Veuillez contacter l’administrateur système et lui dire ce que vous avez essayé de faire."
 
-#: tracker/views.py:1648
+#: tracker/views.py:1656
 msgid "Your CSV file was imported."
 msgstr "Votre fichier CSV a été importé."
 
-#: tracker/views.py:1656
+#: tracker/views.py:1664
 msgid "Name of a ticket"
 msgstr "Nom d’un ticket"
 
-#: tracker/views.py:1656 tracker/views.py:1661
+#: tracker/views.py:1664 tracker/views.py:1669
 msgid "Name of a topic"
 msgstr "Nom d’un sujet"
 
-#: tracker/views.py:1661
+#: tracker/views.py:1669
 msgid "Name of a grant"
 msgstr "Nom d’un droit"
 
-#: tracker/views.py:1661
+#: tracker/views.py:1669
 msgid "Form description"
 msgstr "Description du formulaire"
 
-#: tracker/views.py:1666
+#: tracker/views.py:1674
 msgid "Full name"
 msgstr "Nom complet"
 
-#: tracker/views.py:1666
+#: tracker/views.py:1674
 msgid "Short name"
 msgstr "Nom court"
 
-#: tracker/views.py:1666
+#: tracker/views.py:1674
 msgid "Slug"
 msgstr "Slug"
 
-#: tracker/views.py:1689
+#: tracker/views.py:1697
 msgid "Password"
 msgstr "Mot de passe"
 
-#: tracker/views.py:1711
+#: tracker/views.py:1719
 msgid "Preexpeditures were succesfully copied to expeditures."
 msgstr "Les pré-dépenses ont été copiées avec succès vers les dépenses."
 
-#: tracker/views.py:1723
+#: tracker/views.py:1731
 msgid "Executing API call with any action than whitelisted is prohibited."
 msgstr "Exécuter un appel à l’API avec une action qui n’est pas en liste blanche est interdit."
 
-#: tracker/views.py:1734
+#: tracker/views.py:1742
 msgid "No media to show are available"
 msgstr "Aucun média affichable disponible"
 
-#: tracker/views.py:1755
+#: tracker/views.py:1763
 msgid "Updating of medias for this ticket was successfully scheduled."
 msgstr "La mise à jour des médias pour ce ticket a été prise en compte avec succès."
 
-#: tracker/views.py:1760
+#: tracker/views.py:1768
 msgid "List of media was successfully updated"
 msgstr "La liste des médias a été mise à jour avec succès"
 
-#: tracker/views.py:1765
+#: tracker/views.py:1773
 msgid "There was an error while processing your request"
 msgstr "Une erreur est survenue lors du traitement de votre requête"
 
-#: tracker/views.py:1773
+#: tracker/views.py:1781
 msgid "This mandatory notice was sent to all active Tracker users."
 msgstr "Cet avertissement obligatoire a été envoyé à tous les utilisateurs actifs de Tracker."
 
-#: tracker/views.py:1785
+#: tracker/views.py:1793
 msgid "This mandatory notice was sent to all active Tracker administrators."
 msgstr "Cet avertissement obligatoire a été envoyé à tous les administrateurs actifs de Tracker."
 

@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-10-14 15:52:49+0000\n"
-"X-POT-Import-Date: 2019-09-15 16:30:42+0000\n"
+"PO-Revision-Date: 2019-12-05 14:48:15+0000\n"
+"X-POT-Import-Date: 2019-12-05 13:30:56+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh-Hant\n"
@@ -1014,7 +1014,7 @@ msgstr "此交易的描述"
 #: tracker/templates/tracker/ticket_common_detail.html:64
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1677
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1685
 msgid "Accounting info"
 msgstr "帳號資訊"
 
@@ -1209,8 +1209,8 @@ msgid "add new ack"
 msgstr "添加新的確認"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:10
-#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1675
-#: tracker/views.py:1684 tracker/views.py:1694
+#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1683
+#: tracker/views.py:1692 tracker/views.py:1702
 msgid "Ticket ID"
 msgstr "案件 ID"
 
@@ -1280,9 +1280,9 @@ msgstr "金額"
 #: tracker/templates/tracker/ticket_common_detail.html:30
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1656
-#: tracker/views.py:1661 tracker/views.py:1666 tracker/views.py:1675
-#: tracker/views.py:1684
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1664
+#: tracker/views.py:1669 tracker/views.py:1674 tracker/views.py:1683
+#: tracker/views.py:1692
 msgid "Description"
 msgstr "說明"
 
@@ -1399,15 +1399,15 @@ msgid "Home"
 msgstr "首頁"
 
 #: tracker/templates/tracker/admin_user_list.html:25
-#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1689
+#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1697
 msgid "Username"
 msgstr "使用者名稱"
 
-#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1689
+#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1697
 msgid "First name"
 msgstr "名"
 
-#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1689
+#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1697
 msgid "Last name"
 msgstr "姓"
 
@@ -2583,93 +2583,97 @@ msgstr "因不再可編輯緣故，您無法編輯此案件文件"
 msgid "Document changes for ticket %s saved."
 msgstr "已儲存用於案件%s的文件更改。"
 
-#: tracker/views.py:855
+#: tracker/views.py:851
+msgid "There is already a document with that name. Please try to reupload with a different name."
+msgstr "已經有這樣名稱的文件，請用別的名稱來重新上傳。"
+
+#: tracker/views.py:863
 #, python-format
 msgid "File %(filename)s has been saved."
 msgstr "檔案%(filename)s已儲存。"
 
-#: tracker/views.py:1043
+#: tracker/views.py:1051
 msgid "Your details have been saved."
 msgstr "已儲存您的詳情。"
 
-#: tracker/views.py:1489
+#: tracker/views.py:1497
 msgid "You must fill the form validly"
 msgstr "您必須要正確地填寫表單"
 
-#: tracker/views.py:1508
+#: tracker/views.py:1516
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
 msgstr "您沒有權限來匯入超過 %(input_row_limit)s 列。前 %(input_row_limit)s 個列已有匯入。"
 
-#: tracker/views.py:1646
+#: tracker/views.py:1654
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
 msgstr "表單回傳異常數值，請聯絡系統管理員並告知您所嘗試做出的行為。"
 
-#: tracker/views.py:1648
+#: tracker/views.py:1656
 msgid "Your CSV file was imported."
 msgstr "您的 CSV 檔案已匯入。"
 
-#: tracker/views.py:1656
+#: tracker/views.py:1664
 msgid "Name of a ticket"
 msgstr "案件名稱"
 
-#: tracker/views.py:1656 tracker/views.py:1661
+#: tracker/views.py:1664 tracker/views.py:1669
 msgid "Name of a topic"
 msgstr "主題名稱"
 
-#: tracker/views.py:1661
+#: tracker/views.py:1669
 msgid "Name of a grant"
 msgstr "授予名稱"
 
-#: tracker/views.py:1661
+#: tracker/views.py:1669
 msgid "Form description"
 msgstr "表單描述"
 
-#: tracker/views.py:1666
+#: tracker/views.py:1674
 msgid "Full name"
 msgstr "全名"
 
-#: tracker/views.py:1666
+#: tracker/views.py:1674
 msgid "Short name"
 msgstr "簡稱"
 
-#: tracker/views.py:1666
+#: tracker/views.py:1674
 msgid "Slug"
 msgstr "Slug"
 
-#: tracker/views.py:1689
+#: tracker/views.py:1697
 msgid "Password"
 msgstr "密碼"
 
-#: tracker/views.py:1711
+#: tracker/views.py:1719
 msgid "Preexpeditures were succesfully copied to expeditures."
 msgstr "預先支出成功複製到支出。"
 
-#: tracker/views.py:1723
+#: tracker/views.py:1731
 msgid "Executing API call with any action than whitelisted is prohibited."
 msgstr "禁止不在白名單內執行任何 API 呼叫的操作。"
 
-#: tracker/views.py:1734
+#: tracker/views.py:1742
 msgid "No media to show are available"
 msgstr "沒有可顯示的媒體"
 
-#: tracker/views.py:1755
+#: tracker/views.py:1763
 msgid "Updating of medias for this ticket was successfully scheduled."
 msgstr "已成功安排用於此案件的媒體更新。"
 
-#: tracker/views.py:1760
+#: tracker/views.py:1768
 msgid "List of media was successfully updated"
 msgstr "媒體清單更新成功"
 
-#: tracker/views.py:1765
+#: tracker/views.py:1773
 msgid "There was an error while processing your request"
 msgstr "在處理您的請求時發生錯誤。"
 
-#: tracker/views.py:1773
+#: tracker/views.py:1781
 msgid "This mandatory notice was sent to all active Tracker users."
 msgstr "此必要通知會傳送給所有有效的 Tracker 使用者。"
 
-#: tracker/views.py:1785
+#: tracker/views.py:1793
 msgid "This mandatory notice was sent to all active Tracker administrators."
 msgstr "此必要通知會傳送給所有有效的 Tracker 管理員。"
 
