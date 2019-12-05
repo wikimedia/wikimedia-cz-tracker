@@ -10,6 +10,7 @@ from tracker.views import TICKET_EXCLUDE_FIELDS
 class ContentTypeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ContentType
+        fields = '__all__'
 
 
 class UserSerializerAdmin(serializers.HyperlinkedModelSerializer):
@@ -48,11 +49,13 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class PermissionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Permission
+        fields = '__all__'
 
 
 class GrantSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Grant
+        fields = '__all__'
 
 
 class TopicSerializer(serializers.HyperlinkedModelSerializer):
