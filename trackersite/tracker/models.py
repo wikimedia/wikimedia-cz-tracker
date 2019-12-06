@@ -1390,10 +1390,13 @@ class Notification(models.Model):
 def notify_comment(sender, comment, **kwargs):
     obj = comment.content_object
     if type(obj) == Ticket:
-        if comment.user is not None and comment.name == comment.user.username:
+        if comment.user is None:
             user = comment.name
         else:
-            user = '%s (%s)' % (comment.name, comment.user.username)
+            if comment.user is not None and comment.name == comment.user.username:
+                user = comment.name
+            else:
+                user = '%s (%s)' % (comment.name, comment.user.username)
         text = _('Comment <tt>%(comment)s</tt> was added to ticket <a href="%(ticket_url)s">%(ticket)s</a> by user <tt>%(user)s</tt>')
         text_data = {
             'comment': ((comment.comment[:75] + '..') if len(comment.comment) > 75 else comment.comment).replace('\r\n', ' '),
