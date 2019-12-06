@@ -17,4 +17,12 @@
 		<input type="submit" name="post" class="submit-post btn btn-primary" value="{% trans "Post" %}" />
 		<input type="submit" name="preview" class="submit-preview btn btn-primary" value="{% trans "Preview" %}" />
 	</p>
+	<script>
+		const form = document.currentScript.parentNode
+		form.addEventListener('keydown', function(ev) {
+			if (ev.key === 'Enter' && (ev.metaKey || ev.ctrlKey)) {
+				form.submit()
+			}
+		})
+	</script>
 </form>
