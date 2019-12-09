@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-10 15:37+0100\n"
-"PO-Revision-Date: 2019-12-05 14:48:08+0000\n"
+"PO-Revision-Date: 2019-12-09 15:14:11+0000\n"
 "Last-Translator: Petr Novák <petr.novak@cosmoboy.cz>\n"
 "Language-Team: none <none@example.org>\n"
 "Language: cs\n"
@@ -99,7 +99,7 @@ msgstr "švédština"
 
 #: common_settings.py:97
 msgid "Chinese-traditional"
-msgstr ""
+msgstr "Čínština (tradiční)"
 
 #: customcomments/forms.py:21
 msgid "Your name"
@@ -2209,7 +2209,7 @@ msgstr "Smazat vybraná média"
 
 #: tracker/templates/tracker/ticket_show_media.html:3
 msgid "Show media for"
-msgstr ""
+msgstr "Zobrazit média pro"
 
 #: tracker/templates/tracker/ticket_show_media.html:9
 msgid "List of linked media"
@@ -2257,7 +2257,7 @@ msgstr "Počet Wikidata položek"
 
 #: tracker/templates/tracker/ticket_show_media.html:57
 msgid "Number of unique Wikidata items"
-msgstr ""
+msgstr "Počet unikátních Wikidata položek"
 
 #: tracker/templates/tracker/ticket_show_media.html:63
 msgid "Photos per category"
@@ -2575,7 +2575,7 @@ msgstr "Úspěšně jste z tohoto tiketu odebral čestné prohlášení"
 
 #: tracker/views.py:684
 msgid "You cannot edit this ticket"
-msgstr ""
+msgstr "Nemůžete editovat tento tiket"
 
 #: tracker/views.py:731
 #, python-format

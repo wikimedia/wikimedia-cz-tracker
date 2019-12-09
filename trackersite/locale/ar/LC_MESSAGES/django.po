@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-12-05 14:48:07+0000\n"
+"PO-Revision-Date: 2019-12-09 15:14:10+0000\n"
 "X-POT-Import-Date: 2019-12-05 13:30:56+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2596,7 +2596,7 @@ msgstr "تم حفظ تغييرات وثيقة التذكرة %s."
 
 #: tracker/views.py:851
 msgid "There is already a document with that name. Please try to reupload with a different name."
-msgstr ""
+msgstr "هناك بالفعل وثيقة بهذا الاسم؛ الرجاء محاولة إعادة الرفع باسم مختلف."
 
 #: tracker/views.py:863
 #, python-format
