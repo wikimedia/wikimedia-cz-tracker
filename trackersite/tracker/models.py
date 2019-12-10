@@ -12,7 +12,8 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.dispatch import receiver
 from django.db import models
 from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _, string_concat, activate, deactivate
+from django.utils import translation
+from django.utils.translation import ugettext_lazy as _, string_concat
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.conf import settings
@@ -1363,27 +1364,22 @@ class Notification(models.Model):
             return
 
         for user in users:
-            if user == sender:
-                continue
-            if notification_type in user.trackerpreferences.get_muted_notifications():
-                continue
-            if 'muted' in user.trackerpreferences.get_muted_notifications():
-                continue
-            if ack_type in user.trackerpreferences.get_muted_ack():
-                continue
+            with translation.override(user.trackerpreferences.email_language):
+                if user == sender:
+                    continue
+                if notification_type in user.trackerpreferences.get_muted_notifications():
+                    continue
+                if 'muted' in user.trackerpreferences.get_muted_notifications():
+                    continue
+                if ack_type in user.trackerpreferences.get_muted_ack():
+                    continue
 
-            if user.trackerpreferences.email_language:
-                activate(user.trackerpreferences.email_language)
-            else:
-                deactivate()
+                if text_data:
+                    text = raw_text % text_data
+                else:
+                    text = raw_text
 
-            if text_data:
-                text = raw_text % text_data
-            else:
-                text = raw_text
-
-            Notification.objects.create(text=text, notification_type=notification_type, target_user=user)
-        deactivate()
+                Notification.objects.create(text=text, notification_type=notification_type, target_user=user)
 
 
 @receiver(comment_was_posted)
