@@ -8,7 +8,7 @@ class UserWrapper(object):
         self.user = user
 
     def __str__(self):
-        return self.user
+        return str(self.user)
 
     def get_absolute_url(self):
         return reverse('user_detail', kwargs={'username': self.user.username})
