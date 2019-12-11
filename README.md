@@ -19,4 +19,6 @@ Issues can be reported at https://phabricator.wikimedia.org/project/board/3391/ 
 7. Run `python support/makesettings.py` to get example settings.py
 8. Edit settings.py's DATABASES sections to contain valid DB settings
 9. Run `python trackersite/manage.py migrate` to apply [schema migrations](https://en.wikipedia.org/wiki/Schema_migration)
-10. Run `python trackersite/manage.py runserver` to start the development server. It should listen on localhost:8000
+10. For testing purposes, you can populate the tracker with some tickets running `python trackersite/manage.py addexampledata`
+11. You may need to create a superuser account to perform some actions (like adding an ack) by running `python trackersite/manage.py createsuperuser`
+12. Run `python trackersite/manage.py runserver` to start the development server. It should listen on localhost:8000
