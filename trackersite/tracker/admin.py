@@ -140,11 +140,10 @@ class TicketAdmin(admin.ModelAdmin):
         }))
 
     def get_urls(self):
-        return patterns(
-            '',
+        return [
             url(r'^(?P<object_id>\d+)/acks/add/$', self.add_ack),
             url(r'^(?P<object_id>\d+)/acks/remove/$', self.remove_ack),
-        ) + super(TicketAdmin, self).get_urls()
+        ] + super(TicketAdmin, self).get_urls()
 
     def save_model(self, request, obj, form, change):
         obj.save(saved_from_admin=True)

@@ -1,5 +1,6 @@
 {% extends "admin/change_form.html" %}
 {% load i18n %}
+{% load static %}
 {% get_current_language as LANGUAGE_CODE %}
 
 {% block extrahead %}{{block.super}}
@@ -11,7 +12,7 @@
 {% if not add %}
 <div style="float:right">
 <h2>{% trans "Approvals" %}</h2>
-<ul class="ack-set" data-add-handler="acks/add/" locale="{{ LANGUAGE_CODE }}" data-remove-handler="acks/remove/" data-token="{{csrf_token}}">{% for ack in original.ticketack_set.all %}
+<ul class="ack-set" data-add-handler="../acks/add/" locale="{{ LANGUAGE_CODE }}" data-remove-handler="../acks/remove/" data-token="{{csrf_token}}">{% for ack in original.ticketack_set.all %}
 	<li data-id="{{ack.id}}">{% include "admin/tracker/ticket/ack_line.html" %}</li>
 {% endfor %}
 	<li class="add-block"><a href="#" class="add-ack">{% trans "ADD ACK" %}</a></li>
@@ -24,7 +25,7 @@
 <script>
 	window.username = "{{user.get_username}}";
 </script>
-<script type="text/javascript" src="/static/admin/js/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
 <script src="{{STATIC_URL}}ticketform/common.js"></script>
 <script src="{{STATIC_URL}}ticketform/admin.js"></script>
 <script src="{{STATIC_URL}}ticketform/subtopics.js"></script>

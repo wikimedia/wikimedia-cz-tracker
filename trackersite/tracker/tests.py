@@ -1013,5 +1013,5 @@ class AdminTests(TestCase):
                 break
 
         c = self.get_client()
-        response = c.get('/admin/tracker/ticket/%d/' % random_id)
+        response = c.get('/admin/tracker/ticket/%d/change/' % random_id)
         self.assertEqual(404, response.status_code)

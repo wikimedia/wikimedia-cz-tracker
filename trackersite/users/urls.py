@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls import patterns, url
+import users
+from django.conf.urls import url
 from django.contrib.auth import views as auth
 from .views import password_change, invalid_oauth_tokens
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^login/$', auth.login, kwargs={'template_name': 'users/login.html'}, name='tracker_login'),
     url(r'^logout/$', auth.logout, kwargs={'template_name': 'users/logout.html'}, name='tracker_logout'),
-    url(r'^register/$', 'users.views.register', name='register'),
+    url(r'^register/$', users.views.register, name='register'),
     url(r'^password/change/$', password_change, name='password_change', kwargs={'template_name': 'users/password_change.html'}),
     url(r'^password/change/done/$', auth.password_change_done, name='password_change_done', kwargs={
         'template_name': 'users/password_change_done.html',
@@ -25,4 +25,4 @@ urlpatterns = patterns(
         'template_name': 'users/password_reset_complete.html'
     }),
     url(r'^oauth/(?P<provider>[a-z]+)/invalid/', invalid_oauth_tokens, name='invalid_oauth_tokens'),
-)
+]

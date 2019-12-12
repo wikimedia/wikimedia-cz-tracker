@@ -1,6 +1,7 @@
 {% extends "admin/change_list.html" %}
+{% load static %}
 {% block extrastyle %}
 {{ block.super }}
-<script type="text/javascript" src="/static/admin/js/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
 <script src="{{STATIC_URL}}admin/tracker/ticket/list.js"></script>
 {% endblock extrastyle %}
