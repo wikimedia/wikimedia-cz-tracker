@@ -51,5 +51,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(forwards, backwards, atomic=True)
+        migrations.RunPython(forwards, backwards, atomic=False)
     ]

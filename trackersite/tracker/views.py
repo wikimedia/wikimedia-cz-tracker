@@ -6,6 +6,7 @@ from collections import namedtuple
 from django.db import models, connection
 from django.db.models import Q
 from django import forms
+from django.db.models.functions import Coalesce
 from django.forms.models import fields_for_model, inlineformset_factory, BaseInlineFormSet
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -22,7 +23,7 @@ from django.views.generic import ListView, DetailView, FormView, DeleteView
 from django.contrib.admin import widgets as adminwidgets
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.template.loader import get_template
 from django.template import Context
 from sendfile import sendfile
@@ -45,7 +46,9 @@ TICKET_EXCLUDE_FIELDS = (
 
 
 def ticket_list(request, page):
-    return render(request, 'tracker/index.html', {"LANGUAGE": get_language()})
+    response = render(request, 'tracker/index.html', {"LANGUAGE": get_language()})
+    response["Access-Control-Allow-Origin"] = "*"
+    return response
 
 
 def tickets(request, lang):
@@ -97,10 +100,11 @@ class TicketAckAddView(FormView):
     template_name = 'tracker/ticketack_add.html'
     form_class = TicketAckAddForm
 
-    def get_form(self, form_class):
+    def get_form(self, form_class=None):
         ticket = get_object_or_404(Ticket, id=self.kwargs['pk'])
         if not (ticket.can_edit(self.request.user) and self.kwargs['ack_type'] in ticket.possible_user_ack_types()):
             raise PermissionDenied(_('You cannot add ack to a ticket you do not own.'))
+        print(form_class)
         return form_class(**self.get_form_kwargs())
 
     def form_valid(self, form):
@@ -981,7 +985,7 @@ def transactions_csv(request):
 def user_list(request):
     totals = {
         'ticket_count': Ticket.objects.count(),
-        'media_count': MediaInfoOld.objects.aggregate(media=models.Sum('count'))['media'] + MediaInfo.objects.aggregate(objects=models.Count('id'))['objects'],
+        'media_count': MediaInfoOld.objects.aggregate(media=Coalesce(models.Sum('count'), 0))['media'] + MediaInfo.objects.aggregate(objects=models.Count('id'))['objects'],
         'accepted_expeditures': sum([t.accepted_expeditures() for t in Ticket.objects.filter(rating_percentage__gt=0)]),
         'transactions': Expediture.objects.filter(paid=True).aggregate(amount=models.Sum('amount'))['amount'],
     }

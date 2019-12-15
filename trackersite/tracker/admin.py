@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from django.contrib import admin
 from django import forms
 from tracker import models
@@ -86,16 +86,15 @@ class TicketAdmin(admin.ModelAdmin):
 
     @staticmethod
     def _render(request, template_name, context_data, locale=None):
-        c = RequestContext(request, context_data)
         curr_lang = get_language()
         if locale is not None and locale in [x[0] for x in models.LANGUAGE_CHOICES]:
             try:
                 activate(locale)
-                rendered = get_template(template_name).render(c)
+                rendered = get_template(template_name).render(context_data)
             finally:
                 activate(curr_lang)
         else:
-            rendered = get_template(template_name).render(c)
+            rendered = get_template(template_name).render(context_data)
         return rendered
 
     def add_ack(self, request, object_id):

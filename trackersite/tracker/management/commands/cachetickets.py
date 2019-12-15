@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.core.management.base import NoArgsCommand
+from django.core.management.base import BaseCommand
 from django.conf import settings
 import os.path
 import json
@@ -7,7 +7,7 @@ from django.utils import translation
 from tracker.models import Ticket
 
 
-class Command(NoArgsCommand):
+class Command(BaseCommand):
     help = 'Cache tickets'
 
     def add_arguments(self, parser):

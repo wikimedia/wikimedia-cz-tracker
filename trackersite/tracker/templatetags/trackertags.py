@@ -4,7 +4,7 @@ from django.utils.safestring import mark_safe
 from django.conf import settings
 from django.utils.formats import number_format
 from tracker.models import Ticket, User
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 import re
 import bleach
 

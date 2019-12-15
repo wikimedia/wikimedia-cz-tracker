@@ -11,7 +11,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.dispatch import receiver
 from django.db import models
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _, string_concat
 from django.utils.html import escape
@@ -19,7 +19,7 @@ from django.utils.safestring import mark_safe
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from django.core.validators import RegexValidator
-from django.core.urlresolvers import NoReverseMatch
+from django.urls import NoReverseMatch
 from django.core.cache import cache
 from django.forms.models import model_to_dict
 from django import template
@@ -37,7 +37,6 @@ from django.utils.encoding import force_text
 
 from users.models import UserWrapper
 from django_comments.moderation import CommentModerator, moderator
-
 
 PAYMENT_STATUS_CHOICES = (
     ('n_a', _('n/a')),
@@ -124,7 +123,7 @@ class ModelDiffMixin(object):
     @property
     def _dict(self):
         return model_to_dict(self, fields=[field.name for field in
-                             self._meta.fields])
+                                           self._meta.fields])
 
 
 def get_user(support_none=False):
@@ -158,6 +157,7 @@ def money(value):
 
 class PercentageField(models.SmallIntegerField):
     """ Field that holds a percentage. """
+
     def formfield(self, **kwargs):
         defaults = {'min_value': 0, 'max_value': 100}
         defaults.update(kwargs)
@@ -185,6 +185,7 @@ class CachedModel(Model):
 
     def flush_cache(self):
         cache.set(self._get_version_key(), self._cache_version() + 1)
+
     flush_cache.alters_data = True
 
     @staticmethod
@@ -222,47 +223,65 @@ class DecimalRangeField(models.DecimalField):
 
 class Watcher(Model):
     watcher_type = models.CharField('watcher_type', max_length=50, blank=True)
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True)
+    content_type = models.ForeignKey(ContentType, on_delete=models.SET_NULL, null=True)
     object_id = models.PositiveIntegerField(null=True)
     watched = GenericForeignKey('content_type', 'object_id')
-    user = models.ForeignKey('auth.User')
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     notification_type = models.CharField('notification_type', max_length=50, choices=NOTIFICATION_TYPES)
     ack_type = models.CharField('ack_type', max_length=50, null=True, choices=ACK_TYPES)
 
     def __str__(self):
-        return 'User %s is watching event %s on %s %s' % (self.user, self.notification_type, self.watcher_type, self.watched)
+        return 'User %s is watching event %s on %s %s' % (
+            self.user, self.notification_type, self.watcher_type, self.watched)
 
 
 class Signature(Model):
-    user = models.ForeignKey('auth.User')
-    signed_ticket = models.ForeignKey('tracker.Ticket')
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    signed_ticket = models.ForeignKey('tracker.Ticket', on_delete=models.CASCADE)
     signed_text = models.TextField(_('Signed text'))
 
 
 class Ticket(CachedModel, ModelDiffMixin):
     """ One unit of tracked / paid stuff. """
     updated = models.DateTimeField(_('updated'))
-    media_updated = models.DateTimeField(_('media updated'), default=None, null=True, help_text=_('Date when cached information about media were last updated. Used in "show media" view.'))
-    event_date = models.DateField(_('event date'), blank=True, null=True, help_text=_('Date of the event this ticket is about'))
-    requested_user = models.ForeignKey('auth.User', verbose_name=_('requested by'), blank=True, null=True, help_text=_('User who created/requested for this ticket'))
-    requested_text = models.CharField(verbose_name=_('requested by (text)'), blank=True, max_length=30, help_text=_('Text description of who requested for this ticket, in case user is not filled in'))
+    media_updated = models.DateTimeField(_('media updated'), default=None, null=True, help_text=_(
+        'Date when cached information about media were last updated. Used in "show media" view.'))
+    event_date = models.DateField(_('event date'), blank=True, null=True,
+                                  help_text=_('Date of the event this ticket is about'))
+    requested_user = models.ForeignKey('auth.User', verbose_name=_('requested by'), blank=True, null=True,
+                                       help_text=_('User who created/requested for this ticket'),
+                                       on_delete=models.SET_NULL)
+    requested_text = models.CharField(verbose_name=_('requested by (text)'), blank=True, max_length=30, help_text=_(
+        'Text description of who requested for this ticket, in case user is not filled in'))
     name = models.CharField(_('name'), max_length=100, help_text=_('Name for the ticket'))
-    topic = models.ForeignKey('tracker.Topic', verbose_name=_('topic'), help_text=_('Project topic this ticket belongs to'))
-    subtopic = models.ForeignKey('tracker.Subtopic', blank=True, null=True, verbose_name=_('subtopic'), help_text=_('Subtopic this ticket belongs to (if you don\'t know, leave this empty)'))
-    rating_percentage = PercentageField(_('rating percentage'), blank=True, null=True, help_text=_('Rating percentage set by topic administrator'), default=100)
+    topic = models.ForeignKey('tracker.Topic', verbose_name=_('topic'),
+                              help_text=_('Project topic this ticket belongs to'), on_delete=models.CASCADE)
+    subtopic = models.ForeignKey('tracker.Subtopic', blank=True, null=True, verbose_name=_('subtopic'),
+                                 help_text=_('Subtopic this ticket belongs to (if you don\'t know, leave this empty)'),
+                                 on_delete=models.SET_NULL)
+    rating_percentage = PercentageField(_('rating percentage'), blank=True, null=True,
+                                        help_text=_('Rating percentage set by topic administrator'), default=100)
     mandatory_report = models.BooleanField(_('report mandatory'), default=False, help_text=_('Is report mandatory?'))
-    report_url = models.CharField(_('report url'), blank=True, max_length=255, default='', help_text=_('URL to your report, if you want to report something (or if your report is mandatory per topic administrator).'))
-    event_url = models.URLField(_('event url'), blank=True, help_text=_('Link to a public page describing the event, if it exist'))
-    description = models.TextField(_('description'), blank=True, help_text=_("Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description. You may use a limited subset of HTML."))
-    supervisor_notes = models.TextField(_('supervisor notes'), blank=True, help_text=_("This space is for notes of project supervisors and accounting staff."))
+    report_url = models.CharField(_('report url'), blank=True, max_length=255, default='', help_text=_(
+        'URL to your report, if you want to report something (or if your report is mandatory per topic administrator).'))
+    event_url = models.URLField(_('event url'), blank=True,
+                                help_text=_('Link to a public page describing the event, if it exist'))
+    description = models.TextField(_('description'), blank=True, help_text=_(
+        "Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description. You may use a limited subset of HTML."))
+    supervisor_notes = models.TextField(_('supervisor notes'), blank=True, help_text=_(
+        "This space is for notes of project supervisors and accounting staff."))
     deposit = DecimalRangeField(_('deposit'), default=0, min_value=0,
                                 decimal_places=2, max_digits=8,
-                                help_text=_("If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."))
+                                help_text=_(
+                                    "If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."))
     cluster = models.ForeignKey('Cluster', blank=True, null=True, on_delete=models.SET_NULL)
     payment_status = models.CharField(_('payment status'), max_length=20, default='n/a', choices=PAYMENT_STATUS_CHOICES)
-    imported = models.BooleanField(_('imported'), default=False, help_text=_('Was this ticket imported from older Tracker version?'))
-    enable_comments = models.BooleanField(_('enable comments'), default=True, help_text=_('Can users comment on this ticket?'))
-    car_travel = models.BooleanField(_('Did you travel by car?'), default=False, help_text=_('Do you request reimbursement of car-type travel expense?'))
+    imported = models.BooleanField(_('imported'), default=False,
+                                   help_text=_('Was this ticket imported from older Tracker version?'))
+    enable_comments = models.BooleanField(_('enable comments'), default=True,
+                                          help_text=_('Can users comment on this ticket?'))
+    car_travel = models.BooleanField(_('Did you travel by car?'), default=False,
+                                     help_text=_('Do you request reimbursement of car-type travel expense?'))
     is_completed = models.BooleanField(_('Is this ticket completed?'), default=False)
 
     @staticmethod
@@ -284,6 +303,7 @@ class Ticket(CachedModel, ModelDiffMixin):
 
         if save_afterwards:
             self.save(just_payment_status=True)
+
     update_payment_status.alters_data = True
 
     def save(self, *args, **kwargs):
@@ -375,6 +395,7 @@ class Ticket(CachedModel, ModelDiffMixin):
                 return _('waiting for approval')
             else:
                 return _('draft')
+
     state_str.admin_order_field = 'state'
     state_str.short_description = _('state')
 
@@ -387,6 +408,7 @@ class Ticket(CachedModel, ModelDiffMixin):
             return self.requested_user.username
         else:
             return self.requested_text
+
     requested_by.short_description = _('requested by')
 
     def requested_by_html(self):
@@ -405,6 +427,7 @@ class Ticket(CachedModel, ModelDiffMixin):
             return mark_safe(out)
         else:
             return _('no tracker account listed')
+
     requested_user_details.short_description = _('Requester details')
 
     def get_absolute_url(self):
@@ -449,9 +472,11 @@ class Ticket(CachedModel, ModelDiffMixin):
 
     def watches(self, user, event):
         """Watches given user this ticket?"""
-        if self.topic.watches(user, event) and not Watcher.objects.filter(watcher_type='Ticket', object_id=self.id, user=user).exists():
+        if self.topic.watches(user, event) and not Watcher.objects.filter(watcher_type='Ticket', object_id=self.id,
+                                                                          user=user).exists():
             return True
-        if user.is_authenticated and Watcher.objects.filter(watcher_type='Ticket', object_id=self.id, user=user, notification_type=event).exists():
+        if user.is_authenticated and Watcher.objects.filter(watcher_type='Ticket', object_id=self.id, user=user,
+                                                            notification_type=event).exists():
             return True
         return False
 
@@ -468,7 +493,8 @@ class Ticket(CachedModel, ModelDiffMixin):
 
     def can_see_all_documents(self, user):
         """ Can given user see documents belonging to this ticket? """
-        return (user == self.requested_user) or user.has_perm('tracker.see_all_docs') or user.has_perm('tracker.edit_all_docs')
+        return (user == self.requested_user) or user.has_perm('tracker.see_all_docs') or user.has_perm(
+            'tracker.edit_all_docs')
 
     def can_edit_documents(self, user):
         """ Can given user edit documents belonging to this ticket? """
@@ -541,7 +567,7 @@ class Ticket(CachedModel, ModelDiffMixin):
             media.usages = []
             for usage in data["globalusage"]:
                 media.usages.append((usage["url"], usage["title"], usage["wiki"]))
-            media.save(no_update=True)   # We don't need to schedule another updating
+            media.save(no_update=True)  # We don't need to schedule another updating
         ticket.media_updated = datetime.datetime.now(tz=utc)
         ticket.save()
 
@@ -593,7 +619,7 @@ class Ticket(CachedModel, ModelDiffMixin):
 
         acks = self.ack_set()
         if ack == "precontent" and "content" in acks:
-            return False   # HACK: To not include approved tickets that are "waiting for preapproval"
+            return False  # HACK: To not include approved tickets that are "waiting for preapproval"
 
         not_archived = ('archive' not in acks) and ('close' not in acks)
         not_added = ack not in acks
@@ -643,7 +669,8 @@ class FinanceStatus(object):
         self.seen_cluster_ids = set()
 
     def __repr__(self):
-        return 'FinanceStatus(fuzzy=%s, unpaid=%s, paid=%s, overpaid=%s)' % (self.fuzzy, self.unpaid, self.paid, self.overpaid)
+        return 'FinanceStatus(fuzzy=%s, unpaid=%s, paid=%s, overpaid=%s)' % (
+            self.fuzzy, self.unpaid, self.paid, self.overpaid)
 
     def _equals(self, other):
         return self.fuzzy == other.fuzzy and self.unpaid == other.unpaid and self.paid == other.paid and self.overpaid == other.overpaid
@@ -666,8 +693,10 @@ class FinanceStatus(object):
         elif ticket.payment_status == 'paid':
             self.paid += ticket.accepted_expeditures()
         elif ticket.payment_status == 'partially_paid':
-            self.paid += sum([e.amount for e in Expediture.objects.filter(ticket_id=ticket.id, paid=True)]) * ticket.rating_percentage / 100
-            self.unpaid += sum([e.amount for e in Expediture.objects.filter(ticket_id=ticket.id, paid=False)]) * ticket.rating_percentage / 100
+            self.paid += sum([e.amount for e in Expediture.objects.filter(ticket_id=ticket.id,
+                                                                          paid=True)]) * ticket.rating_percentage / 100
+            self.unpaid += sum([e.amount for e in Expediture.objects.filter(ticket_id=ticket.id,
+                                                                            paid=False)]) * ticket.rating_percentage / 100
 
     def add_finance(self, other):
         self.fuzzy = self.fuzzy or other.fuzzy
@@ -682,9 +711,12 @@ class FinanceStatus(object):
 
 class Subtopic(CachedModel):
     name = models.CharField(_('name'), max_length=80)
-    description = models.TextField(_('description'), blank=True, help_text=_('Description shown to users who enter tickets for this subtopic'))
-    form_description = models.TextField(_('form description'), blank=True, help_text=_('Description shown to users who enter tickets for this subtopic'))
-    topic = models.ForeignKey('tracker.Topic', verbose_name=_('topic'), help_text=_('Topic where this subtopic belongs'))
+    description = models.TextField(_('description'), blank=True,
+                                   help_text=_('Description shown to users who enter tickets for this subtopic'))
+    form_description = models.TextField(_('form description'), blank=True,
+                                        help_text=_('Description shown to users who enter tickets for this subtopic'))
+    topic = models.ForeignKey('tracker.Topic', verbose_name=_('topic'),
+                              help_text=_('Topic where this subtopic belongs'), on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -698,11 +730,15 @@ class Subtopic(CachedModel):
 
     @cached_getter
     def expeditures(self):
-        return Expediture.objects.extra(where=['ticket_id in (select id from tracker_ticket where subtopic_id = %s)'], params=[self.id]).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
+        return Expediture.objects.extra(where=['ticket_id in (select id from tracker_ticket where subtopic_id = %s)'],
+                                        params=[self.id]).aggregate(count=models.Count('id'),
+                                                                    amount=models.Sum('amount'))
 
     @cached_getter
     def preexpeditures(self):
-        return Preexpediture.objects.extra(where=['ticket_id in (select id from tracker_ticket where subtopic_id = %s)'], params=[self.id]).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
+        return Preexpediture.objects.extra(
+            where=['ticket_id in (select id from tracker_ticket where subtopic_id = %s)'], params=[self.id]).aggregate(
+            count=models.Count('id'), amount=models.Sum('amount'))
 
     @cached_getter
     def accepted_expeditures(self):
@@ -747,15 +783,24 @@ class Subtopic(CachedModel):
 class Topic(CachedModel):
     """ Topics according to which the tickets are grouped. """
     name = models.CharField(_('name'), max_length=80)
-    grant = models.ForeignKey('tracker.Grant', verbose_name=_('grant'), help_text=_('Grant project where this topic belongs'))
-    open_for_tickets = models.BooleanField(_('open for tickets'), default=True, help_text=_('Is this topic open for ticket submissions from users?'))
-    ticket_media = models.BooleanField(_('ticket media'), default=True, help_text=_('Does this topic track ticket media items?'))
-    ticket_expenses = models.BooleanField(_('ticket expenses'), default=True, help_text=_('Does this topic track ticket expenses?'))
-    ticket_preexpenses = models.BooleanField(_('ticket preexpenses'), default=True, help_text=_('Does this topic track preexpenses?'))
-    ticket_statutory_declaration = models.BooleanField(_('require statutory declaration'), default=False, help_text=_('Does this topic require statutory declaration for car travelling?'))
-    description = models.TextField(_('description'), blank=True, help_text=_('Detailed description; HTML is allowed for now, line breaks are auto-parsed'))
-    form_description = models.TextField(_('form description'), blank=True, help_text=_('Description shown to users who enter tickets for this topic'))
-    admin = models.ManyToManyField('auth.User', verbose_name=_('topic administrator'), blank=True, help_text=_('Selected users will have administration access to this topic.'))
+    grant = models.ForeignKey('tracker.Grant', verbose_name=_('grant'),
+                              help_text=_('Grant project where this topic belongs'), on_delete=models.CASCADE)
+    open_for_tickets = models.BooleanField(_('open for tickets'), default=True,
+                                           help_text=_('Is this topic open for ticket submissions from users?'))
+    ticket_media = models.BooleanField(_('ticket media'), default=True,
+                                       help_text=_('Does this topic track ticket media items?'))
+    ticket_expenses = models.BooleanField(_('ticket expenses'), default=True,
+                                          help_text=_('Does this topic track ticket expenses?'))
+    ticket_preexpenses = models.BooleanField(_('ticket preexpenses'), default=True,
+                                             help_text=_('Does this topic track preexpenses?'))
+    ticket_statutory_declaration = models.BooleanField(_('require statutory declaration'), default=False, help_text=_(
+        'Does this topic require statutory declaration for car travelling?'))
+    description = models.TextField(_('description'), blank=True, help_text=_(
+        'Detailed description; HTML is allowed for now, line breaks are auto-parsed'))
+    form_description = models.TextField(_('form description'), blank=True,
+                                        help_text=_('Description shown to users who enter tickets for this topic'))
+    admin = models.ManyToManyField('auth.User', verbose_name=_('topic administrator'), blank=True,
+                                   help_text=_('Selected users will have administration access to this topic.'))
 
     def __str__(self):
         return self.name
@@ -765,15 +810,21 @@ class Topic(CachedModel):
 
     @cached_getter
     def media_count(self):
-        return sum([len(t.mediainfo_set.all()) for t in self.ticket_set.all()]) + (MediaInfoOld.objects.extra(where=['ticket_id in (select id from tracker_ticket where topic_id = %s)'], params=[self.id]).aggregate(objects=models.Count('id'), media=models.Sum('count'))['media'] or 0)
+        return sum([len(t.mediainfo_set.all()) for t in self.ticket_set.all()]) + (MediaInfoOld.objects.extra(
+            where=['ticket_id in (select id from tracker_ticket where topic_id = %s)'], params=[self.id]).aggregate(
+            objects=models.Count('id'), media=models.Sum('count'))['media'] or 0)
 
     @cached_getter
     def expeditures(self):
-        return Expediture.objects.extra(where=['ticket_id in (select id from tracker_ticket where topic_id = %s)'], params=[self.id]).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
+        return Expediture.objects.extra(where=['ticket_id in (select id from tracker_ticket where topic_id = %s)'],
+                                        params=[self.id]).aggregate(count=models.Count('id'),
+                                                                    amount=models.Sum('amount'))
 
     @cached_getter
     def preexpeditures(self):
-        return Preexpediture.objects.extra(where=['ticket_id in (select id from tracker_ticket where topic_id = %s)'], params=[self.id]).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
+        return Preexpediture.objects.extra(where=['ticket_id in (select id from tracker_ticket where topic_id = %s)'],
+                                           params=[self.id]).aggregate(count=models.Count('id'),
+                                                                       amount=models.Sum('amount'))
 
     @cached_getter
     def accepted_expeditures(self):
@@ -819,7 +870,8 @@ class Topic(CachedModel):
 
     def watches(self, user, event):
         """Watches given user this topic?"""
-        return self.grant.watches(user, event) or (user.is_authenticated() and len(Watcher.objects.filter(watcher_type='Topic', object_id=self.id, user=user, notification_type=event)) > 0)
+        return self.grant.watches(user, event) or (user.is_authenticated() and len(
+            Watcher.objects.filter(watcher_type='Topic', object_id=self.id, user=user, notification_type=event)) > 0)
 
     class Meta:
         verbose_name = _('Topic')
@@ -835,13 +887,15 @@ class Grant(CachedModel):
     full_name = models.CharField(_('full name'), max_length=80, help_text=_('Full name for headlines and such'))
     short_name = models.CharField(_('short name'), max_length=16, help_text=_('Shorter name for use in tables'))
     slug = models.SlugField(_('slug'), help_text=_('Shortcut for usage in URLs'))
-    description = models.TextField(_('description'), blank=True, help_text=_('Detailed description; HTML is allowed for now, line breaks are auto-parsed'))
+    description = models.TextField(_('description'), blank=True, help_text=_(
+        'Detailed description; HTML is allowed for now, line breaks are auto-parsed'))
 
     def __str__(self):
         return self.full_name
 
     def open_for_tickets(self):
         return len(self.topic_set.filter(open_for_tickets=True)) != 0
+
     open_for_tickets.boolean = True
 
     def get_absolute_url(self):
@@ -849,7 +903,8 @@ class Grant(CachedModel):
 
     def watches(self, user, event):
         """Watches given user this grant?"""
-        return user.is_authenticated() and len(Watcher.objects.filter(watcher_type='Grant', object_id=self.id, user=user, notification_type=event)) > 0
+        return user.is_authenticated() and len(
+            Watcher.objects.filter(watcher_type='Grant', object_id=self.id, user=user, notification_type=event)) > 0
 
     @cached_getter
     def total_tickets(self):
@@ -887,7 +942,8 @@ def ticket_note_comment(sender, comment, **kwargs):
 
 class MediaInfoOld(Model):
     """ Media related to particular tickets. """
-    ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'), help_text=_('Ticket this media info belongs to'))
+    ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'),
+                               help_text=_('Ticket this media info belongs to'), on_delete=models.CASCADE)
     description = models.CharField(_('description'), max_length=255, help_text=_('Item description to show'))
     url = models.URLField(_('URL'), blank=True, help_text=_('Link to media files'))
     count = models.PositiveIntegerField(_('count'), blank=True, null=True, help_text=_('Number of files'))
@@ -902,7 +958,8 @@ class MediaInfoOld(Model):
 
 class MediaInfo(Model):
     """ Media related to particular tickets. """
-    ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'), help_text=_('Ticket this media info belongs to'))
+    ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'),
+                               help_text=_('Ticket this media info belongs to'), on_delete=models.CASCADE)
     name = models.CharField(_('name'), max_length=255, blank=True)
     width = models.IntegerField(_('width'), null=True)
     height = models.IntegerField(_('height'), null=True)
@@ -1029,7 +1086,8 @@ class MediaInfo(Model):
 
         if not no_update:
             MediaInfo.store_mediawiki_data(self.id)
-            if not Task.objects.filter(task_name="tracker.models.update_media", task_params="[[%s], {}]" % self.ticket.id).exists():
+            if not Task.objects.filter(task_name="tracker.models.update_media",
+                                       task_params="[[%s], {}]" % self.ticket.id).exists():
                 Ticket.update_media(self.ticket.id)
 
     class Meta:
@@ -1045,15 +1103,19 @@ def delete_mediainfo(sender, instance, **kwargs):
 
 class Expediture(Model):
     """ Expenses related to particular tickets. """
-    ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'), help_text=_('Ticket this expediture belongs to'))
+    ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'),
+                               help_text=_('Ticket this expediture belongs to'), on_delete=models.CASCADE)
     description = models.CharField(_('description'), max_length=255, help_text=_('Description of this expediture'))
-    amount = models.DecimalField(_('amount'), max_digits=8, decimal_places=2, help_text=string_concat(_('Expediture amount in'), ' ', settings.TRACKER_CURRENCY))
-    accounting_info = models.CharField(_('accounting info'), max_length=255, blank=True, help_text=_('Accounting info, this is editable only through admin field'))
+    amount = models.DecimalField(_('amount'), max_digits=8, decimal_places=2,
+                                 help_text=string_concat(_('Expediture amount in'), ' ', settings.TRACKER_CURRENCY))
+    accounting_info = models.CharField(_('accounting info'), max_length=255, blank=True,
+                                       help_text=_('Accounting info, this is editable only through admin field'))
     paid = models.BooleanField(_('paid'), default=False)
     wage = models.BooleanField(_('wage'), default=False)
 
     def __str__(self):
-        return _('%(description)s (%(amount)s %(currency)s)') % {'description': self.description, 'amount': self.amount, 'currency': settings.TRACKER_CURRENCY}
+        return _('%(description)s (%(amount)s %(currency)s)') % {'description': self.description, 'amount': self.amount,
+                                                                 'currency': settings.TRACKER_CURRENCY}
 
     def save(self, *args, **kwargs):
         super(Expediture, self).save(*args, **kwargs)
@@ -1067,13 +1129,16 @@ class Expediture(Model):
 
 class Preexpediture(Model):
     """Preexpeditures related to particular tickets. """
-    ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'), help_text=_('Ticket this preexpediture belongs to'))
+    ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'),
+                               help_text=_('Ticket this preexpediture belongs to'), on_delete=models.CASCADE)
     description = models.CharField(_('description'), max_length=255, help_text=_('Description of this preexpediture'))
-    amount = models.DecimalField(_('amount'), max_digits=8, decimal_places=2, help_text=string_concat(_('Preexpediture amount in'), ' ', settings.TRACKER_CURRENCY))
+    amount = models.DecimalField(_('amount'), max_digits=8, decimal_places=2,
+                                 help_text=string_concat(_('Preexpediture amount in'), ' ', settings.TRACKER_CURRENCY))
     wage = models.BooleanField(_('wage'), default=False)
 
     def __str__(self):
-        return _('%(description)s (%(amount)s %(currency)s)') % {'description': self.description, 'amount': self.amount, 'currency': settings.TRACKER_CURRENCY}
+        return _('%(description)s (%(amount)s %(currency)s)') % {'description': self.description, 'amount': self.amount,
+                                                                 'currency': settings.TRACKER_CURRENCY}
 
     class Meta:
         verbose_name = _('Ticket preexpediture')
@@ -1082,20 +1147,22 @@ class Preexpediture(Model):
 
 # introductory chunk for the template
 _('uploader')  # FIXME: Workaround to make Django know "uploader" as localizable string
-DOCUMENT_INTRO_TEMPLATE = template.Template('{% load i18n %}<a href="{% url "download_document" doc.ticket.id doc.filename %}">{{doc.filename}}</a> {% if detail and doc.description %}: {{doc.description}}; {% endif %}{% if doc.uploader %}{% trans "uploader" %}: {{doc.uploader}}{% endif %} <small>({{doc.content_type}}; {{doc.size|filesizeformat}})</small>')
+DOCUMENT_INTRO_TEMPLATE = template.Template(
+    '{% load i18n %}<a href="{% url "download_document" doc.ticket.id doc.filename %}">{{doc.filename}}</a> {% if detail and doc.description %}: {{doc.description}}; {% endif %}{% if doc.uploader %}{% trans "uploader" %}: {{doc.uploader}}{% endif %} <small>({{doc.content_type}}; {{doc.size|filesizeformat}})</small>')
 
 
 class Document(Model):
     """ Document related to particular ticket, not publicly accessible. """
-    ticket = models.ForeignKey('tracker.Ticket')
+    ticket = models.ForeignKey('tracker.Ticket', on_delete=models.CASCADE)
     filename = models.CharField(max_length=120, help_text='Document filename', validators=[
-        RegexValidator(r'^[-_\.A-Za-z0-9]+\.[A-Za-z0-9]+$', message=_(u'We need a sane file name, such as my-invoice123.jpg')),
+        RegexValidator(r'^[-_\.A-Za-z0-9]+\.[A-Za-z0-9]+$',
+                       message=_(u'We need a sane file name, such as my-invoice123.jpg')),
     ])
     size = models.PositiveIntegerField()
     content_type = models.CharField(max_length=100)
     description = models.CharField(max_length=255, blank=True, help_text='Optional further description of the document')
     payload = models.FileField(upload_to='tickets/%Y/', storage=FileSystemStorage(location=settings.TRACKER_DOCS_ROOT))
-    uploader = models.ForeignKey('auth.User', null=True)
+    uploader = models.ForeignKey('auth.User', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.filename
@@ -1129,11 +1196,13 @@ class Document(Model):
 
 
 class TrackerPreferences(models.Model):
-    user = models.OneToOneField(User, null=True)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     muted_ack = models.CharField(_('Ignored acks'), max_length=300, blank=True)
     muted_notifications = models.CharField(_('Muted notifications'), max_length=300, blank=True)
-    email_language = models.CharField(_('Email language'), max_length=6, blank=False, default="cs", choices=LANGUAGE_CHOICES)
-    display_items = models.IntegerField(_('Display items'), help_text=_('How many items should we display in tables at once'), default=25)
+    email_language = models.CharField(_('Email language'), max_length=6, blank=False, default="cs",
+                                      choices=LANGUAGE_CHOICES)
+    display_items = models.IntegerField(_('Display items'),
+                                        help_text=_('How many items should we display in tables at once'), default=25)
 
     def get_muted_notifications(self):
         if self.muted_notifications == '':
@@ -1157,17 +1226,22 @@ class TrackerPreferences(models.Model):
 
 
 class TrackerProfile(models.Model):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     mediawiki_username = models.CharField(_('Username on mediawiki'), max_length=120, blank=True)
-    bank_account = models.CharField(_('Bank account'), max_length=120, blank=True, help_text=_('Bank account information for money transfers'))
-    other_contact = models.CharField(_('Other contact'), max_length=120, blank=True, help_text=_('Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information'))
-    other_identification = models.CharField(_('Other identification'), max_length=120, blank=True, help_text=_('Address, or other identification information, so we know who are we sending money to'))
+    bank_account = models.CharField(_('Bank account'), max_length=120, blank=True,
+                                    help_text=_('Bank account information for money transfers'))
+    other_contact = models.CharField(_('Other contact'), max_length=120, blank=True, help_text=_(
+        'Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information'))
+    other_identification = models.CharField(_('Other identification'), max_length=120, blank=True, help_text=_(
+        'Address, or other identification information, so we know who are we sending money to'))
 
     def get_absolute_url(self):
         return reverse('user_detail', kwargs={'username': self.user.username})
 
     def media_count(self):
-        return sum([len(t.mediainfo_set.all()) for t in self.user.ticket_set.all()]) + (MediaInfoOld.objects.extra(where=['ticket_id in (select id from tracker_ticket where requested_user_id = %s)'], params=[self.user.id]).aggregate(media=models.Sum('count'))['media'] or 0)
+        return sum([len(t.mediainfo_set.all()) for t in self.user.ticket_set.all()]) + (MediaInfoOld.objects.extra(
+            where=['ticket_id in (select id from tracker_ticket where requested_user_id = %s)'],
+            params=[self.user.id]).aggregate(media=models.Sum('count'))['media'] or 0)
 
     def accepted_expeditures(self):
         return sum([t.accepted_expeditures() for t in self.user.ticket_set.filter(rating_percentage__gt=0)])
@@ -1183,7 +1257,8 @@ class TrackerProfile(models.Model):
         return len(self.user.ticket_set.all())
 
     def transactions(self):
-        return Transaction.objects.filter(other=self.user).aggregate(count=models.Count('id'), amount=models.Sum('amount'))
+        return Transaction.objects.filter(other=self.user).aggregate(count=models.Count('id'),
+                                                                     amount=models.Sum('amount'))
 
     def __str__(self):
         return str(self.user)
@@ -1209,12 +1284,16 @@ def create_user_profile(sender, **kwargs):
 class Transaction(Model):
     """ One payment to or from the user. """
     date = models.DateField(_('date'))
-    other = models.ForeignKey('auth.User', verbose_name=_('other party'), blank=True, null=True, help_text=_('The other party; user who sent or received the payment'))
-    other_text = models.CharField(_('other party (text)'), max_length=60, blank=True, help_text=_('The other party; this text is used when user is not selected'))
-    amount = models.DecimalField(_('amount'), max_digits=8, decimal_places=2, help_text=_('Payment amount; Positive value means transaction to the user, negative is a transaction from the user'))
+    other = models.ForeignKey('auth.User', verbose_name=_('other party'), blank=True, null=True,
+                              help_text=_('The other party; user who sent or received the payment'), on_delete=models.SET_NULL)
+    other_text = models.CharField(_('other party (text)'), max_length=60, blank=True,
+                                  help_text=_('The other party; this text is used when user is not selected'))
+    amount = models.DecimalField(_('amount'), max_digits=8, decimal_places=2, help_text=_(
+        'Payment amount; Positive value means transaction to the user, negative is a transaction from the user'))
     description = models.CharField(_('description'), max_length=255, help_text=_('Description of this transaction'))
     accounting_info = models.CharField(_('accounting info'), max_length=255, blank=True, help_text=_('Accounting info'))
-    tickets = models.ManyToManyField(Ticket, verbose_name=_('related tickets'), blank=True, help_text=_('Tickets this trackaction is related to'))
+    tickets = models.ManyToManyField(Ticket, verbose_name=_('related tickets'), blank=True,
+                                     help_text=_('Tickets this trackaction is related to'))
     cluster = models.ForeignKey('Cluster', blank=True, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
@@ -1228,6 +1307,7 @@ class Transaction(Model):
             return self.other.username
         else:
             return self.other_text
+
     other_party.short_description = _('other party')
 
     def other_party_html(self):
@@ -1243,7 +1323,9 @@ class Transaction(Model):
         return self.tickets.order_by('id')
 
     def grant_set(self):
-        return Grant.objects.extra(where=['id in (select grant_id from tracker_topic topic where topic.id in (select topic_id from tracker_ticket ticket where ticket.id in (select ticket_id from tracker_transaction_tickets where transaction_id = %s)))'], params=[self.id]).order_by('id')
+        return Grant.objects.extra(where=[
+            'id in (select grant_id from tracker_topic topic where topic.id in (select topic_id from tracker_ticket ticket where ticket.id in (select ticket_id from tracker_transaction_tickets where transaction_id = %s)))'],
+                                   params=[self.id]).order_by('id')
 
     @staticmethod
     def currency():
@@ -1259,8 +1341,10 @@ class Cluster(Model):
     """ This is an auxiliary/cache model used to track relationships between tickets and payments. """
     id = models.IntegerField(primary_key=True)  # cluster ID is always the id of its lowest-numbered ticket
     more_tickets = models.BooleanField()  # does this cluster have more tickets?
-    total_tickets = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)  # refreshed on cluster status update
-    total_transactions = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)  # refreshed on cluster status update
+    total_tickets = models.DecimalField(max_digits=8, decimal_places=2, blank=True,
+                                        null=True)  # refreshed on cluster status update
+    total_transactions = models.DecimalField(max_digits=10, decimal_places=2, blank=True,
+                                             null=True)  # refreshed on cluster status update
 
     def get_absolute_url(self):
         return reverse('cluster_detail', kwargs={'pk': self.id})
@@ -1271,10 +1355,10 @@ class Cluster(Model):
 
 class TicketAck(Model):
     """ Ack flag for given ticket. """
-    ticket = models.ForeignKey('Ticket')
+    ticket = models.ForeignKey('Ticket', on_delete=models.CASCADE)
     ack_type = models.CharField(max_length=20, choices=ACK_TYPES)
     added = models.DateTimeField(_('created'), auto_now_add=True)
-    added_by = models.ForeignKey('auth.User', blank=True, null=True)
+    added_by = models.ForeignKey('auth.User', blank=True, null=True, on_delete=models.SET_NULL)
     comment = models.CharField(_('comment'), blank=True, max_length=255)
 
     def __str__(self):
@@ -1322,7 +1406,7 @@ def flush_ticket_after_ack_delete(sender, instance, **kwargs):
 
 class Notification(models.Model):
     """Notification that is supposed to be sent."""
-    target_user = models.ForeignKey('auth.User', null=True, blank=True)
+    target_user = models.ForeignKey('auth.User', null=True, blank=True, on_delete=models.SET_NULL)
     fired = models.DateTimeField('fired', auto_now_add=True)
     text = models.TextField('text', default="")
     notification_type = models.CharField('notification_type', max_length=50, choices=NOTIFICATION_TYPES, null=True)
@@ -1348,13 +1432,18 @@ class Notification(models.Model):
         for admin in admins:
             if Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id, user=admin).exists() \
                     or Watcher.objects.filter(watcher_type='Topic', object_id=ticket.topic.id, user=admin).exists() \
-                    or Watcher.objects.filter(watcher_type='Grant', object_id=ticket.topic.grant.id, user=admin).exists():
+                    or Watcher.objects.filter(watcher_type='Grant', object_id=ticket.topic.grant.id,
+                                              user=admin).exists():
                 admins_to_be_removed_from_set.append(admin)
         for admin in admins_to_be_removed_from_set:
             admins.remove(admin)
-        topicwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Topic', object_id=ticket.topic.id, notification_type=notification_type)])
-        ticketwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id, notification_type=notification_type)])
-        grantwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Grant', object_id=ticket.topic.grant.id, notification_type=notification_type)])
+        topicwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Topic', object_id=ticket.topic.id,
+                                                                      notification_type=notification_type)])
+        ticketwatchers = set([tw.user for tw in Watcher.objects.filter(watcher_type='Ticket', object_id=ticket.id,
+                                                                       notification_type=notification_type)])
+        grantwatchers = set([tw.user for tw in
+                             Watcher.objects.filter(watcher_type='Grant', object_id=ticket.topic.grant.id,
+                                                    notification_type=notification_type)])
         users = users.union(admins, additional, topicwatchers, ticketwatchers, grantwatchers)
 
         # Don't create a Notification again if there's already the exact same
@@ -1393,9 +1482,11 @@ def notify_comment(sender, comment, **kwargs):
                 user = comment.name
             else:
                 user = '%s (%s)' % (comment.name, comment.user.username)
-        text = _('Comment <tt>%(comment)s</tt> was added to ticket <a href="%(ticket_url)s">%(ticket)s</a> by user <tt>%(user)s</tt>')
+        text = _(
+            'Comment <tt>%(comment)s</tt> was added to ticket <a href="%(ticket_url)s">%(ticket)s</a> by user <tt>%(user)s</tt>')
         text_data = {
-            'comment': ((comment.comment[:75] + '..') if len(comment.comment) > 75 else comment.comment).replace('\r\n', ' '),
+            'comment': ((comment.comment[:75] + '..') if len(comment.comment) > 75 else comment.comment).replace('\r\n',
+                                                                                                                 ' '),
             'ticket_url': settings.BASE_URL + obj.get_absolute_url(),
             'ticket': obj,
             'user': user
@@ -1422,7 +1513,8 @@ def add_commenting_user_to_watchers(sender, comment, **kwargs):
 @receiver(post_save, sender=Ticket)
 def notify_ticket(sender, instance, created, raw, **kwargs):
     if created:
-        text = _('User <tt>%(user)s</tt> created ticket <a href="%(ticket_url)s">%(ticket)s</a> in topic <tt>%(topic)s</tt>.')
+        text = _(
+            'User <tt>%(user)s</tt> created ticket <a href="%(ticket_url)s">%(ticket)s</a> in topic <tt>%(topic)s</tt>.')
         text_data = {
             'user': get_user(),
             'ticket_url': settings.BASE_URL + instance.get_absolute_url(),
@@ -1437,7 +1529,8 @@ def notify_supervizor_notes(sender, instance, **kwargs):
     if instance.id is not None:
         old = Ticket.objects.get(id=instance.id)
         if old.supervisor_notes != instance.supervisor_notes:
-            text = _('User <tt>%(user)s</tt> changed supervisor notes of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
+            text = _(
+                'User <tt>%(user)s</tt> changed supervisor notes of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
             text_data = {
                 'user': get_user(),
                 'ticket_url': settings.BASE_URL + instance.get_absolute_url(),
@@ -1448,7 +1541,8 @@ def notify_supervizor_notes(sender, instance, **kwargs):
 
 @receiver(pre_save, sender=Ticket)
 def notify_ticket_change(sender, instance, **kwargs):
-    if instance.id is not None and len(Notification.objects.filter(text__contains=instance.get_absolute_url(), notification_type="ticket_new")) == 0:
+    if instance.id is not None and len(Notification.objects.filter(text__contains=instance.get_absolute_url(),
+                                                                   notification_type="ticket_new")) == 0:
         old = Ticket.objects.get(id=instance.id)
         text_data = {
             'ticket_url': settings.BASE_URL + instance.get_absolute_url(),
@@ -1465,7 +1559,8 @@ def notify_ticket_change(sender, instance, **kwargs):
             text = _('User <tt>%(user)s</tt> changed link to report of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
             Notification.fire_notification(instance, text, "ticket_change", get_user(True), text_data=text_data)
         if old.deposit != instance.deposit:
-            text = _('User <tt>%(user)s</tt> changed requested deposit of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
+            text = _(
+                'User <tt>%(user)s</tt> changed requested deposit of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
             Notification.fire_notification(instance, text, "ticket_change", get_user(True), text_data=text_data)
 
 
@@ -1474,7 +1569,8 @@ def notify_ticket_change_2(sender, instance, **kwargs):
     if instance.id is not None:
         old = Ticket.objects.get(id=instance.id)
         if old.mandatory_report != instance.mandatory_report:
-            text = _('User <tt>%(user)s</tt> changed "Is report mandatory?" field of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
+            text = _(
+                'User <tt>%(user)s</tt> changed "Is report mandatory?" field of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
             text_data = {
                 'ticket_url': settings.BASE_URL + instance.get_absolute_url(),
                 'user': get_user(),
@@ -1502,8 +1598,10 @@ def notify_ack_add(sender, instance, created, **kwargs):
         'ticket': instance.ticket,
         'ack_type': instance.get_ack_type_display()
     }
-    text = _('User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
-    Notification.fire_notification(instance.ticket, text, "ack_add", get_user(True), text_data=text_data, ack_type=instance.ack_type)
+    text = _(
+        'User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
+    Notification.fire_notification(instance.ticket, text, "ack_add", get_user(True), text_data=text_data,
+                                   ack_type=instance.ack_type)
 
 
 @receiver(post_delete, sender=TicketAck)
@@ -1514,13 +1612,16 @@ def notify_ack_remove(sender, instance, **kwargs):
         'ticket': instance.ticket,
         'ack_type': instance.get_ack_type_display()
     }
-    text = _('User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>')
-    Notification.fire_notification(instance.ticket, text, "ack_remove", get_user(True), text_data=text_data, ack_type=instance.ack_type)
+    text = _(
+        'User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>')
+    Notification.fire_notification(instance.ticket, text, "ack_remove", get_user(True), text_data=text_data,
+                                   ack_type=instance.ack_type)
 
 
 @receiver(post_save, sender=Preexpediture)
 def notify_preexpediture(sender, instance, created, raw, **kwargs):
-    if (len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0 and
+    if (len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(),
+                                        notification_type="ticket_new")) == 0 and
             created):
         # HACK: It turns out `instance` and Preexpediture. objects.get(id=instance.id)
         # are different. Especially for the `Preexpediture.amount` field which
@@ -1542,7 +1643,8 @@ def notify_preexpediture(sender, instance, created, raw, **kwargs):
             'expeditures': preexpediture_instance,
             'ticket': instance.ticket
         }
-        text = _('User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
+        text = _(
+            'User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
         Notification.fire_notification(instance.ticket, text, "preexpeditures_new", get_user(True), text_data=text_data)
 
 
@@ -1563,30 +1665,39 @@ def notify_preexpediture_change(sender, instance, **kwargs):
 
         if old.wage != instance.wage and old.amount == instance.amount and old.description == instance.description:
             if instance.wage:
-                text = _('User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as wage.')
+                text = _(
+                    'User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as wage.')
             else:
-                text = _('User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as not wage.')
+                text = _(
+                    'User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as not wage.')
         else:
-            text = _('User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
-        Notification.fire_notification(instance.ticket, text, "preexpeditures_change", get_user(True), text_data=text_data)
+            text = _(
+                'User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
+        Notification.fire_notification(instance.ticket, text, "preexpeditures_change", get_user(True),
+                                       text_data=text_data)
 
 
 @receiver(post_delete, sender=Preexpediture)
 def notify_del_preexpediture(sender, instance, **kwargs):
-    if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
+    if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(
+            Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(),
+                                        notification_type="ticket_new")) == 0:
         text_data = {
             'user': get_user(),
             'expediture': instance,
             'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
             'ticket': instance.ticket
         }
-        text = _('User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
-        Notification.fire_notification(instance.ticket, text, "preexpeditures_change", get_user(True), text_data=text_data)
+        text = _(
+            'User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
+        Notification.fire_notification(instance.ticket, text, "preexpeditures_change", get_user(True),
+                                       text_data=text_data)
 
 
 @receiver(post_save, sender=Expediture)
 def notify_expediture(sender, instance, created, raw, **kwargs):
-    if (len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type__in=["ticket_new", "expeditures_new"])) == 0 and
+    if (len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(),
+                                        notification_type__in=["ticket_new", "expeditures_new"])) == 0 and
             created):
         # HACK: See comments in `notify_preexpediture()`
         expediture_instance = Expediture.objects.get(id=instance.id)
@@ -1598,7 +1709,8 @@ def notify_expediture(sender, instance, created, raw, **kwargs):
             'expeditures': expediture_instance
         }
 
-        text = _('User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
+        text = _(
+            'User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
         Notification.fire_notification(instance.ticket, text, "expeditures_new", get_user(True), text_data=text_data)
 
 
@@ -1620,41 +1732,50 @@ def notify_expediture_change(sender, instance, **kwargs):
         num_of_changes = 0
         if old.paid != instance.paid:
             if instance.paid:
-                text = _('User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as paid.')
+                text = _(
+                    'User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as paid.')
             else:
-                text = _('User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as not paid.')
+                text = _(
+                    'User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as not paid.')
             num_of_changes += 1
         if old.wage != instance.wage:
             if instance.wage:
-                text = _('User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as wage.')
+                text = _(
+                    'User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as wage.')
             else:
-                text = _('User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as not wage.')
+                text = _(
+                    'User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as not wage.')
             num_of_changes += 1
 
         if num_of_changes == 0 and old.accounting_info != instance.accounting_info and old.amount == instance.amount and old.description == instance.description:
             return
         else:
-            text = _('User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
+            text = _(
+                'User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
 
         Notification.fire_notification(instance.ticket, text, "expeditures_change", get_user(True), text_data=text_data)
 
 
 @receiver(post_delete, sender=Expediture)
 def notify_del_expediture(sender, instance, **kwargs):
-    if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
+    if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(
+            Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(),
+                                        notification_type="ticket_new")) == 0:
         text_data = {
             'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
             'ticket': instance.ticket,
             'user': get_user(),
             'expeditures': instance
         }
-        text = _('User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
+        text = _(
+            'User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
         Notification.fire_notification(instance.ticket, text, "expeditures_change", get_user(True), text_data=text_data)
 
 
 @receiver(post_save, sender=MediaInfo)
 def notify_media(sender, instance, created, raw, **kwargs):
-    if len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type__in=["ticket_new", "media_new"])) == 0:
+    if len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(),
+                                       notification_type__in=["ticket_new", "media_new"])) == 0:
         text_data = {
             'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
             'ticket': instance.ticket,
@@ -1670,7 +1791,9 @@ def notify_media(sender, instance, created, raw, **kwargs):
 
 @receiver(post_delete, sender=MediaInfo)
 def notify_del_media(sender, instance, **kwargs):
-    if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type="ticket_new")) == 0:
+    if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(
+            Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(),
+                                        notification_type="ticket_new")) == 0:
         text_data = {
             'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
             'ticket': instance.ticket,
@@ -1682,7 +1805,8 @@ def notify_del_media(sender, instance, **kwargs):
 
 @receiver(post_save, sender=Document)
 def notify_document(sender, instance, created, **kwargs):
-    if len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type__in=["ticket_new", "document_new"])) == 0:
+    if len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(),
+                                       notification_type__in=["ticket_new", "document_new"])) == 0:
         text_data = {
             'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
             'ticket': instance.ticket,
@@ -1690,13 +1814,16 @@ def notify_document(sender, instance, created, **kwargs):
             'document_filename': instance.filename,
             'document_description': instance.description or _('no description'),
         }
-        text = _('User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>')
+        text = _(
+            'User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>')
         Notification.fire_notification(instance.ticket, text, "document", get_user(True), text_data=text_data)
 
 
 @receiver(post_delete, sender=Document)
 def notify_del_document(sender, instance, **kwargs):
-    if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(), notification_type__in=["ticket_new", "document_new"])) == 0:
+    if len(Ticket.objects.filter(id=instance.ticket.id)) > 0 and len(
+            Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(),
+                                        notification_type__in=["ticket_new", "document_new"])) == 0:
         text_data = {
             'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
             'ticket': instance.ticket,
@@ -1704,7 +1831,8 @@ def notify_del_document(sender, instance, **kwargs):
             'document_filename': instance.filename,
             'document_description': instance.description or _('no description'),
         }
-        text = _('User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>')
+        text = _(
+            'User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href="%(ticket_url)s">%(ticket)s</a>')
         Notification.fire_notification(instance.ticket, text, "document", get_user(True), text_data=text_data)
 
 

@@ -1,5 +1,5 @@
 # just our usual stuff
-Django>=1.9,<1.10
+Django==1.11.*
 django-sendfile
 django-recaptcha2==1.0.3
 django-contrib-comments==1.8.0
@@ -13,9 +13,9 @@ django-background-tasks
 bleach
 
 # For API
-djangorestframework==3.5.4
+djangorestframework==3.11.0
 django-filter==1.1
-django-rest-swagger==0.3.10
+django-rest-swagger==2.2.0
 
 # we'll presume MySQL as the database
 mysql

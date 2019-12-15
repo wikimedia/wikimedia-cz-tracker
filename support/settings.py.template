@@ -9,7 +9,6 @@ for item in dir(_common):
 
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 # Setting this to True will suppress the warning saying "This is not production environment"
 PRODUCTION = False
