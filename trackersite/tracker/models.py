@@ -485,7 +485,7 @@ class Ticket(CachedModel, ModelDiffMixin):
         acks = self.ack_set()
         if user is not None and user.has_perm('tracker.change_ticket'):
             return True
-        return ('archive' not in acks) and ('close' not in acks) and user.is_authenticated()
+        return ('archive' not in acks) and ('close' not in acks) and user.is_authenticated
 
     def can_edit(self, user):
         """ Can given user edit this ticket through a non-admin interface? """

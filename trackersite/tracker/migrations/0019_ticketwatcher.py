@@ -18,8 +18,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('notification_type', models.CharField(max_length=50, verbose_name=b'notification_type', choices=[(b'ack', b'ack'), (b'ack_remove', b'ack_remove'), (b'comment', b'comment'), (b'supervisor_notes', b'supervisor_notes'), (b'ticket_new', b'ticket_new')])),
-                ('ticket', models.ForeignKey(to='tracker.Ticket')),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('ticket', models.ForeignKey(to='tracker.Ticket', on_delete=models.CASCADE)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
     ]

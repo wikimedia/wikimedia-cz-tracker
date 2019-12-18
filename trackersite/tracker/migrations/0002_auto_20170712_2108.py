@@ -58,6 +58,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='preexpediture',
             name='ticket',
-            field=models.ForeignKey(verbose_name='ticket', to='tracker.Ticket', help_text='Ticket this preexpediture belogns to'),
+            field=models.ForeignKey(verbose_name='ticket', to='tracker.Ticket', help_text='Ticket this preexpediture belogns to', on_delete=models.CASCADE),
         ),
     ]

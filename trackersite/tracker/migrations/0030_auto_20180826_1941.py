@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='ticket',
             name='subtopic',
-            field=models.ForeignKey(blank=True, to='tracker.Subtopic', help_text="Subtopic this ticket belongs to (if you don't know, leave this empty)", null=True, verbose_name='subtopics'),
+            field=models.ForeignKey(blank=True, to='tracker.Subtopic', help_text="Subtopic this ticket belongs to (if you don't know, leave this empty)", null=True, verbose_name='subtopics', on_delete=models.SET_NULL),
         ),
     ]

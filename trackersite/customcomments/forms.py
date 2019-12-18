@@ -23,7 +23,7 @@ class CustomCommentForm(CommentSecurityForm):
 
     def __init__(self, *args, **kwargs):
         super(CustomCommentForm, self).__init__(*args, **kwargs)
-        if not get_request().user.is_authenticated():
+        if not get_request().user.is_authenticated:
             self.fields['captcha'] = ReCaptchaField(widget=ReCaptchaWidget())
 
     def get_comment_object(self, site_id=None):

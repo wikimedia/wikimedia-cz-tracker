@@ -47,7 +47,7 @@ class UserViewSet(viewsets.ModelViewSet):
     def get_object(self):
         pk = self.kwargs.get('pk')
 
-        if pk == "me" and self.request.user.is_authenticated():
+        if pk == "me" and self.request.user.is_authenticated:
             return self.request.user
 
         return super(UserViewSet, self).get_object()
@@ -65,7 +65,7 @@ class TrackerPreferencesViewSet(viewsets.ModelViewSet):
     permission_classes = (IsOwnTrackerPreferences, )
 
     def get_queryset(self):
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             return TrackerPreferences.objects.filter(user=self.request.user)
 
 
@@ -84,7 +84,7 @@ class TrackerProfileViewSet(viewsets.ModelViewSet):
     def get_object(self):
         pk = self.kwargs.get('pk')
 
-        if pk == "me" and self.request.user.is_authenticated():
+        if pk == "me" and self.request.user.is_authenticated:
             return self.request.user.trackerprofile
 
         return super(TrackerProfileViewSet, self).get_object()

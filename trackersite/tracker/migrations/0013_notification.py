@@ -18,9 +18,9 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('notification_type', models.CharField(max_length=20, null=True, verbose_name='type', choices=[(b'ack', 'ack'), (b'ticket', 'ticket')])),
-                ('ack', models.ForeignKey(to='tracker.TicketAck', null=True)),
-                ('target_user', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, null=True)),
-                ('ticket', models.ForeignKey(to='tracker.Ticket', null=True)),
+                ('ack', models.ForeignKey(to='tracker.TicketAck', null=True, on_delete=models.SET_NULL)),
+                ('target_user', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)),
+                ('ticket', models.ForeignKey(to='tracker.Ticket', null=True, on_delete=models.SET_NULL)),
             ],
         ),
     ]

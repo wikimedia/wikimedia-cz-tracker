@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='preexpediture',
             name='ticket',
-            field=models.ForeignKey(verbose_name='ticket', to='tracker.Ticket', help_text='Ticket this preexpediture belongs to'),
+            field=models.ForeignKey(verbose_name='ticket', to='tracker.Ticket', help_text='Ticket this preexpediture belongs to', on_delete=models.CASCADE),
         ),
         migrations.AlterField(
             model_name='trackerpreferences',

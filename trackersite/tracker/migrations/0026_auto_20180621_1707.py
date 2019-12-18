@@ -18,6 +18,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='ticket',
             name='tag',
-            field=models.ForeignKey(blank=True, to='tracker.Tag', help_text='Tag this ticket belongs to', null=True, verbose_name='tags'),
+            field=models.ForeignKey(blank=True, to='tracker.Tag', help_text='Tag this ticket belongs to', null=True, verbose_name='tags', on_delete=models.SET_NULL),
         ),
     ]

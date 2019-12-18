@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('description', models.CharField(help_text='Item description to show', max_length=255, verbose_name='description')),
                 ('url', models.URLField(help_text='Link to media files', verbose_name='URL', blank=True)),
                 ('count', models.PositiveIntegerField(help_text='Number of files', null=True, verbose_name='count', blank=True)),
-                ('ticket', models.ForeignKey(verbose_name='ticket', to='tracker.Ticket', help_text='Ticket this media info belongs to')),
+                ('ticket', models.ForeignKey(verbose_name='ticket', to='tracker.Ticket', help_text='Ticket this media info belongs to', on_delete=models.CASCADE)),
             ],
             options={
                 'verbose_name': 'Ticket media',

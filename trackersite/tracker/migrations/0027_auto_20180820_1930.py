@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='notification',
             name='ticket',
-            field=models.ForeignKey(to='tracker.Ticket', null=True),
+            field=models.ForeignKey(to='tracker.Ticket', null=True, on_delete=models.SET_NULL),
         ),
         migrations.AlterField(
             model_name='notification',

@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='notification',
             name='comment',
-            field=models.ForeignKey(to='django_comments.Comment', null=True),
+            field=models.ForeignKey(to='django_comments.Comment', null=True, on_delete=models.SET_NULL),
         ),
     ]

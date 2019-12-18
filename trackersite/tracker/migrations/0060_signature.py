@@ -19,8 +19,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('created', models.DateTimeField(auto_now_add=True, verbose_name='created', null=True)),
                 ('signed_text', models.TextField(verbose_name='Signed text')),
-                ('signed_ticket', models.ForeignKey(to='tracker.Ticket')),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('signed_ticket', models.ForeignKey(to='tracker.Ticket', on_delete=models.CASCADE)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
             options={
                 'abstract': False,

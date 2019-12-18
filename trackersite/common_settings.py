@@ -7,7 +7,7 @@ SITE_DIR = abspath(dirname(__file__))
 PROJECT_DIR = abspath(join(dirname(__file__), '..'))
 _IGNORE = ('_IGNORE', '__builtins__', '__doc__', '__file__', '__name__', '__package__', 'os')
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -20,7 +20,7 @@ MIDDLEWARE_CLASSES = (
     'crequest.middleware.CrequestMiddleware',
     'tracker.middleware.WarnIEUsers',
     'tracker.middleware.InvalidOauth',
-)
+]
 
 TEMPLATES = [
     {

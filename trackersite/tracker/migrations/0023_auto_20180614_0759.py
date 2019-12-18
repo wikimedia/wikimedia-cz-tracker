@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=80, verbose_name='name')),
                 ('description', models.TextField(help_text='Description shown to users who enter tickets for this tag', verbose_name='description', blank=True)),
-                ('topic', models.ForeignKey(verbose_name='topic', to='tracker.Topic', help_text='Topic where this tag belongs')),
+                ('topic', models.ForeignKey(verbose_name='topic', to='tracker.Topic', help_text='Topic where this tag belongs', on_delete=models.CASCADE)),
             ],
         ),
         migrations.AddField(

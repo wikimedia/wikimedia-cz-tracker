@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=80, verbose_name='name')),
                 ('description', models.TextField(help_text='Description shown to users who enter tickets for this subtopic', verbose_name='description', blank=True)),
-                ('topic', models.ForeignKey(verbose_name='topic', to='tracker.Topic', help_text='Topic where this subtopic belongs')),
+                ('topic', models.ForeignKey(verbose_name='topic', to='tracker.Topic', help_text='Topic where this subtopic belongs', on_delete=models.CASCADE)),
             ],
             options={
                 'abstract': False,
@@ -37,6 +37,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='ticket',
             name='subtopic',
-            field=models.ForeignKey(blank=True, to='tracker.Subtopic', help_text='Subtopic this ticket belongs to', null=True, verbose_name='subtopics'),
+            field=models.ForeignKey(blank=True, to='tracker.Subtopic', help_text='Subtopic this ticket belongs to', null=True, verbose_name='subtopics', on_delete=models.SET_NULL),
         ),
     ]

@@ -96,7 +96,7 @@ class Migration(migrations.Migration):
                 ('supervisor_notes', models.TextField(help_text='This space is for notes of project supervisors and accounting staff.', verbose_name='supervisor notes', blank=True)),
                 ('payment_status', models.CharField(default=b'n/a', max_length=20, verbose_name='payment status', choices=[(b'n_a', 'n/a'), (b'unpaid', 'unpaid'), (b'partially_paid', 'partially paid'), (b'paid', 'paid'), (b'overpaid', 'overpaid')])),
                 ('cluster', models.ForeignKey(on_delete=django.db.models.deletion.SET_NULL, blank=True, to='tracker.Cluster', null=True)),
-                ('requested_user', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, help_text='User who created/requested for this ticket', null=True, verbose_name='requested by')),
+                ('requested_user', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, help_text='User who created/requested for this ticket', null=True, verbose_name='requested by', on_delete=models.SET_NULL)),
             ],
             options={
                 'ordering': ['-sort_date'],
@@ -111,8 +111,8 @@ class Migration(migrations.Migration):
                 ('ack_type', models.CharField(max_length=20, choices=[(b'user_content', 'submitted'), (b'content', 'accepted'), (b'user_docs', 'expense documents submitted'), (b'docs', 'expense documents filed'), (b'archive', 'archived'), (b'close', 'closed')])),
                 ('added', models.DateTimeField(auto_now_add=True, verbose_name='created')),
                 ('comment', models.CharField(max_length=255, blank=True)),
-                ('added_by', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, null=True)),
-                ('ticket', models.ForeignKey(to='tracker.Ticket')),
+                ('added_by', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)),
+                ('ticket', models.ForeignKey(to='tracker.Ticket', on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ['added'],
@@ -129,7 +129,7 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(help_text='Detailed description; HTML is allowed for now, line breaks are auto-parsed', verbose_name='description', blank=True)),
                 ('form_description', models.TextField(help_text='Description shown to users who enter tickets for this topic', verbose_name='form description', blank=True)),
                 ('admin', models.ManyToManyField(help_text='Selected users will have administration access to this topic.', to=settings.AUTH_USER_MODEL, verbose_name='topic administrator', blank=True)),
-                ('grant', models.ForeignKey(verbose_name='grant', to='tracker.Grant', help_text='Grant project where this topic belongs')),
+                ('grant', models.ForeignKey(verbose_name='grant', to='tracker.Grant', help_text='Grant project where this topic belongs', on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ['-open_for_tickets', 'name'],
@@ -145,7 +145,7 @@ class Migration(migrations.Migration):
                 ('bank_account', models.CharField(help_text='Bank account information for money transfers', max_length=120, verbose_name='Bank account', blank=True)),
                 ('other_contact', models.CharField(help_text='Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information', max_length=120, verbose_name='Other contact', blank=True)),
                 ('other_identification', models.CharField(help_text='Address, or other identification information, so we know who are we sending money to', max_length=120, verbose_name='Other identification', blank=True)),
-                ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
+                ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
         migrations.CreateModel(
@@ -158,7 +158,7 @@ class Migration(migrations.Migration):
                 ('description', models.CharField(help_text='Description of this transaction', max_length=255, verbose_name='description')),
                 ('accounting_info', models.CharField(help_text='Accounting info', max_length=255, verbose_name='accounting info', blank=True)),
                 ('cluster', models.ForeignKey(on_delete=django.db.models.deletion.SET_NULL, blank=True, to='tracker.Cluster', null=True)),
-                ('other', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, help_text='The other party; user who sent or received the payment', null=True, verbose_name='other party')),
+                ('other', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, help_text='The other party; user who sent or received the payment', null=True, verbose_name='other party', on_delete=models.SET_NULL)),
                 ('tickets', models.ManyToManyField(help_text='Tickets this trackaction is related to', to='tracker.Ticket', verbose_name='related tickets', blank=True)),
             ],
             options={
@@ -170,21 +170,21 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='ticket',
             name='topic',
-            field=models.ForeignKey(verbose_name='topic', to='tracker.Topic', help_text='Project topic this ticket belongs to'),
+            field=models.ForeignKey(verbose_name='topic', to='tracker.Topic', help_text='Project topic this ticket belongs to', on_delete=models.CASCADE),
         ),
         migrations.AddField(
             model_name='mediainfo',
             name='ticket',
-            field=models.ForeignKey(verbose_name='ticket', to='tracker.Ticket', help_text='Ticket this media info belongs to'),
+            field=models.ForeignKey(verbose_name='ticket', to='tracker.Ticket', help_text='Ticket this media info belongs to', on_delete=models.CASCADE),
         ),
         migrations.AddField(
             model_name='expediture',
             name='ticket',
-            field=models.ForeignKey(verbose_name='ticket', to='tracker.Ticket', help_text='Ticket this expediture belongs to'),
+            field=models.ForeignKey(verbose_name='ticket', to='tracker.Ticket', help_text='Ticket this expediture belongs to', on_delete=models.CASCADE),
         ),
         migrations.AddField(
             model_name='document',
             name='ticket',
-            field=models.ForeignKey(to='tracker.Ticket'),
+            field=models.ForeignKey(to='tracker.Ticket', on_delete=models.CASCADE),
         ),
     ]

@@ -80,7 +80,7 @@ class TicketDetailView(CommentPostedCatcher, DetailView):
         context['user_can_edit_ticket_in_admin'] = admin_edit
         context['user_can_edit_documents'] = ticket.is_editable(user)
         context['user_can_see_all_documents'] = ticket.can_see_all_documents(user)
-        if user.is_authenticated():
+        if user.is_authenticated:
             context['user_selfuploaded_docs'] = ticket.document_set.filter(uploader=user)
         else:
             context['user_selfuploaded_docs'] = ticket.document_set.none()
@@ -756,7 +756,7 @@ def edit_ticket(request, pk):
         'expeditures': expeditures,
         'preexpeditures': preexpeditures,
         'form_media': form_media,
-        'user_can_edit_documents': request.user.is_authenticated(),
+        'user_can_edit_documents': request.user.is_authenticated,
         'user_can_copy_preexpeditures': ticket.can_copy_preexpeditures(request.user),
     })
 
@@ -786,7 +786,7 @@ def document_view_required(access, ticket_id_field='pk', document_name_field=Non
     """ Wrapper for document-accessing views (access=read|write)"""
     def actual_decorator(view):
         def wrapped_view(request, *args, **kwargs):
-            if not request.user.is_authenticated():
+            if not request.user.is_authenticated:
                 return redirect_to_login(request.path)
 
             ticket = get_object_or_404(Ticket, id=kwargs[ticket_id_field])
@@ -798,7 +798,7 @@ def document_view_required(access, ticket_id_field='pk', document_name_field=Non
                 uploader = get_object_or_404(ticket.document_set, filename=kwargs[document_name_field]).uploader
             else:
                 uploader = None
-            if (access == 'read' and (ticket.can_see_all_documents(request.user) or uploader == request.user)) or (access == 'write' and request.user.is_authenticated()):
+            if (access == 'read' and (ticket.can_see_all_documents(request.user) or uploader == request.user)) or (access == 'write' and request.user.is_authenticated):
                 return view(request, *args, **kwargs)
             else:
                 raise PermissionDenied("You cannot see this ticket's documents.")
@@ -1375,7 +1375,7 @@ def export(request):
                 response.writerow([topic.name, topic.grant.full_name, topic.open_for_tickets, topic.ticket_media, topic.ticket_expenses, topic.ticket_preexpenses, topic.description, topic.form_description, admins])
             return response
         elif typ == 'user':
-            if request.user.is_authenticated():
+            if request.user.is_authenticated:
                 if request.user.is_staff:
                     users = TrackerProfile.objects.all()
                     larger = request.POST['users-created-larger']
@@ -1734,7 +1734,7 @@ def mediawiki_api(request):
         raise PermissionDenied(_('Executing API call with any action than whitelisted is prohibited.'))
 
     user = None
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         user = request.user
     return HttpResponse(MediaWiki(user=user).request(payload=data, method=request.method).content, content_type='application/json')
 
