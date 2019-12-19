@@ -38,7 +38,7 @@ urlpatterns = [
     url(r'grants/$', tracker.views.grant_list, name='grant_list'),
     url(r'grant/watch/(?P<pk>\d+)/?$', tracker.views.watch_grant, name='watch_grant'),
     url(r'grant/(?P<slug>[-\w]+)/$', DetailView.as_view(model=Grant), name='grant_detail'),
-    url(r'users/(?P<username>\w+)/$', tracker.views.user_detail, name='user_detail'),
+    url(r'users/(?P<username>[\w.]+)/$', tracker.views.user_detail, name='user_detail'),
     url('users/', tracker.views.user_list, name='user_list'),
     url('my/details/', tracker.views.user_details_change, name='user_details_change'),
     url('my/preferences/', tracker.views.preferences, name='preferences'),
