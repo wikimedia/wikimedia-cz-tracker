@@ -1087,3 +1087,38 @@ class AdminTests(TestCase):
         c = self.get_client()
         response = c.get('/admin/tracker/ticket/%d/change/' % random_id)
         self.assertEqual(404, response.status_code)
+
+
+class PreferencesTests(TestCase):
+    def setUp(self):
+        self.password = 'bar'
+        self.user = User.objects.create_user(username='test', password=self.password)
+
+    def get_client(self):
+        c = Client()
+        c.login(username=self.user.username, password=self.password)
+        return c
+
+    def test_details_load(self):
+        c = self.get_client()
+        r = c.get(reverse('user_details_change'))
+        self.assertEqual(r.status_code, 200)
+
+    def test_details_submit(self):
+        c = self.get_client()
+        r = c.post(reverse('user_details_change'), {
+            'email': 'test@example.com',
+            'first_name': 'Test',
+            'last_name': 'User',
+            'bank_account': '63770002/5500',
+            'other_contact': 'foo',
+            'other_identification': 'bar'
+        })
+        self.assertEqual(r.status_code, 302)
+        user = User.objects.get(id=self.user.id)
+        self.assertEqual(user.email, 'test@example.com')
+        self.assertEqual(user.first_name, 'Test')
+        self.assertEqual(user.last_name, 'User')
+        self.assertEqual(user.trackerprofile.bank_account, '63770002/5500')
+        self.assertEqual(user.trackerprofile.other_contact, 'foo')
+        self.assertEqual(user.trackerprofile.other_identification, 'bar')
