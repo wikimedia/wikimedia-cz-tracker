@@ -159,11 +159,14 @@ class TicketSumTests(TestCase):
         full_ticket.mediainfo_set.create(name='test.jpg')
         full_ticket.expediture_set.create(description='Some expense', amount=99)
         full_ticket.expediture_set.create(description='Some other expense', amount=101)
+        full_ticket.preexpediture_set.create(description='Preexpediture', amount=99)
+        full_ticket.preexpediture_set.create(description='Preexpediture', amount=101)
 
         self.assertEqual(32, full_ticket.media_count())
         self.assertEqual({'count': 2, 'amount': 200}, full_ticket.expeditures())
         self.assertEqual(32, self.topic.media_count())
         self.assertEqual({'count': 2, 'amount': 200}, self.topic.expeditures())
+        self.assertEqual({'count': 2, 'amount': 200}, full_ticket.preexpeditures())
 
 
 class TicketTests(TestCase):
