@@ -585,6 +585,20 @@ class TicketAckTests(TestCase):
         cont = self.ticket.ticketack_set.get(ack_type='content')
         self.assertFalse(cont.user_removable)
 
+    def test_ack_user_add(self):
+        c = Client()
+        c.login(username=self.user.username, password=self.password)
+        add_url = reverse('ticket_ack_add', kwargs={
+            'pk': self.ticket.id,
+            'ack_type': 'user_content'
+        })
+        response = c.get(add_url)
+        self.assertEqual(response.status_code, 200)
+
+        response = c.post(add_url)
+        self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': self.ticket.id}))
+        self.assertTrue('user_content' in self.ticket.ack_set())
+
     def test_ack_user_delete(self):
         self.ticket.add_acks('user_docs')
         ud = self.ticket.ticketack_set.get(ack_type='user_docs')
