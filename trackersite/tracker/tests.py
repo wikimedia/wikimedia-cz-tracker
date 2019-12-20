@@ -374,6 +374,23 @@ class TicketTests(TestCase):
 
 
 class TicketEditTests(TestCase):
+    def setUp(self):
+        self.topic = Topic(name='topic', grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
+        self.topic.save()
+
+        self.statutory_topic = Topic(name='statutory_topic', ticket_statutory_declaration=True, grant=Grant.objects.get(short_name='g'))
+        self.statutory_topic.save()
+
+        self.subtopic = Subtopic(name='subtopic', topic=self.topic)
+        self.subtopic2 = Subtopic(name='subtopic2', topic=self.statutory_topic)
+        self.subtopic.save()
+        self.subtopic2.save()
+
+        self.password = 'my_password'
+        self.user = User(username='my_user')
+        self.user.set_password(self.password)
+        self.user.save()
+
     def test_correct_choices(self):
         grant = Grant.objects.create(full_name='g', short_name='g', slug='g')
         t_closed = Topic(name='t1', open_for_tickets=False, grant=grant)
@@ -388,27 +405,11 @@ class TicketEditTests(TestCase):
         from tracker.views import get_edit_ticket_form_class
         EditForm = get_edit_ticket_form_class(ticket)
         choices = {t.id for t in EditForm().fields['topic'].queryset.all()}
-        wanted_choices = {t_open.id, t_assigned.id}
+        wanted_choices = {t_open.id, t_assigned.id, self.topic.id, self.statutory_topic.id}
         self.assertEqual(wanted_choices, choices)
 
-    def test_ticket_edit(self):
-        topic = Topic(name='topic', grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
-        topic.save()
-
-        statutory_topic = Topic(name='statutory_topic', ticket_statutory_declaration=True, grant=Grant.objects.get(short_name='g'))
-        statutory_topic.save()
-
-        subtopic = Subtopic(name='subtopic', topic=topic)
-        subtopic2 = Subtopic(name='subtopic2', topic=statutory_topic)
-        subtopic.save()
-        subtopic2.save()
-
-        password = 'my_password'
-        user = User(username='my_user')
-        user.set_password(password)
-        user.save()
-
-        ticket = Ticket(name='ticket', topic=topic, requested_user=None, requested_text='foo')
+    def test_ticket_edit_anonymous(self):
+        ticket = Ticket(name='ticket', topic=self.topic, requested_user=None, requested_text='foo')
         ticket.save()
         ticket.add_acks('close')
 
@@ -416,19 +417,43 @@ class TicketEditTests(TestCase):
         response = c.get(reverse('edit_ticket', kwargs={'pk': ticket.id}))
         self.assertEqual(302, response.status_code)  # should be redirect to login page
 
-        c.login(username=user.username, password=password)
+    def test_ticket_edit_not_owned(self):
+        ticket = Ticket(name='ticket', topic=self.topic, requested_user=None, requested_text='foo')
+        ticket.save()
+        ticket.add_acks('close')
+
+        c = Client()
+        c.login(username=self.user.username, password=self.password)
         response = c.get(reverse('edit_ticket', kwargs={'pk': ticket.id}))
         self.assertEqual(403, response.status_code)  # denies edit of non-own ticket
 
-        ticket.requested_user = user
-        ticket.requested_text = ''
+    def test_ticket_edit_locked(self):
+        ticket = Ticket(name='ticket', topic=self.topic, requested_user=self.user)
         ticket.save()
+        ticket.add_acks('close')
+
+        c = Client()
+        c.login(username=self.user.username, password=self.password)
+
         response = c.get(reverse('edit_ticket', kwargs={'pk': ticket.id}))
         self.assertEqual(403, response.status_code)  # still deny edit, ticket locked
 
-        ticket.ticketack_set.filter(ack_type='close').delete()
+    def test_ticket_edit_loaded(self):
+        ticket = Ticket(name='ticket', topic=self.topic, requested_user=self.user)
+        ticket.save()
+
+        c = Client()
+        c.login(username=self.user.username, password=self.password)
+
         response = c.get(reverse('edit_ticket', kwargs={'pk': ticket.id}))
         self.assertEqual(200, response.status_code)  # now it should pass
+
+    def test_ticket_edit_submit(self):
+        ticket = Ticket(name='ticket', topic=self.topic, requested_user=self.user)
+        ticket.save()
+
+        c = Client()
+        c.login(username=self.user.username, password=self.password)
 
         # try to submit the form
         response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
@@ -445,9 +470,16 @@ class TicketEditTests(TestCase):
 
         # check changed ticket data
         ticket = Ticket.objects.get(id=ticket.id)
-        self.assertEqual(user, ticket.requested_user)
+        self.assertEqual(self.user, ticket.requested_user)
         self.assertEqual('new name', ticket.name)
         self.assertEqual('new desc', ticket.description)
+
+    def test_ticket_edit_expediture_broken(self):
+        ticket = Ticket(name='ticket', topic=self.topic, requested_user=self.user)
+        ticket.save()
+
+        c = Client()
+        c.login(username=self.user.username, password=self.password)
 
         # b0rked expediture items aborts the submit
         response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
@@ -464,6 +496,13 @@ class TicketEditTests(TestCase):
         })
         self.assertEqual(200, response.status_code)
         self.assertEqual('This field is required.', response.context['expeditures'].forms[0].errors['amount'][0])
+
+    def test_ticket_edit_expediture_okay(self):
+        ticket = Ticket(name='ticket', topic=self.topic, requested_user=self.user)
+        ticket.save()
+
+        c = Client()
+        c.login(username=self.user.username, password=self.password)
 
         # add some inline items
         response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
@@ -514,6 +553,13 @@ class TicketEditTests(TestCase):
         self.assertEqual('hundred+1', expeditures[0].description)
         self.assertEqual(101, expeditures[0].amount)
 
+    def test_ticket_edit_precontent_preexpeditures_ignored(self):
+        ticket = Ticket(name='ticket', topic=self.topic, requested_user=self.user)
+        ticket.save()
+
+        c = Client()
+        c.login(username=self.user.username, password=self.password)
+
         # add preexpeditures, and amount flag preack
         deposit_amount = Decimal('12324.37')
         ticket = Ticket.objects.get(id=ticket.id)
@@ -538,6 +584,16 @@ class TicketEditTests(TestCase):
         self.assertEqual(deposit_amount, ticket.deposit)
         self.assertEqual(1, ticket.preexpediture_set.count())
 
+    def test_ticket_edit_precontent_no_preexpeditures(self):
+        ticket = Ticket(name='ticket', topic=self.topic, requested_user=self.user)
+        ticket.save()
+
+        c = Client()
+        c.login(username=self.user.username, password=self.password)
+        ticket.preexpediture_set.create(description='test', amount=15)
+        ticket.save()
+        ticket.add_acks('precontent')
+
         # also, edit should work and not fail on missing preack-ignored fields
         response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
             'name': 'new name',
@@ -548,7 +604,6 @@ class TicketEditTests(TestCase):
         })
         self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
         ticket = Ticket.objects.get(id=ticket.id)
-        self.assertEqual(deposit_amount, ticket.deposit)
         self.assertEqual(1, ticket.preexpediture_set.count())
 
 
