@@ -104,8 +104,7 @@ class TicketAckAddView(FormView):
         ticket = get_object_or_404(Ticket, id=self.kwargs['pk'])
         if not (ticket.can_edit(self.request.user) and self.kwargs['ack_type'] in ticket.possible_user_ack_types()):
             raise PermissionDenied(_('You cannot add ack to a ticket you do not own.'))
-        print(form_class)
-        return form_class(**self.get_form_kwargs())
+        return super().get_form(form_class)
 
     def form_valid(self, form):
         ticket = get_object_or_404(Ticket, id=self.kwargs['pk'])
