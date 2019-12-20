@@ -51,7 +51,7 @@ def ticket_list(request, page):
     return response
 
 
-def tickets(request, lang):
+def tickets_json(request, lang):
     return JsonResponse({"data": [ticket.get_cached_ticket() for ticket in Ticket.objects.order_by('-id')]})
 
 

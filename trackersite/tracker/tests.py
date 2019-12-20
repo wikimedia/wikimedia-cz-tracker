@@ -47,7 +47,7 @@ class SimpleTicketTest(TestCase):
 
     def test_ticket_json(self):
         for langcode, langname in settings.LANGUAGES:
-            response = Client().get(reverse('tickets', kwargs={'lang': langcode}))
+            response = Client().get(reverse('tickets_json', kwargs={'lang': langcode}))
             self.assertEqual(response.status_code, 200)
 
     def test_ticket_detail(self):
