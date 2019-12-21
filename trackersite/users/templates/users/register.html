@@ -6,13 +6,25 @@
 {% block title %}{% trans "Register" %}{% endblock %}
 
 {% block content %}
+<h1>{% trans "Register" %}</h1>
 <form method="post" action="{% url "register" %}">
 {% for field in form %}
+<div class="form-group form-check">
 {{ field.errors }}
 {{ field.label_tag }} {{ field|add_class:"form-control" }}
+</div>
 {% endfor %}
 {% csrf_token %}
-<input class="form-control" type="submit" value="{% trans "register" %}" />
-<p>{% trans "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them." %}</p>
+<div class="form-group form-check">
+<input class="btn btn-primary btn-md btn-block" type="submit" value="{% trans "Register" %}" />
+<div>
 </form>
+<h2>{% trans "Or..." %}</h2>
+<form method="get" action="{% url 'social:begin' 'mediawiki' %}">
+<div class="form-group form-check">
+<input class="btn btn-primary btn-md btn-block type="submit" value="{% trans "Register with Meta Wiki" %}" />
+</div>
+</form>
+<p>{% trans "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them." %}</p>
+<p>{% trans "Already have an acount?" %} <a href="{% url "tracker_login" %}">{% trans "Login" %}</a>
 {% endblock %}

@@ -10,7 +10,7 @@
 	<p>{% blocktrans %} Be warned that you need permission to import more than {{MAX_NUMBER_OF_ROWS_ON_IMPORT}} rows. If you'll submit a file CSV with more than {{MAX_NUMBER_OF_ROWS_ON_IMPORT}} rows, only the first {{MAX_NUMBER_OF_ROWS_ON_IMPORT}} will be processed. If you really need to import more than {{MAX_NUMBER_OF_ROWS_ON_IMPORT}} of objects, please contact the systemadmin.{% endblocktrans %}</p>
 </div>
 {% endif %}
-<form enctype="multipart/form-data" class="form-horizontal" method="POST">
+<form enctype="multipart/form-data" method="POST">
 	{% trans "What kind of objects are you importing?" %}
 	<div class="form-group">
 		<div class="radio">
@@ -66,7 +66,7 @@
 		<input class="form-control" type="file" accept=".csv" name="csvfile">
 	</div>
 	<div class="form-group">
-		<input class="form-control" type="submit">
+		<input class="btn btn-primary btn-md btn-block" type="submit">
 	</div>
 	{% csrf_token %}
 </form>

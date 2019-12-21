@@ -34,12 +34,14 @@
 
 	</tbody>
 </table>
+<p>
 <a href="{% url "importcsv" %}">
 <button class="btn btn-primary">{% trans "Import" %}</button>
 </a>
 <a href="{% url "export" %}">
 <button class="btn btn-primary">{% trans "Export" %}</button>
 </a>
+</p>
 
 <script>
 	fetch('/api/tracker/trackerpreferences/').then(response => response.json())

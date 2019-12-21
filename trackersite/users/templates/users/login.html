@@ -9,23 +9,29 @@
 {% if form.errors %}
 <p>{% trans "Your username and password didn't match. Please try again." %}</p>
 {% endif %}
-
-<form class="form-horizontal" method="post" action="{% url "tracker_login" %}">
+<h1>{% trans "Login" %}</h1>
+<form method="post" action="{% url "tracker_login" %}">
 {% csrf_token %}
 <div class="form-group">
 {% for field in form %}
+<div class="form-group form-check">
 {{ field.errors }}
 {{ field.label_tag }} {{field|add_class:"form-control"}}
+</div>
 {% endfor %}
-<br>
-<button class="btn btn-primary" type="submit" name="next" value="{{ next }}">{% trans "login" %}</button>
+<div class="form-group form-check">
+<input class="btn btn-primary btn-md btn-block" type="submit" value="{% trans "Login" %}" />
+</div>
 </div>
 </form>
-
+<h2>{% trans "Or..." %}</h2>
+<form method="get" action="{% url 'social:begin' 'mediawiki' %}">
+<div class="form-group form-check">
+<input class="btn btn-primary btn-md btn-block" type="submit" value="{% trans "Login with Meta Wiki" %}" />
+</div>
+</form>
 <div style="margin-top: 25px;">
 <p>{% trans "Don't have an acount?" %} <a href="{% url "register" %}">{% trans "Register" %}</a><br />
 {% trans "Forgot password?" %}    <a href="{% url "password_reset" %}">{% trans "Reset password" %}</a><br>
-<a href="{% url 'social:begin' 'mediawiki' %}">{% trans "Login with Meta Wiki" %}</a></p>
-</div>
 
 {% endblock %}

@@ -21,7 +21,9 @@
 {% endif %}
 
 {% csrf_token %}
-<button class="btn btn-primary" id="submit" value="{{ submit|default:_("submit") }}">{% trans "Save" %}</button>
+<p>
+<button class="btn btn-primary btn-md btn-block" id="submit" value="{{ submit|default:_("submit") }}">{% trans "Save" %}</button>
+</p>
 <p>{% blocktrans with mark='<span style="color:red">*</span>' %}Fields marked with {{mark}} are required.{% endblocktrans %}</p>
 
 </form>

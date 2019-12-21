@@ -18,7 +18,7 @@ p.bold-label {
 	{% trans "Only filters with at least one checked checkbox are applied. You can either check all checkboxes or none of them, it's the same." %}
 </div>
 
-<form class="form-horizontal" method="POST">
+<form method="POST">
 	<div class="row">
 	<div class="col">
 		<div class="radio">
@@ -353,7 +353,7 @@ p.bold-label {
 	{% endif %}
 	<div class="col">
 		<br>
-		<input class="form-control" type="submit">
+		<input class="btn btn-primary btn-md btn-block" type="submit">
 	</div>
 	</div>
 	{% csrf_token %}
