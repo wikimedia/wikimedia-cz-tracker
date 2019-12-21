@@ -1,4 +1,4 @@
-{% load comments i18n widget_tweaks %}
+{% load comments i18n widget_tweaks static %}
 <form action="{% comment_form_target %}" method="post">{% csrf_token %}
 	{% if next %}<div><input type="hidden" name="next" value="{{ next }}" /></div>{% endif %}
 	{% for field in form %}
@@ -17,6 +17,7 @@
 		<input type="submit" name="post" class="submit-post btn btn-primary" value="{% trans "Post" %}" />
 		<input type="submit" name="preview" class="submit-preview btn btn-primary" value="{% trans "Preview" %}" />
 	</p>
+	<script src="{% static 'textcomplete.min.js' %}"></script>
 	<script>
 		const form = document.currentScript.parentNode
 		form.addEventListener('keydown', function(ev) {
@@ -24,5 +25,25 @@
 				form.submit()
 			}
 		})
+		const textcomplete = new Textcomplete(
+			new Textcomplete.editors.Textarea(form.querySelector('textarea[name=comment]'))
+		)
+		let users
+		textcomplete.register([
+			{
+				id: 'username',
+				match: /(^|\s)@([^ ]+)$/,
+				search: async function (term, callback) {
+					if (!users) {
+						users = (await (await fetch('/api/auth/users/')).json())
+					}
+					callback(users.filter(user => user.username.toLowerCase().startsWith(term.toLowerCase())))
+				},
+				template: function (user) {
+					return `@<b>${user.username}</b>`;
+				},
+				replace: user => `@${user.username}`
+			}
+		])
 	</script>
 </form>
