@@ -53,7 +53,7 @@ urlpatterns = [
     path('export/', tracker.views.export, name='export'),
     path('import/', tracker.views.importcsv, name='importcsv'),
     path('tickets/json/<str:lang>.json', tracker.views.tickets_json, name='tickets_json'),
-    path('api/mediawiki', tracker.views.mediawiki_api, name='mediawiki_api'),
+    path('api/mediawiki/', tracker.views.mediawiki_api, name='mediawiki_api'),
     path('api/email_all', tracker.views.email_all_users, name='email_all_users'),
     path('api/email_admin', tracker.views.email_all_admins, name='email_all_admins')
 ]
