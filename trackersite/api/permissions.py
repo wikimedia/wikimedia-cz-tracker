@@ -35,7 +35,7 @@ class IsSelfTrackerProfile(BasePermission):
     def has_permission(self, request, view):
         if request.method == "POST" and not request.user.has_perm('tracker.add_trackerprofile'):
             return False
-        return request.user and request.user.is_authenticated()
+        return request.user and request.user.is_authenticated
 
     def has_object_permission(self, request, view, obj):
         return obj.user == request.user or request.user.has_perm('tracker.change_trackerprofile')
