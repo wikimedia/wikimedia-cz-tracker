@@ -30,7 +30,7 @@ urlpatterns = [
     url('admin/', admin.site.urls),
     url('account/', include(users.urls)),
     url('oauth/', include('social_django.urls', namespace='social')),
-    url('lang/', TemplateView.as_view(template_name='choose_language.html'), name='choose_language'),
+    url('^lang/$', TemplateView.as_view(template_name='choose_language.html'), name='choose_language'),
     url('lang/set/', django.views.i18n.set_language, name='set_language'),
     url('api/', include(router.urls)),
     url('api-docs/', get_swagger_view()),
