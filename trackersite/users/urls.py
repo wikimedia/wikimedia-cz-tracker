@@ -6,24 +6,23 @@ import users
 from .views import password_change, invalid_oauth_tokens
 
 urlpatterns = [
-    path('login/', auth.login, kwargs={'template_name': 'users/login.html'}, name='tracker_login'),
-    path('logout/', auth.logout, kwargs={'template_name': 'users/logout.html'}, name='tracker_logout'),
+    path('login/', auth.LoginView.as_view(template_name='users/login.html'), name='tracker_login'),
+    path('logout/', auth.LogoutView.as_view(template_name='users/logout.html'), name='tracker_logout'),
     path('register/', users.views.register, name='register'),
     path('password/change/', password_change, name='password_change',
          kwargs={'template_name': 'users/password_change.html'}),
-    path('password/change/done/', auth.password_change_done, name='password_change_done', kwargs={
-        'template_name': 'users/password_change_done.html',
-    }),
-    path('password/reset/', auth.password_reset, kwargs={
-        'template_name': 'users/password_reset.html', 'email_template_name': 'users/password_reset_email.html'
-    }, name='password_reset'),
-    path('password/reset/sent/', auth.password_reset_done, name='password_reset_done', kwargs={
-        'template_name': 'users/password_reset_done.html',
-    }),
-    path('password/reset/<str:uidb64>/<str:token>/', auth.password_reset_confirm,
-         name='password_reset_confirm', kwargs={'template_name': 'users/password_reset_confirm.html'}),
-    path('password/reset/done/', auth.password_reset_complete, name='password_reset_complete', kwargs={
-        'template_name': 'users/password_reset_complete.html'
-    }),
+    path('password/change/done/', auth.PasswordChangeDoneView.as_view(template_name='users/password_change_done.html'),
+         name='password_change_done'),
+    path('password/reset/', auth.PasswordResetView.as_view(template_name='users/password_reset.html',
+                                                           email_template_name='users/password_reset_email.html'),
+         name='password_reset'),
+    path('password/reset/sent/', auth.PasswordResetDoneView.as_view(template_name='users/password_reset_done.html'),
+         name='password_reset_done'),
+    path('password/reset/<str:uidb64>/<str:token>/',
+         auth.PasswordResetConfirmView.as_view(template_name='users/password_reset_confirm.html'),
+         name='password_reset_confirm'),
+    path('password/reset/done/',
+         auth.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'),
+         name='password_reset_complete'),
     path('oauth/<provider>/invalid/', invalid_oauth_tokens, name='invalid_oauth_tokens'),
 ]

@@ -1,8 +1,8 @@
 # just our usual stuff
-Django==2.0.*
+Django==2.1.*
 django-sendfile
-django-recaptcha2==1.0.3
-django-contrib-comments==1.8.0
+django-recaptcha2
+django-contrib-comments
 django-widget-tweaks
 python-memcached
 social-auth-app-django
@@ -13,9 +13,9 @@ django-background-tasks
 bleach
 
 # For API
-djangorestframework==3.11.0
-django-filter==1.1
-django-rest-swagger==2.2.0
+djangorestframework
+django-filter
+django-rest-swagger
 
 # we'll presume MySQL as the database
 mysql

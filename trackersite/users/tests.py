@@ -22,7 +22,7 @@ class CreateUserTest(TestCase):
 
 class PasswordResetTests(TestCase):
     def test_password_reset(self):
-        response = Client().get(reverse(auth_views.password_reset))
+        response = Client().get(reverse("password_reset"))
         self.assertEqual(200, response.status_code)
 
     def test_password_reset_requested(self):
@@ -31,24 +31,24 @@ class PasswordResetTests(TestCase):
         u.set_password(PW)
         u.save()
 
-        response = Client().post(reverse(auth_views.password_reset), {
+        response = Client().post(reverse("password_reset"), {
             'email': EMAIL,
         })
-        self.assertRedirects(response, reverse(auth_views.password_reset_done))
+        self.assertRedirects(response, reverse("password_reset_done"))
 
         # sent an e-mail
         self.assertEqual(len(mail.outbox), 1)
 
     def test_password_reset_done(self):
-        response = Client().get(reverse(auth_views.password_reset_done))
+        response = Client().get(reverse("password_reset_done"))
         self.assertEqual(200, response.status_code)
 
     def test_password_reset_confirm(self):
-        response = Client().get(reverse(auth_views.password_reset_confirm, kwargs={
+        response = Client().get(reverse("password_reset_confirm", kwargs={
             'uidb64': 'a', 'token': 'a',
         }))
         self.assertEqual(200, response.status_code)
 
     def test_password_reset_complete(self):
-        response = Client().get(reverse(auth_views.password_reset_complete))
+        response = Client().get(reverse("password_reset_complete"))
         self.assertEqual(200, response.status_code)
