@@ -45,7 +45,7 @@ TICKET_EXCLUDE_FIELDS = (
         )
 
 
-def ticket_list(request, page):
+def ticket_list(request, page=1):
     response = render(request, 'tracker/index.html', {"LANGUAGE": get_language()})
     response["Access-Control-Allow-Origin"] = "*"
     return response
@@ -134,7 +134,7 @@ ticket_ack_add = TicketAckAddView.as_view()
 class TicketAckDeleteView(DeleteView):
     model = TicketAck
 
-    def get_object(self):
+    def get_object(self, queryset=None):
         try:
             self.ticket = Ticket.objects.get(id=self.kwargs['pk'])
             ack = self.ticket.ticketack_set.get(id=self.kwargs['ack_id'])
@@ -302,7 +302,7 @@ def get_edit_ticket_form_class(ticket):
 
 
 adminCore = forms.Media(js=(
-    settings.ADMIN_MEDIA_PREFIX + "js/jquery.min.js",
+    settings.ADMIN_MEDIA_PREFIX + "js/vendor/jquery/jquery.min.js",
     settings.STATIC_URL + "jquery.both.js",
     settings.ADMIN_MEDIA_PREFIX + "js/core.js",
     settings.ADMIN_MEDIA_PREFIX + "js/inlines.js",

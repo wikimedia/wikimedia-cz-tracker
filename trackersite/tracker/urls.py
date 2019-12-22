@@ -7,7 +7,7 @@ from tracker import feeds
 from tracker.models import Grant
 
 urlpatterns = [
-    path('tickets/', tracker.views.ticket_list, {"page": 1}, name='ticket_list'),
+    path('tickets/', tracker.views.ticket_list, name='ticket_list'),
     path('tickets/page/<int:page>/', tracker.views.ticket_list, name='ticket_list'),
     path('ticket/watch/<int:pk>/', tracker.views.watch_ticket, name='watch_ticket'),
     path('tickets/feed/', feeds.LatestTicketsFeed(), name='ticket_list_feed'),
