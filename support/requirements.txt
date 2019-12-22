@@ -1,5 +1,5 @@
 # just our usual stuff
-Django==2.1.*
+Django==2.2.*
 django-sendfile
 django-recaptcha2
 django-contrib-comments

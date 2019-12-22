@@ -49,7 +49,7 @@ class SignatureAdmin(admin.TabularInline):
     fields = ('created', 'user', 'signed_text')
     readonly_fields = fields
 
-    def has_add_permission(self, request):
+    def has_add_permission(self, request, obj=None):
         return False
 
 
@@ -61,7 +61,7 @@ class TicketAdmin(admin.ModelAdmin):
         else:
             return qs.extra(where=['topic_id in (select topic_id from tracker_topic_admin where user_id = %s)'], params=[request.user.id])
 
-    def change_view(self, request, object_id, extra_context=None):
+    def change_view(self, request, object_id, form_url="", extra_context=None):
         extra_context = extra_context or {}
         self.ticket = self.get_object(request, object_id)
 
