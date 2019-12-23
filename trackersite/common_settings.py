@@ -102,6 +102,7 @@ LANGUAGES = (
     ('pt', _('Portuguese')),
     ('sv', _('Swedish')),
     ('zh-hant', _('Chinese-traditional')),
+    ('es', _('Spanish'))
 )
 
 AUTHENTICATION_BACKENDS = (
