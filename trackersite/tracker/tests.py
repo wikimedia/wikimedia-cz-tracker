@@ -864,12 +864,32 @@ class SummaryTest(TestCase):
 
 
 class UserProfileTests(TestCase):
+    def setUp(self):
+        self.user1 = User.objects.create(username='simpleuser')
+        self.user2 = User.objects.create(username='simple_user5547')
+        self.user3 = User.objects.create(username='simple_user_5547@+.-')
+
     def test_simple_create(self):
         user = User.objects.create(username='new_user')
         try:
             user.trackerprofile
         except TrackerProfile.DoesNotExist:
             self.fail('Failed to create trackerprofile for new user')
+
+    def test_profile_route(self):
+        response = Client().get(reverse('user_list'))
+        self.assertEqual(200, response.status_code)
+
+    def test_user_profile_load(self):
+        c = Client()
+        response = c.get(UserWrapper(self.user1).get_absolute_url())
+        self.assertEqual(200, response.status_code)
+
+        response = c.get(UserWrapper(self.user2).get_absolute_url())
+        self.assertEqual(200, response.status_code)
+
+        response = c.get(UserWrapper(self.user3).get_absolute_url())
+        self.assertEqual(200, response.status_code)
 
 
 class ImportTests(TestCase):
