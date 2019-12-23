@@ -1,42 +1,44 @@
 # -*- coding: utf-8 -*-
+import csv
 import datetime
 import json
 from collections import namedtuple
+from functools import partial
+from io import TextIOWrapper
 
-from django.db import models, connection
-from django.db.models import Q
 from django import forms
-from django.db.models.functions import Coalesce
-from django.forms.models import fields_for_model, inlineformset_factory, BaseInlineFormSet
+from django.conf import settings
+from django.contrib import messages
+from django.contrib.admin import widgets as adminwidgets
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.views import redirect_to_login
-from django.shortcuts import render, get_object_or_404
-from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest, Http404
 from django.core.exceptions import PermissionDenied
-from django.utils.functional import curry
-from django.utils.translation import ugettext as _, ugettext_lazy
-from django.utils.html import strip_tags
+from django.db import models, connection
+from django.db.models import Q
+from django.db.models.functions import Coalesce
+from django.forms.models import fields_for_model, inlineformset_factory, BaseInlineFormSet
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest, Http404
 from django.http import JsonResponse
-from django.views.generic import ListView, DetailView, FormView, DeleteView
-from django.contrib.admin import widgets as adminwidgets
-from django.views.decorators.csrf import csrf_exempt
-from django.conf import settings
-from django.urls import reverse
-from django.template.loader import get_template
+from django.shortcuts import render, get_object_or_404
 from django.template import Context
-from sendfile import sendfile
+from django.template.loader import get_template
+from django.urls import reverse
+from django.utils.html import strip_tags
 from django.utils.translation import get_language
-from tracker.services import get_request
+from django.utils.translation import ugettext as _, ugettext_lazy
+from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import ListView, DetailView, FormView, DeleteView
+from sendfile import sendfile
 from social_django.models import UserSocialAuth
-from io import TextIOWrapper
-import csv
 
-from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, MediaInfoOld, Expediture, Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher, Signature
-from tracker.models import ACK_TYPES, NOTIFICATION_TYPES
-from users.models import UserWrapper
 from socialauth.api import MediaWiki
+from tracker.models import ACK_TYPES, NOTIFICATION_TYPES
+from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, MediaInfoOld, Expediture, \
+    Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher, \
+    Signature
+from tracker.services import get_request
+from users.models import UserWrapper
 
 TICKET_EXCLUDE_FIELDS = (
             'created', 'media_updated', 'updated', 'requested_user', 'requested_text',
@@ -324,13 +326,13 @@ class ExtraItemFormSet(BaseInlineFormSet):
 
 
 EXPEDITURE_FIELDS = ('description', 'amount', 'wage')
-expeditureformset_factory = curry(
+expeditureformset_factory = partial(
     inlineformset_factory, Ticket, Expediture,
     formset=ExtraItemFormSet, fields=EXPEDITURE_FIELDS
 )
 
 PREEXPEDITURE_FIELDS = ('description', 'amount', 'wage')
-preexpeditureformset_factory = curry(
+preexpeditureformset_factory = partial(
     inlineformset_factory, Ticket, Preexpediture,
     formset=ExtraItemFormSet, fields=PREEXPEDITURE_FIELDS
 )
@@ -776,7 +778,7 @@ def document_formfield(f, **kwargs):
     return f.formfield(**kwargs)
 
 
-documentformset_factory = curry(
+documentformset_factory = partial(
     inlineformset_factory, Ticket, Document,
     fields=DOCUMENT_FIELDS, formfield_callback=document_formfield
 )

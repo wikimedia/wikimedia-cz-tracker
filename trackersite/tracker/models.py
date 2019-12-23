@@ -1200,7 +1200,7 @@ class TrackerPreferences(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     muted_ack = models.CharField(_('Ignored acks'), max_length=300, blank=True)
     muted_notifications = models.CharField(_('Muted notifications'), max_length=300, blank=True)
-    email_language = models.CharField(_('Email language'), max_length=6, blank=False, default="cs",
+    email_language = models.CharField(_('Email language'), max_length=7, blank=False, default="cs",
                                       choices=LANGUAGE_CHOICES)
     display_items = models.IntegerField(_('Display items'),
                                         help_text=_('How many items should we display in tables at once'), default=25)
