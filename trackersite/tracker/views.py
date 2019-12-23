@@ -194,7 +194,7 @@ subtopic_detail = SubtopicDetailView.as_view()
 
 
 class TicketForm(forms.ModelForm):
-    statutory_declaration = forms.BooleanField(label=_('Statutory declaration'), help_text=settings.STATUTORY_DECLARATION_TEXT, required=False)
+    statutory_declaration = forms.BooleanField(label=ugettext_lazy('Statutory declaration'), help_text=settings.STATUTORY_DECLARATION_TEXT, required=False)
 
     def __init__(self, *args, **kwargs):
         super(TicketForm, self).__init__(*args, **kwargs)
