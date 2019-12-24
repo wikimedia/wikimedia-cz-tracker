@@ -3,6 +3,16 @@
 
 {% block title %}{% trans "Edit" %}: {{ticket.name}}{% endblock %}
 
+{% block head %}
+	{{ block.super }}
+
+	{% load static %}
+	<script type="text/javascript" src="{% static 'admin/js/core.js' %}"></script>
+	<script type="text/javascript" src="{% static 'admin/js/admin/RelatedObjectLookups.js' %}"></script>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}"/>
+{% endblock %}
+
 {% block content %}
 <p class="nav"><a href="{% url "ticket_list" %}" class="btn btn-primary">{% trans "index" %}</a> &gt; <a href="{% url "ticket_detail" ticket.id %}">{{ticket.name}}</a> &gt;</p>
 <h1>{% trans "Edit" %}: {{ticket.name}}</h1>
