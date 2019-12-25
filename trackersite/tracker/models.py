@@ -871,7 +871,7 @@ class Topic(CachedModel):
 
     def watches(self, user, event):
         """Watches given user this topic?"""
-        return self.grant.watches(user, event) or (user.is_authenticated() and len(
+        return self.grant.watches(user, event) or (user.is_authenticated and len(
             Watcher.objects.filter(watcher_type='Topic', object_id=self.id, user=user, notification_type=event)) > 0)
 
     class Meta:
@@ -904,7 +904,7 @@ class Grant(CachedModel):
 
     def watches(self, user, event):
         """Watches given user this grant?"""
-        return user.is_authenticated() and len(
+        return user.is_authenticated and len(
             Watcher.objects.filter(watcher_type='Grant', object_id=self.id, user=user, notification_type=event)) > 0
 
     @cached_getter
