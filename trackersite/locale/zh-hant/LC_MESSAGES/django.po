@@ -5,2938 +5,2890 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-12-23 15:16:18+0000\n"
-"X-POT-Import-Date: 2019-12-21 19:30:23+0000\n"
+"PO-Revision-Date: 2019-12-26 12:01:11+0000\n"
+"X-POT-Import-Date: 2019-12-24 23:30:26+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh-Hant\n"
 "X-Generator: MediaWiki 1.35.0-alpha; Translate 2019-04-24\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\trackersite\api\serializers.py:101
+#: api/serializers.py:101
 msgid "Deposit should be zero when creating a ticket"
 msgstr "當建立案件時存款應為零"
 
-#: .\trackersite\api\serializers.py:104
+#: api/serializers.py:104
 msgid "Cannot edit deposit once a ticket has been preaccepted"
 msgstr "當案件被預先接受後，便不可編輯存款"
 
-#: .\trackersite\api\serializers.py:109 .\trackersite\api\serializers.py:112
+#: api/serializers.py:109 api/serializers.py:112
 msgid "Deposit should be lower or equal to the sum of preexpeditures"
 msgstr "存款應低於或等於預先支出的總和"
 
-#: .\trackersite\api\serializers.py:134
+#: api/serializers.py:134
 msgid "You can not add media to this ticket."
 msgstr "您無法對此案件添加媒體。"
 
-#: .\trackersite\api\serializers.py:136
+#: api/serializers.py:136
 msgid "You can not edit the media of this ticket."
 msgstr "您無法編輯此案件的媒體。"
 
-#: .\trackersite\api\serializers.py:162
+#: api/serializers.py:162
 msgid "You can not add expiditures to this ticket."
 msgstr "您無法對此案件添加支出。"
 
-#: .\trackersite\api\serializers.py:164
+#: api/serializers.py:164
 msgid "You can not edit expiditures of this ticket."
 msgstr "您無法編輯此案件的支出。"
 
-#: .\trackersite\api\serializers.py:178
+#: api/serializers.py:178
 msgid "You can not add preexpiditures to this ticket."
 msgstr "您無法對此案件添加預先支出。"
 
-#: .\trackersite\api\serializers.py:180
+#: api/serializers.py:180
 msgid "You can not edit preexpiditures of this ticket."
 msgstr "您無法編輯此案件的預先支出。"
 
-#: .\trackersite\common_settings.py:92
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:18
+#: common_settings.py:92 tracker/templates/tracker/ticket_common_detail.html:18
 msgid "CZK"
 msgstr "捷克克朗"
 
-#: .\trackersite\common_settings.py:95
+#: common_settings.py:95
 msgid "English"
 msgstr "英語"
 
-#: .\trackersite\common_settings.py:96
+#: common_settings.py:96
 msgid "Czech"
 msgstr "捷克語"
 
-#: .\trackersite\common_settings.py:97
+#: common_settings.py:97
 msgid "French"
 msgstr "法語"
 
-#: .\trackersite\common_settings.py:98
+#: common_settings.py:98
 msgid "Arabic"
 msgstr "阿拉伯文"
 
-#: .\trackersite\common_settings.py:99
+#: common_settings.py:99
 msgid "Danish"
 msgstr "丹麥語"
 
-#: .\trackersite\common_settings.py:100
+#: common_settings.py:100
 msgid "Finnish"
 msgstr "芬蘭語"
 
-#: .\trackersite\common_settings.py:101
+#: common_settings.py:101
 msgid "Korean"
 msgstr "韓語"
 
-#: .\trackersite\common_settings.py:102
+#: common_settings.py:102
 msgid "Portuguese"
 msgstr "葡萄牙語"
 
-#: .\trackersite\common_settings.py:103
+#: common_settings.py:103
 msgid "Swedish"
 msgstr "瑞典語"
 
-#: .\trackersite\common_settings.py:104
+#: common_settings.py:104
 msgid "Chinese-traditional"
 msgstr "繁體中文"
 
-#: .\trackersite\customcomments\forms.py:21
+#: common_settings.py:105
+msgid "Spanish"
+msgstr "西班牙語"
+
+#: customcomments/forms.py:21
 msgid "Your name"
 msgstr "您的名稱"
 
-#: .\trackersite\customcomments\forms.py:22
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:13
+#: customcomments/forms.py:22
+#: tracker/templates/tracker/ticketack_confirm_delete.html:13
 msgid "Comment"
 msgstr "註釋"
 
-#: .\trackersite\socialauth\pipeline.py:15
+#: socialauth/pipeline.py:15
 msgid "Successfully linked your wikimedia account!"
 msgstr "成功連結到您的維基媒體帳號！"
 
-#: .\trackersite\socialauth\pipeline.py:21
+#: socialauth/pipeline.py:21
 msgid "Your wikimedia account is no longer linked."
 msgstr "已不再連結您的維基媒體帳號。"
 
-#: .\trackersite\templates\403.html:3
+#: templates/403.html:3
 msgid "403 Forbidden"
 msgstr "403 沒有權限"
 
-#: .\trackersite\templates\403.html:7
+#: templates/403.html:7
 msgid "Forbidden"
 msgstr "沒有權限"
 
-#: .\trackersite\templates\403.html:12
+#: templates/403.html:12
 msgid "You don't have permissions to do this!"
 msgstr "您沒有權限這樣做！"
 
-#: .\trackersite\templates\404.html:3
+#: templates/404.html:3
 msgid "404 Not Found"
 msgstr "404 找不到頁面"
 
-#: .\trackersite\templates\404.html:7
+#: templates/404.html:7
 msgid "Not Found"
 msgstr "找不到頁面"
 
-#: .\trackersite\templates\404.html:10
+#: templates/404.html:10
 #, python-format
 msgid "The requested URL %(request_path)s was not found on this server."
 msgstr "在此伺服器上查無請求的 URL %(request_path)s。"
 
-#: .\trackersite\templates\500.html:3 .\trackersite\templates\500.html:7
+#: templates/500.html:3 templates/500.html:7
 msgid "Internal Error"
 msgstr "內部錯誤"
 
-#: .\trackersite\templates\500.html:10
+#: templates/500.html:10
 msgid "There was an error processing you request. Sorry about that."
 msgstr "很抱歉，處理您的請求時發生錯誤。"
 
-#: .\trackersite\templates\admin\base_site.html:4
+#: templates/admin/base_site.html:4
 msgid "Tracker admin"
 msgstr "Tracker 管理"
 
-#: .\trackersite\templates\admin\base_site.html:7
+#: templates/admin/base_site.html:7
 msgid "Tracker site administration"
 msgstr "Tracker 站台管理"
 
-#: .\trackersite\templates\base.html:32
+#: templates/base.html:32
 msgid "There is no email address associated with this account. Please update your details now."
 msgstr "沒有與此帳號關聯的電子郵件地址，請現在更新您的詳情。"
 
-#: .\trackersite\templates\base.html:35
+#: templates/base.html:35
 msgid "Update details"
 msgstr "更新詳情"
 
-#: .\trackersite\templates\base.html:55
+#: templates/base.html:55
 msgid "Toggle navigation"
 msgstr "導航切換"
 
-#: .\trackersite\templates\base.html:69
+#: templates/base.html:69
 msgid "change password"
 msgstr "變更密碼"
 
-#: .\trackersite\templates\base.html:70
+#: templates/base.html:70
 msgid "change my details"
 msgstr "更改我的詳情"
 
-#: .\trackersite\templates\base.html:71
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:8
+#: templates/base.html:71 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
 msgstr "偏好設定"
 
-#: .\trackersite\templates\base.html:73
+#: templates/base.html:73
 msgid "admin"
 msgstr "管理"
 
-#: .\trackersite\templates\base.html:75 .\trackersite\templates\base.html:90
+#: templates/base.html:75 templates/base.html:90
 msgid "change language"
 msgstr "更改語言"
 
-#: .\trackersite\templates\base.html:77 .\trackersite\templates\base.html:92
+#: templates/base.html:77 templates/base.html:92
 msgid "help"
 msgstr "說明"
 
-#: .\trackersite\templates\base.html:79
+#: templates/base.html:79
 msgid "logout"
 msgstr "登出"
 
-#: .\trackersite\templates\base.html:84 .\trackersite\templates\base.html:87
+#: templates/base.html:84 templates/base.html:87
 msgid "login"
 msgstr "登入"
 
-#: .\trackersite\templates\base.html:89
+#: templates/base.html:89
 msgid "register"
 msgstr "註冊"
 
-#: .\trackersite\templates\base.html:106 .\trackersite\templates\base.html:109
+#: templates/base.html:106 templates/base.html:109
 msgid "Warning"
 msgstr "警告"
 
-#: .\trackersite\templates\base.html:106
+#: templates/base.html:106
 #, python-format
 msgid "You are not in production. If you want to request reimbursement of expenses, go to <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>."
 msgstr "您未在生產裡，若您想要請求費用補貼請前往 <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>。"
 
-#: .\trackersite\templates\base.html:109
+#: templates/base.html:109
 msgid "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox."
 msgstr "您正使用著 Internet Explorer。然而 Tracker 所需要的新功能，是 Internet Explorer 不支援的。因此，Tracker 在 Internet Explorer 上可能會無法完整運作。我們建議您使用別種瀏覽器，像是 Chrome 或是 Firefox。"
 
-#: .\trackersite\templates\choose_language.html:5
-#: .\trackersite\templates\choose_language.html:8
+#: templates/choose_language.html:5 templates/choose_language.html:8
 msgid "Change language"
 msgstr "更改語言"
 
-#: .\trackersite\templates\choose_language.html:23
+#: templates/choose_language.html:23
 msgid "Go"
 msgstr "前往"
 
-#: .\trackersite\templates\comments\form.html:17
-#: .\trackersite\templates\comments\preview.html:31
+#: templates/comments/form.html:17 templates/comments/preview.html:31
 msgid "Post"
 msgstr "發佈"
 
-#: .\trackersite\templates\comments\form.html:18
-#: .\trackersite\templates\comments\preview.html:32
+#: templates/comments/form.html:18 templates/comments/preview.html:32
 msgid "Preview"
 msgstr "預覽"
 
-#: .\trackersite\templates\comments\preview.html:4
-#: .\trackersite\templates\comments\preview.html:15
+#: templates/comments/preview.html:4 templates/comments/preview.html:15
 msgid "Preview your comment"
 msgstr "預覽您的註釋"
 
-#: .\trackersite\templates\comments\preview.html:13
+#: templates/comments/preview.html:13
 msgid "Please correct the error below"
 msgid_plural "Please correct the errors below"
 msgstr[0] "請更正以下錯誤"
 
-#: .\trackersite\tracker\admin.py:30 .\trackersite\tracker\admin.py:36
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:10
+#: tracker/admin.py:30 tracker/admin.py:36
+#: tracker/templates/tracker/ticketack_confirm_delete.html:10
 msgid "Type"
 msgstr "類型"
 
-#: .\trackersite\tracker\admin.py:44
+#: tracker/admin.py:44
 msgid "Add ack"
 msgstr "添加確認"
 
-#: .\trackersite\tracker\admin.py:170
+#: tracker/admin.py:170
 msgid "Mark selected topics as opened for new tickets"
 msgstr "標記所選主題對新案件為開放"
 
-#: .\trackersite\tracker\admin.py:177
+#: tracker/admin.py:177
 msgid "Mark selected topics as closed for new tickets"
 msgstr "標記所選主題對新案件為關閉"
 
-#: .\trackersite\tracker\admin.py:205
+#: tracker/admin.py:205
 msgid "Modify this value by opening or closing topics in this grant to tickets"
 msgstr "透過在此案件授予上開放或關閉主題來變動值"
 
-#: .\trackersite\tracker\feeds.py:12
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:7
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:5
+#: tracker/feeds.py:12 tracker/templates/tracker/generic/ticket_list.html:7
+#: tracker/templates/tracker/topic_detail.html:5
 msgid "Latest tickets"
 msgstr "最新案件"
 
-#: .\trackersite\tracker\feeds.py:13
+#: tracker/feeds.py:13
 msgid "Recently changed tickets"
 msgstr "近期已更改案件"
 
-#: .\trackersite\tracker\feeds.py:26
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:8
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:6
+#: tracker/feeds.py:26 tracker/templates/tracker/generic/ticket_list.html:8
+#: tracker/templates/tracker/topic_detail.html:6
 msgid "Latest submitted tickets"
 msgstr "最新提交案件"
 
-#: .\trackersite\tracker\feeds.py:27
+#: tracker/feeds.py:27
 msgid "Recently changed submitted tickets"
 msgstr "近期已更改的提交案件"
 
-#: .\trackersite\tracker\models.py:42
-#: .\trackersite\tracker\templates\tracker\grant_table.html:11
-#: .\trackersite\tracker\templates\tracker\topic_table.html:13
+#: tracker/models.py:43 tracker/templates/tracker/grant_table.html:11
+#: tracker/templates/tracker/topic_table.html:13
 msgid "n/a"
 msgstr "暫無"
 
-#: .\trackersite\tracker\models.py:43
-#: .\trackersite\tracker\templates\tracker\export.html:246
-#: .\trackersite\tracker\templates\tracker\grant_table.html:12
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:16
-#: .\trackersite\tracker\templates\tracker\topic_table.html:14
+#: tracker/models.py:44 tracker/templates/tracker/export.html:246
+#: tracker/templates/tracker/grant_table.html:12
+#: tracker/templates/tracker/topic_finance.html:16
+#: tracker/templates/tracker/topic_table.html:14
 msgid "unpaid"
 msgstr "尚未付款"
 
-#: .\trackersite\tracker\models.py:44
-#: .\trackersite\tracker\templates\tracker\export.html:247
-#: .\trackersite\tracker\templates\tracker\grant_table.html:13
-#: .\trackersite\tracker\templates\tracker\topic_table.html:15
+#: tracker/models.py:45 tracker/templates/tracker/export.html:247
+#: tracker/templates/tracker/grant_table.html:13
+#: tracker/templates/tracker/topic_table.html:15
 msgid "partially paid"
 msgstr "部份付款"
 
-#: .\trackersite\tracker\models.py:45 .\trackersite\tracker\models.py:1113
-#: .\trackersite\tracker\templates\tracker\export.html:248
-#: .\trackersite\tracker\templates\tracker\grant_table.html:14
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:17
-#: .\trackersite\tracker\templates\tracker\topic_table.html:16
+#: tracker/models.py:46 tracker/models.py:1114
+#: tracker/templates/tracker/export.html:248
+#: tracker/templates/tracker/grant_table.html:14
+#: tracker/templates/tracker/topic_finance.html:17
+#: tracker/templates/tracker/topic_table.html:16
 msgid "paid"
 msgstr "已付款"
 
-#: .\trackersite\tracker\models.py:46
-#: .\trackersite\tracker\templates\tracker\export.html:249
-#: .\trackersite\tracker\templates\tracker\grant_table.html:15
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:18
-#: .\trackersite\tracker\templates\tracker\topic_table.html:17
+#: tracker/models.py:47 tracker/templates/tracker/export.html:249
+#: tracker/templates/tracker/grant_table.html:15
+#: tracker/templates/tracker/topic_finance.html:18
+#: tracker/templates/tracker/topic_table.html:17
 msgid "overpaid"
 msgstr "溢付"
 
-#: .\trackersite\tracker\models.py:50
+#: tracker/models.py:51
 msgid "presubmitted"
 msgstr "已預先提交"
 
-#: .\trackersite\tracker\models.py:51
+#: tracker/models.py:52
 msgid "preaccepted"
 msgstr "已預先接受"
 
-#: .\trackersite\tracker\models.py:52
+#: tracker/models.py:53
 msgid "submitted"
 msgstr "已提交"
 
-#: .\trackersite\tracker\models.py:53
+#: tracker/models.py:54
 msgid "accepted"
 msgstr "已接受"
 
-#: .\trackersite\tracker\models.py:54
+#: tracker/models.py:55
 msgid "expense documents submitted"
 msgstr "費用文件已提交"
 
-#: .\trackersite\tracker\models.py:55
+#: tracker/models.py:56
 msgid "expense documents filed"
 msgstr "費用文件已歸檔"
 
-#: .\trackersite\tracker\models.py:56 .\trackersite\tracker\models.py:375
-#: .\trackersite\tracker\templates\tracker\export.html:52
-#: .\trackersite\tracker\templates\tracker\export.html:53
+#: tracker/models.py:57 tracker/models.py:376
+#: tracker/templates/tracker/export.html:52
+#: tracker/templates/tracker/export.html:53
 msgid "archived"
 msgstr "已歸檔"
 
-#: .\trackersite\tracker\models.py:57 .\trackersite\tracker\models.py:373
-#: .\trackersite\tracker\templates\tracker\export.html:55
-#: .\trackersite\tracker\templates\tracker\export.html:56
+#: tracker/models.py:58 tracker/models.py:374
+#: tracker/templates/tracker/export.html:55
+#: tracker/templates/tracker/export.html:56
 msgid "closed"
 msgstr "已關閉"
 
-#: .\trackersite\tracker\models.py:61
+#: tracker/models.py:62
 msgid "All notifications"
 msgstr "所有通知"
 
-#: .\trackersite\tracker\models.py:62
+#: tracker/models.py:63
 msgid "Comment added"
 msgstr "註釋已添加"
 
-#: .\trackersite\tracker\models.py:63
+#: tracker/models.py:64
 msgid "Supervisor notes changed"
 msgstr "督導記錄已更改"
 
-#: .\trackersite\tracker\models.py:64
+#: tracker/models.py:65
 msgid "New ticket was created"
 msgstr "新案件已建立"
 
-#: .\trackersite\tracker\models.py:65
+#: tracker/models.py:66
 msgid "Ticket was deleted"
 msgstr "案件已刪除"
 
-#: .\trackersite\tracker\models.py:66
+#: tracker/models.py:67
 msgid "Ack added"
 msgstr "確認已添加"
 
-#: .\trackersite\tracker\models.py:67
+#: tracker/models.py:68
 msgid "Ack removed"
 msgstr "確認已移除"
 
-#: .\trackersite\tracker\models.py:68
+#: tracker/models.py:69
 msgid "Ticket changed"
 msgstr "案件已更改"
 
-#: .\trackersite\tracker\models.py:69
+#: tracker/models.py:70
 msgid "New preexpediture was created"
 msgstr "新的預先支出已建立"
 
-#: .\trackersite\tracker\models.py:70
+#: tracker/models.py:71
 msgid "Preexpeditures changed"
 msgstr "預先支出已更改"
 
-#: .\trackersite\tracker\models.py:71
+#: tracker/models.py:72
 msgid "New expediture was created"
 msgstr "新的支出已建立"
 
-#: .\trackersite\tracker\models.py:72
+#: tracker/models.py:73
 msgid "Expeditures changed"
 msgstr "預先支出已更改"
 
-#: .\trackersite\tracker\models.py:73
+#: tracker/models.py:74
 msgid "New media was created"
 msgstr "新媒體已建立"
 
-#: .\trackersite\tracker\models.py:74
+#: tracker/models.py:75
 msgid "Media changed"
 msgstr "媒體已更改"
 
-#: .\trackersite\tracker\models.py:75
+#: tracker/models.py:76
 msgid "Document changed"
 msgstr "文件已更改"
 
-#: .\trackersite\tracker\models.py:135
+#: tracker/models.py:136
 msgid "unknown"
 msgstr "未知"
 
-#: .\trackersite\tracker\models.py:168 .\trackersite\tracker\models.py:1360
+#: tracker/models.py:169 tracker/models.py:1361
 msgid "created"
 msgstr "已建立"
 
-#: .\trackersite\tracker\models.py:241
+#: tracker/models.py:242
 msgid "Signed text"
 msgstr "簽名文字"
 
-#: .\trackersite\tracker\models.py:246
+#: tracker/models.py:247
 msgid "updated"
 msgstr "已更新"
 
-#: .\trackersite\tracker\models.py:247
+#: tracker/models.py:248
 msgid "media updated"
 msgstr "媒體已更新"
 
-#: .\trackersite\tracker\models.py:248
+#: tracker/models.py:249
 msgid "Date when cached information about media were last updated. Used in \"show media\" view."
 msgstr "媒體方面快取資訊上一次更新的日期。使用在「顯示媒體」檢視裡。"
 
-#: .\trackersite\tracker\models.py:249
+#: tracker/models.py:250
 msgid "event date"
 msgstr "事項日期"
 
-#: .\trackersite\tracker\models.py:250
+#: tracker/models.py:251
 msgid "Date of the event this ticket is about"
 msgstr "此案件有關的事項日期"
 
-#: .\trackersite\tracker\models.py:251 .\trackersite\tracker\models.py:412
-#: .\trackersite\tracker\templates\feeds\ticket_description.html:3
+#: tracker/models.py:252 tracker/models.py:413
+#: tracker/templates/feeds/ticket_description.html:3
 msgid "requested by"
 msgstr "請求出自"
 
-#: .\trackersite\tracker\models.py:252
+#: tracker/models.py:253
 msgid "User who created/requested for this ticket"
 msgstr "建立/請求此案件的使用者"
 
-#: .\trackersite\tracker\models.py:254
+#: tracker/models.py:255
 msgid "requested by (text)"
 msgstr "請求出自（文字）"
 
-#: .\trackersite\tracker\models.py:255
+#: tracker/models.py:256
 msgid "Text description of who requested for this ticket, in case user is not filled in"
 msgstr "在使用者未填寫時，有關請求此案件的人之文字描述"
 
-#: .\trackersite\tracker\models.py:256 .\trackersite\tracker\models.py:713
-#: .\trackersite\tracker\models.py:785 .\trackersite\tracker\models.py:963
-#: .\trackersite\tracker\views.py:766
+#: tracker/models.py:257 tracker/models.py:714 tracker/models.py:786
+#: tracker/models.py:964 tracker/views.py:768
 msgid "name"
 msgstr "名稱"
 
-#: .\trackersite\tracker\models.py:256
+#: tracker/models.py:257
 msgid "Name for the ticket"
 msgstr "案件名稱"
 
-#: .\trackersite\tracker\models.py:257 .\trackersite\tracker\models.py:718
-#: .\trackersite\tracker\views.py:537
+#: tracker/models.py:258 tracker/models.py:719 tracker/views.py:539
 msgid "topic"
 msgstr "主題"
 
-#: .\trackersite\tracker\models.py:258
+#: tracker/models.py:259
 msgid "Project topic this ticket belongs to"
 msgstr "此案件所屬的專案主題"
 
-#: .\trackersite\tracker\models.py:259
+#: tracker/models.py:260
 msgid "subtopic"
 msgstr "副主題"
 
-#: .\trackersite\tracker\models.py:260
+#: tracker/models.py:261
 msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
 msgstr "此案件所屬的副主題（若您不清楚可留空）"
 
-#: .\trackersite\tracker\models.py:262
+#: tracker/models.py:263
 msgid "rating percentage"
 msgstr "評級百分比"
 
-#: .\trackersite\tracker\models.py:263
+#: tracker/models.py:264
 msgid "Rating percentage set by topic administrator"
 msgstr "由主題管理員設定的分級百分比"
 
-#: .\trackersite\tracker\models.py:264
+#: tracker/models.py:265
 msgid "report mandatory"
 msgstr "需要回報"
 
-#: .\trackersite\tracker\models.py:264
-#: .\trackersite\tracker\templates\tracker\export.html:73
-#: .\trackersite\tracker\templates\tracker\export.html:75
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:15
+#: tracker/models.py:265 tracker/templates/tracker/export.html:73
+#: tracker/templates/tracker/export.html:75
+#: tracker/templates/tracker/ticket_common_detail.html:15
 msgid "Is report mandatory?"
 msgstr "有需要回報嗎？"
 
-#: .\trackersite\tracker\models.py:265
+#: tracker/models.py:266
 msgid "report url"
 msgstr "回報 url"
 
-#: .\trackersite\tracker\models.py:266
+#: tracker/models.py:267
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
 msgstr "您回報用的 URL，若您想要回報一些問題（或者是您的回報對各主題管理員有所需要）。"
 
-#: .\trackersite\tracker\models.py:267
+#: tracker/models.py:268
 msgid "event url"
 msgstr "事項 url"
 
-#: .\trackersite\tracker\models.py:268
+#: tracker/models.py:269
 msgid "Link to a public page describing the event, if it exist"
 msgstr "連結至描述事項的公開頁面，若有存在的話"
 
-#: .\trackersite\tracker\models.py:269 .\trackersite\tracker\models.py:714
-#: .\trackersite\tracker\models.py:798 .\trackersite\tracker\models.py:890
-#: .\trackersite\tracker\models.py:947 .\trackersite\tracker\models.py:1108
-#: .\trackersite\tracker\models.py:1134 .\trackersite\tracker\models.py:1293
-#: .\trackersite\tracker\views.py:767
+#: tracker/models.py:270 tracker/models.py:715 tracker/models.py:799
+#: tracker/models.py:891 tracker/models.py:948 tracker/models.py:1109
+#: tracker/models.py:1135 tracker/models.py:1294 tracker/views.py:769
 msgid "description"
 msgstr "說明"
 
-#: .\trackersite\tracker\models.py:270
+#: tracker/models.py:271
 msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description. You may use a limited subset of HTML."
 msgstr "用於進一步說明的空間。若您輸入了旅行，請告訴我們您去了哪裡且做了什麼。您可以透過在您的描述裡添加 #ticketid 來連結至其它案件。您可以使用有限的 HTML 子集。"
 
-#: .\trackersite\tracker\models.py:271
+#: tracker/models.py:272
 msgid "supervisor notes"
 msgstr "督導記錄"
 
-#: .\trackersite\tracker\models.py:272
+#: tracker/models.py:273
 msgid "This space is for notes of project supervisors and accounting staff."
 msgstr "此為專案督導記錄以及會計人員利用的空間。"
 
-#: .\trackersite\tracker\models.py:273
+#: tracker/models.py:274
 msgid "deposit"
 msgstr "存款"
 
-#: .\trackersite\tracker\models.py:276
+#: tracker/models.py:277
 msgid "If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."
 msgstr "若您請求財務存款，請在此填寫金額。金額最多為預先支出的總和。若您沒有要請求存款，請填 0。"
 
-#: .\trackersite\tracker\models.py:278
+#: tracker/models.py:279
 msgid "payment status"
 msgstr "支付狀態"
 
-#: .\trackersite\tracker\models.py:279
+#: tracker/models.py:280
 msgid "imported"
 msgstr "已匯入"
 
-#: .\trackersite\tracker\models.py:280
+#: tracker/models.py:281
 msgid "Was this ticket imported from older Tracker version?"
 msgstr "此案件是從較舊的 Tracker 版本所匯入嗎？"
 
-#: .\trackersite\tracker\models.py:281
+#: tracker/models.py:282
 msgid "enable comments"
 msgstr "啟用註釋"
 
-#: .\trackersite\tracker\models.py:282
+#: tracker/models.py:283
 msgid "Can users comment on this ticket?"
 msgstr "使用者可以在此案件上做出註釋嗎？"
 
-#: .\trackersite\tracker\models.py:283
+#: tracker/models.py:284
 msgid "Did you travel by car?"
 msgstr "您是開車旅行的嗎？"
 
-#: .\trackersite\tracker\models.py:284
+#: tracker/models.py:285
 msgid "Do you request reimbursement of car-type travel expense?"
 msgstr "您是否請求車類旅行費用的補貼？"
 
-#: .\trackersite\tracker\models.py:285
+#: tracker/models.py:286
 msgid "Is this ticket completed?"
 msgstr "此案件已完成？"
 
-#: .\trackersite\tracker\models.py:369
+#: tracker/models.py:370
 msgid "historical"
 msgstr "歷史"
 
-#: .\trackersite\tracker\models.py:378
+#: tracker/models.py:379
 msgid "waiting for content rating"
 msgstr "等待內容評級"
 
-#: .\trackersite\tracker\models.py:381
-#: .\trackersite\tracker\templates\tracker\export.html:49
-#: .\trackersite\tracker\templates\tracker\export.html:50
+#: tracker/models.py:382 tracker/templates/tracker/export.html:49
+#: tracker/templates/tracker/export.html:50
 msgid "complete"
 msgstr "完成"
 
-#: .\trackersite\tracker\models.py:383
-#: .\trackersite\tracker\templates\tracker\export.html:46
-#: .\trackersite\tracker\templates\tracker\export.html:47
+#: tracker/models.py:384 tracker/templates/tracker/export.html:46
+#: tracker/templates/tracker/export.html:47
 msgid "waiting for filing of documents"
 msgstr "等待文件歸檔"
 
-#: .\trackersite\tracker\models.py:385
-#: .\trackersite\tracker\templates\tracker\export.html:43
-#: .\trackersite\tracker\templates\tracker\export.html:44
+#: tracker/models.py:386 tracker/templates/tracker/export.html:43
+#: tracker/templates/tracker/export.html:44
 msgid "waiting for document submission"
 msgstr "等待收件"
 
-#: .\trackersite\tracker\models.py:388 .\trackersite\tracker\models.py:395
-#: .\trackersite\tracker\templates\tracker\export.html:40
-#: .\trackersite\tracker\templates\tracker\export.html:41
+#: tracker/models.py:389 tracker/models.py:396
+#: tracker/templates/tracker/export.html:40
+#: tracker/templates/tracker/export.html:41
 msgid "waiting for approval"
 msgstr "等待批准"
 
-#: .\trackersite\tracker\models.py:390
-#: .\trackersite\tracker\templates\tracker\export.html:37
-#: .\trackersite\tracker\templates\tracker\export.html:38
+#: tracker/models.py:391 tracker/templates/tracker/export.html:37
+#: tracker/templates/tracker/export.html:38
 msgid "waiting for submitting"
 msgstr "等待提交"
 
-#: .\trackersite\tracker\models.py:393
-#: .\trackersite\tracker\templates\tracker\export.html:34
-#: .\trackersite\tracker\templates\tracker\export.html:35
+#: tracker/models.py:394 tracker/templates/tracker/export.html:34
+#: tracker/templates/tracker/export.html:35
 msgid "waiting for preapproval"
 msgstr "等待預先批准"
 
-#: .\trackersite\tracker\models.py:397
-#: .\trackersite\tracker\templates\tracker\export.html:31
-#: .\trackersite\tracker\templates\tracker\export.html:32
+#: tracker/models.py:398 tracker/templates/tracker/export.html:31
+#: tracker/templates/tracker/export.html:32
 msgid "draft"
 msgstr "草案"
 
-#: .\trackersite\tracker\models.py:400
-#: .\trackersite\tracker\templates\tracker\export.html:30
+#: tracker/models.py:401 tracker/templates/tracker/export.html:30
 msgid "state"
 msgstr "狀態"
 
-#: .\trackersite\tracker\models.py:424
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:26
+#: tracker/models.py:425 tracker/templates/tracker/admin_user_list.html:26
 msgid "E-mail"
 msgstr "電子郵件"
 
-#: .\trackersite\tracker\models.py:425 .\trackersite\tracker\models.py:1233
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:31
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:34
+#: tracker/models.py:426 tracker/models.py:1234
+#: tracker/templates/tracker/admin_user_list.html:31
+#: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
 msgstr "其他聯絡人"
 
-#: .\trackersite\tracker\models.py:429
+#: tracker/models.py:430
 msgid "no tracker account listed"
 msgstr "沒有列出 Tracker 帳號"
 
-#: .\trackersite\tracker\models.py:431
+#: tracker/models.py:432
 msgid "Requester details"
 msgstr "請求者詳情"
 
-#: .\trackersite\tracker\models.py:638
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:28
+#: tracker/models.py:639 tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Ticket"
 msgstr "案件"
 
-#: .\trackersite\tracker\models.py:639
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:12
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:19
-#: .\trackersite\tracker\templates\tracker\export.html:25
-#: .\trackersite\tracker\templates\tracker\grant_table.html:6
-#: .\trackersite\tracker\templates\tracker\import.html:19
-#: .\trackersite\tracker\templates\tracker\subtopic_detail.html:15
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:37
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:12
-#: .\trackersite\tracker\templates\tracker\topic_table.html:7
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
-#: .\trackersite\tracker\templates\tracker\user_detail.html:22
-#: .\trackersite\tracker\templates\tracker\user_list.html:13
+#: tracker/models.py:640 tracker/templates/tracker/cluster_detail.html:12
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/export.html:25
+#: tracker/templates/tracker/grant_table.html:6
+#: tracker/templates/tracker/import.html:19
+#: tracker/templates/tracker/subtopic_detail.html:15
+#: tracker/templates/tracker/topic_detail.html:37
+#: tracker/templates/tracker/topic_finance.html:12
+#: tracker/templates/tracker/topic_table.html:7
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22
+#: tracker/templates/tracker/user_list.html:13
 msgid "Tickets"
 msgstr "案件"
 
-#: .\trackersite\tracker\models.py:715 .\trackersite\tracker\models.py:717
+#: tracker/models.py:716 tracker/models.py:718
 msgid "Description shown to users who enter tickets for this subtopic"
 msgstr "描述會對向此副主題輸入案件的使用者顯示出"
 
-#: .\trackersite\tracker\models.py:716 .\trackersite\tracker\models.py:800
+#: tracker/models.py:717 tracker/models.py:801
 msgid "form description"
 msgstr "表單說明"
 
-#: .\trackersite\tracker\models.py:719
+#: tracker/models.py:720
 msgid "Topic where this subtopic belongs"
 msgstr "此副主題所屬的主題"
 
-#: .\trackersite\tracker\models.py:778
-#: .\trackersite\tracker\templates\tracker\index.html:24
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:13
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:16
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:31
+#: tracker/models.py:779 tracker/templates/tracker/index.html:24
+#: tracker/templates/tracker/ticket_common_detail.html:13
+#: tracker/templates/tracker/ticket_table.html:16
+#: tracker/templates/tracker/ticket_table.html:31
 msgid "Subtopic"
 msgstr "副主題"
 
-#: .\trackersite\tracker\models.py:779
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:28
+#: tracker/models.py:780 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
 msgstr "副主題"
 
-#: .\trackersite\tracker\models.py:786 .\trackersite\tracker\views.py:566
+#: tracker/models.py:787 tracker/views.py:568
 msgid "grant"
 msgstr "授予"
 
-#: .\trackersite\tracker\models.py:787
+#: tracker/models.py:788
 msgid "Grant project where this topic belongs"
 msgstr "授予此主題所屬的專案"
 
-#: .\trackersite\tracker\models.py:788
+#: tracker/models.py:789
 msgid "open for tickets"
 msgstr "對案件開放"
 
-#: .\trackersite\tracker\models.py:789
+#: tracker/models.py:790
 msgid "Is this topic open for ticket submissions from users?"
 msgstr "此主題對使用者提交的案件開放嗎？"
 
-#: .\trackersite\tracker\models.py:790
+#: tracker/models.py:791
 msgid "ticket media"
 msgstr "案件媒體"
 
-#: .\trackersite\tracker\models.py:791
+#: tracker/models.py:792
 msgid "Does this topic track ticket media items?"
 msgstr "此主題追蹤案件媒體項目嗎？"
 
-#: .\trackersite\tracker\models.py:792
+#: tracker/models.py:793
 msgid "ticket expenses"
 msgstr "案件費用"
 
-#: .\trackersite\tracker\models.py:793
+#: tracker/models.py:794
 msgid "Does this topic track ticket expenses?"
 msgstr "此主題追蹤案件費用嗎？"
 
-#: .\trackersite\tracker\models.py:794
+#: tracker/models.py:795
 msgid "ticket preexpenses"
 msgstr "案件預先費用"
 
-#: .\trackersite\tracker\models.py:795
+#: tracker/models.py:796
 msgid "Does this topic track preexpenses?"
 msgstr "此主題追蹤預先費用嗎？"
 
-#: .\trackersite\tracker\models.py:796
+#: tracker/models.py:797
 msgid "require statutory declaration"
 msgstr "請求法定聲明"
 
-#: .\trackersite\tracker\models.py:797
+#: tracker/models.py:798
 msgid "Does this topic require statutory declaration for car travelling?"
 msgstr "此主題是否需要汽車旅行方面的法定聲明？"
 
-#: .\trackersite\tracker\models.py:799 .\trackersite\tracker\models.py:891
+#: tracker/models.py:800 tracker/models.py:892
 msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
 msgstr "詳情描述，現可允許使用 HTML，並會自動解析換行符號"
 
-#: .\trackersite\tracker\models.py:801
+#: tracker/models.py:802
 msgid "Description shown to users who enter tickets for this topic"
 msgstr "描述會對向此主題輸入案件的使用者顯示出"
 
-#: .\trackersite\tracker\models.py:802
+#: tracker/models.py:803
 msgid "topic administrator"
 msgstr "主題管理員"
 
-#: .\trackersite\tracker\models.py:803
+#: tracker/models.py:804
 msgid "Selected users will have administration access to this topic."
 msgstr "所選使用者將會有此主題管理權限。"
 
-#: .\trackersite\tracker\models.py:877
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:11
-#: .\trackersite\tracker\templates\tracker\index.html:23
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:12
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:15
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:30
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:14
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:11
-#: .\trackersite\tracker\templates\tracker\topic_table.html:5
+#: tracker/models.py:878 tracker/templates/tracker/dumpaccounts/index.html:11
+#: tracker/templates/tracker/index.html:23
+#: tracker/templates/tracker/ticket_common_detail.html:12
+#: tracker/templates/tracker/ticket_table.html:15
+#: tracker/templates/tracker/ticket_table.html:30
+#: tracker/templates/tracker/topic_content_acks_per_user.html:14
+#: tracker/templates/tracker/topic_finance.html:11
+#: tracker/templates/tracker/topic_table.html:5
 msgid "Topic"
 msgstr "主題"
 
-#: .\trackersite\tracker\models.py:878
-#: .\trackersite\tracker\templates\tracker\export.html:61
-#: .\trackersite\tracker\templates\tracker\export.html:212
-#: .\trackersite\tracker\templates\tracker\import.html:26
+#: tracker/models.py:879 tracker/templates/tracker/export.html:61
+#: tracker/templates/tracker/export.html:212
+#: tracker/templates/tracker/import.html:26
 msgid "Topics"
 msgstr "主題"
 
-#: .\trackersite\tracker\models.py:887
+#: tracker/models.py:888
 msgid "full name"
 msgstr "全名"
 
-#: .\trackersite\tracker\models.py:887
+#: tracker/models.py:888
 msgid "Full name for headlines and such"
 msgstr "用於標題之類的全名"
 
-#: .\trackersite\tracker\models.py:888
+#: tracker/models.py:889
 msgid "short name"
 msgstr "簡稱"
 
-#: .\trackersite\tracker\models.py:888
+#: tracker/models.py:889
 msgid "Shorter name for use in tables"
 msgstr "用於表格的簡短名稱"
 
-#: .\trackersite\tracker\models.py:889
+#: tracker/models.py:890
 msgid "slug"
 msgstr "slug"
 
-#: .\trackersite\tracker\models.py:889
+#: tracker/models.py:890
 msgid "Shortcut for usage in URLs"
 msgstr "用於在 URL 裡使用的捷徑"
 
-#: .\trackersite\tracker\models.py:931
-#: .\trackersite\tracker\templates\tracker\grant_table.html:5
-#: .\trackersite\tracker\templates\tracker\index.html:22
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:14
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:29
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:13
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:10
-#: .\trackersite\tracker\templates\tracker\topic_table.html:6
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
+#: tracker/models.py:932 tracker/templates/tracker/grant_table.html:5
+#: tracker/templates/tracker/index.html:22
+#: tracker/templates/tracker/ticket_table.html:14
+#: tracker/templates/tracker/ticket_table.html:29
+#: tracker/templates/tracker/topic_content_acks_per_user.html:13
+#: tracker/templates/tracker/topic_finance.html:10
+#: tracker/templates/tracker/topic_table.html:6
+#: tracker/templates/tracker/transaction_list.html:15
 msgid "Grant"
 msgstr "授予"
 
-#: .\trackersite\tracker\models.py:932
-#: .\trackersite\tracker\templates\tracker\export.html:141
-#: .\trackersite\tracker\templates\tracker\import.html:34
+#: tracker/models.py:933 tracker/templates/tracker/export.html:141
+#: tracker/templates/tracker/import.html:34
 msgid "Grants"
 msgstr "授予"
 
-#: .\trackersite\tracker\models.py:945 .\trackersite\tracker\models.py:961
-#: .\trackersite\tracker\models.py:1106 .\trackersite\tracker\models.py:1132
-#: .\trackersite\tracker\views.py:492
+#: tracker/models.py:946 tracker/models.py:962 tracker/models.py:1107
+#: tracker/models.py:1133 tracker/views.py:494
 msgid "ticket"
 msgstr "案件"
 
-#: .\trackersite\tracker\models.py:946 .\trackersite\tracker\models.py:962
+#: tracker/models.py:947 tracker/models.py:963
 msgid "Ticket this media info belongs to"
 msgstr "此媒體資訊所屬的案件"
 
-#: .\trackersite\tracker\models.py:947
+#: tracker/models.py:948
 msgid "Item description to show"
 msgstr "要顯示的項目描述"
 
-#: .\trackersite\tracker\models.py:948 .\trackersite\tracker\models.py:966
+#: tracker/models.py:949 tracker/models.py:967
 msgid "URL"
 msgstr "URL"
 
-#: .\trackersite\tracker\models.py:948
+#: tracker/models.py:949
 msgid "Link to media files"
 msgstr "連結至媒體檔案"
 
-#: .\trackersite\tracker\models.py:949
+#: tracker/models.py:950
 msgid "count"
 msgstr "總數"
 
-#: .\trackersite\tracker\models.py:949
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:45
+#: tracker/models.py:950 tracker/templates/tracker/ticket_show_media.html:45
 msgid "Number of files"
 msgstr "檔案號碼"
 
-#: .\trackersite\tracker\models.py:955 .\trackersite\tracker\models.py:956
-#: .\trackersite\tracker\models.py:1094 .\trackersite\tracker\models.py:1095
+#: tracker/models.py:956 tracker/models.py:957 tracker/models.py:1095
+#: tracker/models.py:1096
 msgid "Ticket media"
 msgstr "案件媒體"
 
-#: .\trackersite\tracker\models.py:964
+#: tracker/models.py:965
 msgid "width"
 msgstr "寬度"
 
-#: .\trackersite\tracker\models.py:965
+#: tracker/models.py:966
 msgid "height"
 msgstr "高度"
 
-#: .\trackersite\tracker\models.py:967
+#: tracker/models.py:968
 msgid "cannonical title"
 msgstr "標準標題"
 
-#: .\trackersite\tracker\models.py:968
+#: tracker/models.py:969
 msgid "categories"
 msgstr "分類"
 
-#: .\trackersite\tracker\models.py:969
+#: tracker/models.py:970
 msgid "usages"
 msgstr "使用"
 
-#: .\trackersite\tracker\models.py:1107
+#: tracker/models.py:1108
 msgid "Ticket this expediture belongs to"
 msgstr "此支出所屬的案件"
 
-#: .\trackersite\tracker\models.py:1108
+#: tracker/models.py:1109
 msgid "Description of this expediture"
 msgstr "此支出的描述"
 
-#: .\trackersite\tracker\models.py:1109 .\trackersite\tracker\models.py:1135
-#: .\trackersite\tracker\models.py:1291
+#: tracker/models.py:1110 tracker/models.py:1136 tracker/models.py:1292
 msgid "amount"
 msgstr "金額"
 
-#: .\trackersite\tracker\models.py:1110
+#: tracker/models.py:1111
 msgid "Expediture amount in"
 msgstr "支出金額於"
 
-#: .\trackersite\tracker\models.py:1111 .\trackersite\tracker\models.py:1294
+#: tracker/models.py:1112 tracker/models.py:1295
 msgid "accounting info"
 msgstr "帳號資訊"
 
-#: .\trackersite\tracker\models.py:1112
+#: tracker/models.py:1113
 msgid "Accounting info, this is editable only through admin field"
 msgstr "帳號資訊僅可透過管理欄位編輯"
 
-#: .\trackersite\tracker\models.py:1114 .\trackersite\tracker\models.py:1137
+#: tracker/models.py:1115 tracker/models.py:1138
 msgid "wage"
 msgstr "報酬"
 
-#: .\trackersite\tracker\models.py:1117 .\trackersite\tracker\models.py:1140
+#: tracker/models.py:1118 tracker/models.py:1141
 #, python-format
 msgid "%(description)s (%(amount)s %(currency)s)"
 msgstr "%(description)s (%(amount)s %(currency)s)"
 
-#: .\trackersite\tracker\models.py:1126
+#: tracker/models.py:1127
 msgid "Ticket expediture"
 msgstr "案件支出"
 
-#: .\trackersite\tracker\models.py:1127
+#: tracker/models.py:1128
 msgid "Ticket expeditures"
 msgstr "案件支出"
 
-#: .\trackersite\tracker\models.py:1133
+#: tracker/models.py:1134
 msgid "Ticket this preexpediture belongs to"
 msgstr "此預先支出所屬的案件"
 
-#: .\trackersite\tracker\models.py:1134
+#: tracker/models.py:1135
 msgid "Description of this preexpediture"
 msgstr "此預先支出的描述"
 
-#: .\trackersite\tracker\models.py:1136
+#: tracker/models.py:1137
 msgid "Preexpediture amount in"
 msgstr "預先支出金額於"
 
-#: .\trackersite\tracker\models.py:1144
+#: tracker/models.py:1145
 msgid "Ticket preexpediture"
 msgstr "案件預先支出"
 
-#: .\trackersite\tracker\models.py:1145
+#: tracker/models.py:1146
 msgid "Ticket preexpeditures"
 msgstr "案件預先支出"
 
-#: .\trackersite\tracker\models.py:1149
+#: tracker/models.py:1150
 msgid "uploader"
 msgstr "上傳者"
 
-#: .\trackersite\tracker\models.py:1159 .\trackersite\tracker\views.py:766
+#: tracker/models.py:1160 tracker/views.py:768
 msgid "We need a sane file name, such as my-invoice123.jpg"
 msgstr "我們需要明確的檔案名稱，例如 my-invoice123.jpg"
 
-#: .\trackersite\tracker\models.py:1200
+#: tracker/models.py:1201
 msgid "Ignored acks"
 msgstr "已忽略的確認"
 
-#: .\trackersite\tracker\models.py:1201
+#: tracker/models.py:1202
 msgid "Muted notifications"
 msgstr "關閉通知"
 
-#: .\trackersite\tracker\models.py:1202
+#: tracker/models.py:1203
 msgid "Email language"
 msgstr "電子郵件語言"
 
-#: .\trackersite\tracker\models.py:1204
+#: tracker/models.py:1205
 msgid "Display items"
 msgstr "顯示項目"
 
-#: .\trackersite\tracker\models.py:1205
+#: tracker/models.py:1206
 msgid "How many items should we display in tables at once"
 msgstr "在表格上一次應顯示出多少個項目"
 
-#: .\trackersite\tracker\models.py:1224
+#: tracker/models.py:1225
 msgid "Tracker user preference"
 msgstr "Tracker 使用者偏好設定"
 
-#: .\trackersite\tracker\models.py:1225
+#: tracker/models.py:1226
 msgid "Tracker user preferences"
 msgstr "Tracker 使用者偏好設定"
 
-#: .\trackersite\tracker\models.py:1230
+#: tracker/models.py:1231
 msgid "Username on mediawiki"
 msgstr "在 mediawiki 的使用者名稱"
 
-#: .\trackersite\tracker\models.py:1231
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:30
+#: tracker/models.py:1232 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
 msgstr "銀行帳戶"
 
-#: .\trackersite\tracker\models.py:1232
+#: tracker/models.py:1233
 msgid "Bank account information for money transfers"
 msgstr "用於匯款的銀行帳戶資訊"
 
-#: .\trackersite\tracker\models.py:1234
+#: tracker/models.py:1235
 msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
 msgstr "其它像是 wiki 帳號的聯絡方式，在主題管理員需澄清一些信息時會很有用。"
 
-#: .\trackersite\tracker\models.py:1235
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:32
+#: tracker/models.py:1236 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
 msgstr "其它辨識"
 
-#: .\trackersite\tracker\models.py:1236
+#: tracker/models.py:1237
 msgid "Address, or other identification information, so we know who are we sending money to"
 msgstr "地址或是其它的辨識資訊，以讓我們了解我們是寄送金錢給誰"
 
-#: .\trackersite\tracker\models.py:1267
+#: tracker/models.py:1268
 msgid "Tracker profile"
 msgstr "Tracker 個人檔案"
 
-#: .\trackersite\tracker\models.py:1268
+#: tracker/models.py:1269
 msgid "Tracker profiles"
 msgstr "Tracker 個人檔案"
 
-#: .\trackersite\tracker\models.py:1286
+#: tracker/models.py:1287
 msgid "date"
 msgstr "日期"
 
-#: .\trackersite\tracker\models.py:1287 .\trackersite\tracker\models.py:1311
+#: tracker/models.py:1288 tracker/models.py:1312
 msgid "other party"
 msgstr "其他方"
 
-#: .\trackersite\tracker\models.py:1288
+#: tracker/models.py:1289
 msgid "The other party; user who sent or received the payment"
 msgstr "其他方，發送或收到支付的使用者"
 
-#: .\trackersite\tracker\models.py:1289
+#: tracker/models.py:1290
 msgid "other party (text)"
 msgstr "其他方（文字）"
 
-#: .\trackersite\tracker\models.py:1290
+#: tracker/models.py:1291
 msgid "The other party; this text is used when user is not selected"
 msgstr "其他方，當未選擇使用者時使用此文字"
 
-#: .\trackersite\tracker\models.py:1292
+#: tracker/models.py:1293
 msgid "Payment amount; Positive value means transaction to the user, negative is a transaction from the user"
 msgstr "支付金額，正數代表給使用者的交易；負數代表來自於使用者的交易"
 
-#: .\trackersite\tracker\models.py:1293
+#: tracker/models.py:1294
 msgid "Description of this transaction"
 msgstr "此交易的描述"
 
-#: .\trackersite\tracker\models.py:1294
-#: .\trackersite\tracker\templates\feeds\transaction_description.html:6
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:19
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:64
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:34
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
-#: .\trackersite\tracker\templates\tracker\user_detail.html:22
-#: .\trackersite\tracker\views.py:1688
+#: tracker/models.py:1295
+#: tracker/templates/feeds/transaction_description.html:6
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1690
 msgid "Accounting info"
 msgstr "帳號資訊"
 
-#: .\trackersite\tracker\models.py:1295
+#: tracker/models.py:1296
 msgid "related tickets"
 msgstr "相關案件"
 
-#: .\trackersite\tracker\models.py:1296
+#: tracker/models.py:1297
 msgid "Tickets this trackaction is related to"
 msgstr "此追蹤操作所相關的案件"
 
-#: .\trackersite\tracker\models.py:1335
+#: tracker/models.py:1336
 msgid "Transaction"
 msgstr "交易"
 
-#: .\trackersite\tracker\models.py:1336
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:18
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:30
-#: .\trackersite\tracker\templates\tracker\user_detail.html:19
+#: tracker/models.py:1337 tracker/templates/tracker/cluster_detail.html:18
+#: tracker/templates/tracker/ticket_detail.html:30
+#: tracker/templates/tracker/user_detail.html:19
 msgid "Transactions"
 msgstr "交易"
 
-#: .\trackersite\tracker\models.py:1362
+#: tracker/models.py:1363
 msgid "comment"
 msgstr "註釋"
 
-#: .\trackersite\tracker\models.py:1486
+#: tracker/models.py:1487
 #, python-format
 msgid "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> by user <tt>%(user)s</tt>"
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>添加註釋<tt>%(comment)s</tt>"
 
-#: .\trackersite\tracker\models.py:1517
+#: tracker/models.py:1518
 #, python-format
 msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
 msgstr "使用者<tt>%(user)s</tt>已在主題<tt>%(topic)s</tt>建立案件<a href=\"%(ticket_url)s\">%(ticket)s</a>。"
 
-#: .\trackersite\tracker\models.py:1533
+#: tracker/models.py:1534
 #, python-format
 msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的督導記錄。"
 
-#: .\trackersite\tracker\models.py:1553
+#: tracker/models.py:1554
 #, python-format
 msgid "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的描述。"
 
-#: .\trackersite\tracker\models.py:1556
+#: tracker/models.py:1557
 #, python-format
 msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的名稱。"
 
-#: .\trackersite\tracker\models.py:1559
+#: tracker/models.py:1560
 #, python-format
 msgid "User <tt>%(user)s</tt> changed link to report of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的回報連結。"
 
-#: .\trackersite\tracker\models.py:1563
+#: tracker/models.py:1564
 #, python-format
 msgid "User <tt>%(user)s</tt> changed requested deposit of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的請求存款。"
 
-#: .\trackersite\tracker\models.py:1573
+#: tracker/models.py:1574
 #, python-format
 msgid "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的「有需要回報嗎？」欄位。"
 
-#: .\trackersite\tracker\models.py:1585
+#: tracker/models.py:1586
 #, python-format
 msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
 msgstr "案件「%(ticket)s」已被使用者%(user)s給刪除"
 
-#: .\trackersite\tracker\models.py:1602
+#: tracker/models.py:1603
 #, python-format
 msgid "User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>添加確認<tt>%(ack_type)s</tt>。"
 
-#: .\trackersite\tracker\models.py:1616
+#: tracker/models.py:1617
 #, python-format
 msgid "User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "使用者<tt>%(user)s</tt>已從案件<a href=\"%(ticket_url)s\">%(ticket)s</a>移除確認<tt>%(ack_type)s</tt>。"
 
-#: .\trackersite\tracker\models.py:1647
+#: tracker/models.py:1648
 #, python-format
 msgid "User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>添加計劃支出<tt>%(expeditures)s</tt>。"
 
-#: .\trackersite\tracker\models.py:1669
+#: tracker/models.py:1670
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>計劃支出<tt>%(expeditures)s</tt>設定為報酬。"
 
-#: .\trackersite\tracker\models.py:1672
+#: tracker/models.py:1673
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>計劃支出<tt>%(expeditures)s</tt>設定為非報酬。"
 
-#: .\trackersite\tracker\models.py:1675
+#: tracker/models.py:1676
 #, python-format
 msgid "User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>更改計劃支出從<tt>%(old_expediture)s</tt>成為<tt>%(expeditures)s</tt>。"
 
-#: .\trackersite\tracker\models.py:1692
+#: tracker/models.py:1693
 #, python-format
 msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已從案件<a href=\"%(ticket_url)s\">%(ticket)s</a>移除計劃支出<tt>%(expediture)s</tt>。"
 
-#: .\trackersite\tracker\models.py:1713
+#: tracker/models.py:1714
 #, python-format
 msgid "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>添加實際支出<tt>%(expeditures)s</tt>。"
 
-#: .\trackersite\tracker\models.py:1736
+#: tracker/models.py:1737
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as paid."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>實際支出<tt>%(expeditures)s</tt>設定為已付款。"
 
-#: .\trackersite\tracker\models.py:1739
+#: tracker/models.py:1740
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not paid."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>實際支出<tt>%(expeditures)s</tt>設定為未付款。"
 
-#: .\trackersite\tracker\models.py:1744
+#: tracker/models.py:1745
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>實際支出<tt>%(expeditures)s</tt>設定為報酬。"
 
-#: .\trackersite\tracker\models.py:1747
+#: tracker/models.py:1748
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>實際支出<tt>%(expeditures)s</tt>設定為非報酬。"
 
-#: .\trackersite\tracker\models.py:1754
+#: tracker/models.py:1755
 #, python-format
 msgid "User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>更改實際支出從<tt>%(old_expediture)s</tt>成為<tt>%(expeditures)s</tt>。"
 
-#: .\trackersite\tracker\models.py:1771
+#: tracker/models.py:1772
 #, python-format
 msgid "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已從案件<a href=\"%(ticket_url)s\">%(ticket)s</a>移除實際支出<tt>%(expeditures)s</tt>。"
 
-#: .\trackersite\tracker\models.py:1785
+#: tracker/models.py:1786
 #, python-format
 msgid "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已添加媒體給案件<a href=\"%(ticket_url)s\">%(ticket)s</a>。"
 
-#: .\trackersite\tracker\models.py:1788
+#: tracker/models.py:1789
 #, python-format
 msgid "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的媒體。"
 
-#: .\trackersite\tracker\models.py:1802
+#: tracker/models.py:1803
 #, python-format
 msgid "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已從案件<a href=\"%(ticket_url)s\">%(ticket)s</a>移除媒體。"
 
-#: .\trackersite\tracker\models.py:1815 .\trackersite\tracker\models.py:1832
+#: tracker/models.py:1816 tracker/models.py:1833
 msgid "no description"
 msgstr "沒有描述"
 
-#: .\trackersite\tracker\models.py:1818
+#: tracker/models.py:1819
 #, python-format
 msgid "User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>添加文件<tt>%(document_filename)s (%(document_description)s)</tt>"
 
-#: .\trackersite\tracker\models.py:1835
+#: tracker/models.py:1836
 #, python-format
 msgid "User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "使用者<tt>%(user)s</tt>已移除來自案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的文件<tt>%(document_filename)s (%(document_description)s)</tt>"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\ack_line.html:1
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "REMOVE"
 msgstr "移除"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\ack_line.html:1
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "Really remove?"
 msgstr "確定移除？"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\ack_line.html:1
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "YES"
 msgstr "是"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\ack_norating_error.html:2
+#: tracker/templates/admin/tracker/ticket/ack_norating_error.html:2
 msgid "You must fill rating percentage before you will be able to accept the ticket."
 msgstr "在您接受能夠案件之前，您必須填寫評級百分比。"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\ack_noreport_error.html:2
+#: tracker/templates/admin/tracker/ticket/ack_noreport_error.html:2
 msgid "You cannot accept ticket when a report is mandatory and no report was given"
 msgstr "當回報為必需且沒有提供回報時，您無法接受案件"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\add_ack.html:3
+#: tracker/templates/admin/tracker/ticket/add_ack.html:3
 msgid "add new ack"
 msgstr "添加新的確認"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:11
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:7
-#: .\trackersite\tracker\views.py:1686 .\trackersite\tracker\views.py:1695
-#: .\trackersite\tracker\views.py:1705
+#: tracker/templates/admin/tracker/ticket/change_form.html:11
+#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1688
+#: tracker/views.py:1697 tracker/views.py:1707
 msgid "Ticket ID"
 msgstr "案件 ID"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:14
+#: tracker/templates/admin/tracker/ticket/change_form.html:14
 msgid "Approvals"
 msgstr "批准"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:18
+#: tracker/templates/admin/tracker/ticket/change_form.html:18
 msgid "ADD ACK"
 msgstr "添加確認"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:34
+#: tracker/templates/admin/tracker/ticket/change_form.html:34
 msgid "Ticket documents"
 msgstr "案件文件"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:37
-#: .\trackersite\tracker\templates\tracker\edit_ticket.html:10
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:19
+#: tracker/templates/admin/tracker/ticket/change_form.html:37
+#: tracker/templates/tracker/edit_ticket.html:10
+#: tracker/templates/tracker/ticket_detail.html:19
 msgid "edit ticket documents"
 msgstr "編輯案件文件"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:44
+#: tracker/templates/admin/tracker/ticket/change_form.html:44
 msgid "There are no documents uploaded for this ticket."
 msgstr "此案件沒有文件上傳。"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:47
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:64
+#: tracker/templates/admin/tracker/ticket/change_form.html:47
+#: tracker/templates/tracker/ticket_detail.html:64
 #, python-format
 msgid "There is 1 document uploaded."
 msgid_plural "There are %(counter)s documents uploaded."
 msgstr[0] "已上傳 1 個文件。"
 
-#: .\trackersite\tracker\templates\feeds\ticket_description.html:2
+#: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
 msgstr "狀態"
 
-#: .\trackersite\tracker\templates\feeds\transaction_description.html:2
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:19
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:34
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
-#: .\trackersite\tracker\templates\tracker\user_detail.html:22
+#: tracker/templates/feeds/transaction_description.html:2
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22
 msgid "Date"
 msgstr "日期"
 
-#: .\trackersite\tracker\templates\feeds\transaction_description.html:3
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:19
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:34
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
-#: .\trackersite\tracker\templates\tracker\user_list.html:13
+#: tracker/templates/feeds/transaction_description.html:3
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_list.html:13
 msgid "User"
 msgstr "使用者"
 
-#: .\trackersite\tracker\templates\feeds\transaction_description.html:4
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:19
-#: .\trackersite\tracker\templates\tracker\export.html:153
-#: .\trackersite\tracker\templates\tracker\export.html:183
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:49
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:64
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:34
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
-#: .\trackersite\tracker\templates\tracker\user_detail.html:22
+#: tracker/templates/feeds/transaction_description.html:4
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/export.html:153
+#: tracker/templates/tracker/export.html:183
+#: tracker/templates/tracker/ticket_common_detail.html:49
+#: tracker/templates/tracker/ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22
 msgid "Amount"
 msgstr "金額"
 
-#: .\trackersite\tracker\templates\feeds\transaction_description.html:5
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:19
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:30
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:34
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
-#: .\trackersite\tracker\templates\tracker\user_detail.html:22
-#: .\trackersite\tracker\views.py:1667 .\trackersite\tracker\views.py:1672
-#: .\trackersite\tracker\views.py:1677 .\trackersite\tracker\views.py:1686
-#: .\trackersite\tracker\views.py:1695
+#: tracker/templates/feeds/transaction_description.html:5
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_common_detail.html:30
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1669
+#: tracker/views.py:1674 tracker/views.py:1679 tracker/views.py:1688
+#: tracker/views.py:1697
 msgid "Description"
 msgstr "說明"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:4
+#: tracker/templates/notification/notification_html.html:4
 msgid "List of new tickets"
 msgstr "新案件清單"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:13
+#: tracker/templates/notification/notification_html.html:13
 msgid "List of deleted tickets"
 msgstr "已刪除案件清單"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:22
+#: tracker/templates/notification/notification_html.html:22
 msgid "The state of a watched ticket was changed"
 msgstr "監視案件的狀態已更改"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:31
+#: tracker/templates/notification/notification_html.html:31
 msgid "Supervisor notes on a watched ticket were changed"
 msgstr "在所更改監視案件上的督導記錄"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:40
+#: tracker/templates/notification/notification_html.html:40
 msgid "Changes were made to a watched ticket"
 msgstr "已對監視案件做出更改"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:49
+#: tracker/templates/notification/notification_html.html:49
 msgid "The preexpenditures of a watched ticket were changed"
 msgstr "監視案件的預先支出已更改"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:58
+#: tracker/templates/notification/notification_html.html:58
 msgid "The expenditures of a watched ticket were changed"
 msgstr "監視案件的支出已更改"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:67
+#: tracker/templates/notification/notification_html.html:67
 msgid "Medias of a watched ticket"
 msgstr "監視案件的媒體"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:76
+#: tracker/templates/notification/notification_html.html:76
 msgid "Documents of a watched ticket were changed"
 msgstr "監視案件的文件已更改"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:85
+#: tracker/templates/notification/notification_html.html:85
 msgid "A comment was added to a watched ticket"
 msgstr "註釋已添加至監視案件"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:94
+#: tracker/templates/notification/notification_html.html:94
 msgid "List of tickets pending preapproval"
 msgstr "待預先批准的案件清單"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:95
+#: tracker/templates/notification/notification_html.html:95
 #, python-format
 msgid "These tickets may be ready for preapproval. Before you preapprove them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
 msgstr "這些案件已準備好預先批准。在您預先批准之前，請遵循我們的<a href=\"%(TRACKER_FINANCIAL_POLICY)s\">財務方針</a>來檢查。"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:104
+#: tracker/templates/notification/notification_html.html:104
 msgid "List of tickets pending approval"
 msgstr "待批准的案件清單"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:105
+#: tracker/templates/notification/notification_html.html:105
 #, python-format
 msgid "These tickets may be ready for approval. Before you approve them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
 msgstr "這些案件已準備好批准。在您批准之前，請遵循我們的<a href=\"%(TRACKER_FINANCIAL_POLICY)s\">財務方針</a>來檢查。"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:114
+#: tracker/templates/notification/notification_html.html:114
 msgid "Tracker notifications"
 msgstr "Tracker 通知"
 
-#: .\trackersite\tracker\templates\notification\notification_subject.txt:1
+#: tracker/templates/notification/notification_subject.txt:1
 msgid "List of changes of watched tickets"
 msgstr "監視案件更改清單"
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:10
+#: tracker/templates/tracker/admin_index_override.html:10
 #, python-format
 msgid "Models available in the %(name)s application."
 msgstr "在%(name)s應用程式裡的模組可用。"
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:11
+#: tracker/templates/tracker/admin_index_override.html:11
 #, python-format
 msgid "%(name)s"
 msgstr "%(name)s"
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:21
-#: .\trackersite\tracker\templates\tracker\ticketack_add.html:4
-#: .\trackersite\tracker\templates\tracker\ticketack_add.html:8
+#: tracker/templates/tracker/admin_index_override.html:21
+#: tracker/templates/tracker/ticketack_add.html:4
+#: tracker/templates/tracker/ticketack_add.html:8
 msgid "Add"
 msgstr "添加"
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:27
+#: tracker/templates/tracker/admin_index_override.html:27
 msgid "Change"
 msgstr "更改"
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:39
-#: .\trackersite\tracker\templates\tracker\user_list.html:4
-#: .\trackersite\tracker\templates\tracker\user_list.html:8
+#: tracker/templates/tracker/admin_index_override.html:39
+#: tracker/templates/tracker/user_list.html:4
+#: tracker/templates/tracker/user_list.html:8
 msgid "User list"
 msgstr "使用者清單"
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:40
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:16
+#: tracker/templates/tracker/admin_index_override.html:40
+#: tracker/templates/tracker/admin_user_list.html:16
 msgid "Tracker users"
 msgstr "Tracker 使用者"
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:45
+#: tracker/templates/tracker/admin_index_override.html:45
 msgid "You don't have permission to edit anything."
 msgstr "您沒有權限來編輯任何內容。"
 
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:8
-#: .\trackersite\tracker\templates\tracker\export.html:67
-#: .\trackersite\tracker\templates\tracker\export.html:274
-#: .\trackersite\tracker\templates\tracker\import.html:60
+#: tracker/templates/tracker/admin_user_list.html:8
+#: tracker/templates/tracker/export.html:67
+#: tracker/templates/tracker/export.html:274
+#: tracker/templates/tracker/import.html:60
 msgid "Users"
 msgstr "使用者"
 
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:13
+#: tracker/templates/tracker/admin_user_list.html:13
 msgid "Home"
 msgstr "首頁"
 
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:25
-#: .\trackersite\tracker\templates\tracker\user_details_change.html:12
-#: .\trackersite\tracker\views.py:1700
+#: tracker/templates/tracker/admin_user_list.html:25
+#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1702
 msgid "Username"
 msgstr "使用者名稱"
 
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:28
-#: .\trackersite\tracker\views.py:1700
+#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1702
 msgid "First name"
 msgstr "名"
 
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:29
-#: .\trackersite\tracker\views.py:1700
+#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1702
 msgid "Last name"
 msgstr "姓"
 
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:4
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:8
+#: tracker/templates/tracker/cluster_detail.html:4
+#: tracker/templates/tracker/cluster_detail.html:8
 #, python-format
 msgid "Cluster %(cid)s"
 msgstr "群%(cid)s"
 
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:7
-#: .\trackersite\tracker\templates\tracker\edit_ticket.html:7
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:7
-#: .\trackersite\tracker\templates\tracker\generic\create_ticket.html:7
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:12
-#: .\trackersite\tracker\templates\tracker\generic\topic_list.html:7
-#: .\trackersite\tracker\templates\tracker\grant_detail.html:9
-#: .\trackersite\tracker\templates\tracker\grant_list.html:7
-#: .\trackersite\tracker\templates\tracker\index.html:12
-#: .\trackersite\tracker\templates\tracker\preferences.html:11
-#: .\trackersite\tracker\templates\tracker\subtopic_detail.html:7
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:12
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:8
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:8
-#: .\trackersite\tracker\templates\tracker\ticketack_add.html:7
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:7
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:7
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:14
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:7
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:11
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:24
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:8
-#: .\trackersite\tracker\templates\tracker\user_detail.html:8
-#: .\trackersite\tracker\templates\tracker\user_details_change.html:7
-#: .\trackersite\tracker\templates\tracker\user_list.html:7
-#: .\trackersite\tracker\templates\tracker\watch.html:8
+#: tracker/templates/tracker/cluster_detail.html:7
+#: tracker/templates/tracker/edit_ticket.html:7
+#: tracker/templates/tracker/edit_ticket_docs.html:7
+#: tracker/templates/tracker/generic/create_ticket.html:7
+#: tracker/templates/tracker/generic/ticket_list.html:12
+#: tracker/templates/tracker/generic/topic_list.html:7
+#: tracker/templates/tracker/grant_detail.html:9
+#: tracker/templates/tracker/grant_list.html:7
+#: tracker/templates/tracker/index.html:12
+#: tracker/templates/tracker/preferences.html:11
+#: tracker/templates/tracker/subtopic_detail.html:7
+#: tracker/templates/tracker/ticket_detail.html:12
+#: tracker/templates/tracker/ticket_media.html:8
+#: tracker/templates/tracker/ticket_show_media.html:8
+#: tracker/templates/tracker/ticketack_add.html:7
+#: tracker/templates/tracker/ticketack_confirm_delete.html:7
+#: tracker/templates/tracker/topic_content_acks_per_user.html:7
+#: tracker/templates/tracker/topic_detail.html:14
+#: tracker/templates/tracker/topic_finance.html:7
+#: tracker/templates/tracker/transaction_list.html:11
+#: tracker/templates/tracker/upload_ticket_doc.html:24
+#: tracker/templates/tracker/user_deactivate.html:8
+#: tracker/templates/tracker/user_detail.html:8
+#: tracker/templates/tracker/user_details_change.html:7
+#: tracker/templates/tracker/user_list.html:7
+#: tracker/templates/tracker/watch.html:8
 msgid "index"
 msgstr "索引"
 
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:7
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:12
+#: tracker/templates/tracker/cluster_detail.html:7
+#: tracker/templates/tracker/generic/ticket_list.html:12
 msgid "transactions"
 msgstr "交易"
 
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:10
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:31
+#: tracker/templates/tracker/cluster_detail.html:10
+#: tracker/templates/tracker/ticket_detail.html:31
 msgid "Payment status"
 msgstr "支付狀態"
 
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:14
+#: tracker/templates/tracker/cluster_detail.html:14
 msgid "Total tickets"
 msgstr "案件總計"
 
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:26
+#: tracker/templates/tracker/cluster_detail.html:26
 msgid "Total transactions"
 msgstr "總交易"
 
-#: .\trackersite\tracker\templates\tracker\connect_account.html:4
+#: tracker/templates/tracker/connect_account.html:4
 msgid "Connected account required"
 msgstr "需要已連接的帳號"
 
-#: .\trackersite\tracker\templates\tracker\connect_account.html:7
+#: tracker/templates/tracker/connect_account.html:7
 msgid "Permission denied"
 msgstr "權限不足"
 
-#: .\trackersite\tracker\templates\tracker\connect_account.html:8
+#: tracker/templates/tracker/connect_account.html:8
 msgid "You need to connect Tracker account with your Wikimedia account. To do so, click on the button below."
 msgstr "您需要將 Tracker 帳號與您的維基媒體帳號相連。請點擊下方按鈕來進行。"
 
-#: .\trackersite\tracker\templates\tracker\connect_account.html:9
-#: .\trackersite\tracker\templates\tracker\preferences.html:85
+#: tracker/templates/tracker/connect_account.html:9
+#: tracker/templates/tracker/preferences.html:85
 msgid "Link Wikimedia account"
 msgstr "連結維基媒體帳號"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:4
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:7
+#: tracker/templates/tracker/dumpaccounts/index.html:4
+#: tracker/templates/tracker/dumpaccounts/index.html:7
 msgid "Overview of"
 msgstr "概要關於"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:8
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\ticket_detail.html:9
+#: tracker/templates/tracker/dumpaccounts/index.html:8
+#: tracker/templates/tracker/dumpaccounts/ticket_detail.html:9
 msgid "Generated on"
 msgstr "產生於"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:11
+#: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Unpaid"
 msgstr "尚未付款"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:11
-#: .\trackersite\tracker\templates\tracker\export.html:207
+#: tracker/templates/tracker/dumpaccounts/index.html:11
+#: tracker/templates/tracker/export.html:207
 msgid "Paid"
 msgstr "付款"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:11
+#: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Overpaid"
 msgstr "溢付"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:17
-#: .\trackersite\tracker\templates\tracker\grant_table.html:34
-#: .\trackersite\tracker\templates\tracker\topic_table.html:38
-#: .\trackersite\tracker\templates\tracker\user_list.html:27
+#: tracker/templates/tracker/dumpaccounts/index.html:17
+#: tracker/templates/tracker/grant_table.html:34
+#: tracker/templates/tracker/topic_table.html:38
+#: tracker/templates/tracker/user_list.html:27
 msgid "Total"
 msgstr "總計"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:28
-#: .\trackersite\tracker\templates\tracker\index.html:21
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:13
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:28
+#: tracker/templates/tracker/dumpaccounts/index.html:28
+#: tracker/templates/tracker/index.html:21
+#: tracker/templates/tracker/ticket_table.html:13
+#: tracker/templates/tracker/ticket_table.html:28
 msgid "ID"
 msgstr "ID"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:28
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:23
+#: tracker/templates/tracker/dumpaccounts/index.html:28
+#: tracker/templates/tracker/ticket_table.html:23
 msgid "Status"
 msgstr "狀態"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:28
+#: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Accepted"
 msgstr "已接受"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:28
+#: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Payment"
 msgstr "支付"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:36
+#: tracker/templates/tracker/dumpaccounts/index.html:36
 msgid "There are no tickets in this topic."
 msgstr "此主題沒有案件"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\ticket_detail.html:13
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:50
+#: tracker/templates/tracker/dumpaccounts/ticket_detail.html:13
+#: tracker/templates/tracker/ticket_detail.html:50
 msgid "Documents"
 msgstr "文件"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\ticket_detail.html:19
+#: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
 msgid "There aren't any documents here."
 msgstr "沒有任何文件。"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket.html:4
-#: .\trackersite\tracker\templates\tracker\edit_ticket.html:8
+#: tracker/templates/tracker/edit_ticket.html:4
+#: tracker/templates/tracker/edit_ticket.html:8
 msgid "Edit"
 msgstr "編輯"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket.html:10
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:17
+#: tracker/templates/tracker/edit_ticket.html:10
+#: tracker/templates/tracker/ticket_detail.html:17
 msgid "copy preexpeditures to expeditures"
 msgstr "複製預先支出到支出"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket.html:14
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:16
+#: tracker/templates/tracker/edit_ticket.html:14
+#: tracker/templates/tracker/edit_ticket_docs.html:16
 msgid "save"
 msgstr "儲存"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:4
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:8
+#: tracker/templates/tracker/edit_ticket_docs.html:4
+#: tracker/templates/tracker/edit_ticket_docs.html:8
 msgid "Edit documents"
 msgstr "編輯文件"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:7
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:24
+#: tracker/templates/tracker/edit_ticket_docs.html:7
+#: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "edit"
 msgstr "編輯"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:10
+#: tracker/templates/tracker/edit_ticket_docs.html:10
 msgid "upload new document"
 msgstr "上傳新文件"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:14
+#: tracker/templates/tracker/edit_ticket_docs.html:14
 msgid "document"
 msgstr "文件"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:17
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:27
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:35
+#: tracker/templates/tracker/edit_ticket_docs.html:17
+#: tracker/templates/tracker/ticket_form.html:27
+#: tracker/templates/tracker/upload_ticket_doc.html:35
 #, python-format
 msgid "Fields marked with %(mark)s are required."
 msgstr "標有%(mark)s的欄位為必需。"
 
-#: .\trackersite\tracker\templates\tracker\export.html:12
-#: .\trackersite\tracker\templates\tracker\export.html:15
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:35
-#: .\trackersite\tracker\templates\tracker\index.html:42
+#: tracker/templates/tracker/export.html:12
+#: tracker/templates/tracker/export.html:15
+#: tracker/templates/tracker/generic/ticket_list.html:35
+#: tracker/templates/tracker/index.html:42
 msgid "Export"
 msgstr "匯出"
 
-#: .\trackersite\tracker\templates\tracker\export.html:18
+#: tracker/templates/tracker/export.html:18
 msgid "Only filters with at least one checked checkbox are applied. You can either check all checkboxes or none of them, it's the same."
 msgstr "僅會套用至少有勾選一個方框的篩選。您也可以勾選全部方框或全不勾選，效果會是相同的。"
 
-#: .\trackersite\tracker\templates\tracker\export.html:59
+#: tracker/templates/tracker/export.html:59
 msgid "custom"
 msgstr "自定義"
 
-#: .\trackersite\tracker\templates\tracker\export.html:78
-#: .\trackersite\tracker\templates\tracker\export.html:149
-#: .\trackersite\tracker\templates\tracker\index.html:26
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:47
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:15
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:19
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:33
+#: tracker/templates/tracker/export.html:78
+#: tracker/templates/tracker/export.html:149
+#: tracker/templates/tracker/index.html:26
+#: tracker/templates/tracker/ticket_common_detail.html:47
+#: tracker/templates/tracker/ticket_form.html:15
+#: tracker/templates/tracker/ticket_table.html:19
+#: tracker/templates/tracker/ticket_table.html:33
 msgid "Preexpeditures"
 msgstr "預先支出"
 
-#: .\trackersite\tracker\templates\tracker\export.html:82
-#: .\trackersite\tracker\templates\tracker\export.html:102
-#: .\trackersite\tracker\templates\tracker\export.html:122
-#: .\trackersite\tracker\templates\tracker\export.html:157
-#: .\trackersite\tracker\templates\tracker\export.html:187
-#: .\trackersite\tracker\templates\tracker\export.html:226
-#: .\trackersite\tracker\templates\tracker\export.html:255
-#: .\trackersite\tracker\templates\tracker\export.html:282
-#: .\trackersite\tracker\templates\tracker\export.html:301
-#: .\trackersite\tracker\templates\tracker\export.html:320
+#: tracker/templates/tracker/export.html:82
+#: tracker/templates/tracker/export.html:102
+#: tracker/templates/tracker/export.html:122
+#: tracker/templates/tracker/export.html:157
+#: tracker/templates/tracker/export.html:187
+#: tracker/templates/tracker/export.html:226
+#: tracker/templates/tracker/export.html:255
+#: tracker/templates/tracker/export.html:282
+#: tracker/templates/tracker/export.html:301
+#: tracker/templates/tracker/export.html:320
 msgid "Larger or equal"
 msgstr "大於或等於"
 
-#: .\trackersite\tracker\templates\tracker\export.html:90
-#: .\trackersite\tracker\templates\tracker\export.html:110
-#: .\trackersite\tracker\templates\tracker\export.html:130
-#: .\trackersite\tracker\templates\tracker\export.html:165
-#: .\trackersite\tracker\templates\tracker\export.html:195
-#: .\trackersite\tracker\templates\tracker\export.html:234
-#: .\trackersite\tracker\templates\tracker\export.html:263
-#: .\trackersite\tracker\templates\tracker\export.html:290
-#: .\trackersite\tracker\templates\tracker\export.html:309
-#: .\trackersite\tracker\templates\tracker\export.html:328
+#: tracker/templates/tracker/export.html:90
+#: tracker/templates/tracker/export.html:110
+#: tracker/templates/tracker/export.html:130
+#: tracker/templates/tracker/export.html:165
+#: tracker/templates/tracker/export.html:195
+#: tracker/templates/tracker/export.html:234
+#: tracker/templates/tracker/export.html:263
+#: tracker/templates/tracker/export.html:290
+#: tracker/templates/tracker/export.html:309
+#: tracker/templates/tracker/export.html:328
 msgid "Smaller or equal"
 msgstr "小於或等於"
 
-#: .\trackersite\tracker\templates\tracker\export.html:98
-#: .\trackersite\tracker\templates\tracker\export.html:179
-#: .\trackersite\tracker\templates\tracker\index.html:27
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:62
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:20
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:20
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:34
+#: tracker/templates/tracker/export.html:98
+#: tracker/templates/tracker/export.html:179
+#: tracker/templates/tracker/index.html:27
+#: tracker/templates/tracker/ticket_common_detail.html:62
+#: tracker/templates/tracker/ticket_form.html:20
+#: tracker/templates/tracker/ticket_table.html:20
+#: tracker/templates/tracker/ticket_table.html:34
 msgid "Expeditures"
 msgstr "支出"
 
-#: .\trackersite\tracker\templates\tracker\export.html:118
-#: .\trackersite\tracker\templates\tracker\index.html:28
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:72
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:21
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:35
-#: .\trackersite\tracker\templates\tracker\user_list.html:13
+#: tracker/templates/tracker/export.html:118
+#: tracker/templates/tracker/index.html:28
+#: tracker/templates/tracker/ticket_common_detail.html:72
+#: tracker/templates/tracker/ticket_table.html:21
+#: tracker/templates/tracker/ticket_table.html:35
+#: tracker/templates/tracker/user_list.html:13
 msgid "Accepted expeditures"
 msgstr "已接受的預先支出"
 
-#: .\trackersite\tracker\templates\tracker\export.html:145
+#: tracker/templates/tracker/export.html:145
 msgid "You can't filter grants by any fields"
 msgstr "您不能透過任何欄位來篩選授予"
 
-#: .\trackersite\tracker\templates\tracker\export.html:174
-#: .\trackersite\tracker\templates\tracker\export.html:204
+#: tracker/templates/tracker/export.html:174
+#: tracker/templates/tracker/export.html:204
 msgid "Wage"
 msgstr "報酬"
 
-#: .\trackersite\tracker\templates\tracker\export.html:216
+#: tracker/templates/tracker/export.html:216
 msgid "Supervisors"
 msgstr "督導"
 
-#: .\trackersite\tracker\templates\tracker\export.html:222
+#: tracker/templates/tracker/export.html:222
 msgid "Number of tickets"
 msgstr "案件號碼"
 
-#: .\trackersite\tracker\templates\tracker\export.html:242
+#: tracker/templates/tracker/export.html:242
 msgid "Number of tickets in certain payment state"
 msgstr "在目前支付狀態的案件號碼"
 
-#: .\trackersite\tracker\templates\tracker\export.html:245
+#: tracker/templates/tracker/export.html:245
 msgid "N/A"
 msgstr "不適用"
 
-#: .\trackersite\tracker\templates\tracker\export.html:278
+#: tracker/templates/tracker/export.html:278
 msgid "Number of tickets created"
 msgstr "案件號碼已建立"
 
-#: .\trackersite\tracker\templates\tracker\export.html:297
+#: tracker/templates/tracker/export.html:297
 msgid "Amount of accepted expeditures"
 msgstr "已接受的預先支出之金額"
 
-#: .\trackersite\tracker\templates\tracker\export.html:316
+#: tracker/templates/tracker/export.html:316
 msgid "Amount of paid expeditures"
 msgstr "已付款支出之金額"
 
-#: .\trackersite\tracker\templates\tracker\export.html:338
+#: tracker/templates/tracker/export.html:338
 msgid "normal"
 msgstr "一般"
 
-#: .\trackersite\tracker\templates\tracker\export.html:343
+#: tracker/templates/tracker/export.html:343
 msgid "staff"
 msgstr "成員"
 
-#: .\trackersite\tracker\templates\tracker\export.html:348
+#: tracker/templates/tracker/export.html:348
 msgid "superuser"
 msgstr "超級使用者"
 
-#: .\trackersite\tracker\templates\tracker\generic\create_ticket.html:4
-#: .\trackersite\tracker\templates\tracker\generic\create_ticket.html:8
+#: tracker/templates/tracker/generic/create_ticket.html:4
+#: tracker/templates/tracker/generic/create_ticket.html:8
 msgid "Create ticket"
 msgstr "建立案件"
 
-#: .\trackersite\tracker\templates\tracker\generic\create_ticket.html:13
+#: tracker/templates/tracker/generic/create_ticket.html:13
 msgid "You'll be able to edit everything you've filled in even after submitting the form."
 msgstr "即使在提交表單之後，您仍可以編輯您所填寫的內容。"
 
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:4
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:15
-#: .\trackersite\tracker\templates\tracker\index.html:3
-#: .\trackersite\tracker\templates\tracker\index.html:15
+#: tracker/templates/tracker/generic/ticket_list.html:4
+#: tracker/templates/tracker/generic/ticket_list.html:15
+#: tracker/templates/tracker/index.html:3
+#: tracker/templates/tracker/index.html:15
 msgid "Ticket list"
 msgstr "案件清單"
 
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:12
-#: .\trackersite\tracker\templates\tracker\index.html:12
-#: .\trackersite\tracker\templates\tracker\subtopic_detail.html:7
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:12
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:7
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:14
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:7
+#: tracker/templates/tracker/generic/ticket_list.html:12
+#: tracker/templates/tracker/index.html:12
+#: tracker/templates/tracker/subtopic_detail.html:7
+#: tracker/templates/tracker/ticket_detail.html:12
+#: tracker/templates/tracker/topic_content_acks_per_user.html:7
+#: tracker/templates/tracker/topic_detail.html:14
+#: tracker/templates/tracker/topic_finance.html:7
 msgid "topics"
 msgstr "主題"
 
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:12
-#: .\trackersite\tracker\templates\tracker\index.html:12
-#: .\trackersite\tracker\templates\tracker\user_detail.html:8
+#: tracker/templates/tracker/generic/ticket_list.html:12
+#: tracker/templates/tracker/index.html:12
+#: tracker/templates/tracker/user_detail.html:8
 msgid "users"
 msgstr "使用者"
 
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:13
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:32
-#: .\trackersite\tracker\templates\tracker\index.html:13
-#: .\trackersite\tracker\templates\tracker\user_detail.html:9
+#: tracker/templates/tracker/generic/ticket_list.html:13
+#: tracker/templates/tracker/generic/ticket_list.html:32
+#: tracker/templates/tracker/index.html:13
+#: tracker/templates/tracker/user_detail.html:9
 msgid "Create new ticket"
 msgstr "建立新案件"
 
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:22
-#: .\trackersite\tracker\templates\tracker\user_detail.html:15
+#: tracker/templates/tracker/generic/ticket_list.html:22
+#: tracker/templates/tracker/user_detail.html:15
 msgid "No tickets available."
 msgstr "沒有案件可用。"
 
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:33
-#: .\trackersite\tracker\templates\tracker\import.html:4
-#: .\trackersite\tracker\templates\tracker\import.html:7
-#: .\trackersite\tracker\templates\tracker\index.html:39
+#: tracker/templates/tracker/generic/ticket_list.html:33
+#: tracker/templates/tracker/import.html:4
+#: tracker/templates/tracker/import.html:7
+#: tracker/templates/tracker/index.html:39
 msgid "Import"
 msgstr "匯入"
 
-#: .\trackersite\tracker\templates\tracker\generic\topic_list.html:4
-#: .\trackersite\tracker\templates\tracker\generic\topic_list.html:8
+#: tracker/templates/tracker/generic/topic_list.html:4
+#: tracker/templates/tracker/generic/topic_list.html:8
 msgid "Topic list"
 msgstr "主題清單"
 
-#: .\trackersite\tracker\templates\tracker\generic\topic_list.html:13
-#: .\trackersite\tracker\templates\tracker\grant_list.html:12
+#: tracker/templates/tracker/generic/topic_list.html:13
+#: tracker/templates/tracker/grant_list.html:12
 msgid "Topics closed for new tickets"
 msgstr "主題對新案件已關閉"
 
-#: .\trackersite\tracker\templates\tracker\generic\topic_list.html:18
+#: tracker/templates/tracker/generic/topic_list.html:18
 msgid "topic finance"
 msgstr "主題資金"
 
-#: .\trackersite\tracker\templates\tracker\generic\topic_list.html:19
+#: tracker/templates/tracker/generic/topic_list.html:19
 msgid "topic ack overview"
 msgstr "主題確認概要"
 
-#: .\trackersite\tracker\templates\tracker\grant_detail.html:9
-#: .\trackersite\tracker\templates\tracker\index.html:12
+#: tracker/templates/tracker/grant_detail.html:9
+#: tracker/templates/tracker/index.html:12
 msgid "grants"
 msgstr "授予"
 
-#: .\trackersite\tracker\templates\tracker\grant_detail.html:11
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:21
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:25
+#: tracker/templates/tracker/grant_detail.html:11
+#: tracker/templates/tracker/ticket_detail.html:21
+#: tracker/templates/tracker/topic_detail.html:25
 msgid "watch settings"
 msgstr "監視設定"
 
-#: .\trackersite\tracker\templates\tracker\grant_list.html:4
-#: .\trackersite\tracker\templates\tracker\grant_list.html:8
+#: tracker/templates/tracker/grant_list.html:4
+#: tracker/templates/tracker/grant_list.html:8
 msgid "Grant list"
 msgstr "授予清單"
 
-#: .\trackersite\tracker\templates\tracker\grant_table.html:7
-#: .\trackersite\tracker\templates\tracker\topic_table.html:8
+#: tracker/templates/tracker/grant_table.html:7
+#: tracker/templates/tracker/topic_table.html:8
 msgid "Paid wages"
 msgstr "已付報酬"
 
-#: .\trackersite\tracker\templates\tracker\grant_table.html:8
-#: .\trackersite\tracker\templates\tracker\topic_table.html:9
+#: tracker/templates/tracker/grant_table.html:8
+#: tracker/templates/tracker/topic_table.html:9
 msgid "Paid together"
 msgstr "一起付款"
 
-#: .\trackersite\tracker\templates\tracker\grant_table.html:9
-#: .\trackersite\tracker\templates\tracker\topic_table.html:10
+#: tracker/templates/tracker/grant_table.html:9
+#: tracker/templates/tracker/topic_table.html:10
 msgid "Tickets per payment status"
 msgstr "案件各支付狀態"
 
-#: .\trackersite\tracker\templates\tracker\grant_table.html:11
-#: .\trackersite\tracker\templates\tracker\topic_table.html:13
+#: tracker/templates/tracker/grant_table.html:11
+#: tracker/templates/tracker/topic_table.html:13
 msgid "no payment required"
 msgstr "無須支付"
 
-#: .\trackersite\tracker\templates\tracker\grant_table.html:49
-#: .\trackersite\tracker\templates\tracker\topic_table.html:53
+#: tracker/templates/tracker/grant_table.html:49
+#: tracker/templates/tracker/topic_table.html:53
 msgid "No topics available."
 msgstr "沒有可用的主題。"
 
-#: .\trackersite\tracker\templates\tracker\import.html:10
+#: tracker/templates/tracker/import.html:10
 #, python-format
 msgid " Be warned that you need permission to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows. If you'll submit a file CSV with more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows, only the first %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s will be processed. If you really need to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s of objects, please contact the systemadmin."
 msgstr "請注意，您需要權限才能匯入超過 %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s 列。若您提交一個超過 %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s 列的 CSV 檔案，僅會處理前 %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s 個列。若您確定有需要匯入超過 %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s 列的對象，請聯絡系統管理員。"
 
-#: .\trackersite\tracker\templates\tracker\import.html:14
+#: tracker/templates/tracker/import.html:14
 msgid "What kind of objects are you importing?"
 msgstr "您所要匯入的對象種類是？"
 
-#: .\trackersite\tracker\templates\tracker\import.html:19
-#: .\trackersite\tracker\templates\tracker\import.html:26
-#: .\trackersite\tracker\templates\tracker\import.html:34
-#: .\trackersite\tracker\templates\tracker\import.html:41
-#: .\trackersite\tracker\templates\tracker\import.html:47
-#: .\trackersite\tracker\templates\tracker\import.html:53
-#: .\trackersite\tracker\templates\tracker\import.html:60
+#: tracker/templates/tracker/import.html:19
+#: tracker/templates/tracker/import.html:26
+#: tracker/templates/tracker/import.html:34
+#: tracker/templates/tracker/import.html:41
+#: tracker/templates/tracker/import.html:47
+#: tracker/templates/tracker/import.html:53
+#: tracker/templates/tracker/import.html:60
 msgid "example file"
 msgstr "範例檔案"
 
-#: .\trackersite\tracker\templates\tracker\import.html:41
+#: tracker/templates/tracker/import.html:41
 msgid "Preexpenses"
 msgstr "預先費用"
 
-#: .\trackersite\tracker\templates\tracker\import.html:47
+#: tracker/templates/tracker/import.html:47
 msgid "Expenses"
 msgstr "費用"
 
-#: .\trackersite\tracker\templates\tracker\import.html:53
+#: tracker/templates/tracker/import.html:53
 msgid "Media"
 msgstr "媒體"
 
-#: .\trackersite\tracker\templates\tracker\index.html:21
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:10
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:13
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:28
+#: tracker/templates/tracker/index.html:21
+#: tracker/templates/tracker/ticket_common_detail.html:10
+#: tracker/templates/tracker/ticket_table.html:13
+#: tracker/templates/tracker/ticket_table.html:28
 msgid "Event date"
 msgstr "事項日期"
 
-#: .\trackersite\tracker\templates\tracker\index.html:21
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:13
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:28
+#: tracker/templates/tracker/index.html:21
+#: tracker/templates/tracker/ticket_table.html:13
+#: tracker/templates/tracker/ticket_table.html:28
 msgid "Name"
 msgstr "名稱"
 
-#: .\trackersite\tracker\templates\tracker\index.html:25
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:11
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:17
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:32
+#: tracker/templates/tracker/index.html:25
+#: tracker/templates/tracker/ticket_common_detail.html:11
+#: tracker/templates/tracker/ticket_table.html:17
+#: tracker/templates/tracker/ticket_table.html:32
 msgid "Requested by"
 msgstr "請求出自"
 
-#: .\trackersite\tracker\templates\tracker\index.html:29
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:73
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:22
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:36
+#: tracker/templates/tracker/index.html:29
+#: tracker/templates/tracker/ticket_common_detail.html:73
+#: tracker/templates/tracker/ticket_table.html:22
+#: tracker/templates/tracker/ticket_table.html:36
 msgid "Paid expeditures"
 msgstr "已付支出"
 
-#: .\trackersite\tracker\templates\tracker\index.html:30
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:14
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:37
+#: tracker/templates/tracker/index.html:30
+#: tracker/templates/tracker/ticket_common_detail.html:14
+#: tracker/templates/tracker/ticket_table.html:37
 msgid "State"
 msgstr "狀態"
 
-#: .\trackersite\tracker\templates\tracker\index.html:31
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:9
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:24
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:38
+#: tracker/templates/tracker/index.html:31
+#: tracker/templates/tracker/ticket_common_detail.html:9
+#: tracker/templates/tracker/ticket_table.html:24
+#: tracker/templates/tracker/ticket_table.html:38
 msgid "Last changed"
 msgstr "最後修改"
 
-#: .\trackersite\tracker\templates\tracker\paginator.html:4
+#: tracker/templates/tracker/paginator.html:4
 msgid "previous"
 msgstr "上一頁"
 
-#: .\trackersite\tracker\templates\tracker\paginator.html:8
+#: tracker/templates/tracker/paginator.html:8
 msgid "next"
 msgstr "下一頁"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:4
-#: .\trackersite\tracker\templates\tracker\preferences.html:14
+#: tracker/templates/tracker/preferences.html:4
+#: tracker/templates/tracker/preferences.html:14
 msgid "Preferences"
 msgstr "偏好設定"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:18
+#: tracker/templates/tracker/preferences.html:18
 msgid "Mute notifications"
 msgstr "關閉通知"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:38
+#: tracker/templates/tracker/preferences.html:38
 msgid "Ignore ack types"
 msgstr "忽略確認類型"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:51
+#: tracker/templates/tracker/preferences.html:51
 msgid "Other"
 msgstr "其它"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:59
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:25
-#: .\trackersite\tracker\templates\tracker\user_details_change.html:21
-#: .\trackersite\tracker\templates\tracker\watch.html:32
+#: tracker/templates/tracker/preferences.html:59
+#: tracker/templates/tracker/ticket_form.html:25
+#: tracker/templates/tracker/user_details_change.html:21
+#: tracker/templates/tracker/watch.html:32
 msgid "Save"
 msgstr "儲存"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:62
+#: tracker/templates/tracker/preferences.html:62
 msgid "Wikimedia account"
 msgstr "維基媒體帳號"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:66
+#: tracker/templates/tracker/preferences.html:66
 msgid "Your account is connected to Wikimedia account"
 msgstr "您的帳號被連接至維基媒體帳號"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:76
+#: tracker/templates/tracker/preferences.html:76
 msgid "Disconnect Wikimedia account"
 msgstr "取消連接維基媒體帳號"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:80
+#: tracker/templates/tracker/preferences.html:80
 msgid "In order to disconnect your Wikimedia account, you first need to"
 msgstr "要取消連接維基媒體帳號，您首先需要"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:80
+#: tracker/templates/tracker/preferences.html:80
 msgid "set a password."
 msgstr "設定密碼。"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:88
+#: tracker/templates/tracker/preferences.html:88
 msgid "Account actions"
 msgstr "帳號操作"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:90
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:4
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:11
+#: tracker/templates/tracker/preferences.html:90
+#: tracker/templates/tracker/user_deactivate.html:4
+#: tracker/templates/tracker/user_deactivate.html:11
 msgid "Deactivate account"
 msgstr "停用帳號"
 
-#: .\trackersite\tracker\templates\tracker\sign_ticket.html:4
-#: .\trackersite\tracker\templates\tracker\sign_ticket.html:7
+#: tracker/templates/tracker/sign_ticket.html:4
+#: tracker/templates/tracker/sign_ticket.html:7
 msgid "Add statutory declaration to"
 msgstr "添加法定聲明至"
 
-#: .\trackersite\tracker\templates\tracker\sign_ticket.html:13
-#: .\trackersite\tracker\templates\tracker\ticketack_add.html:21
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:16
+#: tracker/templates/tracker/sign_ticket.html:13
+#: tracker/templates/tracker/ticketack_add.html:21
+#: tracker/templates/tracker/ticketack_confirm_delete.html:16
 msgid "Submit"
 msgstr "提交"
 
-#: .\trackersite\tracker\templates\tracker\subtopic_detail.html:10
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:19
+#: tracker/templates/tracker/subtopic_detail.html:10
+#: tracker/templates/tracker/topic_detail.html:19
 msgid "add ticket"
 msgstr "添加案件"
 
-#: .\trackersite\tracker\templates\tracker\subtopic_detail.html:16
+#: tracker/templates/tracker/subtopic_detail.html:16
 msgid "Total for this subtopic"
 msgstr "此副主題總計"
 
-#: .\trackersite\tracker\templates\tracker\tabular_formset.html:12
+#: tracker/templates/tracker/tabular_formset.html:12
 msgid "delete"
 msgstr "刪除"
 
-#: .\trackersite\tracker\templates\tracker\tabular_formset.html:21
+#: tracker/templates/tracker/tabular_formset.html:21
 msgid "Delete the item"
 msgstr "刪除項目"
 
-#: .\trackersite\tracker\templates\tracker\tabular_formset.html:91
+#: tracker/templates/tracker/tabular_formset.html:91
 #, python-format
 msgid "Add another %(formset_item_name)s"
 msgstr "添加別的%(formset_item_name)s"
 
-#: .\trackersite\tracker\templates\tracker\tabular_formset.html:94
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:4
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:8
+#: tracker/templates/tracker/tabular_formset.html:94
+#: tracker/templates/tracker/ticketack_confirm_delete.html:4
+#: tracker/templates/tracker/ticketack_confirm_delete.html:8
 msgid "Remove"
 msgstr "移除"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:8
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:52
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:67
+#: tracker/templates/tracker/ticket_common_detail.html:8
+#: tracker/templates/tracker/ticket_common_detail.html:52
+#: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Created"
 msgstr "已建立"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:10
+#: tracker/templates/tracker/ticket_common_detail.html:10
 msgid "unset"
 msgstr "未設定"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:15
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:52
+#: tracker/templates/tracker/ticket_common_detail.html:15
+#: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "Yes"
 msgstr "是"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:15
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:52
+#: tracker/templates/tracker/ticket_common_detail.html:15
+#: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "No"
 msgstr "否"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:16
+#: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "Report URL"
 msgstr "回報 URL"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:16
+#: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "No report filled"
 msgstr "沒有填寫回報"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:18
+#: tracker/templates/tracker/ticket_common_detail.html:18
 msgid "Deposit"
 msgstr "存款"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:19
+#: tracker/templates/tracker/ticket_common_detail.html:19
 msgid "Event URL"
 msgstr "事項 URL"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:20
+#: tracker/templates/tracker/ticket_common_detail.html:20
 msgid "Rating percentage"
 msgstr "評級百分比"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:22
+#: tracker/templates/tracker/ticket_common_detail.html:22
 msgid "remove"
 msgstr "移除"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:25
+#: tracker/templates/tracker/ticket_common_detail.html:25
 msgid "Confirm"
 msgstr "確認"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:33
+#: tracker/templates/tracker/ticket_common_detail.html:33
 msgid "Supervisor notes"
 msgstr "督導記錄"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:36
+#: tracker/templates/tracker/ticket_common_detail.html:36
 msgid "Media (old)"
 msgstr "媒體（舊）"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:37
+#: tracker/templates/tracker/ticket_common_detail.html:37
 msgid "Number of objects"
 msgstr "對象號碼"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:38
+#: tracker/templates/tracker/ticket_common_detail.html:38
 msgid "Number of media files"
 msgstr "媒體檔案數量"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:49
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_common_detail.html:49
+#: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Item"
 msgstr "項目"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:49
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_common_detail.html:49
+#: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Wage?"
 msgstr "報酬？"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:56
+#: tracker/templates/tracker/ticket_common_detail.html:56
 msgid "Total preexpeditures"
 msgstr "總預先支出"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Paid?"
 msgstr "已付款？"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:67
+#: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Yes,No"
 msgstr "是、否"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:71
+#: tracker/templates/tracker/ticket_common_detail.html:71
 msgid "Total expeditures"
 msgstr "總支出"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:16
+#: tracker/templates/tracker/ticket_detail.html:16
 msgid "edit ticket"
 msgstr "編輯案件"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:18
+#: tracker/templates/tracker/ticket_detail.html:18
 msgid "edit in admin"
 msgstr "在管理編輯"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:20
+#: tracker/templates/tracker/ticket_detail.html:20
 msgid "duplicate"
 msgstr "重複"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:22
+#: tracker/templates/tracker/ticket_detail.html:22
 msgid "add yourself as a driver"
 msgstr "將您自己添加為駕駛者"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:23
+#: tracker/templates/tracker/ticket_detail.html:23
 msgid "show media"
 msgstr "顯示媒體"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:24
+#: tracker/templates/tracker/ticket_detail.html:24
 msgid "manage media"
 msgstr "管理媒體"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:31
+#: tracker/templates/tracker/ticket_detail.html:31
 #, python-format
 msgid "part of <a href=\"%(c_link)s\">cluster %(c_id)s</a>: total tickets %(total_tickets)s&nbsp;%(cr)s, total transactions %(total_transactions)s&nbsp;%(cr)s"
 msgstr "<a href=\"%(c_link)s\">群%(c_id)s</a>的部份：案件總計 %(total_tickets)s&nbsp;%(cr)s，交易總計 %(total_transactions)s&nbsp;%(cr)s"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:41
+#: tracker/templates/tracker/ticket_detail.html:41
 msgid "Associated transactions total"
 msgstr "關聯交易總計"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:65
+#: tracker/templates/tracker/ticket_detail.html:65
 msgid "As you are not an administrator, you can see only documents you uploaded below."
 msgstr "因您不是管理員，以下您僅能查看由您所上傳的文件。"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:79
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:83
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:43
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:46
+#: tracker/templates/tracker/ticket_detail.html:79
+#: tracker/templates/tracker/ticket_detail.html:83
+#: tracker/templates/tracker/topic_detail.html:43
+#: tracker/templates/tracker/topic_detail.html:46
 msgid "Comments"
 msgstr "註釋"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:84
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:47
+#: tracker/templates/tracker/ticket_detail.html:84
+#: tracker/templates/tracker/topic_detail.html:47
 msgid "There are no comments yet."
 msgstr "目前尚未有註釋。"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:91
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:93
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:52
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:54
+#: tracker/templates/tracker/ticket_detail.html:91
+#: tracker/templates/tracker/ticket_detail.html:93
+#: tracker/templates/tracker/topic_detail.html:52
+#: tracker/templates/tracker/topic_detail.html:54
 msgid "Add comment"
 msgstr "添加評論"
 
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:15
+#: tracker/templates/tracker/ticket_form.html:15
 msgid "preexpediture"
 msgstr "預先支出"
 
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:20
+#: tracker/templates/tracker/ticket_form.html:20
 msgid "expediture"
 msgstr "支出"
 
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:25
+#: tracker/templates/tracker/ticket_form.html:25
 msgid "submit"
 msgstr "提交"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:4
+#: tracker/templates/tracker/ticket_media.html:4
 msgid "Manage media for"
 msgstr "管理媒體用於"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:9
+#: tracker/templates/tracker/ticket_media.html:9
 msgid "Add new media"
 msgstr "添加新媒體"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:13
+#: tracker/templates/tracker/ticket_media.html:13
 msgid "Filename prefix"
 msgstr "檔案名稱字首"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:17
+#: tracker/templates/tracker/ticket_media.html:17
 msgid "Mediawiki username"
 msgstr "Mediawiki 使用者名稱"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:24
+#: tracker/templates/tracker/ticket_media.html:24
 msgid "Number of images to fetch"
 msgstr "要索取的圖片號碼。"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:28
+#: tracker/templates/tracker/ticket_media.html:28
 msgid "Category to filter by"
 msgstr "篩選的分類依照"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:34
+#: tracker/templates/tracker/ticket_media.html:34
 msgid "Search"
 msgstr "搜尋"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:48
+#: tracker/templates/tracker/ticket_media.html:48
 msgid "Load more"
 msgstr "載入更多"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:49
+#: tracker/templates/tracker/ticket_media.html:49
 msgid "Loading..."
 msgstr "載入中…"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:54
+#: tracker/templates/tracker/ticket_media.html:54
 msgid "Choose selected photos"
 msgstr "挑選所選照片"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:57
+#: tracker/templates/tracker/ticket_media.html:57
 msgid "Remove existing media"
 msgstr "移除現有媒體"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:58
+#: tracker/templates/tracker/ticket_media.html:58
 msgid "It can take up to five minutes for the images you added to show here."
 msgstr "您所添加在此顯示的圖片會花費 5 分鐘。"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:66
+#: tracker/templates/tracker/ticket_media.html:66
 msgid "Delete selected photos"
 msgstr "刪除所選照片"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:3
+#: tracker/templates/tracker/ticket_show_media.html:3
 msgid "Show media for"
 msgstr "顯示媒體關於"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:9
+#: tracker/templates/tracker/ticket_show_media.html:9
 msgid "List of linked media"
 msgstr "連結媒體清單"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:10
+#: tracker/templates/tracker/ticket_show_media.html:10
 msgid "Last updated"
 msgstr "上次更新"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:10
+#: tracker/templates/tracker/ticket_show_media.html:10
 msgid "update"
 msgstr "更新"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:11
+#: tracker/templates/tracker/ticket_show_media.html:11
 msgid "Page will be updated within 24 hours."
 msgstr "頁面會在 24 小時內更新。"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:15
+#: tracker/templates/tracker/ticket_show_media.html:15
 msgid "File name"
 msgstr "檔案名稱"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:16
+#: tracker/templates/tracker/ticket_show_media.html:16
 msgid "Dimension"
 msgstr "大小"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:17
+#: tracker/templates/tracker/ticket_show_media.html:17
 msgid "Categories"
 msgstr "分類"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:18
+#: tracker/templates/tracker/ticket_show_media.html:18
 msgid "Used in"
 msgstr "使用於"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:25
+#: tracker/templates/tracker/ticket_show_media.html:25
 msgid "Unknown"
 msgstr "不明"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:49
+#: tracker/templates/tracker/ticket_show_media.html:49
 msgid "Number of usages"
 msgstr "使用號碼"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:53
+#: tracker/templates/tracker/ticket_show_media.html:53
 msgid "Number of Wikidata items"
 msgstr "維基數據項目號碼"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:57
+#: tracker/templates/tracker/ticket_show_media.html:57
 msgid "Number of unique Wikidata items"
 msgstr "維基數據項目唯一號碼"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:63
+#: tracker/templates/tracker/ticket_show_media.html:63
 msgid "Photos per category"
 msgstr "各分類照片"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:67
+#: tracker/templates/tracker/ticket_show_media.html:67
 msgid "Category"
 msgstr "分類"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:68
+#: tracker/templates/tracker/ticket_show_media.html:68
 msgid "Number"
 msgstr "號碼"
 
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:18
-#: .\trackersite\tracker\templates\tracker\user_list.html:13
+#: tracker/templates/tracker/ticket_table.html:18
+#: tracker/templates/tracker/user_list.html:13
 msgid "Media count"
 msgstr "媒體總數"
 
-#: .\trackersite\tracker\templates\tracker\ticketack_add.html:7
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:7
+#: tracker/templates/tracker/ticketack_add.html:7
+#: tracker/templates/tracker/ticketack_confirm_delete.html:7
 msgid "confirmations"
 msgstr "確認"
 
-#: .\trackersite\tracker\templates\tracker\ticketack_add.html:26
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:17
+#: tracker/templates/tracker/ticketack_add.html:26
+#: tracker/templates/tracker/ticketack_confirm_delete.html:17
 msgid "back to ticket"
 msgstr "返回至案件"
 
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:11
+#: tracker/templates/tracker/ticketack_confirm_delete.html:11
 msgid "Added"
 msgstr "已添加"
 
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:12
+#: tracker/templates/tracker/ticketack_confirm_delete.html:12
 msgid "Added by"
 msgstr "已添加由"
 
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:4
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:8
+#: tracker/templates/tracker/topic_content_acks_per_user.html:4
+#: tracker/templates/tracker/topic_content_acks_per_user.html:8
 msgid "Topic ack overview"
 msgstr "主題確認概要"
 
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:12
+#: tracker/templates/tracker/topic_content_acks_per_user.html:12
 msgid "Supervisor"
 msgstr "督導"
 
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:15
+#: tracker/templates/tracker/topic_content_acks_per_user.html:15
 msgid "Ack count"
 msgstr "確認總數"
 
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:27
+#: tracker/templates/tracker/topic_content_acks_per_user.html:27
 msgid "download csv"
 msgstr "下載 csv"
 
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:19
+#: tracker/templates/tracker/topic_detail.html:19
 msgid "Topic is open for new tickets"
 msgstr "主題對新案件已開放"
 
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:22
+#: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrators"
 msgstr "主題管理員"
 
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:22
+#: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrator"
 msgstr "主題管理員"
 
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:38
+#: tracker/templates/tracker/topic_detail.html:38
 msgid "Total for this topic"
 msgstr "此主題總計"
 
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:4
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:8
+#: tracker/templates/tracker/topic_finance.html:4
+#: tracker/templates/tracker/topic_finance.html:8
 msgid "Topic finance"
 msgstr "主題資金"
 
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:13
+#: tracker/templates/tracker/topic_finance.html:13
 msgid "Amounts per payment status"
 msgstr "各支付狀態金額"
 
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:34
+#: tracker/templates/tracker/topic_finance.html:34
 #, python-format
 msgid "Total %(gname)s"
 msgstr "%(gname)s總計"
 
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:44
+#: tracker/templates/tracker/topic_finance.html:44
 msgid "Marked topics involve partial payments that have no clear relation to topic, and have been split equally among possible candidates."
 msgstr "被標記的主題牽涉到部份支付與主題沒有明確關聯，並且在可能的候補者裡均分。"
 
-#: .\trackersite\tracker\templates\tracker\topic_table.html:11
+#: tracker/templates/tracker/topic_table.html:11
 msgid "Administrators"
 msgstr "管理員"
 
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:4
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:12
+#: tracker/templates/tracker/transaction_list.html:4
+#: tracker/templates/tracker/transaction_list.html:12
 msgid "Transaction list"
 msgstr "交易清單"
 
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:7
+#: tracker/templates/tracker/transaction_list.html:7
 msgid "Latest transactions"
 msgstr "最新交易"
 
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:22
-#: .\trackersite\tracker\templates\tracker\user_detail.html:31
+#: tracker/templates/tracker/transaction_list.html:22
+#: tracker/templates/tracker/user_detail.html:31
 msgid "Transactions total"
 msgstr "交易總計"
 
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:24
+#: tracker/templates/tracker/transaction_list.html:24
 msgid "No transactions available."
 msgstr "沒有可用的交易。"
 
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:26
+#: tracker/templates/tracker/transaction_list.html:26
 msgid "download as csv"
 msgstr "下載成 csv"
 
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:21
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:25
+#: tracker/templates/tracker/upload_ticket_doc.html:21
+#: tracker/templates/tracker/upload_ticket_doc.html:25
 msgid "Upload document"
 msgstr "上傳文件"
 
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:24
+#: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "documents"
 msgstr "文件"
 
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:34
+#: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload"
 msgstr "上傳"
 
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:34
+#: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload and add another"
 msgstr "上傳並添加作者"
 
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:35
+#: tracker/templates/tracker/upload_ticket_doc.html:35
 msgid "This document, including its file name and description, will be visible only to the ticket owner and specially privileged users."
 msgstr "此文件所包含的檔案名稱與描述內容，只有案件持有者與指定權限使用者可見。"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:14
+#: tracker/templates/tracker/user_deactivate.html:14
 msgid "Deactivating your account will mean that it is no longer possible to login."
 msgstr "停用您的帳號意味著您將無法再登入。"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:15
+#: tracker/templates/tracker/user_deactivate.html:15
 msgid "Deactivation is irreversible without the intervention of an admin."
 msgstr "若無管理員的介入，停用為不可取消。"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:16
+#: tracker/templates/tracker/user_deactivate.html:16
 msgid "You can contact an admin by replying to the email which confirms the deactivation."
 msgstr "您可以透過回覆用來確認停用的電子郵件，向管理員聯絡。"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:18
+#: tracker/templates/tracker/user_deactivate.html:18
 msgid "The following account will be deactivated:"
 msgstr "以下帳號將會停用："
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:20
+#: tracker/templates/tracker/user_deactivate.html:20
 msgid "Username:"
 msgstr "使用者名稱："
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:21
+#: tracker/templates/tracker/user_deactivate.html:21
 msgid "Email:"
 msgstr "電子郵件："
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:32
+#: tracker/templates/tracker/user_deactivate.html:32
 msgid "Deactivate my account"
 msgstr "停用我的帳號"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate_email.html:3
+#: tracker/templates/tracker/user_deactivate_email.html:3
 msgid "Tracker account deactivated"
 msgstr "Tracker 帳號已停用"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate_email.html:5
+#: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "Your tracker account with username"
 msgstr "您的帶有使用者名稱 Tracker 帳號"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate_email.html:5
+#: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "has been deactivated."
 msgstr "已被停用。"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate_email.html:6
+#: tracker/templates/tracker/user_deactivate_email.html:6
 msgid "Deactivation cannot be undone without the intervention of an admin."
 msgstr "若無管理員的介入，停用為不可撤銷。"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate_email.html:7
+#: tracker/templates/tracker/user_deactivate_email.html:7
 msgid "You can contact an admin by replying to this email."
 msgstr "您可以透過回覆此電子郵件來聯絡管理員。"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate_email.html:10
+#: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
 msgstr "Tracker"
 
-#: .\trackersite\tracker\templates\tracker\user_detail.html:13
+#: tracker/templates/tracker/user_detail.html:13
 msgid "Total for this user"
 msgstr "此使用者的總計"
 
-#: .\trackersite\tracker\templates\tracker\user_detail.html:32
+#: tracker/templates/tracker/user_detail.html:32
 msgid "Accepted expeditures total"
 msgstr "已接受的預先支出總數"
 
-#: .\trackersite\tracker\templates\tracker\user_details_change.html:4
-#: .\trackersite\tracker\templates\tracker\user_details_change.html:9
+#: tracker/templates/tracker/user_details_change.html:4
+#: tracker/templates/tracker/user_details_change.html:9
 msgid "My details"
 msgstr "我的詳情"
 
-#: .\trackersite\tracker\templates\tracker\user_details_change.html:23
-#: .\trackersite\users\templates\users\register.html:28
+#: tracker/templates/tracker/user_details_change.html:23
+#: users/templates/users/register.html:28
 msgid "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them."
 msgstr "透過使用 Tracker，表示您同意資料處理。我們會使用您的資料，來為我們的會計來顯示所有的正確支付內容。您必須給予我們您的電子郵件地址，因您可能會被要求提供給我們進一步細節。資料並不會提供給第三方，僅允許授權的成員來取用它們。"
 
-#: .\trackersite\tracker\templates\tracker\user_list.html:22
+#: tracker/templates/tracker/user_list.html:22
 msgid "Tickets not assigned to any tracker user"
 msgstr "案件沒有分配給任何追蹤使用者"
 
-#: .\trackersite\tracker\templates\tracker\user_list.html:22
+#: tracker/templates/tracker/user_list.html:22
 msgid "unassigned"
 msgstr "尚未分配"
 
-#: .\trackersite\tracker\templates\tracker\watch.html:4
-#: .\trackersite\tracker\templates\tracker\watch.html:11
+#: tracker/templates/tracker/watch.html:4
+#: tracker/templates/tracker/watch.html:11
 msgid "Watch"
 msgstr "監視"
 
-#: .\trackersite\tracker\templates\tracker\watch.html:19
+#: tracker/templates/tracker/watch.html:19
 msgid "All"
 msgstr "所有"
 
-#: .\trackersite\tracker\views.py:65
+#: tracker/views.py:67
 msgid "Comment posted, thank you."
 msgstr "註釋已發佈，謝謝您。"
 
-#: .\trackersite\tracker\views.py:106
+#: tracker/views.py:108
 msgid "You cannot add ack to a ticket you do not own."
 msgstr "您不能對不屬於您的案件添加確認。"
 
-#: .\trackersite\tracker\views.py:117
+#: tracker/views.py:119
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
 msgstr "案件%(ticket_id)s確認「%(confirmation)s」已添加。"
 
-#: .\trackersite\tracker\views.py:153
+#: tracker/views.py:155
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been deleted."
 msgstr "案件%(ticket_id)s確認「%(confirmation)s」已刪除。"
 
-#: .\trackersite\tracker\views.py:197
+#: tracker/views.py:199
 msgid "Statutory declaration"
 msgstr "法定聲明"
 
-#: .\trackersite\tracker\views.py:244
+#: tracker/views.py:246
 msgid "Your deposit is bigger than your preexpeditures"
 msgstr "您的存款大於您的預先支出"
 
-#: .\trackersite\tracker\views.py:261
+#: tracker/views.py:263
 msgid "You are required to do statutory declaration"
 msgstr "您被請求做出法定聲明"
 
-#: .\trackersite\tracker\views.py:277
+#: tracker/views.py:279
 msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."
 msgstr "副主題必須是屬於您所使用主題。您可能有將 JavaScript 功能給關閉。"
 
-#: .\trackersite\tracker\views.py:368
+#: tracker/views.py:370
 msgid "We've updated your preferences"
 msgstr "我們已更新您的偏好設定"
 
-#: .\trackersite\tracker\views.py:416
+#: tracker/views.py:418
 msgid "Please enter your password to confirm the deactivation of your account."
 msgstr "請輸入您的密碼來確認停用您的帳號。"
 
-#: .\trackersite\tracker\views.py:431
+#: tracker/views.py:433
 msgid "Account deactivation"
 msgstr "帳號停用"
 
-#: .\trackersite\tracker\views.py:438
+#: tracker/views.py:440
 msgid "Your account has been deactivated."
 msgstr "您的帳號已停用。"
 
-#: .\trackersite\tracker\views.py:441
+#: tracker/views.py:443
 msgid "Password is incorrect."
 msgstr "密碼不正確。"
 
-#: .\trackersite\tracker\views.py:473
+#: tracker/views.py:475
 #, python-format
 msgid "Ticket's %s watching settings are changed."
 msgstr "案件的%s監視設定已更改。"
 
-#: .\trackersite\tracker\views.py:522
+#: tracker/views.py:524
 #, python-format
 msgid "Topic's %s watching settings are changed."
 msgstr "主題的%s監視設定已更改。"
 
-#: .\trackersite\tracker\views.py:552
+#: tracker/views.py:554
 #, python-format
 msgid "%s's watching settings are changed."
 msgstr "%s的監視設定已更改。"
 
-#: .\trackersite\tracker\views.py:599
+#: tracker/views.py:601
 #, python-format
 msgid "Ticket %s is created"
 msgstr "案件%s已建立"
 
-#: .\trackersite\tracker\views.py:645
+#: tracker/views.py:647
 msgid "I confirm the above"
 msgstr "我已確認以上內容"
 
-#: .\trackersite\tracker\views.py:652
+#: tracker/views.py:654
 msgid "You cannot add statutory declaration to a ticket that does not support it."
 msgstr "您不能對案件添加不支援的法定聲明。"
 
-#: .\trackersite\tracker\views.py:654
+#: tracker/views.py:656
 msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
 msgstr "您可使用此視圖來添加法定聲明至您所建立的案件。請使用編輯案件按鈕來進行。"
 
-#: .\trackersite\tracker\views.py:661
+#: tracker/views.py:663
 msgid "You successfully added a statutory declaration to this ticket."
 msgstr "您已成功對此案件添加法定聲明。"
 
-#: .\trackersite\tracker\views.py:664
+#: tracker/views.py:666
 msgid "You successfully removed a statutory declaration from this ticket."
 msgstr "您已成功從案件移除法定聲明。"
 
-#: .\trackersite\tracker\views.py:687
+#: tracker/views.py:689
 msgid "You cannot edit this ticket"
 msgstr "您不能編輯此案件"
 
-#: .\trackersite\tracker\views.py:734
+#: tracker/views.py:736
 #, python-format
 msgid "Ticket %s saved."
 msgstr "案件%s已儲存。"
 
-#: .\trackersite\tracker\views.py:765
+#: tracker/views.py:767
 msgid "file"
 msgstr "檔案"
 
-#: .\trackersite\tracker\views.py:795
+#: tracker/views.py:797
 msgid "You cannot edit this ticket documents, as it's no longer editable"
 msgstr "因不再可編輯緣故，您無法編輯此案件文件"
 
-#: .\trackersite\tracker\views.py:831
+#: tracker/views.py:833
 #, python-format
 msgid "Document changes for ticket %s saved."
 msgstr "已儲存用於案件%s的文件更改。"
 
-#: .\trackersite\tracker\views.py:854
+#: tracker/views.py:856
 msgid "There is already a document with that name. Please try to reupload with a different name."
 msgstr "已經有這樣名稱的文件，請用別的名稱來重新上傳。"
 
-#: .\trackersite\tracker\views.py:866
+#: tracker/views.py:868
 #, python-format
 msgid "File %(filename)s has been saved."
 msgstr "檔案%(filename)s已儲存。"
 
-#: .\trackersite\tracker\views.py:1054
+#: tracker/views.py:1056
 msgid "Your details have been saved."
 msgstr "已儲存您的詳情。"
 
-#: .\trackersite\tracker\views.py:1500
+#: tracker/views.py:1502
 msgid "You must fill the form validly"
 msgstr "您必須要正確地填寫表單"
 
-#: .\trackersite\tracker\views.py:1519
+#: tracker/views.py:1521
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
 msgstr "您沒有權限來匯入超過 %(input_row_limit)s 列。前 %(input_row_limit)s 個列已有匯入。"
 
-#: .\trackersite\tracker\views.py:1657
+#: tracker/views.py:1659
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
 msgstr "表單回傳異常數值，請聯絡系統管理員並告知您所嘗試做出的行為。"
 
-#: .\trackersite\tracker\views.py:1659
+#: tracker/views.py:1661
 msgid "Your CSV file was imported."
 msgstr "您的 CSV 檔案已匯入。"
 
-#: .\trackersite\tracker\views.py:1667
+#: tracker/views.py:1669
 msgid "Name of a ticket"
 msgstr "案件名稱"
 
-#: .\trackersite\tracker\views.py:1667 .\trackersite\tracker\views.py:1672
+#: tracker/views.py:1669 tracker/views.py:1674
 msgid "Name of a topic"
 msgstr "主題名稱"
 
-#: .\trackersite\tracker\views.py:1672
+#: tracker/views.py:1674
 msgid "Name of a grant"
 msgstr "授予名稱"
 
-#: .\trackersite\tracker\views.py:1672
+#: tracker/views.py:1674
 msgid "Form description"
 msgstr "表單描述"
 
-#: .\trackersite\tracker\views.py:1677
+#: tracker/views.py:1679
 msgid "Full name"
 msgstr "全名"
 
-#: .\trackersite\tracker\views.py:1677
+#: tracker/views.py:1679
 msgid "Short name"
 msgstr "簡稱"
 
-#: .\trackersite\tracker\views.py:1677
+#: tracker/views.py:1679
 msgid "Slug"
 msgstr "Slug"
 
-#: .\trackersite\tracker\views.py:1700
+#: tracker/views.py:1702
 msgid "Password"
 msgstr "密碼"
 
-#: .\trackersite\tracker\views.py:1722
+#: tracker/views.py:1724
 msgid "Preexpeditures were succesfully copied to expeditures."
 msgstr "預先支出成功複製到支出。"
 
-#: .\trackersite\tracker\views.py:1734
+#: tracker/views.py:1736
 msgid "Executing API call with any action than whitelisted is prohibited."
 msgstr "禁止不在白名單內執行任何 API 呼叫的操作。"
 
-#: .\trackersite\tracker\views.py:1745
+#: tracker/views.py:1747
 msgid "No media to show are available"
 msgstr "沒有可顯示的媒體"
 
-#: .\trackersite\tracker\views.py:1766
+#: tracker/views.py:1768
 msgid "Updating of medias for this ticket was successfully scheduled."
 msgstr "已成功安排用於此案件的媒體更新。"
 
-#: .\trackersite\tracker\views.py:1771
+#: tracker/views.py:1773
 msgid "List of media was successfully updated"
 msgstr "媒體清單更新成功"
 
-#: .\trackersite\tracker\views.py:1776
+#: tracker/views.py:1778
 msgid "There was an error while processing your request"
 msgstr "在處理您的請求時發生錯誤。"
 
-#: .\trackersite\tracker\views.py:1784
+#: tracker/views.py:1786
 msgid "This mandatory notice was sent to all active Tracker users."
 msgstr "此必要通知會傳送給所有有效的 Tracker 使用者。"
 
-#: .\trackersite\tracker\views.py:1796
+#: tracker/views.py:1798
 msgid "This mandatory notice was sent to all active Tracker administrators."
 msgstr "此必要通知會傳送給所有有效的 Tracker 管理員。"
 
-#: .\trackersite\users\forms.py:13
-#: .\trackersite\users\templates\users\password_change.html:27
+#: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
 msgstr "舊密碼"
 
-#: .\trackersite\users\templates\users\login.html:4
-#: .\trackersite\users\templates\users\login.html:12
-#: .\trackersite\users\templates\users\login.html:23
-#: .\trackersite\users\templates\users\register.html:29
+#: users/templates/users/login.html:4 users/templates/users/login.html:12
+#: users/templates/users/login.html:23 users/templates/users/register.html:29
 msgid "Login"
 msgstr "登入"
 
-#: .\trackersite\users\templates\users\login.html:7
+#: users/templates/users/login.html:7
 msgid "You need to log in to access the following page."
 msgstr "您需要登入才能存取以下頁面。"
 
-#: .\trackersite\users\templates\users\login.html:10
+#: users/templates/users/login.html:10
 msgid "Your username and password didn't match. Please try again."
 msgstr "您的使用者名稱與密碼不相符，請再試一次。"
 
-#: .\trackersite\users\templates\users\login.html:27
-#: .\trackersite\users\templates\users\register.html:22
+#: users/templates/users/login.html:27 users/templates/users/register.html:22
 msgid "Or..."
 msgstr "或是…"
 
-#: .\trackersite\users\templates\users\login.html:30
+#: users/templates/users/login.html:30
 msgid "Login with Meta Wiki"
 msgstr "以元維基登入"
 
-#: .\trackersite\users\templates\users\login.html:34
+#: users/templates/users/login.html:34
 msgid "Don't have an acount?"
 msgstr "還沒有帳號嗎？"
 
-#: .\trackersite\users\templates\users\login.html:34
-#: .\trackersite\users\templates\users\register.html:6
-#: .\trackersite\users\templates\users\register.html:9
-#: .\trackersite\users\templates\users\register.html:19
+#: users/templates/users/login.html:34 users/templates/users/register.html:6
+#: users/templates/users/register.html:9 users/templates/users/register.html:19
 msgid "Register"
 msgstr "註冊"
 
-#: .\trackersite\users\templates\users\login.html:35
+#: users/templates/users/login.html:35
 msgid "Forgot password?"
 msgstr "忘記密碼？"
 
-#: .\trackersite\users\templates\users\login.html:35
+#: users/templates/users/login.html:35
 msgid "Reset password"
 msgstr "重設密碼"
 
-#: .\trackersite\users\templates\users\logout.html:4
+#: users/templates/users/logout.html:4
 msgid "Logged out"
 msgstr "已登出"
 
-#: .\trackersite\users\templates\users\logout.html:7
+#: users/templates/users/logout.html:7
 msgid "Bye!"
 msgstr "再會！"
 
-#: .\trackersite\users\templates\users\logout.html:8
+#: users/templates/users/logout.html:8
 msgid "Go to index."
 msgstr "前往索引頁面。"
 
-#: .\trackersite\users\templates\users\oauth_invalid.html:4
-#: .\trackersite\users\templates\users\oauth_invalid.html:8
+#: users/templates/users/oauth_invalid.html:4
+#: users/templates/users/oauth_invalid.html:8
 #, python-format
 msgid "Connection to %(provider)s account is no longer valid"
 msgstr "連接到%(provider)s的帳號已不再有效"
 
-#: .\trackersite\users\templates\users\oauth_invalid.html:9
+#: users/templates/users/oauth_invalid.html:9
 msgid "To keep Tracker fully working, you should refresh the connection, by clicking the button below"
 msgstr "要維持 Tracker 完整運作，您必須透過點擊下方按鈕來重新整理連接"
 
-#: .\trackersite\users\templates\users\oauth_invalid.html:10
+#: users/templates/users/oauth_invalid.html:10
 #, python-format
 msgid "Refresh connection with %(provider)s"
 msgstr "重新整理與%(provider)s的連接"
 
-#: .\trackersite\users\templates\users\password_change.html:5
-#: .\trackersite\users\templates\users\password_change.html:16
-#: .\trackersite\users\views.py:67
+#: users/templates/users/password_change.html:5
+#: users/templates/users/password_change.html:16 users/views.py:67
 msgid "Password change"
 msgstr "密碼更改"
 
-#: .\trackersite\users\templates\users\password_change.html:12
+#: users/templates/users/password_change.html:12
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] "請更正下列錯誤。"
 
-#: .\trackersite\users\templates\users\password_change.html:19
+#: users/templates/users/password_change.html:19
 msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
 msgstr "請輸入您的舊密碼，出於安全考量，接著輸入您的新密碼兩次以讓我們核對您所輸入是正確的。"
 
-#: .\trackersite\users\templates\users\password_change.html:21
-#: .\trackersite\users\templates\users\password_reset_confirm.html:12
+#: users/templates/users/password_change.html:21
+#: users/templates/users/password_reset_confirm.html:12
 msgid "Please enter your new password twice so we can verify you typed it in correctly."
 msgstr "請輸入您的新密碼兩次，以讓我們核對您所輸入是正確的。"
 
-#: .\trackersite\users\templates\users\password_change.html:33
+#: users/templates/users/password_change.html:33
 msgid "New password"
 msgstr "新密碼"
 
-#: .\trackersite\users\templates\users\password_change.html:38
+#: users/templates/users/password_change.html:38
 msgid "Password (again)"
 msgstr "再次輸入密碼"
 
-#: .\trackersite\users\templates\users\password_change.html:42
-#: .\trackersite\users\templates\users\password_reset_confirm.html:19
+#: users/templates/users/password_change.html:42
+#: users/templates/users/password_reset_confirm.html:19
 msgid "Change my password"
 msgstr "更改我的密碼"
 
-#: .\trackersite\users\templates\users\password_change_done.html:4
-#: .\trackersite\users\templates\users\password_change_done.html:7
+#: users/templates/users/password_change_done.html:4
+#: users/templates/users/password_change_done.html:7
 msgid "Password change successful"
 msgstr "密碼更改成功"
 
-#: .\trackersite\users\templates\users\password_change_done.html:8
+#: users/templates/users/password_change_done.html:8
 msgid "Your password was changed."
 msgstr "您的密碼已更改。"
 
-#: .\trackersite\users\templates\users\password_reset.html:4
-#: .\trackersite\users\templates\users\password_reset.html:8
-#: .\trackersite\users\templates\users\password_reset_confirm.html:4
+#: users/templates/users/password_reset.html:4
+#: users/templates/users/password_reset.html:8
+#: users/templates/users/password_reset_confirm.html:4
 msgid "Password reset"
 msgstr "密碼重設"
 
-#: .\trackersite\users\templates\users\password_reset.html:10
+#: users/templates/users/password_reset.html:10
 msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
 msgstr "忘記您的密碼了嗎？請在下方輸入您的電子郵件地址，我們將會寄一份設定新密碼的說明給您。"
 
-#: .\trackersite\users\templates\users\password_reset.html:14
+#: users/templates/users/password_reset.html:14
 msgid "E-mail address:"
 msgstr "電子郵件地址："
 
-#: .\trackersite\users\templates\users\password_reset.html:14
+#: users/templates/users/password_reset.html:14
 msgid "Reset my password"
 msgstr "重新設定我的密碼"
 
-#: .\trackersite\users\templates\users\password_reset_complete.html:4
-#: .\trackersite\users\templates\users\password_reset_complete.html:8
+#: users/templates/users/password_reset_complete.html:4
+#: users/templates/users/password_reset_complete.html:8
 msgid "Password reset complete"
 msgstr "密碼重設完成"
 
-#: .\trackersite\users\templates\users\password_reset_complete.html:10
+#: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
 msgstr "您的密碼已設定。您現在可以進行登入。"
 
-#: .\trackersite\users\templates\users\password_reset_complete.html:12
+#: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
 msgstr "登入"
 
-#: .\trackersite\users\templates\users\password_reset_confirm.html:10
+#: users/templates/users/password_reset_confirm.html:10
 msgid "Enter new password"
 msgstr "輸入新密碼"
 
-#: .\trackersite\users\templates\users\password_reset_confirm.html:16
+#: users/templates/users/password_reset_confirm.html:16
 msgid "New password:"
 msgstr "新密碼："
 
-#: .\trackersite\users\templates\users\password_reset_confirm.html:18
+#: users/templates/users/password_reset_confirm.html:18
 msgid "Confirm password:"
 msgstr "確認密碼："
 
-#: .\trackersite\users\templates\users\password_reset_confirm.html:24
+#: users/templates/users/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
 msgstr "密碼重設失敗"
 
-#: .\trackersite\users\templates\users\password_reset_confirm.html:26
+#: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
 msgstr "密碼重新設定連結無效，可能是因為已被使用過。麻煩請求新密碼設定。"
 
-#: .\trackersite\users\templates\users\password_reset_done.html:4
-#: .\trackersite\users\templates\users\password_reset_done.html:8
+#: users/templates/users/password_reset_done.html:4
+#: users/templates/users/password_reset_done.html:8
 msgid "Password reset successful"
 msgstr "密碼重設成功"
 
-#: .\trackersite\users\templates\users\password_reset_done.html:10
+#: users/templates/users/password_reset_done.html:10
 msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
 msgstr "我們已寄送有關設定密碼說明至您所提交過的電子郵件地址。您應稍後就會收到。"
 
-#: .\trackersite\users\templates\users\password_reset_email.html:2
+#: users/templates/users/password_reset_email.html:2
 #, python-format
 msgid "You're receiving this e-mail because you requested a password reset for your user account at %(site_name)s."
 msgstr "您會收到此封電子郵件是因為先前您有請求重新設定您在 %(site_name)s 上的使用者帳號密碼。"
 
-#: .\trackersite\users\templates\users\password_reset_email.html:4
+#: users/templates/users/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
 msgstr "請前往以下頁面來挑選新密碼："
 
-#: .\trackersite\users\templates\users\password_reset_email.html:8
+#: users/templates/users/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
 msgstr "您的使用者名稱，在您忘記的情況下："
 
-#: .\trackersite\users\templates\users\password_reset_email.html:10
+#: users/templates/users/password_reset_email.html:10
 msgid "Thanks for using our site!"
 msgstr "感謝使用我們的網站！"
 
-#: .\trackersite\users\templates\users\password_reset_email.html:12
+#: users/templates/users/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
 msgstr "%(site_name)s 團隊"
 
-#: .\trackersite\users\templates\users\register.html:25
+#: users/templates/users/register.html:25
 msgid "Register with Meta Wiki"
 msgstr "以 Meta Wiki 註冊"
 
-#: .\trackersite\users\templates\users\register.html:29
+#: users/templates/users/register.html:29
 msgid "Already have an acount?"
 msgstr "已經有帳號了嗎？"
 
-#: .\trackersite\users\views.py:22
+#: users/views.py:22
 msgid "Will be used for password recovery and notifications, if you enable them."
 msgstr "若您啟用的話，會用於恢復密碼與通知。"
 
-#: .\trackersite\users\views.py:37
+#: users/views.py:37
 #, python-format
 msgid "User %s created."
 msgstr "已建立使用者%s。"

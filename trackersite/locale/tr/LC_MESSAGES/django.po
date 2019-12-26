@@ -10,2938 +10,2890 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-12-23 15:16:17+0000\n"
-"X-POT-Import-Date: 2019-12-21 19:30:23+0000\n"
+"PO-Revision-Date: 2019-12-26 12:01:11+0000\n"
+"X-POT-Import-Date: 2019-12-24 23:30:26+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "X-Generator: MediaWiki 1.35.0-alpha; Translate 2019-04-24\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\trackersite\api\serializers.py:101
+#: api/serializers.py:101
 msgid "Deposit should be zero when creating a ticket"
 msgstr "Bilet oluştururken para yatırma işlemi sıfır olmalıdır"
 
-#: .\trackersite\api\serializers.py:104
+#: api/serializers.py:104
 msgid "Cannot edit deposit once a ticket has been preaccepted"
 msgstr "Bir bilet ön kabul edildiğinde depozito düzenlenemez"
 
-#: .\trackersite\api\serializers.py:109 .\trackersite\api\serializers.py:112
+#: api/serializers.py:109 api/serializers.py:112
 msgid "Deposit should be lower or equal to the sum of preexpeditures"
 msgstr "Depozito ön ödemelerin toplamına eşit veya daha düşük olmalıdır"
 
-#: .\trackersite\api\serializers.py:134
+#: api/serializers.py:134
 msgid "You can not add media to this ticket."
 msgstr "Bu bilete medya ekleyemezsiniz."
 
-#: .\trackersite\api\serializers.py:136
+#: api/serializers.py:136
 msgid "You can not edit the media of this ticket."
 msgstr "Bu biletin medyasını düzenleyemezsiniz."
 
-#: .\trackersite\api\serializers.py:162
+#: api/serializers.py:162
 msgid "You can not add expiditures to this ticket."
 msgstr "Bu bilete harcama ekleyemezsiniz."
 
-#: .\trackersite\api\serializers.py:164
+#: api/serializers.py:164
 msgid "You can not edit expiditures of this ticket."
 msgstr "Bu biletin harcamalarını düzenleyemezsiniz."
 
-#: .\trackersite\api\serializers.py:178
+#: api/serializers.py:178
 msgid "You can not add preexpiditures to this ticket."
 msgstr "Bu bilete önceden ödeme ekleyemezsiniz."
 
-#: .\trackersite\api\serializers.py:180
+#: api/serializers.py:180
 msgid "You can not edit preexpiditures of this ticket."
 msgstr "Bu biletin ön ödemelerini düzenleyemezsiniz."
 
-#: .\trackersite\common_settings.py:92
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:18
+#: common_settings.py:92 tracker/templates/tracker/ticket_common_detail.html:18
 msgid "CZK"
 msgstr "CZK"
 
-#: .\trackersite\common_settings.py:95
+#: common_settings.py:95
 msgid "English"
 msgstr "İngilizce"
 
-#: .\trackersite\common_settings.py:96
+#: common_settings.py:96
 msgid "Czech"
 msgstr "Çekçe"
 
-#: .\trackersite\common_settings.py:97
+#: common_settings.py:97
 msgid "French"
 msgstr "Fransızca"
 
-#: .\trackersite\common_settings.py:98
+#: common_settings.py:98
 msgid "Arabic"
 msgstr "Arapça"
 
-#: .\trackersite\common_settings.py:99
+#: common_settings.py:99
 msgid "Danish"
 msgstr "Danca"
 
-#: .\trackersite\common_settings.py:100
+#: common_settings.py:100
 msgid "Finnish"
 msgstr "Fince"
 
-#: .\trackersite\common_settings.py:101
+#: common_settings.py:101
 msgid "Korean"
 msgstr "Korece"
 
-#: .\trackersite\common_settings.py:102
+#: common_settings.py:102
 msgid "Portuguese"
 msgstr "Portekizce"
 
-#: .\trackersite\common_settings.py:103
+#: common_settings.py:103
 msgid "Swedish"
 msgstr "İsveççe"
 
-#: .\trackersite\common_settings.py:104
+#: common_settings.py:104
 msgid "Chinese-traditional"
 msgstr "Çin geleneği"
 
-#: .\trackersite\customcomments\forms.py:21
+#: common_settings.py:105
+msgid "Spanish"
+msgstr "İspanyolca"
+
+#: customcomments/forms.py:21
 msgid "Your name"
 msgstr "İsminiz"
 
-#: .\trackersite\customcomments\forms.py:22
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:13
+#: customcomments/forms.py:22
+#: tracker/templates/tracker/ticketack_confirm_delete.html:13
 msgid "Comment"
 msgstr "Yorum"
 
-#: .\trackersite\socialauth\pipeline.py:15
+#: socialauth/pipeline.py:15
 msgid "Successfully linked your wikimedia account!"
 msgstr "Wikimedia hesabınıza başarıyla bağlandı!"
 
-#: .\trackersite\socialauth\pipeline.py:21
+#: socialauth/pipeline.py:21
 msgid "Your wikimedia account is no longer linked."
 msgstr "Wikimedia hesabınız artık bağlı değil."
 
-#: .\trackersite\templates\403.html:3
+#: templates/403.html:3
 msgid "403 Forbidden"
 msgstr "403 Yasak"
 
-#: .\trackersite\templates\403.html:7
+#: templates/403.html:7
 msgid "Forbidden"
 msgstr "Yasak"
 
-#: .\trackersite\templates\403.html:12
+#: templates/403.html:12
 msgid "You don't have permissions to do this!"
 msgstr "Bunu yapmak için yetkiniz yok!"
 
-#: .\trackersite\templates\404.html:3
+#: templates/404.html:3
 msgid "404 Not Found"
 msgstr "404 Bulunamadı"
 
-#: .\trackersite\templates\404.html:7
+#: templates/404.html:7
 msgid "Not Found"
 msgstr "Bulunamadı"
 
-#: .\trackersite\templates\404.html:10
+#: templates/404.html:10
 #, python-format
 msgid "The requested URL %(request_path)s was not found on this server."
 msgstr "İstenen URL %(request_path)s bu sunucuda bulunamadı."
 
-#: .\trackersite\templates\500.html:3 .\trackersite\templates\500.html:7
+#: templates/500.html:3 templates/500.html:7
 msgid "Internal Error"
 msgstr "İç hata"
 
-#: .\trackersite\templates\500.html:10
+#: templates/500.html:10
 msgid "There was an error processing you request. Sorry about that."
 msgstr "İsteğiniz işleme koyulurken bir hata oluştu. Bunun için üzgünüz."
 
-#: .\trackersite\templates\admin\base_site.html:4
+#: templates/admin/base_site.html:4
 msgid "Tracker admin"
 msgstr "İzleyici yöneticisi"
 
-#: .\trackersite\templates\admin\base_site.html:7
+#: templates/admin/base_site.html:7
 msgid "Tracker site administration"
 msgstr "İzleyici site yönetimi"
 
-#: .\trackersite\templates\base.html:32
+#: templates/base.html:32
 msgid "There is no email address associated with this account. Please update your details now."
 msgstr "Bu hesapla ilişkilendirilmiş bir e-posta adresi yok. Lütfen bilgilerinizi şimdi güncelleyin."
 
-#: .\trackersite\templates\base.html:35
+#: templates/base.html:35
 msgid "Update details"
 msgstr "Güncelleme ayrıntıları"
 
-#: .\trackersite\templates\base.html:55
+#: templates/base.html:55
 msgid "Toggle navigation"
 msgstr "Gezinmeyi değiştir"
 
-#: .\trackersite\templates\base.html:69
+#: templates/base.html:69
 msgid "change password"
 msgstr "parolayı değiştir"
 
-#: .\trackersite\templates\base.html:70
+#: templates/base.html:70
 msgid "change my details"
 msgstr "detaylarımı değiştir"
 
-#: .\trackersite\templates\base.html:71
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:8
+#: templates/base.html:71 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
 msgstr "tercihler"
 
-#: .\trackersite\templates\base.html:73
+#: templates/base.html:73
 msgid "admin"
 msgstr "hizmetli"
 
-#: .\trackersite\templates\base.html:75 .\trackersite\templates\base.html:90
+#: templates/base.html:75 templates/base.html:90
 msgid "change language"
 msgstr "dili değiştir"
 
-#: .\trackersite\templates\base.html:77 .\trackersite\templates\base.html:92
+#: templates/base.html:77 templates/base.html:92
 msgid "help"
 msgstr "yardım"
 
-#: .\trackersite\templates\base.html:79
+#: templates/base.html:79
 msgid "logout"
 msgstr "çıkış"
 
-#: .\trackersite\templates\base.html:84 .\trackersite\templates\base.html:87
+#: templates/base.html:84 templates/base.html:87
 msgid "login"
 msgstr "oturum aç"
 
-#: .\trackersite\templates\base.html:89
+#: templates/base.html:89
 msgid "register"
 msgstr "kaydol"
 
-#: .\trackersite\templates\base.html:106 .\trackersite\templates\base.html:109
+#: templates/base.html:106 templates/base.html:109
 msgid "Warning"
 msgstr "Uyarı"
 
-#: .\trackersite\templates\base.html:106
+#: templates/base.html:106
 #, python-format
 msgid "You are not in production. If you want to request reimbursement of expenses, go to <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>."
 msgstr "Sen üretimde değilsin. Giderlerin geri ödenmesini istemek istiyorsanız, <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a> adresine gidin."
 
-#: .\trackersite\templates\base.html:109
+#: templates/base.html:109
 msgid "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox."
 msgstr "Internet Explorer kullanıyorsunuz. Ancak, Tracker Internet Explorer'ın desteklemediği modern özellikler gerektirir. Sonuç olarak, Tracker Internet Explorer’da düzgün çalışmayabilir. Chrome veya Firefox gibi başka bir tarayıcı kullanmanızı öneririz."
 
-#: .\trackersite\templates\choose_language.html:5
-#: .\trackersite\templates\choose_language.html:8
+#: templates/choose_language.html:5 templates/choose_language.html:8
 msgid "Change language"
 msgstr "Dili değiştir"
 
-#: .\trackersite\templates\choose_language.html:23
+#: templates/choose_language.html:23
 msgid "Go"
-msgstr ""
+msgstr "Git"
 
-#: .\trackersite\templates\comments\form.html:17
-#: .\trackersite\templates\comments\preview.html:31
+#: templates/comments/form.html:17 templates/comments/preview.html:31
 msgid "Post"
 msgstr "Yazı"
 
-#: .\trackersite\templates\comments\form.html:18
-#: .\trackersite\templates\comments\preview.html:32
+#: templates/comments/form.html:18 templates/comments/preview.html:32
 msgid "Preview"
 msgstr "Önizleme"
 
-#: .\trackersite\templates\comments\preview.html:4
-#: .\trackersite\templates\comments\preview.html:15
+#: templates/comments/preview.html:4 templates/comments/preview.html:15
 msgid "Preview your comment"
 msgstr "Yorumunuzu önizleyin"
 
-#: .\trackersite\templates\comments\preview.html:13
+#: templates/comments/preview.html:13
 msgid "Please correct the error below"
 msgid_plural "Please correct the errors below"
 msgstr[0] "Lütfen aşağıdaki hatayı düzeltin"
 
-#: .\trackersite\tracker\admin.py:30 .\trackersite\tracker\admin.py:36
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:10
+#: tracker/admin.py:30 tracker/admin.py:36
+#: tracker/templates/tracker/ticketack_confirm_delete.html:10
 msgid "Type"
 msgstr "Tür"
 
-#: .\trackersite\tracker\admin.py:44
+#: tracker/admin.py:44
 msgid "Add ack"
 msgstr "Ekle"
 
-#: .\trackersite\tracker\admin.py:170
+#: tracker/admin.py:170
 msgid "Mark selected topics as opened for new tickets"
 msgstr "Seçilen konuları yeni biletler için açılmış olarak işaretle"
 
-#: .\trackersite\tracker\admin.py:177
+#: tracker/admin.py:177
 msgid "Mark selected topics as closed for new tickets"
 msgstr "Seçili konuları yeni biletler için kapalı olarak işaretle"
 
-#: .\trackersite\tracker\admin.py:205
+#: tracker/admin.py:205
 msgid "Modify this value by opening or closing topics in this grant to tickets"
 msgstr "Bu hibedeki konuları açarak veya kapatarak bu değeri değiştirin"
 
-#: .\trackersite\tracker\feeds.py:12
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:7
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:5
+#: tracker/feeds.py:12 tracker/templates/tracker/generic/ticket_list.html:7
+#: tracker/templates/tracker/topic_detail.html:5
 msgid "Latest tickets"
 msgstr "En son biletler"
 
-#: .\trackersite\tracker\feeds.py:13
+#: tracker/feeds.py:13
 msgid "Recently changed tickets"
 msgstr "Son değiştirilen biletler"
 
-#: .\trackersite\tracker\feeds.py:26
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:8
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:6
+#: tracker/feeds.py:26 tracker/templates/tracker/generic/ticket_list.html:8
+#: tracker/templates/tracker/topic_detail.html:6
 msgid "Latest submitted tickets"
 msgstr "En son gönderilen biletler"
 
-#: .\trackersite\tracker\feeds.py:27
+#: tracker/feeds.py:27
 msgid "Recently changed submitted tickets"
 msgstr "Son değiştirilen gönderilen biletler"
 
-#: .\trackersite\tracker\models.py:42
-#: .\trackersite\tracker\templates\tracker\grant_table.html:11
-#: .\trackersite\tracker\templates\tracker\topic_table.html:13
+#: tracker/models.py:43 tracker/templates/tracker/grant_table.html:11
+#: tracker/templates/tracker/topic_table.html:13
 msgid "n/a"
 msgstr "n/a"
 
-#: .\trackersite\tracker\models.py:43
-#: .\trackersite\tracker\templates\tracker\export.html:246
-#: .\trackersite\tracker\templates\tracker\grant_table.html:12
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:16
-#: .\trackersite\tracker\templates\tracker\topic_table.html:14
+#: tracker/models.py:44 tracker/templates/tracker/export.html:246
+#: tracker/templates/tracker/grant_table.html:12
+#: tracker/templates/tracker/topic_finance.html:16
+#: tracker/templates/tracker/topic_table.html:14
 msgid "unpaid"
 msgstr "ödenmemiş"
 
-#: .\trackersite\tracker\models.py:44
-#: .\trackersite\tracker\templates\tracker\export.html:247
-#: .\trackersite\tracker\templates\tracker\grant_table.html:13
-#: .\trackersite\tracker\templates\tracker\topic_table.html:15
+#: tracker/models.py:45 tracker/templates/tracker/export.html:247
+#: tracker/templates/tracker/grant_table.html:13
+#: tracker/templates/tracker/topic_table.html:15
 msgid "partially paid"
 msgstr "kısmen ödenmiş"
 
-#: .\trackersite\tracker\models.py:45 .\trackersite\tracker\models.py:1113
-#: .\trackersite\tracker\templates\tracker\export.html:248
-#: .\trackersite\tracker\templates\tracker\grant_table.html:14
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:17
-#: .\trackersite\tracker\templates\tracker\topic_table.html:16
+#: tracker/models.py:46 tracker/models.py:1114
+#: tracker/templates/tracker/export.html:248
+#: tracker/templates/tracker/grant_table.html:14
+#: tracker/templates/tracker/topic_finance.html:17
+#: tracker/templates/tracker/topic_table.html:16
 msgid "paid"
 msgstr "Ödenen"
 
-#: .\trackersite\tracker\models.py:46
-#: .\trackersite\tracker\templates\tracker\export.html:249
-#: .\trackersite\tracker\templates\tracker\grant_table.html:15
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:18
-#: .\trackersite\tracker\templates\tracker\topic_table.html:17
+#: tracker/models.py:47 tracker/templates/tracker/export.html:249
+#: tracker/templates/tracker/grant_table.html:15
+#: tracker/templates/tracker/topic_finance.html:18
+#: tracker/templates/tracker/topic_table.html:17
 msgid "overpaid"
 msgstr "ödenme"
 
-#: .\trackersite\tracker\models.py:50
+#: tracker/models.py:51
 msgid "presubmitted"
 msgstr "önceden gönderilmiş"
 
-#: .\trackersite\tracker\models.py:51
+#: tracker/models.py:52
 msgid "preaccepted"
 msgstr "önceden kabul edilmiş"
 
-#: .\trackersite\tracker\models.py:52
+#: tracker/models.py:53
 msgid "submitted"
 msgstr "gönderildi"
 
-#: .\trackersite\tracker\models.py:53
+#: tracker/models.py:54
 msgid "accepted"
 msgstr "Kabul edildi"
 
-#: .\trackersite\tracker\models.py:54
+#: tracker/models.py:55
 msgid "expense documents submitted"
 msgstr "gider belgeleri"
 
-#: .\trackersite\tracker\models.py:55
+#: tracker/models.py:56
 msgid "expense documents filed"
 msgstr "gider belgeleri"
 
-#: .\trackersite\tracker\models.py:56 .\trackersite\tracker\models.py:375
-#: .\trackersite\tracker\templates\tracker\export.html:52
-#: .\trackersite\tracker\templates\tracker\export.html:53
+#: tracker/models.py:57 tracker/models.py:376
+#: tracker/templates/tracker/export.html:52
+#: tracker/templates/tracker/export.html:53
 msgid "archived"
 msgstr "arşivlendi"
 
-#: .\trackersite\tracker\models.py:57 .\trackersite\tracker\models.py:373
-#: .\trackersite\tracker\templates\tracker\export.html:55
-#: .\trackersite\tracker\templates\tracker\export.html:56
+#: tracker/models.py:58 tracker/models.py:374
+#: tracker/templates/tracker/export.html:55
+#: tracker/templates/tracker/export.html:56
 msgid "closed"
 msgstr "Kapandı"
 
-#: .\trackersite\tracker\models.py:61
+#: tracker/models.py:62
 msgid "All notifications"
 msgstr "Bütün bildirimler"
 
-#: .\trackersite\tracker\models.py:62
+#: tracker/models.py:63
 msgid "Comment added"
 msgstr "Yorum eklendi"
 
-#: .\trackersite\tracker\models.py:63
+#: tracker/models.py:64
 msgid "Supervisor notes changed"
 msgstr "Yönetici notları değişti"
 
-#: .\trackersite\tracker\models.py:64
+#: tracker/models.py:65
 msgid "New ticket was created"
 msgstr "Yeni bilet oluşturuldu"
 
-#: .\trackersite\tracker\models.py:65
+#: tracker/models.py:66
 msgid "Ticket was deleted"
 msgstr "Bilet silindi"
 
-#: .\trackersite\tracker\models.py:66
+#: tracker/models.py:67
 msgid "Ack added"
 msgstr "Eklendi"
 
-#: .\trackersite\tracker\models.py:67
+#: tracker/models.py:68
 msgid "Ack removed"
 msgstr "Kaldırıldı"
 
-#: .\trackersite\tracker\models.py:68
+#: tracker/models.py:69
 msgid "Ticket changed"
 msgstr "Bilet değiştirildi"
 
-#: .\trackersite\tracker\models.py:69
+#: tracker/models.py:70
 msgid "New preexpediture was created"
 msgstr "Yeni ön harcama oluşturuldu"
 
-#: .\trackersite\tracker\models.py:70
+#: tracker/models.py:71
 msgid "Preexpeditures changed"
 msgstr "Ön harcamalar değişti"
 
-#: .\trackersite\tracker\models.py:71
+#: tracker/models.py:72
 msgid "New expediture was created"
 msgstr "Yeni keşif oluşturuldu"
 
-#: .\trackersite\tracker\models.py:72
+#: tracker/models.py:73
 msgid "Expeditures changed"
 msgstr "Harcamalar değişti"
 
-#: .\trackersite\tracker\models.py:73
+#: tracker/models.py:74
 msgid "New media was created"
 msgstr "Yeni medya oluşturuldu"
 
-#: .\trackersite\tracker\models.py:74
+#: tracker/models.py:75
 msgid "Media changed"
 msgstr "Medya değiştirildi"
 
-#: .\trackersite\tracker\models.py:75
+#: tracker/models.py:76
 msgid "Document changed"
 msgstr "Belge değiştirildi"
 
-#: .\trackersite\tracker\models.py:135
+#: tracker/models.py:136
 msgid "unknown"
 msgstr "bilinmeyen"
 
-#: .\trackersite\tracker\models.py:168 .\trackersite\tracker\models.py:1360
+#: tracker/models.py:169 tracker/models.py:1361
 msgid "created"
 msgstr "oluşturuldu"
 
-#: .\trackersite\tracker\models.py:241
+#: tracker/models.py:242
 msgid "Signed text"
 msgstr "İmzalı metin"
 
-#: .\trackersite\tracker\models.py:246
+#: tracker/models.py:247
 msgid "updated"
 msgstr "Güncellendi"
 
-#: .\trackersite\tracker\models.py:247
+#: tracker/models.py:248
 msgid "media updated"
 msgstr "medya güncellendi"
 
-#: .\trackersite\tracker\models.py:248
+#: tracker/models.py:249
 msgid "Date when cached information about media were last updated. Used in \"show media\" view."
 msgstr "Medyayla ilgili önbelleğe alınan bilgilerin en son güncellendiği tarih. \"Medyayı göster\" görünümünde kullanılır."
 
-#: .\trackersite\tracker\models.py:249
+#: tracker/models.py:250
 msgid "event date"
 msgstr "Olay tarihi"
 
-#: .\trackersite\tracker\models.py:250
+#: tracker/models.py:251
 msgid "Date of the event this ticket is about"
 msgstr "Bu biletin gerçekleştiği etkinliğin tarihi"
 
-#: .\trackersite\tracker\models.py:251 .\trackersite\tracker\models.py:412
-#: .\trackersite\tracker\templates\feeds\ticket_description.html:3
+#: tracker/models.py:252 tracker/models.py:413
+#: tracker/templates/feeds/ticket_description.html:3
 msgid "requested by"
 msgstr "talep eden:"
 
-#: .\trackersite\tracker\models.py:252
+#: tracker/models.py:253
 msgid "User who created/requested for this ticket"
 msgstr "Bu bilet için oluşturulan/talep eden kullanıcı"
 
-#: .\trackersite\tracker\models.py:254
+#: tracker/models.py:255
 msgid "requested by (text)"
 msgstr "(metin) tarafından talep edildi"
 
-#: .\trackersite\tracker\models.py:255
+#: tracker/models.py:256
 msgid "Text description of who requested for this ticket, in case user is not filled in"
 msgstr "Bu bilet için kimin istediğini, kullanıcı tarafından doldurulmadığı takdirde, metin açıklaması"
 
-#: .\trackersite\tracker\models.py:256 .\trackersite\tracker\models.py:713
-#: .\trackersite\tracker\models.py:785 .\trackersite\tracker\models.py:963
-#: .\trackersite\tracker\views.py:766
+#: tracker/models.py:257 tracker/models.py:714 tracker/models.py:786
+#: tracker/models.py:964 tracker/views.py:768
 msgid "name"
 msgstr "isim"
 
-#: .\trackersite\tracker\models.py:256
+#: tracker/models.py:257
 msgid "Name for the ticket"
 msgstr "Biletin adı"
 
-#: .\trackersite\tracker\models.py:257 .\trackersite\tracker\models.py:718
-#: .\trackersite\tracker\views.py:537
+#: tracker/models.py:258 tracker/models.py:719 tracker/views.py:539
 msgid "topic"
 msgstr "konu"
 
-#: .\trackersite\tracker\models.py:258
+#: tracker/models.py:259
 msgid "Project topic this ticket belongs to"
 msgstr "Bu biletin ait olduğu proje konusu"
 
-#: .\trackersite\tracker\models.py:259
+#: tracker/models.py:260
 msgid "subtopic"
 msgstr "alt konusunu"
 
-#: .\trackersite\tracker\models.py:260
+#: tracker/models.py:261
 msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
 msgstr "Alt konusu bu bilete ait (bilmiyorsanız boş bırakın)"
 
-#: .\trackersite\tracker\models.py:262
+#: tracker/models.py:263
 msgid "rating percentage"
 msgstr "derecelendirme yüzdesi"
 
-#: .\trackersite\tracker\models.py:263
+#: tracker/models.py:264
 msgid "Rating percentage set by topic administrator"
 msgstr "Konu yöneticisi tarafından belirlenen derecelendirme yüzdesi"
 
-#: .\trackersite\tracker\models.py:264
+#: tracker/models.py:265
 msgid "report mandatory"
 msgstr "zorunlu bildir"
 
-#: .\trackersite\tracker\models.py:264
-#: .\trackersite\tracker\templates\tracker\export.html:73
-#: .\trackersite\tracker\templates\tracker\export.html:75
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:15
+#: tracker/models.py:265 tracker/templates/tracker/export.html:73
+#: tracker/templates/tracker/export.html:75
+#: tracker/templates/tracker/ticket_common_detail.html:15
 msgid "Is report mandatory?"
 msgstr "Rapor zorunlu mu?"
 
-#: .\trackersite\tracker\models.py:265
+#: tracker/models.py:266
 msgid "report url"
 msgstr "url bildir"
 
-#: .\trackersite\tracker\models.py:266
+#: tracker/models.py:267
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
 msgstr "Bir şey bildirmek istiyorsanız (veya raporunuz konu yöneticisi için zorunlu ise) raporunuzun URL’sini bildir."
 
-#: .\trackersite\tracker\models.py:267
+#: tracker/models.py:268
 msgid "event url"
 msgstr "etkinlik url'si"
 
-#: .\trackersite\tracker\models.py:268
+#: tracker/models.py:269
 msgid "Link to a public page describing the event, if it exist"
 msgstr "Varsa, etkinliği açıklayan genel sayfaya bağlantı"
 
-#: .\trackersite\tracker\models.py:269 .\trackersite\tracker\models.py:714
-#: .\trackersite\tracker\models.py:798 .\trackersite\tracker\models.py:890
-#: .\trackersite\tracker\models.py:947 .\trackersite\tracker\models.py:1108
-#: .\trackersite\tracker\models.py:1134 .\trackersite\tracker\models.py:1293
-#: .\trackersite\tracker\views.py:767
+#: tracker/models.py:270 tracker/models.py:715 tracker/models.py:799
+#: tracker/models.py:891 tracker/models.py:948 tracker/models.py:1109
+#: tracker/models.py:1135 tracker/models.py:1294 tracker/views.py:769
 msgid "description"
 msgstr "açıklama"
 
-#: .\trackersite\tracker\models.py:270
+#: tracker/models.py:271
 msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description. You may use a limited subset of HTML."
 msgstr "Ek notlar için boşluk. Bir seyahate giriyorsanız, bize nereye gittiğinizi ve orada ne yaptığınızı söyleyin. Açıklamanıza #ticketid ekleyerek başka bir bilete link verebilirsiniz. Sınırlı bir HTML alt kümesini kullanabilirsiniz."
 
-#: .\trackersite\tracker\models.py:271
+#: tracker/models.py:272
 msgid "supervisor notes"
 msgstr "gözetmen notları"
 
-#: .\trackersite\tracker\models.py:272
+#: tracker/models.py:273
 msgid "This space is for notes of project supervisors and accounting staff."
 msgstr "Bu alan proje amirlerinin ve muhasebe personelinin notları içindir."
 
-#: .\trackersite\tracker\models.py:273
+#: tracker/models.py:274
 msgid "deposit"
 msgstr "depozito"
 
-#: .\trackersite\tracker\models.py:276
+#: tracker/models.py:277
 msgid "If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."
 msgstr "Finansal bir teminat talep ediyorsanız, lütfen tutarını buradan doldurun. Maksimum tutar, ön harcamaların toplamıdır. Depozito talep etmiyorsanız, buraya 0 doldurun."
 
-#: .\trackersite\tracker\models.py:278
+#: tracker/models.py:279
 msgid "payment status"
 msgstr "ödeme durumu"
 
-#: .\trackersite\tracker\models.py:279
+#: tracker/models.py:280
 msgid "imported"
 msgstr "ithal edildi"
 
-#: .\trackersite\tracker\models.py:280
+#: tracker/models.py:281
 msgid "Was this ticket imported from older Tracker version?"
 msgstr "Bu bilet daha eski İzleyici sürümünden alındı mı?"
 
-#: .\trackersite\tracker\models.py:281
+#: tracker/models.py:282
 msgid "enable comments"
 msgstr "yorumları etkinleştir"
 
-#: .\trackersite\tracker\models.py:282
+#: tracker/models.py:283
 msgid "Can users comment on this ticket?"
 msgstr "Kullanıcılar bu bilet hakkında yorum yapabilir mi?"
 
-#: .\trackersite\tracker\models.py:283
+#: tracker/models.py:284
 msgid "Did you travel by car?"
 msgstr "Araba ile mi seyahat ettin?"
 
-#: .\trackersite\tracker\models.py:284
+#: tracker/models.py:285
 msgid "Do you request reimbursement of car-type travel expense?"
 msgstr "Araba tipi seyahat masrafının geri ödenmesini istiyor musunuz?"
 
-#: .\trackersite\tracker\models.py:285
+#: tracker/models.py:286
 msgid "Is this ticket completed?"
 msgstr "Bu bilet tamamlandı mı?"
 
-#: .\trackersite\tracker\models.py:369
+#: tracker/models.py:370
 msgid "historical"
 msgstr "Tarihsel"
 
-#: .\trackersite\tracker\models.py:378
+#: tracker/models.py:379
 msgid "waiting for content rating"
 msgstr "içerik derecelendirmesini bekliyor"
 
-#: .\trackersite\tracker\models.py:381
-#: .\trackersite\tracker\templates\tracker\export.html:49
-#: .\trackersite\tracker\templates\tracker\export.html:50
+#: tracker/models.py:382 tracker/templates/tracker/export.html:49
+#: tracker/templates/tracker/export.html:50
 msgid "complete"
 msgstr "tamamlandı"
 
-#: .\trackersite\tracker\models.py:383
-#: .\trackersite\tracker\templates\tracker\export.html:46
-#: .\trackersite\tracker\templates\tracker\export.html:47
+#: tracker/models.py:384 tracker/templates/tracker/export.html:46
+#: tracker/templates/tracker/export.html:47
 msgid "waiting for filing of documents"
 msgstr "evrak dosyalanması için bekliyor"
 
-#: .\trackersite\tracker\models.py:385
-#: .\trackersite\tracker\templates\tracker\export.html:43
-#: .\trackersite\tracker\templates\tracker\export.html:44
+#: tracker/models.py:386 tracker/templates/tracker/export.html:43
+#: tracker/templates/tracker/export.html:44
 msgid "waiting for document submission"
 msgstr "evrak teslimi için bekliyor"
 
-#: .\trackersite\tracker\models.py:388 .\trackersite\tracker\models.py:395
-#: .\trackersite\tracker\templates\tracker\export.html:40
-#: .\trackersite\tracker\templates\tracker\export.html:41
+#: tracker/models.py:389 tracker/models.py:396
+#: tracker/templates/tracker/export.html:40
+#: tracker/templates/tracker/export.html:41
 msgid "waiting for approval"
 msgstr "onay bekleniyor"
 
-#: .\trackersite\tracker\models.py:390
-#: .\trackersite\tracker\templates\tracker\export.html:37
-#: .\trackersite\tracker\templates\tracker\export.html:38
+#: tracker/models.py:391 tracker/templates/tracker/export.html:37
+#: tracker/templates/tracker/export.html:38
 msgid "waiting for submitting"
 msgstr "göndermeyi bekliyor"
 
-#: .\trackersite\tracker\models.py:393
-#: .\trackersite\tracker\templates\tracker\export.html:34
-#: .\trackersite\tracker\templates\tracker\export.html:35
+#: tracker/models.py:394 tracker/templates/tracker/export.html:34
+#: tracker/templates/tracker/export.html:35
 msgid "waiting for preapproval"
 msgstr "ön onay bekliyor"
 
-#: .\trackersite\tracker\models.py:397
-#: .\trackersite\tracker\templates\tracker\export.html:31
-#: .\trackersite\tracker\templates\tracker\export.html:32
+#: tracker/models.py:398 tracker/templates/tracker/export.html:31
+#: tracker/templates/tracker/export.html:32
 msgid "draft"
 msgstr "taslak"
 
-#: .\trackersite\tracker\models.py:400
-#: .\trackersite\tracker\templates\tracker\export.html:30
+#: tracker/models.py:401 tracker/templates/tracker/export.html:30
 msgid "state"
 msgstr "Durum"
 
-#: .\trackersite\tracker\models.py:424
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:26
+#: tracker/models.py:425 tracker/templates/tracker/admin_user_list.html:26
 msgid "E-mail"
 msgstr "E-posta"
 
-#: .\trackersite\tracker\models.py:425 .\trackersite\tracker\models.py:1233
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:31
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:34
+#: tracker/models.py:426 tracker/models.py:1234
+#: tracker/templates/tracker/admin_user_list.html:31
+#: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
 msgstr "Diğer iletişim"
 
-#: .\trackersite\tracker\models.py:429
+#: tracker/models.py:430
 msgid "no tracker account listed"
 msgstr "izleyici hesabı listelenmemiş"
 
-#: .\trackersite\tracker\models.py:431
+#: tracker/models.py:432
 msgid "Requester details"
 msgstr "Talep ayrıntıları"
 
-#: .\trackersite\tracker\models.py:638
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:28
+#: tracker/models.py:639 tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Ticket"
 msgstr "Bilet"
 
-#: .\trackersite\tracker\models.py:639
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:12
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:19
-#: .\trackersite\tracker\templates\tracker\export.html:25
-#: .\trackersite\tracker\templates\tracker\grant_table.html:6
-#: .\trackersite\tracker\templates\tracker\import.html:19
-#: .\trackersite\tracker\templates\tracker\subtopic_detail.html:15
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:37
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:12
-#: .\trackersite\tracker\templates\tracker\topic_table.html:7
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
-#: .\trackersite\tracker\templates\tracker\user_detail.html:22
-#: .\trackersite\tracker\templates\tracker\user_list.html:13
+#: tracker/models.py:640 tracker/templates/tracker/cluster_detail.html:12
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/export.html:25
+#: tracker/templates/tracker/grant_table.html:6
+#: tracker/templates/tracker/import.html:19
+#: tracker/templates/tracker/subtopic_detail.html:15
+#: tracker/templates/tracker/topic_detail.html:37
+#: tracker/templates/tracker/topic_finance.html:12
+#: tracker/templates/tracker/topic_table.html:7
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22
+#: tracker/templates/tracker/user_list.html:13
 msgid "Tickets"
 msgstr "Biletler"
 
-#: .\trackersite\tracker\models.py:715 .\trackersite\tracker\models.py:717
+#: tracker/models.py:716 tracker/models.py:718
 msgid "Description shown to users who enter tickets for this subtopic"
 msgstr "Bu alt konu için bilet alan kullanıcılara gösterilen açıklama"
 
-#: .\trackersite\tracker\models.py:716 .\trackersite\tracker\models.py:800
+#: tracker/models.py:717 tracker/models.py:801
 msgid "form description"
 msgstr "form açıklaması"
 
-#: .\trackersite\tracker\models.py:719
+#: tracker/models.py:720
 msgid "Topic where this subtopic belongs"
 msgstr "Bu alt başlığın ait olduğu konu"
 
-#: .\trackersite\tracker\models.py:778
-#: .\trackersite\tracker\templates\tracker\index.html:24
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:13
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:16
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:31
+#: tracker/models.py:779 tracker/templates/tracker/index.html:24
+#: tracker/templates/tracker/ticket_common_detail.html:13
+#: tracker/templates/tracker/ticket_table.html:16
+#: tracker/templates/tracker/ticket_table.html:31
 msgid "Subtopic"
 msgstr "Alt konu"
 
-#: .\trackersite\tracker\models.py:779
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:28
+#: tracker/models.py:780 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
 msgstr "Alt konular"
 
-#: .\trackersite\tracker\models.py:786 .\trackersite\tracker\views.py:566
+#: tracker/models.py:787 tracker/views.py:568
 msgid "grant"
 msgstr "hibe"
 
-#: .\trackersite\tracker\models.py:787
+#: tracker/models.py:788
 msgid "Grant project where this topic belongs"
 msgstr "Bu konunun ait olduğu hibe projesi"
 
-#: .\trackersite\tracker\models.py:788
+#: tracker/models.py:789
 msgid "open for tickets"
 msgstr "biletlere açık"
 
-#: .\trackersite\tracker\models.py:789
+#: tracker/models.py:790
 msgid "Is this topic open for ticket submissions from users?"
 msgstr "Bu konu, kullanıcılardan bilet gönderimleri için açık mı?"
 
-#: .\trackersite\tracker\models.py:790
+#: tracker/models.py:791
 msgid "ticket media"
 msgstr "bilet medyası"
 
-#: .\trackersite\tracker\models.py:791
+#: tracker/models.py:792
 msgid "Does this topic track ticket media items?"
 msgstr "Bu konu bilet medya öğelerini izliyor mu?"
 
-#: .\trackersite\tracker\models.py:792
+#: tracker/models.py:793
 msgid "ticket expenses"
 msgstr "bilet masrafları"
 
-#: .\trackersite\tracker\models.py:793
+#: tracker/models.py:794
 msgid "Does this topic track ticket expenses?"
 msgstr "Bu konu bilet giderlerini takip ediyor mu?"
 
-#: .\trackersite\tracker\models.py:794
+#: tracker/models.py:795
 msgid "ticket preexpenses"
 msgstr "bilet öncesi masraflar"
 
-#: .\trackersite\tracker\models.py:795
+#: tracker/models.py:796
 msgid "Does this topic track preexpenses?"
 msgstr "Bu konu önceden ödenenleri takip ediyor mu?"
 
-#: .\trackersite\tracker\models.py:796
+#: tracker/models.py:797
 msgid "require statutory declaration"
 msgstr "yasal beyan gerektirir"
 
-#: .\trackersite\tracker\models.py:797
+#: tracker/models.py:798
 msgid "Does this topic require statutory declaration for car travelling?"
 msgstr "Bu konu, araba yolculuğu için yasal bildirim gerektiriyor mu?"
 
-#: .\trackersite\tracker\models.py:799 .\trackersite\tracker\models.py:891
+#: tracker/models.py:800 tracker/models.py:892
 msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
 msgstr "Detaylı açıklama; Şimdilik HTML'ye izin verilir, satır sonları otomatik olarak ayrıştırılır"
 
-#: .\trackersite\tracker\models.py:801
+#: tracker/models.py:802
 msgid "Description shown to users who enter tickets for this topic"
 msgstr "Bu konu için bilet giren kullanıcılara gösterilen açıklama"
 
-#: .\trackersite\tracker\models.py:802
+#: tracker/models.py:803
 msgid "topic administrator"
 msgstr "konu yöneticisi"
 
-#: .\trackersite\tracker\models.py:803
+#: tracker/models.py:804
 msgid "Selected users will have administration access to this topic."
 msgstr "Seçilen kullanıcılar bu konuya yönetici erişimine sahip olacak."
 
-#: .\trackersite\tracker\models.py:877
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:11
-#: .\trackersite\tracker\templates\tracker\index.html:23
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:12
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:15
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:30
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:14
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:11
-#: .\trackersite\tracker\templates\tracker\topic_table.html:5
+#: tracker/models.py:878 tracker/templates/tracker/dumpaccounts/index.html:11
+#: tracker/templates/tracker/index.html:23
+#: tracker/templates/tracker/ticket_common_detail.html:12
+#: tracker/templates/tracker/ticket_table.html:15
+#: tracker/templates/tracker/ticket_table.html:30
+#: tracker/templates/tracker/topic_content_acks_per_user.html:14
+#: tracker/templates/tracker/topic_finance.html:11
+#: tracker/templates/tracker/topic_table.html:5
 msgid "Topic"
 msgstr "Konu"
 
-#: .\trackersite\tracker\models.py:878
-#: .\trackersite\tracker\templates\tracker\export.html:61
-#: .\trackersite\tracker\templates\tracker\export.html:212
-#: .\trackersite\tracker\templates\tracker\import.html:26
+#: tracker/models.py:879 tracker/templates/tracker/export.html:61
+#: tracker/templates/tracker/export.html:212
+#: tracker/templates/tracker/import.html:26
 msgid "Topics"
 msgstr "Konular"
 
-#: .\trackersite\tracker\models.py:887
+#: tracker/models.py:888
 msgid "full name"
 msgstr "Tam ad"
 
-#: .\trackersite\tracker\models.py:887
+#: tracker/models.py:888
 msgid "Full name for headlines and such"
 msgstr "Başlıklar ve bunun için tam ad"
 
-#: .\trackersite\tracker\models.py:888
+#: tracker/models.py:889
 msgid "short name"
 msgstr "kısa ad"
 
-#: .\trackersite\tracker\models.py:888
+#: tracker/models.py:889
 msgid "Shorter name for use in tables"
 msgstr "Tablolarda kullanım için daha kısa ad"
 
-#: .\trackersite\tracker\models.py:889
+#: tracker/models.py:890
 msgid "slug"
 msgstr "slug"
 
-#: .\trackersite\tracker\models.py:889
+#: tracker/models.py:890
 msgid "Shortcut for usage in URLs"
 msgstr "URL’lerde kullanım için kısayol"
 
-#: .\trackersite\tracker\models.py:931
-#: .\trackersite\tracker\templates\tracker\grant_table.html:5
-#: .\trackersite\tracker\templates\tracker\index.html:22
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:14
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:29
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:13
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:10
-#: .\trackersite\tracker\templates\tracker\topic_table.html:6
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
+#: tracker/models.py:932 tracker/templates/tracker/grant_table.html:5
+#: tracker/templates/tracker/index.html:22
+#: tracker/templates/tracker/ticket_table.html:14
+#: tracker/templates/tracker/ticket_table.html:29
+#: tracker/templates/tracker/topic_content_acks_per_user.html:13
+#: tracker/templates/tracker/topic_finance.html:10
+#: tracker/templates/tracker/topic_table.html:6
+#: tracker/templates/tracker/transaction_list.html:15
 msgid "Grant"
 msgstr "Hibe"
 
-#: .\trackersite\tracker\models.py:932
-#: .\trackersite\tracker\templates\tracker\export.html:141
-#: .\trackersite\tracker\templates\tracker\import.html:34
+#: tracker/models.py:933 tracker/templates/tracker/export.html:141
+#: tracker/templates/tracker/import.html:34
 msgid "Grants"
 msgstr "Hibeler"
 
-#: .\trackersite\tracker\models.py:945 .\trackersite\tracker\models.py:961
-#: .\trackersite\tracker\models.py:1106 .\trackersite\tracker\models.py:1132
-#: .\trackersite\tracker\views.py:492
+#: tracker/models.py:946 tracker/models.py:962 tracker/models.py:1107
+#: tracker/models.py:1133 tracker/views.py:494
 msgid "ticket"
 msgstr "bilet"
 
-#: .\trackersite\tracker\models.py:946 .\trackersite\tracker\models.py:962
+#: tracker/models.py:947 tracker/models.py:963
 msgid "Ticket this media info belongs to"
 msgstr "Bu medya bilgisinin ait olduğu bilet"
 
-#: .\trackersite\tracker\models.py:947
+#: tracker/models.py:948
 msgid "Item description to show"
 msgstr "Gösterilecek öğe açıklaması"
 
-#: .\trackersite\tracker\models.py:948 .\trackersite\tracker\models.py:966
+#: tracker/models.py:949 tracker/models.py:967
 msgid "URL"
 msgstr "URL"
 
-#: .\trackersite\tracker\models.py:948
+#: tracker/models.py:949
 msgid "Link to media files"
 msgstr "Medya dosyalarına bağlantı"
 
-#: .\trackersite\tracker\models.py:949
+#: tracker/models.py:950
 msgid "count"
 msgstr "sayı"
 
-#: .\trackersite\tracker\models.py:949
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:45
+#: tracker/models.py:950 tracker/templates/tracker/ticket_show_media.html:45
 msgid "Number of files"
 msgstr "Dosya sayısı"
 
-#: .\trackersite\tracker\models.py:955 .\trackersite\tracker\models.py:956
-#: .\trackersite\tracker\models.py:1094 .\trackersite\tracker\models.py:1095
+#: tracker/models.py:956 tracker/models.py:957 tracker/models.py:1095
+#: tracker/models.py:1096
 msgid "Ticket media"
 msgstr "Bilet medyası"
 
-#: .\trackersite\tracker\models.py:964
+#: tracker/models.py:965
 msgid "width"
 msgstr "genişlik"
 
-#: .\trackersite\tracker\models.py:965
+#: tracker/models.py:966
 msgid "height"
 msgstr "yükseklik"
 
-#: .\trackersite\tracker\models.py:967
+#: tracker/models.py:968
 msgid "cannonical title"
 msgstr "kanonik başlık"
 
-#: .\trackersite\tracker\models.py:968
+#: tracker/models.py:969
 msgid "categories"
 msgstr "kategoriler"
 
-#: .\trackersite\tracker\models.py:969
+#: tracker/models.py:970
 msgid "usages"
 msgstr "kullanımlar"
 
-#: .\trackersite\tracker\models.py:1107
+#: tracker/models.py:1108
 msgid "Ticket this expediture belongs to"
 msgstr "Bilet bu sefer aittir"
 
-#: .\trackersite\tracker\models.py:1108
+#: tracker/models.py:1109
 msgid "Description of this expediture"
 msgstr "Bu giderin açıklaması"
 
-#: .\trackersite\tracker\models.py:1109 .\trackersite\tracker\models.py:1135
-#: .\trackersite\tracker\models.py:1291
+#: tracker/models.py:1110 tracker/models.py:1136 tracker/models.py:1292
 msgid "amount"
 msgstr "miktar"
 
-#: .\trackersite\tracker\models.py:1110
+#: tracker/models.py:1111
 msgid "Expediture amount in"
 msgstr "Harcama tutarı"
 
-#: .\trackersite\tracker\models.py:1111 .\trackersite\tracker\models.py:1294
+#: tracker/models.py:1112 tracker/models.py:1295
 msgid "accounting info"
 msgstr "muhasebe bilgisi"
 
-#: .\trackersite\tracker\models.py:1112
+#: tracker/models.py:1113
 msgid "Accounting info, this is editable only through admin field"
 msgstr "Muhasebe bilgileri, bu sadece yönetici alanı üzerinden düzenlenebilir"
 
-#: .\trackersite\tracker\models.py:1114 .\trackersite\tracker\models.py:1137
+#: tracker/models.py:1115 tracker/models.py:1138
 msgid "wage"
 msgstr "ücret"
 
-#: .\trackersite\tracker\models.py:1117 .\trackersite\tracker\models.py:1140
+#: tracker/models.py:1118 tracker/models.py:1141
 #, python-format
 msgid "%(description)s (%(amount)s %(currency)s)"
 msgstr "%(description)s (%(amount)s %(currency)s)"
 
-#: .\trackersite\tracker\models.py:1126
+#: tracker/models.py:1127
 msgid "Ticket expediture"
 msgstr "Bilet harcaması"
 
-#: .\trackersite\tracker\models.py:1127
+#: tracker/models.py:1128
 msgid "Ticket expeditures"
 msgstr "Bilet harcamaları"
 
-#: .\trackersite\tracker\models.py:1133
+#: tracker/models.py:1134
 msgid "Ticket this preexpediture belongs to"
 msgstr "Bu önceliğin ait olduğu bilet"
 
-#: .\trackersite\tracker\models.py:1134
+#: tracker/models.py:1135
 msgid "Description of this preexpediture"
 msgstr "Bu hazırlığın tanımı"
 
-#: .\trackersite\tracker\models.py:1136
+#: tracker/models.py:1137
 msgid "Preexpediture amount in"
 msgstr "Önceden düzenlenmiş miktar"
 
-#: .\trackersite\tracker\models.py:1144
+#: tracker/models.py:1145
 msgid "Ticket preexpediture"
 msgstr "Bilet hazırlığı"
 
-#: .\trackersite\tracker\models.py:1145
+#: tracker/models.py:1146
 msgid "Ticket preexpeditures"
 msgstr "Bilet hazırlıkları"
 
-#: .\trackersite\tracker\models.py:1149
+#: tracker/models.py:1150
 msgid "uploader"
 msgstr "yükleyici"
 
-#: .\trackersite\tracker\models.py:1159 .\trackersite\tracker\views.py:766
+#: tracker/models.py:1160 tracker/views.py:768
 msgid "We need a sane file name, such as my-invoice123.jpg"
 msgstr "my-invoice123.jpg gibi bir mantıklı dosya adına ihtiyacımız var"
 
-#: .\trackersite\tracker\models.py:1200
+#: tracker/models.py:1201
 msgid "Ignored acks"
 msgstr "Yoksayılmış"
 
-#: .\trackersite\tracker\models.py:1201
+#: tracker/models.py:1202
 msgid "Muted notifications"
 msgstr "Sessiz bildirimler"
 
-#: .\trackersite\tracker\models.py:1202
+#: tracker/models.py:1203
 msgid "Email language"
 msgstr "E-posta dili"
 
-#: .\trackersite\tracker\models.py:1204
+#: tracker/models.py:1205
 msgid "Display items"
 msgstr "Öğeleri görüntüle"
 
-#: .\trackersite\tracker\models.py:1205
+#: tracker/models.py:1206
 msgid "How many items should we display in tables at once"
 msgstr "Aynı anda tablolarda kaç tane öğe göstermeliyiz"
 
-#: .\trackersite\tracker\models.py:1224
+#: tracker/models.py:1225
 msgid "Tracker user preference"
 msgstr "İzleyici kullanıcı tercihi"
 
-#: .\trackersite\tracker\models.py:1225
+#: tracker/models.py:1226
 msgid "Tracker user preferences"
 msgstr "İzleyici kullanıcı tercihleri"
 
-#: .\trackersite\tracker\models.py:1230
+#: tracker/models.py:1231
 msgid "Username on mediawiki"
 msgstr "Mediawiki'deki kullanıcı adı"
 
-#: .\trackersite\tracker\models.py:1231
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:30
+#: tracker/models.py:1232 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
 msgstr "Banka hesabı"
 
-#: .\trackersite\tracker\models.py:1232
+#: tracker/models.py:1233
 msgid "Bank account information for money transfers"
 msgstr "Para transferleri için banka hesap bilgileri"
 
-#: .\trackersite\tracker\models.py:1234
+#: tracker/models.py:1235
 msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
 msgstr "Wiki hesabı gibi diğer kişiler; konu yöneticilerinin bazı bilgileri netleştirmeleri gerektiğinde yararlı olabilir"
 
-#: .\trackersite\tracker\models.py:1235
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:32
+#: tracker/models.py:1236 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
 msgstr "Diğer tanımlama"
 
-#: .\trackersite\tracker\models.py:1236
+#: tracker/models.py:1237
 msgid "Address, or other identification information, so we know who are we sending money to"
 msgstr "Adres veya diğer kimlik bilgileri, kime para gönderdiğimizi biliyoruz."
 
-#: .\trackersite\tracker\models.py:1267
+#: tracker/models.py:1268
 msgid "Tracker profile"
 msgstr "İzleyici profili"
 
-#: .\trackersite\tracker\models.py:1268
+#: tracker/models.py:1269
 msgid "Tracker profiles"
 msgstr "İzleyici profilleri"
 
-#: .\trackersite\tracker\models.py:1286
+#: tracker/models.py:1287
 msgid "date"
 msgstr "tarih"
 
-#: .\trackersite\tracker\models.py:1287 .\trackersite\tracker\models.py:1311
+#: tracker/models.py:1288 tracker/models.py:1312
 msgid "other party"
 msgstr "diğer parti"
 
-#: .\trackersite\tracker\models.py:1288
+#: tracker/models.py:1289
 msgid "The other party; user who sent or received the payment"
 msgstr "Diğer taraf; ödemeyi gönderen veya alan kullanıcı"
 
-#: .\trackersite\tracker\models.py:1289
+#: tracker/models.py:1290
 msgid "other party (text)"
 msgstr "diğer parti (metin)"
 
-#: .\trackersite\tracker\models.py:1290
+#: tracker/models.py:1291
 msgid "The other party; this text is used when user is not selected"
 msgstr "Diğer taraf; Bu metin kullanıcı seçilmediğinde kullanılır"
 
-#: .\trackersite\tracker\models.py:1292
+#: tracker/models.py:1293
 msgid "Payment amount; Positive value means transaction to the user, negative is a transaction from the user"
 msgstr "Ödeme miktarı; Pozitif değer, kullanıcıya yapılan işlem anlamına gelir; negatif, kullanıcıdan gelen bir işlemdir"
 
-#: .\trackersite\tracker\models.py:1293
+#: tracker/models.py:1294
 msgid "Description of this transaction"
 msgstr "Bu işlemin açıklaması"
 
-#: .\trackersite\tracker\models.py:1294
-#: .\trackersite\tracker\templates\feeds\transaction_description.html:6
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:19
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:64
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:34
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
-#: .\trackersite\tracker\templates\tracker\user_detail.html:22
-#: .\trackersite\tracker\views.py:1688
+#: tracker/models.py:1295
+#: tracker/templates/feeds/transaction_description.html:6
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1690
 msgid "Accounting info"
 msgstr "Muhasebe bilgisi"
 
-#: .\trackersite\tracker\models.py:1295
+#: tracker/models.py:1296
 msgid "related tickets"
 msgstr "ilgili biletler"
 
-#: .\trackersite\tracker\models.py:1296
+#: tracker/models.py:1297
 msgid "Tickets this trackaction is related to"
 msgstr "Bu izlemeyle ilgili biletler"
 
-#: .\trackersite\tracker\models.py:1335
+#: tracker/models.py:1336
 msgid "Transaction"
 msgstr "İşlem"
 
-#: .\trackersite\tracker\models.py:1336
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:18
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:30
-#: .\trackersite\tracker\templates\tracker\user_detail.html:19
+#: tracker/models.py:1337 tracker/templates/tracker/cluster_detail.html:18
+#: tracker/templates/tracker/ticket_detail.html:30
+#: tracker/templates/tracker/user_detail.html:19
 msgid "Transactions"
 msgstr "İşlemler"
 
-#: .\trackersite\tracker\models.py:1362
+#: tracker/models.py:1363
 msgid "comment"
 msgstr "yorum"
 
-#: .\trackersite\tracker\models.py:1486
+#: tracker/models.py:1487
 #, python-format
 msgid "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> by user <tt>%(user)s</tt>"
 msgstr "<tt>%(comment)s</tt> yorumu <tt>%(user)s</tt> adlı kullanıcının <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine eklendi."
 
-#: .\trackersite\tracker\models.py:1517
+#: tracker/models.py:1518
 #, python-format
 msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <tt>%(topic)s</tt> başlığında <a href=\"%(ticket_url)s\">%(ticket)s</a> oluşturdu."
 
-#: .\trackersite\tracker\models.py:1533
+#: tracker/models.py:1534
 #, python-format
 msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin yönetici notunu değiştirdi."
 
-#: .\trackersite\tracker\models.py:1553
+#: tracker/models.py:1554
 #, python-format
 msgid "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin açıklamasını değiştirdi."
 
-#: .\trackersite\tracker\models.py:1556
+#: tracker/models.py:1557
 #, python-format
 msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> adlı kullanıcı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin adını değiştirdi."
 
-#: .\trackersite\tracker\models.py:1559
+#: tracker/models.py:1560
 #, python-format
 msgid "User <tt>%(user)s</tt> changed link to report of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> adlı kullanıcı, <a href=\"%(ticket_url)s\">%(ticket)s</a> bilet raporuna giden bağlantıyı değiştirdi."
 
-#: .\trackersite\tracker\models.py:1563
+#: tracker/models.py:1564
 #, python-format
 msgid "User <tt>%(user)s</tt> changed requested deposit of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı istenen <a href=\"%(ticket_url)s\">%(ticket)s</a> bilet depozitosunu değiştirdi."
 
-#: .\trackersite\tracker\models.py:1573
+#: tracker/models.py:1574
 #, python-format
 msgid "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> adlı kullanıcı değişti \"Rapor zorunlu mu?\" <a href=\"%(ticket_url)s\">%(ticket)s</a> bilet alanı."
 
-#: .\trackersite\tracker\models.py:1585
+#: tracker/models.py:1586
 #, python-format
 msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
 msgstr "\"%(ticket)s\" bileti %(user)s kullanıcısı tarafından silindi"
 
-#: .\trackersite\tracker\models.py:1602
+#: tracker/models.py:1603
 #, python-format
 msgid "User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine <tt>%(ack_type)s</tt> eklendi."
 
-#: .\trackersite\tracker\models.py:1616
+#: tracker/models.py:1617
 #, python-format
 msgid "User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinden <tt>%(ack_type)s</tt> kaldırıldı"
 
-#: .\trackersite\tracker\models.py:1647
+#: tracker/models.py:1648
 #, python-format
 msgid "User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, biletine <a href=\"%(ticket_url)s\">%(ticket)s</a> <tt>%(expeditures)s</tt> planlı keşif gezileri ekledi"
 
-#: .\trackersite\tracker\models.py:1669
+#: tracker/models.py:1670
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> planlı seferini ücret olarak ayarlandı."
 
-#: .\trackersite\tracker\models.py:1672
+#: tracker/models.py:1673
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> planlı seferini ücret olmayanı ayarlandı."
 
-#: .\trackersite\tracker\models.py:1675
+#: tracker/models.py:1676
 #, python-format
 msgid "User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, planlanan sefer hızını <a href=\"%(ticket_url)s\">%(ticket)s</a> <tt>%(old_expediture)s</tt>'den <tt>%(expeditures)s</tt>'den değiştirdi."
 
-#: .\trackersite\tracker\models.py:1692
+#: tracker/models.py:1693
 #, python-format
 msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a >biletinden <tt>%(expediture)s</tt> planlanan seferini kaldırdı."
 
-#: .\trackersite\tracker\models.py:1713
+#: tracker/models.py:1714
 #, python-format
 msgid "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine <tt>%(expeditures)s</tt> gerçek keşifler ekledi."
 
-#: .\trackersite\tracker\models.py:1736
+#: tracker/models.py:1737
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as paid."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> gerçek seferini ödendiği gibi ayarlandı."
 
-#: .\trackersite\tracker\models.py:1739
+#: tracker/models.py:1740
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not paid."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> gerçek seferini ödenmediği gibi ayarlandı."
 
-#: .\trackersite\tracker\models.py:1744
+#: tracker/models.py:1745
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> gerçek seferini ücret olarak ayarlandı."
 
-#: .\trackersite\tracker\models.py:1747
+#: tracker/models.py:1748
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> gerçek seferini ücret olmayan ayarlandı."
 
-#: .\trackersite\tracker\models.py:1754
+#: tracker/models.py:1755
 #, python-format
 msgid "User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, gerçek aperitifliği <tt>%(old_expediture)s</tt> <a href=\"%(ticket_url)s\">%(ticket)s</a>'den <tt>%(expeditures)s</tt>'den değiştirdi."
 
-#: .\trackersite\tracker\models.py:1771
+#: tracker/models.py:1772
 #, python-format
 msgid "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <tt>%(expeditures)s</tt> gerçek harekatını kaldırdı <a href=\"%(ticket_url)s\">%(ticket)s </a>."
 
-#: .\trackersite\tracker\models.py:1785
+#: tracker/models.py:1786
 #, python-format
 msgid "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine medya ekledi."
 
-#: .\trackersite\tracker\models.py:1788
+#: tracker/models.py:1789
 #, python-format
 msgid "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin ortamını değiştirdi."
 
-#: .\trackersite\tracker\models.py:1802
+#: tracker/models.py:1803
 #, python-format
 msgid "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinden medyayı çıkardı."
 
-#: .\trackersite\tracker\models.py:1815 .\trackersite\tracker\models.py:1832
+#: tracker/models.py:1816 tracker/models.py:1833
 msgid "no description"
 msgstr "açıklama yok"
 
-#: .\trackersite\tracker\models.py:1818
+#: tracker/models.py:1819
 #, python-format
 msgid "User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> <tt>%(document_filename)s (%(document_description)s)</tt> belgesini ekledi."
 
-#: .\trackersite\tracker\models.py:1835
+#: tracker/models.py:1836
 #, python-format
 msgid "User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> <tt>%(document_filename)s (%(document_description)s)</tt> belgesini kaldırdı"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\ack_line.html:1
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "REMOVE"
 msgstr "KALDIR"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\ack_line.html:1
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "Really remove?"
 msgstr "Gerçekten kaldırılsın mı?"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\ack_line.html:1
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "YES"
 msgstr "EVET"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\ack_norating_error.html:2
+#: tracker/templates/admin/tracker/ticket/ack_norating_error.html:2
 msgid "You must fill rating percentage before you will be able to accept the ticket."
 msgstr "Bilet kabul edebilmeniz için derecelendirme yüzdesini doldurmanız gerekir."
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\ack_noreport_error.html:2
+#: tracker/templates/admin/tracker/ticket/ack_noreport_error.html:2
 msgid "You cannot accept ticket when a report is mandatory and no report was given"
 msgstr "Bir rapor zorunluyken ve hiçbir rapor verilmediğinde bilet kabul edemezsiniz"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\add_ack.html:3
+#: tracker/templates/admin/tracker/ticket/add_ack.html:3
 msgid "add new ack"
 msgstr "yeni ekle"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:11
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:7
-#: .\trackersite\tracker\views.py:1686 .\trackersite\tracker\views.py:1695
-#: .\trackersite\tracker\views.py:1705
+#: tracker/templates/admin/tracker/ticket/change_form.html:11
+#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1688
+#: tracker/views.py:1697 tracker/views.py:1707
 msgid "Ticket ID"
 msgstr "Bilet kimliği"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:14
+#: tracker/templates/admin/tracker/ticket/change_form.html:14
 msgid "Approvals"
 msgstr "Onaylar"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:18
+#: tracker/templates/admin/tracker/ticket/change_form.html:18
 msgid "ADD ACK"
 msgstr "EKLE"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:34
+#: tracker/templates/admin/tracker/ticket/change_form.html:34
 msgid "Ticket documents"
 msgstr "Bilet belgeleri"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:37
-#: .\trackersite\tracker\templates\tracker\edit_ticket.html:10
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:19
+#: tracker/templates/admin/tracker/ticket/change_form.html:37
+#: tracker/templates/tracker/edit_ticket.html:10
+#: tracker/templates/tracker/ticket_detail.html:19
 msgid "edit ticket documents"
 msgstr "bilet belgelerini düzenle"
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:44
+#: tracker/templates/admin/tracker/ticket/change_form.html:44
 msgid "There are no documents uploaded for this ticket."
 msgstr "Bu bilet için henüz bir dosya yüklenmemiş."
 
-#: .\trackersite\tracker\templates\admin\tracker\ticket\change_form.html:47
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:64
+#: tracker/templates/admin/tracker/ticket/change_form.html:47
+#: tracker/templates/tracker/ticket_detail.html:64
 #, python-format
 msgid "There is 1 document uploaded."
 msgid_plural "There are %(counter)s documents uploaded."
 msgstr[0] "Yüklenen 1 belge var."
 
-#: .\trackersite\tracker\templates\feeds\ticket_description.html:2
+#: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
 msgstr "durum"
 
-#: .\trackersite\tracker\templates\feeds\transaction_description.html:2
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:19
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:34
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
-#: .\trackersite\tracker\templates\tracker\user_detail.html:22
+#: tracker/templates/feeds/transaction_description.html:2
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22
 msgid "Date"
 msgstr "Tarih"
 
-#: .\trackersite\tracker\templates\feeds\transaction_description.html:3
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:19
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:34
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
-#: .\trackersite\tracker\templates\tracker\user_list.html:13
+#: tracker/templates/feeds/transaction_description.html:3
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_list.html:13
 msgid "User"
 msgstr "Kullanıcı"
 
-#: .\trackersite\tracker\templates\feeds\transaction_description.html:4
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:19
-#: .\trackersite\tracker\templates\tracker\export.html:153
-#: .\trackersite\tracker\templates\tracker\export.html:183
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:49
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:64
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:34
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
-#: .\trackersite\tracker\templates\tracker\user_detail.html:22
+#: tracker/templates/feeds/transaction_description.html:4
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/export.html:153
+#: tracker/templates/tracker/export.html:183
+#: tracker/templates/tracker/ticket_common_detail.html:49
+#: tracker/templates/tracker/ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22
 msgid "Amount"
 msgstr "Miktar"
 
-#: .\trackersite\tracker\templates\feeds\transaction_description.html:5
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:19
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:30
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:34
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:15
-#: .\trackersite\tracker\templates\tracker\user_detail.html:22
-#: .\trackersite\tracker\views.py:1667 .\trackersite\tracker\views.py:1672
-#: .\trackersite\tracker\views.py:1677 .\trackersite\tracker\views.py:1686
-#: .\trackersite\tracker\views.py:1695
+#: tracker/templates/feeds/transaction_description.html:5
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_common_detail.html:30
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1669
+#: tracker/views.py:1674 tracker/views.py:1679 tracker/views.py:1688
+#: tracker/views.py:1697
 msgid "Description"
 msgstr "Açıklama"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:4
+#: tracker/templates/notification/notification_html.html:4
 msgid "List of new tickets"
 msgstr "Yeni biletlerin listesi"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:13
+#: tracker/templates/notification/notification_html.html:13
 msgid "List of deleted tickets"
 msgstr "Silinen biletlerin listesi"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:22
+#: tracker/templates/notification/notification_html.html:22
 msgid "The state of a watched ticket was changed"
 msgstr "İzlenen biletin durumu değiştirildi"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:31
+#: tracker/templates/notification/notification_html.html:31
 msgid "Supervisor notes on a watched ticket were changed"
 msgstr "İzlenen bir bilette gözetmen notları değiştirildi"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:40
+#: tracker/templates/notification/notification_html.html:40
 msgid "Changes were made to a watched ticket"
 msgstr "İzlenen bilette değişiklikler yapıldı"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:49
+#: tracker/templates/notification/notification_html.html:49
 msgid "The preexpenditures of a watched ticket were changed"
 msgstr "İzlenen bir biletin ön harcamaları değiştirildi"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:58
+#: tracker/templates/notification/notification_html.html:58
 msgid "The expenditures of a watched ticket were changed"
 msgstr "İzlenen biletin harcamaları değiştirildi"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:67
+#: tracker/templates/notification/notification_html.html:67
 msgid "Medias of a watched ticket"
 msgstr "İzlenen biletin medyaları"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:76
+#: tracker/templates/notification/notification_html.html:76
 msgid "Documents of a watched ticket were changed"
 msgstr "İzlenen biletin belgeleri değiştirildi"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:85
+#: tracker/templates/notification/notification_html.html:85
 msgid "A comment was added to a watched ticket"
 msgstr "İzlenen bir bilete yorum eklendi"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:94
+#: tracker/templates/notification/notification_html.html:94
 msgid "List of tickets pending preapproval"
 msgstr "Onay bekleyen biletlerin listesi"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:95
+#: tracker/templates/notification/notification_html.html:95
 #, python-format
 msgid "These tickets may be ready for preapproval. Before you preapprove them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
 msgstr "Bu biletler ön onay için hazır olabilir. Onları önceden onaylamadan önce, daima <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">finansal politikamıza</a> uyup uymadıklarını kontrol edin."
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:104
+#: tracker/templates/notification/notification_html.html:104
 msgid "List of tickets pending approval"
 msgstr "Onay bekleyen biletlerin listesi"
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:105
+#: tracker/templates/notification/notification_html.html:105
 #, python-format
 msgid "These tickets may be ready for approval. Before you approve them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
 msgstr "Bu biletler onay için hazır olabilir. Onları onaylamadan önce, her zaman <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">finansal politikamıza</a> uyup uymadıklarını kontrol edin."
 
-#: .\trackersite\tracker\templates\notification\notification_html.html:114
+#: tracker/templates/notification/notification_html.html:114
 msgid "Tracker notifications"
 msgstr "İzleyici bildirimleri"
 
-#: .\trackersite\tracker\templates\notification\notification_subject.txt:1
+#: tracker/templates/notification/notification_subject.txt:1
 msgid "List of changes of watched tickets"
 msgstr "İzlenen biletlerin değişiklik listesi"
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:10
+#: tracker/templates/tracker/admin_index_override.html:10
 #, python-format
 msgid "Models available in the %(name)s application."
 msgstr "%(name)s uygulamasında mevcut modeller."
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:11
+#: tracker/templates/tracker/admin_index_override.html:11
 #, python-format
 msgid "%(name)s"
 msgstr "%(name)s"
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:21
-#: .\trackersite\tracker\templates\tracker\ticketack_add.html:4
-#: .\trackersite\tracker\templates\tracker\ticketack_add.html:8
+#: tracker/templates/tracker/admin_index_override.html:21
+#: tracker/templates/tracker/ticketack_add.html:4
+#: tracker/templates/tracker/ticketack_add.html:8
 msgid "Add"
 msgstr "Ekle"
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:27
+#: tracker/templates/tracker/admin_index_override.html:27
 msgid "Change"
 msgstr "Değiştir"
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:39
-#: .\trackersite\tracker\templates\tracker\user_list.html:4
-#: .\trackersite\tracker\templates\tracker\user_list.html:8
+#: tracker/templates/tracker/admin_index_override.html:39
+#: tracker/templates/tracker/user_list.html:4
+#: tracker/templates/tracker/user_list.html:8
 msgid "User list"
 msgstr "Kullanıcı listesi"
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:40
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:16
+#: tracker/templates/tracker/admin_index_override.html:40
+#: tracker/templates/tracker/admin_user_list.html:16
 msgid "Tracker users"
 msgstr "İzleyici kullanıcıları"
 
-#: .\trackersite\tracker\templates\tracker\admin_index_override.html:45
+#: tracker/templates/tracker/admin_index_override.html:45
 msgid "You don't have permission to edit anything."
 msgstr "Hiçbir şeyi düzenleme izniniz yok."
 
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:8
-#: .\trackersite\tracker\templates\tracker\export.html:67
-#: .\trackersite\tracker\templates\tracker\export.html:274
-#: .\trackersite\tracker\templates\tracker\import.html:60
+#: tracker/templates/tracker/admin_user_list.html:8
+#: tracker/templates/tracker/export.html:67
+#: tracker/templates/tracker/export.html:274
+#: tracker/templates/tracker/import.html:60
 msgid "Users"
 msgstr "Kullanıcılar"
 
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:13
+#: tracker/templates/tracker/admin_user_list.html:13
 msgid "Home"
 msgstr "Ana"
 
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:25
-#: .\trackersite\tracker\templates\tracker\user_details_change.html:12
-#: .\trackersite\tracker\views.py:1700
+#: tracker/templates/tracker/admin_user_list.html:25
+#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1702
 msgid "Username"
 msgstr "Kullanıcı adı"
 
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:28
-#: .\trackersite\tracker\views.py:1700
+#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1702
 msgid "First name"
 msgstr "İsim"
 
-#: .\trackersite\tracker\templates\tracker\admin_user_list.html:29
-#: .\trackersite\tracker\views.py:1700
+#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1702
 msgid "Last name"
 msgstr "Soyadı"
 
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:4
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:8
+#: tracker/templates/tracker/cluster_detail.html:4
+#: tracker/templates/tracker/cluster_detail.html:8
 #, python-format
 msgid "Cluster %(cid)s"
 msgstr "Küme %(cid)s"
 
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:7
-#: .\trackersite\tracker\templates\tracker\edit_ticket.html:7
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:7
-#: .\trackersite\tracker\templates\tracker\generic\create_ticket.html:7
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:12
-#: .\trackersite\tracker\templates\tracker\generic\topic_list.html:7
-#: .\trackersite\tracker\templates\tracker\grant_detail.html:9
-#: .\trackersite\tracker\templates\tracker\grant_list.html:7
-#: .\trackersite\tracker\templates\tracker\index.html:12
-#: .\trackersite\tracker\templates\tracker\preferences.html:11
-#: .\trackersite\tracker\templates\tracker\subtopic_detail.html:7
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:12
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:8
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:8
-#: .\trackersite\tracker\templates\tracker\ticketack_add.html:7
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:7
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:7
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:14
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:7
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:11
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:24
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:8
-#: .\trackersite\tracker\templates\tracker\user_detail.html:8
-#: .\trackersite\tracker\templates\tracker\user_details_change.html:7
-#: .\trackersite\tracker\templates\tracker\user_list.html:7
-#: .\trackersite\tracker\templates\tracker\watch.html:8
+#: tracker/templates/tracker/cluster_detail.html:7
+#: tracker/templates/tracker/edit_ticket.html:7
+#: tracker/templates/tracker/edit_ticket_docs.html:7
+#: tracker/templates/tracker/generic/create_ticket.html:7
+#: tracker/templates/tracker/generic/ticket_list.html:12
+#: tracker/templates/tracker/generic/topic_list.html:7
+#: tracker/templates/tracker/grant_detail.html:9
+#: tracker/templates/tracker/grant_list.html:7
+#: tracker/templates/tracker/index.html:12
+#: tracker/templates/tracker/preferences.html:11
+#: tracker/templates/tracker/subtopic_detail.html:7
+#: tracker/templates/tracker/ticket_detail.html:12
+#: tracker/templates/tracker/ticket_media.html:8
+#: tracker/templates/tracker/ticket_show_media.html:8
+#: tracker/templates/tracker/ticketack_add.html:7
+#: tracker/templates/tracker/ticketack_confirm_delete.html:7
+#: tracker/templates/tracker/topic_content_acks_per_user.html:7
+#: tracker/templates/tracker/topic_detail.html:14
+#: tracker/templates/tracker/topic_finance.html:7
+#: tracker/templates/tracker/transaction_list.html:11
+#: tracker/templates/tracker/upload_ticket_doc.html:24
+#: tracker/templates/tracker/user_deactivate.html:8
+#: tracker/templates/tracker/user_detail.html:8
+#: tracker/templates/tracker/user_details_change.html:7
+#: tracker/templates/tracker/user_list.html:7
+#: tracker/templates/tracker/watch.html:8
 msgid "index"
 msgstr "Dizin"
 
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:7
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:12
+#: tracker/templates/tracker/cluster_detail.html:7
+#: tracker/templates/tracker/generic/ticket_list.html:12
 msgid "transactions"
 msgstr "işlemler"
 
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:10
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:31
+#: tracker/templates/tracker/cluster_detail.html:10
+#: tracker/templates/tracker/ticket_detail.html:31
 msgid "Payment status"
 msgstr "Ödeme durumu"
 
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:14
+#: tracker/templates/tracker/cluster_detail.html:14
 msgid "Total tickets"
 msgstr "Toplam bilet"
 
-#: .\trackersite\tracker\templates\tracker\cluster_detail.html:26
+#: tracker/templates/tracker/cluster_detail.html:26
 msgid "Total transactions"
 msgstr "Toplam işlem"
 
-#: .\trackersite\tracker\templates\tracker\connect_account.html:4
+#: tracker/templates/tracker/connect_account.html:4
 msgid "Connected account required"
 msgstr "Bağlı hesap gerekli"
 
-#: .\trackersite\tracker\templates\tracker\connect_account.html:7
+#: tracker/templates/tracker/connect_account.html:7
 msgid "Permission denied"
 msgstr "İzin reddedildi"
 
-#: .\trackersite\tracker\templates\tracker\connect_account.html:8
+#: tracker/templates/tracker/connect_account.html:8
 msgid "You need to connect Tracker account with your Wikimedia account. To do so, click on the button below."
 msgstr "İzleyici hesabını Wikimedia hesabınızla bağlamanız gerekir. Bunu yapmak için aşağıdaki düğmeye tıklayın."
 
-#: .\trackersite\tracker\templates\tracker\connect_account.html:9
-#: .\trackersite\tracker\templates\tracker\preferences.html:85
+#: tracker/templates/tracker/connect_account.html:9
+#: tracker/templates/tracker/preferences.html:85
 msgid "Link Wikimedia account"
 msgstr "Wikimedia hesabını bağla"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:4
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:7
+#: tracker/templates/tracker/dumpaccounts/index.html:4
+#: tracker/templates/tracker/dumpaccounts/index.html:7
 msgid "Overview of"
 msgstr "Genel bakış"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:8
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\ticket_detail.html:9
+#: tracker/templates/tracker/dumpaccounts/index.html:8
+#: tracker/templates/tracker/dumpaccounts/ticket_detail.html:9
 msgid "Generated on"
 msgstr "Oluşturuldu"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:11
+#: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Unpaid"
 msgstr "Ödenmemiş"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:11
-#: .\trackersite\tracker\templates\tracker\export.html:207
+#: tracker/templates/tracker/dumpaccounts/index.html:11
+#: tracker/templates/tracker/export.html:207
 msgid "Paid"
 msgstr "Ödenmiş"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:11
+#: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Overpaid"
 msgstr "Ödenme"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:17
-#: .\trackersite\tracker\templates\tracker\grant_table.html:34
-#: .\trackersite\tracker\templates\tracker\topic_table.html:38
-#: .\trackersite\tracker\templates\tracker\user_list.html:27
+#: tracker/templates/tracker/dumpaccounts/index.html:17
+#: tracker/templates/tracker/grant_table.html:34
+#: tracker/templates/tracker/topic_table.html:38
+#: tracker/templates/tracker/user_list.html:27
 msgid "Total"
 msgstr "Toplam"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:28
-#: .\trackersite\tracker\templates\tracker\index.html:21
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:13
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:28
+#: tracker/templates/tracker/dumpaccounts/index.html:28
+#: tracker/templates/tracker/index.html:21
+#: tracker/templates/tracker/ticket_table.html:13
+#: tracker/templates/tracker/ticket_table.html:28
 msgid "ID"
 msgstr "Kimlik"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:28
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:23
+#: tracker/templates/tracker/dumpaccounts/index.html:28
+#: tracker/templates/tracker/ticket_table.html:23
 msgid "Status"
 msgstr "Durum"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:28
+#: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Accepted"
 msgstr "Kabul edildi"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:28
+#: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Payment"
 msgstr "Ödeme"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\index.html:36
+#: tracker/templates/tracker/dumpaccounts/index.html:36
 msgid "There are no tickets in this topic."
 msgstr "Bu konuda hiçbir bilet yok."
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\ticket_detail.html:13
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:50
+#: tracker/templates/tracker/dumpaccounts/ticket_detail.html:13
+#: tracker/templates/tracker/ticket_detail.html:50
 msgid "Documents"
 msgstr "Belgeler"
 
-#: .\trackersite\tracker\templates\tracker\dumpaccounts\ticket_detail.html:19
+#: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
 msgid "There aren't any documents here."
 msgstr "Burada hiç belge yok."
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket.html:4
-#: .\trackersite\tracker\templates\tracker\edit_ticket.html:8
+#: tracker/templates/tracker/edit_ticket.html:4
+#: tracker/templates/tracker/edit_ticket.html:8
 msgid "Edit"
 msgstr "Düzenle"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket.html:10
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:17
+#: tracker/templates/tracker/edit_ticket.html:10
+#: tracker/templates/tracker/ticket_detail.html:17
 msgid "copy preexpeditures to expeditures"
 msgstr "ön harcamaları harcamalara kopyala"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket.html:14
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:16
+#: tracker/templates/tracker/edit_ticket.html:14
+#: tracker/templates/tracker/edit_ticket_docs.html:16
 msgid "save"
 msgstr "kaydet"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:4
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:8
+#: tracker/templates/tracker/edit_ticket_docs.html:4
+#: tracker/templates/tracker/edit_ticket_docs.html:8
 msgid "Edit documents"
 msgstr "Belgeleri düzenle"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:7
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:24
+#: tracker/templates/tracker/edit_ticket_docs.html:7
+#: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "edit"
 msgstr "düzenle"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:10
+#: tracker/templates/tracker/edit_ticket_docs.html:10
 msgid "upload new document"
 msgstr "yeni belge yükle"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:14
+#: tracker/templates/tracker/edit_ticket_docs.html:14
 msgid "document"
 msgstr "Belge"
 
-#: .\trackersite\tracker\templates\tracker\edit_ticket_docs.html:17
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:27
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:35
+#: tracker/templates/tracker/edit_ticket_docs.html:17
+#: tracker/templates/tracker/ticket_form.html:27
+#: tracker/templates/tracker/upload_ticket_doc.html:35
 #, python-format
 msgid "Fields marked with %(mark)s are required."
 msgstr "%(mark)s ile işaretli alanların doldurulması zorunludur."
 
-#: .\trackersite\tracker\templates\tracker\export.html:12
-#: .\trackersite\tracker\templates\tracker\export.html:15
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:35
-#: .\trackersite\tracker\templates\tracker\index.html:42
+#: tracker/templates/tracker/export.html:12
+#: tracker/templates/tracker/export.html:15
+#: tracker/templates/tracker/generic/ticket_list.html:35
+#: tracker/templates/tracker/index.html:42
 msgid "Export"
 msgstr "Dışa aktar"
 
-#: .\trackersite\tracker\templates\tracker\export.html:18
+#: tracker/templates/tracker/export.html:18
 msgid "Only filters with at least one checked checkbox are applied. You can either check all checkboxes or none of them, it's the same."
 msgstr "Yalnızca en az bir onay kutusu işaretli filtreler uygulanır. Tüm onay kutularını işaretleyebilir veya hiçbirini işaretleyemezsiniz, aynıdır."
 
-#: .\trackersite\tracker\templates\tracker\export.html:59
+#: tracker/templates/tracker/export.html:59
 msgid "custom"
 msgstr "Özel"
 
-#: .\trackersite\tracker\templates\tracker\export.html:78
-#: .\trackersite\tracker\templates\tracker\export.html:149
-#: .\trackersite\tracker\templates\tracker\index.html:26
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:47
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:15
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:19
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:33
+#: tracker/templates/tracker/export.html:78
+#: tracker/templates/tracker/export.html:149
+#: tracker/templates/tracker/index.html:26
+#: tracker/templates/tracker/ticket_common_detail.html:47
+#: tracker/templates/tracker/ticket_form.html:15
+#: tracker/templates/tracker/ticket_table.html:19
+#: tracker/templates/tracker/ticket_table.html:33
 msgid "Preexpeditures"
 msgstr "Ön harcamalar"
 
-#: .\trackersite\tracker\templates\tracker\export.html:82
-#: .\trackersite\tracker\templates\tracker\export.html:102
-#: .\trackersite\tracker\templates\tracker\export.html:122
-#: .\trackersite\tracker\templates\tracker\export.html:157
-#: .\trackersite\tracker\templates\tracker\export.html:187
-#: .\trackersite\tracker\templates\tracker\export.html:226
-#: .\trackersite\tracker\templates\tracker\export.html:255
-#: .\trackersite\tracker\templates\tracker\export.html:282
-#: .\trackersite\tracker\templates\tracker\export.html:301
-#: .\trackersite\tracker\templates\tracker\export.html:320
+#: tracker/templates/tracker/export.html:82
+#: tracker/templates/tracker/export.html:102
+#: tracker/templates/tracker/export.html:122
+#: tracker/templates/tracker/export.html:157
+#: tracker/templates/tracker/export.html:187
+#: tracker/templates/tracker/export.html:226
+#: tracker/templates/tracker/export.html:255
+#: tracker/templates/tracker/export.html:282
+#: tracker/templates/tracker/export.html:301
+#: tracker/templates/tracker/export.html:320
 msgid "Larger or equal"
 msgstr "Daha büyük veya eşit"
 
-#: .\trackersite\tracker\templates\tracker\export.html:90
-#: .\trackersite\tracker\templates\tracker\export.html:110
-#: .\trackersite\tracker\templates\tracker\export.html:130
-#: .\trackersite\tracker\templates\tracker\export.html:165
-#: .\trackersite\tracker\templates\tracker\export.html:195
-#: .\trackersite\tracker\templates\tracker\export.html:234
-#: .\trackersite\tracker\templates\tracker\export.html:263
-#: .\trackersite\tracker\templates\tracker\export.html:290
-#: .\trackersite\tracker\templates\tracker\export.html:309
-#: .\trackersite\tracker\templates\tracker\export.html:328
+#: tracker/templates/tracker/export.html:90
+#: tracker/templates/tracker/export.html:110
+#: tracker/templates/tracker/export.html:130
+#: tracker/templates/tracker/export.html:165
+#: tracker/templates/tracker/export.html:195
+#: tracker/templates/tracker/export.html:234
+#: tracker/templates/tracker/export.html:263
+#: tracker/templates/tracker/export.html:290
+#: tracker/templates/tracker/export.html:309
+#: tracker/templates/tracker/export.html:328
 msgid "Smaller or equal"
 msgstr "Daha küçük veya eşit"
 
-#: .\trackersite\tracker\templates\tracker\export.html:98
-#: .\trackersite\tracker\templates\tracker\export.html:179
-#: .\trackersite\tracker\templates\tracker\index.html:27
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:62
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:20
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:20
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:34
+#: tracker/templates/tracker/export.html:98
+#: tracker/templates/tracker/export.html:179
+#: tracker/templates/tracker/index.html:27
+#: tracker/templates/tracker/ticket_common_detail.html:62
+#: tracker/templates/tracker/ticket_form.html:20
+#: tracker/templates/tracker/ticket_table.html:20
+#: tracker/templates/tracker/ticket_table.html:34
 msgid "Expeditures"
 msgstr "Harcamalar"
 
-#: .\trackersite\tracker\templates\tracker\export.html:118
-#: .\trackersite\tracker\templates\tracker\index.html:28
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:72
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:21
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:35
-#: .\trackersite\tracker\templates\tracker\user_list.html:13
+#: tracker/templates/tracker/export.html:118
+#: tracker/templates/tracker/index.html:28
+#: tracker/templates/tracker/ticket_common_detail.html:72
+#: tracker/templates/tracker/ticket_table.html:21
+#: tracker/templates/tracker/ticket_table.html:35
+#: tracker/templates/tracker/user_list.html:13
 msgid "Accepted expeditures"
 msgstr "Kabul edilen harcamalar"
 
-#: .\trackersite\tracker\templates\tracker\export.html:145
+#: tracker/templates/tracker/export.html:145
 msgid "You can't filter grants by any fields"
 msgstr "Hibeleri hiçbir alana göre filtreleyemezsiniz"
 
-#: .\trackersite\tracker\templates\tracker\export.html:174
-#: .\trackersite\tracker\templates\tracker\export.html:204
+#: tracker/templates/tracker/export.html:174
+#: tracker/templates/tracker/export.html:204
 msgid "Wage"
 msgstr "Ücret"
 
-#: .\trackersite\tracker\templates\tracker\export.html:216
+#: tracker/templates/tracker/export.html:216
 msgid "Supervisors"
 msgstr "Denetçiler"
 
-#: .\trackersite\tracker\templates\tracker\export.html:222
+#: tracker/templates/tracker/export.html:222
 msgid "Number of tickets"
 msgstr "Bilet sayısı"
 
-#: .\trackersite\tracker\templates\tracker\export.html:242
+#: tracker/templates/tracker/export.html:242
 msgid "Number of tickets in certain payment state"
 msgstr "Belirli ödeme durumundaki bilet sayısı"
 
-#: .\trackersite\tracker\templates\tracker\export.html:245
+#: tracker/templates/tracker/export.html:245
 msgid "N/A"
 msgstr "Bilinmiyor"
 
-#: .\trackersite\tracker\templates\tracker\export.html:278
+#: tracker/templates/tracker/export.html:278
 msgid "Number of tickets created"
 msgstr "Oluşturulan bilet sayısı"
 
-#: .\trackersite\tracker\templates\tracker\export.html:297
+#: tracker/templates/tracker/export.html:297
 msgid "Amount of accepted expeditures"
 msgstr "Kabul edilen harcamaların tutarı"
 
-#: .\trackersite\tracker\templates\tracker\export.html:316
+#: tracker/templates/tracker/export.html:316
 msgid "Amount of paid expeditures"
 msgstr "Ödenen harcama tutarı"
 
-#: .\trackersite\tracker\templates\tracker\export.html:338
+#: tracker/templates/tracker/export.html:338
 msgid "normal"
 msgstr "normal"
 
-#: .\trackersite\tracker\templates\tracker\export.html:343
+#: tracker/templates/tracker/export.html:343
 msgid "staff"
 msgstr "personel"
 
-#: .\trackersite\tracker\templates\tracker\export.html:348
+#: tracker/templates/tracker/export.html:348
 msgid "superuser"
 msgstr "süper"
 
-#: .\trackersite\tracker\templates\tracker\generic\create_ticket.html:4
-#: .\trackersite\tracker\templates\tracker\generic\create_ticket.html:8
+#: tracker/templates/tracker/generic/create_ticket.html:4
+#: tracker/templates/tracker/generic/create_ticket.html:8
 msgid "Create ticket"
 msgstr "Bilet oluştur"
 
-#: .\trackersite\tracker\templates\tracker\generic\create_ticket.html:13
+#: tracker/templates/tracker/generic/create_ticket.html:13
 msgid "You'll be able to edit everything you've filled in even after submitting the form."
 msgstr "Formu doldurduktan sonra bile doldurduğunuz her şeyi düzenleyebilirsiniz."
 
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:4
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:15
-#: .\trackersite\tracker\templates\tracker\index.html:3
-#: .\trackersite\tracker\templates\tracker\index.html:15
+#: tracker/templates/tracker/generic/ticket_list.html:4
+#: tracker/templates/tracker/generic/ticket_list.html:15
+#: tracker/templates/tracker/index.html:3
+#: tracker/templates/tracker/index.html:15
 msgid "Ticket list"
 msgstr "Bilet listesi"
 
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:12
-#: .\trackersite\tracker\templates\tracker\index.html:12
-#: .\trackersite\tracker\templates\tracker\subtopic_detail.html:7
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:12
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:7
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:14
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:7
+#: tracker/templates/tracker/generic/ticket_list.html:12
+#: tracker/templates/tracker/index.html:12
+#: tracker/templates/tracker/subtopic_detail.html:7
+#: tracker/templates/tracker/ticket_detail.html:12
+#: tracker/templates/tracker/topic_content_acks_per_user.html:7
+#: tracker/templates/tracker/topic_detail.html:14
+#: tracker/templates/tracker/topic_finance.html:7
 msgid "topics"
 msgstr "Konular"
 
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:12
-#: .\trackersite\tracker\templates\tracker\index.html:12
-#: .\trackersite\tracker\templates\tracker\user_detail.html:8
+#: tracker/templates/tracker/generic/ticket_list.html:12
+#: tracker/templates/tracker/index.html:12
+#: tracker/templates/tracker/user_detail.html:8
 msgid "users"
 msgstr "kullanıcılar"
 
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:13
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:32
-#: .\trackersite\tracker\templates\tracker\index.html:13
-#: .\trackersite\tracker\templates\tracker\user_detail.html:9
+#: tracker/templates/tracker/generic/ticket_list.html:13
+#: tracker/templates/tracker/generic/ticket_list.html:32
+#: tracker/templates/tracker/index.html:13
+#: tracker/templates/tracker/user_detail.html:9
 msgid "Create new ticket"
 msgstr "Yeni bilet oluştur"
 
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:22
-#: .\trackersite\tracker\templates\tracker\user_detail.html:15
+#: tracker/templates/tracker/generic/ticket_list.html:22
+#: tracker/templates/tracker/user_detail.html:15
 msgid "No tickets available."
 msgstr "Bilet yok."
 
-#: .\trackersite\tracker\templates\tracker\generic\ticket_list.html:33
-#: .\trackersite\tracker\templates\tracker\import.html:4
-#: .\trackersite\tracker\templates\tracker\import.html:7
-#: .\trackersite\tracker\templates\tracker\index.html:39
+#: tracker/templates/tracker/generic/ticket_list.html:33
+#: tracker/templates/tracker/import.html:4
+#: tracker/templates/tracker/import.html:7
+#: tracker/templates/tracker/index.html:39
 msgid "Import"
 msgstr "İçe aktar"
 
-#: .\trackersite\tracker\templates\tracker\generic\topic_list.html:4
-#: .\trackersite\tracker\templates\tracker\generic\topic_list.html:8
+#: tracker/templates/tracker/generic/topic_list.html:4
+#: tracker/templates/tracker/generic/topic_list.html:8
 msgid "Topic list"
 msgstr "Konu listesi"
 
-#: .\trackersite\tracker\templates\tracker\generic\topic_list.html:13
-#: .\trackersite\tracker\templates\tracker\grant_list.html:12
+#: tracker/templates/tracker/generic/topic_list.html:13
+#: tracker/templates/tracker/grant_list.html:12
 msgid "Topics closed for new tickets"
 msgstr "Yeni biletler için kapalı konular"
 
-#: .\trackersite\tracker\templates\tracker\generic\topic_list.html:18
+#: tracker/templates/tracker/generic/topic_list.html:18
 msgid "topic finance"
 msgstr "konu finansmanı"
 
-#: .\trackersite\tracker\templates\tracker\generic\topic_list.html:19
+#: tracker/templates/tracker/generic/topic_list.html:19
 msgid "topic ack overview"
 msgstr "konuya genel bakış"
 
-#: .\trackersite\tracker\templates\tracker\grant_detail.html:9
-#: .\trackersite\tracker\templates\tracker\index.html:12
+#: tracker/templates/tracker/grant_detail.html:9
+#: tracker/templates/tracker/index.html:12
 msgid "grants"
 msgstr "hibeler"
 
-#: .\trackersite\tracker\templates\tracker\grant_detail.html:11
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:21
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:25
+#: tracker/templates/tracker/grant_detail.html:11
+#: tracker/templates/tracker/ticket_detail.html:21
+#: tracker/templates/tracker/topic_detail.html:25
 msgid "watch settings"
 msgstr "izlenme ayarları"
 
-#: .\trackersite\tracker\templates\tracker\grant_list.html:4
-#: .\trackersite\tracker\templates\tracker\grant_list.html:8
+#: tracker/templates/tracker/grant_list.html:4
+#: tracker/templates/tracker/grant_list.html:8
 msgid "Grant list"
 msgstr "Hibe listesi"
 
-#: .\trackersite\tracker\templates\tracker\grant_table.html:7
-#: .\trackersite\tracker\templates\tracker\topic_table.html:8
+#: tracker/templates/tracker/grant_table.html:7
+#: tracker/templates/tracker/topic_table.html:8
 msgid "Paid wages"
 msgstr "Ödenen ücretler"
 
-#: .\trackersite\tracker\templates\tracker\grant_table.html:8
-#: .\trackersite\tracker\templates\tracker\topic_table.html:9
+#: tracker/templates/tracker/grant_table.html:8
+#: tracker/templates/tracker/topic_table.html:9
 msgid "Paid together"
 msgstr "Birlikte ödenme"
 
-#: .\trackersite\tracker\templates\tracker\grant_table.html:9
-#: .\trackersite\tracker\templates\tracker\topic_table.html:10
+#: tracker/templates/tracker/grant_table.html:9
+#: tracker/templates/tracker/topic_table.html:10
 msgid "Tickets per payment status"
 msgstr "Ödeme durumuna göre bilet"
 
-#: .\trackersite\tracker\templates\tracker\grant_table.html:11
-#: .\trackersite\tracker\templates\tracker\topic_table.html:13
+#: tracker/templates/tracker/grant_table.html:11
+#: tracker/templates/tracker/topic_table.html:13
 msgid "no payment required"
 msgstr "ödeme gerekli değil"
 
-#: .\trackersite\tracker\templates\tracker\grant_table.html:49
-#: .\trackersite\tracker\templates\tracker\topic_table.html:53
+#: tracker/templates/tracker/grant_table.html:49
+#: tracker/templates/tracker/topic_table.html:53
 msgid "No topics available."
 msgstr "Uygun konu yok."
 
-#: .\trackersite\tracker\templates\tracker\import.html:10
+#: tracker/templates/tracker/import.html:10
 #, python-format
 msgid " Be warned that you need permission to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows. If you'll submit a file CSV with more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows, only the first %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s will be processed. If you really need to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s of objects, please contact the systemadmin."
 msgstr " %(MAX_NUMBER_OF_ROWS_ON_IMPORT) satırdan fazlasını içe aktarmak için izin almanız gerektiğine dikkat edin. %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s satırdan oluşan bir CSV dosyası gönderirseniz, yalnızca ilk %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s işlenir. Gerçekten %(MAX_NUMBER_OF_ROWS_ON_IMPORT) nesneden fazlasını içe aktarmanız gerekiyorsa, lütfen sistem yöneticisine başvurun."
 
-#: .\trackersite\tracker\templates\tracker\import.html:14
+#: tracker/templates/tracker/import.html:14
 msgid "What kind of objects are you importing?"
 msgstr "Ne tür nesneler ithal ediyorsunuz?"
 
-#: .\trackersite\tracker\templates\tracker\import.html:19
-#: .\trackersite\tracker\templates\tracker\import.html:26
-#: .\trackersite\tracker\templates\tracker\import.html:34
-#: .\trackersite\tracker\templates\tracker\import.html:41
-#: .\trackersite\tracker\templates\tracker\import.html:47
-#: .\trackersite\tracker\templates\tracker\import.html:53
-#: .\trackersite\tracker\templates\tracker\import.html:60
+#: tracker/templates/tracker/import.html:19
+#: tracker/templates/tracker/import.html:26
+#: tracker/templates/tracker/import.html:34
+#: tracker/templates/tracker/import.html:41
+#: tracker/templates/tracker/import.html:47
+#: tracker/templates/tracker/import.html:53
+#: tracker/templates/tracker/import.html:60
 msgid "example file"
 msgstr "örnek dosya"
 
-#: .\trackersite\tracker\templates\tracker\import.html:41
+#: tracker/templates/tracker/import.html:41
 msgid "Preexpenses"
 msgstr "Ön giderler"
 
-#: .\trackersite\tracker\templates\tracker\import.html:47
+#: tracker/templates/tracker/import.html:47
 msgid "Expenses"
 msgstr "Harcamalar"
 
-#: .\trackersite\tracker\templates\tracker\import.html:53
+#: tracker/templates/tracker/import.html:53
 msgid "Media"
 msgstr "Medya"
 
-#: .\trackersite\tracker\templates\tracker\index.html:21
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:10
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:13
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:28
+#: tracker/templates/tracker/index.html:21
+#: tracker/templates/tracker/ticket_common_detail.html:10
+#: tracker/templates/tracker/ticket_table.html:13
+#: tracker/templates/tracker/ticket_table.html:28
 msgid "Event date"
 msgstr "Etkinlik tarihi"
 
-#: .\trackersite\tracker\templates\tracker\index.html:21
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:13
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:28
+#: tracker/templates/tracker/index.html:21
+#: tracker/templates/tracker/ticket_table.html:13
+#: tracker/templates/tracker/ticket_table.html:28
 msgid "Name"
 msgstr "Ad"
 
-#: .\trackersite\tracker\templates\tracker\index.html:25
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:11
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:17
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:32
+#: tracker/templates/tracker/index.html:25
+#: tracker/templates/tracker/ticket_common_detail.html:11
+#: tracker/templates/tracker/ticket_table.html:17
+#: tracker/templates/tracker/ticket_table.html:32
 msgid "Requested by"
 msgstr "Talep eden"
 
-#: .\trackersite\tracker\templates\tracker\index.html:29
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:73
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:22
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:36
+#: tracker/templates/tracker/index.html:29
+#: tracker/templates/tracker/ticket_common_detail.html:73
+#: tracker/templates/tracker/ticket_table.html:22
+#: tracker/templates/tracker/ticket_table.html:36
 msgid "Paid expeditures"
 msgstr "Ödenmiş harcamalar"
 
-#: .\trackersite\tracker\templates\tracker\index.html:30
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:14
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:37
+#: tracker/templates/tracker/index.html:30
+#: tracker/templates/tracker/ticket_common_detail.html:14
+#: tracker/templates/tracker/ticket_table.html:37
 msgid "State"
 msgstr "Eyalet"
 
-#: .\trackersite\tracker\templates\tracker\index.html:31
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:9
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:24
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:38
+#: tracker/templates/tracker/index.html:31
+#: tracker/templates/tracker/ticket_common_detail.html:9
+#: tracker/templates/tracker/ticket_table.html:24
+#: tracker/templates/tracker/ticket_table.html:38
 msgid "Last changed"
 msgstr "Son değiştirilen"
 
-#: .\trackersite\tracker\templates\tracker\paginator.html:4
+#: tracker/templates/tracker/paginator.html:4
 msgid "previous"
 msgstr "önceki"
 
-#: .\trackersite\tracker\templates\tracker\paginator.html:8
+#: tracker/templates/tracker/paginator.html:8
 msgid "next"
 msgstr "sonraki"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:4
-#: .\trackersite\tracker\templates\tracker\preferences.html:14
+#: tracker/templates/tracker/preferences.html:4
+#: tracker/templates/tracker/preferences.html:14
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:18
+#: tracker/templates/tracker/preferences.html:18
 msgid "Mute notifications"
 msgstr "Bildirimleri kapat"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:38
+#: tracker/templates/tracker/preferences.html:38
 msgid "Ignore ack types"
 msgstr "Türlerini yoksay"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:51
+#: tracker/templates/tracker/preferences.html:51
 msgid "Other"
 msgstr "Diğer"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:59
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:25
-#: .\trackersite\tracker\templates\tracker\user_details_change.html:21
-#: .\trackersite\tracker\templates\tracker\watch.html:32
+#: tracker/templates/tracker/preferences.html:59
+#: tracker/templates/tracker/ticket_form.html:25
+#: tracker/templates/tracker/user_details_change.html:21
+#: tracker/templates/tracker/watch.html:32
 msgid "Save"
 msgstr "Kaydet"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:62
+#: tracker/templates/tracker/preferences.html:62
 msgid "Wikimedia account"
 msgstr "Wikimedia hesabı"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:66
+#: tracker/templates/tracker/preferences.html:66
 msgid "Your account is connected to Wikimedia account"
 msgstr "Hesabınız Wikimedia hesabına bağlı"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:76
+#: tracker/templates/tracker/preferences.html:76
 msgid "Disconnect Wikimedia account"
 msgstr "Wikimedia hesabının bağlantısını kes"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:80
+#: tracker/templates/tracker/preferences.html:80
 msgid "In order to disconnect your Wikimedia account, you first need to"
 msgstr "Wikimedia hesabınızın bağlantısını kesmek için önce yapmanız gereken"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:80
+#: tracker/templates/tracker/preferences.html:80
 msgid "set a password."
 msgstr "bir şifre belirleyin."
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:88
+#: tracker/templates/tracker/preferences.html:88
 msgid "Account actions"
 msgstr "Hesap işlemleri"
 
-#: .\trackersite\tracker\templates\tracker\preferences.html:90
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:4
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:11
+#: tracker/templates/tracker/preferences.html:90
+#: tracker/templates/tracker/user_deactivate.html:4
+#: tracker/templates/tracker/user_deactivate.html:11
 msgid "Deactivate account"
 msgstr "Aktif edilmemiş hesap"
 
-#: .\trackersite\tracker\templates\tracker\sign_ticket.html:4
-#: .\trackersite\tracker\templates\tracker\sign_ticket.html:7
+#: tracker/templates/tracker/sign_ticket.html:4
+#: tracker/templates/tracker/sign_ticket.html:7
 msgid "Add statutory declaration to"
 msgstr "Yasal bildirim ekleyin"
 
-#: .\trackersite\tracker\templates\tracker\sign_ticket.html:13
-#: .\trackersite\tracker\templates\tracker\ticketack_add.html:21
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:16
+#: tracker/templates/tracker/sign_ticket.html:13
+#: tracker/templates/tracker/ticketack_add.html:21
+#: tracker/templates/tracker/ticketack_confirm_delete.html:16
 msgid "Submit"
 msgstr "Gönder"
 
-#: .\trackersite\tracker\templates\tracker\subtopic_detail.html:10
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:19
+#: tracker/templates/tracker/subtopic_detail.html:10
+#: tracker/templates/tracker/topic_detail.html:19
 msgid "add ticket"
 msgstr "bilet ekle"
 
-#: .\trackersite\tracker\templates\tracker\subtopic_detail.html:16
+#: tracker/templates/tracker/subtopic_detail.html:16
 msgid "Total for this subtopic"
 msgstr "Bu alt konu için toplam"
 
-#: .\trackersite\tracker\templates\tracker\tabular_formset.html:12
+#: tracker/templates/tracker/tabular_formset.html:12
 msgid "delete"
 msgstr "sil"
 
-#: .\trackersite\tracker\templates\tracker\tabular_formset.html:21
+#: tracker/templates/tracker/tabular_formset.html:21
 msgid "Delete the item"
 msgstr "Öğeyi sil"
 
-#: .\trackersite\tracker\templates\tracker\tabular_formset.html:91
+#: tracker/templates/tracker/tabular_formset.html:91
 #, python-format
 msgid "Add another %(formset_item_name)s"
 msgstr "Başka bir %(formset_item_name)s ekle"
 
-#: .\trackersite\tracker\templates\tracker\tabular_formset.html:94
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:4
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:8
+#: tracker/templates/tracker/tabular_formset.html:94
+#: tracker/templates/tracker/ticketack_confirm_delete.html:4
+#: tracker/templates/tracker/ticketack_confirm_delete.html:8
 msgid "Remove"
 msgstr "Kaldır"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:8
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:52
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:67
+#: tracker/templates/tracker/ticket_common_detail.html:8
+#: tracker/templates/tracker/ticket_common_detail.html:52
+#: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Created"
 msgstr "Oluşturuldu"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:10
+#: tracker/templates/tracker/ticket_common_detail.html:10
 msgid "unset"
 msgstr "ayarlama"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:15
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:52
+#: tracker/templates/tracker/ticket_common_detail.html:15
+#: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "Yes"
 msgstr "Evet"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:15
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:52
+#: tracker/templates/tracker/ticket_common_detail.html:15
+#: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "No"
 msgstr "Hayır"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:16
+#: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "Report URL"
 msgstr "URL bildir"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:16
+#: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "No report filled"
 msgstr "Rapor doldurulmadı"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:18
+#: tracker/templates/tracker/ticket_common_detail.html:18
 msgid "Deposit"
 msgstr "Depozito"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:19
+#: tracker/templates/tracker/ticket_common_detail.html:19
 msgid "Event URL"
 msgstr "Etkinlik URL'si"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:20
+#: tracker/templates/tracker/ticket_common_detail.html:20
 msgid "Rating percentage"
 msgstr "Oylama yüzdesi"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:22
+#: tracker/templates/tracker/ticket_common_detail.html:22
 msgid "remove"
 msgstr "kaldır"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:25
+#: tracker/templates/tracker/ticket_common_detail.html:25
 msgid "Confirm"
 msgstr "Onayla"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:33
+#: tracker/templates/tracker/ticket_common_detail.html:33
 msgid "Supervisor notes"
 msgstr "Danışman notları"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:36
+#: tracker/templates/tracker/ticket_common_detail.html:36
 msgid "Media (old)"
 msgstr "Medya (eski)"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:37
+#: tracker/templates/tracker/ticket_common_detail.html:37
 msgid "Number of objects"
 msgstr "Nesnelerin sayısı"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:38
+#: tracker/templates/tracker/ticket_common_detail.html:38
 msgid "Number of media files"
 msgstr "Medya dosyalarının sayısı"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:49
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_common_detail.html:49
+#: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Item"
 msgstr "Öğe"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:49
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_common_detail.html:49
+#: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Wage?"
 msgstr "Ücret?"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:56
+#: tracker/templates/tracker/ticket_common_detail.html:56
 msgid "Total preexpeditures"
 msgstr "Toplam ön hazırlıklar"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Paid?"
 msgstr "Ödeme?"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:67
+#: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Yes,No"
 msgstr "Evet,Hayır"
 
-#: .\trackersite\tracker\templates\tracker\ticket_common_detail.html:71
+#: tracker/templates/tracker/ticket_common_detail.html:71
 msgid "Total expeditures"
 msgstr "Toplam harcamalar"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:16
+#: tracker/templates/tracker/ticket_detail.html:16
 msgid "edit ticket"
 msgstr "bileti düzenle"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:18
+#: tracker/templates/tracker/ticket_detail.html:18
 msgid "edit in admin"
 msgstr "yöneticide düzenle"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:20
+#: tracker/templates/tracker/ticket_detail.html:20
 msgid "duplicate"
 msgstr "çift"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:22
+#: tracker/templates/tracker/ticket_detail.html:22
 msgid "add yourself as a driver"
 msgstr "kendini şoför olarak ekle"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:23
+#: tracker/templates/tracker/ticket_detail.html:23
 msgid "show media"
 msgstr "medya göster"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:24
+#: tracker/templates/tracker/ticket_detail.html:24
 msgid "manage media"
 msgstr "medya yönet"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:31
+#: tracker/templates/tracker/ticket_detail.html:31
 #, python-format
 msgid "part of <a href=\"%(c_link)s\">cluster %(c_id)s</a>: total tickets %(total_tickets)s&nbsp;%(cr)s, total transactions %(total_transactions)s&nbsp;%(cr)s"
 msgstr "<a href=\"%(c_link)s\">cluster %(c_id)s</a> parçası: toplam bilet %(total_tickets)s&nbsp;%(cr)s, toplam işlem %(total_transactions)s&nbsp;%(cr)s"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:41
+#: tracker/templates/tracker/ticket_detail.html:41
 msgid "Associated transactions total"
 msgstr "İlişkili işlemlerin toplamı"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:65
+#: tracker/templates/tracker/ticket_detail.html:65
 msgid "As you are not an administrator, you can see only documents you uploaded below."
 msgstr "Yönetici olmadığınız için yalnızca aşağıya yüklediğiniz belgeleri görebilirsiniz."
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:79
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:83
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:43
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:46
+#: tracker/templates/tracker/ticket_detail.html:79
+#: tracker/templates/tracker/ticket_detail.html:83
+#: tracker/templates/tracker/topic_detail.html:43
+#: tracker/templates/tracker/topic_detail.html:46
 msgid "Comments"
 msgstr "Yorumlar"
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:84
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:47
+#: tracker/templates/tracker/ticket_detail.html:84
+#: tracker/templates/tracker/topic_detail.html:47
 msgid "There are no comments yet."
 msgstr "Henüz hiç yorum yapılmamış."
 
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:91
-#: .\trackersite\tracker\templates\tracker\ticket_detail.html:93
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:52
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:54
+#: tracker/templates/tracker/ticket_detail.html:91
+#: tracker/templates/tracker/ticket_detail.html:93
+#: tracker/templates/tracker/topic_detail.html:52
+#: tracker/templates/tracker/topic_detail.html:54
 msgid "Add comment"
 msgstr "Yorum Ekle"
 
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:15
+#: tracker/templates/tracker/ticket_form.html:15
 msgid "preexpediture"
 msgstr "ön harcamalar"
 
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:20
+#: tracker/templates/tracker/ticket_form.html:20
 msgid "expediture"
 msgstr "harcama"
 
-#: .\trackersite\tracker\templates\tracker\ticket_form.html:25
+#: tracker/templates/tracker/ticket_form.html:25
 msgid "submit"
 msgstr "gönder"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:4
+#: tracker/templates/tracker/ticket_media.html:4
 msgid "Manage media for"
 msgstr "Medyayı yönet"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:9
+#: tracker/templates/tracker/ticket_media.html:9
 msgid "Add new media"
 msgstr "Yeni medya ekle"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:13
+#: tracker/templates/tracker/ticket_media.html:13
 msgid "Filename prefix"
 msgstr "Dosya adı öneki"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:17
+#: tracker/templates/tracker/ticket_media.html:17
 msgid "Mediawiki username"
 msgstr "Mediawiki kullanıcı adı"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:24
+#: tracker/templates/tracker/ticket_media.html:24
 msgid "Number of images to fetch"
 msgstr "Alınacak resim sayısı"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:28
+#: tracker/templates/tracker/ticket_media.html:28
 msgid "Category to filter by"
 msgstr "Filtrelenecek kategori"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:34
+#: tracker/templates/tracker/ticket_media.html:34
 msgid "Search"
 msgstr "Ara"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:48
+#: tracker/templates/tracker/ticket_media.html:48
 msgid "Load more"
 msgstr "Daha fazla yükle"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:49
+#: tracker/templates/tracker/ticket_media.html:49
 msgid "Loading..."
 msgstr "Yükleniyor..."
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:54
+#: tracker/templates/tracker/ticket_media.html:54
 msgid "Choose selected photos"
 msgstr "Seçilen fotoğrafları seç"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:57
+#: tracker/templates/tracker/ticket_media.html:57
 msgid "Remove existing media"
 msgstr "Mevcut medyayı kaldır"
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:58
+#: tracker/templates/tracker/ticket_media.html:58
 msgid "It can take up to five minutes for the images you added to show here."
 msgstr "Burada eklediğiniz resimlerin gösterilmesi beş dakika kadar sürebilir."
 
-#: .\trackersite\tracker\templates\tracker\ticket_media.html:66
+#: tracker/templates/tracker/ticket_media.html:66
 msgid "Delete selected photos"
 msgstr "Seçilen fotoğrafları sil"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:3
+#: tracker/templates/tracker/ticket_show_media.html:3
 msgid "Show media for"
 msgstr "Medya göster"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:9
+#: tracker/templates/tracker/ticket_show_media.html:9
 msgid "List of linked media"
 msgstr "Bağlantılı ortamların listesi"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:10
+#: tracker/templates/tracker/ticket_show_media.html:10
 msgid "Last updated"
 msgstr "Son güncelleme"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:10
+#: tracker/templates/tracker/ticket_show_media.html:10
 msgid "update"
 msgstr "güncelle"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:11
+#: tracker/templates/tracker/ticket_show_media.html:11
 msgid "Page will be updated within 24 hours."
 msgstr "Sayfa 24 saat içinde güncellenecektir."
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:15
+#: tracker/templates/tracker/ticket_show_media.html:15
 msgid "File name"
 msgstr "Dosya adı"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:16
+#: tracker/templates/tracker/ticket_show_media.html:16
 msgid "Dimension"
 msgstr "Boyut"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:17
+#: tracker/templates/tracker/ticket_show_media.html:17
 msgid "Categories"
 msgstr "Kategoriler"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:18
+#: tracker/templates/tracker/ticket_show_media.html:18
 msgid "Used in"
 msgstr "Kullanılan"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:25
+#: tracker/templates/tracker/ticket_show_media.html:25
 msgid "Unknown"
 msgstr "Bilinmiyor"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:49
+#: tracker/templates/tracker/ticket_show_media.html:49
 msgid "Number of usages"
 msgstr "Kullanım sayısı"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:53
+#: tracker/templates/tracker/ticket_show_media.html:53
 msgid "Number of Wikidata items"
 msgstr "Vikiveri öğe sayısı"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:57
+#: tracker/templates/tracker/ticket_show_media.html:57
 msgid "Number of unique Wikidata items"
 msgstr "Benzersiz Vikiveri öğesi sayısı"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:63
+#: tracker/templates/tracker/ticket_show_media.html:63
 msgid "Photos per category"
 msgstr "Kategori başına fotoğraf"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:67
+#: tracker/templates/tracker/ticket_show_media.html:67
 msgid "Category"
 msgstr "Kategori"
 
-#: .\trackersite\tracker\templates\tracker\ticket_show_media.html:68
+#: tracker/templates/tracker/ticket_show_media.html:68
 msgid "Number"
 msgstr "Sayı"
 
-#: .\trackersite\tracker\templates\tracker\ticket_table.html:18
-#: .\trackersite\tracker\templates\tracker\user_list.html:13
+#: tracker/templates/tracker/ticket_table.html:18
+#: tracker/templates/tracker/user_list.html:13
 msgid "Media count"
 msgstr "Medya sayısı"
 
-#: .\trackersite\tracker\templates\tracker\ticketack_add.html:7
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:7
+#: tracker/templates/tracker/ticketack_add.html:7
+#: tracker/templates/tracker/ticketack_confirm_delete.html:7
 msgid "confirmations"
 msgstr "onayları"
 
-#: .\trackersite\tracker\templates\tracker\ticketack_add.html:26
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:17
+#: tracker/templates/tracker/ticketack_add.html:26
+#: tracker/templates/tracker/ticketack_confirm_delete.html:17
 msgid "back to ticket"
 msgstr "bilete geri dön"
 
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:11
+#: tracker/templates/tracker/ticketack_confirm_delete.html:11
 msgid "Added"
 msgstr "Eklendi"
 
-#: .\trackersite\tracker\templates\tracker\ticketack_confirm_delete.html:12
+#: tracker/templates/tracker/ticketack_confirm_delete.html:12
 msgid "Added by"
 msgstr "Ekleyen"
 
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:4
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:8
+#: tracker/templates/tracker/topic_content_acks_per_user.html:4
+#: tracker/templates/tracker/topic_content_acks_per_user.html:8
 msgid "Topic ack overview"
 msgstr "Konuya genel bakış"
 
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:12
+#: tracker/templates/tracker/topic_content_acks_per_user.html:12
 msgid "Supervisor"
 msgstr "Denetçi"
 
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:15
+#: tracker/templates/tracker/topic_content_acks_per_user.html:15
 msgid "Ack count"
 msgstr "Sayı"
 
-#: .\trackersite\tracker\templates\tracker\topic_content_acks_per_user.html:27
+#: tracker/templates/tracker/topic_content_acks_per_user.html:27
 msgid "download csv"
 msgstr "csv indir"
 
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:19
+#: tracker/templates/tracker/topic_detail.html:19
 msgid "Topic is open for new tickets"
 msgstr "Konu yeni biletlere açık"
 
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:22
+#: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrators"
 msgstr "Konu yöneticileri"
 
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:22
+#: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrator"
 msgstr "Konu yöneticisi"
 
-#: .\trackersite\tracker\templates\tracker\topic_detail.html:38
+#: tracker/templates/tracker/topic_detail.html:38
 msgid "Total for this topic"
 msgstr "Bu konu için toplam"
 
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:4
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:8
+#: tracker/templates/tracker/topic_finance.html:4
+#: tracker/templates/tracker/topic_finance.html:8
 msgid "Topic finance"
 msgstr "Konu finansmanı"
 
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:13
+#: tracker/templates/tracker/topic_finance.html:13
 msgid "Amounts per payment status"
 msgstr "Ödeme durumuna göre tutarlar"
 
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:34
+#: tracker/templates/tracker/topic_finance.html:34
 #, python-format
 msgid "Total %(gname)s"
 msgstr "Toplam %(gname)s"
 
-#: .\trackersite\tracker\templates\tracker\topic_finance.html:44
+#: tracker/templates/tracker/topic_finance.html:44
 msgid "Marked topics involve partial payments that have no clear relation to topic, and have been split equally among possible candidates."
 msgstr "İşaretli konular, konuyla net bir ilişkisi olmayan ve olası adaylar arasında eşit olarak bölünmüş olan kısmi ödemeleri içerir."
 
-#: .\trackersite\tracker\templates\tracker\topic_table.html:11
+#: tracker/templates/tracker/topic_table.html:11
 msgid "Administrators"
 msgstr "Yöneticiler"
 
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:4
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:12
+#: tracker/templates/tracker/transaction_list.html:4
+#: tracker/templates/tracker/transaction_list.html:12
 msgid "Transaction list"
 msgstr "İşlem listesi"
 
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:7
+#: tracker/templates/tracker/transaction_list.html:7
 msgid "Latest transactions"
 msgstr "Son işlemler"
 
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:22
-#: .\trackersite\tracker\templates\tracker\user_detail.html:31
+#: tracker/templates/tracker/transaction_list.html:22
+#: tracker/templates/tracker/user_detail.html:31
 msgid "Transactions total"
 msgstr "İşlem toplamı"
 
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:24
+#: tracker/templates/tracker/transaction_list.html:24
 msgid "No transactions available."
 msgstr "Kullanılabilir işlem yok."
 
-#: .\trackersite\tracker\templates\tracker\transaction_list.html:26
+#: tracker/templates/tracker/transaction_list.html:26
 msgid "download as csv"
 msgstr "csv olarak indir"
 
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:21
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:25
+#: tracker/templates/tracker/upload_ticket_doc.html:21
+#: tracker/templates/tracker/upload_ticket_doc.html:25
 msgid "Upload document"
 msgstr "Dökümanı yükle"
 
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:24
+#: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "documents"
 msgstr "dökumanlar"
 
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:34
+#: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload"
 msgstr "yükle"
 
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:34
+#: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload and add another"
 msgstr "yükle ve başka ekle"
 
-#: .\trackersite\tracker\templates\tracker\upload_ticket_doc.html:35
+#: tracker/templates/tracker/upload_ticket_doc.html:35
 msgid "This document, including its file name and description, will be visible only to the ticket owner and specially privileged users."
 msgstr "Bu belge, dosya adı ve açıklaması dahil, yalnızca bilet sahibi ve özel olarak ayrıcalıklı kullanıcılar tarafından görülebilir."
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:14
+#: tracker/templates/tracker/user_deactivate.html:14
 msgid "Deactivating your account will mean that it is no longer possible to login."
 msgstr "Hesabınızı devre dışı bırakmak, artık giriş yapmanın mümkün olmadığı anlamına gelir."
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:15
+#: tracker/templates/tracker/user_deactivate.html:15
 msgid "Deactivation is irreversible without the intervention of an admin."
 msgstr "Devre dışı bırakma, bir yöneticinin müdahalesi olmadan geri alınamaz."
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:16
+#: tracker/templates/tracker/user_deactivate.html:16
 msgid "You can contact an admin by replying to the email which confirms the deactivation."
 msgstr "Devre dışı bırakıldığını onaylayan e-postayı yanıtlayarak bir yönetici ile iletişime geçebilirsiniz."
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:18
+#: tracker/templates/tracker/user_deactivate.html:18
 msgid "The following account will be deactivated:"
 msgstr "Aşağıdaki hesap devre dışı bırakılacak:"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:20
+#: tracker/templates/tracker/user_deactivate.html:20
 msgid "Username:"
 msgstr "Kullanıcı adı:"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:21
+#: tracker/templates/tracker/user_deactivate.html:21
 msgid "Email:"
 msgstr "E-posta:"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate.html:32
+#: tracker/templates/tracker/user_deactivate.html:32
 msgid "Deactivate my account"
 msgstr "Hesabımı devre dışı bırak"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate_email.html:3
+#: tracker/templates/tracker/user_deactivate_email.html:3
 msgid "Tracker account deactivated"
 msgstr "İzleyici hesabı devre dışı bırakıldı"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate_email.html:5
+#: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "Your tracker account with username"
 msgstr "Kullanıcı adı olan izci hesabınız"
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate_email.html:5
+#: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "has been deactivated."
 msgstr "devre dışı bırakıldı."
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate_email.html:6
+#: tracker/templates/tracker/user_deactivate_email.html:6
 msgid "Deactivation cannot be undone without the intervention of an admin."
 msgstr "Devre dışı bırakma, bir yöneticinin müdahalesi olmadan geri alınamaz."
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate_email.html:7
+#: tracker/templates/tracker/user_deactivate_email.html:7
 msgid "You can contact an admin by replying to this email."
 msgstr "Bu e-postayı yanıtlayarak bir yönetici ile iletişime geçebilirsiniz."
 
-#: .\trackersite\tracker\templates\tracker\user_deactivate_email.html:10
+#: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
 msgstr "İzleyici"
 
-#: .\trackersite\tracker\templates\tracker\user_detail.html:13
+#: tracker/templates/tracker/user_detail.html:13
 msgid "Total for this user"
 msgstr "Bu kullanıcı için toplam"
 
-#: .\trackersite\tracker\templates\tracker\user_detail.html:32
+#: tracker/templates/tracker/user_detail.html:32
 msgid "Accepted expeditures total"
 msgstr "Kabul edilen harcamaların toplamı"
 
-#: .\trackersite\tracker\templates\tracker\user_details_change.html:4
-#: .\trackersite\tracker\templates\tracker\user_details_change.html:9
+#: tracker/templates/tracker/user_details_change.html:4
+#: tracker/templates/tracker/user_details_change.html:9
 msgid "My details"
 msgstr "Bilgilerim"
 
-#: .\trackersite\tracker\templates\tracker\user_details_change.html:23
-#: .\trackersite\users\templates\users\register.html:28
+#: tracker/templates/tracker/user_details_change.html:23
+#: users/templates/users/register.html:28
 msgid "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them."
 msgstr "Tracker'ı kullanarak veri işlemeyi kabul etmiş sayılırsınız. Verilerinizi tüm ödemeleri doğru görüntülemek ve muhasebe işlemlerimizde kullanmak için kullanıyoruz. Bize e-posta adresinizi vermelisiniz; bize daha ayrıntılı bilgi vermeniz istenebilir. Veriler üçüncü şahıslara verilmez ve yalnızca yetkili personel üyelerine erişime izin verilir."
 
-#: .\trackersite\tracker\templates\tracker\user_list.html:22
+#: tracker/templates/tracker/user_list.html:22
 msgid "Tickets not assigned to any tracker user"
 msgstr "Hiçbir izleyici kullanıcısına atanmamış biletler"
 
-#: .\trackersite\tracker\templates\tracker\user_list.html:22
+#: tracker/templates/tracker/user_list.html:22
 msgid "unassigned"
 msgstr "atanmamış"
 
-#: .\trackersite\tracker\templates\tracker\watch.html:4
-#: .\trackersite\tracker\templates\tracker\watch.html:11
+#: tracker/templates/tracker/watch.html:4
+#: tracker/templates/tracker/watch.html:11
 msgid "Watch"
 msgstr "İzle"
 
-#: .\trackersite\tracker\templates\tracker\watch.html:19
+#: tracker/templates/tracker/watch.html:19
 msgid "All"
 msgstr "Hepsi"
 
-#: .\trackersite\tracker\views.py:65
+#: tracker/views.py:67
 msgid "Comment posted, thank you."
 msgstr "Yorum gönderildi, teşekkür ederiz."
 
-#: .\trackersite\tracker\views.py:106
+#: tracker/views.py:108
 msgid "You cannot add ack to a ticket you do not own."
 msgstr "Sahip olmadığınız bir bilete teyp ekleyemezsiniz."
 
-#: .\trackersite\tracker\views.py:117
+#: tracker/views.py:119
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
 msgstr "Bilet %(ticket_id)s onay \"%(confirmation)s\" eklendi."
 
-#: .\trackersite\tracker\views.py:153
+#: tracker/views.py:155
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been deleted."
 msgstr "Bilet %(ticket_id)s onay \"%(confirmation)s\" silindi."
 
-#: .\trackersite\tracker\views.py:197
+#: tracker/views.py:199
 msgid "Statutory declaration"
 msgstr "Yasal beyanname"
 
-#: .\trackersite\tracker\views.py:244
+#: tracker/views.py:246
 msgid "Your deposit is bigger than your preexpeditures"
 msgstr "Depozito önceden vardıklarından daha büyük"
 
-#: .\trackersite\tracker\views.py:261
+#: tracker/views.py:263
 msgid "You are required to do statutory declaration"
 msgstr "Yasal bildirim yapmanız gerekmektedir."
 
-#: .\trackersite\tracker\views.py:277
+#: tracker/views.py:279
 msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."
 msgstr "Alt konu, kullandığınız başlığa ait olmalıdır. Muhtemelen JavaScript'i kapattınız."
 
-#: .\trackersite\tracker\views.py:368
+#: tracker/views.py:370
 msgid "We've updated your preferences"
 msgstr "Tercihlerinizi güncelledik"
 
-#: .\trackersite\tracker\views.py:416
+#: tracker/views.py:418
 msgid "Please enter your password to confirm the deactivation of your account."
 msgstr "Lütfen hesabınızın devre dışı bırakılmasını onaylamak için şifrenizi girin."
 
-#: .\trackersite\tracker\views.py:431
+#: tracker/views.py:433
 msgid "Account deactivation"
 msgstr "Hesap devre dışı bırakma"
 
-#: .\trackersite\tracker\views.py:438
+#: tracker/views.py:440
 msgid "Your account has been deactivated."
 msgstr "Hesabınız devre dışı bırakıldı."
 
-#: .\trackersite\tracker\views.py:441
+#: tracker/views.py:443
 msgid "Password is incorrect."
 msgstr "Şifre geçersiz."
 
-#: .\trackersite\tracker\views.py:473
+#: tracker/views.py:475
 #, python-format
 msgid "Ticket's %s watching settings are changed."
 msgstr "Biletin %s izleme ayarları değiştirildi."
 
-#: .\trackersite\tracker\views.py:522
+#: tracker/views.py:524
 #, python-format
 msgid "Topic's %s watching settings are changed."
 msgstr "Konunun %s izleme ayarları değiştirildi."
 
-#: .\trackersite\tracker\views.py:552
+#: tracker/views.py:554
 #, python-format
 msgid "%s's watching settings are changed."
 msgstr "%s'nin izleme ayarları değişti."
 
-#: .\trackersite\tracker\views.py:599
+#: tracker/views.py:601
 #, python-format
 msgid "Ticket %s is created"
 msgstr "%s bileti oluşturuldu"
 
-#: .\trackersite\tracker\views.py:645
+#: tracker/views.py:647
 msgid "I confirm the above"
 msgstr "Yukarıdakileri onaylıyorum"
 
-#: .\trackersite\tracker\views.py:652
+#: tracker/views.py:654
 msgid "You cannot add statutory declaration to a ticket that does not support it."
 msgstr "Desteklemeyen bir bilete yasal bildirim ekleyemezsiniz."
 
-#: .\trackersite\tracker\views.py:654
+#: tracker/views.py:656
 msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
 msgstr "Bu görünümü, oluşturduğunuz bir bilete yasal bir bildirim eklemek için kullanamazsınız. Bunun için bilet düzenleme düğmesini kullanın."
 
-#: .\trackersite\tracker\views.py:661
+#: tracker/views.py:663
 msgid "You successfully added a statutory declaration to this ticket."
 msgstr "Bu bilete başarıyla yasal bir bildirim eklediniz."
 
-#: .\trackersite\tracker\views.py:664
+#: tracker/views.py:666
 msgid "You successfully removed a statutory declaration from this ticket."
 msgstr "Bu biletten yasal bir bildirimi başarıyla kaldırdınız."
 
-#: .\trackersite\tracker\views.py:687
+#: tracker/views.py:689
 msgid "You cannot edit this ticket"
 msgstr "Bu bileti düzenleyemezsiniz"
 
-#: .\trackersite\tracker\views.py:734
+#: tracker/views.py:736
 #, python-format
 msgid "Ticket %s saved."
 msgstr "%s bileti kaydedildi."
 
-#: .\trackersite\tracker\views.py:765
+#: tracker/views.py:767
 msgid "file"
 msgstr "dosya"
 
-#: .\trackersite\tracker\views.py:795
+#: tracker/views.py:797
 msgid "You cannot edit this ticket documents, as it's no longer editable"
 msgstr "Bu bilet belgelerini düzenleyemezsiniz, çünkü artık düzenlenebilir değil"
 
-#: .\trackersite\tracker\views.py:831
+#: tracker/views.py:833
 #, python-format
 msgid "Document changes for ticket %s saved."
 msgstr "%s bileti için belge değişikliği kaydedildi."
 
-#: .\trackersite\tracker\views.py:854
+#: tracker/views.py:856
 msgid "There is already a document with that name. Please try to reupload with a different name."
 msgstr "Bu isimde zaten bir belge var. Lütfen farklı bir adla yeniden yüklemeyi deneyin."
 
-#: .\trackersite\tracker\views.py:866
+#: tracker/views.py:868
 #, python-format
 msgid "File %(filename)s has been saved."
 msgstr "%(filename)s dosyası kaydedildi."
 
-#: .\trackersite\tracker\views.py:1054
+#: tracker/views.py:1056
 msgid "Your details have been saved."
 msgstr "Bilgileriniz kaydedildi."
 
-#: .\trackersite\tracker\views.py:1500
+#: tracker/views.py:1502
 msgid "You must fill the form validly"
 msgstr "Formu geçerli doldurmalısınız"
 
-#: .\trackersite\tracker\views.py:1519
+#: tracker/views.py:1521
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
 msgstr "%(input_row_limit)s satırından fazlasını içe aktarma izniniz yok. İlk %(input_row_limit)s satırı zaten alınmış."
 
-#: .\trackersite\tracker\views.py:1657
+#: tracker/views.py:1659
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
 msgstr "Form garip değerler döndürdü. Lütfen sistem yöneticisine başvurun ve ne yapmaya çalıştığınızı söyleyin."
 
-#: .\trackersite\tracker\views.py:1659
+#: tracker/views.py:1661
 msgid "Your CSV file was imported."
 msgstr "CSV dosyanız içe aktarıldı."
 
-#: .\trackersite\tracker\views.py:1667
+#: tracker/views.py:1669
 msgid "Name of a ticket"
 msgstr "Biletin adı"
 
-#: .\trackersite\tracker\views.py:1667 .\trackersite\tracker\views.py:1672
+#: tracker/views.py:1669 tracker/views.py:1674
 msgid "Name of a topic"
 msgstr "Konunun adı"
 
-#: .\trackersite\tracker\views.py:1672
+#: tracker/views.py:1674
 msgid "Name of a grant"
 msgstr "Hibenin adı"
 
-#: .\trackersite\tracker\views.py:1672
+#: tracker/views.py:1674
 msgid "Form description"
 msgstr "Form açıklaması"
 
-#: .\trackersite\tracker\views.py:1677
+#: tracker/views.py:1679
 msgid "Full name"
 msgstr "Tam ad"
 
-#: .\trackersite\tracker\views.py:1677
+#: tracker/views.py:1679
 msgid "Short name"
 msgstr "Kısa ad"
 
-#: .\trackersite\tracker\views.py:1677
+#: tracker/views.py:1679
 msgid "Slug"
 msgstr "Slug"
 
-#: .\trackersite\tracker\views.py:1700
+#: tracker/views.py:1702
 msgid "Password"
 msgstr "Şifre"
 
-#: .\trackersite\tracker\views.py:1722
+#: tracker/views.py:1724
 msgid "Preexpeditures were succesfully copied to expeditures."
 msgstr "Ön harcamalar harcamalara başarıyla kopyalanmıştır."
 
-#: .\trackersite\tracker\views.py:1734
+#: tracker/views.py:1736
 msgid "Executing API call with any action than whitelisted is prohibited."
 msgstr "Beyaz listeden başka herhangi bir işlemle API çağrısı yapmak yasaktır."
 
-#: .\trackersite\tracker\views.py:1745
+#: tracker/views.py:1747
 msgid "No media to show are available"
 msgstr "Gösterilecek medya yok"
 
-#: .\trackersite\tracker\views.py:1766
+#: tracker/views.py:1768
 msgid "Updating of medias for this ticket was successfully scheduled."
 msgstr "Bu bilet için ortamın güncellenmesi başarıyla planlandı."
 
-#: .\trackersite\tracker\views.py:1771
+#: tracker/views.py:1773
 msgid "List of media was successfully updated"
 msgstr "Medya listesi başarıyla güncellendi"
 
-#: .\trackersite\tracker\views.py:1776
+#: tracker/views.py:1778
 msgid "There was an error while processing your request"
 msgstr "İsteğiniz işlenirken bir hata oluştu"
 
-#: .\trackersite\tracker\views.py:1784
+#: tracker/views.py:1786
 msgid "This mandatory notice was sent to all active Tracker users."
 msgstr "Bu zorunlu bildirim tüm aktif İzleyici kullanıcılarına gönderildi."
 
-#: .\trackersite\tracker\views.py:1796
+#: tracker/views.py:1798
 msgid "This mandatory notice was sent to all active Tracker administrators."
 msgstr "Bu zorunlu bildirim tüm aktif İzleyici yöneticilerine gönderildi."
 
-#: .\trackersite\users\forms.py:13
-#: .\trackersite\users\templates\users\password_change.html:27
+#: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
 msgstr "Eski parola"
 
-#: .\trackersite\users\templates\users\login.html:4
-#: .\trackersite\users\templates\users\login.html:12
-#: .\trackersite\users\templates\users\login.html:23
-#: .\trackersite\users\templates\users\register.html:29
+#: users/templates/users/login.html:4 users/templates/users/login.html:12
+#: users/templates/users/login.html:23 users/templates/users/register.html:29
 msgid "Login"
 msgstr "Giriş"
 
-#: .\trackersite\users\templates\users\login.html:7
+#: users/templates/users/login.html:7
 msgid "You need to log in to access the following page."
 msgstr "Aşağıdaki sayfaya erişmek için giriş yapmalısınız."
 
-#: .\trackersite\users\templates\users\login.html:10
+#: users/templates/users/login.html:10
 msgid "Your username and password didn't match. Please try again."
 msgstr "Kullanıcı adınız ve şifreniz uyuşmuyor. Lütfen tekrar deneyin."
 
-#: .\trackersite\users\templates\users\login.html:27
-#: .\trackersite\users\templates\users\register.html:22
+#: users/templates/users/login.html:27 users/templates/users/register.html:22
 msgid "Or..."
-msgstr ""
+msgstr "Veya..."
 
-#: .\trackersite\users\templates\users\login.html:30
+#: users/templates/users/login.html:30
 msgid "Login with Meta Wiki"
 msgstr "Meta Viki ile giriş yap"
 
-#: .\trackersite\users\templates\users\login.html:34
+#: users/templates/users/login.html:34
 msgid "Don't have an acount?"
 msgstr "Bir hesabınız yok mu?"
 
-#: .\trackersite\users\templates\users\login.html:34
-#: .\trackersite\users\templates\users\register.html:6
-#: .\trackersite\users\templates\users\register.html:9
-#: .\trackersite\users\templates\users\register.html:19
+#: users/templates/users/login.html:34 users/templates/users/register.html:6
+#: users/templates/users/register.html:9 users/templates/users/register.html:19
 msgid "Register"
 msgstr "Kayıt ol"
 
-#: .\trackersite\users\templates\users\login.html:35
+#: users/templates/users/login.html:35
 msgid "Forgot password?"
 msgstr "Parolanızı mı unuttunuz?"
 
-#: .\trackersite\users\templates\users\login.html:35
+#: users/templates/users/login.html:35
 msgid "Reset password"
 msgstr "Parolayı sıfırla"
 
-#: .\trackersite\users\templates\users\logout.html:4
+#: users/templates/users/logout.html:4
 msgid "Logged out"
 msgstr "Oturum kapandı"
 
-#: .\trackersite\users\templates\users\logout.html:7
+#: users/templates/users/logout.html:7
 msgid "Bye!"
 msgstr "Güle güle!"
 
-#: .\trackersite\users\templates\users\logout.html:8
+#: users/templates/users/logout.html:8
 msgid "Go to index."
 msgstr "İndeks'e git"
 
-#: .\trackersite\users\templates\users\oauth_invalid.html:4
-#: .\trackersite\users\templates\users\oauth_invalid.html:8
+#: users/templates/users/oauth_invalid.html:4
+#: users/templates/users/oauth_invalid.html:8
 #, python-format
 msgid "Connection to %(provider)s account is no longer valid"
 msgstr "%(provider)s hesabına bağlantı artık geçerli değil"
 
-#: .\trackersite\users\templates\users\oauth_invalid.html:9
+#: users/templates/users/oauth_invalid.html:9
 msgid "To keep Tracker fully working, you should refresh the connection, by clicking the button below"
 msgstr "Tracker'ın tamamen çalışmasını sağlamak için aşağıdaki düğmeyi tıklatarak bağlantıyı yenilemeniz gerekir."
 
-#: .\trackersite\users\templates\users\oauth_invalid.html:10
+#: users/templates/users/oauth_invalid.html:10
 #, python-format
 msgid "Refresh connection with %(provider)s"
 msgstr "%(provider)s ile bağlantıyı yenile"
 
-#: .\trackersite\users\templates\users\password_change.html:5
-#: .\trackersite\users\templates\users\password_change.html:16
-#: .\trackersite\users\views.py:67
+#: users/templates/users/password_change.html:5
+#: users/templates/users/password_change.html:16 users/views.py:67
 msgid "Password change"
 msgstr "Parola değişikliği"
 
-#: .\trackersite\users\templates\users\password_change.html:12
+#: users/templates/users/password_change.html:12
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] "Lütfen aşağıdaki hatayı düzeltin."
 
-#: .\trackersite\users\templates\users\password_change.html:19
+#: users/templates/users/password_change.html:19
 msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
 msgstr "Lütfen güvenliğiniz için eski şifrenizi girin ve ardından yeni şifrenizi iki kez girin, böylece doğru yazdığınızı doğrulayabiliriz."
 
-#: .\trackersite\users\templates\users\password_change.html:21
-#: .\trackersite\users\templates\users\password_reset_confirm.html:12
+#: users/templates/users/password_change.html:21
+#: users/templates/users/password_reset_confirm.html:12
 msgid "Please enter your new password twice so we can verify you typed it in correctly."
 msgstr "Lütfen yeni şifrenizi iki kez girin, böylece doğru yazdığınızı doğrulayabiliriz."
 
-#: .\trackersite\users\templates\users\password_change.html:33
+#: users/templates/users/password_change.html:33
 msgid "New password"
 msgstr "Yeni parola"
 
-#: .\trackersite\users\templates\users\password_change.html:38
+#: users/templates/users/password_change.html:38
 msgid "Password (again)"
 msgstr "Parola (tekrar"
 
-#: .\trackersite\users\templates\users\password_change.html:42
-#: .\trackersite\users\templates\users\password_reset_confirm.html:19
+#: users/templates/users/password_change.html:42
+#: users/templates/users/password_reset_confirm.html:19
 msgid "Change my password"
 msgstr "Parolamı değiştir"
 
-#: .\trackersite\users\templates\users\password_change_done.html:4
-#: .\trackersite\users\templates\users\password_change_done.html:7
+#: users/templates/users/password_change_done.html:4
+#: users/templates/users/password_change_done.html:7
 msgid "Password change successful"
 msgstr "Parola değişikliği başarılı oldu"
 
-#: .\trackersite\users\templates\users\password_change_done.html:8
+#: users/templates/users/password_change_done.html:8
 msgid "Your password was changed."
 msgstr "Parolanız değiştirildi."
 
-#: .\trackersite\users\templates\users\password_reset.html:4
-#: .\trackersite\users\templates\users\password_reset.html:8
-#: .\trackersite\users\templates\users\password_reset_confirm.html:4
+#: users/templates/users/password_reset.html:4
+#: users/templates/users/password_reset.html:8
+#: users/templates/users/password_reset_confirm.html:4
 msgid "Password reset"
 msgstr "Parola yenileme"
 
-#: .\trackersite\users\templates\users\password_reset.html:10
+#: users/templates/users/password_reset.html:10
 msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
 msgstr "Parolanızı mi unuttunuz? E-posta adresinizi aşağıya girin, yenisini belirlemek için talimatları e-posta ile gönderelim."
 
-#: .\trackersite\users\templates\users\password_reset.html:14
+#: users/templates/users/password_reset.html:14
 msgid "E-mail address:"
 msgstr "E-posta adresi:"
 
-#: .\trackersite\users\templates\users\password_reset.html:14
+#: users/templates/users/password_reset.html:14
 msgid "Reset my password"
 msgstr "Parolamı sıfırla"
 
-#: .\trackersite\users\templates\users\password_reset_complete.html:4
-#: .\trackersite\users\templates\users\password_reset_complete.html:8
+#: users/templates/users/password_reset_complete.html:4
+#: users/templates/users/password_reset_complete.html:8
 msgid "Password reset complete"
 msgstr "Parola sıfırlama tamamlandı"
 
-#: .\trackersite\users\templates\users\password_reset_complete.html:10
+#: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
 msgstr "Parolanız ayarlandı. Devam edip şimdi giriş yapabilirsiniz."
 
-#: .\trackersite\users\templates\users\password_reset_complete.html:12
+#: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
 msgstr "Oturum aç"
 
-#: .\trackersite\users\templates\users\password_reset_confirm.html:10
+#: users/templates/users/password_reset_confirm.html:10
 msgid "Enter new password"
 msgstr "Yeni parola girin"
 
-#: .\trackersite\users\templates\users\password_reset_confirm.html:16
+#: users/templates/users/password_reset_confirm.html:16
 msgid "New password:"
 msgstr "Yeni parola:"
 
-#: .\trackersite\users\templates\users\password_reset_confirm.html:18
+#: users/templates/users/password_reset_confirm.html:18
 msgid "Confirm password:"
 msgstr "Parolayı onayla:"
 
-#: .\trackersite\users\templates\users\password_reset_confirm.html:24
+#: users/templates/users/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
 msgstr "Parola sıfırlama başarılı"
 
-#: .\trackersite\users\templates\users\password_reset_confirm.html:26
+#: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
 msgstr "Parola sıfırlama bağlantısı geçersizdi, muhtemelen zaten kullanılıyordu. Lütfen yeni bir parola sıfırlama isteyin."
 
-#: .\trackersite\users\templates\users\password_reset_done.html:4
-#: .\trackersite\users\templates\users\password_reset_done.html:8
+#: users/templates/users/password_reset_done.html:4
+#: users/templates/users/password_reset_done.html:8
 msgid "Password reset successful"
 msgstr "Parola sıfırlama başarılı"
 
-#: .\trackersite\users\templates\users\password_reset_done.html:10
+#: users/templates/users/password_reset_done.html:10
 msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
 msgstr "Parolanızı gönderdiğiniz e-posta adresine ayarlamak için talimatları e-postayla gönderdik. Kısa sürede almalısınız."
 
-#: .\trackersite\users\templates\users\password_reset_email.html:2
+#: users/templates/users/password_reset_email.html:2
 #, python-format
 msgid "You're receiving this e-mail because you requested a password reset for your user account at %(site_name)s."
 msgstr "Bu e-postayı, adresindeki kullanıcı hesabınız %(site_name)s için bir parola sıfırlama istediğiniz için alıyorsunuz."
 
-#: .\trackersite\users\templates\users\password_reset_email.html:4
+#: users/templates/users/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
 msgstr "Lütfen aşağıdaki sayfaya gidin ve yeni bir parola seçin:"
 
-#: .\trackersite\users\templates\users\password_reset_email.html:8
+#: users/templates/users/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
 msgstr "Unutmanız durumunda kullanıcı adınız:"
 
-#: .\trackersite\users\templates\users\password_reset_email.html:10
+#: users/templates/users/password_reset_email.html:10
 msgid "Thanks for using our site!"
 msgstr "Sitemizi kullandığınız için teşekkür ederiz!"
 
-#: .\trackersite\users\templates\users\password_reset_email.html:12
+#: users/templates/users/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
 msgstr "%(site_name)s ekibi"
 
-#: .\trackersite\users\templates\users\register.html:25
+#: users/templates/users/register.html:25
 msgid "Register with Meta Wiki"
-msgstr ""
+msgstr "Meta Viki ile kayıt ol"
 
-#: .\trackersite\users\templates\users\register.html:29
+#: users/templates/users/register.html:29
 msgid "Already have an acount?"
-msgstr ""
+msgstr "Zaten bir hesabınız var mı?"
 
-#: .\trackersite\users\views.py:22
+#: users/views.py:22
 msgid "Will be used for password recovery and notifications, if you enable them."
 msgstr "Onları etkinleştirirseniz, parola kurtarma ve bildirimler için kullanılacaktır."
 
-#: .\trackersite\users\views.py:37
+#: users/views.py:37
 #, python-format
 msgid "User %s created."
 msgstr "%s kullanıcısı oluşturuldu."
