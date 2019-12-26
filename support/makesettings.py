@@ -1,5 +1,7 @@
 import os
 import sys
+
+import django
 from django.template import Template, Context
 from django.conf import settings
 from django.utils.crypto import get_random_string
@@ -14,7 +16,12 @@ def main():
         sys.exit(1)
 
     # make a template instance
-    settings.configure(TEMPLATE_DEBUG=False)
+    settings.configure(TEMPLATES=[
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates'
+        }
+    ], TEMPLATE_DEBUG=False)
+    django.setup()
     template_file = open(os.path.join(MY_PATH, 'settings.py.template'))
     template = Template(template_file.read())
     template_file.close()
