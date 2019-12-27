@@ -701,7 +701,7 @@ class FinanceStatus(object):
 
     def add_finance(self, other):
         self.fuzzy = self.fuzzy or other.fuzzy
-        self.unpaid += other.unpaid
+        self.unpaid += decimal.Decimal(other.unpaid)
         self.paid += other.paid
         self.overpaid += other.overpaid
         self.seen_cluster_ids = self.seen_cluster_ids.union(other.seen_cluster_ids)
