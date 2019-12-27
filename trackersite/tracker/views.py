@@ -123,11 +123,12 @@ class TicketAckAddView(FormView):
         return HttpResponseRedirect(ticket.get_absolute_url())
 
     def get_context_data(self, **kwargs):
-        kwargs.update({
+        context = super().get_context_data(**kwargs)
+        context.update({
             'ticket': get_object_or_404(Ticket, id=self.kwargs['pk']),
             'ticketack': PossibleAck(self.kwargs['ack_type']),
         })
-        return kwargs
+        return context
 
 
 ticket_ack_add = TicketAckAddView.as_view()
