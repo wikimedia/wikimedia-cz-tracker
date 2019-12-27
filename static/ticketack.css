@@ -51,3 +51,8 @@
 .removing.failed {
 	background-color: #808;
 }
+.add-row > td{
+	background: none !important;
+	border: none !important;
+}
+/* I used important, because it overrides django css file */

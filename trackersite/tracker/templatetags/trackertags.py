@@ -3,10 +3,12 @@ from django import template
 from django.utils.safestring import mark_safe
 from django.conf import settings
 from django.utils.formats import number_format
-from tracker.models import Ticket, User
 from django.urls import reverse
 import re
 import bleach
+from django.db.models import Sum
+from tracker.models import Ticket, User, Preexpediture, Expediture
+
 
 register = template.Library()
 
@@ -51,3 +53,22 @@ def tracker_rich_text(value):
         value = value.replace(link, '<a href="%s">%s</a>' % (link, link))
 
     return mark_safe(value)
+
+
+# Get sum of preexpediture amount, functions are used in admin/tabular.html
+@register.filter
+def get_total_preex(value, identificator):
+    value = Preexpediture.objects.filter(ticket=Ticket.objects.get(id=int(identificator.strip()))).aggregate(Sum('amount'))['amount__sum']
+    if value is not None:
+        return value
+    else:
+        return 0
+
+# Get sum of expediture amount
+@register.filter
+def get_total_ex(value, identificator):
+    value = Expediture.objects.filter(ticket=Ticket.objects.get(id=int(identificator.strip()))).aggregate(Sum('amount'))['amount__sum']
+    if value is not None:
+        return value
+    else:
+        return 0

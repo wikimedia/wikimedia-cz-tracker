@@ -4,6 +4,34 @@
 {% get_current_language as LANGUAGE_CODE %}
 
 {% block extrahead %}{{block.super}}
+<script>
+	document.addEventListener( 'DOMContentLoaded', async () => {
+		function updateTotal( div, parameter ) {
+				let selectedDiv = div.getElementsByClassName( 'field-amount' );
+				let sum = 0;
+				// Iteration through every input in selected div (div function argument)
+				for ( let counter = 0; counter < selectedDiv.length - 2; counter++ ) {
+					// Check if value of current input is not NaN
+					if ( !isNaN( parseFloat( document.querySelector( `#id_${parameter}_set-${counter}-amount` ).value ) ) ) {
+						sum += parseFloat( document.querySelector( `#id_${parameter}_set-${counter}-amount` ).value );
+					}
+				}
+				sum = parseFloat( sum ).toFixed( 2 );
+				div.querySelector( '.total' ).innerHTML = `{% trans "Total" %}: <b>${sum}</b>`;
+			}
+			const preexpeditureDiv = document.querySelector( '#preexpediture_set-group' );
+			const expeditureDiv = document.querySelector( '#expediture_set-group' );
+
+			function updatePreexpediture() {
+				updateTotal( preexpeditureDiv, 'preexpediture' );
+			}
+			function updateExpediture(){
+				updateTotal( expeditureDiv, 'expediture' );
+			}
+			preexpeditureDiv.addEventListener( 'input', updatePreexpediture );
+			expeditureDiv.addEventListener( 'input', updateExpediture );
+	} );
+</script>
 <script type="text/javascript" src="{{STATIC_URL}}ticketack.js"></script>
 <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}ticketack.css" />
 {% endblock extrahead %}
@@ -20,7 +48,11 @@
 </div>
 {% endif %}
 {% endblock form_top %}
-
+{% block inline_field_sets %}
+{% for inline_admin_formset in inline_admin_formsets %}
+	{% include "admin/tracker/ticket/tabular.html" %}
+{% endfor %}
+{% endblock %}
 {% block after_related_objects %}
 <script>
 	window.username = "{{user.get_username}}";

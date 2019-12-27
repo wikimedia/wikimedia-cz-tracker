@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-24 22:26+0100\n"
+"POT-Creation-Date: 2019-12-28 14:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1308,41 +1308,68 @@ msgstr ""
 msgid "add new ack"
 msgstr ""
 
-#: tracker/templates/admin/tracker/ticket/change_form.html:11
+#: tracker/templates/admin/tracker/ticket/change_form.html:20
+#: tracker/templates/admin/tracker/ticket/tabular.html:76
+#: tracker/templates/admin/tracker/ticket/tabular.html:86
+#: tracker/templates/tracker/dumpaccounts/index.html:17
+#: tracker/templates/tracker/grant_table.html:34
+#: tracker/templates/tracker/topic_table.html:38
+#: tracker/templates/tracker/user_list.html:27
+msgid "Total"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:39
 #: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1688
 #: tracker/views.py:1697 tracker/views.py:1707
 msgid "Ticket ID"
 msgstr ""
 
-#: tracker/templates/admin/tracker/ticket/change_form.html:14
+#: tracker/templates/admin/tracker/ticket/change_form.html:42
 msgid "Approvals"
 msgstr ""
 
-#: tracker/templates/admin/tracker/ticket/change_form.html:18
+#: tracker/templates/admin/tracker/ticket/change_form.html:46
 msgid "ADD ACK"
 msgstr ""
 
-#: tracker/templates/admin/tracker/ticket/change_form.html:34
+#: tracker/templates/admin/tracker/ticket/change_form.html:66
 msgid "Ticket documents"
 msgstr ""
 
-#: tracker/templates/admin/tracker/ticket/change_form.html:37
-#: tracker/templates/tracker/edit_ticket.html:10
+#: tracker/templates/admin/tracker/ticket/change_form.html:69
+#: tracker/templates/tracker/edit_ticket.html:20
 #: tracker/templates/tracker/ticket_detail.html:19
 msgid "edit ticket documents"
 msgstr ""
 
-#: tracker/templates/admin/tracker/ticket/change_form.html:44
+#: tracker/templates/admin/tracker/ticket/change_form.html:76
 msgid "There are no documents uploaded for this ticket."
 msgstr ""
 
-#: tracker/templates/admin/tracker/ticket/change_form.html:47
+#: tracker/templates/admin/tracker/ticket/change_form.html:79
 #: tracker/templates/tracker/ticket_detail.html:64
 #, python-format
 msgid "There is 1 document uploaded."
 msgid_plural "There are %(counter)s documents uploaded."
 msgstr[0] ""
 msgstr[1] ""
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:20
+msgid "Delete?"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:34
+#: tracker/templates/tracker/admin_index_override.html:27
+msgid "Change"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:34
+msgid "View"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:36
+msgid "View on site"
+msgstr ""
 
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
@@ -1475,10 +1502,6 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: tracker/templates/tracker/admin_index_override.html:27
-msgid "Change"
-msgstr ""
-
 #: tracker/templates/tracker/admin_index_override.html:39
 #: tracker/templates/tracker/user_list.html:4
 #: tracker/templates/tracker/user_list.html:8
@@ -1525,9 +1548,9 @@ msgid "Cluster %(cid)s"
 msgstr ""
 
 #: tracker/templates/tracker/cluster_detail.html:7
-#: tracker/templates/tracker/edit_ticket.html:7
+#: tracker/templates/tracker/edit_ticket.html:17
 #: tracker/templates/tracker/edit_ticket_docs.html:7
-#: tracker/templates/tracker/generic/create_ticket.html:7
+#: tracker/templates/tracker/generic/create_ticket.html:17
 #: tracker/templates/tracker/generic/ticket_list.html:12
 #: tracker/templates/tracker/generic/topic_list.html:7
 #: tracker/templates/tracker/grant_detail.html:9
@@ -1613,13 +1636,6 @@ msgstr ""
 msgid "Overpaid"
 msgstr ""
 
-#: tracker/templates/tracker/dumpaccounts/index.html:17
-#: tracker/templates/tracker/grant_table.html:34
-#: tracker/templates/tracker/topic_table.html:38
-#: tracker/templates/tracker/user_list.html:27
-msgid "Total"
-msgstr ""
-
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_table.html:13
@@ -1654,16 +1670,16 @@ msgid "There aren't any documents here."
 msgstr ""
 
 #: tracker/templates/tracker/edit_ticket.html:4
-#: tracker/templates/tracker/edit_ticket.html:8
+#: tracker/templates/tracker/edit_ticket.html:18
 msgid "Edit"
 msgstr ""
 
-#: tracker/templates/tracker/edit_ticket.html:10
+#: tracker/templates/tracker/edit_ticket.html:20
 #: tracker/templates/tracker/ticket_detail.html:17
 msgid "copy preexpeditures to expeditures"
 msgstr ""
 
-#: tracker/templates/tracker/edit_ticket.html:14
+#: tracker/templates/tracker/edit_ticket.html:24
 #: tracker/templates/tracker/edit_ticket_docs.html:16
 msgid "save"
 msgstr ""
@@ -1815,11 +1831,11 @@ msgid "superuser"
 msgstr ""
 
 #: tracker/templates/tracker/generic/create_ticket.html:4
-#: tracker/templates/tracker/generic/create_ticket.html:8
+#: tracker/templates/tracker/generic/create_ticket.html:18
 msgid "Create ticket"
 msgstr ""
 
-#: tracker/templates/tracker/generic/create_ticket.html:13
+#: tracker/templates/tracker/generic/create_ticket.html:23
 msgid ""
 "You'll be able to edit everything you've filled in even after submitting the "
 "form."
