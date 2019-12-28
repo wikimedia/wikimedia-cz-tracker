@@ -2,28 +2,34 @@
 <!-- i18n-lint disable -->
 <span class="hidden" id="disabledatatables">yes</span>
 <!-- i18n-lint enable -->
-<form class="form-horizontal" method="post" action="{{action}}" id="form">
-{{ ticketform.non_field_errors }}
-{% for field in ticketform %}
-<p class="field-{{field.name}}{% if field.field.required %} required{% endif %}">{{field.errors.as_ul}}<label for="id_{{ field.name }}">{{ field.label }}:</label> {{ field|add_class:"form-control" }}<span class="helptext">{{ field.help_text }}</span></p>
-{% if field.name == "topic" %}<p id="topic_desc"></p>{% endif %}
-{% if field.name == "subtopic" %}<p id="subtopic_desc"></p>{% endif %}
-{% endfor %}
+<form class="form-horizontal" method="post" action="{{ action }}" id="form">
+	{{ ticketform.non_field_errors }}
+	{% for field in ticketform %}
+		<p class="field-{{ field.name }}{% if field.field.required %} required{% endif %}{% if field.errors %} invalid{% endif %}">
+			<label for="id_{{ field.name }}">{{ field.label }}:</label>
+			{{ field|add_class:"form-control" }}
+			<span class="helptext">{{ field.help_text }}</span>
+			{{ field.errors.as_ul }}
+		</p>
+		{% if field.name == "topic" %}<p id="topic_desc"></p>{% endif %}
+		{% if field.name == "subtopic" %}<p id="subtopic_desc"></p>{% endif %}
+	{% endfor %}
 
-{% if preexpeditures %}
-{# preexpediture formset #}
-{% include "tracker/tabular_formset.html" with formset=preexpeditures formset_title=_("Preexpeditures") formset_item_name=_("preexpediture") section="preexpediture" %}
-{% endif %}
+	{% if preexpeditures %}
+		{# preexpediture formset #}
+		{% include "tracker/tabular_formset.html" with formset=preexpeditures formset_title=_("Preexpeditures") formset_item_name=_("preexpediture") section="preexpediture" %}
+	{% endif %}
 
-{% if expeditures %}
-{# expediture formset #}
-{% include "tracker/tabular_formset.html" with formset=expeditures formset_title=_("Expeditures") formset_item_name=_("expediture") section="expediture" %}
-{% endif %}
+	{% if expeditures %}
+		{# expediture formset #}
+		{% include "tracker/tabular_formset.html" with formset=expeditures formset_title=_("Expeditures") formset_item_name=_("expediture") section="expediture" %}
+	{% endif %}
 
-{% csrf_token %}
-<p>
-<button class="btn btn-primary btn-md btn-block" id="submit" value="{{ submit|default:_("submit") }}">{% trans "Save" %}</button>
-</p>
-<p>{% blocktrans with mark='<span style="color:red">*</span>' %}Fields marked with {{mark}} are required.{% endblocktrans %}</p>
+	{% csrf_token %}
+	<p>
+		<button class="btn btn-primary btn-md btn-block" id="submit"
+				value="{{ submit|default:_("submit") }}">{% trans "Save" %}</button>
+	</p>
+	<p>{% blocktrans with mark='<span style="color:red">*</span>' %}Fields marked with {{ mark }} are required.{% endblocktrans %}</p>
 
 </form>

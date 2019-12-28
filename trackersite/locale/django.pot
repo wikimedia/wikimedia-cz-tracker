@@ -3065,3 +3065,8 @@ msgstr ""
 #, python-format
 msgid "User %s created."
 msgstr ""
+
+#: tracker/view.py:640
+#: tracker/view.py:760
+msgid "One or more fields are invalid. Check them to get more information."
+msgstr ""

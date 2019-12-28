@@ -636,6 +636,9 @@ def create_ticket(request):
         PreexpeditureFormSet = preexpeditureformset_factory(extra=2 + len(initialPreexpeditures), can_delete=False)
         preexpeditures = PreexpeditureFormSet(prefix='preexpediture', initial=initialPreexpeditures)
 
+    if ticketform.errors or preexpeditures.errors or expeditures.errors:
+        messages.error(request, _("One or more fields are invalid. Check them to get more information."))
+
     return render(request, 'tracker/create_ticket.html', {
         'ticketform': ticketform,
         'expeditures': expeditures,
@@ -752,6 +755,9 @@ def edit_ticket(request, pk):
         form_media += expeditures.media
     if 'precontent' not in ticket.ack_set() and 'content' not in ticket.ack_set():
         form_media += preexpeditures.media
+
+    if ticketform.errors or preexpeditures.errors or expeditures.errors:
+        messages.error(request, _("One or more fields are invalid. Check them to get more information."))
 
     return render(request, 'tracker/edit_ticket.html', {
         'ticket': ticket,

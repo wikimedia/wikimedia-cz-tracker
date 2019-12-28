@@ -471,3 +471,17 @@ section.commons-selection label {
 	-moz-user-select: none;
 	-webkit-user-select: none;
 }
+
+p.invalid input, p.invalid input:focus, td.invalid input, td.invalid input:focus {
+	border-color: darkred;
+}
+
+p.invalid label, p.invalid span.helptext {
+	color: darkred;
+}
+
+ul.errorlist {
+	color: darkred;
+	list-style-type: none;
+	padding-left: 0;
+}

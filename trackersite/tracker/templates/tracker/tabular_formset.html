@@ -36,9 +36,9 @@
 				</td>
 				{% if use_inline_intro %}<td>{{inline_admin_form.instance.inline_intro}}</td>{% endif %}
 				{% for field in inline_admin_form.visible_fields %}
-					<td class="field_{{ field.name }}{% if field.field.required %} required{% endif %}">
-						{{ field.errors.as_ul }}
+					<td class="field_{{ field.name }}{% if field.field.required %} required{% endif %}{% if field.errors %} invalid{% endif %}">
 						{{ field|add_class:"form-control" }}
+						{{ field.errors.as_ul }}
 					</td>
 				{% endfor %}
 			</tr>
