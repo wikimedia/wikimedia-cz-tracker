@@ -87,6 +87,15 @@
 				</p>
 			</td>
 		</tr>
+		<tr class="form-row row1">
+			<td class="original"></td>
+			<td class="field-description"></td>
+			<td class="field-amount">
+				<p class="accepted">
+					{% trans "Accepted" %}: <b>{{ 0|get_accepted_expeditures:object_id }}</b>
+				</p>
+			</td>
+		</tr>
 	{% endif %}
 	{% endfor %}
 	</tbody>
