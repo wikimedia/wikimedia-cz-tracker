@@ -1053,6 +1053,288 @@ class ImportTests(TestCase):
             self.assertEqual(testConfiguration['superuser'], response.status_code)
 
 
+class ExportTests(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+        self.password = 'user_password'
+        self.standardUser = User.objects.create_user(username='standard_user', password=self.password)
+        self.staffUser = User.objects.create_user(username='staff_user', password=self.password)
+        self.staffUser.is_staff = True
+        self.staffUser.save()
+        self.superuser = User.objects.create_superuser(username='superuser', password=self.password, email='test@test')
+
+        self.grant1 = Grant.objects.create(full_name='g1full', short_name='g1short')
+        self.grant2 = Grant.objects.create(full_name='g2full', short_name='g2short')
+
+        self.topic1 = Topic.objects.create(name='t1', grant=self.grant1)
+        self.topic2 = Topic.objects.create(name='t2', grant=self.grant2)
+
+        self.ticket1 = Ticket.objects.create(name='t1', topic=self.topic1, requested_user=self.standardUser)
+        self.ticket2 = Ticket.objects.create(name='t2', topic=self.topic2, requested_user=self.standardUser, mandatory_report=True)
+
+        self.preexpeditureWithWage1 = Preexpediture.objects.create(ticket=self.ticket1, description='t1', amount='22', wage=True)
+        self.preexpeditureWithWage2 = Preexpediture.objects.create(ticket=self.ticket1, description='t2', amount='23', wage=True)
+        self.preexpeditureWithoutWage = Preexpediture.objects.create(ticket=self.ticket2, description='f', amount='24', wage=False)
+
+        self.expeditureWithWagePaid1 = Expediture.objects.create(ticket=self.ticket1, description='tt1', amount='32', accounting_info='', wage=True, paid=True)
+        self.expeditureWithWagePaid2 = Expediture.objects.create(ticket=self.ticket1, description='tt2', amount='33', accounting_info='', wage=True, paid=True)
+        self.expeditureWithoutWagePaid = Expediture.objects.create(ticket=self.ticket2, description='ff', amount='34', accounting_info='', wage=False, paid=False)
+
+    def read_csv(self, csvContent):
+        result = []
+        content = csv.reader(io.StringIO(csvContent.decode('utf-8')))
+        for row in content:
+            result.append(row[0].replace('\"', '').split(';'))
+        return result
+
+    def test_export_tickets(self):
+        # Request without ticket-report-mandatory property
+        # In this case, the system will return all tickets from the database
+        response = self.client.post(reverse('export'), {
+            'type': 'ticket',
+            'preexpeditures-larger': '',
+            'preexpeditures-smaller': '',
+            'expeditures-larger': '',
+            'expeditures-smaller': '',
+            'acceptedexpeditures-larger': '',
+            'acceptedexpeditures-smaller': ''
+        })
+        csvContent = self.read_csv(response.content)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(len(csvContent) - 1, 2)
+        self.assertEqual(csvContent[1][0], str(self.ticket1.id))
+        self.assertEqual(csvContent[2][0], str(self.ticket2.id))
+
+        # Request with ticket-report-mandatory property
+        # In this case, the system will return only tickets which have mandatory_report property enabled
+        response = self.client.post(reverse('export'), {
+            'type': 'ticket',
+            'preexpeditures-larger': '',
+            'preexpeditures-smaller': '',
+            'expeditures-larger': '',
+            'expeditures-smaller': '',
+            'acceptedexpeditures-larger': '',
+            'acceptedexpeditures-smaller': '',
+            'ticket-report-mandatory': ''
+        })
+        csvContent = self.read_csv(response.content)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(len(csvContent) - 1, 1)
+        self.assertEqual(csvContent[1][0], str(self.ticket2.id))
+        self.assertEqual(csvContent[1][13], str(self.ticket2.mandatory_report))
+
+    def test_export_grants(self):
+        response = self.client.post(reverse('export'), {
+            'type': 'grant'
+        })
+        csvContent = self.read_csv(response.content)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(len(csvContent) - 1, 2)
+
+    def test_export_preexpeditures(self):
+        # Request with preexpediture-wage property
+        response = self.client.post(reverse('export'), {
+            'type': 'preexpediture',
+            'preexpediture-amount-larger': '',
+            'preexpediture-wage': ''
+        })
+        csvContent = self.read_csv(response.content)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(len(csvContent) - 1, 2)
+        self.assertEqual(csvContent[1][0], str(self.ticket1.id))
+        self.assertEqual(csvContent[1][3], str(self.preexpeditureWithWage1.wage))
+
+        self.assertEqual(csvContent[2][0], str(self.ticket1.id))
+        self.assertEqual(csvContent[2][3], str(self.preexpeditureWithWage2.wage))
+
+        # Request without preexpediture-wage property
+        response = self.client.post(reverse('export'), {
+            'type': 'preexpediture',
+            'preexpediture-amount-larger': ''
+        })
+        csvContent = self.read_csv(response.content)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(len(csvContent) - 1, 1)
+        self.assertEqual(csvContent[1][0], str(self.ticket2.id))
+        self.assertEqual(csvContent[1][3], str(self.expeditureWithoutWagePaid.wage))
+
+    def test_export_expeditures(self):
+        # Request with expediture-wage and expediture-paid properties
+        response = self.client.post(reverse('export'), {
+            'type': 'expediture',
+            'expediture-amount-larger': '',
+            'expediture-amount-smaller': '',
+            'expediture-wage': '',
+            'expediture-paid': ''
+        })
+        csvContent = self.read_csv(response.content)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(len(csvContent) - 1, 2)
+        self.assertEqual(csvContent[1][0], str(self.ticket1.id))
+        self.assertEqual(csvContent[1][3], str(self.expeditureWithWagePaid1.wage))
+        self.assertEqual(csvContent[1][4], str(self.expeditureWithWagePaid1.paid))
+
+        self.assertEqual(csvContent[2][0], str(self.ticket1.id))
+        self.assertEqual(csvContent[2][3], str(self.expeditureWithWagePaid2.wage))
+        self.assertEqual(csvContent[2][4], str(self.expeditureWithWagePaid2.paid))
+
+        # Request without expediture-wage and expediture-paid properties
+        response = self.client.post(reverse('export'), {
+            'type': 'expediture',
+            'expediture-amount-larger': '',
+            'expediture-amount-smaller': ''
+        })
+        csvContent = self.read_csv(response.content)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(len(csvContent) - 1, 1)
+        self.assertEqual(csvContent[1][0], str(self.ticket2.id))
+        self.assertEqual(csvContent[1][3], str(self.expeditureWithoutWagePaid.wage))
+        self.assertEqual(csvContent[1][4], str(self.expeditureWithoutWagePaid.paid))
+
+    def test_export_topics(self):
+        # Request with default value of topics-paymentstate property
+        response = self.client.post(reverse('export'), {
+            'type': 'topic',
+            'topics-tickets-larger': '',
+            'topics-tickets-smaller': '',
+            'topics-paymentstate': 'default'
+        })
+        csvContent = self.read_csv(response.content)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(len(csvContent) - 1, 2)
+        self.assertEqual(csvContent[1][0], str(self.topic1.name))
+        self.assertEqual(csvContent[1][1], str(self.grant1.full_name))
+
+        self.assertEqual(csvContent[2][0], str(self.topic2.name))
+        self.assertEqual(csvContent[2][1], str(self.grant2.full_name))
+
+        # Request with topics-paymentstate property
+        response = self.client.post(reverse('export'), {
+            'type': 'topic',
+            'topics-tickets-larger': '',
+            'topics-tickets-smaller': '',
+            'topics-paymentstate': '',
+            'topics-paymentstate-larger': '',
+            'topics-paymentstate-smaller': ''
+        })
+        csvContent = self.read_csv(response.content)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(len(csvContent) - 1, 2)
+        self.assertEqual(csvContent[1][0], str(self.topic1.name))
+        self.assertEqual(csvContent[2][0], str(self.topic2.name))
+
+    def test_export_users(self):
+        # Request from unauthorized user
+        response = self.client.post(reverse('export'), {
+            'type': 'user',
+            'users-created-larger': '',
+            'users-created-smaller': '',
+            'users-accepted-larger': '',
+            'users-accepted-smaller': '',
+            'users-paid-larger': ''
+        })
+        self.assertEqual(403, response.status_code)
+
+        self.client.login(username=self.standardUser.username, password=self.password)
+
+        # Request from authorized user without enabled is_staff property
+        response = self.client.post(reverse('export'), {
+            'type': 'user',
+            'users-created-larger': '',
+            'users-created-smaller': '',
+            'users-accepted-larger': '',
+            'users-accepted-smaller': '',
+            'users-paid-larger': ''
+        })
+        self.assertEqual(403, response.status_code)
+
+        self.client.logout()
+        self.client.login(username=self.staffUser.username, password=self.password)
+
+        # Request without user-permision property
+        # In this case, the system will return all users from the database
+        response = self.client.post(reverse('export'), {
+            'type': 'user',
+            'users-created-larger': '',
+            'users-created-smaller': '',
+            'users-accepted-larger': '',
+            'users-accepted-smaller': '',
+            'users-paid-larger': ''
+        })
+        csvContent = self.read_csv(response.content)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(len(csvContent) - 1, 3)
+
+        userIDs = {int(u[0]) for u in csvContent[1:]}
+        wantedUserIDs = {self.standardUser.id, self.staffUser.id, self.superuser.id}
+        self.assertEqual(userIDs, wantedUserIDs)
+
+        # Request with valid user-permision property
+        response = self.client.post(reverse('export'), {
+            'type': 'user',
+            'users-created-larger': '',
+            'users-created-smaller': '',
+            'users-accepted-larger': '',
+            'users-accepted-smaller': '',
+            'users-paid-larger': '',
+            'user-permision': 'normal'
+        })
+        csvContent = self.read_csv(response.content)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(len(csvContent) - 1, 1)
+        self.assertEqual(csvContent[1][0], str(self.standardUser.id))
+
+        response = self.client.post(reverse('export'), {
+            'type': 'user',
+            'users-created-larger': '',
+            'users-created-smaller': '',
+            'users-accepted-larger': '',
+            'users-accepted-smaller': '',
+            'users-paid-larger': '',
+            'user-permision': 'staff'
+        })
+        csvContent = self.read_csv(response.content)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(len(csvContent) - 1, 2)
+
+        userIDs = {int(u[0]) for u in csvContent[1:]}
+        wantedUserIDs = {self.staffUser.id, self.superuser.id}
+        self.assertEqual(userIDs, wantedUserIDs)
+
+        response = self.client.post(reverse('export'), {
+            'type': 'user',
+            'users-created-larger': '',
+            'users-created-smaller': '',
+            'users-accepted-larger': '',
+            'users-accepted-smaller': '',
+            'users-paid-larger': '',
+            'user-permision': 'superuser'
+        })
+        csvContent = self.read_csv(response.content)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(len(csvContent) - 1, 1)
+        self.assertEqual(csvContent[1][0], str(self.superuser.id))
+
+        # Request with invalid user-permision property
+        response = self.client.post(reverse('export'), {
+            'type': 'user',
+            'users-created-larger': '',
+            'users-created-smaller': '',
+            'users-accepted-larger': '',
+            'users-accepted-smaller': '',
+            'users-paid-larger': '',
+            'user-permision': 'invalid_user_permission'
+        })
+        self.assertEqual(400, response.status_code)
+
+    def test_invalid_export_type(self):
+        response = self.client.post(reverse('export'), {
+            'type': 'invalid_export_type'
+        })
+        self.assertEqual(400, response.status_code)
+
+
 class DocumentAccessTests(TestCase):
     def setUp(self):
         self.owner = {'user': User.objects.create(username='ticket_owner'), 'password': 'pw1'}
