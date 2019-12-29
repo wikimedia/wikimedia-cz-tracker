@@ -511,7 +511,7 @@ class TicketEditTests(TestCase):
 
         c = Client()
         c.login(username=self.user.username, password=self.password)
-        response = c.get(reverse('edit_ticket', pk=ticket.id))
+        response = c.get(reverse('edit_ticket', kwargs={'pk': ticket.id}))
         self.assertEqual(response.status_code, 200)
 
         # add some inline items
@@ -579,7 +579,7 @@ class TicketEditTests(TestCase):
         ticket.add_acks('precontent')
 
         # edit should work and ignore new data
-        response = c.get(reverse('edit_ticket', pk=ticket.id))
+        response = c.get(reverse('edit_ticket', kwargs={'pk': ticket.id}))
         self.assertEqual(response.status_code, 200)
 
         response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
@@ -608,7 +608,7 @@ class TicketEditTests(TestCase):
         ticket.add_acks('precontent')
 
         # also, edit should work and not fail on missing preack-ignored fields
-        response = c.get(reverse('edit_ticket', pk=ticket.id))
+        response = c.get(reverse('edit_ticket', kwargs={'pk': ticket.id}))
         self.assertEqual(response.status_code, 200)
 
         response = c.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), {
