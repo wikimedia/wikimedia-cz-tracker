@@ -756,7 +756,8 @@ def edit_ticket(request, pk):
     if 'precontent' not in ticket.ack_set() and 'content' not in ticket.ack_set():
         form_media += preexpeditures.media
 
-    if ticketform.errors or preexpeditures.errors or expeditures.errors:
+    if ticketform and ticketform.errors or preexpeditures and preexpeditures.errors or \
+            expeditures and expeditures.errors:
         messages.error(request, _("One or more fields are invalid. Check them to get more information."))
 
     return render(request, 'tracker/edit_ticket.html', {
