@@ -711,6 +711,48 @@ class TicketAckTests(TestCase):
         response = c.get(reverse('topic_content_acks_per_user_csv'))
         self.assertEqual(response.status_code, 200)
 
+    def test_ack_not_submittable_by_anon(self):
+        c = Client()
+        add_url = reverse('ticket_ack_add', kwargs={
+            'pk': self.ticket.id,
+            'ack_type': 'user_content'
+        })
+        response = c.get(add_url)
+        self.assertEqual(response.status_code, 403)
+
+        response = c.post(add_url)
+        self.assertEqual(response.status_code, 403)
+
+    def test_ack_add_with_comment(self):
+        c = Client()
+        c.login(username=self.user.username, password=self.password)
+
+        add_url = reverse('ticket_ack_add', kwargs={
+            'pk': self.ticket.id,
+            'ack_type': 'user_content'
+        })
+
+        c.post(add_url, {
+            'comment': 'test_comment'
+        })
+        ack = self.ticket.ticketack_set.get(ack_type='user_content')
+        self.assertEqual('test_comment', ack.comment)
+
+    def test_ack_not_submittable_when_archived(self):
+        c = Client()
+        c.login(username=self.user.username, password=self.password)
+        self.ticket.add_acks('archive')
+
+        add_url = reverse('ticket_ack_add', kwargs={
+            'pk': self.ticket.id,
+            'ack_type': 'user_content'
+        })
+        response = c.get(add_url)
+        self.assertEqual(response.status_code, 403)
+
+        response = c.post(add_url)
+        self.assertEqual(response.status_code, 403)
+
 
 class TicketEditLinkTests(TestCase):
     def setUp(self):
