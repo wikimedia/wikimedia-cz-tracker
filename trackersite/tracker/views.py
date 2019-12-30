@@ -49,6 +49,9 @@ TICKET_EXCLUDE_FIELDS = (
 
 
 def ticket_list(request, page=1):
+    if 'just_registered' in request.session:
+        messages.success(request, _('User %s created.') % request.user.username)
+        del request.session['just_registered']
     response = render(request, 'tracker/index.html', {"LANGUAGE": get_language()})
     response["Access-Control-Allow-Origin"] = "*"
     return response

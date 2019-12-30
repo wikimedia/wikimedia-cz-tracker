@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n widget_tweaks %}
+
+{% block title %}{% trans "My personal information" %}{% endblock %}
+
+{% block content %}
+<p class="nav"><a href="{% url "ticket_list" %}">{% trans "index" %}</a> &gt;</p>
+
+<h1>{% trans "My personal information" %}</h1>
+<p>{% trans "To use tracker for expenses, we need a bit more information about you first." %}</p>
+<form method="post">
+{% for field in form %}
+<div class="form-group form-check">
+{{ field.error }}
+{{ field.label_tag }} {{ field|add_class:"form-control" }}
+</div>
+{% endfor %}
+{% csrf_token %}
+<div class="form-group form-check">
+<div class="row">
+<div class="col-md-6"><input class="btn btn-info btn-md btn-block" type="submit" value="{% trans "save & continue" %}" /></div>
+<div class="col-md-6"><a class="btn btn-block btn-primary" href="{% url "ticket_list" %}" role="button">{% trans "skip" %}</a></div>
+</div>
+&nbsp;
+<p>{% trans "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them." %}</p>
+</form>
+
+{% endblock content %}

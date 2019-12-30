@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 from django.core import mail
 from django.test import TestCase
 from django.test.client import Client
@@ -7,9 +8,22 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import views as auth_views
 
+from tracker.models import TrackerProfile
+
 
 class CreateUserTest(TestCase):
-    def test_user_registration(self):
+    def setUp(self):
+        os.environ['RECAPTCHA_DISABLE'] = 'True'
+
+    def tearDown(self):
+        try:
+            del os.environ['RECAPTCHA_DISABLE']
+        except KeyError:
+            # sometimes deleted for tests
+            pass
+
+    def test_user_registration_captcha(self):
+        del os.environ['RECAPTCHA_DISABLE']
         USERNAME, PW, EMAIL = 'foouser', 'foo', 'foo@example.com'
         response = Client().post(reverse('register'), {
             'username': USERNAME, 'password1': PW, 'password2': PW, 'email': EMAIL,
@@ -18,6 +32,26 @@ class CreateUserTest(TestCase):
 
         # user does not exist -> we've been killed by captcha
         self.assertEqual(0, len(User.objects.filter(username=USERNAME)))
+
+    def test_signup_process(self):
+        c = Client()
+        USERNAME, PW, EMAIL = 'foouser', 'foo', 'foo@example.com'
+        response = c.post(reverse('register'), {
+            'username': USERNAME, 'password1': PW, 'password2': PW, 'email': EMAIL,
+        }, follow=True)
+        self.assertRedirects(response, reverse("fill_details"))
+        self.assertEqual(1, len(User.objects.filter(username=USERNAME)))
+
+        user = User.objects.get(username=USERNAME)
+
+        BANK, CONTACT, ID = 'foo', 'bar', 'baz'
+        response = c.post(reverse('fill_details'), {
+            'bank_account': BANK,
+            'other_contact': CONTACT,
+            'other_identification': ID
+        }, follow=True)
+        self.assertRedirects(response, reverse("ticket_list"))
+        self.assertEqual(1, len(TrackerProfile.objects.filter(user=user, bank_account=BANK, other_contact=CONTACT, other_identification=ID)))
 
 
 class PasswordResetTests(TestCase):

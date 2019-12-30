@@ -6,13 +6,11 @@ from django.conf import settings
 
 def WarnIEUsers(get_response):
     def process_request(request):
-        response = get_response(request)
-
         if 'HTTP_USER_AGENT' in request.META:
             user_agent = request.META['HTTP_USER_AGENT'].lower()
             request.is_IE = ('trident' in user_agent) or ('msie' in user_agent)
 
-        return response
+        return get_response(request)
 
     return process_request
 

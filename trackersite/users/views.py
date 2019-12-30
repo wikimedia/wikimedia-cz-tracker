@@ -10,12 +10,37 @@ from django.http import HttpResponseRedirect
 from django.template.response import TemplateResponse
 from django.utils.translation import ugettext as _
 from django.views.decorators.debug import sensitive_post_parameters
-from django.shortcuts import render
+from django.views.generic import FormView
+from django.shortcuts import render, get_object_or_404
+
+from tracker.models import TrackerProfile
 
 from snowpenguin.django.recaptcha2.fields import ReCaptchaField
 from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 
 from .forms import CustomPasswordChangeForm
+
+
+class TrackerProfileDetailsForm(forms.ModelForm):
+    class Meta:
+        model = TrackerProfile
+        fields = ("bank_account", "other_contact", "other_identification")
+
+
+class AddTrackerProfileDetails(FormView):
+    template_name = 'tracker/fill_details.html'
+    form_class = TrackerProfileDetailsForm
+
+    def form_valid(self, form):
+        tracker_profile = get_object_or_404(TrackerProfile, user=self.request.user)
+        tracker_profile.bank_account = form.cleaned_data['bank_account']
+        tracker_profile.other_contact = form.cleaned_data['other_contact']
+        tracker_profile.other_identification = form.cleaned_data['other_identification']
+        tracker_profile.save()
+        return HttpResponseRedirect(reverse('ticket_list'))
+
+
+fill_details = login_required(AddTrackerProfileDetails.as_view())
 
 
 class UserWithEmailForm(auth.forms.UserCreationForm):
@@ -34,12 +59,11 @@ class RegisterView(CreateView):
 
     def form_valid(self, form):
         form.save()
-        messages.success(self.request, _('User %s created.') % form.cleaned_data['username'])
         new_user = auth.authenticate(username=form.cleaned_data['username'],
                                      password=form.cleaned_data['password1'])
         auth.login(self.request, new_user)
-
-        return HttpResponseRedirect(reverse('ticket_list'))
+        self.request.session['just_registered'] = True
+        return HttpResponseRedirect(reverse('fill_details'))
 
 
 register = RegisterView.as_view()
