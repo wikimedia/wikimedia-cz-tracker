@@ -1,10 +1,11 @@
 import os
-import sys
 import subprocess
+import sys
 
 import django
-from django.template import Template, Context
+import questionary
 from django.conf import settings
+from django.template import Template, Context
 from django.utils.crypto import get_random_string
 
 MY_PATH = os.path.abspath(os.path.dirname(__file__))
@@ -34,19 +35,21 @@ def main():
 
     # DB provider
     # TODO: Add Oracle and postgresql_psycopg2
-    print('Select your database provider')
-    print('1) MySQL')
-    print('2) SQLite')
-    db_choice = int(input('Your choice: '))
-    print("We'll ask you few questions now. Press enter if you want the defaults.")
-    if db_choice == 1:
+    db_choice = questionary.select(
+        "Select your database provider",
+        choices=[
+            "MySQL",
+            "SQLite"
+        ]
+    ).ask()
+    if db_choice == "MySQL":
         options['backend'] = 'mysql'
-        options['DB_NAME'] = input('Database name [tracer]: ') or 'tracker'
-        options['DB_USER'] = input('Database username [root]: ') or 'root'
-        options['DB_PASS'] = input('Database password [empty string]: ') or ''
-        options['DB_HOST'] = input('Database hostname [localhost]: ') or ''
-        options['DB_PORT'] = input('Database port [MySQL default]: ') or ''
-        print('Creating your database')
+        options['DB_NAME'] = questionary.text("Database name", default="tracker").ask()
+        options['DB_USER'] = questionary.text("Database username", default="root").ask()
+        options['DB_PASS'] = questionary.password("Database password").ask()
+        options['DB_HOST'] = questionary.text("Database hostname [localhost]").ask()
+        options['DB_PORT'] = questionary.text("Database port").ask()
+        print('INFO: Creating your database')
         subprocess.call([
             'mysql',
             # Pass username
@@ -59,11 +62,11 @@ def main():
             '-P ' + options['DB_PORT'] if options['DB_PORT'] else '',
             '-e',
             'CREATE DATABASE %s' % options['DB_NAME']
-        ])
-    elif db_choice == 2:
+        ], stdout=subprocess.DEVNULL)
+    elif db_choice == "SQLite":
         options['backend'] = 'sqlite3'
         default_path = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'deploy', 'tracker.db'))
-        options['DB_NAME'] = input('Path to new database file [%s]: ' % default_path) or default_path
+        options['DB_NAME'] = questionary.text("Path to new database file", default=default_path).ask()
         options['DB_USER'] = ''
         options['DB_PASS'] = ''
         options['DB_HOST'] = ''

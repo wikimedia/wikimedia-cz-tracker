@@ -17,5 +17,8 @@ djangorestframework
 django-filter
 django-rest-swagger
 
+# For makesettings
+questionary
+
 # we'll presume MySQL as the database
 mysql
