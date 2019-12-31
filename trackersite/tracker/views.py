@@ -25,6 +25,7 @@ from django.template import Context
 from django.template.loader import get_template
 from django.urls import reverse
 from django.utils.html import strip_tags
+from django.utils.safestring import mark_safe
 from django.utils.translation import get_language
 from django.utils.translation import ugettext as _, ugettext_lazy
 from django.views.decorators.csrf import csrf_exempt
@@ -116,10 +117,22 @@ class TicketAckAddView(FormView):
             added_by=self.request.user,
             comment=form.cleaned_data['comment'],
         )
-        msg = _('Ticket %(ticket_id)s confirmation "%(confirmation)s" has been added.') % {
-            'ticket_id': ticket.id, 'confirmation': ack.get_ack_type_display(),
-        }
-        messages.success(self.request, msg)
+
+        if self.kwargs['ack_type'] == "user_content" and \
+                TrackerProfile.objects.get(user=self.request.user).bank_account == "":
+            messages.warning(self.request, mark_safe(_('Ticket %(ticket_id)s confirmation "%(confirmation)s" has been '
+                                                       'added. However, no bank account information filled. Without it,'
+                                                       ' we can\'t reimburse you. Go to '
+                                                       '<a href="%(details_url)s">your details</a> to fill it.')
+                                                     % {"details_url": reverse("user_details_change"),
+                                                        "ticket_id": ticket.id,
+                                                        "confirmation": ack.get_ack_type_display()}))
+        else:
+            msg = _('Ticket %(ticket_id)s confirmation "%(confirmation)s" has been added.') % {
+                'ticket_id': ticket.id, 'confirmation': ack.get_ack_type_display(),
+            }
+            messages.success(self.request, msg)
+
         return HttpResponseRedirect(ticket.get_absolute_url())
 
     def get_context_data(self, **kwargs):
