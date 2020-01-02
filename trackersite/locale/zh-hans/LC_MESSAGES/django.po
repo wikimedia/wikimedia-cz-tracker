@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2019-12-31 06:57:59+0000\n"
-"X-POT-Import-Date: 2019-12-28 17:30:23+0000\n"
+"PO-Revision-Date: 2020-01-02 14:00:35+0000\n"
+"X-POT-Import-Date: 2020-01-01 17:30:26+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh-Hans\n"
@@ -463,7 +463,7 @@ msgid "Text description of who requested for this ticket, in case user is not fi
 msgstr "如果用户没有填写，则说明谁请求此票据"
 
 #: tracker/models.py:257 tracker/models.py:717 tracker/models.py:789
-#: tracker/models.py:967 tracker/views.py:775
+#: tracker/models.py:967 tracker/views.py:789
 msgid "name"
 msgstr "名"
 
@@ -471,7 +471,7 @@ msgstr "名"
 msgid "Name for the ticket"
 msgstr "票据名称"
 
-#: tracker/models.py:258 tracker/models.py:722 tracker/views.py:540
+#: tracker/models.py:258 tracker/models.py:722 tracker/views.py:553
 msgid "topic"
 msgstr "主题"
 
@@ -523,7 +523,7 @@ msgstr ""
 
 #: tracker/models.py:270 tracker/models.py:718 tracker/models.py:802
 #: tracker/models.py:894 tracker/models.py:951 tracker/models.py:1112
-#: tracker/models.py:1138 tracker/models.py:1297 tracker/views.py:776
+#: tracker/models.py:1138 tracker/models.py:1297 tracker/views.py:790
 msgid "description"
 msgstr "描述"
 
@@ -687,7 +687,7 @@ msgstr ""
 msgid "Subtopics"
 msgstr ""
 
-#: tracker/models.py:790 tracker/views.py:569
+#: tracker/models.py:790 tracker/views.py:582
 msgid "grant"
 msgstr "拨款"
 
@@ -809,7 +809,7 @@ msgid "Grants"
 msgstr "授权"
 
 #: tracker/models.py:949 tracker/models.py:965 tracker/models.py:1110
-#: tracker/models.py:1136 tracker/views.py:495
+#: tracker/models.py:1136 tracker/views.py:508
 msgid "ticket"
 msgstr ""
 
@@ -927,7 +927,7 @@ msgstr ""
 msgid "uploader"
 msgstr "上传者"
 
-#: tracker/models.py:1163 tracker/views.py:775
+#: tracker/models.py:1163 tracker/views.py:789
 msgid "We need a sane file name, such as my-invoice123.jpg"
 msgstr ""
 
@@ -1025,7 +1025,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_common_detail.html:64
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1697
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1711
 msgid "Accounting info"
 msgstr ""
 
@@ -1230,8 +1230,8 @@ msgid "Total"
 msgstr "总共"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:39
-#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1695
-#: tracker/views.py:1704 tracker/views.py:1714
+#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1709
+#: tracker/views.py:1718 tracker/views.py:1728
 msgid "Ticket ID"
 msgstr ""
 
@@ -1243,21 +1243,21 @@ msgstr ""
 msgid "ADD ACK"
 msgstr ""
 
-#: tracker/templates/admin/tracker/ticket/change_form.html:67
+#: tracker/templates/admin/tracker/ticket/change_form.html:66
 msgid "Ticket documents"
 msgstr ""
 
-#: tracker/templates/admin/tracker/ticket/change_form.html:70
+#: tracker/templates/admin/tracker/ticket/change_form.html:69
 #: tracker/templates/tracker/edit_ticket.html:20
 #: tracker/templates/tracker/ticket_detail.html:19
 msgid "edit ticket documents"
 msgstr ""
 
-#: tracker/templates/admin/tracker/ticket/change_form.html:77
+#: tracker/templates/admin/tracker/ticket/change_form.html:76
 msgid "There are no documents uploaded for this ticket."
 msgstr ""
 
-#: tracker/templates/admin/tracker/ticket/change_form.html:80
+#: tracker/templates/admin/tracker/ticket/change_form.html:79
 #: tracker/templates/tracker/ticket_detail.html:64
 #, python-format
 msgid "There is 1 document uploaded."
@@ -1281,7 +1281,7 @@ msgstr ""
 msgid "View on site"
 msgstr ""
 
-#: tracker/templates/admin/tracker/ticket/tabular.html:89
+#: tracker/templates/admin/tracker/ticket/tabular.html:95
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Accepted"
 msgstr "被接受的"
@@ -1323,9 +1323,9 @@ msgstr "总额"
 #: tracker/templates/tracker/ticket_common_detail.html:30
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1676
-#: tracker/views.py:1681 tracker/views.py:1686 tracker/views.py:1695
-#: tracker/views.py:1704
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1690
+#: tracker/views.py:1695 tracker/views.py:1700 tracker/views.py:1709
+#: tracker/views.py:1718
 msgid "Description"
 msgstr "描述"
 
@@ -1438,15 +1438,15 @@ msgid "Home"
 msgstr "首页"
 
 #: tracker/templates/tracker/admin_user_list.html:25
-#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1709
+#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1723
 msgid "Username"
 msgstr "用户名"
 
-#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1709
+#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1723
 msgid "First name"
 msgstr "名"
 
-#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1709
+#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1723
 msgid "Last name"
 msgstr "姓"
 
@@ -2495,217 +2495,254 @@ msgstr "匹配"
 msgid "All"
 msgstr "所有"
 
-#: tracker/views.py:67
+#: tracker/views.py:68
 msgid "Comment posted, thank you."
 msgstr ""
 
-#: tracker/views.py:108
+#: tracker/views.py:109
 msgid "You cannot add ack to a ticket you do not own."
 msgstr ""
 
-#: tracker/views.py:119
+#: tracker/views.py:123
+#, python-format
+msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added. However, no bank account information filled. Without it, we can't reimburse you. Go to <a href=\"%(details_url)s\">your details</a> to fill it."
+msgstr ""
+
+#: tracker/views.py:131
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
 msgstr ""
 
-#: tracker/views.py:156
+#: tracker/views.py:164 tracker/views.py:1740
+msgid "You cannot edit this"
+msgstr ""
+
+#: tracker/views.py:169
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been deleted."
 msgstr ""
 
-#: tracker/views.py:200
+#: tracker/views.py:213
 msgid "Statutory declaration"
 msgstr ""
 
-#: tracker/views.py:247
+#: tracker/views.py:260
 msgid "Your deposit is bigger than your preexpeditures"
 msgstr ""
 
-#: tracker/views.py:264
+#: tracker/views.py:277
 msgid "You are required to do statutory declaration"
 msgstr ""
 
-#: tracker/views.py:280
+#: tracker/views.py:293
 msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."
 msgstr ""
 
-#: tracker/views.py:371
+#: tracker/views.py:384
 msgid "We've updated your preferences"
 msgstr ""
 
-#: tracker/views.py:419
+#: tracker/views.py:432
 msgid "Please enter your password to confirm the deactivation of your account."
 msgstr ""
 
-#: tracker/views.py:434
+#: tracker/views.py:447
 msgid "Account deactivation"
 msgstr ""
 
-#: tracker/views.py:441
+#: tracker/views.py:454
 msgid "Your account has been deactivated."
 msgstr ""
 
-#: tracker/views.py:444
+#: tracker/views.py:457
 msgid "Password is incorrect."
 msgstr ""
 
-#: tracker/views.py:476
+#: tracker/views.py:489
 #, python-format
 msgid "Ticket's %s watching settings are changed."
 msgstr ""
 
-#: tracker/views.py:525
+#: tracker/views.py:538
 #, python-format
 msgid "Topic's %s watching settings are changed."
 msgstr ""
 
-#: tracker/views.py:555
+#: tracker/views.py:568
 #, python-format
 msgid "%s's watching settings are changed."
 msgstr ""
 
-#: tracker/views.py:602
+#: tracker/views.py:615
 #, python-format
 msgid "Ticket %s is created"
 msgstr ""
 
-#: tracker/views.py:640 tracker/views.py:760
+#: tracker/views.py:653 tracker/views.py:774
 msgid "One or more fields are invalid. Check them to get more information."
 msgstr ""
 
-#: tracker/views.py:651
+#: tracker/views.py:664
 msgid "I confirm the above"
 msgstr ""
 
-#: tracker/views.py:658
+#: tracker/views.py:671
 msgid "You cannot add statutory declaration to a ticket that does not support it."
 msgstr ""
 
-#: tracker/views.py:660
+#: tracker/views.py:673
 msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
 msgstr ""
 
-#: tracker/views.py:667
+#: tracker/views.py:680
 msgid "You successfully added a statutory declaration to this ticket."
 msgstr ""
 
-#: tracker/views.py:670
+#: tracker/views.py:683
 msgid "You successfully removed a statutory declaration from this ticket."
 msgstr ""
 
-#: tracker/views.py:693
+#: tracker/views.py:706 tracker/views.py:717
 msgid "You cannot edit this ticket"
 msgstr "你不能编辑这张票"
 
-#: tracker/views.py:740
+#: tracker/views.py:753
 #, python-format
 msgid "Ticket %s saved."
 msgstr ""
 
-#: tracker/views.py:774
+#: tracker/views.py:788
 msgid "file"
 msgstr "文件"
 
-#: tracker/views.py:804
+#: tracker/views.py:818
 msgid "You cannot edit this ticket documents, as it's no longer editable"
 msgstr ""
 
-#: tracker/views.py:840
+#: tracker/views.py:827
+msgid "You cannot see this ticket's documents."
+msgstr ""
+
+#: tracker/views.py:854
 #, python-format
 msgid "Document changes for ticket %s saved."
 msgstr ""
 
-#: tracker/views.py:863
+#: tracker/views.py:877
 msgid "There is already a document with that name. Please try to reupload with a different name."
 msgstr ""
 
-#: tracker/views.py:875
+#: tracker/views.py:889
 #, python-format
 msgid "File %(filename)s has been saved."
 msgstr ""
 
-#: tracker/views.py:1063
+#: tracker/views.py:1077
 msgid "Your details have been saved."
 msgstr ""
 
-#: tracker/views.py:1509
+#: tracker/views.py:1521
+msgid "You must be staffer in order to export users"
+msgstr ""
+
+#: tracker/views.py:1523
 msgid "You must fill the form validly"
 msgstr ""
 
-#: tracker/views.py:1528
+#: tracker/views.py:1542
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
 msgstr ""
 
-#: tracker/views.py:1666
+#: tracker/views.py:1569
+msgid "You must be a staffer in order to be able to import topics."
+msgstr ""
+
+#: tracker/views.py:1602
+msgid "You must be a staffer in order to be able to import grants."
+msgstr ""
+
+#: tracker/views.py:1632 tracker/views.py:1646
+msgid "You can't add preexpenses to a ticket that you did not create."
+msgstr ""
+
+#: tracker/views.py:1659
+msgid "You can't add media items to a ticket that you did not create."
+msgstr ""
+
+#: tracker/views.py:1662
+msgid "You must be a superuser in order to be able to import users."
+msgstr ""
+
+#: tracker/views.py:1680
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
 msgstr ""
 
-#: tracker/views.py:1668
+#: tracker/views.py:1682
 msgid "Your CSV file was imported."
 msgstr ""
 
-#: tracker/views.py:1676
+#: tracker/views.py:1690
 msgid "Name of a ticket"
 msgstr ""
 
-#: tracker/views.py:1676 tracker/views.py:1681
+#: tracker/views.py:1690 tracker/views.py:1695
 msgid "Name of a topic"
 msgstr ""
 
-#: tracker/views.py:1681
+#: tracker/views.py:1695
 msgid "Name of a grant"
 msgstr ""
 
-#: tracker/views.py:1681
+#: tracker/views.py:1695
 msgid "Form description"
 msgstr ""
 
-#: tracker/views.py:1686
+#: tracker/views.py:1700
 msgid "Full name"
 msgstr "全名"
 
-#: tracker/views.py:1686
+#: tracker/views.py:1700
 msgid "Short name"
 msgstr "简称"
 
-#: tracker/views.py:1686
+#: tracker/views.py:1700
 msgid "Slug"
 msgstr "重击"
 
-#: tracker/views.py:1709
+#: tracker/views.py:1723
 msgid "Password"
 msgstr "密码"
 
-#: tracker/views.py:1731
+#: tracker/views.py:1745
 msgid "Preexpeditures were succesfully copied to expeditures."
 msgstr ""
 
-#: tracker/views.py:1743
+#: tracker/views.py:1757
 msgid "Executing API call with any action than whitelisted is prohibited."
 msgstr ""
 
-#: tracker/views.py:1754
+#: tracker/views.py:1768
 msgid "No media to show are available"
 msgstr "没有可显示的媒体"
 
-#: tracker/views.py:1775
+#: tracker/views.py:1789
 msgid "Updating of medias for this ticket was successfully scheduled."
 msgstr ""
 
-#: tracker/views.py:1780
+#: tracker/views.py:1794
 msgid "List of media was successfully updated"
 msgstr ""
 
-#: tracker/views.py:1785
+#: tracker/views.py:1799
 msgid "There was an error while processing your request"
 msgstr ""
 
-#: tracker/views.py:1793
+#: tracker/views.py:1807
 msgid "This mandatory notice was sent to all active Tracker users."
 msgstr ""
 
-#: tracker/views.py:1805
+#: tracker/views.py:1819
 msgid "This mandatory notice was sent to all active Tracker administrators."
 msgstr ""
 
