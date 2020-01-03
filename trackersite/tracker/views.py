@@ -366,22 +366,23 @@ def preferences(request):
     if request.method == 'POST':
         muted = []
         ack_muted = []
-        if 'muted' not in request.POST:
+        request_post = request.POST.copy()
+        if 'muted' not in request_post:
             for notification_type in NOTIFICATION_TYPES:
-                if notification_type[0] in request.POST:
+                if notification_type[0] in request_post:
                     muted.append(notification_type[0])
-                    del request.POST[notification_type[0]]
+                    del request_post[notification_type[0]]
         else:
             muted.append('muted')
         for ack_type in ACK_TYPES:
-            if ack_type[0] in request.POST:
+            if ack_type[0] in request_post:
                 ack_muted.append(ack_type[0])
-                del request.POST[ack_type[0]]
+                del request_post[ack_type[0]]
         request.user.trackerpreferences.muted_notifications = json.dumps(muted)
         request.user.trackerpreferences.muted_ack = json.dumps(ack_muted)
         request.user.trackerpreferences.save()
 
-        pref_form = PreferencesForm(request.POST, instance=request.user.trackerpreferences)
+        pref_form = PreferencesForm(request_post, instance=request.user.trackerpreferences)
         if pref_form.is_valid():
             pref_form.save()
             messages.success(request, _("We've updated your preferences"))
