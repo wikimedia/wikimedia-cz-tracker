@@ -1,24 +1,26 @@
 # -*- coding: utf-8 -*-
 
+import csv
 import datetime
-import re
-from decimal import Decimal
+import io
 import json
 import random
+import re
+from decimal import Decimal
 
-from django.test import TestCase
-from django.test.client import Client
-from django.urls import reverse
+from django.conf import settings
 from django.contrib.auth.models import User, Permission
 from django.contrib.contenttypes.models import ContentType
 from django.core.files.base import ContentFile
 from django.core.management import call_command
-import io
-import csv
+from django.test import TestCase
+from django.test.client import Client
+from django.urls import reverse
+from django.utils.translation import gettext
 
+from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile, \
+    Document, TrackerPreferences
 from users.models import UserWrapper
-from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile, Document
-from django.conf import settings
 
 
 class SimpleTicketTest(TestCase):
@@ -1479,3 +1481,44 @@ class PreferencesTests(TestCase):
         self.assertEqual(user.trackerprofile.bank_account, '63770002/5500')
         self.assertEqual(user.trackerprofile.other_contact, 'foo')
         self.assertEqual(user.trackerprofile.other_identification, 'bar')
+
+    def test_preferences_load(self):
+        c = self.get_client()
+        r = c.get(reverse('preferences'))
+        self.assertEqual(r.status_code, 200)
+
+    def test_preferences_submit(self):
+        c = self.get_client()
+        r = c.post(reverse("preferences"), {
+            "document": "",
+            "media_new": "",
+            "comment": "",
+            "user_content": "",
+            "close": "",
+            "display_items": "20",
+            "email_language": "es"
+        }, follow=True)
+
+        self.assertEqual(r.status_code, 200)
+
+        for notification in r.context["notification_types"]:
+            if notification[0] in ("document", "media_new", "comment"):
+                self.assertEqual(notification[2], True)
+            else:
+                self.assertEqual(notification[2], False)
+
+        for ack_type in r.context["ack_types"]:
+            if ack_type[0] in ("user_content", "close"):
+                self.assertEqual(ack_type[2], True)
+            else:
+                self.assertEqual(ack_type[2], False)
+
+        preferences = TrackerPreferences.objects.get(user=self.user)
+
+        self.assertTrue("document" in preferences.muted_notifications)
+        self.assertTrue("media_new" in preferences.muted_notifications)
+        self.assertTrue("comment" in preferences.muted_notifications)
+        self.assertTrue("user_content" in preferences.muted_ack)
+        self.assertTrue("close" in preferences.muted_ack)
+        self.assertEqual(preferences.display_items, 20)
+        self.assertEqual(preferences.email_language, "es")
