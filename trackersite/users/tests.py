@@ -6,7 +6,6 @@ from django.test.client import Client
 from django.urls import reverse
 
 from django.contrib.auth.models import User
-from django.contrib.auth import views as auth_views
 
 from tracker.models import TrackerProfile
 

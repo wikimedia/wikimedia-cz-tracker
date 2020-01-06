@@ -7,7 +7,6 @@ from django import forms
 from tracker import models
 from django.utils.translation import ugettext_lazy as _, get_language, activate
 from django.http import Http404, HttpResponse, HttpResponseNotAllowed
-from django.template import RequestContext
 from django.template.loader import get_template
 from django.contrib.admin.helpers import ActionForm
 

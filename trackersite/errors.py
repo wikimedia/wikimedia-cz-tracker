@@ -1,5 +1,3 @@
-import sys
-
 from django import http
 from django.template import TemplateDoesNotExist, loader
 

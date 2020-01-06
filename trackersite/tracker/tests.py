@@ -16,7 +16,6 @@ from django.core.management import call_command
 from django.test import TestCase
 from django.test.client import Client
 from django.urls import reverse
-from django.utils.translation import gettext
 
 from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile, \
     Document, TrackerPreferences
@@ -53,7 +52,7 @@ class SimpleTicketTest(TestCase):
             self.assertEqual(response.status_code, 200)
             if response.status_code == 200:
                 try:
-                    ticket_json = json.loads(response.content.decode('utf8'))
+                    json.loads(response.content.decode('utf8'))
                 except ValueError:
                     self.fail("Response was not JSON as expected!")
 

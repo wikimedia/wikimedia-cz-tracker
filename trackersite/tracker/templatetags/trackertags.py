@@ -6,8 +6,7 @@ from django.utils.formats import number_format
 from django.urls import reverse
 import re
 import bleach
-from django.db.models import Sum
-from tracker.models import Ticket, User, Preexpediture, Expediture
+from tracker.models import Ticket, User
 
 
 register = template.Library()
