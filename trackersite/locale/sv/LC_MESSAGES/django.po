@@ -1,13 +1,14 @@
 # Translation of Tracker - main to Swedish (svenska)
 # Exported from translatewiki.net
 #
+# Author: Tölvuforritari
 # Author: Umeaboy
 # Author: WikiPhoenix
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-01-02 14:00:35+0000\n"
-"X-POT-Import-Date: 2020-01-01 17:30:26+0000\n"
+"PO-Revision-Date: 2020-01-06 17:11:42+0000\n"
+"X-POT-Import-Date: 2020-01-02 17:30:31+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
@@ -50,51 +51,51 @@ msgstr ""
 msgid "You can not edit preexpiditures of this ticket."
 msgstr ""
 
-#: common_settings.py:92 tracker/templates/tracker/ticket_common_detail.html:18
+#: common_settings.py:93 tracker/templates/tracker/ticket_common_detail.html:18
 msgid "CZK"
 msgstr ""
 
-#: common_settings.py:95
+#: common_settings.py:96
 msgid "English"
 msgstr "Engelska"
 
-#: common_settings.py:96
+#: common_settings.py:97
 msgid "Czech"
 msgstr "Tjeckiska"
 
-#: common_settings.py:97
+#: common_settings.py:98
 msgid "French"
 msgstr "Franska"
 
-#: common_settings.py:98
+#: common_settings.py:99
 msgid "Arabic"
 msgstr "Arabiska"
 
-#: common_settings.py:99
+#: common_settings.py:100
 msgid "Danish"
 msgstr "Danska"
 
-#: common_settings.py:100
+#: common_settings.py:101
 msgid "Finnish"
 msgstr "Finska"
 
-#: common_settings.py:101
+#: common_settings.py:102
 msgid "Korean"
 msgstr "Koreanska"
 
-#: common_settings.py:102
+#: common_settings.py:103
 msgid "Portuguese"
 msgstr "Portugisiska"
 
-#: common_settings.py:103
+#: common_settings.py:104
 msgid "Swedish"
 msgstr "Svenska"
 
-#: common_settings.py:104
+#: common_settings.py:105
 msgid "Chinese-traditional"
 msgstr "Kinesiska (traditionell)"
 
-#: common_settings.py:105
+#: common_settings.py:106
 msgid "Spanish"
 msgstr "Spanska"
 
@@ -461,7 +462,7 @@ msgid "Text description of who requested for this ticket, in case user is not fi
 msgstr ""
 
 #: tracker/models.py:257 tracker/models.py:717 tracker/models.py:789
-#: tracker/models.py:967 tracker/views.py:789
+#: tracker/models.py:967 tracker/views.py:791
 msgid "name"
 msgstr "namn"
 
@@ -469,7 +470,7 @@ msgstr "namn"
 msgid "Name for the ticket"
 msgstr "Namn på ärendet"
 
-#: tracker/models.py:258 tracker/models.py:722 tracker/views.py:553
+#: tracker/models.py:258 tracker/models.py:722 tracker/views.py:555
 msgid "topic"
 msgstr "ämne"
 
@@ -521,7 +522,7 @@ msgstr ""
 
 #: tracker/models.py:270 tracker/models.py:718 tracker/models.py:802
 #: tracker/models.py:894 tracker/models.py:951 tracker/models.py:1112
-#: tracker/models.py:1138 tracker/models.py:1297 tracker/views.py:790
+#: tracker/models.py:1138 tracker/models.py:1297 tracker/views.py:792
 msgid "description"
 msgstr "beskrivning"
 
@@ -685,7 +686,7 @@ msgstr "Underämne"
 msgid "Subtopics"
 msgstr "Underämnen"
 
-#: tracker/models.py:790 tracker/views.py:582
+#: tracker/models.py:790 tracker/views.py:584
 msgid "grant"
 msgstr ""
 
@@ -807,7 +808,7 @@ msgid "Grants"
 msgstr ""
 
 #: tracker/models.py:949 tracker/models.py:965 tracker/models.py:1110
-#: tracker/models.py:1136 tracker/views.py:508
+#: tracker/models.py:1136 tracker/views.py:510
 msgid "ticket"
 msgstr "ärende"
 
@@ -925,7 +926,7 @@ msgstr ""
 msgid "uploader"
 msgstr "uppladdare"
 
-#: tracker/models.py:1163 tracker/views.py:789
+#: tracker/models.py:1163 tracker/views.py:791
 msgid "We need a sane file name, such as my-invoice123.jpg"
 msgstr ""
 
@@ -1023,7 +1024,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_common_detail.html:64
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1711
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1713
 msgid "Accounting info"
 msgstr ""
 
@@ -1228,8 +1229,8 @@ msgid "Total"
 msgstr "Totalt"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:39
-#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1709
-#: tracker/views.py:1718 tracker/views.py:1728
+#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1711
+#: tracker/views.py:1720 tracker/views.py:1730
 msgid "Ticket ID"
 msgstr "Ärende-ID"
 
@@ -1322,9 +1323,9 @@ msgstr "Mängd"
 #: tracker/templates/tracker/ticket_common_detail.html:30
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1690
-#: tracker/views.py:1695 tracker/views.py:1700 tracker/views.py:1709
-#: tracker/views.py:1718
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1692
+#: tracker/views.py:1697 tracker/views.py:1702 tracker/views.py:1711
+#: tracker/views.py:1720
 msgid "Description"
 msgstr "Beskrivning"
 
@@ -1437,15 +1438,15 @@ msgid "Home"
 msgstr "Hem"
 
 #: tracker/templates/tracker/admin_user_list.html:25
-#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1723
+#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1725
 msgid "Username"
 msgstr "Användarnamn"
 
-#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1723
+#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1725
 msgid "First name"
 msgstr "Förnamn"
 
-#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1723
+#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1725
 msgid "Last name"
 msgstr "Efternamn"
 
@@ -1458,6 +1459,7 @@ msgstr "Kluster %(cid)s"
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/edit_ticket.html:17
 #: tracker/templates/tracker/edit_ticket_docs.html:7
+#: tracker/templates/tracker/fill_details.html:7
 #: tracker/templates/tracker/generic/create_ticket.html:17
 #: tracker/templates/tracker/generic/ticket_list.html:12
 #: tracker/templates/tracker/generic/topic_list.html:7
@@ -1728,6 +1730,29 @@ msgstr "personal"
 
 #: tracker/templates/tracker/export.html:348
 msgid "superuser"
+msgstr ""
+
+#: tracker/templates/tracker/fill_details.html:4
+#: tracker/templates/tracker/fill_details.html:9
+msgid "My personal information"
+msgstr "Mina personuppgifter"
+
+#: tracker/templates/tracker/fill_details.html:10
+msgid "To use tracker for expenses, we need a bit more information about you first."
+msgstr ""
+
+#: tracker/templates/tracker/fill_details.html:21
+msgid "save & continue"
+msgstr "Spara och fortsätt"
+
+#: tracker/templates/tracker/fill_details.html:22
+msgid "skip"
+msgstr "Hoppa över"
+
+#: tracker/templates/tracker/fill_details.html:25
+#: tracker/templates/tracker/user_details_change.html:23
+#: users/templates/users/register.html:28
+msgid "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them."
 msgstr ""
 
 #: tracker/templates/tracker/generic/create_ticket.html:4
@@ -2472,11 +2497,6 @@ msgstr ""
 msgid "My details"
 msgstr "Mina detaljer"
 
-#: tracker/templates/tracker/user_details_change.html:23
-#: users/templates/users/register.html:28
-msgid "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them."
-msgstr ""
-
 #: tracker/templates/tracker/user_list.html:22
 msgid "Tickets not assigned to any tracker user"
 msgstr ""
@@ -2494,254 +2514,259 @@ msgstr "Bevaka"
 msgid "All"
 msgstr "Alla"
 
-#: tracker/views.py:68
+#: tracker/views.py:53
+#, python-format
+msgid "User %s created."
+msgstr "Användaren %s skapades."
+
+#: tracker/views.py:70
 msgid "Comment posted, thank you."
 msgstr "Kommentaren lades upp, tack."
 
-#: tracker/views.py:109
+#: tracker/views.py:111
 msgid "You cannot add ack to a ticket you do not own."
 msgstr ""
 
-#: tracker/views.py:123
+#: tracker/views.py:125
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added. However, no bank account information filled. Without it, we can't reimburse you. Go to <a href=\"%(details_url)s\">your details</a> to fill it."
 msgstr ""
 
-#: tracker/views.py:131
+#: tracker/views.py:133
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
 msgstr ""
 
-#: tracker/views.py:164 tracker/views.py:1740
+#: tracker/views.py:166 tracker/views.py:1742
 msgid "You cannot edit this"
 msgstr "Du kan inte redigera detta"
 
-#: tracker/views.py:169
+#: tracker/views.py:171
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been deleted."
 msgstr ""
 
-#: tracker/views.py:213
+#: tracker/views.py:215
 msgid "Statutory declaration"
 msgstr ""
 
-#: tracker/views.py:260
+#: tracker/views.py:262
 msgid "Your deposit is bigger than your preexpeditures"
 msgstr ""
 
-#: tracker/views.py:277
+#: tracker/views.py:279
 msgid "You are required to do statutory declaration"
 msgstr ""
 
-#: tracker/views.py:293
+#: tracker/views.py:295
 msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."
 msgstr ""
 
-#: tracker/views.py:384
+#: tracker/views.py:386
 msgid "We've updated your preferences"
 msgstr "Vi har uppdaterat dina inställningar"
 
-#: tracker/views.py:432
+#: tracker/views.py:434
 msgid "Please enter your password to confirm the deactivation of your account."
 msgstr "Var god ange ditt lösenord för att bekräfta att ditt konto ska inaktiveras."
 
-#: tracker/views.py:447
+#: tracker/views.py:449
 msgid "Account deactivation"
 msgstr "Inaktivering av konto"
 
-#: tracker/views.py:454
+#: tracker/views.py:456
 msgid "Your account has been deactivated."
 msgstr "Ditt konto har inaktiverats."
 
-#: tracker/views.py:457
+#: tracker/views.py:459
 msgid "Password is incorrect."
 msgstr "Lösenordet är fel."
 
-#: tracker/views.py:489
+#: tracker/views.py:491
 #, python-format
 msgid "Ticket's %s watching settings are changed."
 msgstr ""
 
-#: tracker/views.py:538
+#: tracker/views.py:540
 #, python-format
 msgid "Topic's %s watching settings are changed."
 msgstr ""
 
-#: tracker/views.py:568
+#: tracker/views.py:570
 #, python-format
 msgid "%s's watching settings are changed."
 msgstr "%ss bevakningsinställningar har ändrats."
 
-#: tracker/views.py:615
+#: tracker/views.py:617
 #, python-format
 msgid "Ticket %s is created"
 msgstr "Ärendet %s skapas"
 
-#: tracker/views.py:653 tracker/views.py:774
+#: tracker/views.py:655 tracker/views.py:776
 msgid "One or more fields are invalid. Check them to get more information."
 msgstr ""
 
-#: tracker/views.py:664
+#: tracker/views.py:666
 msgid "I confirm the above"
 msgstr "Jag bekräftar det ovanstående"
 
-#: tracker/views.py:671
+#: tracker/views.py:673
 msgid "You cannot add statutory declaration to a ticket that does not support it."
 msgstr ""
 
-#: tracker/views.py:673
+#: tracker/views.py:675
 msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
 msgstr ""
 
-#: tracker/views.py:680
+#: tracker/views.py:682
 msgid "You successfully added a statutory declaration to this ticket."
 msgstr ""
 
-#: tracker/views.py:683
+#: tracker/views.py:685
 msgid "You successfully removed a statutory declaration from this ticket."
 msgstr ""
 
-#: tracker/views.py:706 tracker/views.py:717
+#: tracker/views.py:708 tracker/views.py:719
 msgid "You cannot edit this ticket"
 msgstr ""
 
-#: tracker/views.py:753
+#: tracker/views.py:755
 #, python-format
 msgid "Ticket %s saved."
 msgstr "Ärendet %s sparades."
 
-#: tracker/views.py:788
+#: tracker/views.py:790
 msgid "file"
 msgstr "fil"
 
-#: tracker/views.py:818
+#: tracker/views.py:820
 msgid "You cannot edit this ticket documents, as it's no longer editable"
 msgstr ""
 
-#: tracker/views.py:827
+#: tracker/views.py:829
 msgid "You cannot see this ticket's documents."
 msgstr ""
 
-#: tracker/views.py:854
+#: tracker/views.py:856
 #, python-format
 msgid "Document changes for ticket %s saved."
 msgstr "Dokumentändringar för ärendet %s sparades."
 
-#: tracker/views.py:877
+#: tracker/views.py:879
 msgid "There is already a document with that name. Please try to reupload with a different name."
 msgstr ""
 
-#: tracker/views.py:889
+#: tracker/views.py:891
 #, python-format
 msgid "File %(filename)s has been saved."
 msgstr "Filen %(filename)s sparades."
 
-#: tracker/views.py:1077
+#: tracker/views.py:1079
 msgid "Your details have been saved."
 msgstr "Dina detaljer har sparats."
 
-#: tracker/views.py:1521
+#: tracker/views.py:1523
 msgid "You must be staffer in order to export users"
 msgstr ""
 
-#: tracker/views.py:1523
+#: tracker/views.py:1525
 msgid "You must fill the form validly"
 msgstr ""
 
-#: tracker/views.py:1542
+#: tracker/views.py:1544
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
 msgstr ""
 
-#: tracker/views.py:1569
+#: tracker/views.py:1571
 msgid "You must be a staffer in order to be able to import topics."
 msgstr ""
 
-#: tracker/views.py:1602
+#: tracker/views.py:1604
 msgid "You must be a staffer in order to be able to import grants."
 msgstr ""
 
-#: tracker/views.py:1632 tracker/views.py:1646
+#: tracker/views.py:1634 tracker/views.py:1648
 msgid "You can't add preexpenses to a ticket that you did not create."
 msgstr ""
 
-#: tracker/views.py:1659
+#: tracker/views.py:1661
 msgid "You can't add media items to a ticket that you did not create."
 msgstr ""
 
-#: tracker/views.py:1662
+#: tracker/views.py:1664
 msgid "You must be a superuser in order to be able to import users."
 msgstr ""
 
-#: tracker/views.py:1680
+#: tracker/views.py:1682
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
 msgstr ""
 
-#: tracker/views.py:1682
+#: tracker/views.py:1684
 msgid "Your CSV file was imported."
 msgstr "Din CSV-fil har importerats."
 
-#: tracker/views.py:1690
+#: tracker/views.py:1692
 msgid "Name of a ticket"
 msgstr "Namn på ett ärende"
 
-#: tracker/views.py:1690 tracker/views.py:1695
+#: tracker/views.py:1692 tracker/views.py:1697
 msgid "Name of a topic"
 msgstr "Namn på ett ämne"
 
-#: tracker/views.py:1695
+#: tracker/views.py:1697
 msgid "Name of a grant"
 msgstr ""
 
-#: tracker/views.py:1695
+#: tracker/views.py:1697
 msgid "Form description"
 msgstr ""
 
-#: tracker/views.py:1700
+#: tracker/views.py:1702
 msgid "Full name"
 msgstr "Fullständigt namn"
 
-#: tracker/views.py:1700
+#: tracker/views.py:1702
 msgid "Short name"
 msgstr "Kort namn"
 
-#: tracker/views.py:1700
+#: tracker/views.py:1702
 msgid "Slug"
 msgstr ""
 
-#: tracker/views.py:1723
+#: tracker/views.py:1725
 msgid "Password"
 msgstr "Lösenord"
 
-#: tracker/views.py:1745
+#: tracker/views.py:1747
 msgid "Preexpeditures were succesfully copied to expeditures."
 msgstr ""
 
-#: tracker/views.py:1757
+#: tracker/views.py:1759
 msgid "Executing API call with any action than whitelisted is prohibited."
 msgstr ""
 
-#: tracker/views.py:1768
+#: tracker/views.py:1770
 msgid "No media to show are available"
 msgstr ""
 
-#: tracker/views.py:1789
+#: tracker/views.py:1791
 msgid "Updating of medias for this ticket was successfully scheduled."
 msgstr ""
 
-#: tracker/views.py:1794
+#: tracker/views.py:1796
 msgid "List of media was successfully updated"
 msgstr ""
 
-#: tracker/views.py:1799
+#: tracker/views.py:1801
 msgid "There was an error while processing your request"
 msgstr ""
 
-#: tracker/views.py:1807
+#: tracker/views.py:1809
 msgid "This mandatory notice was sent to all active Tracker users."
 msgstr ""
 
-#: tracker/views.py:1819
+#: tracker/views.py:1821
 msgid "This mandatory notice was sent to all active Tracker administrators."
 msgstr ""
 
@@ -2815,7 +2840,7 @@ msgid "Refresh connection with %(provider)s"
 msgstr ""
 
 #: users/templates/users/password_change.html:5
-#: users/templates/users/password_change.html:16 users/views.py:67
+#: users/templates/users/password_change.html:16 users/views.py:94
 msgid "Password change"
 msgstr "Ändring av lösenord"
 
@@ -2946,12 +2971,7 @@ msgstr "Registrera med Meta Wiki"
 msgid "Already have an acount?"
 msgstr "Har redan ett konto?"
 
-#: users/views.py:22
+#: users/views.py:50
 msgid "Will be used for password recovery and notifications, if you enable them."
 msgstr "Kommer att användas för lösenordsåterställningar och aviseringar, om du aktiverar dem."
-
-#: users/views.py:37
-#, python-format
-msgid "User %s created."
-msgstr "Användaren %s skapades."
 
