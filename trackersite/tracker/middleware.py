@@ -36,7 +36,7 @@ def InvalidOauth(get_response):
                 if resp.get('error', {}).get('code', "") == "mwoauth-invalid-authorization":
                     return redirect(reverse('invalid_oauth_tokens', kwargs={
                         'provider': 'mediawiki'
-                    }))
+                    }) + "?next=" + request.path)
         return response
 
     return process_request
