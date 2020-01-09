@@ -4,6 +4,7 @@
 # Author: Derugon
 # Author: Eneelk
 # Author: Gomoko
+# Author: Pols12
 # Author: Thibaut120094
 # Author: Tomri5
 # Author: Verdy p
@@ -11,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-01-06 17:11:41+0000\n"
+"PO-Revision-Date: 2020-01-09 19:34:55+0000\n"
 "X-POT-Import-Date: 2020-01-02 17:30:31+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1743,7 +1744,7 @@ msgstr "Informations personnelles"
 
 #: tracker/templates/tracker/fill_details.html:10
 msgid "To use tracker for expenses, we need a bit more information about you first."
-msgstr "Pour utiliser Tracker pour vos dépenses, nous avons d’abord besoin d’un peu plus d’information sur vous."
+msgstr "Pour utiliser Tracker pour vos dépenses, nous avons d’abord besoin d’un peu plus d’informations sur vous."
 
 #: tracker/templates/tracker/fill_details.html:21
 msgid "save & continue"
@@ -2671,7 +2672,7 @@ msgstr "Vos détails ont été enregistrés."
 
 #: tracker/views.py:1523
 msgid "You must be staffer in order to export users"
-msgstr "Vous devez être membre de l’équipe pour exporter les utilisateurs"
+msgstr "Vous devez être un membre du personnel pour exporter les utilisateurs"
 
 #: tracker/views.py:1525
 msgid "You must fill the form validly"
@@ -2688,7 +2689,7 @@ msgstr "Vous devez être membre de l’équipe pour pouvoir importer des sujets.
 
 #: tracker/views.py:1604
 msgid "You must be a staffer in order to be able to import grants."
-msgstr "Vous devez être membre de l’équipe afin de pouvoir importer des droits."
+msgstr "Vous devez être un membre du personnel afin de pouvoir importer des droits."
 
 #: tracker/views.py:1634 tracker/views.py:1648
 msgid "You can't add preexpenses to a ticket that you did not create."
