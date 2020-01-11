@@ -1,18 +1,17 @@
 from __future__ import print_function
-from django.core.management.base import NoArgsCommand
+from django.core.management.base import BaseCommand
 from tracker.models import Notification, Ticket
 from django.contrib.auth.models import User
 from django.template.loader import get_template
-from django.template import Context
 from django.conf import settings
 from django.utils import translation
 from django.utils.html import strip_tags
 from datetime import date
 
 
-class Command(NoArgsCommand):
+class Command(BaseCommand):
     help = 'Process pending notifications'
-    subject_c = Context({"date": date.today()})
+    subject_c = {"date": date.today()}
     subject_template = get_template('notification/notification_subject.txt')
     html_template = get_template('notification/notification_html.html')
 
@@ -41,7 +40,7 @@ class Command(NoArgsCommand):
         ready_tickets = self.get_ready_tickets_for_user(user)
         ready_sum = sum([len(ready_tickets[x]) for x in ready_tickets])
         if len(Notification.objects.filter(target_user=user)) > 0 or ready_sum < 0:
-            c_dict = {
+            c = {
                 "ack_notifs": Notification.objects.filter(target_user=user, notification_type__in=["ack_add", "ack_remove"]),
                 "ticket_change_notifs": Notification.objects.filter(target_user=user, notification_type__in=["ticket_change", "ticket_change_all"]),
                 "preexpeditures_notifs": Notification.objects.filter(target_user=user, notification_type__in=["preexpeditures_change", "preexpeditures_new"]),
@@ -55,7 +54,6 @@ class Command(NoArgsCommand):
                 "ready_tickets": ready_tickets,
                 "BASE_URL": settings.BASE_URL,
             }
-            c = Context(c_dict)
             if user.trackerpreferences.email_language:
                 translation.activate(user.trackerpreferences.email_language)
             else:
