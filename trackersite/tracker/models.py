@@ -557,7 +557,8 @@ class Ticket(CachedModel, ModelDiffMixin):
                 "prop": "imageinfo|categories|globalusage",
                 "titles": media.name,
                 "iiprop": "dimensions",
-                "clprop": "hidden"
+                "clprop": "hidden",
+                "gulimit": "max",
             }).json()["query"]["pages"]
             data = data[list(data.keys())[0]]
             media.width = data.get("imageinfo", [{}])[0].get("width")
