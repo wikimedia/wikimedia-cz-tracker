@@ -605,11 +605,11 @@ class Ticket(CachedModel, ModelDiffMixin):
     def photos_per_category(self):
         photos_per_category = {}
         for m in self.mediainfo_set.all():
-            for category in m.categories:
-                if category in photos_per_category:
-                    photos_per_category[category] += 1
+            for category in m.mediainfocategory_set.all():
+                if category.title in photos_per_category:
+                    photos_per_category[category.title] += 1
                 else:
-                    photos_per_category[category] = 1
+                    photos_per_category[category.title] = 1
         return OrderedDict(sorted(photos_per_category.items(), key=lambda t: t[1], reverse=True))
 
     def flush_cache(self):
