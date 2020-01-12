@@ -1772,13 +1772,12 @@ def show_media(request, ticket_id):
         raise PermissionDenied(_('No media to show are available'))
     wikidata_usages = []
     for m in ticket.mediainfo_set.all():
-        for usage in m.usages:
-            if usage[2] == "www.wikidata.org":
-                wikidata_usages.append(usage[1])
+        for mu in m.mediainfousage_set.filter(project="www.wikidata.org"):
+            wikidata_usages.append(mu.title)
     return render(request, 'tracker/ticket_show_media.html', {
         'ticket': ticket,
         'medias': ticket.mediainfo_set.all(),
-        'usages_count': sum([len(m.usages) for m in ticket.mediainfo_set.all()]),
+        'usages_count': sum([m.mediainfousage_set.count() for m in ticket.mediainfo_set.all()]),
         'wikidata_usages_count': len(wikidata_usages),
         'unique_wikidata_usages_count': len(set(wikidata_usages)),
         'photos_per_category': ticket.photos_per_category(),

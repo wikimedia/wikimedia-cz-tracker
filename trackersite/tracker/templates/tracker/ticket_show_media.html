@@ -25,15 +25,15 @@
 			<td>{% if media.width and media.height %}{{ media.width }}x{{ media.height }}{% else %}{% trans "Unknown" %}{% endif %}</td>
 			<td>
 				<ul>
-					{% for category in media.categories %}
-					<li><a href="{{MEDIAINFO_MEDIAWIKI_ARTICLE}}{{category}}">{{category}}</a></li>
+					{% for category in media.mediainfocategory_set.all %}
+					<li><a href="{{MEDIAINFO_MEDIAWIKI_ARTICLE}}{{category.title}}">{{category.title}}</a></li>
 					{% endfor %}
 				</ul>
 			</td>
 			<td>
 					<ul>
-						{% for usage in media.usages %}
-						<li><a href="{{usage.0}}">{{usage.1}}</a> ({{usage.2}})</li>
+						{% for usage in media.mediainfousage_set.all %}
+						<li><a href="{{usage.url}}">{{usage.title}}</a> ({{usage.project}})</li>
 						{% endfor %}
 					</ul>
 				</td>

@@ -27,7 +27,6 @@ from django import template
 from pytz import utc
 import re
 import json
-from jsonfield import JSONField
 from socialauth.api import MediaWiki
 from background_task import background
 from background_task.models import Task
@@ -564,14 +563,19 @@ class Ticket(CachedModel, ModelDiffMixin):
             media.width = data.get("imageinfo", [{}])[0].get("width")
             media.height = data.get("imageinfo", [{}])[0].get("height")
 
-            media.categories = []
+            media.mediainfocategory_set.all().delete()
             for category in data.get("categories", []):
                 if "hidden" not in category:
-                    media.categories.append(category["title"])
+                    MediaInfoCategory.objects.create(mediainfo=media, title=category['title'])
 
-            media.usages = []
+            media.mediainfousage_set.all().delete()
             for usage in data["globalusage"]:
-                media.usages.append((usage["url"], usage["title"], usage["wiki"]))
+                MediaInfoUsage.objects.create(
+                    mediainfo=media,
+                    url=usage["url"],
+                    title=usage["title"],
+                    project=usage["wiki"]
+                )
             media.save(no_update=True)  # We don't need to schedule another updating
         ticket.media_updated = datetime.datetime.now(tz=utc)
         ticket.save()
@@ -961,6 +965,18 @@ class MediaInfoOld(Model):
         verbose_name_plural = _('Ticket media')
 
 
+class MediaInfoUsage(models.Model):
+    mediainfo = models.ForeignKey('tracker.MediaInfo', on_delete=models.CASCADE)
+    url = models.URLField(_('URL'), help_text=_('Link to file usage'))
+    title = models.CharField(_('title'), max_length=255)
+    project = models.CharField(_('project'), max_length=255)
+
+
+class MediaInfoCategory(models.Model):
+    mediainfo = models.ForeignKey('tracker.MediaInfo', on_delete=models.CASCADE)
+    title = models.CharField(_('title'), max_length=255)
+
+
 class MediaInfo(Model):
     """ Media related to particular tickets. """
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'),
@@ -970,8 +986,6 @@ class MediaInfo(Model):
     height = models.IntegerField(_('height'), null=True)
     thumb_url = models.URLField(_('URL'), max_length=500, null=True, blank=True)
     canonicaltitle = models.CharField(_('cannonical title'), max_length=255, null=True)
-    categories = JSONField(_('categories'), null=False, default=[])
-    usages = JSONField(_('usages'), null=False, default=[])
 
     def __str__(self):
         return self.name
