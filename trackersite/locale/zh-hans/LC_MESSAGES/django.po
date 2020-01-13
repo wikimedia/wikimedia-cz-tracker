@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-01-09 19:34:56+0000\n"
+"PO-Revision-Date: 2020-01-13 15:38:44+0000\n"
 "X-POT-Import-Date: 2020-01-02 17:30:31+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -55,7 +55,7 @@ msgstr "您无法编辑这张票的预先说明。"
 
 #: common_settings.py:93 tracker/templates/tracker/ticket_common_detail.html:18
 msgid "CZK"
-msgstr ""
+msgstr "捷克克朗"
 
 #: common_settings.py:96
 msgid "English"
@@ -95,7 +95,7 @@ msgstr "瑞典语"
 
 #: common_settings.py:105
 msgid "Chinese-traditional"
-msgstr ""
+msgstr "繁体中文"
 
 #: common_settings.py:106
 msgid "Spanish"
@@ -120,7 +120,7 @@ msgstr "您的维基媒体帐户不再链接。"
 
 #: templates/403.html:3
 msgid "403 Forbidden"
-msgstr ""
+msgstr "403 没有权限"
 
 #: templates/403.html:7
 msgid "Forbidden"
@@ -238,7 +238,7 @@ msgstr "预览"
 
 #: templates/comments/preview.html:4 templates/comments/preview.html:15
 msgid "Preview your comment"
-msgstr ""
+msgstr "预览您的评论"
 
 #: templates/comments/preview.html:13
 msgid "Please correct the error below"
