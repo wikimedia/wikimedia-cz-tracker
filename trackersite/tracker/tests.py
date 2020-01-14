@@ -7,6 +7,7 @@ import json
 import random
 import re
 from decimal import Decimal
+from unittest.mock import patch
 
 from django.conf import settings
 from django.contrib.auth.models import User, Permission
@@ -17,6 +18,7 @@ from django.test import TestCase
 from django.test.client import Client
 from django.urls import reverse
 
+from socialauth.api import MediaWiki
 from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile, \
     Document, TrackerPreferences
 from users.models import UserWrapper
@@ -1521,3 +1523,43 @@ class PreferencesTests(TestCase):
         self.assertTrue("close" in preferences.muted_ack)
         self.assertEqual(preferences.display_items, 20)
         self.assertEqual(preferences.email_language, "es")
+
+
+class MediaInfoComunicationTests(TestCase):
+
+    def setUp(self):
+        self.owner = User.objects.create(username='ticket_owner')
+        self.topic = Topic.objects.create(name='test_topic', ticket_expenses=True,
+                                          grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
+        self.ticket = Ticket.objects.create(name='ticket', topic=self.topic, requested_user=self.owner)
+        self.mediainfo = MediaInfo.objects.create(ticket=self.ticket, name="File:Example.svg",
+                                                  thumb_url="https://commons.wikimedia.org/wiki/File:Example.svg")
+        self.mediawiki = MediaWiki(User.objects.get(id=self.owner.id), settings.MEDIAINFO_MEDIAWIKI_API)
+
+    @patch("tracker.models.MediaInfo.get_mediawiki_data")
+    def test_store_mediawiki_data(self, mock_request):
+        mock_request.return_value = {'url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Example.svg'
+                                            '/200px-Example.svg.png', 'canonicaltitle': 'File:Example.svg'}
+
+        self.assertEqual(self.mediainfo.canonicaltitle, None)
+        MediaInfo.store_mediawiki_data.task_function(self.mediainfo.id)
+        self.mediainfo.refresh_from_db()
+        self.assertEqual(self.mediainfo.canonicaltitle, "File:Example.svg")
+
+    @patch("socialauth.api.MediaWiki.put_content")
+    def test_add_to_mediawiki(self, mock_request):
+        MediaInfo.add_to_mediawiki.task_function(self.mediainfo.id, self.owner.id)
+        self.assertEquals(mock_request.call_args[0][0], "File:Example.svg")
+        expected_template = "{{{template}|podtéma={subtopic}|rok={year}|tiket={ticket_id}}}".format(
+            template=settings.MEDIAINFO_MEDIAWIKI_TEMPLATE,
+            subtopic=self.mediainfo.ticket.subtopic,
+            year=datetime.date.today().year,
+            ticket_id=self.mediainfo.ticket.id)
+        self.assertTrue(expected_template in mock_request.call_args[0][1])
+
+    @patch("socialauth.api.MediaWiki.put_content")
+    def test_remove_from_mediawiki(self, mock_request):
+        MediaInfo.remove_from_mediawiki.task_function(self.mediainfo.name, self.owner.id)
+        mock_request.assert_called_once_with("File:Example.svg",
+                                             MediaInfo.strip_template(self.mediawiki.get_content("File:Example.svg")),
+                                             minor=True)
