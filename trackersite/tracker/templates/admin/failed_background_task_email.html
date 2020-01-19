@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- i18n-lint disable -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Failed background task</title>
+</head>
+<body>
+
+<h3>
+	The background task <em>{{ task }}</em> has failed
+</h3>
+
+<pre>{{ traceback }}</pre>
+
+Go to <a href="{{ url }}">task details</a> to see more information.
+<hr>
+<small>
+	This notice was sent to all active Tracker administrators
+</small>
+
+<!-- i18n-lint enable -->
+</body>
+</html>

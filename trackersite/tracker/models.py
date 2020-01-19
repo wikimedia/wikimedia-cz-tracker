@@ -1,42 +1,44 @@
 # -*- coding: utf-8 -*-
 import datetime
 import decimal
-
-from django_comments.signals import comment_was_posted
-from django.db.models.signals import pre_save, post_save, post_delete
-from tracker.services import get_request
-from django.contrib.auth.models import User
-from django.contrib.admin.models import LogEntry, CHANGE
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.dispatch import receiver
-from django.db import models
-from django.urls import reverse
-from django.utils import translation
-from django.utils.translation import ugettext_lazy as _
-from django.utils.text import format_lazy
-from django.utils.html import escape
-from django.utils.safestring import mark_safe
-from django.conf import settings
-from django.core.files.storage import FileSystemStorage
-from django.core.validators import RegexValidator
-from django.urls import NoReverseMatch
-from django.core.cache import cache
-from django.forms.models import model_to_dict
-from django import template
-from pytz import utc
-import re
 import json
-from socialauth.api import MediaWiki
+import re
+from collections import OrderedDict
+
 from background_task import background
 from background_task.models import Task
-from django.utils.formats import number_format
+from background_task.signals import task_error
+from django import template
+from django.conf import settings
+from django.contrib.admin.models import LogEntry, CHANGE
+from django.contrib.auth.models import User
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
+from django.core.cache import cache
+from django.core.files.storage import FileSystemStorage
+from django.core.validators import RegexValidator
+from django.db import models
+from django.db.models.signals import pre_save, post_save, post_delete
+from django.dispatch import receiver
+from django.forms.models import model_to_dict
+from django.urls import NoReverseMatch
+from django.urls import reverse
 from django.utils import timezone
-from collections import OrderedDict
+from django.utils import translation
 from django.utils.encoding import force_text
-
-from users.models import UserWrapper
+from django.utils.formats import number_format
+from django.utils.html import escape
+from django.utils.safestring import mark_safe
+from django.utils.text import format_lazy
+from django.utils.translation import ugettext_lazy as _
 from django_comments.moderation import CommentModerator, moderator
+from django_comments.signals import comment_was_posted
+from pytz import utc
+
+from socialauth.api import MediaWiki
+from tracker.services import get_request
+from tracker.utils import notify_on_failure
+from users.models import UserWrapper
 
 PAYMENT_STATUS_CHOICES = (
     ('n_a', _('n/a')),
@@ -1112,6 +1114,9 @@ class MediaInfo(Model):
     class Meta:
         verbose_name = _('Ticket media')
         verbose_name_plural = _('Ticket media')
+
+
+task_error.connect(notify_on_failure)
 
 
 @receiver(post_delete, sender=MediaInfo)
