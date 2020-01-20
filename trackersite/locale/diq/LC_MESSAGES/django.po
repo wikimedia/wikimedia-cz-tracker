@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-01-06 17:11:40+0000\n"
+"PO-Revision-Date: 2020-01-20 10:48:13+0000\n"
 "X-POT-Import-Date: 2020-01-02 17:30:31+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -96,7 +96,7 @@ msgstr ""
 
 #: common_settings.py:106
 msgid "Spanish"
-msgstr ""
+msgstr "İspanyolki"
 
 #: customcomments/forms.py:21
 msgid "Your name"
@@ -223,7 +223,7 @@ msgstr "Zıwani bıvurne"
 
 #: templates/choose_language.html:23
 msgid "Go"
-msgstr ""
+msgstr "Şo"
 
 #: templates/comments/form.html:17 templates/comments/preview.html:31
 msgid "Post"
@@ -588,7 +588,7 @@ msgstr ""
 #: tracker/models.py:382 tracker/templates/tracker/export.html:49
 #: tracker/templates/tracker/export.html:50
 msgid "complete"
-msgstr ""
+msgstr "temam"
 
 #: tracker/models.py:384 tracker/templates/tracker/export.html:46
 #: tracker/templates/tracker/export.html:47
