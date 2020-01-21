@@ -320,7 +320,7 @@
 
 	function generateImageHtml( image, idExtra ) {
 		let thumbUrl;
-		if ( image.thumb_url !== undefined ) {
+		if ( image.thumb_url ) {
 			thumbUrl = image.thumb_url;
 		} else {
 			thumbUrl = fileToThumb( image );
@@ -339,7 +339,7 @@
 
 			<p>
 				<a href="${ image.descriptionurl }">
-					${ image.canonicaltitle.substring( 5, ) }
+					${ image.canonicaltitle }
 				</a>
 			</p>
 		`;

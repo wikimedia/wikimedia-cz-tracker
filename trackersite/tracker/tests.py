@@ -1525,14 +1525,14 @@ class PreferencesTests(TestCase):
         self.assertEqual(preferences.email_language, "es")
 
 
-class MediaInfoComunicationTests(TestCase):
+class MediaInfoCommunicationTests(TestCase):
 
     def setUp(self):
         self.owner = User.objects.create(username='ticket_owner')
         self.topic = Topic.objects.create(name='test_topic', ticket_expenses=True,
                                           grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
         self.ticket = Ticket.objects.create(name='ticket', topic=self.topic, requested_user=self.owner)
-        self.mediainfo = MediaInfo.objects.create(ticket=self.ticket, name="File:Example.svg",
+        self.mediainfo = MediaInfo.objects.create(ticket=self.ticket, page_id=937952,
                                                   thumb_url="https://commons.wikimedia.org/wiki/File:Example.svg")
         self.mediawiki = MediaWiki(User.objects.get(id=self.owner.id), settings.MEDIAINFO_MEDIAWIKI_API)
 
@@ -1549,7 +1549,7 @@ class MediaInfoComunicationTests(TestCase):
     @patch("socialauth.api.MediaWiki.put_content")
     def test_add_to_mediawiki(self, mock_request):
         MediaInfo.add_to_mediawiki.task_function(self.mediainfo.id, self.owner.id)
-        self.assertEquals(mock_request.call_args[0][0], "File:Example.svg")
+        self.assertEquals(mock_request.call_args[0][0], 937952)  # Example.svg
         expected_template = "{{{template}|podtéma={subtopic}|rok={year}|tiket={ticket_id}}}".format(
             template=settings.MEDIAINFO_MEDIAWIKI_TEMPLATE,
             subtopic=self.mediainfo.ticket.subtopic or '',
@@ -1559,7 +1559,7 @@ class MediaInfoComunicationTests(TestCase):
 
     @patch("socialauth.api.MediaWiki.put_content")
     def test_remove_from_mediawiki(self, mock_request):
-        MediaInfo.remove_from_mediawiki.task_function(self.mediainfo.name, self.owner.id)
-        mock_request.assert_called_once_with("File:Example.svg",
-                                             MediaInfo.strip_template(self.mediawiki.get_content("File:Example.svg")),
+        MediaInfo.remove_from_mediawiki.task_function(self.mediainfo.page_id, self.owner.id)
+        mock_request.assert_called_once_with(937952,  # Example.svg
+                                             MediaInfo.strip_template(self.mediawiki.get_content(937952)),
                                              minor=True)

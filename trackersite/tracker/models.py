@@ -27,6 +27,7 @@ from django.utils import timezone
 from django.utils import translation
 from django.utils.encoding import force_text
 from django.utils.formats import number_format
+from django.utils.functional import cached_property
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.text import format_lazy
@@ -984,13 +985,37 @@ class MediaInfo(Model):
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'),
                                help_text=_('Ticket this media info belongs to'), on_delete=models.CASCADE)
     name = models.CharField(_('name'), max_length=255, blank=True)
+    page_id = models.IntegerField(_('page id'), null=True)
     width = models.IntegerField(_('width'), null=True)
     height = models.IntegerField(_('height'), null=True)
     thumb_url = models.URLField(_('URL'), max_length=500, null=True, blank=True)
     canonicaltitle = models.CharField(_('cannonical title'), max_length=255, null=True)
 
+    @property
+    def media_id(self):
+        if not self.page_id:
+            mw = MediaWiki(user=None)
+            data = mw.request({
+                "action": "query",
+                "format": "json",
+                "titles": self.name
+            }).json()
+            self.page_id = int(list(data['query']['pages'].keys())[0])
+            self.save()
+        return self.page_id
+
+    @cached_property
+    def _as_str(self):
+        mw = MediaWiki(user=None)
+        data = mw.request({
+            "action": "query",
+            "format": "json",
+            "pageids": [self.media_id]
+        }).json()
+        return data['query']['pages'][list(data['query']['pages'].keys())[0]]['title']
+
     def __str__(self):
-        return self.name
+        return self._as_str
 
     @staticmethod
     def strip_template(text):
@@ -1020,12 +1045,12 @@ class MediaInfo(Model):
 
     @staticmethod
     @background(schedule=10)
-    def remove_from_mediawiki(media_name, user_id):
+    def remove_from_mediawiki(media_id, user_id):
         try:
             mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
         except User.DoesNotExist:
             return
-        mw.put_content(media_name, MediaInfo.strip_template(mw.get_content(media_name)), minor=True)
+        mw.put_content(media_id, MediaInfo.strip_template(mw.get_content(media_id)), minor=True)
 
     @staticmethod
     @background(schedule=10)
@@ -1051,7 +1076,7 @@ class MediaInfo(Model):
         except User.DoesNotExist:
             return
 
-        old = mw.get_content(media.name)
+        old = mw.get_content(media.page_id)
 
         if template not in old:
             old = MediaInfo.strip_template(old)
@@ -1059,13 +1084,13 @@ class MediaInfo(Model):
 
             if insert_to != -1:
                 new = old[:insert_to] + u"\n" + template + old[insert_to:]
-                mw.put_content(media.name, new)
+                mw.put_content(media.page_id, new)
                 return
 
-            mw.put_content(media.name, old + u"\n" + template, minor=True)
+            mw.put_content(media.page_id, old + u"\n" + template, minor=True)
 
     def mediawiki_link(self):
-        return settings.MEDIAINFO_MEDIAWIKI_ARTICLE + self.name
+        return settings.MEDIAINFO_MEDIAWIKI_ARTICLE + str(self)
 
     def get_mediawiki_data(self, width=None):
         if settings.MEDIAINFO_MEDIAWIKI_API:
@@ -1074,7 +1099,7 @@ class MediaInfo(Model):
                 "action": "query",
                 "format": "json",
                 "prop": "imageinfo",
-                "titles": self.name,
+                "pageids": [self.media_id],
                 "iiprop": "url|canonicaltitle",
                 "iiurlwidth": width
             }).json()['query']['pages']
@@ -1095,8 +1120,10 @@ class MediaInfo(Model):
     def store_mediawiki_data(media_id):
         media = MediaInfo.objects.get(id=media_id)
         data = media.get_mediawiki_data(width=200)
+
         media.thumb_url = data['url']
         media.canonicaltitle = data['canonicaltitle']
+        media.name = data['canonicaltitle']
         media.save(no_update=True)
 
     def save(self, no_update=False, *args, **kwargs):
@@ -1119,10 +1146,23 @@ class MediaInfo(Model):
 task_error.connect(notify_on_failure)
 
 
+@receiver(pre_save, sender=MediaInfo)
+def save_page_id(sender, instance, **kwargs):
+    # Same as MediaInfo.media_id
+    if not instance.page_id:
+        mw = MediaWiki(user=None)
+        data = mw.request({
+            "action": "query",
+            "format": "json",
+            "titles": instance.name
+        }).json()
+        instance.page_id = int(list(data['query']['pages'].keys())[0])
+
+
 @receiver(post_delete, sender=MediaInfo)
 def delete_mediainfo(sender, instance, **kwargs):
     if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE:
-        MediaInfo.remove_from_mediawiki(instance.name, get_request().user.id)
+        MediaInfo.remove_from_mediawiki(instance.media_id, get_request().user.id)
 
 
 class Expediture(Model):

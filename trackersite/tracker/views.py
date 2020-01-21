@@ -1655,9 +1655,18 @@ def importcsv(request):
                         messages.warning(request, too_much_rows_message)
                         break
                     ticket = Ticket.objects.get(id=line[header.index('ticket_id')])
-                    name = line[header.index('name')]
                     if ticket.can_edit(request.user) or request.user.is_staff:
-                        MediaInfo.objects.create(ticket=ticket, name=name)
+                        name = line[header.index('name')]
+
+                        mw = MediaWiki(user=None)
+                        data = mw.request({
+                            "action": "query",
+                            "format": "json",
+                            "titles": name
+                        }).json()
+                        page_id = int(list(data['query']['pages'].keys())[0])
+                        MediaInfo.objects.create(ticket=ticket, page_id=page_id)
+
                         ticket.save()
                     else:
                         raise PermissionDenied(_("You can't add media items to a ticket that you did not create."))

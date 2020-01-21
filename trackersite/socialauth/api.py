@@ -50,12 +50,12 @@ class MediaWiki():
             "type": type
         }).json()["query"]["tokens"]["%stoken" % type]
 
-    def get_content(self, title, rvslot="main"):
+    def get_content(self, page_id, rvslot="main"):
         payload = {
             "action": "query",
             "format": "json",
             "prop": "revisions",
-            "titles": title,
+            "pageids": [page_id],
             "rvprop": "content",
             "rvslots": rvslot
         }
@@ -66,11 +66,11 @@ class MediaWiki():
 
         return data[list(data.keys())[0]]["revisions"][0]["slots"][rvslot]["*"]
 
-    def put_content(self, title, text, summary="Automated update by Tracker", minor=False):
+    def put_content(self, page_id, text, summary="Automated update by Tracker", minor=False):
         payload = {
             "action": "edit",
             "format": "json",
-            "title": title,
+            "pageid": page_id,
             "text": text,
             "summary": summary,
             "token": self.get_token(),
