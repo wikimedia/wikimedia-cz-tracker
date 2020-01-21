@@ -1036,7 +1036,7 @@ class MediaInfo(Model):
             return
         parameters_unsorted = {
             'rok': datetime.date.today().year,
-            'podtéma': media.ticket.subtopic,
+            'podtéma': media.ticket.subtopic or '',
             'tiket': media.ticket.id,
         }
         parameters = OrderedDict(sorted(parameters_unsorted.items(), key=lambda t: t[0]))

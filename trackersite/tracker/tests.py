@@ -1552,7 +1552,7 @@ class MediaInfoComunicationTests(TestCase):
         self.assertEquals(mock_request.call_args[0][0], "File:Example.svg")
         expected_template = "{{{template}|podtéma={subtopic}|rok={year}|tiket={ticket_id}}}".format(
             template=settings.MEDIAINFO_MEDIAWIKI_TEMPLATE,
-            subtopic=self.mediainfo.ticket.subtopic,
+            subtopic=self.mediainfo.ticket.subtopic or '',
             year=datetime.date.today().year,
             ticket_id=self.mediainfo.ticket.id)
         self.assertTrue(expected_template in mock_request.call_args[0][1])
