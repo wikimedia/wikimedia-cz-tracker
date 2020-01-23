@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-01-06 17:11:43+0000\n"
+"PO-Revision-Date: 2020-01-23 15:26:18+0000\n"
 "X-POT-Import-Date: 2020-01-02 17:30:31+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1748,7 +1748,7 @@ msgstr ""
 
 #: tracker/templates/tracker/fill_details.html:22
 msgid "skip"
-msgstr ""
+msgstr "{{Identical|Skip}}"
 
 #: tracker/templates/tracker/fill_details.html:25
 #: tracker/templates/tracker/user_details_change.html:23
