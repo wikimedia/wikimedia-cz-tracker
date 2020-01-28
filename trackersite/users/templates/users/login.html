@@ -11,6 +11,7 @@
 {% endif %}
 <h1>{% trans "Login" %}</h1>
 <form method="post" action="{% url "tracker_login" %}">
+<input type="hidden" name="next" value="{{request.GET.next}}" />
 {% csrf_token %}
 <div class="form-group">
 {% for field in form %}
