@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-01-13 15:38:45+0000\n"
-"X-POT-Import-Date: 2020-01-02 17:30:31+0000\n"
+"PO-Revision-Date: 2020-01-30 14:59:46+0000\n"
+"X-POT-Import-Date: 2020-01-28 19:50:12+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh-Hant\n"
@@ -50,51 +50,51 @@ msgstr "您無法對此案件添加預先支出。"
 msgid "You can not edit preexpiditures of this ticket."
 msgstr "您無法編輯此案件的預先支出。"
 
-#: common_settings.py:93 tracker/templates/tracker/ticket_common_detail.html:18
+#: common_settings.py:92 tracker/templates/tracker/ticket_common_detail.html:18
 msgid "CZK"
 msgstr "捷克克朗"
 
-#: common_settings.py:96
+#: common_settings.py:95
 msgid "English"
 msgstr "英語"
 
-#: common_settings.py:97
+#: common_settings.py:96
 msgid "Czech"
 msgstr "捷克語"
 
-#: common_settings.py:98
+#: common_settings.py:97
 msgid "French"
 msgstr "法語"
 
-#: common_settings.py:99
+#: common_settings.py:98
 msgid "Arabic"
 msgstr "阿拉伯文"
 
-#: common_settings.py:100
+#: common_settings.py:99
 msgid "Danish"
 msgstr "丹麥語"
 
-#: common_settings.py:101
+#: common_settings.py:100
 msgid "Finnish"
 msgstr "芬蘭語"
 
-#: common_settings.py:102
+#: common_settings.py:101
 msgid "Korean"
 msgstr "韓語"
 
-#: common_settings.py:103
+#: common_settings.py:102
 msgid "Portuguese"
 msgstr "葡萄牙語"
 
-#: common_settings.py:104
+#: common_settings.py:103
 msgid "Swedish"
 msgstr "瑞典語"
 
-#: common_settings.py:105
+#: common_settings.py:104
 msgid "Chinese-traditional"
 msgstr "繁體中文"
 
-#: common_settings.py:106
+#: common_settings.py:105
 msgid "Spanish"
 msgstr "西班牙語"
 
@@ -242,24 +242,24 @@ msgid "Please correct the error below"
 msgid_plural "Please correct the errors below"
 msgstr[0] "請更正以下錯誤"
 
-#: tracker/admin.py:30 tracker/admin.py:36
+#: tracker/admin.py:29 tracker/admin.py:35
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
 msgid "Type"
 msgstr "類型"
 
-#: tracker/admin.py:44
+#: tracker/admin.py:43
 msgid "Add ack"
 msgstr "添加確認"
 
-#: tracker/admin.py:170
+#: tracker/admin.py:169
 msgid "Mark selected topics as opened for new tickets"
 msgstr "標記所選主題對新案件為開放"
 
-#: tracker/admin.py:177
+#: tracker/admin.py:176
 msgid "Mark selected topics as closed for new tickets"
 msgstr "標記所選主題對新案件為關閉"
 
-#: tracker/admin.py:205
+#: tracker/admin.py:204
 msgid "Modify this value by opening or closing topics in this grant to tickets"
 msgstr "透過在此案件授予上開放或關閉主題來變動值"
 
@@ -281,25 +281,25 @@ msgstr "最新提交案件"
 msgid "Recently changed submitted tickets"
 msgstr "近期已更改的提交案件"
 
-#: tracker/models.py:43 tracker/templates/tracker/grant_table.html:11
+#: tracker/models.py:44 tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
 msgid "n/a"
 msgstr "暫無"
 
-#: tracker/models.py:44 tracker/templates/tracker/export.html:246
+#: tracker/models.py:45 tracker/templates/tracker/export.html:246
 #: tracker/templates/tracker/grant_table.html:12
 #: tracker/templates/tracker/topic_finance.html:16
 #: tracker/templates/tracker/topic_table.html:14
 msgid "unpaid"
 msgstr "尚未付款"
 
-#: tracker/models.py:45 tracker/templates/tracker/export.html:247
+#: tracker/models.py:46 tracker/templates/tracker/export.html:247
 #: tracker/templates/tracker/grant_table.html:13
 #: tracker/templates/tracker/topic_table.html:15
 msgid "partially paid"
 msgstr "部份付款"
 
-#: tracker/models.py:46 tracker/models.py:1117
+#: tracker/models.py:47 tracker/models.py:1137
 #: tracker/templates/tracker/export.html:248
 #: tracker/templates/tracker/grant_table.html:14
 #: tracker/templates/tracker/topic_finance.html:17
@@ -307,346 +307,346 @@ msgstr "部份付款"
 msgid "paid"
 msgstr "已付款"
 
-#: tracker/models.py:47 tracker/templates/tracker/export.html:249
+#: tracker/models.py:48 tracker/templates/tracker/export.html:249
 #: tracker/templates/tracker/grant_table.html:15
 #: tracker/templates/tracker/topic_finance.html:18
 #: tracker/templates/tracker/topic_table.html:17
 msgid "overpaid"
 msgstr "溢付"
 
-#: tracker/models.py:51
+#: tracker/models.py:52
 msgid "presubmitted"
 msgstr "已預先提交"
 
-#: tracker/models.py:52
+#: tracker/models.py:53
 msgid "preaccepted"
 msgstr "已預先接受"
 
-#: tracker/models.py:53
+#: tracker/models.py:54
 msgid "submitted"
 msgstr "已提交"
 
-#: tracker/models.py:54
+#: tracker/models.py:55
 msgid "accepted"
 msgstr "已接受"
 
-#: tracker/models.py:55
+#: tracker/models.py:56
 msgid "expense documents submitted"
 msgstr "費用文件已提交"
 
-#: tracker/models.py:56
+#: tracker/models.py:57
 msgid "expense documents filed"
 msgstr "費用文件已歸檔"
 
-#: tracker/models.py:57 tracker/models.py:376
+#: tracker/models.py:58 tracker/models.py:377
 #: tracker/templates/tracker/export.html:52
 #: tracker/templates/tracker/export.html:53
 msgid "archived"
 msgstr "已歸檔"
 
-#: tracker/models.py:58 tracker/models.py:374
+#: tracker/models.py:59 tracker/models.py:375
 #: tracker/templates/tracker/export.html:55
 #: tracker/templates/tracker/export.html:56
 msgid "closed"
 msgstr "已關閉"
 
-#: tracker/models.py:62
+#: tracker/models.py:63
 msgid "All notifications"
 msgstr "所有通知"
 
-#: tracker/models.py:63
+#: tracker/models.py:64
 msgid "Comment added"
 msgstr "註釋已添加"
 
-#: tracker/models.py:64
+#: tracker/models.py:65
 msgid "Supervisor notes changed"
 msgstr "督導記錄已更改"
 
-#: tracker/models.py:65
+#: tracker/models.py:66
 msgid "New ticket was created"
 msgstr "新案件已建立"
 
-#: tracker/models.py:66
+#: tracker/models.py:67
 msgid "Ticket was deleted"
 msgstr "案件已刪除"
 
-#: tracker/models.py:67
+#: tracker/models.py:68
 msgid "Ack added"
 msgstr "確認已添加"
 
-#: tracker/models.py:68
+#: tracker/models.py:69
 msgid "Ack removed"
 msgstr "確認已移除"
 
-#: tracker/models.py:69
+#: tracker/models.py:70
 msgid "Ticket changed"
 msgstr "案件已更改"
 
-#: tracker/models.py:70
+#: tracker/models.py:71
 msgid "New preexpediture was created"
 msgstr "新的預先支出已建立"
 
-#: tracker/models.py:71
+#: tracker/models.py:72
 msgid "Preexpeditures changed"
 msgstr "預先支出已更改"
 
-#: tracker/models.py:72
+#: tracker/models.py:73
 msgid "New expediture was created"
 msgstr "新的支出已建立"
 
-#: tracker/models.py:73
+#: tracker/models.py:74
 msgid "Expeditures changed"
 msgstr "預先支出已更改"
 
-#: tracker/models.py:74
+#: tracker/models.py:75
 msgid "New media was created"
 msgstr "新媒體已建立"
 
-#: tracker/models.py:75
+#: tracker/models.py:76
 msgid "Media changed"
 msgstr "媒體已更改"
 
-#: tracker/models.py:76
+#: tracker/models.py:77
 msgid "Document changed"
 msgstr "文件已更改"
 
-#: tracker/models.py:136
+#: tracker/models.py:137
 msgid "unknown"
 msgstr "未知"
 
-#: tracker/models.py:169 tracker/models.py:1364
+#: tracker/models.py:170 tracker/models.py:1387
 msgid "created"
 msgstr "已建立"
 
-#: tracker/models.py:242
+#: tracker/models.py:243
 msgid "Signed text"
 msgstr "簽名文字"
 
-#: tracker/models.py:247
+#: tracker/models.py:248
 msgid "updated"
 msgstr "已更新"
 
-#: tracker/models.py:248
+#: tracker/models.py:249
 msgid "media updated"
 msgstr "媒體已更新"
 
-#: tracker/models.py:249
+#: tracker/models.py:250
 msgid "Date when cached information about media were last updated. Used in \"show media\" view."
 msgstr "媒體方面快取資訊上一次更新的日期。使用在「顯示媒體」檢視裡。"
 
-#: tracker/models.py:250
+#: tracker/models.py:251
 msgid "event date"
 msgstr "事項日期"
 
-#: tracker/models.py:251
+#: tracker/models.py:252
 msgid "Date of the event this ticket is about"
 msgstr "此案件有關的事項日期"
 
-#: tracker/models.py:252 tracker/models.py:413
+#: tracker/models.py:253 tracker/models.py:414
 #: tracker/templates/feeds/ticket_description.html:3
 msgid "requested by"
 msgstr "請求出自"
 
-#: tracker/models.py:253
+#: tracker/models.py:254
 msgid "User who created/requested for this ticket"
 msgstr "建立/請求此案件的使用者"
 
-#: tracker/models.py:255
+#: tracker/models.py:256
 msgid "requested by (text)"
 msgstr "請求出自（文字）"
 
-#: tracker/models.py:256
+#: tracker/models.py:257
 msgid "Text description of who requested for this ticket, in case user is not filled in"
 msgstr "在使用者未填寫時，有關請求此案件的人之文字描述"
 
-#: tracker/models.py:257 tracker/models.py:717 tracker/models.py:789
-#: tracker/models.py:967 tracker/views.py:791
+#: tracker/models.py:258 tracker/models.py:724 tracker/models.py:796
+#: tracker/models.py:986 tracker/views.py:793
 msgid "name"
 msgstr "名稱"
 
-#: tracker/models.py:257
+#: tracker/models.py:258
 msgid "Name for the ticket"
 msgstr "案件名稱"
 
-#: tracker/models.py:258 tracker/models.py:722 tracker/views.py:555
+#: tracker/models.py:259 tracker/models.py:729 tracker/views.py:557
 msgid "topic"
 msgstr "主題"
 
-#: tracker/models.py:259
+#: tracker/models.py:260
 msgid "Project topic this ticket belongs to"
 msgstr "此案件所屬的專案主題"
 
-#: tracker/models.py:260
+#: tracker/models.py:261
 msgid "subtopic"
 msgstr "副主題"
 
-#: tracker/models.py:261
+#: tracker/models.py:262
 msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
 msgstr "此案件所屬的副主題（若您不清楚可留空）"
 
-#: tracker/models.py:263
+#: tracker/models.py:264
 msgid "rating percentage"
 msgstr "評級百分比"
 
-#: tracker/models.py:264
+#: tracker/models.py:265
 msgid "Rating percentage set by topic administrator"
 msgstr "由主題管理員設定的分級百分比"
 
-#: tracker/models.py:265
+#: tracker/models.py:266
 msgid "report mandatory"
 msgstr "需要回報"
 
-#: tracker/models.py:265 tracker/templates/tracker/export.html:73
+#: tracker/models.py:266 tracker/templates/tracker/export.html:73
 #: tracker/templates/tracker/export.html:75
 #: tracker/templates/tracker/ticket_common_detail.html:15
 msgid "Is report mandatory?"
 msgstr "有需要回報嗎？"
 
-#: tracker/models.py:266
+#: tracker/models.py:267
 msgid "report url"
 msgstr "回報 url"
 
-#: tracker/models.py:267
+#: tracker/models.py:268
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
 msgstr "您回報用的 URL，若您想要回報一些問題（或者是您的回報對各主題管理員有所需要）。"
 
-#: tracker/models.py:268
+#: tracker/models.py:269
 msgid "event url"
 msgstr "事項 url"
 
-#: tracker/models.py:269
+#: tracker/models.py:270
 msgid "Link to a public page describing the event, if it exist"
 msgstr "連結至描述事項的公開頁面，若有存在的話"
 
-#: tracker/models.py:270 tracker/models.py:718 tracker/models.py:802
-#: tracker/models.py:894 tracker/models.py:951 tracker/models.py:1112
-#: tracker/models.py:1138 tracker/models.py:1297 tracker/views.py:792
+#: tracker/models.py:271 tracker/models.py:725 tracker/models.py:809
+#: tracker/models.py:901 tracker/models.py:958 tracker/models.py:1132
+#: tracker/models.py:1158 tracker/models.py:1317 tracker/views.py:794
 msgid "description"
 msgstr "說明"
 
-#: tracker/models.py:271
+#: tracker/models.py:272
 msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description. You may use a limited subset of HTML."
 msgstr "用於進一步說明的空間。若您輸入了旅行，請告訴我們您去了哪裡且做了什麼。您可以透過在您的描述裡添加 #ticketid 來連結至其它案件。您可以使用有限的 HTML 子集。"
 
-#: tracker/models.py:272
+#: tracker/models.py:273
 msgid "supervisor notes"
 msgstr "督導記錄"
 
-#: tracker/models.py:273
+#: tracker/models.py:274
 msgid "This space is for notes of project supervisors and accounting staff."
 msgstr "此為專案督導記錄以及會計人員利用的空間。"
 
-#: tracker/models.py:274
+#: tracker/models.py:275
 msgid "deposit"
 msgstr "存款"
 
-#: tracker/models.py:277
+#: tracker/models.py:278
 msgid "If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."
 msgstr "若您請求財務存款，請在此填寫金額。金額最多為預先支出的總和。若您沒有要請求存款，請填 0。"
 
-#: tracker/models.py:279
+#: tracker/models.py:280
 msgid "payment status"
 msgstr "支付狀態"
 
-#: tracker/models.py:280
+#: tracker/models.py:281
 msgid "imported"
 msgstr "已匯入"
 
-#: tracker/models.py:281
+#: tracker/models.py:282
 msgid "Was this ticket imported from older Tracker version?"
 msgstr "此案件是從較舊的 Tracker 版本所匯入嗎？"
 
-#: tracker/models.py:282
+#: tracker/models.py:283
 msgid "enable comments"
 msgstr "啟用註釋"
 
-#: tracker/models.py:283
+#: tracker/models.py:284
 msgid "Can users comment on this ticket?"
 msgstr "使用者可以在此案件上做出註釋嗎？"
 
-#: tracker/models.py:284
+#: tracker/models.py:285
 msgid "Did you travel by car?"
 msgstr "您是開車旅行的嗎？"
 
-#: tracker/models.py:285
+#: tracker/models.py:286
 msgid "Do you request reimbursement of car-type travel expense?"
 msgstr "您是否請求車類旅行費用的補貼？"
 
-#: tracker/models.py:286
+#: tracker/models.py:287
 msgid "Is this ticket completed?"
 msgstr "此案件已完成？"
 
-#: tracker/models.py:370
+#: tracker/models.py:371
 msgid "historical"
 msgstr "歷史"
 
-#: tracker/models.py:379
+#: tracker/models.py:380
 msgid "waiting for content rating"
 msgstr "等待內容評級"
 
-#: tracker/models.py:382 tracker/templates/tracker/export.html:49
+#: tracker/models.py:383 tracker/templates/tracker/export.html:49
 #: tracker/templates/tracker/export.html:50
 msgid "complete"
 msgstr "完成"
 
-#: tracker/models.py:384 tracker/templates/tracker/export.html:46
+#: tracker/models.py:385 tracker/templates/tracker/export.html:46
 #: tracker/templates/tracker/export.html:47
 msgid "waiting for filing of documents"
 msgstr "等待文件歸檔"
 
-#: tracker/models.py:386 tracker/templates/tracker/export.html:43
+#: tracker/models.py:387 tracker/templates/tracker/export.html:43
 #: tracker/templates/tracker/export.html:44
 msgid "waiting for document submission"
 msgstr "等待收件"
 
-#: tracker/models.py:389 tracker/models.py:396
+#: tracker/models.py:390 tracker/models.py:397
 #: tracker/templates/tracker/export.html:40
 #: tracker/templates/tracker/export.html:41
 msgid "waiting for approval"
 msgstr "等待批准"
 
-#: tracker/models.py:391 tracker/templates/tracker/export.html:37
+#: tracker/models.py:392 tracker/templates/tracker/export.html:37
 #: tracker/templates/tracker/export.html:38
 msgid "waiting for submitting"
 msgstr "等待提交"
 
-#: tracker/models.py:394 tracker/templates/tracker/export.html:34
+#: tracker/models.py:395 tracker/templates/tracker/export.html:34
 #: tracker/templates/tracker/export.html:35
 msgid "waiting for preapproval"
 msgstr "等待預先批准"
 
-#: tracker/models.py:398 tracker/templates/tracker/export.html:31
+#: tracker/models.py:399 tracker/templates/tracker/export.html:31
 #: tracker/templates/tracker/export.html:32
 msgid "draft"
 msgstr "草案"
 
-#: tracker/models.py:401 tracker/templates/tracker/export.html:30
+#: tracker/models.py:402 tracker/templates/tracker/export.html:30
 msgid "state"
 msgstr "狀態"
 
-#: tracker/models.py:425 tracker/templates/tracker/admin_user_list.html:26
+#: tracker/models.py:426 tracker/templates/tracker/admin_user_list.html:26
 msgid "E-mail"
 msgstr "電子郵件"
 
-#: tracker/models.py:426 tracker/models.py:1237
+#: tracker/models.py:427 tracker/models.py:1257
 #: tracker/templates/tracker/admin_user_list.html:31
 #: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
 msgstr "其他聯絡人"
 
-#: tracker/models.py:430
+#: tracker/models.py:431
 msgid "no tracker account listed"
 msgstr "沒有列出 Tracker 帳號"
 
-#: tracker/models.py:432
+#: tracker/models.py:433
 msgid "Requester details"
 msgstr "請求者詳情"
 
-#: tracker/models.py:642 tracker/templates/tracker/dumpaccounts/index.html:28
+#: tracker/models.py:649 tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Ticket"
 msgstr "案件"
 
-#: tracker/models.py:643 tracker/templates/tracker/cluster_detail.html:12
+#: tracker/models.py:650 tracker/templates/tracker/cluster_detail.html:12
 #: tracker/templates/tracker/cluster_detail.html:19
 #: tracker/templates/tracker/export.html:25
 #: tracker/templates/tracker/grant_table.html:6
@@ -661,94 +661,94 @@ msgstr "案件"
 msgid "Tickets"
 msgstr "案件"
 
-#: tracker/models.py:719 tracker/models.py:721
+#: tracker/models.py:726 tracker/models.py:728
 msgid "Description shown to users who enter tickets for this subtopic"
 msgstr "描述會對向此副主題輸入案件的使用者顯示出"
 
-#: tracker/models.py:720 tracker/models.py:804
+#: tracker/models.py:727 tracker/models.py:811
 msgid "form description"
 msgstr "表單說明"
 
-#: tracker/models.py:723
+#: tracker/models.py:730
 msgid "Topic where this subtopic belongs"
 msgstr "此副主題所屬的主題"
 
-#: tracker/models.py:782 tracker/templates/tracker/index.html:24
+#: tracker/models.py:789 tracker/templates/tracker/index.html:24
 #: tracker/templates/tracker/ticket_common_detail.html:13
 #: tracker/templates/tracker/ticket_table.html:16
 #: tracker/templates/tracker/ticket_table.html:31
 msgid "Subtopic"
 msgstr "副主題"
 
-#: tracker/models.py:783 tracker/templates/tracker/topic_detail.html:28
+#: tracker/models.py:790 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
 msgstr "副主題"
 
-#: tracker/models.py:790 tracker/views.py:584
+#: tracker/models.py:797 tracker/views.py:586
 msgid "grant"
 msgstr "授予"
 
-#: tracker/models.py:791
+#: tracker/models.py:798
 msgid "Grant project where this topic belongs"
 msgstr "授予此主題所屬的專案"
 
-#: tracker/models.py:792
+#: tracker/models.py:799
 msgid "open for tickets"
 msgstr "對案件開放"
 
-#: tracker/models.py:793
+#: tracker/models.py:800
 msgid "Is this topic open for ticket submissions from users?"
 msgstr "此主題對使用者提交的案件開放嗎？"
 
-#: tracker/models.py:794
+#: tracker/models.py:801
 msgid "ticket media"
 msgstr "案件媒體"
 
-#: tracker/models.py:795
+#: tracker/models.py:802
 msgid "Does this topic track ticket media items?"
 msgstr "此主題追蹤案件媒體項目嗎？"
 
-#: tracker/models.py:796
+#: tracker/models.py:803
 msgid "ticket expenses"
 msgstr "案件費用"
 
-#: tracker/models.py:797
+#: tracker/models.py:804
 msgid "Does this topic track ticket expenses?"
 msgstr "此主題追蹤案件費用嗎？"
 
-#: tracker/models.py:798
+#: tracker/models.py:805
 msgid "ticket preexpenses"
 msgstr "案件預先費用"
 
-#: tracker/models.py:799
+#: tracker/models.py:806
 msgid "Does this topic track preexpenses?"
 msgstr "此主題追蹤預先費用嗎？"
 
-#: tracker/models.py:800
+#: tracker/models.py:807
 msgid "require statutory declaration"
 msgstr "請求法定聲明"
 
-#: tracker/models.py:801
+#: tracker/models.py:808
 msgid "Does this topic require statutory declaration for car travelling?"
 msgstr "此主題是否需要汽車旅行方面的法定聲明？"
 
-#: tracker/models.py:803 tracker/models.py:895
+#: tracker/models.py:810 tracker/models.py:902
 msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
 msgstr "詳情描述，現可允許使用 HTML，並會自動解析換行符號"
 
-#: tracker/models.py:805
+#: tracker/models.py:812
 msgid "Description shown to users who enter tickets for this topic"
 msgstr "描述會對向此主題輸入案件的使用者顯示出"
 
-#: tracker/models.py:806
+#: tracker/models.py:813
 msgid "topic administrator"
 msgstr "主題管理員"
 
-#: tracker/models.py:807
+#: tracker/models.py:814
 msgid "Selected users will have administration access to this topic."
 msgstr "所選使用者將會有此主題管理權限。"
 
-#: tracker/models.py:881 tracker/templates/tracker/dumpaccounts/index.html:11
+#: tracker/models.py:888 tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/index.html:23
 #: tracker/templates/tracker/ticket_common_detail.html:12
 #: tracker/templates/tracker/ticket_table.html:15
@@ -759,37 +759,37 @@ msgstr "所選使用者將會有此主題管理權限。"
 msgid "Topic"
 msgstr "主題"
 
-#: tracker/models.py:882 tracker/templates/tracker/export.html:61
+#: tracker/models.py:889 tracker/templates/tracker/export.html:61
 #: tracker/templates/tracker/export.html:212
 #: tracker/templates/tracker/import.html:26
 msgid "Topics"
 msgstr "主題"
 
-#: tracker/models.py:891
+#: tracker/models.py:898
 msgid "full name"
 msgstr "全名"
 
-#: tracker/models.py:891
+#: tracker/models.py:898
 msgid "Full name for headlines and such"
 msgstr "用於標題之類的全名"
 
-#: tracker/models.py:892
+#: tracker/models.py:899
 msgid "short name"
 msgstr "簡稱"
 
-#: tracker/models.py:892
+#: tracker/models.py:899
 msgid "Shorter name for use in tables"
 msgstr "用於表格的簡短名稱"
 
-#: tracker/models.py:893
+#: tracker/models.py:900
 msgid "slug"
 msgstr "slug"
 
-#: tracker/models.py:893
+#: tracker/models.py:900
 msgid "Shortcut for usage in URLs"
 msgstr "用於在 URL 裡使用的捷徑"
 
-#: tracker/models.py:935 tracker/templates/tracker/grant_table.html:5
+#: tracker/models.py:942 tracker/templates/tracker/grant_table.html:5
 #: tracker/templates/tracker/index.html:22
 #: tracker/templates/tracker/ticket_table.html:14
 #: tracker/templates/tracker/ticket_table.html:29
@@ -800,394 +800,398 @@ msgstr "用於在 URL 裡使用的捷徑"
 msgid "Grant"
 msgstr "授予"
 
-#: tracker/models.py:936 tracker/templates/tracker/export.html:141
+#: tracker/models.py:943 tracker/templates/tracker/export.html:141
 #: tracker/templates/tracker/import.html:34
 msgid "Grants"
 msgstr "授予"
 
-#: tracker/models.py:949 tracker/models.py:965 tracker/models.py:1110
-#: tracker/models.py:1136 tracker/views.py:510
+#: tracker/models.py:956 tracker/models.py:984 tracker/models.py:1130
+#: tracker/models.py:1156 tracker/views.py:512
 msgid "ticket"
 msgstr "案件"
 
-#: tracker/models.py:950 tracker/models.py:966
+#: tracker/models.py:957 tracker/models.py:985
 msgid "Ticket this media info belongs to"
 msgstr "此媒體資訊所屬的案件"
 
-#: tracker/models.py:951
+#: tracker/models.py:958
 msgid "Item description to show"
 msgstr "要顯示的項目描述"
 
-#: tracker/models.py:952 tracker/models.py:970
+#: tracker/models.py:959 tracker/models.py:972 tracker/models.py:989
 msgid "URL"
 msgstr "URL"
 
-#: tracker/models.py:952
+#: tracker/models.py:959
 msgid "Link to media files"
 msgstr "連結至媒體檔案"
 
-#: tracker/models.py:953
+#: tracker/models.py:960
 msgid "count"
 msgstr "總數"
 
-#: tracker/models.py:953 tracker/templates/tracker/ticket_show_media.html:45
+#: tracker/models.py:960 tracker/templates/tracker/ticket_show_media.html:45
 msgid "Number of files"
 msgstr "檔案號碼"
 
-#: tracker/models.py:959 tracker/models.py:960 tracker/models.py:1098
-#: tracker/models.py:1099
+#: tracker/models.py:966 tracker/models.py:967 tracker/models.py:1115
+#: tracker/models.py:1116
 msgid "Ticket media"
 msgstr "案件媒體"
 
-#: tracker/models.py:968
+#: tracker/models.py:972
+msgid "Link to file usage"
+msgstr "連結到檔案使用"
+
+#: tracker/models.py:973 tracker/models.py:979
+msgid "title"
+msgstr "標題"
+
+#: tracker/models.py:974
+msgid "project"
+msgstr "專案"
+
+#: tracker/models.py:987
 msgid "width"
 msgstr "寬度"
 
-#: tracker/models.py:969
+#: tracker/models.py:988
 msgid "height"
 msgstr "高度"
 
-#: tracker/models.py:971
+#: tracker/models.py:990
 msgid "cannonical title"
 msgstr "標準標題"
 
-#: tracker/models.py:972
-msgid "categories"
-msgstr "分類"
-
-#: tracker/models.py:973
-msgid "usages"
-msgstr "使用"
-
-#: tracker/models.py:1111
+#: tracker/models.py:1131
 msgid "Ticket this expediture belongs to"
 msgstr "此支出所屬的案件"
 
-#: tracker/models.py:1112
+#: tracker/models.py:1132
 msgid "Description of this expediture"
 msgstr "此支出的描述"
 
-#: tracker/models.py:1113 tracker/models.py:1139 tracker/models.py:1295
+#: tracker/models.py:1133 tracker/models.py:1159 tracker/models.py:1315
 msgid "amount"
 msgstr "金額"
 
-#: tracker/models.py:1114
+#: tracker/models.py:1134
 msgid "Expediture amount in"
 msgstr "支出金額於"
 
-#: tracker/models.py:1115 tracker/models.py:1298
+#: tracker/models.py:1135 tracker/models.py:1318
 msgid "accounting info"
 msgstr "帳號資訊"
 
-#: tracker/models.py:1116
+#: tracker/models.py:1136
 msgid "Accounting info, this is editable only through admin field"
 msgstr "帳號資訊僅可透過管理欄位編輯"
 
-#: tracker/models.py:1118 tracker/models.py:1141
+#: tracker/models.py:1138 tracker/models.py:1161
 msgid "wage"
 msgstr "報酬"
 
-#: tracker/models.py:1121 tracker/models.py:1144
+#: tracker/models.py:1141 tracker/models.py:1164
 #, python-format
 msgid "%(description)s (%(amount)s %(currency)s)"
 msgstr "%(description)s (%(amount)s %(currency)s)"
 
-#: tracker/models.py:1130
+#: tracker/models.py:1150
 msgid "Ticket expediture"
 msgstr "案件支出"
 
-#: tracker/models.py:1131
+#: tracker/models.py:1151
 msgid "Ticket expeditures"
 msgstr "案件支出"
 
-#: tracker/models.py:1137
+#: tracker/models.py:1157
 msgid "Ticket this preexpediture belongs to"
 msgstr "此預先支出所屬的案件"
 
-#: tracker/models.py:1138
+#: tracker/models.py:1158
 msgid "Description of this preexpediture"
 msgstr "此預先支出的描述"
 
-#: tracker/models.py:1140
+#: tracker/models.py:1160
 msgid "Preexpediture amount in"
 msgstr "預先支出金額於"
 
-#: tracker/models.py:1148
+#: tracker/models.py:1168
 msgid "Ticket preexpediture"
 msgstr "案件預先支出"
 
-#: tracker/models.py:1149
+#: tracker/models.py:1169
 msgid "Ticket preexpeditures"
 msgstr "案件預先支出"
 
-#: tracker/models.py:1153
+#: tracker/models.py:1173
 msgid "uploader"
 msgstr "上傳者"
 
-#: tracker/models.py:1163 tracker/views.py:791
+#: tracker/models.py:1183 tracker/views.py:793
 msgid "We need a sane file name, such as my-invoice123.jpg"
 msgstr "我們需要明確的檔案名稱，例如 my-invoice123.jpg"
 
-#: tracker/models.py:1204
+#: tracker/models.py:1224
 msgid "Ignored acks"
 msgstr "已忽略的確認"
 
-#: tracker/models.py:1205
+#: tracker/models.py:1225
 msgid "Muted notifications"
 msgstr "關閉通知"
 
-#: tracker/models.py:1206
+#: tracker/models.py:1226
 msgid "Email language"
 msgstr "電子郵件語言"
 
-#: tracker/models.py:1208
+#: tracker/models.py:1228
 msgid "Display items"
 msgstr "顯示項目"
 
-#: tracker/models.py:1209
+#: tracker/models.py:1229
 msgid "How many items should we display in tables at once"
 msgstr "在表格上一次應顯示出多少個項目"
 
-#: tracker/models.py:1228
+#: tracker/models.py:1248
 msgid "Tracker user preference"
 msgstr "Tracker 使用者偏好設定"
 
-#: tracker/models.py:1229
+#: tracker/models.py:1249
 msgid "Tracker user preferences"
 msgstr "Tracker 使用者偏好設定"
 
-#: tracker/models.py:1234
+#: tracker/models.py:1254
 msgid "Username on mediawiki"
 msgstr "在 mediawiki 的使用者名稱"
 
-#: tracker/models.py:1235 tracker/templates/tracker/admin_user_list.html:30
+#: tracker/models.py:1255 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
 msgstr "銀行帳戶"
 
-#: tracker/models.py:1236
+#: tracker/models.py:1256
 msgid "Bank account information for money transfers"
 msgstr "用於匯款的銀行帳戶資訊"
 
-#: tracker/models.py:1238
+#: tracker/models.py:1258
 msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
 msgstr "其它像是 wiki 帳號的聯絡方式，在主題管理員需澄清一些信息時會很有用。"
 
-#: tracker/models.py:1239 tracker/templates/tracker/admin_user_list.html:32
+#: tracker/models.py:1259 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
 msgstr "其它辨識"
 
-#: tracker/models.py:1240
+#: tracker/models.py:1260
 msgid "Address, or other identification information, so we know who are we sending money to"
 msgstr "地址或是其它的辨識資訊，以讓我們了解我們是寄送金錢給誰"
 
-#: tracker/models.py:1271
+#: tracker/models.py:1291
 msgid "Tracker profile"
 msgstr "Tracker 個人檔案"
 
-#: tracker/models.py:1272
+#: tracker/models.py:1292
 msgid "Tracker profiles"
 msgstr "Tracker 個人檔案"
 
-#: tracker/models.py:1290
+#: tracker/models.py:1310
 msgid "date"
 msgstr "日期"
 
-#: tracker/models.py:1291 tracker/models.py:1315
+#: tracker/models.py:1311 tracker/models.py:1335
 msgid "other party"
 msgstr "其他方"
 
-#: tracker/models.py:1292
+#: tracker/models.py:1312
 msgid "The other party; user who sent or received the payment"
 msgstr "其他方，發送或收到支付的使用者"
 
-#: tracker/models.py:1293
+#: tracker/models.py:1313
 msgid "other party (text)"
 msgstr "其他方（文字）"
 
-#: tracker/models.py:1294
+#: tracker/models.py:1314
 msgid "The other party; this text is used when user is not selected"
 msgstr "其他方，當未選擇使用者時使用此文字"
 
-#: tracker/models.py:1296
+#: tracker/models.py:1316
 msgid "Payment amount; Positive value means transaction to the user, negative is a transaction from the user"
 msgstr "支付金額，正數代表給使用者的交易；負數代表來自於使用者的交易"
 
-#: tracker/models.py:1297
+#: tracker/models.py:1317
 msgid "Description of this transaction"
 msgstr "此交易的描述"
 
-#: tracker/models.py:1298
+#: tracker/models.py:1318
 #: tracker/templates/feeds/transaction_description.html:6
 #: tracker/templates/tracker/cluster_detail.html:19
 #: tracker/templates/tracker/ticket_common_detail.html:64
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1713
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1715
 msgid "Accounting info"
 msgstr "帳號資訊"
 
-#: tracker/models.py:1299
+#: tracker/models.py:1319
 msgid "related tickets"
 msgstr "相關案件"
 
-#: tracker/models.py:1300
+#: tracker/models.py:1320
 msgid "Tickets this trackaction is related to"
 msgstr "此追蹤操作所相關的案件"
 
-#: tracker/models.py:1339
+#: tracker/models.py:1362
 msgid "Transaction"
 msgstr "交易"
 
-#: tracker/models.py:1340 tracker/templates/tracker/cluster_detail.html:18
+#: tracker/models.py:1363 tracker/templates/tracker/cluster_detail.html:18
 #: tracker/templates/tracker/ticket_detail.html:30
 #: tracker/templates/tracker/user_detail.html:19
 msgid "Transactions"
 msgstr "交易"
 
-#: tracker/models.py:1366
+#: tracker/models.py:1389
 msgid "comment"
 msgstr "註釋"
 
-#: tracker/models.py:1490
+#: tracker/models.py:1513
 #, python-format
 msgid "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> by user <tt>%(user)s</tt>"
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>添加註釋<tt>%(comment)s</tt>"
 
-#: tracker/models.py:1521
+#: tracker/models.py:1544
 #, python-format
 msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
 msgstr "使用者<tt>%(user)s</tt>已在主題<tt>%(topic)s</tt>建立案件<a href=\"%(ticket_url)s\">%(ticket)s</a>。"
 
-#: tracker/models.py:1537
+#: tracker/models.py:1560
 #, python-format
 msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的督導記錄。"
 
-#: tracker/models.py:1557
+#: tracker/models.py:1580
 #, python-format
 msgid "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的描述。"
 
-#: tracker/models.py:1560
+#: tracker/models.py:1583
 #, python-format
 msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的名稱。"
 
-#: tracker/models.py:1563
+#: tracker/models.py:1586
 #, python-format
 msgid "User <tt>%(user)s</tt> changed link to report of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的回報連結。"
 
-#: tracker/models.py:1567
+#: tracker/models.py:1590
 #, python-format
 msgid "User <tt>%(user)s</tt> changed requested deposit of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的請求存款。"
 
-#: tracker/models.py:1577
+#: tracker/models.py:1600
 #, python-format
 msgid "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的「有需要回報嗎？」欄位。"
 
-#: tracker/models.py:1589
+#: tracker/models.py:1612
 #, python-format
 msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
 msgstr "案件「%(ticket)s」已被使用者%(user)s給刪除"
 
-#: tracker/models.py:1606
+#: tracker/models.py:1629
 #, python-format
 msgid "User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>添加確認<tt>%(ack_type)s</tt>。"
 
-#: tracker/models.py:1620
+#: tracker/models.py:1643
 #, python-format
 msgid "User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "使用者<tt>%(user)s</tt>已從案件<a href=\"%(ticket_url)s\">%(ticket)s</a>移除確認<tt>%(ack_type)s</tt>。"
 
-#: tracker/models.py:1651
+#: tracker/models.py:1674
 #, python-format
 msgid "User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>添加計劃支出<tt>%(expeditures)s</tt>。"
 
-#: tracker/models.py:1673
+#: tracker/models.py:1696
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>計劃支出<tt>%(expeditures)s</tt>設定為報酬。"
 
-#: tracker/models.py:1676
+#: tracker/models.py:1699
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>計劃支出<tt>%(expeditures)s</tt>設定為非報酬。"
 
-#: tracker/models.py:1679
+#: tracker/models.py:1702
 #, python-format
 msgid "User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>更改計劃支出從<tt>%(old_expediture)s</tt>成為<tt>%(expeditures)s</tt>。"
 
-#: tracker/models.py:1696
+#: tracker/models.py:1719
 #, python-format
 msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已從案件<a href=\"%(ticket_url)s\">%(ticket)s</a>移除計劃支出<tt>%(expediture)s</tt>。"
 
-#: tracker/models.py:1717
+#: tracker/models.py:1740
 #, python-format
 msgid "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>添加實際支出<tt>%(expeditures)s</tt>。"
 
-#: tracker/models.py:1740
+#: tracker/models.py:1763
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as paid."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>實際支出<tt>%(expeditures)s</tt>設定為已付款。"
 
-#: tracker/models.py:1743
+#: tracker/models.py:1766
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not paid."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>實際支出<tt>%(expeditures)s</tt>設定為未付款。"
 
-#: tracker/models.py:1748
+#: tracker/models.py:1771
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>實際支出<tt>%(expeditures)s</tt>設定為報酬。"
 
-#: tracker/models.py:1751
+#: tracker/models.py:1774
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>實際支出<tt>%(expeditures)s</tt>設定為非報酬。"
 
-#: tracker/models.py:1758
+#: tracker/models.py:1781
 #, python-format
 msgid "User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>更改實際支出從<tt>%(old_expediture)s</tt>成為<tt>%(expeditures)s</tt>。"
 
-#: tracker/models.py:1775
+#: tracker/models.py:1798
 #, python-format
 msgid "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已從案件<a href=\"%(ticket_url)s\">%(ticket)s</a>移除實際支出<tt>%(expeditures)s</tt>。"
 
-#: tracker/models.py:1789
+#: tracker/models.py:1812
 #, python-format
 msgid "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已添加媒體給案件<a href=\"%(ticket_url)s\">%(ticket)s</a>。"
 
-#: tracker/models.py:1792
+#: tracker/models.py:1815
 #, python-format
 msgid "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已更改案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的媒體。"
 
-#: tracker/models.py:1806
+#: tracker/models.py:1829
 #, python-format
 msgid "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "使用者<tt>%(user)s</tt>已從案件<a href=\"%(ticket_url)s\">%(ticket)s</a>移除媒體。"
 
-#: tracker/models.py:1819 tracker/models.py:1836
+#: tracker/models.py:1842 tracker/models.py:1859
 msgid "no description"
 msgstr "沒有描述"
 
-#: tracker/models.py:1822
+#: tracker/models.py:1845
 #, python-format
 msgid "User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "使用者<tt>%(user)s</tt>已對案件<a href=\"%(ticket_url)s\">%(ticket)s</a>添加文件<tt>%(document_filename)s (%(document_description)s)</tt>"
 
-#: tracker/models.py:1839
+#: tracker/models.py:1862
 #, python-format
 msgid "User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "使用者<tt>%(user)s</tt>已移除來自案件<a href=\"%(ticket_url)s\">%(ticket)s</a>的文件<tt>%(document_filename)s (%(document_description)s)</tt>"
@@ -1227,8 +1231,8 @@ msgid "Total"
 msgstr "總計"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:39
-#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1711
-#: tracker/views.py:1720 tracker/views.py:1730
+#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1713
+#: tracker/views.py:1722 tracker/views.py:1732
 msgid "Ticket ID"
 msgstr "案件 ID"
 
@@ -1320,9 +1324,9 @@ msgstr "金額"
 #: tracker/templates/tracker/ticket_common_detail.html:30
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1692
-#: tracker/views.py:1697 tracker/views.py:1702 tracker/views.py:1711
-#: tracker/views.py:1720
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1694
+#: tracker/views.py:1699 tracker/views.py:1704 tracker/views.py:1713
+#: tracker/views.py:1722
 msgid "Description"
 msgstr "說明"
 
@@ -1435,15 +1439,15 @@ msgid "Home"
 msgstr "首頁"
 
 #: tracker/templates/tracker/admin_user_list.html:25
-#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1725
+#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1727
 msgid "Username"
 msgstr "使用者名稱"
 
-#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1725
+#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1727
 msgid "First name"
 msgstr "名"
 
-#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1725
+#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1727
 msgid "Last name"
 msgstr "姓"
 
@@ -2220,27 +2224,31 @@ msgstr "篩選的分類依照"
 msgid "Search"
 msgstr "搜尋"
 
-#: tracker/templates/tracker/ticket_media.html:48
+#: tracker/templates/tracker/ticket_media.html:37
+msgid "To select more images at once, select the first one, press Shift, and select the last one."
+msgstr "若要一次選擇更多的圖片，請先選擇第一張後按下 Shift 鍵，然後選擇其它所要的圖片。"
+
+#: tracker/templates/tracker/ticket_media.html:51
 msgid "Load more"
 msgstr "載入更多"
 
-#: tracker/templates/tracker/ticket_media.html:49
+#: tracker/templates/tracker/ticket_media.html:52
 msgid "Loading..."
 msgstr "載入中…"
 
-#: tracker/templates/tracker/ticket_media.html:54
+#: tracker/templates/tracker/ticket_media.html:57
 msgid "Choose selected photos"
 msgstr "挑選所選照片"
 
-#: tracker/templates/tracker/ticket_media.html:57
+#: tracker/templates/tracker/ticket_media.html:60
 msgid "Remove existing media"
 msgstr "移除現有媒體"
 
-#: tracker/templates/tracker/ticket_media.html:58
+#: tracker/templates/tracker/ticket_media.html:61
 msgid "It can take up to five minutes for the images you added to show here."
 msgstr "您所添加在此顯示的圖片會花費 5 分鐘。"
 
-#: tracker/templates/tracker/ticket_media.html:66
+#: tracker/templates/tracker/ticket_media.html:69
 msgid "Delete selected photos"
 msgstr "刪除所選照片"
 
@@ -2516,254 +2524,254 @@ msgstr "所有"
 msgid "User %s created."
 msgstr "已建立使用者%s。"
 
-#: tracker/views.py:70
+#: tracker/views.py:71
 msgid "Comment posted, thank you."
 msgstr "註釋已發佈，謝謝您。"
 
-#: tracker/views.py:111
+#: tracker/views.py:112
 msgid "You cannot add ack to a ticket you do not own."
 msgstr "您不能對不屬於您的案件添加確認。"
 
-#: tracker/views.py:125
+#: tracker/views.py:126
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added. However, no bank account information filled. Without it, we can't reimburse you. Go to <a href=\"%(details_url)s\">your details</a> to fill it."
 msgstr "案件%(ticket_id)s確認「%(confirmation)s」已添加，不過有銀行帳戶沒有填入。沒有銀行帳戶，我們無法補貼費用給您。請前往<a href=\"%(details_url)s\">您的詳情</a>來填入。"
 
-#: tracker/views.py:133
+#: tracker/views.py:134
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
 msgstr "案件%(ticket_id)s確認「%(confirmation)s」已添加。"
 
-#: tracker/views.py:166 tracker/views.py:1742
+#: tracker/views.py:167 tracker/views.py:1744
 msgid "You cannot edit this"
 msgstr "您不能編輯這個"
 
-#: tracker/views.py:171
+#: tracker/views.py:172
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been deleted."
 msgstr "案件%(ticket_id)s確認「%(confirmation)s」已刪除。"
 
-#: tracker/views.py:215
+#: tracker/views.py:216
 msgid "Statutory declaration"
 msgstr "法定聲明"
 
-#: tracker/views.py:262
+#: tracker/views.py:263
 msgid "Your deposit is bigger than your preexpeditures"
 msgstr "您的存款大於您的預先支出"
 
-#: tracker/views.py:279
+#: tracker/views.py:280
 msgid "You are required to do statutory declaration"
 msgstr "您被請求做出法定聲明"
 
-#: tracker/views.py:295
+#: tracker/views.py:296
 msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."
 msgstr "副主題必須是屬於您所使用主題。您可能有將 JavaScript 功能給關閉。"
 
-#: tracker/views.py:386
+#: tracker/views.py:388
 msgid "We've updated your preferences"
 msgstr "我們已更新您的偏好設定"
 
-#: tracker/views.py:434
+#: tracker/views.py:436
 msgid "Please enter your password to confirm the deactivation of your account."
 msgstr "請輸入您的密碼來確認停用您的帳號。"
 
-#: tracker/views.py:449
+#: tracker/views.py:451
 msgid "Account deactivation"
 msgstr "帳號停用"
 
-#: tracker/views.py:456
+#: tracker/views.py:458
 msgid "Your account has been deactivated."
 msgstr "您的帳號已停用。"
 
-#: tracker/views.py:459
+#: tracker/views.py:461
 msgid "Password is incorrect."
 msgstr "密碼不正確。"
 
-#: tracker/views.py:491
+#: tracker/views.py:493
 #, python-format
 msgid "Ticket's %s watching settings are changed."
 msgstr "案件的%s監視設定已更改。"
 
-#: tracker/views.py:540
+#: tracker/views.py:542
 #, python-format
 msgid "Topic's %s watching settings are changed."
 msgstr "主題的%s監視設定已更改。"
 
-#: tracker/views.py:570
+#: tracker/views.py:572
 #, python-format
 msgid "%s's watching settings are changed."
 msgstr "%s的監視設定已更改。"
 
-#: tracker/views.py:617
+#: tracker/views.py:619
 #, python-format
 msgid "Ticket %s is created"
 msgstr "案件%s已建立"
 
-#: tracker/views.py:655 tracker/views.py:776
+#: tracker/views.py:657 tracker/views.py:778
 msgid "One or more fields are invalid. Check them to get more information."
 msgstr "一個或多個欄位無效，請檢查它們來取得更多資訊。"
 
-#: tracker/views.py:666
+#: tracker/views.py:668
 msgid "I confirm the above"
 msgstr "我已確認以上內容"
 
-#: tracker/views.py:673
+#: tracker/views.py:675
 msgid "You cannot add statutory declaration to a ticket that does not support it."
 msgstr "您不能對案件添加不支援的法定聲明。"
 
-#: tracker/views.py:675
+#: tracker/views.py:677
 msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
 msgstr "您可使用此視圖來添加法定聲明至您所建立的案件。請使用編輯案件按鈕來進行。"
 
-#: tracker/views.py:682
+#: tracker/views.py:684
 msgid "You successfully added a statutory declaration to this ticket."
 msgstr "您已成功對此案件添加法定聲明。"
 
-#: tracker/views.py:685
+#: tracker/views.py:687
 msgid "You successfully removed a statutory declaration from this ticket."
 msgstr "您已成功從案件移除法定聲明。"
 
-#: tracker/views.py:708 tracker/views.py:719
+#: tracker/views.py:710 tracker/views.py:721
 msgid "You cannot edit this ticket"
 msgstr "您不能編輯此案件"
 
-#: tracker/views.py:755
+#: tracker/views.py:757
 #, python-format
 msgid "Ticket %s saved."
 msgstr "案件%s已儲存。"
 
-#: tracker/views.py:790
+#: tracker/views.py:792
 msgid "file"
 msgstr "檔案"
 
-#: tracker/views.py:820
+#: tracker/views.py:822
 msgid "You cannot edit this ticket documents, as it's no longer editable"
 msgstr "因不再可編輯緣故，您無法編輯此案件文件"
 
-#: tracker/views.py:829
+#: tracker/views.py:831
 msgid "You cannot see this ticket's documents."
 msgstr "您不能查看此案件的文件。"
 
-#: tracker/views.py:856
+#: tracker/views.py:858
 #, python-format
 msgid "Document changes for ticket %s saved."
 msgstr "已儲存用於案件%s的文件更改。"
 
-#: tracker/views.py:879
+#: tracker/views.py:881
 msgid "There is already a document with that name. Please try to reupload with a different name."
 msgstr "已經有這樣名稱的文件，請用別的名稱來重新上傳。"
 
-#: tracker/views.py:891
+#: tracker/views.py:893
 #, python-format
 msgid "File %(filename)s has been saved."
 msgstr "檔案%(filename)s已儲存。"
 
-#: tracker/views.py:1079
+#: tracker/views.py:1081
 msgid "Your details have been saved."
 msgstr "已儲存您的詳情。"
 
-#: tracker/views.py:1523
+#: tracker/views.py:1525
 msgid "You must be staffer in order to export users"
 msgstr "您必須是成員才能匯出使用者"
 
-#: tracker/views.py:1525
+#: tracker/views.py:1527
 msgid "You must fill the form validly"
 msgstr "您必須要正確地填寫表單"
 
-#: tracker/views.py:1544
+#: tracker/views.py:1546
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
 msgstr "您沒有權限來匯入超過 %(input_row_limit)s 列。前 %(input_row_limit)s 個列已有匯入。"
 
-#: tracker/views.py:1571
+#: tracker/views.py:1573
 msgid "You must be a staffer in order to be able to import topics."
 msgstr "您必須是成員才能匯入主題。"
 
-#: tracker/views.py:1604
+#: tracker/views.py:1606
 msgid "You must be a staffer in order to be able to import grants."
 msgstr "您必須是成員才能匯入授予。"
 
-#: tracker/views.py:1634 tracker/views.py:1648
+#: tracker/views.py:1636 tracker/views.py:1650
 msgid "You can't add preexpenses to a ticket that you did not create."
 msgstr "您不能對您尚未創建的案件添加預先費用。"
 
-#: tracker/views.py:1661
+#: tracker/views.py:1663
 msgid "You can't add media items to a ticket that you did not create."
 msgstr "您不能添加媒體項目到您尚未創建的案件裡。"
 
-#: tracker/views.py:1664
+#: tracker/views.py:1666
 msgid "You must be a superuser in order to be able to import users."
 msgstr "您必須是超級使用者才能匯入使用者。"
 
-#: tracker/views.py:1682
+#: tracker/views.py:1684
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
 msgstr "表單回傳異常數值，請聯絡系統管理員並告知您所嘗試做出的行為。"
 
-#: tracker/views.py:1684
+#: tracker/views.py:1686
 msgid "Your CSV file was imported."
 msgstr "您的 CSV 檔案已匯入。"
 
-#: tracker/views.py:1692
+#: tracker/views.py:1694
 msgid "Name of a ticket"
 msgstr "案件名稱"
 
-#: tracker/views.py:1692 tracker/views.py:1697
+#: tracker/views.py:1694 tracker/views.py:1699
 msgid "Name of a topic"
 msgstr "主題名稱"
 
-#: tracker/views.py:1697
+#: tracker/views.py:1699
 msgid "Name of a grant"
 msgstr "授予名稱"
 
-#: tracker/views.py:1697
+#: tracker/views.py:1699
 msgid "Form description"
 msgstr "表單描述"
 
-#: tracker/views.py:1702
+#: tracker/views.py:1704
 msgid "Full name"
 msgstr "全名"
 
-#: tracker/views.py:1702
+#: tracker/views.py:1704
 msgid "Short name"
 msgstr "簡稱"
 
-#: tracker/views.py:1702
+#: tracker/views.py:1704
 msgid "Slug"
 msgstr "Slug"
 
-#: tracker/views.py:1725
+#: tracker/views.py:1727
 msgid "Password"
 msgstr "密碼"
 
-#: tracker/views.py:1747
+#: tracker/views.py:1749
 msgid "Preexpeditures were succesfully copied to expeditures."
 msgstr "預先支出成功複製到支出。"
 
-#: tracker/views.py:1759
+#: tracker/views.py:1761
 msgid "Executing API call with any action than whitelisted is prohibited."
 msgstr "禁止不在白名單內執行任何 API 呼叫的操作。"
 
-#: tracker/views.py:1770
+#: tracker/views.py:1772
 msgid "No media to show are available"
 msgstr "沒有可顯示的媒體"
 
-#: tracker/views.py:1791
+#: tracker/views.py:1792
 msgid "Updating of medias for this ticket was successfully scheduled."
 msgstr "已成功安排用於此案件的媒體更新。"
 
-#: tracker/views.py:1796
+#: tracker/views.py:1797
 msgid "List of media was successfully updated"
 msgstr "媒體清單更新成功"
 
-#: tracker/views.py:1801
+#: tracker/views.py:1802
 msgid "There was an error while processing your request"
 msgstr "在處理您的請求時發生錯誤。"
 
-#: tracker/views.py:1809
+#: tracker/views.py:1810
 msgid "This mandatory notice was sent to all active Tracker users."
 msgstr "此必要通知會傳送給所有有效的 Tracker 使用者。"
 
-#: tracker/views.py:1821
+#: tracker/views.py:1822
 msgid "This mandatory notice was sent to all active Tracker administrators."
 msgstr "此必要通知會傳送給所有有效的 Tracker 管理員。"
 
@@ -2837,7 +2845,7 @@ msgid "Refresh connection with %(provider)s"
 msgstr "重新整理與%(provider)s的連接"
 
 #: users/templates/users/password_change.html:5
-#: users/templates/users/password_change.html:16 users/views.py:94
+#: users/templates/users/password_change.html:16 users/views.py:90
 msgid "Password change"
 msgstr "密碼更改"
 
@@ -2967,7 +2975,7 @@ msgstr "以 Meta Wiki 註冊"
 msgid "Already have an acount?"
 msgstr "已經有帳號了嗎？"
 
-#: users/views.py:50
+#: users/views.py:46
 msgid "Will be used for password recovery and notifications, if you enable them."
 msgstr "若您啟用的話，會用於恢復密碼與通知。"
 
