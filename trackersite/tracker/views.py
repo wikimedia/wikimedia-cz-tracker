@@ -254,7 +254,7 @@ def check_ticket_form_deposit(ticketform, preexpeditures):
         return
 
     deposit = ticketform.cleaned_data.get('deposit')
-    if deposit is None:
+    if deposit is None or deposit == 0:
         return
 
     total_preexpeditures = sum([pe.cleaned_data.get('amount', 0) for pe in preexpeditures])

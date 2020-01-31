@@ -319,6 +319,42 @@ class TicketTests(TestCase):
         self.assertEqual(200, response.status_code)
         self.assertFormError(response, 'ticketform', 'deposit', 'Your deposit is bigger than your preexpeditures')
 
+    def test_too_big_deposit3(self):
+        c = self.get_client()
+        response = c.post(reverse('create_ticket'), {
+            'name': 'ticket',
+            'topic': self.open_topic.id,
+            'description': 'some desc',
+            'deposit': '50.01',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '1',
+            'preexpediture-0-description': 'foo',
+            'preexpediture-0-amount': '-1000',
+        })
+        self.assertEqual(200, response.status_code)
+        self.assertFormError(response, 'ticketform', 'deposit', 'Your deposit is bigger than your preexpeditures')
+
+    def test_correct_deposit2(self):
+        c = self.get_client()
+        response = c.post(reverse('create_ticket'), {
+            'name': 'ticket',
+            'topic': self.open_topic.id,
+            'description': 'some desc',
+            'deposit': '0',
+            'expediture-INITIAL_FORMS': '0',
+            'expediture-TOTAL_FORMS': '0',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '1',
+            'preexpediture-0-description': 'foo',
+            'preexpediture-0-amount': '-1000',
+        })
+        self.assertEqual(302, response.status_code)
+        self.assertEqual(1, Ticket.objects.count())
+        ticket = Ticket.objects.order_by('-created')[0]
+        self.assertEqual(Decimal('0'), ticket.deposit)
+
     def test_invalid_subtopic(self):
         c = self.get_client()
         response = c.post(reverse('create_ticket'), {
