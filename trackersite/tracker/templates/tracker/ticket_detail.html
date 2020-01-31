@@ -51,7 +51,7 @@
 {% if ticket.signature_set.count > 0 %}
 <ul class="signatures">
 	{% for sig in ticket.signature_set.all %}
-	{{ sig.signed_text }} --{{ sig.user }}{% if sig.created %}, {{ sig.created }}{% endif %}
+	<li>{{ sig.signed_text }} --{{ sig.user }}{% if sig.created %}, {{ sig.created }}{% endif %}</li>
 	{% endfor %}
 </ul>
 {% endif %}
