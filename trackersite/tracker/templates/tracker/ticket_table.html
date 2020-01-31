@@ -59,10 +59,10 @@
 
 	{% if show_expenses %}{% with accepted=ticket.accepted_expeditures %}
 	<td class="money">{% if ticket.expeditures_amount != 0 %}{{ ticket.expeditures_amount|money }}{% endif %}</td>
-	<td class="money">{% if accepted > 0 %}{{accepted|money}}{% endif %}</td>
+	<td class="money">{% if accepted != 0 %}{{accepted|money}}{% endif %}</td>
 	{% endwith %}{% endif %}
 	{% if show_expenses %}{% with paid=ticket.paid_expeditures %}
-	<td class="money">{% if paid > 0 %}{{paid|money}}{% endif %}</td>
+	<td class="money">{% if paid != 0 %}{{paid|money}}{% endif %}</td>
 	{% endwith %}{% endif %}
 	<td>{{ticket.state_str}}</td>
 
