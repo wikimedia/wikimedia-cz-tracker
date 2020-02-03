@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-01-30 14:59:47+0000\n"
+"PO-Revision-Date: 2020-02-03 14:51:10+0000\n"
 "X-POT-Import-Date: 2020-01-28 19:50:12+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -849,11 +849,11 @@ msgstr ""
 
 #: tracker/models.py:973 tracker/models.py:979
 msgid "title"
-msgstr ""
+msgstr "{{Identical|Title}}"
 
 #: tracker/models.py:974
 msgid "project"
-msgstr ""
+msgstr "{{Identical|Project}}"
 
 #: tracker/models.py:987
 msgid "width"
