@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-01-30 14:59:46+0000\n"
+"PO-Revision-Date: 2020-02-13 11:46:42+0000\n"
 "X-POT-Import-Date: 2020-01-28 19:50:12+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -844,15 +844,15 @@ msgstr ""
 
 #: tracker/models.py:972
 msgid "Link to file usage"
-msgstr ""
+msgstr "Линк ка употреби датотеке"
 
 #: tracker/models.py:973 tracker/models.py:979
 msgid "title"
-msgstr ""
+msgstr "наслов"
 
 #: tracker/models.py:974
 msgid "project"
-msgstr ""
+msgstr "пројекат"
 
 #: tracker/models.py:987
 msgid "width"
@@ -2231,7 +2231,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:37
 msgid "To select more images at once, select the first one, press Shift, and select the last one."
-msgstr ""
+msgstr "Да бисте изабрали више слика одједном, одаберите прву, притисните дугме Shift, па изаберите последњу."
 
 #: tracker/templates/tracker/ticket_media.html:51
 msgid "Load more"
