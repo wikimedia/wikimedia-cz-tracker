@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-01-30 14:59:45+0000\n"
+"PO-Revision-Date: 2020-02-20 15:25:28+0000\n"
 "X-POT-Import-Date: 2020-01-28 19:50:12+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -843,15 +843,15 @@ msgstr "티켓 미디어"
 
 #: tracker/models.py:972
 msgid "Link to file usage"
-msgstr ""
+msgstr "파일을 가리키는 링크"
 
 #: tracker/models.py:973 tracker/models.py:979
 msgid "title"
-msgstr ""
+msgstr "제목"
 
 #: tracker/models.py:974
 msgid "project"
-msgstr ""
+msgstr "프로젝트"
 
 #: tracker/models.py:987
 msgid "width"

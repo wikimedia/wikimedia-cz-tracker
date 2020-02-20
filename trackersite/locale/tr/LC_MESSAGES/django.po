@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-02-03 14:51:09+0000\n"
+"PO-Revision-Date: 2020-02-20 15:25:29+0000\n"
 "X-POT-Import-Date: 2020-01-28 19:50:12+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1932,7 +1932,7 @@ msgstr "Ödenmiş harcamalar"
 #: tracker/templates/tracker/ticket_common_detail.html:14
 #: tracker/templates/tracker/ticket_table.html:37
 msgid "State"
-msgstr "Eyalet"
+msgstr "Durum"
 
 #: tracker/templates/tracker/index.html:31
 #: tracker/templates/tracker/ticket_common_detail.html:9
