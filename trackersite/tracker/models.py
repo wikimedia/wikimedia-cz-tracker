@@ -1881,8 +1881,11 @@ def notify_document(sender, instance, created, **kwargs):
             'document_filename': instance.filename,
             'document_description': instance.description or _('no description'),
         }
-        text = _(
-            'User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>')
+        if created:
+            text = _(
+                'User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href="%(ticket_url)s">%(ticket)s</a>')
+        else:
+            text = _('User <tt>%(user)s</tt> changed document <tt>%(document_filename)s</tt> assigned to ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
         Notification.fire_notification(instance.ticket, text, "document", get_user(True), text_data=text_data)
 
 
