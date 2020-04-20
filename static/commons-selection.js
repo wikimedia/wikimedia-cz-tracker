@@ -96,6 +96,9 @@
 	let previousCheck;
 
 	btnSearch.addEventListener( 'click', async () => {
+		imageContainer.innerHTML = '';
+		loadingText.classList.remove( 'hidden' );
+		loadMoreButton.classList.add( 'hidden' );
 		const name = document.querySelector( '#by-name-input' ).value;
 		const user = document.querySelector( '#by-user-input' ).value;
 		await fetchAndFillImages( name, user );
