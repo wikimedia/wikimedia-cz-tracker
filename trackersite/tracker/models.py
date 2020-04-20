@@ -2,6 +2,7 @@
 import datetime
 import decimal
 import json
+import logging
 import re
 from collections import OrderedDict
 
@@ -1050,6 +1051,7 @@ class MediaInfo(Model):
             mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
         except User.DoesNotExist:
             return
+        logging.getLogger(__name__).info('Removing MediaInfo %d from MediaWiki by user %d' % (media_id, user_id))
         mw.put_content(media_id, MediaInfo.strip_template(mw.get_content(media_id)), minor=True)
 
     @staticmethod
@@ -1079,6 +1081,8 @@ class MediaInfo(Model):
         old = mw.get_content(media.page_id)
 
         if template not in old:
+            logging.getLogger(__name__).info('Adding MediaInfo %d from MediaWiki by user %d' % (media_id, user_id))
+
             old = MediaInfo.strip_template(old)
             insert_to = MediaInfo.get_template_end_position(old, settings.MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE)
 
@@ -1130,6 +1134,7 @@ class MediaInfo(Model):
         super(MediaInfo, self).save(*args, **kwargs)
 
         if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE and not no_update:
+            logging.getLogger(__name__).info('Scheduling adding MediaInfo %d' % self.id)
             MediaInfo.add_to_mediawiki(self.id, get_request().user.id)
 
         if not no_update:
