@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-02-20 15:25:29+0000\n"
+"PO-Revision-Date: 2020-04-20 15:09:21+0000\n"
 "X-POT-Import-Date: 2020-01-28 19:50:12+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -978,7 +978,7 @@ msgstr "Para transferleri için banka hesap bilgileri"
 
 #: tracker/models.py:1258
 msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
-msgstr "Wiki hesabı gibi diğer kişiler; konu yöneticilerinin bazı bilgileri netleştirmeleri gerektiğinde yararlı olabilir"
+msgstr "Viki hesabı gibi diğer kişiler; konu yöneticilerinin bazı bilgileri netleştirmeleri gerektiğinde yararlı olabilir"
 
 #: tracker/models.py:1259 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
@@ -2873,7 +2873,7 @@ msgstr "Yeni parola"
 
 #: users/templates/users/password_change.html:38
 msgid "Password (again)"
-msgstr "Parola (tekrar"
+msgstr "Parola (tekrar)"
 
 #: users/templates/users/password_change.html:42
 #: users/templates/users/password_reset_confirm.html:19

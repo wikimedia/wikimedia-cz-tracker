@@ -5,10 +5,11 @@
 # Author: Gongsoonyee
 # Author: SeoJeongHo
 # Author: Ykhwong
+# Author: 아라
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-02-20 15:25:28+0000\n"
+"PO-Revision-Date: 2020-04-20 15:09:20+0000\n"
 "X-POT-Import-Date: 2020-01-28 19:50:12+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1738,7 +1739,7 @@ msgstr ""
 #: tracker/templates/tracker/fill_details.html:4
 #: tracker/templates/tracker/fill_details.html:9
 msgid "My personal information"
-msgstr "내 개인 정보"
+msgstr "내 개인정보"
 
 #: tracker/templates/tracker/fill_details.html:10
 msgid "To use tracker for expenses, we need a bit more information about you first."

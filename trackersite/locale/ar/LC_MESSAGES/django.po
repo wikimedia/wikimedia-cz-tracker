@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-01-30 14:59:45+0000\n"
+"PO-Revision-Date: 2020-04-20 15:09:19+0000\n"
 "X-POT-Import-Date: 2020-01-28 19:50:12+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -847,15 +847,15 @@ msgstr "وسائط التذاكر"
 
 #: tracker/models.py:972
 msgid "Link to file usage"
-msgstr ""
+msgstr "وصلة لاستخدام الملف"
 
 #: tracker/models.py:973 tracker/models.py:979
 msgid "title"
-msgstr ""
+msgstr "العنوان"
 
 #: tracker/models.py:974
 msgid "project"
-msgstr ""
+msgstr "المشروع"
 
 #: tracker/models.py:987
 msgid "width"
@@ -2237,7 +2237,7 @@ msgstr "بحث"
 
 #: tracker/templates/tracker/ticket_media.html:37
 msgid "To select more images at once, select the first one, press Shift, and select the last one."
-msgstr ""
+msgstr "لاختيار المزيد من الصور في نفس الوقت، اختر الأولى، واضغط Shift، واختر الأخيرة."
 
 #: tracker/templates/tracker/ticket_media.html:51
 msgid "Load more"
