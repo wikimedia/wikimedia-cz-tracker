@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-04-27 15:00:40+0000\n"
+"PO-Revision-Date: 2020-04-30 15:06:10+0000\n"
 "X-POT-Import-Date: 2020-04-20 18:32:05+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -859,7 +859,7 @@ msgstr "المشروع"
 
 #: tracker/models.py:988
 msgid "page id"
-msgstr ""
+msgstr "رقم الصفحة"
 
 #: tracker/models.py:989
 msgid "width"
@@ -1204,7 +1204,7 @@ msgstr "المستخدم <tt>%(user)s</tt> أضاف المستند <tt>%(documen
 #: tracker/models.py:1888
 #, python-format
 msgid "User <tt>%(user)s</tt> changed document <tt>%(document_filename)s</tt> assigned to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "المستخدم <tt>%(user)s</tt> غير الوثيقة <tt>%(document_filename)s</tt> الموكلة للتذكرة <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1905
 #, python-format

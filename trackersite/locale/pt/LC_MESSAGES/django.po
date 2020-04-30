@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-04-27 15:00:41+0000\n"
+"PO-Revision-Date: 2020-04-30 15:06:11+0000\n"
 "X-POT-Import-Date: 2020-04-20 18:32:05+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -856,7 +856,7 @@ msgstr ""
 
 #: tracker/models.py:988
 msgid "page id"
-msgstr ""
+msgstr "id. da página"
 
 #: tracker/models.py:989
 msgid "width"
