@@ -5,11 +5,12 @@
 # Author: Gongsoonyee
 # Author: SeoJeongHo
 # Author: Ykhwong
+# Author: 그냥기여자
 # Author: 아라
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-05-07 15:21:03+0000\n"
+"PO-Revision-Date: 2020-05-18 14:19:30+0000\n"
 "X-POT-Import-Date: 2020-04-20 18:32:05+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -856,7 +857,7 @@ msgstr "프로젝트"
 
 #: tracker/models.py:988
 msgid "page id"
-msgstr ""
+msgstr "페이지 ID"
 
 #: tracker/models.py:989
 msgid "width"
