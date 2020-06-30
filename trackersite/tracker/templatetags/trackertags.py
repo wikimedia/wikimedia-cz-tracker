@@ -60,6 +60,7 @@ def get_total_preex(value, identificator):
     value = Ticket.objects.get(id=int(identificator.strip())).preexpeditures_amount()
     return value
 
+
 # Get sum of expediture amount
 @register.filter
 def get_total_ex(value, identificator):
