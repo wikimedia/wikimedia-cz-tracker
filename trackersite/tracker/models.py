@@ -1018,6 +1018,7 @@ class MediaInfo(Model):
                 self.name = data['query']['pages'][list(data['query']['pages'].keys())[0]]['title']
             except KeyError:
                 self.name = ''
+            self.save()
         return self.name
 
     def __str__(self):
