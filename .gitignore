@@ -4,3 +4,4 @@
 # Prevents from uploading configurations
 /.idea
 /.vscode
+/.uwsgi_plugins_builder
