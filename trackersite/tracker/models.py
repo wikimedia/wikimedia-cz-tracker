@@ -1007,13 +1007,18 @@ class MediaInfo(Model):
 
     @cached_property
     def _as_str(self):
-        mw = MediaWiki(user=None)
-        data = mw.request({
-            "action": "query",
-            "format": "json",
-            "pageids": [self.media_id]
-        }).json()
-        return data['query']['pages'][list(data['query']['pages'].keys())[0]]['title']
+        if self.name == '' or self.name is None:
+            mw = MediaWiki(user=None)
+            data = mw.request({
+                "action": "query",
+                "format": "json",
+                "pageids": [self.media_id]
+            }).json()
+            try:
+                self.name = data['query']['pages'][list(data['query']['pages'].keys())[0]]['title']
+            except KeyError:
+                self.name = ''
+        return self.name
 
     def __str__(self):
         return self._as_str
