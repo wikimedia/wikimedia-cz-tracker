@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-05-26 15:22:35+0000\n"
+"PO-Revision-Date: 2020-07-06 16:57:56+0000\n"
 "X-POT-Import-Date: 2020-04-20 18:32:05+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -893,7 +893,7 @@ msgstr "muhasebe bilgisi"
 
 #: tracker/models.py:1176
 msgid "Accounting info, this is editable only through admin field"
-msgstr "Muhasebe bilgileri, bu sadece yönetici alanı üzerinden düzenlenebilir"
+msgstr "Muhasebe bilgileri, bu yalnızca hizmetli alanı üzerinden düzenlenebilir"
 
 #: tracker/models.py:1178 tracker/models.py:1201
 msgid "wage"

@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 #
 # Author: Martin Urbanec
+# Author: Patriot Kur
 # Author: Pols12
 # Author: Robby
 # Author: Verdy p
@@ -10,7 +11,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-05-07 15:21:05+0000\n"
+"PO-Revision-Date: 2020-07-06 16:57:56+0000\n"
 "X-POT-Import-Date: 2020-04-20 18:32:05+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2235,7 +2236,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:34
 msgid "Search"
-msgstr "{{Identical|Search}}"
+msgstr "{{Identical|Bınəv}}"
 
 #: tracker/templates/tracker/ticket_media.html:37
 msgid "To select more images at once, select the first one, press Shift, and select the last one."
