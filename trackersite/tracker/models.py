@@ -1072,6 +1072,8 @@ class MediaInfo(Model):
             'podtéma': media.ticket.subtopic or '',
             'tiket': media.ticket.id,
         }
+        if media.created is not None:
+            parameters_unsorted['rok'] = media.created.year
         parameters = OrderedDict(sorted(parameters_unsorted.items(), key=lambda t: t[0]))
 
         template = '{{%s' % settings.MEDIAINFO_MEDIAWIKI_TEMPLATE
