@@ -75,6 +75,7 @@ class MediaWiki():
             "summary": summary,
             "token": self.get_token(),
             "minor": minor,
+            "bot": True,
         }
 
         return self.request(payload)
