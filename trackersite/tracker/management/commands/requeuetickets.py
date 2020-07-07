@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 from tracker.models import Ticket, MediaInfo
 from os import getcwd, path
+from django.conf import settings
 
 
 class Command(BaseCommand):
@@ -9,6 +10,7 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('ticket_ids', nargs='*', type=int)
         parser.add_argument('--ticket-id-file', type=str)
+        parser.add_argument('--only-add-to-mediawiki', dest='only_add_to_mediawiki', default=False)
 
     def handle(self, *args, **options):
         ticket_ids = []
@@ -28,7 +30,11 @@ class Command(BaseCommand):
         for ticket_id in ticket_ids:
             try:
                 for mediainfo in MediaInfo.objects.filter(ticket_id=ticket_id):
-                    mediainfo.save()
+                    MediaInfo.add_to_mediawiki(mediainfo.id, settings.TRACKER_MAINTENANCE_USER_ID)
+                    if options['only_add_to_mediawiki']:
+                        continue
+                    # TODO
+
             except Ticket.DoesNotExist:
                 raise CommandError('Ticket %s does not exist' % ticket_id)
         self.stdout.write('Done.')
