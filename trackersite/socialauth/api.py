@@ -60,7 +60,10 @@ class MediaWiki():
             "rvslots": rvslot
         }
 
-        data = self.request(payload).json()["query"]["pages"]
+        resp = self.request(payload).json()
+        if "query" not in resp:
+            return None
+        data = resp["query"]["pages"]
         if "revisions" not in data[list(data.keys())[0]]:
             raise ValueError("The requested content doesn't exist")
 
