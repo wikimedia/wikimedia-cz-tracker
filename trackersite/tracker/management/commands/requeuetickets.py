@@ -27,7 +27,7 @@ class Command(BaseCommand):
         self.stdout.write('Got %s ticket ids. Processing...' % str(len(ticket_ids)))
         for ticket_id in ticket_ids:
             try:
-                for mediainfo in MediaInfo.objects.filter(id=ticket_id):
+                for mediainfo in MediaInfo.objects.filter(ticket_id=ticket_id):
                     mediainfo.save()
             except Ticket.DoesNotExist:
                 raise CommandError('Ticket %s does not exist' % ticket_id)
