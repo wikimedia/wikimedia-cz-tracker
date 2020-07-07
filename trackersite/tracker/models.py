@@ -1087,6 +1087,8 @@ class MediaInfo(Model):
             return
 
         old = mw.get_content(media.page_id)
+        if old is None:
+            return
 
         if template not in old:
             logging.getLogger(__name__).info('Adding MediaInfo %d from MediaWiki by user %d' % (media_id, user_id))
