@@ -82,6 +82,9 @@
 	const loadingText = document.querySelector( '#loading' );
 
 	const btnSearch = document.querySelector( '#btn-search' );
+	const btnSelectAll = document.querySelector( '#btn-select-all' );
+	const btnDeselectAll = document.querySelector( '#btn-deselect-all' );
+	const btnInvertSelection = document.querySelector( '#btn-invert-all' );
 
 	const existingImages = await ( await fetch( `/api/tracker/mediainfo/?ticket=${ ticketNumber }` ) ).json();
 	let existingImageNames = [];
@@ -119,6 +122,24 @@
 		if ( e.key === 'Shift' ) {
 			shiftPressed = false;
 		}
+	} );
+
+	btnSelectAll.addEventListener( 'click', () => {
+		document.querySelectorAll( '.search-result > input' ).forEach( ( el ) => {
+			el.checked = true;
+		} );
+	} );
+
+	btnDeselectAll.addEventListener( 'click', () => {
+		document.querySelectorAll( '.search-result > input' ).forEach( ( el ) => {
+			el.checked = false;
+		} );
+	} );
+
+	btnInvertSelection.addEventListener( 'click', () => {
+		document.querySelectorAll( '.search-result > input' ).forEach( ( el ) => {
+			el.checked = !el.checked;
+		} );
 	} );
 
 	loadMoreButton.addEventListener( 'click', async () => {
