@@ -4,12 +4,12 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-05-07 15:21:03+0000\n"
+"PO-Revision-Date: 2020-07-20 18:00:07+0000\n"
 "X-POT-Import-Date: 2019-08-26 05:26:53+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: qqq\n"
-"X-Generator: MediaWiki 1.35.0-alpha; Translate 2020-04-20\n"
+"X-Generator: MediaWiki 1.36.0-alpha; Translate 2020-04-20\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/commons-selection.js:140
