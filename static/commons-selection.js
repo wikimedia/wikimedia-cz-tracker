@@ -333,6 +333,13 @@
 			}
 		}
 
+		if ( resBody.query.allimages.length === 0 ) {
+			window.showMessage(
+				gettext( 'Your account does not have any uploads at Wikimedia Commons. Upload some files first!' ),
+				'alert-danger'
+			);
+		}
+
 		return {
 			images: resBody.query.allimages,
 			'continue':
