@@ -5,15 +5,19 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-07-20 18:00:07+0000\n"
-"X-POT-Import-Date: 2019-08-26 05:26:53+0000\n"
+"PO-Revision-Date: 2020-08-03 17:55:08+0000\n"
+"X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
-"X-Generator: MediaWiki 1.36.0-alpha; Translate 2020-04-20\n"
+"X-Generator: MediaWiki 1.36.0-alpha; Translate 2020-07-20\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: static/commons-selection.js:140
+#: static/commons-selection.js:143
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
 msgstr "Er is een onbekende fout opgetreden tijdens het uploaden van uw afbeeldingen. Neem contact op met de systeembeheerder."
+
+#: static/commons-selection.js:317
+msgid "Your account does not have any uploads at Wikimedia Commons. Upload some files first!"
+msgstr ""
 

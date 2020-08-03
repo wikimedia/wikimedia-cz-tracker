@@ -1,7 +1,7 @@
-# Translation of Tracker - JavaScript to Macedonian (македонски)
+# Translation of Tracker - JavaScript to Croatian (hrvatski)
 # Exported from translatewiki.net
 #
-# Author: Bjankuloski06
+# Author: Bugoslav
 msgid ""
 msgstr ""
 ""
@@ -9,15 +9,15 @@ msgstr ""
 "X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: mk\n"
+"Language: hr\n"
 "X-Generator: MediaWiki 1.36.0-alpha; Translate 2020-07-20\n"
-"Plural-Forms: nplurals=2; plural=(n == 1 || n%10 == 1) ? 0 : 1;\n"
+"Plural-Forms: nplurals=3; plural=(n%10 == 1 && n%100 != 11) ? 0 : ( (n%10 >= 2 && n%10 <= 4 && (n%100 < 10 || n%100 >= 20)) ? 1 : 2 );\n"
 
 #: static/commons-selection.js:143
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
-msgstr "Се јави непознат агрешка при добивањето на сликите што ги подигнавте. Обратете се кај администраторот на опслужувачот."
+msgstr ""
 
 #: static/commons-selection.js:317
 msgid "Your account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr ""
+msgstr "Vaš račun nema nijedno postavljanje na Zajednički poslužitelj Wikimedije. Prvo postavite poneku datoteku!"
 

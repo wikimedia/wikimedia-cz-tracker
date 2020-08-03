@@ -1,7 +1,7 @@
-# Translation of Tracker - JavaScript to Macedonian (македонски)
+# Translation of Tracker - JavaScript to Japanese (日本語)
 # Exported from translatewiki.net
 #
-# Author: Bjankuloski06
+# Author: Tmv
 msgid ""
 msgstr ""
 ""
@@ -9,15 +9,15 @@ msgstr ""
 "X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: mk\n"
+"Language: ja\n"
 "X-Generator: MediaWiki 1.36.0-alpha; Translate 2020-07-20\n"
-"Plural-Forms: nplurals=2; plural=(n == 1 || n%10 == 1) ? 0 : 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/commons-selection.js:143
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
-msgstr "Се јави непознат агрешка при добивањето на сликите што ги подигнавте. Обратете се кај администраторот на опслужувачот."
+msgstr ""
 
 #: static/commons-selection.js:317
 msgid "Your account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr ""
+msgstr "あなたのアカウントはウィキペディア・コモンズにまだアップロードをしていません。まず何かのファイルをアップロードしてください！"
 
