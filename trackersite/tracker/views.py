@@ -1844,11 +1844,11 @@ def sendgrid_handler(request):
     email_type = envelope['to'][0].split('@')[0]
     logging.info('Tracker commanded to email users, sender %s, subject %s, type %s' % (sender, subject, email_type))
     if email_type == "tracker-root":
-        email_tracker_root(sender, request.POST.get('html'))
+        email_tracker_root(sender, subject, request.POST.get('html'))
     elif email_type == "tracker-users":
-        email_all_users(sender, request.POST.get('html'))
+        email_all_users(sender, subject, request.POST.get('html'))
     elif email_type == "tracker-admins":
-        email_all_admins(sender, request.POST.get('html'))
+        email_all_admins(sender, subject, request.POST.get('html'))
     return HttpResponse('Ok')
 
 
