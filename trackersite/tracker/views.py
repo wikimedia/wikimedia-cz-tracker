@@ -1817,7 +1817,7 @@ def update_media_error(request, ticket_id):
 def email_all_users(request):
     if request.GET.get('token') != settings.MAIL_ALL_TOKEN:
         raise PermissionDenied()
-    mail_html = request.POST['body-html'] + "<hr><small>" + _('This mandatory notice was sent to all active Tracker users.') + "</small>"
+    mail_html = request.POST['html'] + "<hr><small>" + _('This mandatory notice was sent to all active Tracker users.') + "</small>"
     mail_text = strip_tags(mail_html)
     mail_subject = '[Tracker] ' + request.POST['Subject']
     for u in User.objects.filter(is_active=True):
@@ -1829,7 +1829,7 @@ def email_all_users(request):
 def email_all_admins(request):
     if request.GET.get('token') != settings.MAIL_ALL_TOKEN:
         raise PermissionDenied()
-    mail_html = request.POST['body-html'] + "<hr><small>" + _('This mandatory notice was sent to all active Tracker administrators.') + "</small>"
+    mail_html = request.POST['html'] + "<hr><small>" + _('This mandatory notice was sent to all active Tracker administrators.') + "</small>"
     mail_text = strip_tags(mail_html)
     mail_subject = '[Tracker] ' + request.POST['Subject']
     users = set()
@@ -1847,7 +1847,7 @@ def email_all_admins(request):
 def email_tracker_root(request):
     if request.GET.get('token') != settings.MAIL_ALL_TOKEN:
         raise PermissionDenied()
-    mail_html = request.POST['body-html'] + "<hr><small>" + _('This mandatory notice was sent to all active Tracker roots.') + "</small>"
+    mail_html = request.POST['html'] + "<hr><small>" + _('This mandatory notice was sent to all active Tracker roots.') + "</small>"
     mail_text = strip_tags(mail_html)
     mail_subject = '[Tracker] ' + request.POST['Subject']
     mail_admins(mail_subject, mail_text, html_message=mail_html)
