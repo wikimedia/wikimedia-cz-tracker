@@ -1842,6 +1842,7 @@ def sendgrid_handler(request):
         email_all_users(sender, request.POST.get('html'))
     elif email_type == "tracker-admins":
         email_all_admins(sender, request.POST.get('html'))
+    return HttpResponse('Ok')
 
 
 def email_all_users(sender, subject, html_message):
@@ -1850,7 +1851,6 @@ def email_all_users(sender, subject, html_message):
     mail_subject = '[Tracker] ' + subject
     for u in User.objects.filter(is_active=True):
         u.email_user(mail_subject, mail_text, html_message=mail_html)
-    return HttpResponse('Ok')
 
 
 def email_all_admins(sender, subject, html_message):
@@ -1865,12 +1865,9 @@ def email_all_admins(sender, subject, html_message):
     for u in users:
         u.email_user(mail_subject, mail_text, html_message=mail_html)
 
-    return HttpResponse('Ok')
-
 
 def email_tracker_root(sender, subject, html_message):
     mail_html = html_message + "<hr><small>" + _('This mandatory notice was sent to all active Tracker roots.') + "</small>"
     mail_text = strip_tags(mail_html)
     mail_subject = '[Tracker] ' + subject
     mail_admins(mail_subject, mail_text, html_message=mail_html)
-    return HttpResponse('Ok')
