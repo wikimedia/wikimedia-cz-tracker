@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-08-03 17:55:08+0000\n"
+"PO-Revision-Date: 2020-08-07 07:55:51+0000\n"
 "X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,47 +56,47 @@ msgstr "CZK"
 
 #: common_settings.py:141
 msgid "English"
-msgstr "Englanti"
+msgstr "englanti"
 
 #: common_settings.py:142
 msgid "Czech"
-msgstr "Tšekki"
+msgstr "tšekki"
 
 #: common_settings.py:143
 msgid "French"
-msgstr "Ranska"
+msgstr "ranska"
 
 #: common_settings.py:144
 msgid "Arabic"
-msgstr "Arabia"
+msgstr "arabia"
 
 #: common_settings.py:145
 msgid "Danish"
-msgstr "Tanska"
+msgstr "tanska"
 
 #: common_settings.py:146
 msgid "Finnish"
-msgstr "Suomi"
+msgstr "suomi"
 
 #: common_settings.py:147
 msgid "Korean"
-msgstr "Korea"
+msgstr "korea"
 
 #: common_settings.py:148
 msgid "Portuguese"
-msgstr "Portugali"
+msgstr "portugali"
 
 #: common_settings.py:149
 msgid "Swedish"
-msgstr "Ruotsi"
+msgstr "ruotsi"
 
 #: common_settings.py:150
 msgid "Chinese-traditional"
-msgstr ""
+msgstr "perinteinen kiina"
 
 #: common_settings.py:151
 msgid "Spanish"
-msgstr ""
+msgstr "espanja"
 
 #: customcomments/forms.py:21
 msgid "Your name"
@@ -223,7 +223,7 @@ msgstr "Vaihda kieltä"
 
 #: templates/choose_language.html:23
 msgid "Go"
-msgstr ""
+msgstr "Siirry"
 
 #: templates/comments/form.html:17 templates/comments/preview.html:31
 msgid "Post"
@@ -235,7 +235,7 @@ msgstr "Esikatselu"
 
 #: templates/comments/preview.html:4 templates/comments/preview.html:15
 msgid "Preview your comment"
-msgstr ""
+msgstr "Esikatsele kommenttiasi"
 
 #: templates/comments/preview.html:13
 msgid "Please correct the error below"
@@ -850,7 +850,7 @@ msgstr ""
 
 #: tracker/models.py:976
 msgid "project"
-msgstr ""
+msgstr "projekti"
 
 #: tracker/models.py:989
 msgid "page id"
@@ -1278,7 +1278,7 @@ msgstr[1] ""
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:20
 msgid "Delete?"
-msgstr ""
+msgstr "Poista?"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:34
 #: tracker/templates/tracker/admin_index_override.html:27
@@ -1287,11 +1287,11 @@ msgstr "Muuta"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:34
 msgid "View"
-msgstr ""
+msgstr "Näytä"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:36
 msgid "View on site"
-msgstr ""
+msgstr "Näytä sivustolla"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:95
 #: tracker/templates/tracker/dumpaccounts/index.html:28
@@ -1648,7 +1648,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:19
 #: tracker/templates/tracker/ticket_table.html:33
 msgid "Preexpeditures"
-msgstr ""
+msgstr "Ennakkomaksut"
 
 #: tracker/templates/tracker/export.html:82
 #: tracker/templates/tracker/export.html:102
@@ -1755,11 +1755,11 @@ msgstr ""
 
 #: tracker/templates/tracker/fill_details.html:21
 msgid "save & continue"
-msgstr ""
+msgstr "tallenna & jatka"
 
 #: tracker/templates/tracker/fill_details.html:22
 msgid "skip"
-msgstr ""
+msgstr "ohita"
 
 #: tracker/templates/tracker/fill_details.html:25
 #: tracker/templates/tracker/user_details_change.html:23
@@ -1898,7 +1898,7 @@ msgstr "esimerkkitiedosto"
 
 #: tracker/templates/tracker/import.html:41
 msgid "Preexpenses"
-msgstr ""
+msgstr "Ennakkokulut"
 
 #: tracker/templates/tracker/import.html:47
 msgid "Expenses"
@@ -2241,15 +2241,15 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:39
 msgid "Select all"
-msgstr ""
+msgstr "Valitse kaikki"
 
 #: tracker/templates/tracker/ticket_media.html:40
 msgid "Deselect all"
-msgstr ""
+msgstr "Poista kaikki valinnat"
 
 #: tracker/templates/tracker/ticket_media.html:41
 msgid "Invert selection"
-msgstr ""
+msgstr "Käänteinen valinta"
 
 #: tracker/templates/tracker/ticket_media.html:54
 msgid "Load more"
@@ -2257,7 +2257,7 @@ msgstr "Lataa lisää"
 
 #: tracker/templates/tracker/ticket_media.html:55
 msgid "Loading..."
-msgstr ""
+msgstr "Ladataan..."
 
 #: tracker/templates/tracker/ticket_media.html:60
 msgid "Choose selected photos"
@@ -2333,11 +2333,11 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_show_media.html:67
 msgid "Category"
-msgstr ""
+msgstr "Luokka"
 
 #: tracker/templates/tracker/ticket_show_media.html:68
 msgid "Number"
-msgstr ""
+msgstr "Numero"
 
 #: tracker/templates/tracker/ticket_table.html:18
 #: tracker/templates/tracker/user_list.html:13

@@ -3,6 +3,7 @@
 #
 # Author: Arbormedi
 # Author: BaRaN6161 TURK
+# Author: Cobija
 # Author: Hedda
 # Author: Mirzali
 # Author: Okkerem
@@ -10,7 +11,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-08-03 17:55:09+0000\n"
+"PO-Revision-Date: 2020-08-07 07:55:52+0000\n"
 "X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2328,7 +2329,7 @@ msgstr "Vikiveri öğe sayısı"
 
 #: tracker/templates/tracker/ticket_show_media.html:57
 msgid "Number of unique Wikidata items"
-msgstr "Benzersiz Vikiveri öğesi sayısı"
+msgstr "Benzersiz Vikiveri ögesi sayısı"
 
 #: tracker/templates/tracker/ticket_show_media.html:63
 msgid "Photos per category"
