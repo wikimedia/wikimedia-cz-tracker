@@ -14,6 +14,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.views import redirect_to_login
 from django.core.exceptions import PermissionDenied
+from django.core.mail import mail_admins
 from django.db import models, connection
 from django.db.models import Q
 from django.db.models.functions import Coalesce
@@ -1839,4 +1840,15 @@ def email_all_admins(request):
     for u in users:
         u.email_user(mail_subject, mail_text, html_message=mail_html)
 
+    return HttpResponse('Ok')
+
+
+@csrf_exempt
+def email_tracker_root(request):
+    if request.GET.get('token') != settings.MAIL_ALL_TOKEN:
+        raise PermissionDenied()
+    mail_html = request.POST['body-html'] + "<hr><small>" + _('This mandatory notice was sent to all active Tracker roots.') + "</small>"
+    mail_text = strip_tags(mail_html)
+    mail_subject = '[Tracker] ' + request.POST['Subject']
+    mail_admins(mail_subject, mail_text, html_message=mail_html)
     return HttpResponse('Ok')
