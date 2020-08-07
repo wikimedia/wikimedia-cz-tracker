@@ -1819,9 +1819,7 @@ def sendgrid_handler(request):
     if request.GET.get('token') != settings.MAIL_ALL_TOKEN:
         raise PermissionDenied()
 
-    logger = logging.getLogger(__name__)
-
-    logger.debug('Tracker was commanded to email its users, processing started')
+    logging.getLogger(__name__).debug('Tracker was commanded to email its users, processing started')
 
     headers = request.POST.get('headers').split('\n')
     sender = None
@@ -1839,8 +1837,11 @@ def sendgrid_handler(request):
     if subject is None:
         subject = _("Notice from Tracker")
 
+    if sender is None:
+        sender = request.POST.get('from')
+
     envelope = json.loads(request.POST.get('envelope'))
-    email_type = envelope['to'][0]
+    email_type = envelope['to'][0].split('@')[0]
     logging.info('Tracker commanded to email users, sender %s, subject %s, type %s' % (sender, subject, email_type))
     if email_type == "tracker-root":
         email_tracker_root(sender, request.POST.get('html'))
