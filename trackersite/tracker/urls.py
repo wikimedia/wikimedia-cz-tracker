@@ -54,7 +54,5 @@ urlpatterns = [
     path('import/', tracker.views.importcsv, name='importcsv'),
     path('tickets/json/<str:lang>.json', tracker.views.tickets_json, name='tickets_json'),
     path('api/mediawiki/', tracker.views.mediawiki_api, name='mediawiki_api'),
-    path('api/email_all', tracker.views.email_all_users, name='email_all_users'),
-    path('api/email_admin', tracker.views.email_all_admins, name='email_all_admins'),
-    path('api/email_root', tracker.views.email_tracker_root, name='email_tracker_root')
+    path('api/email_users', tracker.views.sendgrid_handler, name='sendgrid_handler'),
 ]

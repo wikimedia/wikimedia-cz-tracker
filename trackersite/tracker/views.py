@@ -1814,24 +1814,49 @@ def update_media_error(request, ticket_id):
 
 
 @csrf_exempt
-def email_all_users(request):
+def sendgrid_handler(request):
     if request.GET.get('token') != settings.MAIL_ALL_TOKEN:
         raise PermissionDenied()
-    mail_html = request.POST['html'] + "<hr><small>" + _('This mandatory notice was sent to all active Tracker users.') + "</small>"
+
+    headers = request.POST.get('headers').split('\n')
+    sender = None
+    subject = None
+    for header_raw in headers:
+        header = header_raw.split(':')
+        header_name = header[0].strip()
+        if header_name == "X-Original-From":
+            sender = header[1].strip()
+        elif header_name == "Subject":
+            subject = header[1].strip()
+        if sender is not None and subject is not None:
+            break
+
+    if subject is None:
+        subject = _("Notice from Tracker")
+
+    envelope = json.loads(request.POST.get('envelope'))
+    email_type = envelope['to'][0]
+    if email_type == "tracker-root":
+        email_tracker_root(sender, request.POST.get('html'))
+    elif email_type == "tracker-users":
+        email_all_users(sender, request.POST.get('html'))
+    elif email_type == "tracker-admins":
+        email_all_admins(sender, request.POST.get('html'))
+
+
+def email_all_users(sender, subject, html_message):
+    mail_html = html_message + "<hr><small>" + _('This mandatory notice was sent to all active Tracker users.') + "</small>"
     mail_text = strip_tags(mail_html)
-    mail_subject = '[Tracker] ' + request.POST['Subject']
+    mail_subject = '[Tracker] ' + subject
     for u in User.objects.filter(is_active=True):
         u.email_user(mail_subject, mail_text, html_message=mail_html)
     return HttpResponse('Ok')
 
 
-@csrf_exempt
-def email_all_admins(request):
-    if request.GET.get('token') != settings.MAIL_ALL_TOKEN:
-        raise PermissionDenied()
-    mail_html = request.POST['html'] + "<hr><small>" + _('This mandatory notice was sent to all active Tracker administrators.') + "</small>"
+def email_all_admins(sender, subject, html_message):
+    mail_html = html_message + "<hr><small>" + _('This mandatory notice was sent to all active Tracker administrators.') + "</small>"
     mail_text = strip_tags(mail_html)
-    mail_subject = '[Tracker] ' + request.POST['Subject']
+    mail_subject = '[Tracker] ' + subject
     users = set()
     for topic in Topic.objects.filter(open_for_tickets=True):
         for u in topic.admin.filter(is_active=True):
@@ -1843,12 +1868,9 @@ def email_all_admins(request):
     return HttpResponse('Ok')
 
 
-@csrf_exempt
-def email_tracker_root(request):
-    if request.GET.get('token') != settings.MAIL_ALL_TOKEN:
-        raise PermissionDenied()
-    mail_html = request.POST['html'] + "<hr><small>" + _('This mandatory notice was sent to all active Tracker roots.') + "</small>"
+def email_tracker_root(sender, subject, html_message):
+    mail_html = html_message + "<hr><small>" + _('This mandatory notice was sent to all active Tracker roots.') + "</small>"
     mail_text = strip_tags(mail_html)
-    mail_subject = '[Tracker] ' + request.POST['Subject']
+    mail_subject = '[Tracker] ' + subject
     mail_admins(mail_subject, mail_text, html_message=mail_html)
     return HttpResponse('Ok')
