@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-08-03 17:55:08+0000\n"
+"PO-Revision-Date: 2020-08-13 17:30:21+0000\n"
 "X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2251,15 +2251,15 @@ msgstr "لاختيار المزيد من الصور في نفس الوقت، ا�
 
 #: tracker/templates/tracker/ticket_media.html:39
 msgid "Select all"
-msgstr ""
+msgstr "اختر الكل"
 
 #: tracker/templates/tracker/ticket_media.html:40
 msgid "Deselect all"
-msgstr ""
+msgstr "أزل اختيار الكل"
 
 #: tracker/templates/tracker/ticket_media.html:41
 msgid "Invert selection"
-msgstr ""
+msgstr "اعكس الاختيار"
 
 #: tracker/templates/tracker/ticket_media.html:54
 msgid "Load more"

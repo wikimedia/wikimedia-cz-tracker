@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-08-03 17:55:07+0000\n"
+"PO-Revision-Date: 2020-08-13 17:30:21+0000\n"
 "X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,5 +19,5 @@ msgstr "حدث خطأ غير معروف أثناء جلب الصور التي ر
 
 #: static/commons-selection.js:317
 msgid "Your account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr ""
+msgstr "حسابك ليس لديه أي مرفوعات في ويكيميديا كومنز. ارفع بعض الملفات أولا!"
 

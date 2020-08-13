@@ -1,13 +1,14 @@
 # Translation of Tracker - main to Swedish (svenska)
 # Exported from translatewiki.net
 #
+# Author: Sabelöga
 # Author: Tölvuforritari
 # Author: Umeaboy
 # Author: WikiPhoenix
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-08-03 17:55:09+0000\n"
+"PO-Revision-Date: 2020-08-13 17:30:22+0000\n"
 "X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -54,7 +55,7 @@ msgstr ""
 #: common_settings.py:138
 #: tracker/templates/tracker/ticket_common_detail.html:18
 msgid "CZK"
-msgstr ""
+msgstr "CZK"
 
 #: common_settings.py:141
 msgid "English"
@@ -111,7 +112,7 @@ msgstr "Kommentar"
 
 #: socialauth/pipeline.py:15
 msgid "Successfully linked your wikimedia account!"
-msgstr "Du har länkat till Wikimedia-konto!"
+msgstr "Du har länkat ditt Wikimedia-konto!"
 
 #: socialauth/pipeline.py:21
 msgid "Your wikimedia account is no longer linked."
@@ -868,7 +869,7 @@ msgstr "höjd"
 
 #: tracker/models.py:993
 msgid "cannonical title"
-msgstr "canonical-titel"
+msgstr "kanonisk titel"
 
 #: tracker/models.py:1184
 msgid "Ticket this expediture belongs to"
@@ -969,7 +970,7 @@ msgstr ""
 
 #: tracker/models.py:1307
 msgid "Username on mediawiki"
-msgstr ""
+msgstr "Användarnamn på MediaWiki"
 
 #: tracker/models.py:1308 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
@@ -1191,7 +1192,7 @@ msgstr ""
 
 #: tracker/models.py:1895 tracker/models.py:1915
 msgid "no description"
-msgstr ""
+msgstr "ingen beskrivning"
 
 #: tracker/models.py:1899
 #, python-format
@@ -1757,11 +1758,11 @@ msgstr ""
 
 #: tracker/templates/tracker/fill_details.html:21
 msgid "save & continue"
-msgstr "Spara och fortsätt"
+msgstr "spara och fortsätt"
 
 #: tracker/templates/tracker/fill_details.html:22
 msgid "skip"
-msgstr "Hoppa över"
+msgstr "hoppa över"
 
 #: tracker/templates/tracker/fill_details.html:25
 #: tracker/templates/tracker/user_details_change.html:23
@@ -2267,7 +2268,7 @@ msgstr "Välj markerade foton"
 
 #: tracker/templates/tracker/ticket_media.html:63
 msgid "Remove existing media"
-msgstr "Ta bort befintligt media"
+msgstr "Ta bort befintlig media"
 
 #: tracker/templates/tracker/ticket_media.html:64
 msgid "It can take up to five minutes for the images you added to show here."
@@ -2323,7 +2324,7 @@ msgstr "Antal användningar"
 
 #: tracker/templates/tracker/ticket_show_media.html:53
 msgid "Number of Wikidata items"
-msgstr "Antal Wikimediaobjekt"
+msgstr "Antal Wikidataobjekt"
 
 #: tracker/templates/tracker/ticket_show_media.html:57
 msgid "Number of unique Wikidata items"
