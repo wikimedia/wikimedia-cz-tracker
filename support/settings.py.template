@@ -135,6 +135,7 @@ GOOGLE_ANALYTICS = None
 SOCIAL_AUTH_MEDIAWIKI_KEY = '02bcfd66d15941e4a95c4d77d7325091' # localhost-only key
 SOCIAL_AUTH_MEDIAWIKI_SECRET = '40019c81ef2f2505418e18e22469268ff2ce81ca' # localhost-only secret
 SOCIAL_AUTH_MEDIAWIKI_URL = 'https://meta.wikimedia.org/w/index.php'
+SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['groups',]
 
 MEDIAINFO_MEDIAWIKI_ARTICLE = 'https://commons.wikimedia.org/wiki/'
 MEDIAINFO_MEDIAWIKI_API = 'https://commons.wikimedia.org/w/api.php' # MediaWiki endpoint used as API endpoint for MediaWiki class, so the /api/mediawiki proxy won't be an open proxy
