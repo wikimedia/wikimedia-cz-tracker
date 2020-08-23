@@ -317,23 +317,25 @@
 
 		const requestUrl = `/api/mediawiki/${ toQueryString( requestParams ) }`;
 		let resBody = await ( await fetch( requestUrl ) ).json();
+		let images = resBody.query.allimages;
 		if ( name !== '' ) {
 			// Filter names locally, can't use aiprefix, because that requires ordering by name
 			// and not by timestamp.
-			let toRemove = [];
+			let toKeep = [];
 			for ( let i = 0; i < resBody.query.allimages.length; i++ ) {
 				const element = resBody.query.allimages[ i ];
-				if ( !element.name.startsWith( name ) ) {
-					toRemove.push( i );
+				if ( element.name.startsWith( name ) ) {
+					toKeep.push( i );
 				}
 			}
-			for ( let i = 0; i < toRemove.length; i++ ) {
-				const index = toRemove[ i ];
-				resBody.query.allimages.splice( index );
+
+			images = [];
+			for ( let i = 0; i < toKeep.length; i++ ) {
+				images.push( resBody.query.allimages[ toKeep[ i ] ] );
 			}
 		}
 
-		if ( resBody.query.allimages.length === 0 ) {
+		if ( images.length === 0 ) {
 			window.showMessage(
 				gettext( 'Your account does not have any uploads at Wikimedia Commons. Upload some files first!' ),
 				'alert-danger'
@@ -341,7 +343,7 @@
 		}
 
 		return {
-			images: resBody.query.allimages,
+			images: images,
 			'continue':
 				resBody.continue ?
 					resBody.continue.aicontinue :
