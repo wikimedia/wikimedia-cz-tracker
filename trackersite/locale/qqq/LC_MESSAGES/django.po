@@ -1,7 +1,9 @@
 # Translation of Tracker - main to Message documentation (Message documentation)
 # Exported from translatewiki.net
 #
+# Author: Kizule
 # Author: Martin Urbanec
+# Author: MuratTheTurkish
 # Author: Patriot Kur
 # Author: Pols12
 # Author: Robby
@@ -11,7 +13,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-08-03 17:55:10+0000\n"
+"PO-Revision-Date: 2020-09-14 15:17:30+0000\n"
 "X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2237,7 +2239,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:34
 msgid "Search"
-msgstr "{{Identical|Bınəv}}"
+msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:37
 msgid "To select more images at once, select the first one, press Shift, and select the last one."
