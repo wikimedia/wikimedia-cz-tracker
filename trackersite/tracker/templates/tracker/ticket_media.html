@@ -7,32 +7,40 @@
 <section class="commons-selection">
 	<p class="nav"><a href="{% url "ticket_list" %}" class="btn btn-primary">{% trans "index" %}</a> &gt; <a href="{% url "ticket_detail" ticket.id %}">{{ticket.name}}</a> &gt;</p>
 	<h2>{% trans "Add new media" %}</h2>
-	<div class="row">
-		<div class="col-md-6">
-			<form action="javascript:void(0);">
-				<label for="by-name-input">{% trans "Filename prefix" %}</label>
-				<input type="search" name="by-name-input" id="by-name-input">
-			</form>
-			<form action="javascript:void(0);">
-				<label for="by-user-input">{% trans "Mediawiki username" %}</label>
-				<input type="text" name="by-user-input" id="by-user-input">
-			</form>
-		</div>
-		<div class="col-md-6">
-			<form action="javascript:void(0);">
+	<form action="javascript:void(0);">
+		<div class="row">
+			<div class="col-md-4">
+				<h4>{% trans "Find by" %}:</h4>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="find-by" id="find-by-user" checked value="user">
+					<label for="find-by-user">{% trans "Mediawiki username" %}</label>
+				</div>
+
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="find-by" id="find-by-filename" value="filename">
+					<label for="find-by-filename">{% trans "Filename prefix" %}</label>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<label id="find-by-label">{% trans "Mediawiki username" %}</label>
+				<input class="form-control" type="text" name="find-by-data">
+			</div>
+			<div class="col-md-4">
 				<div class="form-group">
 					<label for="limit">{% trans "Number of images to fetch" %}</label>
-					<input type="number" name="limit" value=25 max=500 id="limit">
+					<input class="form-control" type="number" name="limit" value=25 max=500 id="limit">
 				</div>
 				<div class="form-group">
 					<label for="category">{% trans "Category to filter by" %}</label>
-					<input type="text" name="category" id="category">
+					<input class="form-control" type="text" name="category" id="category">
 				</div>
-			</form>
+			</div>
 		</div>
-		<!-- TODO: Change back to btn-secondary, once we change its color -->
-		<button type="submit" id="btn-search" class="btn btn-success form-control">{% trans "Search" %}</button>
-	</div>
+		<div class="row">
+			<!-- TODO: Change back to btn-secondary, once we change its color -->
+			<button type="submit" id="btn-search" class="btn btn-success form-control">{% trans "Search" %}</button>
+		</div>
+	</form>
 	<p>
 		{% trans "To select more images at once, select the first one, press Shift, and select the last one." %}
 	</p>

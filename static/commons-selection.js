@@ -4,8 +4,8 @@
 	const userProfile = await ( await fetch( '/api/tracker/trackerprofile/me' ) ).json();
 	const mwUsername = userProfile.mediawiki_username;
 
-	const userInput = document.querySelector( '#by-user-input' );
-	userInput.setAttribute( 'value', mwUsername || '' );
+	const findByDataEl = document.querySelector( 'input[name="find-by-data"]' );
+	findByDataEl.setAttribute( 'value', mwUsername || '' );
 
 	const selectionSubmit = document.querySelector( '#selection-submit' );
 
@@ -85,6 +85,7 @@
 	const btnSelectAll = document.querySelector( '#btn-select-all' );
 	const btnDeselectAll = document.querySelector( '#btn-deselect-all' );
 	const btnInvertSelection = document.querySelector( '#btn-invert-all' );
+	const radioFindBy = document.querySelectorAll( 'input[name="find-by"]' );
 
 	const existingImages = await ( await fetch( `/api/tracker/mediainfo/?ticket=${ ticketNumber }` ) ).json();
 	let existingImageNames = [];
@@ -102,9 +103,7 @@
 		imageContainer.innerHTML = '';
 		loadingText.classList.remove( 'hidden' );
 		loadMoreButton.classList.add( 'hidden' );
-		const name = document.querySelector( '#by-name-input' ).value;
-		const user = document.querySelector( '#by-user-input' ).value;
-		await fetchAndFillImages( name, user );
+		await fetchAndFillImages();
 	} );
 
 	btnSearch.click(); // Load default set of images
@@ -142,24 +141,45 @@
 		} );
 	} );
 
+	radioFindBy.forEach( ( el ) => {
+		el.addEventListener( 'change', () => {
+			const findByType = document.querySelector( 'input[name="find-by"]:checked' ).value;
+
+			if ( findByType === 'user' ) {
+				findByDataEl.setAttribute( 'value', mwUsername || '' );
+			} else {
+				findByDataEl.setAttribute( 'value', '' );
+			}
+
+			switch ( findByType ) {
+				case 'user':
+					document.querySelector( '#find-by-label' ).innerText = gettext( 'Mediawiki username' );
+					break;
+				case 'filename':
+					document.querySelector( '#find-by-label' ).innerText = gettext( 'Filename prefix' );
+					break;
+			}
+		} );
+	} );
+
 	loadMoreButton.addEventListener( 'click', async () => {
 		loadingText.classList.remove( 'hidden' );
 		loadMoreButton.classList.add( 'hidden' );
 
-		const name = document.querySelector( '#by-name-input' ).value;
-		const user = document.querySelector( '#by-user-input' ).value;
-
 		await fetchAndFillImages(
-			name,
-			user,
 			loadMoreButton.getAttribute( 'data-continue' )
 		);
 	} );
 
-	async function fetchAndFillImages( name, user, continueFrom ) {
+	async function fetchAndFillImages( continueFrom ) {
 		try {
-			await fetchAndFillImagesInternal( name, user, continueFrom );
+			await fetchAndFillImagesInternal(
+				document.querySelector( 'input[name="find-by"]:checked' ).value,
+				document.querySelector( 'input[name="find-by-data"]' ).value,
+				continueFrom
+			);
 		} catch ( error ) {
+			console.error( error ); // eslint-disable-line
 			window.showMessage(
 				gettext( 'Unknown error happened while fetching images you uploaded. Please contact the server admin.' ),
 				'alert-danger'
@@ -167,11 +187,11 @@
 		}
 	}
 
-	async function fetchAndFillImagesInternal( name, user, continueFrom ) {
+	async function fetchAndFillImagesInternal( findType, findData, continueFrom ) {
 		const limit = parseInt( limitElement.value ) || undefined;
 		const category = categoryElement.value;
 
-		const response = await findFunction( name, user, limit, continueFrom );
+		const response = await findFunction( findType, findData, limit, continueFrom );
 
 		if ( response.continue !== undefined ) {
 			loadMoreButton.classList.remove( 'hidden' );
@@ -265,24 +285,28 @@
 		}
 	}
 
-	async function findFunction( name = '', user = mwUsername, limit = 25, continueFrom ) {
-		if ( user === '' ) {
-			return [];
-		}
-
+	async function findFunction( findType, findData, limit = 25, continueFrom ) {
 		const options = {
-			aisort: 'timestamp',
-			aidir: 'descending',
-			aiuser: user,
 			ailimit: limit
 		};
+
+		if ( findType === 'user' ) {
+			options.aisort = 'timestamp';
+			options.aidir = 'descending';
+			options.aiuser = findData;
+		} else if ( findType === 'filename' ) {
+			options.aisort = 'name';
+			options.aifrom = findData;
+		} else {
+			// This shouldn't ever happen
+			throw new Error( 'Unknown findType in findFunction' );
+		}
 
 		if ( continueFrom !== undefined ) {
 			options.aicontinue = continueFrom;
 		}
 
-		const filteredName = name.replace( 'File:', '' ).replace( ' ', '_' ); // T214014
-		return await getImages( options, filteredName );
+		return await getImages( options, findType );
 	}
 
 	function filterByCategory( images, category ) {
@@ -300,7 +324,7 @@
 		} );
 	}
 
-	async function getImages( requestParams = {}, name = '' ) {
+	async function getImages( requestParams = {}, findType = undefined ) {
 		const properties = [
 			'timestamp', 'url', 'canonicaltitle', 'extmetadata', 'dimensions'
 		];
@@ -318,28 +342,19 @@
 		const requestUrl = `/api/mediawiki/${ toQueryString( requestParams ) }`;
 		let resBody = await ( await fetch( requestUrl ) ).json();
 		let images = resBody.query.allimages;
-		if ( name !== '' ) {
-			// Filter names locally, can't use aiprefix, because that requires ordering by name
-			// and not by timestamp.
-			let toKeep = [];
-			for ( let i = 0; i < resBody.query.allimages.length; i++ ) {
-				const element = resBody.query.allimages[ i ];
-				if ( element.name.startsWith( name ) ) {
-					toKeep.push( i );
-				}
-			}
-
-			images = [];
-			for ( let i = 0; i < toKeep.length; i++ ) {
-				images.push( resBody.query.allimages[ toKeep[ i ] ] );
-			}
-		}
 
 		if ( images.length === 0 ) {
-			window.showMessage(
-				gettext( 'Your account does not have any uploads at Wikimedia Commons. Upload some files first!' ),
-				'alert-danger'
-			);
+			if ( findType === 'user' ) {
+				window.showMessage(
+					gettext( 'Specified account does not have any uploads at Wikimedia Commons. Upload some files first!' ),
+					'alert-danger'
+				);
+			} else {
+				window.showMessage(
+					gettext( 'Your search does not match any files.' ),
+					'alert-danger'
+				);
+			}
 		}
 
 		return {
