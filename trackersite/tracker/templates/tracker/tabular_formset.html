@@ -91,6 +91,9 @@
 			addText: "{% blocktrans %}Add another {{ formset_item_name }}{% endblocktrans %}",
 			formCssClass: "dynamic-{{ formset.prefix }}",
 			deleteCssClass: "inline-deletelink",
+			{% if no_add_row %}
+			addCssClass: "hidden",
+			{% endif %}
 			deleteText: "{% trans "Remove" %}",
 			emptyCssClass: "empty-form",
 			added: (row => {

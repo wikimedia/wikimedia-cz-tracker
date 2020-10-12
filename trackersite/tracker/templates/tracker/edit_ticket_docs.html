@@ -11,7 +11,7 @@
 
 {% if documents|length > 0 %}
 <form method="post" action="{{action}}">
-{% include "tracker/tabular_formset.html" with formset=documents formset_item_name=_("document") use_inline_intro="True" %}
+{% include "tracker/tabular_formset.html" with formset=documents formset_item_name=_("document") use_inline_intro="True" no_add_row=True %}
 {% csrf_token %}
 <input class="form-control" type="submit" value="{% trans "save" %}" />
 <p>{% blocktrans with mark='<span style="color:red">*</span>' %}Fields marked with {{mark}} are required.{% endblocktrans %}</p>
