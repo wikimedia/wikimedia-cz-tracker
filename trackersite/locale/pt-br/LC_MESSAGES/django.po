@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-08-03 17:55:09+0000\n"
+"PO-Revision-Date: 2020-10-26 15:15:13+0000\n"
 "X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -568,7 +568,7 @@ msgstr ""
 
 #: tracker/models.py:287
 msgid "Did you travel by car?"
-msgstr ""
+msgstr "Viajou de carro?"
 
 #: tracker/models.py:288
 msgid "Do you request reimbursement of car-type travel expense?"
@@ -584,7 +584,7 @@ msgstr "histórico"
 
 #: tracker/models.py:382
 msgid "waiting for content rating"
-msgstr ""
+msgstr "esperando pela classificação do conteúdo"
 
 #: tracker/models.py:385 tracker/templates/tracker/export.html:49
 #: tracker/templates/tracker/export.html:50
@@ -594,23 +594,23 @@ msgstr "completo"
 #: tracker/models.py:387 tracker/templates/tracker/export.html:46
 #: tracker/templates/tracker/export.html:47
 msgid "waiting for filing of documents"
-msgstr ""
+msgstr "aguardando arquivamento de documentos"
 
 #: tracker/models.py:389 tracker/templates/tracker/export.html:43
 #: tracker/templates/tracker/export.html:44
 msgid "waiting for document submission"
-msgstr ""
+msgstr "esperando o envio do documento"
 
 #: tracker/models.py:392 tracker/models.py:399
 #: tracker/templates/tracker/export.html:40
 #: tracker/templates/tracker/export.html:41
 msgid "waiting for approval"
-msgstr ""
+msgstr "esperando aprovação"
 
 #: tracker/models.py:394 tracker/templates/tracker/export.html:37
 #: tracker/templates/tracker/export.html:38
 msgid "waiting for submitting"
-msgstr ""
+msgstr "esperando para enviar"
 
 #: tracker/models.py:397 tracker/templates/tracker/export.html:34
 #: tracker/templates/tracker/export.html:35
@@ -1497,12 +1497,12 @@ msgstr ""
 #: tracker/templates/tracker/user_list.html:7
 #: tracker/templates/tracker/watch.html:8
 msgid "index"
-msgstr ""
+msgstr "index"
 
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/generic/ticket_list.html:12
 msgid "transactions"
-msgstr ""
+msgstr "transações"
 
 #: tracker/templates/tracker/cluster_detail.html:10
 #: tracker/templates/tracker/ticket_detail.html:31
@@ -1537,7 +1537,7 @@ msgstr ""
 #: tracker/templates/tracker/dumpaccounts/index.html:4
 #: tracker/templates/tracker/dumpaccounts/index.html:7
 msgid "Overview of"
-msgstr ""
+msgstr "Visão geral de"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:8
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:9
