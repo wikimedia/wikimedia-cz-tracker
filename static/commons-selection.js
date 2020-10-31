@@ -360,6 +360,21 @@
 
 		const requestUrl = `/api/mediawiki/${ toQueryString( requestParams ) }`;
 		let resBody = await ( await fetch( requestUrl ) ).json();
+		if ( resBody.query === undefined ) {
+			if ( resBody.error !== undefined ) {
+				// MediaWiki returned an error - display a potentionally more meaningful error message
+
+				window.showMessage(
+					`${ gettext( 'Wikimedia Commons returned the following error' ) }: ${ resBody.error.info }`,
+					'alert-danger'
+				);
+				// Return no images found
+				return {
+					images: [],
+					'continue': undefined
+				};
+			}
+		}
 		let images = resBody.query.allimages;
 
 		if ( images.length === 0 ) {
