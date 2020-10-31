@@ -419,7 +419,7 @@
 		}
 
 		return `
-			<img src="${ thumbUrl }" alt="" height=${ Math.max( image.height, 200 ) }>
+			<img src="${ thumbUrl }" loading="lazy" alt="" height=${ Math.max( image.height, 200 ) }>
 
 			<input type="checkbox" name="${ image.canonicaltitle }" id="${ idExtra }-${ image.canonicaltitle }" ${ extraCheckboxAttr }>
 			<label for="${ idExtra }-${ image.canonicaltitle }">Select</label>
