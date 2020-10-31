@@ -191,7 +191,9 @@
 		const limit = parseInt( limitElement.value ) || undefined;
 		const category = categoryElement.value;
 
-		const response = await findFunction( findType, findData, limit, continueFrom );
+		const loadExternalMetadata = Boolean( category );
+
+		const response = await findFunction( findType, findData, limit, continueFrom, loadExternalMetadata );
 
 		if ( response.continue !== undefined ) {
 			loadMoreButton.classList.remove( 'hidden' );
@@ -285,7 +287,7 @@
 		}
 	}
 
-	async function findFunction( findType, findData, limit = 25, continueFrom ) {
+	async function findFunction( findType, findData, limit = 25, continueFrom, loadExternalMetadata = true ) {
 		const options = {
 			ailimit: limit
 		};
@@ -306,7 +308,7 @@
 			options.aicontinue = continueFrom;
 		}
 
-		return await getImages( options, findType );
+		return await getImages( options, findType, loadExternalMetadata );
 	}
 
 	function filterByCategory( images, category ) {
@@ -343,10 +345,13 @@
 		};
 	}
 
-	async function getImages( requestParams = {}, findType = undefined ) {
-		const properties = [
-			'timestamp', 'url', 'canonicaltitle', 'extmetadata', 'dimensions'
+	async function getImages( requestParams = {}, findType = undefined, loadExternalMetadata = true ) {
+		let properties = [
+			'timestamp', 'url', 'canonicaltitle', 'dimensions'
 		];
+		if ( loadExternalMetadata ) {
+			properties.push( 'extmetadata' );
+		}
 
 		const defaultParams = {
 			action: 'query',
