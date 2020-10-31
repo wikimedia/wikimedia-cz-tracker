@@ -213,7 +213,7 @@
 			}
 			const imageElem = document.createElement( 'div' );
 			imageElem.classList.add( 'search-result' );
-			imageElem.innerHTML = generateImageHtml( image, 'new' );
+			imageElem.innerHTML = await generateImageHtml( image, 'new' );
 
 			imageContainer.appendChild( imageElem );
 		}
@@ -235,7 +235,7 @@
 			image.apiUrl = image.url;
 			const imageElem = document.createElement( 'div' );
 			imageElem.classList.add( 'search-result' );
-			imageElem.innerHTML = generateImageHtml( image, 'existing' );
+			imageElem.innerHTML = await generateImageHtml( image, 'existing' );
 
 			existingImageContainer.appendChild( imageElem );
 		}
@@ -324,6 +324,25 @@
 		} );
 	}
 
+	async function getImageByName( name ) {
+		const requestParams = {
+			action: 'query',
+			format: 'json',
+			prop: 'imageinfo',
+			titles: name,
+			iiprop: 'timestamp|user|url'
+		};
+
+		const requestUrl = `/api/mediawiki/${ toQueryString( requestParams ) }`;
+		let resBody = await ( await fetch( requestUrl ) ).json();
+		const pageid = Object.keys( resBody.query.pages )[ 0 ];
+		const image = resBody.query.pages[ pageid ];
+		return {
+			name: image.title,
+			url: image.imageinfo[ 0 ].url
+		};
+	}
+
 	async function getImages( requestParams = {}, findType = undefined ) {
 		const properties = [
 			'timestamp', 'url', 'canonicaltitle', 'extmetadata', 'dimensions'
@@ -366,17 +385,22 @@
 		};
 	}
 
-	function generateImageHtml( image, idExtra ) {
+	async function generateImageHtml( image, idExtra ) {
 		let thumbUrl;
 		if ( image.thumb_url ) {
 			thumbUrl = image.thumb_url;
 		} else {
-			thumbUrl = fileToThumb( image );
+			thumbUrl = await fileToThumb( image );
 		}
 
 		let extraCheckboxAttr = '';
 		if ( image.apiUrl ) {
 			extraCheckboxAttr = `data-media-api-url="${ image.apiUrl }"`;
+		}
+
+		let title = image.canonicaltitle;
+		if ( title === undefined || title === null ) {
+			title = image.name; // Fallback
 		}
 
 		return `
@@ -387,18 +411,27 @@
 
 			<p>
 				<a href="${ image.descriptionurl }">
-					${ image.canonicaltitle }
+					${ title }
 				</a>
 			</p>
 		`;
 	}
 
-	function fileToThumb( image ) {
-		const url = image.url;
+	async function fileToThumb( image ) {
+		let url = image.url;
 		const urlRegex = /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/([0-9a-f])\/([0-9a-f]{2})\/(.+?\.(.+))$/gmi;
 
 		if ( !urlRegex.test( url ) ) {
-			throw new Error( 'Image URL is not in the expected format. This is probably an internal error.' );
+			const trackerUrlRegex = /^https:\/\/tracker\.wikimedia\.cz\/api/gmi;
+			if ( trackerUrlRegex.test( url ) && image.name !== undefined ) {
+				let data = await ( getImageByName( image.name ) );
+				url = data.url;
+				if ( !urlRegex.test( url ) ) {
+					throw new Error( 'Image URL is not in the expected format. This is probably an internal error.' );
+				}
+			} else {
+				throw new Error( 'Image URL is not in the expected format. This is probably an internal error.' );
+			}
 		}
 
 		urlRegex.lastIndex = 0;
