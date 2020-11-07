@@ -708,7 +708,10 @@ def manage_media(request, ticket_id):
         }, status=403)
 
     ticket = get_object_or_404(Ticket, id=ticket_id)
-    if not ticket.can_edit(request.user) or not ticket.topic.ticket_media:
+    admin_edit = request.user.is_staff and (request.user.has_perm('tracker.supervisor') or request.user.topic_set.filter(id=ticket.topic_id).exists())
+    user_edit = ticket.can_edit(request.user)
+    can_edit_media = admin_edit or user_edit
+    if not can_edit_media or not ticket.topic.ticket_media:
         raise PermissionDenied(_('You cannot edit this ticket'))
 
     return render(request, 'tracker/ticket_media.html', {
