@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-10-29 12:35:20+0000\n"
+"PO-Revision-Date: 2020-11-09 11:58:21+0000\n"
 "X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -419,7 +419,7 @@ msgstr "Belge değiştirildi"
 
 #: tracker/models.py:139
 msgid "unknown"
-msgstr "bilinmeyen"
+msgstr "bilinmiyor"
 
 #: tracker/models.py:172 tracker/models.py:1440
 msgid "created"
