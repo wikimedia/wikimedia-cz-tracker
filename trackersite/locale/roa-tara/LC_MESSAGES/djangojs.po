@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-10-29 12:35:19+0000\n"
+"PO-Revision-Date: 2020-11-19 15:04:11+0000\n"
 "X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,5 +19,5 @@ msgstr "Ha assute 'n'errore scanusciute mendre ca ste analizzave le immaggine ca
 
 #: static/commons-selection.js:317
 msgid "Your account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr ""
+msgstr "'U cunde tune non ge tène nisciune carecamende sus a Uicchimedie Commons. Careche de le file apprime!"
 
