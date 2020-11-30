@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-11-09 11:58:21+0000\n"
+"PO-Revision-Date: 2020-11-30 16:20:43+0000\n"
 "X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -335,7 +335,7 @@ msgstr "gönderildi"
 
 #: tracker/models.py:57
 msgid "accepted"
-msgstr "Kabul edildi"
+msgstr "kabul edildi"
 
 #: tracker/models.py:58
 msgid "expense documents submitted"
