@@ -1756,12 +1756,18 @@ def copypreexpeditures(request, pk):
     ticket = get_object_or_404(Ticket, id=pk)
     if not ticket.can_edit(request.user) or 'content' in ticket.ack_set():
         raise PermissionDenied(_('You cannot edit this'))
-    for e in ticket.expediture_set.all():
-        e.delete()
-    for pe in ticket.preexpediture_set.all():
-        e = Expediture.objects.create(ticket=ticket, description=pe.description, amount=pe.amount, wage=pe.wage)
-    messages.success(request, _('Preexpeditures were succesfully copied to expeditures.'))
-    return HttpResponseRedirect(ticket.get_absolute_url())
+
+    if request.method == 'POST':
+        for e in ticket.expediture_set.all():
+            e.delete()
+        for pe in ticket.preexpediture_set.all():
+            e = Expediture.objects.create(ticket=ticket, description=pe.description, amount=pe.amount, wage=pe.wage)
+        messages.success(request, _('Preexpeditures were succesfully copied to expeditures.'))
+        return HttpResponseRedirect(ticket.get_absolute_url())
+
+    return render(request, 'tracker/ticket_copy_preexpeditures_confirm.html', {
+        "ticket": ticket
+    })
 
 
 @csrf_exempt

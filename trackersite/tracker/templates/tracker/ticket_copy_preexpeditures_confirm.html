@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Copying preexpeditures" %}: {{ ticket.name }}{% endblock %}
+
+{% block content %}
+<h1>{% trans "Are you sure?" %}</h1>
+<p>
+	{% blocktrans %}
+	You are going to copy preexpeditures to expeditures for ticket <a href="{{ ticket.get_absolure_url }}">{{ ticket }}</a>. Are you sure you want to do so?
+	{% endblocktrans %}
+</p>
+<form method="post">
+	{% csrf_token %}
+	<button class="btn btn-primary btn-danger" type="submit">{% trans "Confirm" %}</button>
+</form>
+{% endblock %}
