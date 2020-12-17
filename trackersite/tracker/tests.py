@@ -164,7 +164,7 @@ class TicketSumTests(TestCase):
         full_ticket.mediainfoold_set.create(description='Vague pictures')
         full_ticket.mediainfoold_set.create(description='Counted pictures', count=15)
         full_ticket.mediainfoold_set.create(description='Even more pictures', count=16)
-        full_ticket.mediainfo_set.create(name='test.jpg')
+        full_ticket.mediainfo_set.create(name='testSummary.jpg')
         full_ticket.expediture_set.create(description='Some expense', amount=99)
         full_ticket.expediture_set.create(description='Some other expense', amount=101)
         full_ticket.preexpediture_set.create(description='Preexpediture', amount=99)
@@ -893,8 +893,8 @@ class SummaryTest(TestCase):
         self.ticket.expediture_set.create(description='foo', amount=200)
         self.ticket.expediture_set.create(description='foo', amount=100)
         self.ticket.mediainfoold_set.create(description='foo', count=5)
-        self.ticket.mediainfo_set.create(name='test.jpg')
-        self.ticket.mediainfo_set.create(name='test2.jpg')
+        self.ticket.mediainfo_set.create(name='test_summaryTest.jpg')
+        self.ticket.mediainfo_set.create(name='test2_summary.jpg')
 
         self.ticket2 = Ticket(name='foo', requested_user=self.user, topic=self.topic, rating_percentage=100)
         self.ticket2.save()
@@ -903,7 +903,7 @@ class SummaryTest(TestCase):
         self.ticket2.expediture_set.create(description='foo', amount=10)
         self.ticket2.mediainfoold_set.create(description='foo', count=5)
         self.ticket2.mediainfoold_set.create(description='foo', count=3)
-        self.ticket2.mediainfo_set.create(name='test.jpg')
+        self.ticket2.mediainfo_set.create(name='test_summaryTest.jpg')
 
     def test_topic_ticket_counts(self):
         self.assertEqual({'unpaid': 2}, self.topic.tickets_per_payment_status())

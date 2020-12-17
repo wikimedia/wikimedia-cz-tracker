@@ -985,7 +985,7 @@ class MediaInfo(Model):
     """ Media related to particular tickets. """
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'),
                                help_text=_('Ticket this media info belongs to'), on_delete=models.CASCADE)
-    name = models.CharField(_('name'), max_length=255, blank=True)
+    name = models.CharField(_('name'), max_length=255, blank=True, null=True)
     page_id = models.IntegerField(_('page id'), null=True)
     width = models.IntegerField(_('width'), null=True)
     height = models.IntegerField(_('height'), null=True)
@@ -1156,6 +1156,7 @@ class MediaInfo(Model):
     class Meta:
         verbose_name = _('Ticket media')
         verbose_name_plural = _('Ticket media')
+        unique_together = ('name', 'ticket_id')
 
 
 task_error.connect(notify_on_failure)
