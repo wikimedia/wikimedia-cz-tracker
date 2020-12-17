@@ -5,11 +5,12 @@
 # Author: Carlosmg.dg
 # Author: Fitoschido
 # Author: Johnny243
+# Author: MarcoAurelio
 # Author: Silverie04
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2020-12-07 15:08:49+0000\n"
+"PO-Revision-Date: 2020-12-17 14:30:10+0000\n"
 "X-POT-Import-Date: 2020-12-01 11:31:57+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2150,7 +2151,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:7
 msgid "Are you sure?"
-msgstr ""
+msgstr "¿Estás seguro?"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:9
 #, python-format
