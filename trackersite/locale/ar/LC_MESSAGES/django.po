@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2021-01-28 18:05:35+0000\n"
+"PO-Revision-Date: 2021-02-01 14:41:40+0000\n"
 "X-POT-Import-Date: 2020-12-01 11:31:57+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2156,7 +2156,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:7
 msgid "Are you sure?"
-msgstr ""
+msgstr "هل أنت متأكد؟"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:9
 #, python-format
