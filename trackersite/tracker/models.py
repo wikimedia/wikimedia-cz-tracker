@@ -899,7 +899,7 @@ class Grant(CachedModel):
     """ Grant is the bigger thing above topics """
     full_name = models.CharField(_('full name'), max_length=80, help_text=_('Full name for headlines and such'))
     short_name = models.CharField(_('short name'), max_length=16, help_text=_('Shorter name for use in tables'))
-    slug = models.SlugField(_('slug'), help_text=_('Shortcut for usage in URLs'))
+    slug = models.SlugField(_('slug'), help_text=_('Shortcut for usage in URLs'), unique=True)
     description = models.TextField(_('description'), blank=True, help_text=_(
         'Detailed description; HTML is allowed for now, line breaks are auto-parsed'))
 

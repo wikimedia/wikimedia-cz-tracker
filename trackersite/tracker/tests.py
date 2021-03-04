@@ -179,10 +179,10 @@ class TicketSumTests(TestCase):
 
 class TicketTests(TestCase):
     def setUp(self):
-        self.open_topic = Topic(name='test_topic', open_for_tickets=True, ticket_media=True, grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
+        self.open_topic = Topic(name='test_topic', open_for_tickets=True, ticket_media=True, grant=self.get_grant())
         self.open_topic.save()
 
-        self.statutory_declaration_topic = Topic(name='statutory_topic', open_for_tickets=True, ticket_media=True, ticket_statutory_declaration=True, grant=Grant.objects.get(short_name='g'))
+        self.statutory_declaration_topic = Topic(name='statutory_topic', open_for_tickets=True, ticket_media=True, ticket_statutory_declaration=True, grant=self.get_grant())
         self.statutory_declaration_topic.save()
 
         self.subtopic = Subtopic(name='Test', topic=self.open_topic)
@@ -194,6 +194,12 @@ class TicketTests(TestCase):
         self.user = User(username='user')
         self.user.set_password(self.password)
         self.user.save()
+
+    def get_grant(self):
+        q = Grant.objects.filter(slug='g')
+        if len(q) == 0:
+            return Grant.objects.create(full_name='g', short_name='g', slug='g')
+        return q.all()[0]
 
     def get_client(self):
         c = Client()
@@ -270,7 +276,7 @@ class TicketTests(TestCase):
         self.assertFormError(response, 'ticketform', 'topic', 'Select a valid choice. That choice is not one of the available choices.')
 
     def test_closed_topic(self):
-        closed_topic = Topic(name='closed topic', open_for_tickets=False, grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
+        closed_topic = Topic(name='closed topic', open_for_tickets=False, grant=self.get_grant())
         closed_topic.save()
 
         c = self.get_client()
@@ -422,10 +428,10 @@ class TicketTests(TestCase):
 
 class TicketEditTests(TestCase):
     def setUp(self):
-        self.topic = Topic(name='topic', grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
+        self.topic = Topic(name='topic', grant=self.get_grant())
         self.topic.save()
 
-        self.statutory_topic = Topic(name='statutory_topic', ticket_statutory_declaration=True, grant=Grant.objects.get(short_name='g'))
+        self.statutory_topic = Topic(name='statutory_topic', ticket_statutory_declaration=True, grant=self.get_grant())
         self.statutory_topic.save()
 
         self.subtopic = Subtopic(name='subtopic', topic=self.topic)
@@ -438,8 +444,14 @@ class TicketEditTests(TestCase):
         self.user.set_password(self.password)
         self.user.save()
 
+    def get_grant(self):
+        q = Grant.objects.filter(slug='g')
+        if len(q) == 0:
+            return Grant.objects.create(full_name='g', short_name='g', slug='g')
+        return q.all()[0]
+
     def test_correct_choices(self):
-        grant = Grant.objects.create(full_name='g', short_name='g', slug='g')
+        grant = self.get_grant()
         t_closed = Topic(name='t1', open_for_tickets=False, grant=grant)
         t_closed.save()
         t_open = Topic(name='t2', open_for_tickets=True, grant=grant)
@@ -664,13 +676,19 @@ class TicketEditTests(TestCase):
 
 class TicketAckTests(TestCase):
     def setUp(self):
-        self.grant = Grant.objects.create(full_name='g', short_name='g', slug='g')
+        self.grant = self.get_grant()
         self.topic = Topic.objects.create(name='t', grant=self.grant)
         self.password = 'my_password'
         self.user = User(username='my_user')
         self.user.set_password(self.password)
         self.user.save()
         self.ticket = Ticket.objects.create(name='ticket', topic=self.topic, requested_user=self.user)
+
+    def get_grant(self):
+        q = Grant.objects.filter(slug='g')
+        if len(q) == 0:
+            return Grant.objects.create(full_name='g', short_name='g', slug='g')
+        return q.all()[0]
 
     def test_ack_user_edit(self):
         # two user acks are possible
@@ -795,7 +813,7 @@ class TicketAckTests(TestCase):
 
 class TicketEditLinkTests(TestCase):
     def setUp(self):
-        self.topic = Topic(name='topic', grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
+        self.topic = Topic(name='topic', grant=self.get_grant())
         self.topic.save()
 
         self.password = 'my_password'
@@ -805,6 +823,12 @@ class TicketEditLinkTests(TestCase):
 
         self.ticket = Ticket(name='ticket', topic=self.topic, requested_user=None, requested_text='foo')
         self.ticket.save()
+
+    def get_grant(self):
+        q = Grant.objects.filter(slug='g')
+        if len(q) == 0:
+            return Grant.objects.create(full_name='g', short_name='g', slug='g')
+        return q.all()[0]
 
     def get_ticket_response(self):
         c = Client()
@@ -884,7 +908,7 @@ class SummaryTest(TestCase):
         self.user = User(username='user')
         self.user.save()
 
-        self.topic = Topic(name='test_topic', ticket_expenses=True, grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
+        self.topic = Topic(name='test_topic', ticket_expenses=True, grant=self.get_grant())
         self.topic.save()
 
         self.ticket = Ticket(name='foo', requested_user=self.user, topic=self.topic, rating_percentage=50)
@@ -904,6 +928,12 @@ class SummaryTest(TestCase):
         self.ticket2.mediainfoold_set.create(description='foo', count=5)
         self.ticket2.mediainfoold_set.create(description='foo', count=3)
         self.ticket2.mediainfo_set.create(name='test_summaryTest.jpg')
+
+    def get_grant(self):
+        q = Grant.objects.filter(slug='g')
+        if len(q) == 0:
+            return Grant.objects.create(full_name='g', short_name='g', slug='g')
+        return q.all()[0]
 
     def test_topic_ticket_counts(self):
         self.assertEqual({'unpaid': 2}, self.topic.tickets_per_payment_status())
@@ -1103,8 +1133,8 @@ class ExportTests(TestCase):
         self.staffUser.save()
         self.superuser = User.objects.create_superuser(username='superuser', password=self.password, email='test@test')
 
-        self.grant1 = Grant.objects.create(full_name='g1full', short_name='g1short')
-        self.grant2 = Grant.objects.create(full_name='g2full', short_name='g2short')
+        self.grant1 = Grant.objects.create(full_name='g1full', short_name='g1short', slug='g1slug')
+        self.grant2 = Grant.objects.create(full_name='g2full', short_name='g2short', slug='g2slug')
 
         self.topic1 = Topic.objects.create(name='t1', grant=self.grant1)
         self.topic2 = Topic.objects.create(name='t2', grant=self.grant2)
