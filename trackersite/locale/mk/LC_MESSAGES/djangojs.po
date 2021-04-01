@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2021-01-28 18:05:35+0000\n"
+"PO-Revision-Date: 2021-04-01 11:55:22+0000\n"
 "X-POT-Import-Date: 2020-07-20 20:31:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,5 +19,5 @@ msgstr "Се јави непознат агрешка при добивањет�
 
 #: static/commons-selection.js:317
 msgid "Your account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr ""
+msgstr "Нема подигања на Ризницата од вашата сметка. Најпрвин подигнете нешто!"
 
