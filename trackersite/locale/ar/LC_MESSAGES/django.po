@@ -1,13 +1,14 @@
 # Translation of Tracker - main to Arabic (العربية)
 # Exported from translatewiki.net
 #
+# Author: Hhaboh162002
 # Author: Meno25
 # Author: ديفيد
 # Author: محمد أحمد عبد الفتاح
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2021-06-03 13:35:50+0000\n"
+"PO-Revision-Date: 2021-06-10 15:01:15+0000\n"
 "X-POT-Import-Date: 2021-05-26 12:33:54+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2152,7 +2153,7 @@ msgstr "مجموع النفقات"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:4
 msgid "Copying preexpeditures"
-msgstr ""
+msgstr "النفقات المسبقة للنسخ"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:7
 msgid "Are you sure?"
@@ -2161,7 +2162,7 @@ msgstr "هل أنت متأكد؟"
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:9
 #, python-format
 msgid "\n	You are going to copy preexpeditures to expeditures for ticket <a href=\"%(ticket.get_absolure_url)s\">%(ticket)s</a>. Are you sure you want to do so?\n	"
-msgstr ""
+msgstr "\nسوف تنسخ النفقات المسبقة إلى النفقات في التذكرة <a href=\"%(ticket.get_absolure_url)s\">%(ticket)s</a>. هل أنت متأكد من أنك تريد تنفيذ ذلك؟\n	"
 
 #: tracker/templates/tracker/ticket_detail.html:16
 msgid "edit ticket"
@@ -2241,7 +2242,7 @@ msgstr "إدارة الوسائط الجديدة"
 
 #: tracker/templates/tracker/ticket_media.html:13
 msgid "Find by"
-msgstr ""
+msgstr "البحث مستخدما"
 
 #: tracker/templates/tracker/ticket_media.html:16
 #: tracker/templates/tracker/ticket_media.html:25
@@ -2821,7 +2822,7 @@ msgstr "حدث خطأ أثناء معالجة طلبك."
 
 #: tracker/views.py:1847
 msgid "Notice from Tracker"
-msgstr ""
+msgstr "إشعار من المتتبع"
 
 #: tracker/views.py:1866
 msgid "This mandatory notice was sent to all active Tracker users."
@@ -2833,7 +2834,7 @@ msgstr "تم إرسال هذا الإشعار الإلزامي إلى جميع �
 
 #: tracker/views.py:1887
 msgid "This mandatory notice was sent to all active Tracker roots."
-msgstr ""
+msgstr "أرسل هذا الإشعار الإلزامي إلى كافة جذور المتتبع النشطة."
 
 #: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
