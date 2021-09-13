@@ -1,14 +1,8 @@
-# Translation of Tracker - main to Turkish (Türkçe)
+# Translation of Tracker - main to Ukrainian (українська)
 # Exported from translatewiki.net
 #
-# Author: Arbormedi
-# Author: BaRaN6161 TURK
-# Author: Cobija
-# Author: Hedda
-# Author: Mirzali
-# Author: MuratTheTurkish
-# Author: Okkerem
-# Author: Sucsuzz
+# Author: Andrew J.Kurbiko
+# Author: DDPAT
 msgid ""
 msgstr ""
 ""
@@ -16,45 +10,45 @@ msgstr ""
 "X-POT-Import-Date: 2021-05-26 12:33:54+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
+"Language: uk\n"
 "X-Generator: MediaWiki 1.36.1; Translate 2021-07-26\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=3; plural=(n%10 == 1 && n%100 != 11) ? 0 : ( (n%10 >= 2 && n%10 <= 4 && (n%100 < 10 || n%100 >= 20)) ? 1 : 2 );\n"
 
 #: api/serializers.py:101
 msgid "Deposit should be zero when creating a ticket"
-msgstr "Bilet oluştururken para yatırma işlemi sıfır olmalıdır"
+msgstr "При створенні квитка депозит повинен бути нульовим"
 
 #: api/serializers.py:104
 msgid "Cannot edit deposit once a ticket has been preaccepted"
-msgstr "Bir bilet ön kabul edildiğinde depozito düzenlenemez"
+msgstr "Неможливо змінити депозит після попереднього прийому квитка"
 
 #: api/serializers.py:109 api/serializers.py:112
 msgid "Deposit should be lower or equal to the sum of preexpeditures"
-msgstr "Depozito ön ödemelerin toplamına eşit veya daha düşük olmalıdır"
+msgstr "Депозит повинен бути меншим або дорівнювати сумі попередніх витрат"
 
 #: api/serializers.py:134
 msgid "You can not add media to this ticket."
-msgstr "Bu bilete medya ekleyemezsiniz."
+msgstr "Ви не можете додавати медіафайли до цього квитка."
 
 #: api/serializers.py:136
 msgid "You can not edit the media of this ticket."
-msgstr "Bu biletin medyasını düzenleyemezsiniz."
+msgstr "Ви не можете редагувати носії цього квитка."
 
 #: api/serializers.py:162
 msgid "You can not add expiditures to this ticket."
-msgstr "Bu bilete harcama ekleyemezsiniz."
+msgstr "Ви не можете додавати витрати до цього квитка."
 
 #: api/serializers.py:164
 msgid "You can not edit expiditures of this ticket."
-msgstr "Bu biletin harcamalarını düzenleyemezsiniz."
+msgstr "Ви не можете редагувати термін дії цього квитка."
 
 #: api/serializers.py:178
 msgid "You can not add preexpiditures to this ticket."
-msgstr "Bu bilete önceden ödeme ekleyemezsiniz."
+msgstr "Ви не можете додавати попередні виплати до цього квитка."
 
 #: api/serializers.py:180
 msgid "You can not edit preexpiditures of this ticket."
-msgstr "Bu biletin ön ödemelerini düzenleyemezsiniz."
+msgstr "Ви не можете редагувати попередні вилучення цього квитка."
 
 #: common_settings.py:138
 #: tracker/templates/tracker/ticket_common_detail.html:18
@@ -63,248 +57,250 @@ msgstr "CZK"
 
 #: common_settings.py:141
 msgid "English"
-msgstr "İngilizce"
+msgstr "Англійська"
 
 #: common_settings.py:142
 msgid "Czech"
-msgstr "Çekçe"
+msgstr "Чеська"
 
 #: common_settings.py:143
 msgid "French"
-msgstr "Fransızca"
+msgstr "Французька"
 
 #: common_settings.py:144
 msgid "Arabic"
-msgstr "Arapça"
+msgstr "Арабська"
 
 #: common_settings.py:145
 msgid "Danish"
-msgstr "Danca"
+msgstr "Датська"
 
 #: common_settings.py:146
 msgid "Finnish"
-msgstr "Fince"
+msgstr "Фінська"
 
 #: common_settings.py:147
 msgid "Korean"
-msgstr "Korece"
+msgstr "Корейська"
 
 #: common_settings.py:148
 msgid "Portuguese"
-msgstr "Portekizce"
+msgstr "Португальська"
 
 #: common_settings.py:149
 msgid "Swedish"
-msgstr "İsveççe"
+msgstr "Шведська"
 
 #: common_settings.py:150
 msgid "Chinese-traditional"
-msgstr "Çin geleneği"
+msgstr "Китайська традиційна"
 
 #: common_settings.py:151
 msgid "Spanish"
-msgstr "İspanyolca"
+msgstr "Іспанська"
 
 #: customcomments/forms.py:21
 msgid "Your name"
-msgstr "İsminiz"
+msgstr "Ваше ім'я"
 
 #: customcomments/forms.py:22
 #: tracker/templates/tracker/ticketack_confirm_delete.html:13
 msgid "Comment"
-msgstr "Yorum"
+msgstr "Коментар"
 
 #: socialauth/pipeline.py:15
 msgid "Successfully linked your wikimedia account!"
-msgstr "Wikimedia hesabınıza başarıyla bağlandı!"
+msgstr "Ваш обліковий запис Вікімедіа успішно зв’язано!"
 
 #: socialauth/pipeline.py:21
 msgid "Your wikimedia account is no longer linked."
-msgstr "Wikimedia hesabınız artık bağlı değil."
+msgstr "Ваш обліковий запис Вікімедіа більше не зв’язаний."
 
 #: templates/403.html:3
 msgid "403 Forbidden"
-msgstr "403 Yasak"
+msgstr "403 Заборонено"
 
 #: templates/403.html:7
 msgid "Forbidden"
-msgstr "Yasak"
+msgstr "Заборонено"
 
 #: templates/403.html:12
 msgid "You don't have permissions to do this!"
-msgstr "Bunu yapmak için yetkiniz yok!"
+msgstr "У вас немає дозволів на це!"
 
 #: templates/404.html:3
 msgid "404 Not Found"
-msgstr "404 Bulunamadı"
+msgstr "404 не знайдено"
 
 #: templates/404.html:7
 msgid "Not Found"
-msgstr "Bulunamadı"
+msgstr "Не знайдено"
 
 #: templates/404.html:10
 #, python-format
 msgid "The requested URL %(request_path)s was not found on this server."
-msgstr "İstenen URL %(request_path)s bu sunucuda bulunamadı."
+msgstr "Запитана URL-адреса %(request_path)s не знайдена у цьому сервері."
 
 #: templates/500.html:3 templates/500.html:7
 msgid "Internal Error"
-msgstr "İç hata"
+msgstr "Внутрішня помилка"
 
 #: templates/500.html:10
 msgid "There was an error processing you request. Sorry about that."
-msgstr "İsteğiniz işleme koyulurken bir hata oluştu. Bunun için üzgünüz."
+msgstr "Під час обробки вашого запиту сталася помилка. Вибач за те."
 
 #: templates/admin/base_site.html:4
 msgid "Tracker admin"
-msgstr "İzleyici yöneticisi"
+msgstr "Адміністратор трекера"
 
 #: templates/admin/base_site.html:7
 msgid "Tracker site administration"
-msgstr "İzleyici site yönetimi"
+msgstr "Адміністрування сайту трекера"
 
 #: templates/base.html:32
 msgid "There is no email address associated with this account. Please update your details now."
-msgstr "Bu hesapla ilişkilendirilmiş bir e-posta adresi yok. Lütfen bilgilerinizi şimdi güncelleyin."
+msgstr "З цим обліковим записом не пов’язана адреса електронної пошти. Будь ласка, оновіть свої дані зараз."
 
 #: templates/base.html:35
 msgid "Update details"
-msgstr "Güncelleme ayrıntıları"
+msgstr "Оновити подробиці"
 
 #: templates/base.html:55
 msgid "Toggle navigation"
-msgstr "Gezinmeyi değiştir"
+msgstr "Переключити навігацію"
 
 #: templates/base.html:69
 msgid "change password"
-msgstr "parolayı değiştir"
+msgstr "змінити пароль"
 
 #: templates/base.html:70
 msgid "change my details"
-msgstr "detaylarımı değiştir"
+msgstr "змінити мої подробиці"
 
 #: templates/base.html:71 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
-msgstr "tercihler"
+msgstr "налаштування"
 
 #: templates/base.html:73
 msgid "admin"
-msgstr "hizmetli"
+msgstr "адмін"
 
 #: templates/base.html:75 templates/base.html:90
 msgid "change language"
-msgstr "dili değiştir"
+msgstr "змінити мову"
 
 #: templates/base.html:77 templates/base.html:92
 msgid "help"
-msgstr "yardım"
+msgstr "допомога"
 
 #: templates/base.html:79
 msgid "logout"
-msgstr "oturumu kapat"
+msgstr "вийти"
 
 #: templates/base.html:84 templates/base.html:87
 msgid "login"
-msgstr "oturum aç"
+msgstr "увійти"
 
 #: templates/base.html:89
 msgid "register"
-msgstr "kaydol"
+msgstr "реєстрація"
 
 #: templates/base.html:106 templates/base.html:109
 msgid "Warning"
-msgstr "Uyarı"
+msgstr "Попередження"
 
 #: templates/base.html:106
 #, python-format
 msgid "You are not in production. If you want to request reimbursement of expenses, go to <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>."
-msgstr "Sen üretimde değilsin. Giderlerin geri ödenmesini istemek istiyorsanız, <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a> adresine gidin."
+msgstr "Ви не на виробництві. Якщо ви хочете подати запит на відшкодування витрат, перейдіть на сторінку <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>."
 
 #: templates/base.html:109
 msgid "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox."
-msgstr "Internet Explorer kullanıyorsunuz. Ancak, Tracker Internet Explorer'ın desteklemediği modern özellikler gerektirir. Sonuç olarak, Tracker Internet Explorer’da düzgün çalışmayabilir. Chrome veya Firefox gibi başka bir tarayıcı kullanmanızı öneririz."
+msgstr "Ви використовуєте Internet Explorer. Однак Tracker вимагає сучасних функцій, які Internet Explorer не підтримує. В результаті Tracker може не працювати належним чином в Internet Explorer. Ми рекомендуємо використовувати інший веб-переглядач, наприклад Chrome або Firefox."
 
 #: templates/choose_language.html:5 templates/choose_language.html:8
 msgid "Change language"
-msgstr "Dili değiştir"
+msgstr "Змінити мову"
 
 #: templates/choose_language.html:23
 msgid "Go"
-msgstr "Git"
+msgstr "Перейти"
 
 #: templates/comments/form.html:17 templates/comments/preview.html:31
 msgid "Post"
-msgstr "Gönder"
+msgstr "Опублікувати"
 
 #: templates/comments/form.html:18 templates/comments/preview.html:32
 msgid "Preview"
-msgstr "Önizleme"
+msgstr "Попередній перегляд"
 
 #: templates/comments/preview.html:4 templates/comments/preview.html:15
 msgid "Preview your comment"
-msgstr "Yorumunuzu önizleyin"
+msgstr "Поперперегляд вашого коментару"
 
 #: templates/comments/preview.html:13
 msgid "Please correct the error below"
 msgid_plural "Please correct the errors below"
-msgstr[0] "Lütfen aşağıdaki hatayı düzeltin"
+msgstr[0] "Виправте помилку нижче"
+msgstr[1] "Виправте наведені нижче помилки"
+msgstr[2] ""
 
 #: tracker/admin.py:29 tracker/admin.py:35
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
 msgid "Type"
-msgstr "Tür"
+msgstr "Тип"
 
 #: tracker/admin.py:43
 msgid "Add ack"
-msgstr "Ekle"
+msgstr "Додати ack"
 
 #: tracker/admin.py:169
 msgid "Mark selected topics as opened for new tickets"
-msgstr "Seçilen konuları yeni biletler için açılmış olarak işaretle"
+msgstr "Позначити вибрані теми як відкриті для нових квитків"
 
 #: tracker/admin.py:176
 msgid "Mark selected topics as closed for new tickets"
-msgstr "Seçili konuları yeni biletler için kapalı olarak işaretle"
+msgstr "Позначити вибрані теми як закриті для нових квитків"
 
 #: tracker/admin.py:204
 msgid "Modify this value by opening or closing topics in this grant to tickets"
-msgstr "Bu hibedeki konuları açarak veya kapatarak bu değeri değiştirin"
+msgstr "Змініть це значення, відкриваючи або закриваючи теми цього гранту для квитків"
 
 #: tracker/feeds.py:12 tracker/templates/tracker/generic/ticket_list.html:7
 #: tracker/templates/tracker/topic_detail.html:5
 msgid "Latest tickets"
-msgstr "En son biletler"
+msgstr "Останні квитки"
 
 #: tracker/feeds.py:13
 msgid "Recently changed tickets"
-msgstr "Son değiştirilen biletler"
+msgstr "Нещодавно змінені квитки"
 
 #: tracker/feeds.py:26 tracker/templates/tracker/generic/ticket_list.html:8
 #: tracker/templates/tracker/topic_detail.html:6
 msgid "Latest submitted tickets"
-msgstr "En son gönderilen biletler"
+msgstr "Останні подані квитки"
 
 #: tracker/feeds.py:27
 msgid "Recently changed submitted tickets"
-msgstr "Son değiştirilen gönderilen biletler"
+msgstr "Нещодавно змінені подані квитки"
 
 #: tracker/models.py:46 tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
 msgid "n/a"
-msgstr "n/a"
+msgstr "не доступно"
 
 #: tracker/models.py:47 tracker/templates/tracker/export.html:246
 #: tracker/templates/tracker/grant_table.html:12
 #: tracker/templates/tracker/topic_finance.html:16
 #: tracker/templates/tracker/topic_table.html:14
 msgid "unpaid"
-msgstr "ödenmemiş"
+msgstr "неоплачений"
 
 #: tracker/models.py:48 tracker/templates/tracker/export.html:247
 #: tracker/templates/tracker/grant_table.html:13
 #: tracker/templates/tracker/topic_table.html:15
 msgid "partially paid"
-msgstr "kısmen ödenmiş"
+msgstr "частково оплачується"
 
 #: tracker/models.py:49 tracker/models.py:1192
 #: tracker/templates/tracker/export.html:248
@@ -312,346 +308,346 @@ msgstr "kısmen ödenmiş"
 #: tracker/templates/tracker/topic_finance.html:17
 #: tracker/templates/tracker/topic_table.html:16
 msgid "paid"
-msgstr "Ödenen"
+msgstr "оплачується"
 
 #: tracker/models.py:50 tracker/templates/tracker/export.html:249
 #: tracker/templates/tracker/grant_table.html:15
 #: tracker/templates/tracker/topic_finance.html:18
 #: tracker/templates/tracker/topic_table.html:17
 msgid "overpaid"
-msgstr "ödenme"
+msgstr "переплачено"
 
 #: tracker/models.py:54
 msgid "presubmitted"
-msgstr "önceden gönderilmiş"
+msgstr "подано заздалегідь"
 
 #: tracker/models.py:55
 msgid "preaccepted"
-msgstr "önceden kabul edilmiş"
+msgstr "заздалегідь прийнято"
 
 #: tracker/models.py:56
 msgid "submitted"
-msgstr "gönderildi"
+msgstr "подано"
 
 #: tracker/models.py:57
 msgid "accepted"
-msgstr "kabul edildi"
+msgstr "прийнято"
 
 #: tracker/models.py:58
 msgid "expense documents submitted"
-msgstr "gider belgeleri"
+msgstr "подано видаткові документи"
 
 #: tracker/models.py:59
 msgid "expense documents filed"
-msgstr "gider belgeleri"
+msgstr "подані видаткові документи"
 
 #: tracker/models.py:60 tracker/models.py:379
 #: tracker/templates/tracker/export.html:52
 #: tracker/templates/tracker/export.html:53
 msgid "archived"
-msgstr "arşivlendi"
+msgstr "заархівовано"
 
 #: tracker/models.py:61 tracker/models.py:377
 #: tracker/templates/tracker/export.html:55
 #: tracker/templates/tracker/export.html:56
 msgid "closed"
-msgstr "Kapandı"
+msgstr "закрити"
 
 #: tracker/models.py:65
 msgid "All notifications"
-msgstr "Bütün bildirimler"
+msgstr "Усі сповіщення"
 
 #: tracker/models.py:66
 msgid "Comment added"
-msgstr "Yorum eklendi"
+msgstr "Додано коментар"
 
 #: tracker/models.py:67
 msgid "Supervisor notes changed"
-msgstr "Yönetici notları değişti"
+msgstr "Замітки керівника змінено"
 
 #: tracker/models.py:68
 msgid "New ticket was created"
-msgstr "Yeni bilet oluşturuldu"
+msgstr "Створено новий квиток"
 
 #: tracker/models.py:69
 msgid "Ticket was deleted"
-msgstr "Bilet silindi"
+msgstr "Квиток видалено"
 
 #: tracker/models.py:70
 msgid "Ack added"
-msgstr "Eklendi"
+msgstr "Додано ack"
 
 #: tracker/models.py:71
 msgid "Ack removed"
-msgstr "Kaldırıldı"
+msgstr "Вилучено ack"
 
 #: tracker/models.py:72
 msgid "Ticket changed"
-msgstr "Bilet değiştirildi"
+msgstr "Квиток змінено"
 
 #: tracker/models.py:73
 msgid "New preexpediture was created"
-msgstr "Yeni ön harcama oluşturuldu"
+msgstr "Був створений новий попередній вигляд"
 
 #: tracker/models.py:74
 msgid "Preexpeditures changed"
-msgstr "Ön harcamalar değişti"
+msgstr "Змінилися попередні експедиції"
 
 #: tracker/models.py:75
 msgid "New expediture was created"
-msgstr "Yeni keşif oluşturuldu"
+msgstr "Були створені нові витрати"
 
 #: tracker/models.py:76
 msgid "Expeditures changed"
-msgstr "Harcamalar değişti"
+msgstr "Змінилися видатки"
 
 #: tracker/models.py:77
 msgid "New media was created"
-msgstr "Yeni medya oluşturuldu"
+msgstr "Були створені нові медіа"
 
 #: tracker/models.py:78
 msgid "Media changed"
-msgstr "Medya değiştirildi"
+msgstr "Змінено медіа"
 
 #: tracker/models.py:79
 msgid "Document changed"
-msgstr "Belge değiştirildi"
+msgstr "Змінено документ"
 
 #: tracker/models.py:139
 msgid "unknown"
-msgstr "bilinmiyor"
+msgstr "невідомо"
 
 #: tracker/models.py:172 tracker/models.py:1442
 msgid "created"
-msgstr "oluşturuldu"
+msgstr "створено"
 
 #: tracker/models.py:245
 msgid "Signed text"
-msgstr "İmzalı metin"
+msgstr "Підписаний текст"
 
 #: tracker/models.py:250
 msgid "updated"
-msgstr "güncellendi"
+msgstr "оновлено"
 
 #: tracker/models.py:251
 msgid "media updated"
-msgstr "medya güncellendi"
+msgstr "оновлено медіа"
 
 #: tracker/models.py:252
 msgid "Date when cached information about media were last updated. Used in \"show media\" view."
-msgstr "Medyayla ilgili önbelleğe alınan bilgilerin en son güncellendiği tarih. \"Medyayı göster\" görünümünde kullanılır."
+msgstr "Дата останнього оновлення кешованої інформації про медіафайли. Використовується у вікні «шоу-медіа»."
 
 #: tracker/models.py:253
 msgid "event date"
-msgstr "Olay tarihi"
+msgstr "дата події"
 
 #: tracker/models.py:254
 msgid "Date of the event this ticket is about"
-msgstr "Bu biletin gerçekleştiği etkinliğin tarihi"
+msgstr "Дата події, присвячена цьому квитку"
 
 #: tracker/models.py:255 tracker/models.py:416
 #: tracker/templates/feeds/ticket_description.html:3
 msgid "requested by"
-msgstr "talep eden:"
+msgstr "з проханням"
 
 #: tracker/models.py:256
 msgid "User who created/requested for this ticket"
-msgstr "Bu bilet için oluşturulan/talep eden kullanıcı"
+msgstr "Користувач, який створив/попросив цей квиток"
 
 #: tracker/models.py:258
 msgid "requested by (text)"
-msgstr "(metin) tarafından talep edildi"
+msgstr "запит (текст)"
 
 #: tracker/models.py:259
 msgid "Text description of who requested for this ticket, in case user is not filled in"
-msgstr "Bu bilet için kimin istediğini, kullanıcı tarafından doldurulmadığı takdirde, metin açıklaması"
+msgstr "Текстовий опис того, хто запитував цей квиток, якщо користувач не заповнений"
 
 #: tracker/models.py:260 tracker/models.py:726 tracker/models.py:798
 #: tracker/models.py:988 tracker/views.py:798
 msgid "name"
-msgstr "isim"
+msgstr "назва"
 
 #: tracker/models.py:260
 msgid "Name for the ticket"
-msgstr "Biletin adı"
+msgstr "Назва квитка"
 
 #: tracker/models.py:261 tracker/models.py:731 tracker/views.py:559
 msgid "topic"
-msgstr "konu"
+msgstr "тема"
 
 #: tracker/models.py:262
 msgid "Project topic this ticket belongs to"
-msgstr "Bu biletin ait olduğu proje konusu"
+msgstr "Тема проєкту, до якої належить цей квиток"
 
 #: tracker/models.py:263
 msgid "subtopic"
-msgstr "alt konusunu"
+msgstr "підтема"
 
 #: tracker/models.py:264
 msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
-msgstr "Alt konusu bu bilete ait (bilmiyorsanız boş bırakın)"
+msgstr "Підтема, до якої належить цей квиток (якщо ви не знаєте, залиште це поле порожнім)"
 
 #: tracker/models.py:266
 msgid "rating percentage"
-msgstr "derecelendirme yüzdesi"
+msgstr "рейтинговий відсоток"
 
 #: tracker/models.py:267
 msgid "Rating percentage set by topic administrator"
-msgstr "Konu yöneticisi tarafından belirlenen derecelendirme yüzdesi"
+msgstr "Відсоток оцінки, встановлений адміністратором теми"
 
 #: tracker/models.py:268
 msgid "report mandatory"
-msgstr "zorunlu bildir"
+msgstr "звіт обов'язковий"
 
 #: tracker/models.py:268 tracker/templates/tracker/export.html:73
 #: tracker/templates/tracker/export.html:75
 #: tracker/templates/tracker/ticket_common_detail.html:15
 msgid "Is report mandatory?"
-msgstr "Rapor zorunlu mu?"
+msgstr "Чи обов'язковий звіт?"
 
 #: tracker/models.py:269
 msgid "report url"
-msgstr "url bildir"
+msgstr "URL звіту"
 
 #: tracker/models.py:270
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
-msgstr "Bir şey bildirmek istiyorsanız (veya raporunuz konu yöneticisi için zorunlu ise) raporunuzun URL’sini bildir."
+msgstr "URL-адресу вашого звіту, якщо ви хочете щось повідомити (або якщо ваш звіт є обов’язковим для кожного адміністратора теми)."
 
 #: tracker/models.py:271
 msgid "event url"
-msgstr "etkinlik url'si"
+msgstr "URL-адреса події"
 
 #: tracker/models.py:272
 msgid "Link to a public page describing the event, if it exist"
-msgstr "Varsa, etkinliği açıklayan genel sayfaya bağlantı"
+msgstr "Посилання на загальнодоступну сторінку з описом події, якщо вона існує"
 
 #: tracker/models.py:273 tracker/models.py:727 tracker/models.py:811
 #: tracker/models.py:903 tracker/models.py:960 tracker/models.py:1187
 #: tracker/models.py:1213 tracker/models.py:1372 tracker/views.py:799
 msgid "description"
-msgstr "açıklama"
+msgstr "опис"
 
 #: tracker/models.py:274
 msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description. You may use a limited subset of HTML."
-msgstr "Ek notlar için boşluk. Bir seyahate giriyorsanız, bize nereye gittiğinizi ve orada ne yaptığınızı söyleyin. Açıklamanıza #ticketid ekleyerek başka bir bilete link verebilirsiniz. Sınırlı bir HTML alt kümesini kullanabilirsiniz."
+msgstr "Місце для подальших приміток. Якщо ви їдете в подорож, розкажіть, куди ви їздили і що там робили. Ви можете посилатися на інші квитки, додавши #ticketid до свого опису. Ви можете використовувати обмежену підмножину HTML."
 
 #: tracker/models.py:275
 msgid "supervisor notes"
-msgstr "gözetmen notları"
+msgstr "примітки керівника"
 
 #: tracker/models.py:276
 msgid "This space is for notes of project supervisors and accounting staff."
-msgstr "Bu alan proje amirlerinin ve muhasebe personelinin notları içindir."
+msgstr "Це місце для приміток керівників проєктів та бухгалтерів."
 
 #: tracker/models.py:277
 msgid "deposit"
-msgstr "depozito"
+msgstr "депозит"
 
 #: tracker/models.py:280
 msgid "If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."
-msgstr "Finansal bir teminat talep ediyorsanız, lütfen tutarını buradan doldurun. Maksimum tutar, ön harcamaların toplamıdır. Depozito talep etmiyorsanız, buraya 0 doldurun."
+msgstr "Якщо ви просите фінансовий депозит, заповніть тут його суму. Максимальна сума — це сума попередніх експедицій. Якщо ви не просите внести депозит, заповніть тут 0."
 
 #: tracker/models.py:282
 msgid "payment status"
-msgstr "ödeme durumu"
+msgstr "статус платежу"
 
 #: tracker/models.py:283
 msgid "imported"
-msgstr "ithal edildi"
+msgstr "імпортні"
 
 #: tracker/models.py:284
 msgid "Was this ticket imported from older Tracker version?"
-msgstr "Bu bilet daha eski İzleyici sürümünden alındı mı?"
+msgstr "Чи був цей квиток імпортований із старішої версії Tracker?"
 
 #: tracker/models.py:285
 msgid "enable comments"
-msgstr "yorumları etkinleştir"
+msgstr "увімкнути коментарі"
 
 #: tracker/models.py:286
 msgid "Can users comment on this ticket?"
-msgstr "Kullanıcılar bu bilet hakkında yorum yapabilir mi?"
+msgstr "Чи можуть користувачі коментувати цей квиток?"
 
 #: tracker/models.py:287
 msgid "Did you travel by car?"
-msgstr "Araba ile mi seyahat ettin?"
+msgstr "Ви подорожували на машині?"
 
 #: tracker/models.py:288
 msgid "Do you request reimbursement of car-type travel expense?"
-msgstr "Araba tipi seyahat masrafının geri ödenmesini istiyor musunuz?"
+msgstr "Ви просите відшкодування транспортних витрат типу автомобіля?"
 
 #: tracker/models.py:289
 msgid "Is this ticket completed?"
-msgstr "Bu bilet tamamlandı mı?"
+msgstr "Цей квиток заповнений?"
 
 #: tracker/models.py:373
 msgid "historical"
-msgstr "Tarihsel"
+msgstr "історичний"
 
 #: tracker/models.py:382
 msgid "waiting for content rating"
-msgstr "içerik derecelendirmesini bekliyor"
+msgstr "чекаючи оцінки вмісту"
 
 #: tracker/models.py:385 tracker/templates/tracker/export.html:49
 #: tracker/templates/tracker/export.html:50
 msgid "complete"
-msgstr "tamamlandı"
+msgstr "завершено"
 
 #: tracker/models.py:387 tracker/templates/tracker/export.html:46
 #: tracker/templates/tracker/export.html:47
 msgid "waiting for filing of documents"
-msgstr "evrak dosyalanması için bekliyor"
+msgstr "чекає подачі документів"
 
 #: tracker/models.py:389 tracker/templates/tracker/export.html:43
 #: tracker/templates/tracker/export.html:44
 msgid "waiting for document submission"
-msgstr "evrak teslimi için bekliyor"
+msgstr "в очікуванні подання документів"
 
 #: tracker/models.py:392 tracker/models.py:399
 #: tracker/templates/tracker/export.html:40
 #: tracker/templates/tracker/export.html:41
 msgid "waiting for approval"
-msgstr "onay bekleniyor"
+msgstr "в очікуванні схвалення"
 
 #: tracker/models.py:394 tracker/templates/tracker/export.html:37
 #: tracker/templates/tracker/export.html:38
 msgid "waiting for submitting"
-msgstr "göndermeyi bekliyor"
+msgstr "в очікуванні подання"
 
 #: tracker/models.py:397 tracker/templates/tracker/export.html:34
 #: tracker/templates/tracker/export.html:35
 msgid "waiting for preapproval"
-msgstr "ön onay bekliyor"
+msgstr "в очікуванні попереднього погодження"
 
 #: tracker/models.py:401 tracker/templates/tracker/export.html:31
 #: tracker/templates/tracker/export.html:32
 msgid "draft"
-msgstr "taslak"
+msgstr "проєкт"
 
 #: tracker/models.py:404 tracker/templates/tracker/export.html:30
 msgid "state"
-msgstr "Durum"
+msgstr "стан"
 
 #: tracker/models.py:428 tracker/templates/tracker/admin_user_list.html:26
 msgid "E-mail"
-msgstr "E-posta"
+msgstr "Електронна пошта"
 
 #: tracker/models.py:429 tracker/models.py:1312
 #: tracker/templates/tracker/admin_user_list.html:31
 #: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
-msgstr "Diğer iletişim"
+msgstr "Інший контакт"
 
 #: tracker/models.py:433
 msgid "no tracker account listed"
-msgstr "izleyici hesabı listelenmemiş"
+msgstr "немає облікового запису трекера"
 
 #: tracker/models.py:435
 msgid "Requester details"
-msgstr "Talep ayrıntıları"
+msgstr "Деталі запитувача"
 
 #: tracker/models.py:651 tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Ticket"
-msgstr "Bilet"
+msgstr "Квиток"
 
 #: tracker/models.py:652 tracker/templates/tracker/cluster_detail.html:12
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -666,94 +662,94 @@ msgstr "Bilet"
 #: tracker/templates/tracker/user_detail.html:22
 #: tracker/templates/tracker/user_list.html:13
 msgid "Tickets"
-msgstr "Biletler"
+msgstr "Квитки"
 
 #: tracker/models.py:728 tracker/models.py:730
 msgid "Description shown to users who enter tickets for this subtopic"
-msgstr "Bu alt konu için bilet alan kullanıcılara gösterilen açıklama"
+msgstr "Опис показано користувачам, які вводять квитки на цю підтему"
 
 #: tracker/models.py:729 tracker/models.py:813
 msgid "form description"
-msgstr "form açıklaması"
+msgstr "опис форми"
 
 #: tracker/models.py:732
 msgid "Topic where this subtopic belongs"
-msgstr "Bu alt başlığın ait olduğu konu"
+msgstr "Тема, до якої належить ця підтема"
 
 #: tracker/models.py:791 tracker/templates/tracker/index.html:24
 #: tracker/templates/tracker/ticket_common_detail.html:13
 #: tracker/templates/tracker/ticket_table.html:16
 #: tracker/templates/tracker/ticket_table.html:31
 msgid "Subtopic"
-msgstr "Alt konu"
+msgstr "Підтема"
 
 #: tracker/models.py:792 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
-msgstr "Alt konular"
+msgstr "Підтеми"
 
 #: tracker/models.py:799 tracker/views.py:588
 msgid "grant"
-msgstr "hibe"
+msgstr "грант"
 
 #: tracker/models.py:800
 msgid "Grant project where this topic belongs"
-msgstr "Bu konunun ait olduğu hibe projesi"
+msgstr "Грантовий проєкт, до якого належить ця тема"
 
 #: tracker/models.py:801
 msgid "open for tickets"
-msgstr "biletlere açık"
+msgstr "відкриті для квитків"
 
 #: tracker/models.py:802
 msgid "Is this topic open for ticket submissions from users?"
-msgstr "Bu konu, kullanıcılardan bilet gönderimleri için açık mı?"
+msgstr "Чи відкрита ця тема для подання квитків від користувачів?"
 
 #: tracker/models.py:803
 msgid "ticket media"
-msgstr "bilet medyası"
+msgstr "білетний носій"
 
 #: tracker/models.py:804
 msgid "Does this topic track ticket media items?"
-msgstr "Bu konu bilet medya öğelerini izliyor mu?"
+msgstr "Чи ця тема відстежує медіа-записи квитків?"
 
 #: tracker/models.py:805
 msgid "ticket expenses"
-msgstr "bilet masrafları"
+msgstr "витрати на квитки"
 
 #: tracker/models.py:806
 msgid "Does this topic track ticket expenses?"
-msgstr "Bu konu bilet giderlerini takip ediyor mu?"
+msgstr "Ця тема відстежує витрати на квитки?"
 
 #: tracker/models.py:807
 msgid "ticket preexpenses"
-msgstr "bilet öncesi masraflar"
+msgstr "попередні витрати на квитки"
 
 #: tracker/models.py:808
 msgid "Does this topic track preexpenses?"
-msgstr "Bu konu önceden ödenenleri takip ediyor mu?"
+msgstr "Чи ця тема відстежує передвитрати?"
 
 #: tracker/models.py:809
 msgid "require statutory declaration"
-msgstr "yasal beyan gerektirir"
+msgstr "вимагати декларації, передбаченої законом"
 
 #: tracker/models.py:810
 msgid "Does this topic require statutory declaration for car travelling?"
-msgstr "Bu konu, araba yolculuğu için yasal bildirim gerektiriyor mu?"
+msgstr "Чи ця тема вимагає законодавчої декларації для подорожі автомобілем?"
 
 #: tracker/models.py:812 tracker/models.py:904
 msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
-msgstr "Detaylı açıklama; Şimdilik HTML'ye izin verilir, satır sonları otomatik olarak ayrıştırılır"
+msgstr "Детальний опис; Наразі HTML дозволений, розриви рядків автоматично аналізуються"
 
 #: tracker/models.py:814
 msgid "Description shown to users who enter tickets for this topic"
-msgstr "Bu konu için bilet giren kullanıcılara gösterilen açıklama"
+msgstr "Опис показано користувачам, які вводять квитки на цю тему"
 
 #: tracker/models.py:815
 msgid "topic administrator"
-msgstr "konu yöneticisi"
+msgstr "адміністратор теми"
 
 #: tracker/models.py:816
 msgid "Selected users will have administration access to this topic."
-msgstr "Seçilen kullanıcılar bu konuya yönetici erişimine sahip olacak."
+msgstr "Вибрані користувачі матимуть адміністративний доступ до цієї теми."
 
 #: tracker/models.py:890 tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/index.html:23
@@ -764,37 +760,37 @@ msgstr "Seçilen kullanıcılar bu konuya yönetici erişimine sahip olacak."
 #: tracker/templates/tracker/topic_finance.html:11
 #: tracker/templates/tracker/topic_table.html:5
 msgid "Topic"
-msgstr "Konu"
+msgstr "Тема"
 
 #: tracker/models.py:891 tracker/templates/tracker/export.html:61
 #: tracker/templates/tracker/export.html:212
 #: tracker/templates/tracker/import.html:26
 msgid "Topics"
-msgstr "Konular"
+msgstr "Теми"
 
 #: tracker/models.py:900
 msgid "full name"
-msgstr "Tam ad"
+msgstr "повна назва"
 
 #: tracker/models.py:900
 msgid "Full name for headlines and such"
-msgstr "Başlıklar ve bunun için tam ad"
+msgstr "Повна назва заголовків тощо"
 
 #: tracker/models.py:901
 msgid "short name"
-msgstr "kısa ad"
+msgstr "коротке ім'я"
 
 #: tracker/models.py:901
 msgid "Shorter name for use in tables"
-msgstr "Tablolarda kullanım için daha kısa ad"
+msgstr "Коротша назва для використання в таблицях"
 
 #: tracker/models.py:902
 msgid "slug"
-msgstr "slug"
+msgstr "слуг"
 
 #: tracker/models.py:902
 msgid "Shortcut for usage in URLs"
-msgstr "URL’lerde kullanım için kısayol"
+msgstr "Ярлик для використання в URL-адресах"
 
 #: tracker/models.py:944 tracker/templates/tracker/grant_table.html:5
 #: tracker/templates/tracker/index.html:22
@@ -805,25 +801,25 @@ msgstr "URL’lerde kullanım için kısayol"
 #: tracker/templates/tracker/topic_table.html:6
 #: tracker/templates/tracker/transaction_list.html:15
 msgid "Grant"
-msgstr "Hibe"
+msgstr "Грант"
 
 #: tracker/models.py:945 tracker/templates/tracker/export.html:141
 #: tracker/templates/tracker/import.html:34
 msgid "Grants"
-msgstr "Hibeler"
+msgstr "Гранти"
 
 #: tracker/models.py:958 tracker/models.py:986 tracker/models.py:1185
 #: tracker/models.py:1211 tracker/views.py:514
 msgid "ticket"
-msgstr "bilet"
+msgstr "квиток"
 
 #: tracker/models.py:959 tracker/models.py:987
 msgid "Ticket this media info belongs to"
-msgstr "Bu medya bilgisinin ait olduğu bilet"
+msgstr "Квиток, якому належить ця інформація про медіа"
 
 #: tracker/models.py:960
 msgid "Item description to show"
-msgstr "Gösterilecek öğe açıklaması"
+msgstr "Опис товару для показу"
 
 #: tracker/models.py:961 tracker/models.py:974 tracker/models.py:992
 msgid "URL"
@@ -831,76 +827,76 @@ msgstr "URL"
 
 #: tracker/models.py:961
 msgid "Link to media files"
-msgstr "Medya dosyalarına bağlantı"
+msgstr "Посилання на медіафайли"
 
 #: tracker/models.py:962
 msgid "count"
-msgstr "sayı"
+msgstr "рахувати"
 
 #: tracker/models.py:962 tracker/templates/tracker/ticket_show_media.html:45
 msgid "Number of files"
-msgstr "Dosya sayısı"
+msgstr "Кількість файлів"
 
 #: tracker/models.py:968 tracker/models.py:969 tracker/models.py:1157
 #: tracker/models.py:1158
 msgid "Ticket media"
-msgstr "Bilet medyası"
+msgstr "Носії квитків"
 
 #: tracker/models.py:974
 msgid "Link to file usage"
-msgstr "Dosya kullanımına bağlantı"
+msgstr "Посилання на використання файлів"
 
 #: tracker/models.py:975 tracker/models.py:981
 msgid "title"
-msgstr "başlık"
+msgstr "заголовок"
 
 #: tracker/models.py:976
 msgid "project"
-msgstr "proje"
+msgstr "проєкт"
 
 #: tracker/models.py:989
 msgid "page id"
-msgstr "sayfa kimliği"
+msgstr "ідентифікатор сторінки"
 
 #: tracker/models.py:990
 msgid "width"
-msgstr "genişlik"
+msgstr "ширина"
 
 #: tracker/models.py:991
 msgid "height"
-msgstr "yükseklik"
+msgstr "висота"
 
 #: tracker/models.py:993
 msgid "cannonical title"
-msgstr "kanonik başlık"
+msgstr "канонічна назва"
 
 #: tracker/models.py:1186
 msgid "Ticket this expediture belongs to"
-msgstr "Bilet bu sefer aittir"
+msgstr "Квиток, якому належить ця витрата"
 
 #: tracker/models.py:1187
 msgid "Description of this expediture"
-msgstr "Bu giderin açıklaması"
+msgstr "Опис цих витрат"
 
 #: tracker/models.py:1188 tracker/models.py:1214 tracker/models.py:1370
 msgid "amount"
-msgstr "miktar"
+msgstr "сума"
 
 #: tracker/models.py:1189
 msgid "Expediture amount in"
-msgstr "Harcama tutarı"
+msgstr "Сума видатків у"
 
 #: tracker/models.py:1190 tracker/models.py:1373
 msgid "accounting info"
-msgstr "muhasebe bilgisi"
+msgstr "бухгалтерська інформація"
 
 #: tracker/models.py:1191
 msgid "Accounting info, this is editable only through admin field"
-msgstr "Muhasebe bilgileri, bu yalnızca hizmetli alanı üzerinden düzenlenebilir"
+msgstr "Бухгалтерська інформація, її можна змінити лише через поле адміністратора"
 
 #: tracker/models.py:1193 tracker/models.py:1216
 msgid "wage"
-msgstr "ücret"
+msgstr "заробітна плата"
 
 #: tracker/models.py:1196 tracker/models.py:1219
 #, python-format
@@ -909,127 +905,127 @@ msgstr "%(description)s (%(amount)s %(currency)s)"
 
 #: tracker/models.py:1205
 msgid "Ticket expediture"
-msgstr "Bilet harcaması"
+msgstr "Витрати на квитки"
 
 #: tracker/models.py:1206
 msgid "Ticket expeditures"
-msgstr "Bilet harcamaları"
+msgstr "Витрати на квитки"
 
 #: tracker/models.py:1212
 msgid "Ticket this preexpediture belongs to"
-msgstr "Bu önceliğin ait olduğu bilet"
+msgstr "Квиток, до якого належить ця попередня експедиція"
 
 #: tracker/models.py:1213
 msgid "Description of this preexpediture"
-msgstr "Bu hazırlığın tanımı"
+msgstr "Опис цього попереднього випередження"
 
 #: tracker/models.py:1215
 msgid "Preexpediture amount in"
-msgstr "Önceden düzenlenmiş miktar"
+msgstr "Сума попередніх витрат у"
 
 #: tracker/models.py:1223
 msgid "Ticket preexpediture"
-msgstr "Bilet hazırlığı"
+msgstr "Попередня експедиція квитків"
 
 #: tracker/models.py:1224
 msgid "Ticket preexpeditures"
-msgstr "Bilet hazırlıkları"
+msgstr "Попередні експедиції квитків"
 
 #: tracker/models.py:1228
 msgid "uploader"
-msgstr "yükleyici"
+msgstr "завантажувач"
 
 #: tracker/models.py:1238 tracker/views.py:798
 msgid "We need a sane file name, such as my-invoice123.jpg"
-msgstr "my-invoice123.jpg gibi bir mantıklı dosya adına ihtiyacımız var"
+msgstr "Нам потрібна розумна назва файлу, наприклад my-invoice123.jpg"
 
 #: tracker/models.py:1279
 msgid "Ignored acks"
-msgstr "Yoksayılmış"
+msgstr "Проігноровані перевірки"
 
 #: tracker/models.py:1280
 msgid "Muted notifications"
-msgstr "Sessiz bildirimler"
+msgstr "Вимкнені сповіщення"
 
 #: tracker/models.py:1281
 msgid "Email language"
-msgstr "E-posta dili"
+msgstr "Мова електронної пошти"
 
 #: tracker/models.py:1283
 msgid "Display items"
-msgstr "Öğeleri görüntüle"
+msgstr "Відображення елементів"
 
 #: tracker/models.py:1284
 msgid "How many items should we display in tables at once"
-msgstr "Aynı anda tablolarda kaç tane öğe göstermeliyiz"
+msgstr "Скільки елементів ми повинні відображати в таблицях одночасно"
 
 #: tracker/models.py:1303
 msgid "Tracker user preference"
-msgstr "İzleyici kullanıcı tercihi"
+msgstr "Вподобання користувача трекера"
 
 #: tracker/models.py:1304
 msgid "Tracker user preferences"
-msgstr "İzleyici kullanıcı tercihleri"
+msgstr "Користувацькі налаштування трекера"
 
 #: tracker/models.py:1309
 msgid "Username on mediawiki"
-msgstr "Mediawiki'deki kullanıcı adı"
+msgstr "Ім'я користувача на mediawiki"
 
 #: tracker/models.py:1310 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
-msgstr "Banka hesabı"
+msgstr "Банківський рахунок"
 
 #: tracker/models.py:1311
 msgid "Bank account information for money transfers"
-msgstr "Para transferleri için banka hesap bilgileri"
+msgstr "Інформація про банківський рахунок для грошових переказів"
 
 #: tracker/models.py:1313
 msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
-msgstr "Viki hesabı gibi diğer kişiler; konu yöneticilerinin bazı bilgileri netleştirmeleri gerektiğinde yararlı olabilir"
+msgstr "Інші контакти, такі як обліковий запис вікі; може бути корисним у разі, якщо адміністраторам тем необхідно уточнити деяку інформацію"
 
 #: tracker/models.py:1314 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
-msgstr "Diğer tanımlama"
+msgstr "Інша ідентифікація"
 
 #: tracker/models.py:1315
 msgid "Address, or other identification information, so we know who are we sending money to"
-msgstr "Adres veya diğer kimlik bilgileri, kime para gönderdiğimizi biliyoruz."
+msgstr "Адреса або інша ідентифікаційна інформація, щоб ми знали, кому ми надсилаємо гроші"
 
 #: tracker/models.py:1346
 msgid "Tracker profile"
-msgstr "İzleyici profili"
+msgstr "Профіль трекера"
 
 #: tracker/models.py:1347
 msgid "Tracker profiles"
-msgstr "İzleyici profilleri"
+msgstr "Профілі трекерів"
 
 #: tracker/models.py:1365
 msgid "date"
-msgstr "tarih"
+msgstr "дата"
 
 #: tracker/models.py:1366 tracker/models.py:1390
 msgid "other party"
-msgstr "diğer parti"
+msgstr "інша сторона"
 
 #: tracker/models.py:1367
 msgid "The other party; user who sent or received the payment"
-msgstr "Diğer taraf; ödemeyi gönderen veya alan kullanıcı"
+msgstr "Друга сторона; користувач, який надіслав або отримав платіж"
 
 #: tracker/models.py:1368
 msgid "other party (text)"
-msgstr "diğer parti (metin)"
+msgstr "інша сторона (текст)"
 
 #: tracker/models.py:1369
 msgid "The other party; this text is used when user is not selected"
-msgstr "Diğer taraf; Bu metin kullanıcı seçilmediğinde kullanılır"
+msgstr "Друга сторона; цей текст використовується, коли користувача не вибрано"
 
 #: tracker/models.py:1371
 msgid "Payment amount; Positive value means transaction to the user, negative is a transaction from the user"
-msgstr "Ödeme miktarı; Pozitif değer, kullanıcıya yapılan işlem anlamına gelir; negatif, kullanıcıdan gelen bir işlemdir"
+msgstr "Сума оплати; Позитивне значення означає транзакцію для користувача, негативне — транзакцію від користувача"
 
 #: tracker/models.py:1372
 msgid "Description of this transaction"
-msgstr "Bu işlemin açıklaması"
+msgstr "Опис цієї транзакції"
 
 #: tracker/models.py:1373
 #: tracker/templates/feeds/transaction_description.html:6
@@ -1039,202 +1035,202 @@ msgstr "Bu işlemin açıklaması"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1729
 msgid "Accounting info"
-msgstr "Muhasebe bilgisi"
+msgstr "Бухгалтерська інформація"
 
 #: tracker/models.py:1374
 msgid "related tickets"
-msgstr "ilgili biletler"
+msgstr "відповідні квитки"
 
 #: tracker/models.py:1375
 msgid "Tickets this trackaction is related to"
-msgstr "Bu izlemeyle ilgili biletler"
+msgstr "Квитки, з якими пов’язано це відстеження"
 
 #: tracker/models.py:1417
 msgid "Transaction"
-msgstr "İşlem"
+msgstr "Транзакція"
 
 #: tracker/models.py:1418 tracker/templates/tracker/cluster_detail.html:18
 #: tracker/templates/tracker/ticket_detail.html:30
 #: tracker/templates/tracker/user_detail.html:19
 msgid "Transactions"
-msgstr "İşlemler"
+msgstr "Транзакції"
 
 #: tracker/models.py:1444
 msgid "comment"
-msgstr "yorum"
+msgstr "коментар"
 
 #: tracker/models.py:1568
 #, python-format
 msgid "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> by user <tt>%(user)s</tt>"
-msgstr "<tt>%(comment)s</tt> yorumu <tt>%(user)s</tt> adlı kullanıcının <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine eklendi."
+msgstr "Коментар <tt>%(comment)s</tt> додано до квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> користувачем <tt>%(user)s</tt>"
 
 #: tracker/models.py:1599
 #, python-format
 msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
-msgstr "<tt>%(user)s</tt> kullanıcısı, <tt>%(topic)s</tt> başlığında <a href=\"%(ticket_url)s\">%(ticket)s</a> oluşturdu."
+msgstr "Користувач <tt>%(user)s</tt> створив квиток <a href=\"%(ticket_url)s\">%(ticket)s</a> у темі <tt>%(topic)s</tt>."
 
 #: tracker/models.py:1615
 #, python-format
 msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin yönetici notunu değiştirdi."
+msgstr "Користувач <tt>%(user)s</tt> змінив примітки керівника квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1635
 #, python-format
 msgid "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin açıklamasını değiştirdi."
+msgstr "Користувач <tt>%(user)s</tt> змінив опис квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1638
 #, python-format
 msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> adlı kullanıcı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin adını değiştirdi."
+msgstr "Користувач <tt>%(user)s</tt> змінив назву квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1641
 #, python-format
 msgid "User <tt>%(user)s</tt> changed link to report of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> adlı kullanıcı, <a href=\"%(ticket_url)s\">%(ticket)s</a> bilet raporuna giden bağlantıyı değiştirdi."
+msgstr "Користувач <tt>%(user)s</tt> змінив посилання на звіт про квиток <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1645
 #, python-format
 msgid "User <tt>%(user)s</tt> changed requested deposit of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı istenen <a href=\"%(ticket_url)s\">%(ticket)s</a> bilet depozitosunu değiştirdi."
+msgstr "Користувач <tt>%(user)s</tt> змінив запитуваний депозит квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1655
 #, python-format
 msgid "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> adlı kullanıcı değişti \"Rapor zorunlu mu?\" <a href=\"%(ticket_url)s\">%(ticket)s</a> bilet alanı."
+msgstr "Користувач <tt>%(user)s</tt> змінено «Чи обов'язковий звіт?» поле квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1667
 #, python-format
 msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
-msgstr "\"%(ticket)s\" bileti %(user)s kullanıcısı tarafından silindi"
+msgstr "Квиток «%(ticket)s» видалено користувачем %(user)s"
 
 #: tracker/models.py:1684
 #, python-format
 msgid "User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine <tt>%(ack_type)s</tt> eklendi."
+msgstr "Користувач <tt>%(user)s</tt> додав ack <tt>%(ack_type)s</tt> до квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1698
 #, python-format
 msgid "User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
-msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinden <tt>%(ack_type)s</tt> kaldırıldı"
+msgstr "Користувач <tt>%(user)s</tt> вилучив ack <tt>%(ack_type)s</tt> з квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
 #: tracker/models.py:1729
 #, python-format
 msgid "User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı, biletine <a href=\"%(ticket_url)s\">%(ticket)s</a> <tt>%(expeditures)s</tt> planlı keşif gezileri ekledi"
+msgstr "Користувач <tt>%(user)s</tt> додав заплановані витрати <tt>%(expeditures)s</tt> до квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1751
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
-msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> planlı seferini ücret olarak ayarlandı."
+msgstr "Користувач <tt>%(user)s</tt> встановив заплановані витрати <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> як заробітна плата."
 
 #: tracker/models.py:1754
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
-msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> planlı seferini ücret olmayanı ayarlandı."
+msgstr "Користувач <tt>%(user)s</tt> встановив заплановані витрати <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> як не заробітна плата."
 
 #: tracker/models.py:1757
 #, python-format
 msgid "User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı, planlanan sefer hızını <a href=\"%(ticket_url)s\">%(ticket)s</a> <tt>%(old_expediture)s</tt>'den <tt>%(expeditures)s</tt>'den değiştirdi."
+msgstr "Користувач <tt>%(user)s</tt> змінив заплановані витрати з <tt>%(old_expediture)s</tt> на <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1774
 #, python-format
 msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a >biletinden <tt>%(expediture)s</tt> planlanan seferini kaldırdı."
+msgstr "Користувач <tt>%(user)s</tt> вилучив заплановані витрати <tt>%(expediture)s</tt> з квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1795
 #, python-format
 msgid "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine <tt>%(expeditures)s</tt> gerçek keşifler ekledi."
+msgstr "Користувач <tt>%(user)s</tt> додав реальні витрати <tt>%(expeditures)s</tt> до квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1818
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as paid."
-msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> gerçek seferini ödendiği gibi ayarlandı."
+msgstr "Користувач <tt>%(user)s</tt> встановив реальні витрати <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> як оплачено."
 
 #: tracker/models.py:1821
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not paid."
-msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> gerçek seferini ödenmediği gibi ayarlandı."
+msgstr "Користувач <tt>%(user)s</tt> встановив реальні витрати <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> як не оплачується."
 
 #: tracker/models.py:1826
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
-msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> gerçek seferini ücret olarak ayarlandı."
+msgstr "Користувач <tt>%(user)s</tt> встановив реальні витрати <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> як заробітна плата."
 
 #: tracker/models.py:1829
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
-msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> gerçek seferini ücret olmayan ayarlandı."
+msgstr "Користувач <tt>%(user)s</tt> встановив реальні витрати <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> як не заробітна плата."
 
 #: tracker/models.py:1836
 #, python-format
 msgid "User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı, gerçek aperitifliği <tt>%(old_expediture)s</tt> <a href=\"%(ticket_url)s\">%(ticket)s</a>'den <tt>%(expeditures)s</tt>'den değiştirdi."
+msgstr "Користувач <tt>%(user)s</tt> змінив реальні витрати з <tt>%(old_expediture)s</tt> на <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1853
 #, python-format
 msgid "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı, <tt>%(expeditures)s</tt> gerçek harekatını kaldırdı <a href=\"%(ticket_url)s\">%(ticket)s </a>."
+msgstr "Користувач <tt>%(user)s</tt> вилучив реальні витрати <tt>%(expeditures)s</tt> з квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1867
 #, python-format
 msgid "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine medya ekledi."
+msgstr "Користувач <tt>%(user)s</tt> додав медіафайли до квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1870
 #, python-format
 msgid "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin ortamını değiştirdi."
+msgstr "Користувач <tt>%(user)s</tt> змінив медіафайли квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1884
 #, python-format
 msgid "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinden medyayı çıkardı."
+msgstr "Користувач <tt>%(user)s</tt> вилучив медіафайли з квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1897 tracker/models.py:1917
 msgid "no description"
-msgstr "açıklama yok"
+msgstr "немає опису"
 
 #: tracker/models.py:1901
 #, python-format
 msgid "User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
-msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> <tt>%(document_filename)s (%(document_description)s)</tt> belgesini ekledi."
+msgstr "Користувач <tt>%(user)s</tt> додав документ <tt>%(document_filename)s (%(document_description)s)</tt> до квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
 #: tracker/models.py:1903
 #, python-format
 msgid "User <tt>%(user)s</tt> changed document <tt>%(document_filename)s</tt> assigned to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine atanan <tt>%(document_filename)s</tt> belgeyi değiştirdi."
+msgstr "Користувач <tt>%(user)s</tt> змінив документ <tt>%(document_filename)s</tt>, призначений для квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1920
 #, python-format
 msgid "User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
-msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> <tt>%(document_filename)s (%(document_description)s)</tt> belgesini kaldırdı"
+msgstr "Користувач <tt>%(user)s</tt> вилучив документ <tt>%(document_filename)s (%(document_description)s)</tt> з квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "REMOVE"
-msgstr "KALDIR"
+msgstr "ВИЛУЧИТИ"
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "Really remove?"
-msgstr "Gerçekten kaldırılsın mı?"
+msgstr "Дійсно вилучити?"
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "YES"
-msgstr "EVET"
+msgstr "ТАК"
 
 #: tracker/templates/admin/tracker/ticket/ack_norating_error.html:2
 msgid "You must fill rating percentage before you will be able to accept the ticket."
-msgstr "Bilet kabul edebilmeniz için derecelendirme yüzdesini doldurmanız gerekir."
+msgstr "Щоб прийняти квиток, потрібно заповнити відсоток рейтингу."
 
 #: tracker/templates/admin/tracker/ticket/ack_noreport_error.html:2
 msgid "You cannot accept ticket when a report is mandatory and no report was given"
-msgstr "Bir rapor zorunluyken ve hiçbir rapor verilmediğinde bilet kabul edemezsiniz"
+msgstr "Ви не можете прийняти квиток, якщо звіт є обов’язковим і жодного звіту не подано"
 
 #: tracker/templates/admin/tracker/ticket/add_ack.html:3
 msgid "add new ack"
-msgstr "yeni ekle"
+msgstr "додати новий ack"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:20
 #: tracker/templates/admin/tracker/ticket/tabular.html:76
@@ -1244,68 +1240,70 @@ msgstr "yeni ekle"
 #: tracker/templates/tracker/topic_table.html:38
 #: tracker/templates/tracker/user_list.html:27
 msgid "Total"
-msgstr "Toplam"
+msgstr "Усього"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:39
 #: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1727
 #: tracker/views.py:1736 tracker/views.py:1746
 msgid "Ticket ID"
-msgstr "Bilet kimliği"
+msgstr "Ідентифікатор квитка"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:42
 msgid "Approvals"
-msgstr "Onaylar"
+msgstr "Схвалення"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:46
 msgid "ADD ACK"
-msgstr "EKLE"
+msgstr "ДОДАТИ ACK"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:66
 msgid "Ticket documents"
-msgstr "Bilet belgeleri"
+msgstr "Квиткові документи"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:69
 #: tracker/templates/tracker/edit_ticket.html:20
 #: tracker/templates/tracker/ticket_detail.html:19
 msgid "edit ticket documents"
-msgstr "bilet belgelerini düzenle"
+msgstr "редагувати документи на квитки"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:76
 msgid "There are no documents uploaded for this ticket."
-msgstr "Bu bilet için henüz bir dosya yüklenmemiş."
+msgstr "Для цього квитка немає завантажених документів."
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:79
 #: tracker/templates/tracker/ticket_detail.html:64
 #, python-format
 msgid "There is 1 document uploaded."
 msgid_plural "There are %(counter)s documents uploaded."
-msgstr[0] "Yüklenen 1 belge var."
+msgstr[0] "Завантажено 1 документ."
+msgstr[1] "Завантажено %(counter)s документів."
+msgstr[2] ""
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:20
 msgid "Delete?"
-msgstr "Silinsin mi?"
+msgstr "Вилучити?"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:34
 #: tracker/templates/tracker/admin_index_override.html:27
 msgid "Change"
-msgstr "Değiştir"
+msgstr "Змінити"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:34
 msgid "View"
-msgstr "Görüntüle"
+msgstr "Перегляд"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:36
 msgid "View on site"
-msgstr "Sitede görüntüle"
+msgstr "Переглянути на сайті"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:95
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Accepted"
-msgstr "Kabul edildi"
+msgstr "Прийнято"
 
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
-msgstr "durum"
+msgstr "статус"
 
 #: tracker/templates/feeds/transaction_description.html:2
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1313,7 +1311,7 @@ msgstr "durum"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22
 msgid "Date"
-msgstr "Tarih"
+msgstr "Дата"
 
 #: tracker/templates/feeds/transaction_description.html:3
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1321,7 +1319,7 @@ msgstr "Tarih"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_list.html:13
 msgid "User"
-msgstr "Kullanıcı"
+msgstr "Користувач"
 
 #: tracker/templates/feeds/transaction_description.html:4
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1333,7 +1331,7 @@ msgstr "Kullanıcı"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22
 msgid "Amount"
-msgstr "Miktar"
+msgstr "Сума"
 
 #: tracker/templates/feeds/transaction_description.html:5
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1344,78 +1342,78 @@ msgstr "Miktar"
 #: tracker/views.py:1713 tracker/views.py:1718 tracker/views.py:1727
 #: tracker/views.py:1736
 msgid "Description"
-msgstr "Açıklama"
+msgstr "Опис"
 
 #: tracker/templates/notification/notification_html.html:4
 msgid "List of new tickets"
-msgstr "Yeni biletlerin listesi"
+msgstr "Список нових квитків"
 
 #: tracker/templates/notification/notification_html.html:13
 msgid "List of deleted tickets"
-msgstr "Silinen biletlerin listesi"
+msgstr "Список видалених квитків"
 
 #: tracker/templates/notification/notification_html.html:22
 msgid "The state of a watched ticket was changed"
-msgstr "İzlenen biletin durumu değiştirildi"
+msgstr "Стан переглянутих квитків було змінено"
 
 #: tracker/templates/notification/notification_html.html:31
 msgid "Supervisor notes on a watched ticket were changed"
-msgstr "İzlenen bir bilette gözetmen notları değiştirildi"
+msgstr "Нотатки керівника щодо переглянутих квитків були змінені"
 
 #: tracker/templates/notification/notification_html.html:40
 msgid "Changes were made to a watched ticket"
-msgstr "İzlenen bilette değişiklikler yapıldı"
+msgstr "У квиток на перегляд внесено зміни"
 
 #: tracker/templates/notification/notification_html.html:49
 msgid "The preexpenditures of a watched ticket were changed"
-msgstr "İzlenen bir biletin ön harcamaları değiştirildi"
+msgstr "Попередні витрати на квиток, який переглянули, були змінені"
 
 #: tracker/templates/notification/notification_html.html:58
 msgid "The expenditures of a watched ticket were changed"
-msgstr "İzlenen biletin harcamaları değiştirildi"
+msgstr "Витрати на переглянутий квиток були змінені"
 
 #: tracker/templates/notification/notification_html.html:67
 msgid "Medias of a watched ticket"
-msgstr "İzlenen biletin medyaları"
+msgstr "Носії переглянутих квитків"
 
 #: tracker/templates/notification/notification_html.html:76
 msgid "Documents of a watched ticket were changed"
-msgstr "İzlenen biletin belgeleri değiştirildi"
+msgstr "Були змінені документи про переглянутий квиток"
 
 #: tracker/templates/notification/notification_html.html:85
 msgid "A comment was added to a watched ticket"
-msgstr "İzlenen bir bilete yorum eklendi"
+msgstr "До переглянутих квитків додано коментар"
 
 #: tracker/templates/notification/notification_html.html:94
 msgid "List of tickets pending preapproval"
-msgstr "Onay bekleyen biletlerin listesi"
+msgstr "Список квитків, що очікують попереднього погодження"
 
 #: tracker/templates/notification/notification_html.html:95
 #, python-format
 msgid "These tickets may be ready for preapproval. Before you preapprove them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
-msgstr "Bu biletler ön onay için hazır olabilir. Onları önceden onaylamadan önce, daima <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">finansal politikamıza</a> uyup uymadıklarını kontrol edin."
+msgstr "Ці квитки можуть бути готові до попереднього погодження. Перш ніж заздалегідь затвердити їх, завжди перевіряйте, чи вони відповідають нашій <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">фінансовій політиці</a>."
 
 #: tracker/templates/notification/notification_html.html:104
 msgid "List of tickets pending approval"
-msgstr "Onay bekleyen biletlerin listesi"
+msgstr "Перелік квитків, що очікують затвердження"
 
 #: tracker/templates/notification/notification_html.html:105
 #, python-format
 msgid "These tickets may be ready for approval. Before you approve them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
-msgstr "Bu biletler onay için hazır olabilir. Onları onaylamadan önce, her zaman <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">finansal politikamıza</a> uyup uymadıklarını kontrol edin."
+msgstr "Ці квитки можуть бути готові до затвердження. Перш ніж схвалити їх, завжди перевіряйте, чи вони відповідають нашій <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">фінансовій політиці</a>."
 
 #: tracker/templates/notification/notification_html.html:114
 msgid "Tracker notifications"
-msgstr "İzleyici bildirimleri"
+msgstr "Сповіщення Tracker"
 
 #: tracker/templates/notification/notification_subject.txt:1
 msgid "List of changes of watched tickets"
-msgstr "İzlenen biletlerin değişiklik listesi"
+msgstr "Перелік змін переглянутих квитків"
 
 #: tracker/templates/tracker/admin_index_override.html:10
 #, python-format
 msgid "Models available in the %(name)s application."
-msgstr "%(name)s uygulamasında mevcut modeller."
+msgstr "Моделі доступні у програмі %(name)s."
 
 #: tracker/templates/tracker/admin_index_override.html:11
 #, python-format
@@ -1426,52 +1424,52 @@ msgstr "%(name)s"
 #: tracker/templates/tracker/ticketack_add.html:4
 #: tracker/templates/tracker/ticketack_add.html:8
 msgid "Add"
-msgstr "Ekle"
+msgstr "Додати"
 
 #: tracker/templates/tracker/admin_index_override.html:39
 #: tracker/templates/tracker/user_list.html:4
 #: tracker/templates/tracker/user_list.html:8
 msgid "User list"
-msgstr "Kullanıcı listesi"
+msgstr "Список користувачів"
 
 #: tracker/templates/tracker/admin_index_override.html:40
 #: tracker/templates/tracker/admin_user_list.html:16
 msgid "Tracker users"
-msgstr "İzleyici kullanıcıları"
+msgstr "Користувачі Tracker"
 
 #: tracker/templates/tracker/admin_index_override.html:45
 msgid "You don't have permission to edit anything."
-msgstr "Hiçbir şeyi düzenleme izniniz yok."
+msgstr "У вас немає дозволу щось редагувати."
 
 #: tracker/templates/tracker/admin_user_list.html:8
 #: tracker/templates/tracker/export.html:67
 #: tracker/templates/tracker/export.html:274
 #: tracker/templates/tracker/import.html:60
 msgid "Users"
-msgstr "Kullanıcılar"
+msgstr "Користувачі"
 
 #: tracker/templates/tracker/admin_user_list.html:13
 msgid "Home"
-msgstr "Anasayfa"
+msgstr "Домашня"
 
 #: tracker/templates/tracker/admin_user_list.html:25
 #: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1741
 msgid "Username"
-msgstr "Kullanıcı adı"
+msgstr "Ім'я користувача"
 
 #: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1741
 msgid "First name"
-msgstr "Ad"
+msgstr "Ім'я"
 
 #: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1741
 msgid "Last name"
-msgstr "Soyad"
+msgstr "Прізвище"
 
 #: tracker/templates/tracker/cluster_detail.html:4
 #: tracker/templates/tracker/cluster_detail.html:8
 #, python-format
 msgid "Cluster %(cid)s"
-msgstr "Küme %(cid)s"
+msgstr "Кластер %(cid)s"
 
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/edit_ticket.html:17
@@ -1501,149 +1499,149 @@ msgstr "Küme %(cid)s"
 #: tracker/templates/tracker/user_list.html:7
 #: tracker/templates/tracker/watch.html:8
 msgid "index"
-msgstr "Dizin"
+msgstr "Індекс"
 
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/generic/ticket_list.html:12
 msgid "transactions"
-msgstr "işlemler"
+msgstr "транзакції"
 
 #: tracker/templates/tracker/cluster_detail.html:10
 #: tracker/templates/tracker/ticket_detail.html:31
 msgid "Payment status"
-msgstr "Ödeme durumu"
+msgstr "Статус оплати"
 
 #: tracker/templates/tracker/cluster_detail.html:14
 msgid "Total tickets"
-msgstr "Toplam bilet"
+msgstr "Загальна кількість квитків"
 
 #: tracker/templates/tracker/cluster_detail.html:26
 msgid "Total transactions"
-msgstr "Toplam işlem"
+msgstr "Загальна кількість угод"
 
 #: tracker/templates/tracker/connect_account.html:4
 msgid "Connected account required"
-msgstr "Bağlı hesap gerekli"
+msgstr "Потрібен підключений обліковий запис"
 
 #: tracker/templates/tracker/connect_account.html:7
 msgid "Permission denied"
-msgstr "İzin reddedildi"
+msgstr "Доступ заборонено"
 
 #: tracker/templates/tracker/connect_account.html:8
 msgid "You need to connect Tracker account with your Wikimedia account. To do so, click on the button below."
-msgstr "İzleyici hesabını Wikimedia hesabınızla bağlamanız gerekir. Bunu yapmak için aşağıdaki düğmeye tıklayın."
+msgstr "Вам потрібно підключити обліковий запис Tracker до свого облікового запису Вікімедіа. Для цього натисніть на кнопку нижче."
 
 #: tracker/templates/tracker/connect_account.html:9
 #: tracker/templates/tracker/preferences.html:85
 msgid "Link Wikimedia account"
-msgstr "Wikimedia hesabını bağla"
+msgstr "Зв’яжіть обліковий запис Вікімедіа"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:4
 #: tracker/templates/tracker/dumpaccounts/index.html:7
 msgid "Overview of"
-msgstr "Genel bakış"
+msgstr "Огляд"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:8
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:9
 msgid "Generated on"
-msgstr "Oluşturuldu"
+msgstr "Створено на"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Unpaid"
-msgstr "Ödenmemiş"
+msgstr "Не оплачується"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/export.html:207
 msgid "Paid"
-msgstr "Ödenmiş"
+msgstr "Сплачено"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Overpaid"
-msgstr "Ödenme"
+msgstr "Переплата"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:28
 msgid "ID"
-msgstr "Kimlik"
+msgstr "ID"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/ticket_table.html:23
 msgid "Status"
-msgstr "Durum"
+msgstr "Статус"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Payment"
-msgstr "Ödeme"
+msgstr "Платіж"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:36
 msgid "There are no tickets in this topic."
-msgstr "Bu konuda hiçbir bilet yok."
+msgstr "Квитків у цій темі немає."
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:13
 #: tracker/templates/tracker/ticket_detail.html:49
 msgid "Documents"
-msgstr "Belgeler"
+msgstr "Документи"
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
 msgid "There aren't any documents here."
-msgstr "Burada hiç belge yok."
+msgstr "Тут немає жодних документів."
 
 #: tracker/templates/tracker/edit_ticket.html:4
 #: tracker/templates/tracker/edit_ticket.html:18
 msgid "Edit"
-msgstr "Düzenle"
+msgstr "Редагувати"
 
 #: tracker/templates/tracker/edit_ticket.html:20
 #: tracker/templates/tracker/ticket_detail.html:17
 msgid "copy preexpeditures to expeditures"
-msgstr "ön harcamaları harcamalara kopyala"
+msgstr "копіювати попередні витрати до витрат"
 
 #: tracker/templates/tracker/edit_ticket.html:24
 #: tracker/templates/tracker/edit_ticket_docs.html:16
 msgid "save"
-msgstr "kaydet"
+msgstr "зберегти"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:4
 #: tracker/templates/tracker/edit_ticket_docs.html:8
 msgid "Edit documents"
-msgstr "Belgeleri düzenle"
+msgstr "Редагувати документи"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:7
 #: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "edit"
-msgstr "düzenle"
+msgstr "ред."
 
 #: tracker/templates/tracker/edit_ticket_docs.html:10
 msgid "upload new document"
-msgstr "yeni belge yükle"
+msgstr "завантажити новий документ"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:14
 msgid "document"
-msgstr "Belge"
+msgstr "документ"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:17
 #: tracker/templates/tracker/ticket_form.html:33
 #: tracker/templates/tracker/upload_ticket_doc.html:35
 #, python-format
 msgid "Fields marked with %(mark)s are required."
-msgstr "%(mark)s ile işaretli alanların doldurulması zorunludur."
+msgstr "Поля, позначені %(mark)s, є обов’язковими."
 
 #: tracker/templates/tracker/export.html:12
 #: tracker/templates/tracker/export.html:15
 #: tracker/templates/tracker/generic/ticket_list.html:35
 #: tracker/templates/tracker/index.html:42
 msgid "Export"
-msgstr "Dışa aktar"
+msgstr "Експорт"
 
 #: tracker/templates/tracker/export.html:18
 msgid "Only filters with at least one checked checkbox are applied. You can either check all checkboxes or none of them, it's the same."
-msgstr "Yalnızca en az bir onay kutusu işaretli filtreler uygulanır. Tüm onay kutularını işaretleyebilir veya hiçbirini işaretleyemezsiniz, aynıdır."
+msgstr "Застосовуються лише фільтри з принаймні одним прапорцем. Ви можете встановити всі прапорці або жоден з них, це однаково."
 
 #: tracker/templates/tracker/export.html:59
 msgid "custom"
-msgstr "Özel"
+msgstr "особливий"
 
 #: tracker/templates/tracker/export.html:78
 #: tracker/templates/tracker/export.html:149
@@ -1653,7 +1651,7 @@ msgstr "Özel"
 #: tracker/templates/tracker/ticket_table.html:19
 #: tracker/templates/tracker/ticket_table.html:33
 msgid "Preexpeditures"
-msgstr "Ön harcamalar"
+msgstr "Попередні експедиції"
 
 #: tracker/templates/tracker/export.html:82
 #: tracker/templates/tracker/export.html:102
@@ -1666,7 +1664,7 @@ msgstr "Ön harcamalar"
 #: tracker/templates/tracker/export.html:301
 #: tracker/templates/tracker/export.html:320
 msgid "Larger or equal"
-msgstr "Daha büyük veya eşit"
+msgstr "Більші або рівні"
 
 #: tracker/templates/tracker/export.html:90
 #: tracker/templates/tracker/export.html:110
@@ -1679,7 +1677,7 @@ msgstr "Daha büyük veya eşit"
 #: tracker/templates/tracker/export.html:309
 #: tracker/templates/tracker/export.html:328
 msgid "Smaller or equal"
-msgstr "Daha küçük veya eşit"
+msgstr "Менші або рівні"
 
 #: tracker/templates/tracker/export.html:98
 #: tracker/templates/tracker/export.html:179
@@ -1689,7 +1687,7 @@ msgstr "Daha küçük veya eşit"
 #: tracker/templates/tracker/ticket_table.html:20
 #: tracker/templates/tracker/ticket_table.html:34
 msgid "Expeditures"
-msgstr "Harcamalar"
+msgstr "Витрати"
 
 #: tracker/templates/tracker/export.html:118
 #: tracker/templates/tracker/index.html:28
@@ -1698,95 +1696,95 @@ msgstr "Harcamalar"
 #: tracker/templates/tracker/ticket_table.html:35
 #: tracker/templates/tracker/user_list.html:13
 msgid "Accepted expeditures"
-msgstr "Kabul edilen harcamalar"
+msgstr "Прийняті витрати"
 
 #: tracker/templates/tracker/export.html:145
 msgid "You can't filter grants by any fields"
-msgstr "Hibeleri hiçbir alana göre filtreleyemezsiniz"
+msgstr "Ви не можете фільтрувати гранти за будь-якими полями"
 
 #: tracker/templates/tracker/export.html:174
 #: tracker/templates/tracker/export.html:204
 msgid "Wage"
-msgstr "Ücret"
+msgstr "Заробітна плата"
 
 #: tracker/templates/tracker/export.html:216
 msgid "Supervisors"
-msgstr "Denetçiler"
+msgstr "Наглядачі"
 
 #: tracker/templates/tracker/export.html:222
 msgid "Number of tickets"
-msgstr "Bilet sayısı"
+msgstr "Кількість квитків"
 
 #: tracker/templates/tracker/export.html:242
 msgid "Number of tickets in certain payment state"
-msgstr "Belirli ödeme durumundaki bilet sayısı"
+msgstr "Кількість квитків у певному стані оплати"
 
 #: tracker/templates/tracker/export.html:245
 msgid "N/A"
-msgstr "Bilinmiyor"
+msgstr "Немає"
 
 #: tracker/templates/tracker/export.html:278
 msgid "Number of tickets created"
-msgstr "Oluşturulan bilet sayısı"
+msgstr "Кількість створених квитків"
 
 #: tracker/templates/tracker/export.html:297
 msgid "Amount of accepted expeditures"
-msgstr "Kabul edilen harcamaların tutarı"
+msgstr "Сума прийнятих витрат"
 
 #: tracker/templates/tracker/export.html:316
 msgid "Amount of paid expeditures"
-msgstr "Ödenen harcama tutarı"
+msgstr "Сума виплачених витрат"
 
 #: tracker/templates/tracker/export.html:338
 msgid "normal"
-msgstr "normal"
+msgstr "нормальний"
 
 #: tracker/templates/tracker/export.html:343
 msgid "staff"
-msgstr "personel"
+msgstr "персонал"
 
 #: tracker/templates/tracker/export.html:348
 msgid "superuser"
-msgstr "süper"
+msgstr "superuser"
 
 #: tracker/templates/tracker/fill_details.html:4
 #: tracker/templates/tracker/fill_details.html:9
 msgid "My personal information"
-msgstr "Kişisel bilgilerim"
+msgstr "Моя особиста інформація"
 
 #: tracker/templates/tracker/fill_details.html:10
 msgid "To use tracker for expenses, we need a bit more information about you first."
-msgstr "İzleyiciyi masraflar için kullanmak için önce sizinle ilgili biraz daha bilgiye ihtiyacımız var."
+msgstr "Щоб використовувати трекер для витрат, нам спочатку потрібно трохи більше інформації про вас."
 
 #: tracker/templates/tracker/fill_details.html:21
 msgid "save & continue"
-msgstr "kaydet ve ilerle"
+msgstr "зберегти і продовжити"
 
 #: tracker/templates/tracker/fill_details.html:22
 msgid "skip"
-msgstr "atla"
+msgstr "пропустити"
 
 #: tracker/templates/tracker/fill_details.html:25
 #: tracker/templates/tracker/user_details_change.html:23
 #: users/templates/users/register.html:28
 msgid "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them."
-msgstr "Tracker'ı kullanarak veri işlemeyi kabul etmiş sayılırsınız. Verilerinizi tüm ödemeleri doğru görüntülemek ve muhasebe işlemlerimizde kullanmak için kullanıyoruz. Bize e-posta adresinizi vermelisiniz; bize daha ayrıntılı bilgi vermeniz istenebilir. Veriler üçüncü şahıslara verilmez ve yalnızca yetkili personel üyelerine erişime izin verilir."
+msgstr "Використовуючи Tracker, ви даєте згоду на обробку даних. Ми використовуємо ваші дані для правильного відображення всіх платежів та для нашого бухгалтерського обліку. Ви повинні надати нам свою електронну адресу; вас можуть попросити надати нам більш детальну інформацію. Дані не передаються третім сторонам, і доступ до них мають лише авторизовані співробітники."
 
 #: tracker/templates/tracker/generic/create_ticket.html:4
 #: tracker/templates/tracker/generic/create_ticket.html:18
 msgid "Create ticket"
-msgstr "Bilet oluştur"
+msgstr "Створити квиток"
 
 #: tracker/templates/tracker/generic/create_ticket.html:23
 msgid "You'll be able to edit everything you've filled in even after submitting the form."
-msgstr "Formu doldurduktan sonra bile doldurduğunuz her şeyi düzenleyebilirsiniz."
+msgstr "Ви зможете редагувати все, що заповнили, навіть після подання форми."
 
 #: tracker/templates/tracker/generic/ticket_list.html:4
 #: tracker/templates/tracker/generic/ticket_list.html:15
 #: tracker/templates/tracker/index.html:3
 #: tracker/templates/tracker/index.html:15
 msgid "Ticket list"
-msgstr "Bilet listesi"
+msgstr "Список квитків"
 
 #: tracker/templates/tracker/generic/ticket_list.html:12
 #: tracker/templates/tracker/index.html:12
@@ -1796,100 +1794,100 @@ msgstr "Bilet listesi"
 #: tracker/templates/tracker/topic_detail.html:14
 #: tracker/templates/tracker/topic_finance.html:7
 msgid "topics"
-msgstr "Konular"
+msgstr "теми"
 
 #: tracker/templates/tracker/generic/ticket_list.html:12
 #: tracker/templates/tracker/index.html:12
 #: tracker/templates/tracker/user_detail.html:8
 msgid "users"
-msgstr "kullanıcılar"
+msgstr "користувачі"
 
 #: tracker/templates/tracker/generic/ticket_list.html:13
 #: tracker/templates/tracker/generic/ticket_list.html:32
 #: tracker/templates/tracker/index.html:13
 #: tracker/templates/tracker/user_detail.html:9
 msgid "Create new ticket"
-msgstr "Yeni bilet oluştur"
+msgstr "Створити новий квиток"
 
 #: tracker/templates/tracker/generic/ticket_list.html:22
 #: tracker/templates/tracker/user_detail.html:15
 msgid "No tickets available."
-msgstr "Bilet yok."
+msgstr "Квитків немає."
 
 #: tracker/templates/tracker/generic/ticket_list.html:33
 #: tracker/templates/tracker/import.html:4
 #: tracker/templates/tracker/import.html:7
 #: tracker/templates/tracker/index.html:39
 msgid "Import"
-msgstr "İçe aktar"
+msgstr "Імпорт"
 
 #: tracker/templates/tracker/generic/topic_list.html:4
 #: tracker/templates/tracker/generic/topic_list.html:8
 msgid "Topic list"
-msgstr "Konu listesi"
+msgstr "Список тем"
 
 #: tracker/templates/tracker/generic/topic_list.html:13
 #: tracker/templates/tracker/grant_list.html:12
 msgid "Topics closed for new tickets"
-msgstr "Yeni biletler için kapalı konular"
+msgstr "Закриті теми для нових квитків"
 
 #: tracker/templates/tracker/generic/topic_list.html:18
 msgid "topic finance"
-msgstr "konu finansmanı"
+msgstr "тема фінансів"
 
 #: tracker/templates/tracker/generic/topic_list.html:19
 msgid "topic ack overview"
-msgstr "konuya genel bakış"
+msgstr "огляд перевірки теми"
 
 #: tracker/templates/tracker/grant_detail.html:9
 #: tracker/templates/tracker/index.html:12
 msgid "grants"
-msgstr "hibeler"
+msgstr "гранти"
 
 #: tracker/templates/tracker/grant_detail.html:11
 #: tracker/templates/tracker/ticket_detail.html:21
 #: tracker/templates/tracker/topic_detail.html:25
 msgid "watch settings"
-msgstr "izlenme ayarları"
+msgstr "налаштування годинника"
 
 #: tracker/templates/tracker/grant_list.html:4
 #: tracker/templates/tracker/grant_list.html:8
 msgid "Grant list"
-msgstr "Hibe listesi"
+msgstr "Список грантів"
 
 #: tracker/templates/tracker/grant_table.html:7
 #: tracker/templates/tracker/topic_table.html:8
 msgid "Paid wages"
-msgstr "Ödenen ücretler"
+msgstr "Виплачена заробітна плата"
 
 #: tracker/templates/tracker/grant_table.html:8
 #: tracker/templates/tracker/topic_table.html:9
 msgid "Paid together"
-msgstr "Birlikte ödenme"
+msgstr "Платили разом"
 
 #: tracker/templates/tracker/grant_table.html:9
 #: tracker/templates/tracker/topic_table.html:10
 msgid "Tickets per payment status"
-msgstr "Ödeme durumuna göre bilet"
+msgstr "Квитки за статусом оплати"
 
 #: tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
 msgid "no payment required"
-msgstr "ödeme gerekli değil"
+msgstr "оплата не потрібна"
 
 #: tracker/templates/tracker/grant_table.html:49
 #: tracker/templates/tracker/topic_table.html:53
 msgid "No topics available."
-msgstr "Uygun konu yok."
+msgstr "Немає доступних тем."
 
 #: tracker/templates/tracker/import.html:10
 #, python-format
 msgid " Be warned that you need permission to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows. If you'll submit a file CSV with more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows, only the first %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s will be processed. If you really need to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s of objects, please contact the systemadmin."
-msgstr " %(MAX_NUMBER_OF_ROWS_ON_IMPORT) satırdan fazlasını içe aktarmak için izin almanız gerektiğine dikkat edin. %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s satırdan oluşan bir CSV dosyası gönderirseniz, yalnızca ilk %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s işlenir. Gerçekten %(MAX_NUMBER_OF_ROWS_ON_IMPORT) nesneden fazlasını içe aktarmanız gerekiyorsa, lütfen sistem yöneticisine başvurun."
+msgstr "Зауважте, що вам потрібен дозвіл на імпорт більше %(MAX_NUMBER_OF_ROWS_ON_IMPORT) рядків. Якщо ви надішлете файл CSV з більш ніж %(MAX_NUMBER_OF_ROWS_ON_IMPORT) з рядками, буде оброблено лише перші %(MAX_NUMBER_OF_ROWS_ON_IMPORT). Якщо вам дійсно потрібно імпортувати більше %(MAX_NUMBER_OF_ROWS_ON_IMPORT) с об’єктів, зверніться до системного адміністратора."
 
 #: tracker/templates/tracker/import.html:14
 msgid "What kind of objects are you importing?"
-msgstr "Ne tür nesneler ithal ediyorsunuz?"
+msgstr "Які об’єкти ви імпортуєте?"
 
 #: tracker/templates/tracker/import.html:19
 #: tracker/templates/tracker/import.html:26
@@ -1899,1138 +1897,1140 @@ msgstr "Ne tür nesneler ithal ediyorsunuz?"
 #: tracker/templates/tracker/import.html:53
 #: tracker/templates/tracker/import.html:60
 msgid "example file"
-msgstr "örnek dosya"
+msgstr "приклад файлу"
 
 #: tracker/templates/tracker/import.html:41
 msgid "Preexpenses"
-msgstr "Ön giderler"
+msgstr "Попередні витрати"
 
 #: tracker/templates/tracker/import.html:47
 msgid "Expenses"
-msgstr "Harcamalar"
+msgstr "Витрати"
 
 #: tracker/templates/tracker/import.html:53
 msgid "Media"
-msgstr "Medya"
+msgstr "Медіа"
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_common_detail.html:10
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:28
 msgid "Event date"
-msgstr "Etkinlik tarihi"
+msgstr "Дата події"
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_table.html:13
 #: tracker/templates/tracker/ticket_table.html:28
 msgid "Name"
-msgstr "Ad"
+msgstr "Назва"
 
 #: tracker/templates/tracker/index.html:25
 #: tracker/templates/tracker/ticket_common_detail.html:11
 #: tracker/templates/tracker/ticket_table.html:17
 #: tracker/templates/tracker/ticket_table.html:32
 msgid "Requested by"
-msgstr "Talep eden"
+msgstr "Запит від"
 
 #: tracker/templates/tracker/index.html:29
 #: tracker/templates/tracker/ticket_common_detail.html:73
 #: tracker/templates/tracker/ticket_table.html:22
 #: tracker/templates/tracker/ticket_table.html:36
 msgid "Paid expeditures"
-msgstr "Ödenmiş harcamalar"
+msgstr "Оплачені витрати"
 
 #: tracker/templates/tracker/index.html:30
 #: tracker/templates/tracker/ticket_common_detail.html:14
 #: tracker/templates/tracker/ticket_table.html:37
 msgid "State"
-msgstr "Durum"
+msgstr "Штат"
 
 #: tracker/templates/tracker/index.html:31
 #: tracker/templates/tracker/ticket_common_detail.html:9
 #: tracker/templates/tracker/ticket_table.html:24
 #: tracker/templates/tracker/ticket_table.html:38
 msgid "Last changed"
-msgstr "Son değiştirilen"
+msgstr "Остання зміна"
 
 #: tracker/templates/tracker/paginator.html:4
 msgid "previous"
-msgstr "önceki"
+msgstr "попередня"
 
 #: tracker/templates/tracker/paginator.html:8
 msgid "next"
-msgstr "sonraki"
+msgstr "наступна"
 
 #: tracker/templates/tracker/preferences.html:4
 #: tracker/templates/tracker/preferences.html:14
 msgid "Preferences"
-msgstr "Tercihler"
+msgstr "Налаштування"
 
 #: tracker/templates/tracker/preferences.html:18
 msgid "Mute notifications"
-msgstr "Bildirimleri kapat"
+msgstr "Вимкнені сповіщення"
 
 #: tracker/templates/tracker/preferences.html:38
 msgid "Ignore ack types"
-msgstr "Türlerini yoksay"
+msgstr "Ігнорувати типи перевірок"
 
 #: tracker/templates/tracker/preferences.html:51
 msgid "Other"
-msgstr "Diğer"
+msgstr "Інше"
 
 #: tracker/templates/tracker/preferences.html:59
 #: tracker/templates/tracker/ticket_form.html:31
 #: tracker/templates/tracker/user_details_change.html:21
 #: tracker/templates/tracker/watch.html:32
 msgid "Save"
-msgstr "Kaydet"
+msgstr "Зберегти"
 
 #: tracker/templates/tracker/preferences.html:62
 msgid "Wikimedia account"
-msgstr "Wikimedia hesabı"
+msgstr "Обліковий запис Вікімедіа"
 
 #: tracker/templates/tracker/preferences.html:66
 msgid "Your account is connected to Wikimedia account"
-msgstr "Hesabınız Wikimedia hesabına bağlı"
+msgstr "Ваш обліковий запис підключено до облікового запису Вікімедіа"
 
 #: tracker/templates/tracker/preferences.html:76
 msgid "Disconnect Wikimedia account"
-msgstr "Wikimedia hesabının bağlantısını kes"
+msgstr "Відключити обліковий запис Вікімедіа"
 
 #: tracker/templates/tracker/preferences.html:80
 msgid "In order to disconnect your Wikimedia account, you first need to"
-msgstr "Wikimedia hesabınızın bağlantısını kesmek için önce yapmanız gereken"
+msgstr "Для того, щоб відключити обліковий запис Вікімедіа, спочатку потрібно"
 
 #: tracker/templates/tracker/preferences.html:80
 msgid "set a password."
-msgstr "bir şifre belirleyin."
+msgstr "встановити пароль."
 
 #: tracker/templates/tracker/preferences.html:88
 msgid "Account actions"
-msgstr "Hesap işlemleri"
+msgstr "Дії облікового запису"
 
 #: tracker/templates/tracker/preferences.html:90
 #: tracker/templates/tracker/user_deactivate.html:4
 #: tracker/templates/tracker/user_deactivate.html:11
 msgid "Deactivate account"
-msgstr "Aktif edilmemiş hesap"
+msgstr "Деактивувати обліковий запис"
 
 #: tracker/templates/tracker/sign_ticket.html:4
 #: tracker/templates/tracker/sign_ticket.html:7
 msgid "Add statutory declaration to"
-msgstr "Yasal bildirim ekleyin"
+msgstr "Додати законодавчу декларацію до"
 
 #: tracker/templates/tracker/sign_ticket.html:13
 #: tracker/templates/tracker/ticketack_add.html:21
 #: tracker/templates/tracker/ticketack_confirm_delete.html:16
 msgid "Submit"
-msgstr "Gönder"
+msgstr "Надіслати"
 
 #: tracker/templates/tracker/subtopic_detail.html:10
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "add ticket"
-msgstr "bilet ekle"
+msgstr "додати квиток"
 
 #: tracker/templates/tracker/subtopic_detail.html:16
 msgid "Total for this subtopic"
-msgstr "Bu alt konu için toplam"
+msgstr "Всього за цією підтемою"
 
 #: tracker/templates/tracker/tabular_formset.html:12
 msgid "delete"
-msgstr "sil"
+msgstr "видалити"
 
 #: tracker/templates/tracker/tabular_formset.html:21
 msgid "Delete the item"
-msgstr "Öğeyi sil"
+msgstr "Видалити елемент"
 
 #: tracker/templates/tracker/tabular_formset.html:91
 #, python-format
 msgid "Add another %(formset_item_name)s"
-msgstr "Başka bir %(formset_item_name)s ekle"
+msgstr "Додати інше %(formset_item_name)s"
 
 #: tracker/templates/tracker/tabular_formset.html:97
 #: tracker/templates/tracker/ticketack_confirm_delete.html:4
 #: tracker/templates/tracker/ticketack_confirm_delete.html:8
 msgid "Remove"
-msgstr "Kaldır"
+msgstr "Вилучити"
 
 #: tracker/templates/tracker/ticket_common_detail.html:8
 #: tracker/templates/tracker/ticket_common_detail.html:52
 #: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Created"
-msgstr "Oluşturuldu"
+msgstr "Створено"
 
 #: tracker/templates/tracker/ticket_common_detail.html:10
 msgid "unset"
-msgstr "ayarlama"
+msgstr "невстановлений"
 
 #: tracker/templates/tracker/ticket_common_detail.html:15
 #: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "Yes"
-msgstr "Evet"
+msgstr "Так"
 
 #: tracker/templates/tracker/ticket_common_detail.html:15
 #: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "No"
-msgstr "Hayır"
+msgstr "Ні"
 
 #: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "Report URL"
-msgstr "URL bildir"
+msgstr "URL звіту"
 
 #: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "No report filled"
-msgstr "Rapor doldurulmadı"
+msgstr "Звіт не заповнено"
 
 #: tracker/templates/tracker/ticket_common_detail.html:18
 msgid "Deposit"
-msgstr "Depozito"
+msgstr "Депозит"
 
 #: tracker/templates/tracker/ticket_common_detail.html:19
 msgid "Event URL"
-msgstr "Etkinlik URL'si"
+msgstr "URL події"
 
 #: tracker/templates/tracker/ticket_common_detail.html:20
 msgid "Rating percentage"
-msgstr "Oylama yüzdesi"
+msgstr "Відсоток рейтингу"
 
 #: tracker/templates/tracker/ticket_common_detail.html:22
 msgid "remove"
-msgstr "kaldır"
+msgstr "вилучити"
 
 #: tracker/templates/tracker/ticket_common_detail.html:25
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:15
 msgid "Confirm"
-msgstr "Onayla"
+msgstr "Підтвердити"
 
 #: tracker/templates/tracker/ticket_common_detail.html:33
 msgid "Supervisor notes"
-msgstr "Danışman notları"
+msgstr "Примітки керівника"
 
 #: tracker/templates/tracker/ticket_common_detail.html:36
 msgid "Media (old)"
-msgstr "Medya (eski)"
+msgstr "Медіа (старий)"
 
 #: tracker/templates/tracker/ticket_common_detail.html:37
 msgid "Number of objects"
-msgstr "Nesnelerin sayısı"
+msgstr "Кількість об'єктів"
 
 #: tracker/templates/tracker/ticket_common_detail.html:38
 msgid "Number of media files"
-msgstr "Medya dosyalarının sayısı"
+msgstr "Кількість медіафайлів"
 
 #: tracker/templates/tracker/ticket_common_detail.html:49
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Item"
-msgstr "Öge"
+msgstr "Елемент"
 
 #: tracker/templates/tracker/ticket_common_detail.html:49
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Wage?"
-msgstr "Ücret?"
+msgstr "Заробітна плата?"
 
 #: tracker/templates/tracker/ticket_common_detail.html:56
 msgid "Total preexpeditures"
-msgstr "Toplam ön hazırlıklar"
+msgstr "Загальна кількість попередніх експедицій"
 
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Paid?"
-msgstr "Ödeme?"
+msgstr "Оплачено?"
 
 #: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Yes,No"
-msgstr "Evet,Hayır"
+msgstr "Так ні"
 
 #: tracker/templates/tracker/ticket_common_detail.html:71
 msgid "Total expeditures"
-msgstr "Toplam harcamalar"
+msgstr "Загальні витрати"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:4
 msgid "Copying preexpeditures"
-msgstr "Ön denetimlerin kopyalanması"
+msgstr "Копіювання попередніх експедицій"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:7
 msgid "Are you sure?"
-msgstr "Emin misiniz?"
+msgstr "Ви впевнені?"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:9
 #, python-format
 msgid "\n	You are going to copy preexpeditures to expeditures for ticket <a href=\"%(ticket.get_absolure_url)s\">%(ticket)s</a>. Are you sure you want to do so?\n	"
-msgstr "\n	<a href=\"%(ticket.get_absolute_url)s\">%(ticket)s</a> bileti için önceden yapılan ödemeleri harcamalara kopyalayacaksınız. Bunu yapmak istediğine emin misiniz?\n	"
+msgstr "\n	Ви збираєтеся скопіювати попередні експедиції до витрат на квиток <a href=\"%(ticket.get_absolure_url)s\">%(ticket)s</a>. Ви впевнені, що хочете це зробити?\n	"
 
 #: tracker/templates/tracker/ticket_detail.html:16
 msgid "edit ticket"
-msgstr "bileti düzenle"
+msgstr "редагувати квиток"
 
 #: tracker/templates/tracker/ticket_detail.html:18
 msgid "edit in admin"
-msgstr "yöneticide düzenle"
+msgstr "редагувати в адміністраторі"
 
 #: tracker/templates/tracker/ticket_detail.html:20
 msgid "duplicate"
-msgstr "çift"
+msgstr "дублікат"
 
 #: tracker/templates/tracker/ticket_detail.html:22
 msgid "add yourself as a driver"
-msgstr "kendini şoför olarak ekle"
+msgstr "додайте себе в якості водія"
 
 #: tracker/templates/tracker/ticket_detail.html:23
 msgid "show media"
-msgstr "medya göster"
+msgstr "показати медіа"
 
 #: tracker/templates/tracker/ticket_detail.html:24
 msgid "manage media"
-msgstr "medya yönet"
+msgstr "керувати медіа"
 
 #: tracker/templates/tracker/ticket_detail.html:31
 #, python-format
 msgid "part of <a href=\"%(c_link)s\">cluster %(c_id)s</a>: total tickets %(total_tickets)s&nbsp;%(cr)s, total transactions %(total_transactions)s&nbsp;%(cr)s"
-msgstr "<a href=\"%(c_link)s\">cluster %(c_id)s</a> parçası: toplam bilet %(total_tickets)s&nbsp;%(cr)s, toplam işlem %(total_transactions)s&nbsp;%(cr)s"
+msgstr "частина <a href=\"%(c_link)s\">кластера %(c_id)s</a>: загальна кількість квитків %(total_tickets)s&nbsp;%(cr)s, загальна кількість транзакцій %(total_transactions)s&nbsp;%(cr)s"
 
 #: tracker/templates/tracker/ticket_detail.html:41
 msgid "Associated transactions total"
-msgstr "İlişkili işlemlerin toplamı"
+msgstr "Усього пов'язаних транзакцій"
 
 #: tracker/templates/tracker/ticket_detail.html:65
 msgid "As you are not an administrator, you can see only documents you uploaded below."
-msgstr "Yönetici olmadığınız için yalnızca aşağıya yüklediğiniz belgeleri görebilirsiniz."
+msgstr "Оскільки ви не адміністратор, ви можете бачити лише документи, які ви завантажили нижче."
 
 #: tracker/templates/tracker/ticket_detail.html:78
 #: tracker/templates/tracker/ticket_detail.html:82
 #: tracker/templates/tracker/topic_detail.html:43
 #: tracker/templates/tracker/topic_detail.html:46
 msgid "Comments"
-msgstr "Yorumlar"
+msgstr "Коментарі"
 
 #: tracker/templates/tracker/ticket_detail.html:83
 #: tracker/templates/tracker/topic_detail.html:47
 msgid "There are no comments yet."
-msgstr "Henüz hiç yorum yapılmamış."
+msgstr "Поки немає коментарів."
 
 #: tracker/templates/tracker/ticket_detail.html:90
 #: tracker/templates/tracker/ticket_detail.html:92
 #: tracker/templates/tracker/topic_detail.html:52
 #: tracker/templates/tracker/topic_detail.html:54
 msgid "Add comment"
-msgstr "Yorum Ekle"
+msgstr "Додати коментар"
 
 #: tracker/templates/tracker/ticket_form.html:20
 msgid "preexpediture"
-msgstr "ön harcamalar"
+msgstr "попередня експедиція"
 
 #: tracker/templates/tracker/ticket_form.html:25
 msgid "expediture"
-msgstr "harcama"
+msgstr "витрата"
 
 #: tracker/templates/tracker/ticket_form.html:31
 msgid "submit"
-msgstr "gönder"
+msgstr "надіслати"
 
 #: tracker/templates/tracker/ticket_media.html:4
 msgid "Manage media for"
-msgstr "Medyayı yönet"
+msgstr "Керувати засобами масової інформації для"
 
 #: tracker/templates/tracker/ticket_media.html:9
 msgid "Add new media"
-msgstr "Yeni medya ekle"
+msgstr "Додати нову медіа"
 
 #: tracker/templates/tracker/ticket_media.html:13
 msgid "Find by"
-msgstr "Şunu bulun"
+msgstr "Знайдено"
 
 #: tracker/templates/tracker/ticket_media.html:16
 #: tracker/templates/tracker/ticket_media.html:25
 msgid "Mediawiki username"
-msgstr "Mediawiki kullanıcı adı"
+msgstr "Ім'я користувача Mediawiki"
 
 #: tracker/templates/tracker/ticket_media.html:21
 msgid "Filename prefix"
-msgstr "Dosya adı öneki"
+msgstr "Префікс імені файлу"
 
 #: tracker/templates/tracker/ticket_media.html:30
 msgid "Number of images to fetch"
-msgstr "Alınacak resim sayısı"
+msgstr "Кількість зображень для завантаження"
 
 #: tracker/templates/tracker/ticket_media.html:34
 msgid "Category to filter by"
-msgstr "Filtrelenecek kategori"
+msgstr "Категорія для фільтрації"
 
 #: tracker/templates/tracker/ticket_media.html:41
 msgid "Search"
-msgstr "Ara"
+msgstr "Пошук"
 
 #: tracker/templates/tracker/ticket_media.html:45
 msgid "To select more images at once, select the first one, press Shift, and select the last one."
-msgstr "Tek seferde daha fazla görüntü seçmek için ilk resmi seçin, Shift tuşuna basın ve sonuncuyu seçin."
+msgstr "Щоб вибрати відразу кілька зображень, виберіть перше, натисніть клавішу Shift і виберіть останнє."
 
 #: tracker/templates/tracker/ticket_media.html:47
 msgid "Select all"
-msgstr "Hepsini seç"
+msgstr "Вибрати все"
 
 #: tracker/templates/tracker/ticket_media.html:48
 msgid "Deselect all"
-msgstr "Tüm seçimleri kaldır"
+msgstr "Скинути усе"
 
 #: tracker/templates/tracker/ticket_media.html:49
 msgid "Invert selection"
-msgstr "Seçimi ters çevir"
+msgstr "Інвертувати виділення"
 
 #: tracker/templates/tracker/ticket_media.html:62
 msgid "Load more"
-msgstr "Daha fazla yükle"
+msgstr "Завантажити більше"
 
 #: tracker/templates/tracker/ticket_media.html:63
 msgid "Loading..."
-msgstr "Yükleniyor..."
+msgstr "Завантаження…"
 
 #: tracker/templates/tracker/ticket_media.html:68
 msgid "Choose selected photos"
-msgstr "Seçilen fotoğrafları seç"
+msgstr "Виберіть вибрані фотографії"
 
 #: tracker/templates/tracker/ticket_media.html:71
 msgid "Remove existing media"
-msgstr "Mevcut medyayı kaldır"
+msgstr "Вилучити наявні носії"
 
 #: tracker/templates/tracker/ticket_media.html:72
 msgid "It can take up to five minutes for the images you added to show here."
-msgstr "Burada eklediğiniz resimlerin gösterilmesi beş dakika kadar sürebilir."
+msgstr "Показ зображень, які ви додали, може зайняти до п’яти хвилин."
 
 #: tracker/templates/tracker/ticket_media.html:80
 msgid "Delete selected photos"
-msgstr "Seçilen fotoğrafları sil"
+msgstr "Видалити вибрані фотографії"
 
 #: tracker/templates/tracker/ticket_show_media.html:3
 msgid "Show media for"
-msgstr "Medya göster"
+msgstr "Показати медіа за"
 
 #: tracker/templates/tracker/ticket_show_media.html:9
 msgid "List of linked media"
-msgstr "Bağlantılı ortamların listesi"
+msgstr "Список пов'язаних медіа"
 
 #: tracker/templates/tracker/ticket_show_media.html:10
 msgid "Last updated"
-msgstr "Son güncelleme"
+msgstr "Останнє оновлення"
 
 #: tracker/templates/tracker/ticket_show_media.html:10
 msgid "update"
-msgstr "güncelle"
+msgstr "оновити"
 
 #: tracker/templates/tracker/ticket_show_media.html:11
 msgid "Page will be updated within 24 hours."
-msgstr "Sayfa 24 saat içinde güncellenecektir."
+msgstr "Сторінка буде оновлена протягом 24 годин."
 
 #: tracker/templates/tracker/ticket_show_media.html:15
 msgid "File name"
-msgstr "Dosya adı"
+msgstr "Назва файлу"
 
 #: tracker/templates/tracker/ticket_show_media.html:16
 msgid "Dimension"
-msgstr "Boyut"
+msgstr "Розмір"
 
 #: tracker/templates/tracker/ticket_show_media.html:17
 msgid "Categories"
-msgstr "Kategoriler"
+msgstr "Категорії"
 
 #: tracker/templates/tracker/ticket_show_media.html:18
 msgid "Used in"
-msgstr "Kullanılan"
+msgstr "Використано у"
 
 #: tracker/templates/tracker/ticket_show_media.html:25
 msgid "Unknown"
-msgstr "Bilinmiyor"
+msgstr "Невідомо"
 
 #: tracker/templates/tracker/ticket_show_media.html:49
 msgid "Number of usages"
-msgstr "Kullanım sayısı"
+msgstr "Кількість використань"
 
 #: tracker/templates/tracker/ticket_show_media.html:53
 msgid "Number of Wikidata items"
-msgstr "Vikiveri öğe sayısı"
+msgstr "Кількість елементів Вікіданих"
 
 #: tracker/templates/tracker/ticket_show_media.html:57
 msgid "Number of unique Wikidata items"
-msgstr "Benzersiz Vikiveri ögesi sayısı"
+msgstr "Кількість унікальних елементів Вікіданих"
 
 #: tracker/templates/tracker/ticket_show_media.html:63
 msgid "Photos per category"
-msgstr "Kategori başına fotoğraf"
+msgstr "Фотографії за категоріями"
 
 #: tracker/templates/tracker/ticket_show_media.html:67
 msgid "Category"
-msgstr "Kategori"
+msgstr "Категорія"
 
 #: tracker/templates/tracker/ticket_show_media.html:68
 msgid "Number"
-msgstr "Sayı"
+msgstr "Номер"
 
 #: tracker/templates/tracker/ticket_table.html:18
 #: tracker/templates/tracker/user_list.html:13
 msgid "Media count"
-msgstr "Medya sayısı"
+msgstr "Кількість медіа"
 
 #: tracker/templates/tracker/ticketack_add.html:7
 #: tracker/templates/tracker/ticketack_confirm_delete.html:7
 msgid "confirmations"
-msgstr "onayları"
+msgstr "підтвердження"
 
 #: tracker/templates/tracker/ticketack_add.html:26
 #: tracker/templates/tracker/ticketack_confirm_delete.html:17
 msgid "back to ticket"
-msgstr "bilete geri dön"
+msgstr "назад до квитка"
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:11
 msgid "Added"
-msgstr "Eklendi"
+msgstr "Додано"
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:12
 msgid "Added by"
-msgstr "Ekleyen"
+msgstr "Додано"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:4
 #: tracker/templates/tracker/topic_content_acks_per_user.html:8
 msgid "Topic ack overview"
-msgstr "Konuya genel bakış"
+msgstr "Огляд теми перевірки"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:12
 msgid "Supervisor"
-msgstr "Denetçi"
+msgstr "Науковий керівник"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:15
 msgid "Ack count"
-msgstr "Sayı"
+msgstr "Кількість підтверджень"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:27
 msgid "download csv"
-msgstr "csv indir"
+msgstr "завантажити csv"
 
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "Topic is open for new tickets"
-msgstr "Konu yeni biletlere açık"
+msgstr "Тема відкрита для нових квитків"
 
 #: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrators"
-msgstr "Konu yöneticileri"
+msgstr "Адміністратори тем"
 
 #: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrator"
-msgstr "Konu yöneticisi"
+msgstr "Адміністратор теми"
 
 #: tracker/templates/tracker/topic_detail.html:38
 msgid "Total for this topic"
-msgstr "Bu konu için toplam"
+msgstr "Разом по цій темі"
 
 #: tracker/templates/tracker/topic_finance.html:4
 #: tracker/templates/tracker/topic_finance.html:8
 msgid "Topic finance"
-msgstr "Konu finansmanı"
+msgstr "Тема фінансів"
 
 #: tracker/templates/tracker/topic_finance.html:13
 msgid "Amounts per payment status"
-msgstr "Ödeme durumuna göre tutarlar"
+msgstr "Суми за статус платежу"
 
 #: tracker/templates/tracker/topic_finance.html:34
 #, python-format
 msgid "Total %(gname)s"
-msgstr "Toplam %(gname)s"
+msgstr "Загальна кількість %(gname)s"
 
 #: tracker/templates/tracker/topic_finance.html:44
 msgid "Marked topics involve partial payments that have no clear relation to topic, and have been split equally among possible candidates."
-msgstr "İşaretli konular, konuyla net bir ilişkisi olmayan ve olası adaylar arasında eşit olarak bölünmüş olan kısmi ödemeleri içerir."
+msgstr "Позначені теми передбачають часткові виплати, які не мають чіткого відношення до теми, і були розподілені порівну між можливими кандидатами."
 
 #: tracker/templates/tracker/topic_table.html:11
 msgid "Administrators"
-msgstr "Yöneticiler"
+msgstr "Адміністратори"
 
 #: tracker/templates/tracker/transaction_list.html:4
 #: tracker/templates/tracker/transaction_list.html:12
 msgid "Transaction list"
-msgstr "İşlem listesi"
+msgstr "Список транзакцій"
 
 #: tracker/templates/tracker/transaction_list.html:7
 msgid "Latest transactions"
-msgstr "Son işlemler"
+msgstr "Останні транзакції"
 
 #: tracker/templates/tracker/transaction_list.html:22
 #: tracker/templates/tracker/user_detail.html:31
 msgid "Transactions total"
-msgstr "İşlem toplamı"
+msgstr "Усього транзакцій"
 
 #: tracker/templates/tracker/transaction_list.html:24
 msgid "No transactions available."
-msgstr "Kullanılabilir işlem yok."
+msgstr "Немає доступних транзакцій."
 
 #: tracker/templates/tracker/transaction_list.html:26
 msgid "download as csv"
-msgstr "csv olarak indir"
+msgstr "завантажити як csv"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:21
 #: tracker/templates/tracker/upload_ticket_doc.html:25
 msgid "Upload document"
-msgstr "Dökümanı yükle"
+msgstr "Завантажити документ"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:24
 msgid "documents"
-msgstr "dökumanlar"
+msgstr "документи"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload"
-msgstr "yükle"
+msgstr "завантажити"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload and add another"
-msgstr "yükle ve başka ekle"
+msgstr "завантажити та додати інший"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:35
 msgid "This document, including its file name and description, will be visible only to the ticket owner and specially privileged users."
-msgstr "Bu belge, dosya adı ve açıklaması dahil, yalnızca bilet sahibi ve özel olarak ayrıcalıklı kullanıcılar tarafından görülebilir."
+msgstr "Цей документ, включаючи назву та опис файлу, буде бачити лише власник квитка та спеціально привілейовані користувачі."
 
 #: tracker/templates/tracker/user_deactivate.html:14
 msgid "Deactivating your account will mean that it is no longer possible to login."
-msgstr "Hesabınızı devre dışı bırakmak, artık giriş yapmanın mümkün olmadığı anlamına gelir."
+msgstr "Вимкнення вашого облікового запису означатиме, що увійти до системи більше неможливо."
 
 #: tracker/templates/tracker/user_deactivate.html:15
 msgid "Deactivation is irreversible without the intervention of an admin."
-msgstr "Devre dışı bırakma, bir yöneticinin müdahalesi olmadan geri alınamaz."
+msgstr "Деактивація незворотна без втручання адміністратора."
 
 #: tracker/templates/tracker/user_deactivate.html:16
 msgid "You can contact an admin by replying to the email which confirms the deactivation."
-msgstr "Devre dışı bırakıldığını onaylayan e-postayı yanıtlayarak bir yönetici ile iletişime geçebilirsiniz."
+msgstr "Ви можете зв’язатися з адміністратором, відповівши на електронний лист, який підтверджує деактивацію."
 
 #: tracker/templates/tracker/user_deactivate.html:18
 msgid "The following account will be deactivated:"
-msgstr "Aşağıdaki hesap devre dışı bırakılacak:"
+msgstr "Такий обліковий запис буде деактивовано:"
 
 #: tracker/templates/tracker/user_deactivate.html:20
 msgid "Username:"
-msgstr "Kullanıcı adı:"
+msgstr "Ім'я користувача:"
 
 #: tracker/templates/tracker/user_deactivate.html:21
 msgid "Email:"
-msgstr "E-posta:"
+msgstr "Електронна пошта:"
 
 #: tracker/templates/tracker/user_deactivate.html:32
 msgid "Deactivate my account"
-msgstr "Hesabımı devre dışı bırak"
+msgstr "Деактивувати мій обліковий запис"
 
 #: tracker/templates/tracker/user_deactivate_email.html:3
 msgid "Tracker account deactivated"
-msgstr "İzleyici hesabı devre dışı bırakıldı"
+msgstr "Обліковий запис Tracker вимкнено"
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "Your tracker account with username"
-msgstr "Kullanıcı adı olan izci hesabınız"
+msgstr "Ваш обліковий запис tracker з іменем користувача"
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "has been deactivated."
-msgstr "devre dışı bırakıldı."
+msgstr "було вимкнено."
 
 #: tracker/templates/tracker/user_deactivate_email.html:6
 msgid "Deactivation cannot be undone without the intervention of an admin."
-msgstr "Devre dışı bırakma, bir yöneticinin müdahalesi olmadan geri alınamaz."
+msgstr "Деактивацію неможливо скасувати без втручання адміністратора."
 
 #: tracker/templates/tracker/user_deactivate_email.html:7
 msgid "You can contact an admin by replying to this email."
-msgstr "Bu e-postayı yanıtlayarak bir yönetici ile iletişime geçebilirsiniz."
+msgstr "Ви можете зв’язатися з адміністратором, відповівши на цей електронний лист."
 
 #: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
-msgstr "İzleyici"
+msgstr "Tracker"
 
 #: tracker/templates/tracker/user_detail.html:13
 msgid "Total for this user"
-msgstr "Bu kullanıcı için toplam"
+msgstr "Всього для цього користувача"
 
 #: tracker/templates/tracker/user_detail.html:32
 msgid "Accepted expeditures total"
-msgstr "Kabul edilen harcamaların toplamı"
+msgstr "Всього прийняті витрати"
 
 #: tracker/templates/tracker/user_details_change.html:4
 #: tracker/templates/tracker/user_details_change.html:9
 msgid "My details"
-msgstr "Bilgilerim"
+msgstr "Мої подробиці"
 
 #: tracker/templates/tracker/user_list.html:22
 msgid "Tickets not assigned to any tracker user"
-msgstr "Hiçbir izleyici kullanıcısına atanmamış biletler"
+msgstr "Квитки не призначені жодному користувачу трекера"
 
 #: tracker/templates/tracker/user_list.html:22
 msgid "unassigned"
-msgstr "atanmamış"
+msgstr "непризначений"
 
 #: tracker/templates/tracker/watch.html:4
 #: tracker/templates/tracker/watch.html:11
 msgid "Watch"
-msgstr "İzle"
+msgstr "Спостерігати"
 
 #: tracker/templates/tracker/watch.html:19
 msgid "All"
-msgstr "Hepsi"
+msgstr "Усі"
 
 #: tracker/views.py:55
 #, python-format
 msgid "User %s created."
-msgstr "%s kullanıcısı oluşturuldu."
+msgstr "Користувача створено %s."
 
 #: tracker/views.py:73
 msgid "Comment posted, thank you."
-msgstr "Yorum gönderildi, teşekkür ederiz."
+msgstr "Коментар опубліковано, дякую."
 
 #: tracker/views.py:114
 msgid "You cannot add ack to a ticket you do not own."
-msgstr "Sahip olmadığınız bir bilete teyp ekleyemezsiniz."
+msgstr "Ви не можете додати ack до квитка, яким не володієте."
 
 #: tracker/views.py:128
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added. However, no bank account information filled. Without it, we can't reimburse you. Go to <a href=\"%(details_url)s\">your details</a> to fill it."
-msgstr "%(ticket_id)s \"%(confirmation)s\" eklendi. Ancak, banka hesap bilgileri doldurulmaz. Onsuz, size geri ödeme yapamayız. Doldurmak için <a href=\"%(details_url)s\">bilgilerinizi</a> ziyaret edin."
+msgstr "Додано квиток %(ticket_id)s підтвердження «%(confirmation)s». Однак інформація про банківський рахунок не заповнена. Без цього ми не зможемо вам відшкодувати витрати. Перейдіть до <a href=\"%(details_url)s\">своїх даних</a>, щоб заповнити їх."
 
 #: tracker/views.py:136
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
-msgstr "Bilet %(ticket_id)s onay \"%(confirmation)s\" eklendi."
+msgstr "Додано квиток %(ticket_id)s підтвердження «%(confirmation)s»."
 
 #: tracker/views.py:169 tracker/views.py:1758
 msgid "You cannot edit this"
-msgstr "Bunu düzenleyemezsin"
+msgstr "Ви не можете редагувати це"
 
 #: tracker/views.py:174
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been deleted."
-msgstr "Bilet %(ticket_id)s onay \"%(confirmation)s\" silindi."
+msgstr "Квиток %(ticket_id)s підтвердження «%(confirmation)s» видалено."
 
 #: tracker/views.py:218
 msgid "Statutory declaration"
-msgstr "Yasal beyanname"
+msgstr "Законодавча декларація"
 
 #: tracker/views.py:265
 msgid "Your deposit is bigger than your preexpeditures"
-msgstr "Depozito önceden vardıklarından daha büyük"
+msgstr "Ваш депозит більший, ніж ваші попередні витрати"
 
 #: tracker/views.py:282
 msgid "You are required to do statutory declaration"
-msgstr "Yasal bildirim yapmanız gerekmektedir."
+msgstr "Ви зобов'язані подати законодавчу декларацію"
 
 #: tracker/views.py:298
 msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."
-msgstr "Alt konu, kullandığınız başlığa ait olmalıdır. Muhtemelen JavaScript'i kapattınız."
+msgstr "Підтема повинна належати до теми, яку ви використовували. Ймовірно, у вас вимкнено JavaScript."
 
 #: tracker/views.py:390
 msgid "We've updated your preferences"
-msgstr "Tercihlerinizi güncelledik"
+msgstr "Ми оновили ваші налаштування"
 
 #: tracker/views.py:438
 msgid "Please enter your password to confirm the deactivation of your account."
-msgstr "Lütfen hesabınızın devre dışı bırakılmasını onaylamak için şifrenizi girin."
+msgstr "Будь ласка, введіть свій пароль, щоб підтвердити деактивацію свого облікового запису."
 
 #: tracker/views.py:453
 msgid "Account deactivation"
-msgstr "Hesap devre dışı bırakma"
+msgstr "Деактивація облікового запису"
 
 #: tracker/views.py:460
 msgid "Your account has been deactivated."
-msgstr "Hesabınız devre dışı bırakıldı."
+msgstr "Ваш обліковий запис вимкнено."
 
 #: tracker/views.py:463
 msgid "Password is incorrect."
-msgstr "Şifre geçersiz."
+msgstr "Пароль невірний."
 
 #: tracker/views.py:495
 #, python-format
 msgid "Ticket's %s watching settings are changed."
-msgstr "Biletin %s izleme ayarları değiştirildi."
+msgstr "Налаштування перегляду квитка %s змінено."
 
 #: tracker/views.py:544
 #, python-format
 msgid "Topic's %s watching settings are changed."
-msgstr "Konunun %s izleme ayarları değiştirildi."
+msgstr "Налаштування перегляду теми %s змінено."
 
 #: tracker/views.py:574
 #, python-format
 msgid "%s's watching settings are changed."
-msgstr "%s'nin izleme ayarları değişti."
+msgstr "Налаштування перегляду %s змінено."
 
 #: tracker/views.py:621
 #, python-format
 msgid "Ticket %s is created"
-msgstr "%s bileti oluşturuldu"
+msgstr "Створено квиток %s"
 
 #: tracker/views.py:659 tracker/views.py:783
 msgid "One or more fields are invalid. Check them to get more information."
-msgstr "Bir veya daha fazla alan geçersiz. Daha fazla bilgi almak için kontrol edin."
+msgstr "Одне або кілька полів є недійсними. Перевірте їх, щоб отримати додаткову інформацію."
 
 #: tracker/views.py:670
 msgid "I confirm the above"
-msgstr "Yukarıdakileri onaylıyorum"
+msgstr "Підтверджую вищесказане"
 
 #: tracker/views.py:677
 msgid "You cannot add statutory declaration to a ticket that does not support it."
-msgstr "Desteklemeyen bir bilete yasal bildirim ekleyemezsiniz."
+msgstr "Ви не можете додати законодавчу декларацію до квитка, який її не підтримує."
 
 #: tracker/views.py:679
 msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
-msgstr "Bu görünümü, oluşturduğunuz bir bilete yasal bir bildirim eklemek için kullanamazsınız. Bunun için bilet düzenleme düğmesini kullanın."
+msgstr "Ви не можете використовувати цей режим для додавання статутної декларації до створеного вами квитка. Для цього використовуйте кнопку редагування квитка."
 
 #: tracker/views.py:686
 msgid "You successfully added a statutory declaration to this ticket."
-msgstr "Bu bilete başarıyla yasal bir bildirim eklediniz."
+msgstr "Ви успішно додали законодавчу декларацію до цього квитка."
 
 #: tracker/views.py:689
 msgid "You successfully removed a statutory declaration from this ticket."
-msgstr "Bu biletten yasal bir bildirimi başarıyla kaldırdınız."
+msgstr "Ви успішно вилучили законодавчу декларацію з цього квитка."
 
 #: tracker/views.py:715 tracker/views.py:726
 msgid "You cannot edit this ticket"
-msgstr "Bu bileti düzenleyemezsiniz"
+msgstr "Ви не можете редагувати цей квиток"
 
 #: tracker/views.py:762
 #, python-format
 msgid "Ticket %s saved."
-msgstr "%s bileti kaydedildi."
+msgstr "Збережено квиток %s"
 
 #: tracker/views.py:797
 msgid "file"
-msgstr "dosya"
+msgstr "файл"
 
 #: tracker/views.py:827
 msgid "You cannot edit this ticket documents, as it's no longer editable"
-msgstr "Bu bilet belgelerini düzenleyemezsiniz, çünkü artık düzenlenebilir değil"
+msgstr "Ви не можете редагувати цей квиток, оскільки його більше не можна редагувати"
 
 #: tracker/views.py:836
 msgid "You cannot see this ticket's documents."
-msgstr "Bu biletin belgelerini göremezsiniz."
+msgstr "Ви не можете побачити документи цього квитка."
 
 #: tracker/views.py:863
 #, python-format
 msgid "Document changes for ticket %s saved."
-msgstr "%s bileti için belge değişikliği kaydedildi."
+msgstr "Зміни в документі для квитка %s збережено."
 
 #: tracker/views.py:886
 msgid "There is already a document with that name. Please try to reupload with a different name."
-msgstr "Bu isimde zaten bir belge var. Lütfen farklı bir adla yeniden yüklemeyi deneyin."
+msgstr "Документ з такою назвою вже є. Спробуйте повторно завантажити з іншою назвою."
 
 #: tracker/views.py:898
 #, python-format
 msgid "File %(filename)s has been saved."
-msgstr "%(filename)s dosyası kaydedildi."
+msgstr "Файл %(filename)s збережено."
 
 #: tracker/views.py:1086
 msgid "Your details have been saved."
-msgstr "Bilgileriniz kaydedildi."
+msgstr "Ваші дані збережено."
 
 #: tracker/views.py:1530
 msgid "You must be staffer in order to export users"
-msgstr "Kullanıcıları dışa aktarmak için yetkili olmalısınız"
+msgstr "Щоб експортувати користувачів, ви повинні бути співробітниками"
 
 #: tracker/views.py:1532
 msgid "You must fill the form validly"
-msgstr "Formu geçerli doldurmalısınız"
+msgstr "Ви повинні правильно заповнити форму"
 
 #: tracker/views.py:1551
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
-msgstr "%(input_row_limit)s satırından fazlasını içe aktarma izniniz yok. İlk %(input_row_limit)s satırı zaten alınmış."
+msgstr "У вас немає дозволу імпортувати більше рядків %(input_row_limit)s. Перші рядки %(input_row_limit)s уже імпортовані."
 
 #: tracker/views.py:1578
 msgid "You must be a staffer in order to be able to import topics."
-msgstr "Konuları içe aktarabilmek için yetkili olmalısınız."
+msgstr "Ви можете бути співробітником, щоб мати змогу імпортувати теми."
 
 #: tracker/views.py:1611
 msgid "You must be a staffer in order to be able to import grants."
-msgstr "Hibeleri alabilmek için yetkili olmanız gerekir."
+msgstr "Ви можете бути співробітником, щоб мати змогу імпортувати гранти."
 
 #: tracker/views.py:1641 tracker/views.py:1655
 msgid "You can't add preexpenses to a ticket that you did not create."
-msgstr "Oluşturmadığınız bir bilete önceden harcama yapamazsınız."
+msgstr "Ви не можете додати попередні витрати до квитка, який ви не створили."
 
 #: tracker/views.py:1677
 msgid "You can't add media items to a ticket that you did not create."
-msgstr "Oluşturmadığınız bir bilete medya öğeleri ekleyemezsiniz."
+msgstr "Ви не можете додавати медіа-елементи до квитка, який ви не створили."
 
 #: tracker/views.py:1680
 msgid "You must be a superuser in order to be able to import users."
-msgstr "Kullanıcıları içe aktarabilmek için bir süper kullanıcı olmanız gerekir."
+msgstr "Ви можете бути суперкористувачем, щоб мати змогу імпортувати користувачів."
 
 #: tracker/views.py:1698
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
-msgstr "Form garip değerler döndürdü. Lütfen sistem yöneticisine başvurun ve ne yapmaya çalıştığınızı söyleyin."
+msgstr "Форма повернула дивні значення. Будь ласка, зв'яжіться з системним адміністратором і повідомте йому, що ви намагалися зробити."
 
 #: tracker/views.py:1700
 msgid "Your CSV file was imported."
-msgstr "CSV dosyanız içe aktarıldı."
+msgstr "Ваш файл CSV імпортовано."
 
 #: tracker/views.py:1708
 msgid "Name of a ticket"
-msgstr "Biletin adı"
+msgstr "Назва квитка"
 
 #: tracker/views.py:1708 tracker/views.py:1713
 msgid "Name of a topic"
-msgstr "Konunun adı"
+msgstr "Назва теми"
 
 #: tracker/views.py:1713
 msgid "Name of a grant"
-msgstr "Hibenin adı"
+msgstr "Назва гранта"
 
 #: tracker/views.py:1713
 msgid "Form description"
-msgstr "Form açıklaması"
+msgstr "Опис форми"
 
 #: tracker/views.py:1718
 msgid "Full name"
-msgstr "Tam ad"
+msgstr "Повна назва"
 
 #: tracker/views.py:1718
 msgid "Short name"
-msgstr "Kısa ad"
+msgstr "Коротка назва"
 
 #: tracker/views.py:1718
 msgid "Slug"
-msgstr "Slug"
+msgstr "Службове поле"
 
 #: tracker/views.py:1741
 msgid "Password"
-msgstr "Parola"
+msgstr "Пароль"
 
 #: tracker/views.py:1765
 msgid "Preexpeditures were succesfully copied to expeditures."
-msgstr "Ön harcamalar harcamalara başarıyla kopyalanmıştır."
+msgstr "Попередні видатки успішно скопійовані до видатків."
 
 #: tracker/views.py:1781
 msgid "Executing API call with any action than whitelisted is prohibited."
-msgstr "Beyaz listeden başka herhangi bir işlemle API çağrısı yapmak yasaktır."
+msgstr "Виконання виклику API з будь-якою дією, крім білого списку, заборонено."
 
 #: tracker/views.py:1792
 msgid "No media to show are available"
-msgstr "Gösterilecek medya yok"
+msgstr "Немає засобів масової інформації для показу"
 
 #: tracker/views.py:1812
 msgid "Updating of medias for this ticket was successfully scheduled."
-msgstr "Bu bilet için ortamın güncellenmesi başarıyla planlandı."
+msgstr "Оновлення медіа для цього квитка було успішно заплановано."
 
 #: tracker/views.py:1817
 msgid "List of media was successfully updated"
-msgstr "Medya listesi başarıyla güncellendi"
+msgstr "Список засобів масової інформації успішно оновлено"
 
 #: tracker/views.py:1822
 msgid "There was an error while processing your request"
-msgstr "İsteğiniz işlenirken bir hata oluştu"
+msgstr "Під час обробки вашого запиту сталася помилка"
 
 #: tracker/views.py:1847
 msgid "Notice from Tracker"
-msgstr "İzleyiciden Uyarı"
+msgstr "Повідомлення від Tracker"
 
 #: tracker/views.py:1866
 msgid "This mandatory notice was sent to all active Tracker users."
-msgstr "Bu zorunlu bildirim tüm aktif İzleyici kullanıcılarına gönderildi."
+msgstr "Це обов'язкове повідомлення було надіслано всім активним користувачам Tracker."
 
 #: tracker/views.py:1874
 msgid "This mandatory notice was sent to all active Tracker administrators."
-msgstr "Bu zorunlu bildirim tüm aktif İzleyici yöneticilerine gönderildi."
+msgstr "Це обов'язкове повідомлення було надіслано всім активним адміністраторам Tracker."
 
 #: tracker/views.py:1887
 msgid "This mandatory notice was sent to all active Tracker roots."
-msgstr "Bu zorunlu bildirim tüm aktif İzleyici köklerine gönderildi."
+msgstr "Це обов'язкове повідомлення було надіслано всім активним кореням Tracker."
 
 #: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
-msgstr "Eski parola"
+msgstr "Старий пароль"
 
 #: users/templates/users/login.html:4 users/templates/users/login.html:12
 #: users/templates/users/login.html:24 users/templates/users/register.html:29
 msgid "Login"
-msgstr "Oturum aç"
+msgstr "Увійти"
 
 #: users/templates/users/login.html:7
 msgid "You need to log in to access the following page."
-msgstr "Aşağıdaki sayfaya erişmek için giriş yapmalısınız."
+msgstr "Вам потрібно увійти, щоб отримати доступ до наступної сторінки."
 
 #: users/templates/users/login.html:10
 msgid "Your username and password didn't match. Please try again."
-msgstr "Kullanıcı adınız ve şifreniz uyuşmuyor. Lütfen tekrar deneyin."
+msgstr "Ваше ім’я користувача та пароль не збігаються. Будь ласка, спробуйте ще раз."
 
 #: users/templates/users/login.html:28 users/templates/users/register.html:22
 msgid "Or..."
-msgstr "Veya..."
+msgstr "Або…"
 
 #: users/templates/users/login.html:31
 msgid "Login with Meta Wiki"
-msgstr "Meta Viki ile giriş yap"
+msgstr "Увійдіть за допомогою Meta Wiki"
 
 #: users/templates/users/login.html:35
 msgid "Don't have an acount?"
-msgstr "Bir hesabınız yok mu?"
+msgstr "Не маєте облікового запису?"
 
 #: users/templates/users/login.html:35 users/templates/users/register.html:6
 #: users/templates/users/register.html:9 users/templates/users/register.html:19
 msgid "Register"
-msgstr "Kaydol"
+msgstr "Реєстрація"
 
 #: users/templates/users/login.html:36
 msgid "Forgot password?"
-msgstr "Parolanızı mı unuttunuz?"
+msgstr "Забули пароль?"
 
 #: users/templates/users/login.html:36
 msgid "Reset password"
-msgstr "Parolayı sıfırla"
+msgstr "Скинути пароль"
 
 #: users/templates/users/logout.html:4
 msgid "Logged out"
-msgstr "Oturum kapandı"
+msgstr "Ви вийшли із системи"
 
 #: users/templates/users/logout.html:7
 msgid "Bye!"
-msgstr "Güle güle!"
+msgstr "До побачення!"
 
 #: users/templates/users/logout.html:8
 msgid "Go to index."
-msgstr "İndeks'e git"
+msgstr "Перейти до індексу."
 
 #: users/templates/users/oauth_invalid.html:4
 #: users/templates/users/oauth_invalid.html:8
 #, python-format
 msgid "Connection to %(provider)s account is no longer valid"
-msgstr "%(provider)s hesabına bağlantı artık geçerli değil"
+msgstr "Підключення до облікового запису %(provider)s більше недійсне"
 
 #: users/templates/users/oauth_invalid.html:9
 msgid "To keep Tracker fully working, you should refresh the connection, by clicking the button below"
-msgstr "Tracker'ın tamamen çalışmasını sağlamak için aşağıdaki düğmeyi tıklatarak bağlantıyı yenilemeniz gerekir."
+msgstr "Щоб Tracker працював повністю, вам слід оновити з'єднання, натиснувши клавішу нижче"
 
 #: users/templates/users/oauth_invalid.html:10
 #, python-format
 msgid "Refresh connection with %(provider)s"
-msgstr "%(provider)s ile bağlantıyı yenile"
+msgstr "Оновити з'єднання з %(provider)s"
 
 #: users/templates/users/password_change.html:5
 #: users/templates/users/password_change.html:16 users/views.py:90
 msgid "Password change"
-msgstr "Parola değişikliği"
+msgstr "Зміна пароля"
 
 #: users/templates/users/password_change.html:12
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
-msgstr[0] "Lütfen aşağıdaki hatayı düzeltin."
+msgstr[0] "Виправте помилку нижче."
+msgstr[1] "Виправте наведені нижче помилки."
+msgstr[2] ""
 
 #: users/templates/users/password_change.html:19
 msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
-msgstr "Lütfen güvenliğiniz için eski şifrenizi girin ve ardından yeni şifrenizi iki kez girin, böylece doğru yazdığınızı doğrulayabiliriz."
+msgstr "З міркувань безпеки введіть свій старий пароль, а потім двічі введіть новий, щоб ми могли перевірити, чи ви його правильно ввели."
 
 #: users/templates/users/password_change.html:21
 #: users/templates/users/password_reset_confirm.html:12
 msgid "Please enter your new password twice so we can verify you typed it in correctly."
-msgstr "Lütfen yeni şifrenizi iki kez girin, böylece doğru yazdığınızı doğrulayabiliriz."
+msgstr "Будь ласка, введіть новий пароль двічі, щоб ми могли перевірити, чи ви його правильно ввели."
 
 #: users/templates/users/password_change.html:33
 msgid "New password"
-msgstr "Yeni parola"
+msgstr "Новий пароль"
 
 #: users/templates/users/password_change.html:38
 msgid "Password (again)"
-msgstr "Parola (tekrar)"
+msgstr "Пароль (повторно)"
 
 #: users/templates/users/password_change.html:42
 #: users/templates/users/password_reset_confirm.html:19
 msgid "Change my password"
-msgstr "Parolamı değiştir"
+msgstr "Змінити пароль"
 
 #: users/templates/users/password_change_done.html:4
 #: users/templates/users/password_change_done.html:7
 msgid "Password change successful"
-msgstr "Parola değişikliği başarılı oldu"
+msgstr "Пароль змінено"
 
 #: users/templates/users/password_change_done.html:8
 msgid "Your password was changed."
-msgstr "Parolanız değiştirildi."
+msgstr "Ваш пароль змінено."
 
 #: users/templates/users/password_reset.html:4
 #: users/templates/users/password_reset.html:8
 #: users/templates/users/password_reset_confirm.html:4
 msgid "Password reset"
-msgstr "Parola yenileme"
+msgstr "Скидання пароля"
 
 #: users/templates/users/password_reset.html:10
 msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
-msgstr "Parolanızı mi unuttunuz? E-posta adresinizi aşağıya girin, yenisini belirlemek için talimatları e-posta ile gönderelim."
+msgstr "Забули свій пароль? Введіть свою електронну адресу нижче, і ми надішлемо вам інструкції щодо встановлення нової."
 
 #: users/templates/users/password_reset.html:14
 msgid "E-mail address:"
-msgstr "E-posta adresi:"
+msgstr "Ел. адреса:"
 
 #: users/templates/users/password_reset.html:14
 msgid "Reset my password"
-msgstr "Parolamı sıfırla"
+msgstr "Скинути мій пароль"
 
 #: users/templates/users/password_reset_complete.html:4
 #: users/templates/users/password_reset_complete.html:8
 msgid "Password reset complete"
-msgstr "Parola sıfırlama tamamlandı"
+msgstr "Скидання пароля завершено"
 
 #: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
-msgstr "Parolanız ayarlandı. Devam edip şimdi giriş yapabilirsiniz."
+msgstr "Ваш пароль встановлено. Ви можете продовжити та зареєструватися зараз."
 
 #: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
-msgstr "Oturum aç"
+msgstr "Вхід"
 
 #: users/templates/users/password_reset_confirm.html:10
 msgid "Enter new password"
-msgstr "Yeni parola girin"
+msgstr "Введіть новий пароль"
 
 #: users/templates/users/password_reset_confirm.html:16
 msgid "New password:"
-msgstr "Yeni parola:"
+msgstr "Новий пароль:"
 
 #: users/templates/users/password_reset_confirm.html:18
 msgid "Confirm password:"
-msgstr "Parolayı onayla:"
+msgstr "Підтвердіть пароль:"
 
 #: users/templates/users/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
-msgstr "Parola sıfırlama başarılı"
+msgstr "Не вдалося скинути пароль"
 
 #: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
-msgstr "Parola sıfırlama bağlantısı geçersizdi, muhtemelen zaten kullanılıyordu. Lütfen yeni bir parola sıfırlama isteyin."
+msgstr "Посилання на скидання пароля було недійсним, можливо, тому, що воно вже використовувалося. Попросіть змінити новий пароль."
 
 #: users/templates/users/password_reset_done.html:4
 #: users/templates/users/password_reset_done.html:8
 msgid "Password reset successful"
-msgstr "Parola sıfırlama başarılı"
+msgstr "Пароль скинуто"
 
 #: users/templates/users/password_reset_done.html:10
 msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
-msgstr "Parolanızı gönderdiğiniz e-posta adresine ayarlamak için talimatları e-postayla gönderdik. Kısa sürede almalısınız."
+msgstr "Ми надіслали вам електронною поштою інструкції щодо встановлення пароля на вказану вами електронну адресу. Ви повинні отримати його найближчим часом."
 
 #: users/templates/users/password_reset_email.html:2
 #, python-format
 msgid "You're receiving this e-mail because you requested a password reset for your user account at %(site_name)s."
-msgstr "Bu e-postayı, adresindeki kullanıcı hesabınız %(site_name)s için bir parola sıfırlama istediğiniz için alıyorsunuz."
+msgstr "Ви отримали цей електронний лист, оскільки ви попросили змінити пароль для свого облікового запису користувача на %(site_name)s."
 
 #: users/templates/users/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr "Lütfen aşağıdaki sayfaya gidin ve yeni bir parola seçin:"
+msgstr "Перейдіть на наступну сторінку та виберіть новий пароль:"
 
 #: users/templates/users/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
-msgstr "Unutmanız durumunda kullanıcı adınız:"
+msgstr "Ваше ім'я користувача, якщо ви забули:"
 
 #: users/templates/users/password_reset_email.html:10
 msgid "Thanks for using our site!"
-msgstr "Sitemizi kullandığınız için teşekkür ederiz!"
+msgstr "Дякуємо за користування нашим сайтом!"
 
 #: users/templates/users/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
-msgstr "%(site_name)s ekibi"
+msgstr "Команда %(site_name)s"
 
 #: users/templates/users/register.html:25
 msgid "Register with Meta Wiki"
-msgstr "Meta Viki ile kayıt ol"
+msgstr "Зареєструйтесь у Meta Wiki"
 
 #: users/templates/users/register.html:29
 msgid "Already have an acount?"
-msgstr "Zaten bir hesabınız var mı?"
+msgstr "Вже є обліковий запис?"
 
 #: users/views.py:46
 msgid "Will be used for password recovery and notifications, if you enable them."
-msgstr "Onları etkinleştirirseniz, parola kurtarma ve bildirimler için kullanılacaktır."
+msgstr "Буде використано для відновлення пароля та сповіщень, якщо ви їх увімкнете."
 
