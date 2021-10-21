@@ -5,6 +5,7 @@
 # Author: Angrydog001
 # Author: Looong
 # Author: VulpesVulpes825
+# Author: 列维劳德
 # Author: 沈澄心
 # Author: 科劳
 # Author: 舞月書生
@@ -12,7 +13,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2021-10-14 11:18:44+0000\n"
+"PO-Revision-Date: 2021-10-21 11:17:37+0000\n"
 "X-POT-Import-Date: 2021-05-26 12:33:54+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +27,7 @@ msgstr "创建票据时，存款应该为零"
 
 #: api/serializers.py:104
 msgid "Cannot edit deposit once a ticket has been preaccepted"
-msgstr "门票一经接受，就不能编辑存款。"
+msgstr "票据一经接受，存款就不能编辑。"
 
 #: api/serializers.py:109 api/serializers.py:112
 msgid "Deposit should be lower or equal to the sum of preexpeditures"
@@ -34,32 +35,32 @@ msgstr "存款应低于或等于预探总和。"
 
 #: api/serializers.py:134
 msgid "You can not add media to this ticket."
-msgstr "您无法向此票据添加媒体。"
+msgstr "您无法为此票据添加媒体。"
 
 #: api/serializers.py:136
 msgid "You can not edit the media of this ticket."
-msgstr "您无法编辑此票据的媒体。"
+msgstr "您不能编辑此票据的媒体。"
 
 #: api/serializers.py:162
 msgid "You can not add expiditures to this ticket."
-msgstr "您无法给这张票加上附加条款。"
+msgstr "您不能给此票据添加附加条款。"
 
 #: api/serializers.py:164
 msgid "You can not edit expiditures of this ticket."
-msgstr "您无法编辑这张票的详细说明。"
+msgstr "您不能编辑此票据的详细说明。"
 
 #: api/serializers.py:178
 msgid "You can not add preexpiditures to this ticket."
-msgstr "您无法给这张票加上预注释。"
+msgstr "您不能给此票据加上预注释。"
 
 #: api/serializers.py:180
 msgid "You can not edit preexpiditures of this ticket."
-msgstr "您无法编辑这张票的预先说明。"
+msgstr "您不能编辑此票据的预先说明。"
 
 #: common_settings.py:138
 #: tracker/templates/tracker/ticket_common_detail.html:18
 msgid "CZK"
-msgstr "捷克克朗"
+msgstr "CZK"
 
 #: common_settings.py:141
 msgid "English"
@@ -116,23 +117,23 @@ msgstr "注解"
 
 #: socialauth/pipeline.py:15
 msgid "Successfully linked your wikimedia account!"
-msgstr "成功链接您的维基媒体账户！"
+msgstr "已成功连接您的维基媒体账户！"
 
 #: socialauth/pipeline.py:21
 msgid "Your wikimedia account is no longer linked."
-msgstr "您的维基媒体帐户不再链接。"
+msgstr "您的维基媒体帐户已不再连接。"
 
 #: templates/403.html:3
 msgid "403 Forbidden"
-msgstr "403 没有权限"
+msgstr "403 禁止访问"
 
 #: templates/403.html:7
 msgid "Forbidden"
-msgstr "禁止"
+msgstr "禁止访问"
 
 #: templates/403.html:12
 msgid "You don't have permissions to do this!"
-msgstr "您没有权限进行此操作！"
+msgstr "您没有权限执行此操作！"
 
 #: templates/404.html:3
 msgid "404 Not Found"
@@ -140,7 +141,7 @@ msgstr "404 找不到页面"
 
 #: templates/404.html:7
 msgid "Not Found"
-msgstr "未找到"
+msgstr "找不到页面"
 
 #: templates/404.html:10
 #, python-format
@@ -153,39 +154,39 @@ msgstr "内部错误"
 
 #: templates/500.html:10
 msgid "There was an error processing you request. Sorry about that."
-msgstr "您请求的处理有错误。对不起。"
+msgstr "对不起，您请求的进程有错误。"
 
 #: templates/admin/base_site.html:4
 msgid "Tracker admin"
-msgstr "跟踪管理员"
+msgstr "Tracker 管理员"
 
 #: templates/admin/base_site.html:7
 msgid "Tracker site administration"
-msgstr "跟踪器现场管理"
+msgstr "Tracker 站点管理制度"
 
 #: templates/base.html:32
 msgid "There is no email address associated with this account. Please update your details now."
-msgstr "没有与此账户关联的电子邮件地址。现在请更新您的详细信息。"
+msgstr "没有与此账户关联的电子邮箱地址。请您现在更新您的信息。"
 
 #: templates/base.html:35
 msgid "Update details"
-msgstr "更新详细信息"
+msgstr "更新您的信息"
 
 #: templates/base.html:55
 msgid "Toggle navigation"
-msgstr "开关导航"
+msgstr "开关导览"
 
 #: templates/base.html:69
 msgid "change password"
-msgstr "更新我的密码"
+msgstr "更改密码"
 
 #: templates/base.html:70
 msgid "change my details"
-msgstr "改变我的细节"
+msgstr "更改我的信息"
 
 #: templates/base.html:71 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
-msgstr "偏好"
+msgstr "参数设置"
 
 #: templates/base.html:73
 msgid "admin"
@@ -222,11 +223,11 @@ msgstr ""
 
 #: templates/base.html:109
 msgid "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox."
-msgstr "您似乎在使用Internet Explorer浏览。Internet Explorer可能不支持部分网页功能，因此可能无法正常浏览；我们推荐您使用更新版本的浏览器，比如Chrome，或者Firefox。"
+msgstr "您正在使用 Internet Explorer。Internet Explorer 不支持部分现代化功能，因此可能无法正常使用 Tracker；我们推荐您使用其他浏览器，比如 Chrome 或 Firefox。"
 
 #: templates/choose_language.html:5 templates/choose_language.html:8
 msgid "Change language"
-msgstr "更改页面语言"
+msgstr "更改语言"
 
 #: templates/choose_language.html:23
 msgid "Go"
@@ -234,7 +235,7 @@ msgstr "前往"
 
 #: templates/comments/form.html:17 templates/comments/preview.html:31
 msgid "Post"
-msgstr "主机"
+msgstr "发布"
 
 #: templates/comments/form.html:18 templates/comments/preview.html:32
 msgid "Preview"
@@ -252,11 +253,11 @@ msgstr[0] ""
 #: tracker/admin.py:29 tracker/admin.py:35
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
 msgid "Type"
-msgstr "磁带"
+msgstr "类型"
 
 #: tracker/admin.py:43
 msgid "Add ack"
-msgstr "添加任务"
+msgstr "添加 ack"
 
 #: tracker/admin.py:169
 msgid "Mark selected topics as opened for new tickets"
@@ -298,13 +299,13 @@ msgstr "暂无"
 #: tracker/templates/tracker/topic_finance.html:16
 #: tracker/templates/tracker/topic_table.html:14
 msgid "unpaid"
-msgstr "未付的"
+msgstr "未付费"
 
 #: tracker/models.py:48 tracker/templates/tracker/export.html:247
 #: tracker/templates/tracker/grant_table.html:13
 #: tracker/templates/tracker/topic_table.html:15
 msgid "partially paid"
-msgstr "部分付费"
+msgstr "未付完"
 
 #: tracker/models.py:49 tracker/models.py:1192
 #: tracker/templates/tracker/export.html:248
@@ -312,7 +313,7 @@ msgstr "部分付费"
 #: tracker/templates/tracker/topic_finance.html:17
 #: tracker/templates/tracker/topic_table.html:16
 msgid "paid"
-msgstr "支付"
+msgstr "已付费"
 
 #: tracker/models.py:50 tracker/templates/tracker/export.html:249
 #: tracker/templates/tracker/grant_table.html:15
