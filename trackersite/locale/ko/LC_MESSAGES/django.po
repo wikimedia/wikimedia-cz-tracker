@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2021-10-28 11:21:36+0000\n"
+"PO-Revision-Date: 2021-11-04 12:18:15+0000\n"
 "X-POT-Import-Date: 2021-05-26 12:33:54+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -122,11 +122,11 @@ msgstr "위키미디어 계정은 더 이상 연결되어 있지 않습니다."
 
 #: templates/403.html:3
 msgid "403 Forbidden"
-msgstr ""
+msgstr "403 접근 거부됨"
 
 #: templates/403.html:7
 msgid "Forbidden"
-msgstr ""
+msgstr "접근 거부됨"
 
 #: templates/403.html:12
 msgid "You don't have permissions to do this!"
@@ -138,7 +138,7 @@ msgstr "404 찾을 수 없습니다"
 
 #: templates/404.html:7
 msgid "Not Found"
-msgstr ""
+msgstr "찾을 수 없음"
 
 #: templates/404.html:10
 #, python-format
@@ -155,11 +155,11 @@ msgstr "요청 처리 중 오류가 발생했습니다. 죄송합니다."
 
 #: templates/admin/base_site.html:4
 msgid "Tracker admin"
-msgstr ""
+msgstr "Tracker 관리자"
 
 #: templates/admin/base_site.html:7
 msgid "Tracker site administration"
-msgstr ""
+msgstr "Tracker 사이트 관리자"
 
 #: templates/base.html:32
 msgid "There is no email address associated with this account. Please update your details now."
@@ -183,11 +183,11 @@ msgstr ""
 
 #: templates/base.html:71 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
-msgstr ""
+msgstr "설정"
 
 #: templates/base.html:73
 msgid "admin"
-msgstr ""
+msgstr "관리자"
 
 #: templates/base.html:75 templates/base.html:90
 msgid "change language"
@@ -199,7 +199,7 @@ msgstr "도움말"
 
 #: templates/base.html:79
 msgid "logout"
-msgstr ""
+msgstr "로그아웃"
 
 #: templates/base.html:84 templates/base.html:87
 msgid "login"
@@ -250,7 +250,7 @@ msgstr[0] "아래의 오류를 수정해 주십시오"
 #: tracker/admin.py:29 tracker/admin.py:35
 #: tracker/templates/tracker/ticketack_confirm_delete.html:10
 msgid "Type"
-msgstr ""
+msgstr "유형"
 
 #: tracker/admin.py:43
 msgid "Add ack"
