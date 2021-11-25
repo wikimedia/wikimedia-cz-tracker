@@ -15,7 +15,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2021-10-28 11:21:36+0000\n"
+"PO-Revision-Date: 2021-11-25 12:20:27+0000\n"
 "X-POT-Import-Date: 2021-05-26 12:33:54+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1291,7 +1291,7 @@ msgstr "{{Identical|Delete}}"
 #: tracker/templates/admin/tracker/ticket/tabular.html:34
 #: tracker/templates/tracker/admin_index_override.html:27
 msgid "Change"
-msgstr ""
+msgstr "{{Identical|Change}}"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:34
 msgid "View"
@@ -1308,7 +1308,7 @@ msgstr ""
 
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
-msgstr ""
+msgstr "{{Identical|Status}}"
 
 #: tracker/templates/feeds/transaction_description.html:2
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1347,7 +1347,7 @@ msgstr ""
 #: tracker/views.py:1713 tracker/views.py:1718 tracker/views.py:1727
 #: tracker/views.py:1736
 msgid "Description"
-msgstr ""
+msgstr "{{Identical|Description}}"
 
 #: tracker/templates/notification/notification_html.html:4
 msgid "List of new tickets"
@@ -1742,7 +1742,7 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:338
 msgid "normal"
-msgstr ""
+msgstr "{{Identical|Normal}}"
 
 #: tracker/templates/tracker/export.html:343
 msgid "staff"
@@ -2442,7 +2442,7 @@ msgstr ""
 
 #: tracker/templates/tracker/topic_table.html:11
 msgid "Administrators"
-msgstr ""
+msgstr "{{Identical|Administrator}}"
 
 #: tracker/templates/tracker/transaction_list.html:4
 #: tracker/templates/tracker/transaction_list.html:12
@@ -2563,7 +2563,7 @@ msgstr ""
 #: tracker/templates/tracker/watch.html:4
 #: tracker/templates/tracker/watch.html:11
 msgid "Watch"
-msgstr ""
+msgstr "{{Identical|Watch}}"
 
 #: tracker/templates/tracker/watch.html:19
 msgid "All"
