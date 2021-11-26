@@ -552,35 +552,8 @@ class Ticket(CachedModel, ModelDiffMixin):
     @background(schedule=10)
     def update_media(ticket_id):
         ticket = Ticket.objects.get(id=ticket_id)
-        mw = MediaWiki(user=None)
         for media in ticket.mediainfo_set.all():
-            data = mw.request({
-                "action": "query",
-                "format": "json",
-                "prop": "imageinfo|categories|globalusage",
-                "titles": media.name,
-                "iiprop": "dimensions",
-                "clprop": "hidden",
-                "gulimit": "max",
-            }).json()["query"]["pages"]
-            data = data[list(data.keys())[0]]
-            media.width = data.get("imageinfo", [{}])[0].get("width")
-            media.height = data.get("imageinfo", [{}])[0].get("height")
-
-            media.mediainfocategory_set.all().delete()
-            for category in data.get("categories", []):
-                if "hidden" not in category:
-                    MediaInfoCategory.objects.create(mediainfo=media, title=category['title'])
-
-            media.mediainfousage_set.all().delete()
-            for usage in data["globalusage"]:
-                MediaInfoUsage.objects.create(
-                    mediainfo=media,
-                    url=usage["url"],
-                    title=usage["title"],
-                    project=usage["wiki"]
-                )
-            media.save(no_update=True)  # We don't need to schedule another updating
+            media.store_mediawiki_data_internal()
         ticket.media_updated = datetime.datetime.now(tz=utc)
         ticket.save()
 
@@ -1112,33 +1085,56 @@ class MediaInfo(Model):
             data = mw.request({
                 "action": "query",
                 "format": "json",
-                "prop": "imageinfo",
+                "prop": "imageinfo|categories|globalusage",
                 "pageids": [self.media_id],
-                "iiprop": "url|canonicaltitle",
+                "iiprop": "dimensions|url|canonicaltitle",
                 "iiurlwidth": width
             }).json()['query']['pages']
-            data = data[list(data.keys())[0]]['imageinfo'][0]
+            data = data[list(data.keys())[0]]
+            imagedata = data['imageinfo'][0]
 
             if width:
-                url = data['thumburl']
+                url = imagedata['thumburl']
             else:
-                url = data['url']
+                url = imagedata['url']
 
             return {
                 "url": url,
-                "canonicaltitle": data['canonicaltitle'],
+                "canonicaltitle": imagedata['canonicaltitle'],
+                'width': imagedata['width'],
+                'height': imagedata['height'],
+                'categories': data.get('categories', []),
+                'globalusage': data.get("globalusage", [])
             }
+
+    def store_mediawiki_data_internal(self):
+        data = self.get_mediawiki_data(width=200)
+
+        self.thumb_url = data['url']
+        self.canonicaltitle = data['canonicaltitle']
+        self.name = data['canonicaltitle']
+
+        self.mediainfocategory_set.all().delete()
+        for category in data.get("categories", []):
+            if "hidden" not in category:
+                MediaInfoCategory.objects.create(mediainfo=self, title=category['title'])
+
+        self.mediainfousage_set.all().delete()
+        for usage in data.get("globalusage", []):
+            MediaInfoUsage.objects.create(
+                mediainfo=self,
+                url=usage["url"],
+                title=usage["title"],
+                project=usage["wiki"]
+            )
+
+        self.save(no_update=True)
 
     @staticmethod
     @background(schedule=10)
     def store_mediawiki_data(media_id):
         media = MediaInfo.objects.get(id=media_id)
-        data = media.get_mediawiki_data(width=200)
-
-        media.thumb_url = data['url']
-        media.canonicaltitle = data['canonicaltitle']
-        media.name = data['canonicaltitle']
-        media.save(no_update=True)
+        media.store_mediawiki_data_internal()
 
     def save(self, no_update=False, *args, **kwargs):
         super(MediaInfo, self).save(*args, **kwargs)
