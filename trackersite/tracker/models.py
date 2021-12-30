@@ -1885,7 +1885,7 @@ def notify_del_media(sender, instance, **kwargs):
 @receiver(post_save, sender=Document)
 def notify_document(sender, instance, created, **kwargs):
     if len(Notification.objects.filter(text__contains=instance.ticket.get_absolute_url(),
-                                       notification_type__in=["ticket_new", "document_new"])) == 0:
+                                       notification_type__in=["ticket_new", "document"])) == 0:
         text_data = {
             'ticket_url': settings.BASE_URL + instance.ticket.get_absolute_url(),
             'ticket': instance.ticket,
