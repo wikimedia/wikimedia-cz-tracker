@@ -1031,7 +1031,11 @@ class MediaInfo(Model):
         except User.DoesNotExist:
             return
         logging.getLogger(__name__).info('Removing MediaInfo %d from MediaWiki by user %d' % (media_id, user_id))
-        mw.put_content(media_id, MediaInfo.strip_template(mw.get_content(media_id)), minor=True)
+        try:
+            mw.put_content(media_id, MediaInfo.strip_template(mw.get_content(media_id)), minor=True)
+        except ValueError:
+            # the edited page doesn't exist, ignore
+            pass
 
     @staticmethod
     @background(schedule=10)
