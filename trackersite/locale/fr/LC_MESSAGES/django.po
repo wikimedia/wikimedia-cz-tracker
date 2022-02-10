@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-01-20 12:19:02+0000\n"
+"PO-Revision-Date: 2022-02-10 12:19:52+0000\n"
 "X-POT-Import-Date: 2021-05-26 12:33:54+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1285,7 +1285,7 @@ msgstr[1] "Il y a %(counter)s documents téléversés."
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:20
 msgid "Delete?"
-msgstr "Supprimer ?"
+msgstr "Supprimer ?"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:34
 #: tracker/templates/tracker/admin_index_override.html:27
@@ -1754,7 +1754,7 @@ msgstr "super-utilisateur"
 #: tracker/templates/tracker/fill_details.html:4
 #: tracker/templates/tracker/fill_details.html:9
 msgid "My personal information"
-msgstr "Informations personnelles"
+msgstr "Mes informations personnelles"
 
 #: tracker/templates/tracker/fill_details.html:10
 msgid "To use tracker for expenses, we need a bit more information about you first."
@@ -1762,7 +1762,7 @@ msgstr "Pour utiliser Tracker pour vos dépenses, nous avons d’abord besoin d�
 
 #: tracker/templates/tracker/fill_details.html:21
 msgid "save & continue"
-msgstr "sauver & continuer"
+msgstr "enregistrer et continuer"
 
 #: tracker/templates/tracker/fill_details.html:22
 msgid "skip"
@@ -2263,7 +2263,7 @@ msgstr "Chercher"
 
 #: tracker/templates/tracker/ticket_media.html:45
 msgid "To select more images at once, select the first one, press Shift, and select the last one."
-msgstr "Pour sélectionner plus d’images à la fois, sélectionnez la première, appuyez sur Maj et sélectionnez la dernière."
+msgstr "Pour sélectionner plus d’images en une fois, sélectionnez la première, appuyez sur Maj et sélectionnez la dernière."
 
 #: tracker/templates/tracker/ticket_media.html:47
 msgid "Select all"
@@ -2584,7 +2584,7 @@ msgstr "Vous ne pouvez ajouter aucun acquittement à un ticket que vous ne déte
 #: tracker/views.py:128
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added. However, no bank account information filled. Without it, we can't reimburse you. Go to <a href=\"%(details_url)s\">your details</a> to fill it."
-msgstr "La confirmation « %(confirmation)s » du ticket %(ticket_id)s a été ajoutée. Cependant, aucune information de compte bancaire n’a été remplie. Sans cela, nous ne pouvons pas vous rembourser. Allez sur <a href=\"%(details_url)s\">vos détails</a> pour la renseigner."
+msgstr "La confirmation « %(confirmation)s » du ticket %(ticket_id)s a été ajoutée. Cependant, aucune information de compte bancaire n’a été remplie. Sans cela, nous ne pouvons pas vous rembourser. Allez sur <a href=\"%(details_url)s\">vos détails</a> pour la renseigner."
 
 #: tracker/views.py:136
 #, python-format
@@ -2593,7 +2593,7 @@ msgstr "La confirmation « %(confirmation)s » a été ajoutée au ticket %(
 
 #: tracker/views.py:169 tracker/views.py:1758
 msgid "You cannot edit this"
-msgstr "Vous ne pouvez pas modifier cela"
+msgstr "Vous ne pouvez pas modifier ceci"
 
 #: tracker/views.py:174
 #, python-format
@@ -2851,7 +2851,7 @@ msgstr "Votre nom d’utilisateur et votre mot de passe ne correspondent pas. Ve
 
 #: users/templates/users/login.html:28 users/templates/users/register.html:22
 msgid "Or..."
-msgstr "Ou…"
+msgstr "Ou bien..."
 
 #: users/templates/users/login.html:31
 msgid "Login with Meta Wiki"
@@ -3031,7 +3031,7 @@ msgstr "S’inscrire avec Méta Wiki"
 
 #: users/templates/users/register.html:29
 msgid "Already have an acount?"
-msgstr "Vous avez déjà un compte ?"
+msgstr "Vous avez déjà un compte ?"
 
 #: users/views.py:46
 msgid "Will be used for password recovery and notifications, if you enable them."
