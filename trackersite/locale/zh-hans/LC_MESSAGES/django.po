@@ -5,6 +5,7 @@
 # Author: Angrydog001
 # Author: Looong
 # Author: VulpesVulpes825
+# Author: Winston Sung
 # Author: 列维劳德
 # Author: 沈澄心
 # Author: 科劳
@@ -13,7 +14,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-01-20 12:19:03+0000\n"
+"PO-Revision-Date: 2022-03-07 12:19:46+0000\n"
 "X-POT-Import-Date: 2021-05-26 12:33:54+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1289,7 +1290,7 @@ msgstr "删除？"
 #: tracker/templates/admin/tracker/ticket/tabular.html:34
 #: tracker/templates/tracker/admin_index_override.html:27
 msgid "Change"
-msgstr "修改"
+msgstr "更改"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:34
 msgid "View"
