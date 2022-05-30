@@ -15,7 +15,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-04-28 11:20:40+0000\n"
+"PO-Revision-Date: 2022-05-30 11:22:19+0000\n"
 "X-POT-Import-Date: 2021-05-26 12:33:54+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1504,7 +1504,7 @@ msgstr ""
 #: tracker/templates/tracker/user_list.html:7
 #: tracker/templates/tracker/watch.html:8
 msgid "index"
-msgstr ""
+msgstr "{{Identical/Index}}"
 
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/generic/ticket_list.html:12
