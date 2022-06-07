@@ -10,22 +10,26 @@
 <table class="ticket_list table table-striped table-hover">
 {% if show_media %}
 <thead>
-	<tr><th rowspan="2">{% trans "ID" %}</th><th rowspan="2">{% trans "Event date" %}</th><th rowspan="2">{% trans "Name" %}</th>
-		{% if show_grants %}<th rowspan="2"><abbr title="{% trans "Grant" %}">{% filter slice:":2" %}{% trans "Grant" %}{% endfilter %}<abbr></th>{% endif %}
-		{% if show_topics %}<th rowspan="2">{% trans "Topic" %}</th>{% endif %}
-		{% if show_topics %}<th rowspan="2">{% trans "Subtopic" %}</th>{% endif %}
-		{% if show_requester %}<th rowspan="2">{% trans "Requested by" %}</th>{% endif %}
+	<tr>
+		<th>{% trans "ID" %}</th>
+		<th>{% trans "Event date" %}</th>
+		<th>{% trans "Name" %}</th>
+		{% if show_grants %}<th><abbr title="{% trans "Grant" %}">{% filter slice:":2" %}{% trans "Grant" %}{% endfilter %}<abbr></th>{% endif %}
+		{% if show_topics %}<th>{% trans "Topic" %}</th>{% endif %}
+		{% if show_topics %}<th>{% trans "Subtopic" %}</th>{% endif %}
+		{% if show_requester %}<th>{% trans "Requested by" %}</th>{% endif %}
 		<th>{% trans "Media count" %}</th>
-		{% if show_expenses %}<th rowspan="2">{% trans "Preexpeditures" %}</th>{% endif %}
-		{% if show_expenses %}<th rowspan="2">{% trans "Expeditures" %}</th>{% endif %}
-		{% if show_expenses %}<th rowspan="2">{% trans "Accepted expeditures" %}</th>{% endif %}
-		{% if show_expenses %}<th rowspan="2">{% trans "Paid expeditures" %}</th>{% endif %}
-		<th rowspan="2">{% trans "Status" %}</th>
-		<th rowspan="2">{% trans "Last changed" %}</th></tr>
+		{% if show_expenses %}<th>{% trans "Preexpeditures" %}</th>{% endif %}
+		{% if show_expenses %}<th>{% trans "Expeditures" %}</th>{% endif %}
+		{% if show_expenses %}<th>{% trans "Accepted expeditures" %}</th>{% endif %}
+		{% if show_expenses %}<th>{% trans "Paid expeditures" %}</th>{% endif %}
+		<th>{% trans "Status" %}</th>
+		<th>{% trans "Last changed" %}</th></tr>
 </thead>
 {% else %}
 <thead>
-	<tr><th>{% trans "ID" %} <i class="fa "></i></th><th>{% trans "Event date" %}</th><th>{% trans "Name" %} <i class="fa "></i></th>
+	<tr>
+		<th>{% trans "ID" %} <i class="fa "></i></th><th>{% trans "Event date" %}</th><th>{% trans "Name" %} <i class="fa "></i></th>
 		{% if show_grants %}<th><abbr title="{% trans "Grant" %}">{% filter slice:":2" %}{% trans "Grant" %}{% endfilter %}<abbr></th>{% endif %}
 		{% if show_topics %}<th>{% trans "Topic" %} <i class="fa "></i></th>{% endif %}
 		{% if show_topics %}<th>{% trans "Subtopic" %}</th>{% endif %}
