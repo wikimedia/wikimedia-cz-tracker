@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-04-28 11:20:40+0000\n"
+"PO-Revision-Date: 2022-06-09 11:24:54+0000\n"
 "X-POT-Import-Date: 2021-05-26 12:33:54+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -222,7 +222,7 @@ msgstr "Vous n’êtes pas en production. Si vous voulez demander le rembourseme
 
 #: templates/base.html:109
 msgid "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox."
-msgstr "Vous utilisez Internet Explorer. Cependant, Tracker nécessite des fonctionnalités modernes qu’Internet Explorer ne supporte pas. En conséquent, Tracker peut ne pas fonctionner correctement dans Internet Explorer. Nous vous recommandons d’utiliser un autre navigateur, tel que Chrome ou Firefox."
+msgstr "Vous utilisez actuellement Internet Explorer. Cependant, Tracker nécessite des fonctionnalités modernes qu’Internet Explorer ne prend pas en charge. Par conséquent, Tracker peut ne pas fonctionner correctement dans Internet Explorer. Nous vous recommandons d’utiliser un autre navigateur basé sur un moteur moderne tel que Chrome ou Firefox."
 
 #: templates/choose_language.html:5 templates/choose_language.html:8
 msgid "Change language"
