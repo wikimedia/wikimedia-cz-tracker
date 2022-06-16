@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-06-09 11:24:54+0000\n"
+"PO-Revision-Date: 2022-06-16 11:25:27+0000\n"
 "X-POT-Import-Date: 2021-05-26 12:33:54+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -974,7 +974,7 @@ msgstr "Préférences utilisateur de Tracker"
 
 #: tracker/models.py:1309
 msgid "Username on mediawiki"
-msgstr "Nom d’utilisateur sur Mediawiki"
+msgstr "Nom d’utilisateur sur MediaWiki"
 
 #: tracker/models.py:1310 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
@@ -2243,7 +2243,7 @@ msgstr "Trouvé par"
 #: tracker/templates/tracker/ticket_media.html:16
 #: tracker/templates/tracker/ticket_media.html:25
 msgid "Mediawiki username"
-msgstr "Nom d’utilisateur Mediawiki"
+msgstr "Nom d’utilisateur MediaWiki"
 
 #: tracker/templates/tracker/ticket_media.html:21
 msgid "Filename prefix"

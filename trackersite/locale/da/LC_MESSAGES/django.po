@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-04-28 11:20:39+0000\n"
+"PO-Revision-Date: 2022-06-16 11:25:26+0000\n"
 "X-POT-Import-Date: 2021-05-26 12:33:54+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2237,7 +2237,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_media.html:16
 #: tracker/templates/tracker/ticket_media.html:25
 msgid "Mediawiki username"
-msgstr "Mediawiki-brugernavn"
+msgstr "MediaWiki-brugernavn"
 
 #: tracker/templates/tracker/ticket_media.html:21
 msgid "Filename prefix"
