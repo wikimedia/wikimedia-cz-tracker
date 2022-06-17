@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-20 22:00+0200\n"
+"POT-Creation-Date: 2022-06-18 00:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: static/commons-selection.js:143
+#: static/commons-selection.js:156
+msgid "Mediawiki username"
+msgstr ""
+
+#: static/commons-selection.js:159
+msgid "Filename prefix"
+msgstr ""
+
+#: static/commons-selection.js:184
 msgid ""
 "Unknown error happened while fetching images you uploaded. Please contact "
 "the server admin."
 msgstr ""
 
-#: static/commons-selection.js:317
+#: static/commons-selection.js:373
+msgid "Wikimedia Commons returned the following error"
+msgstr ""
+
+#: static/commons-selection.js:388
 msgid ""
-"Your account does not have any uploads at Wikimedia Commons. Upload some "
-"files first!"
+"Specified account does not have any uploads at Wikimedia Commons. Upload "
+"some files first!"
+msgstr ""
+
+#: static/commons-selection.js:393
+msgid "Your search does not match any files."
 msgstr ""
