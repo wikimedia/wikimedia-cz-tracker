@@ -7,5 +7,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         for ticket in Ticket.objects.all():
-            if 'archive' not in ticket.ack_set():
+            acks = ticket.ack_set()
+            if 'archive' not in acks and 'close' not in acks and ticket.mediainfo_set.all().count() > 0:
                 Ticket.update_media(ticket.id)
