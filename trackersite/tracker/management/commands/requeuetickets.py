@@ -5,12 +5,11 @@ from django.conf import settings
 
 
 class Command(BaseCommand):
-    help = 'Re-queues MediaWiki communication with specified ticket(s)'
+    help = 'Re-triggers add_to_mediawiki for specified ticket(s)'
 
     def add_arguments(self, parser):
         parser.add_argument('ticket_ids', nargs='*', type=int)
         parser.add_argument('--ticket-id-file', type=str)
-        parser.add_argument('--only-add-to-mediawiki', dest='only_add_to_mediawiki', default=False)
 
     def handle(self, *args, **options):
         ticket_ids = []
@@ -31,9 +30,6 @@ class Command(BaseCommand):
             try:
                 for mediainfo in MediaInfo.objects.filter(ticket_id=ticket_id):
                     MediaInfo.add_to_mediawiki(mediainfo.id, settings.TRACKER_MAINTENANCE_USER_ID)
-                    if options['only_add_to_mediawiki']:
-                        continue
-                    # TODO
 
             except Ticket.DoesNotExist:
                 raise CommandError('Ticket %s does not exist' % ticket_id)
