@@ -3,7 +3,7 @@ from tracker.models import Ticket
 
 
 class Command(BaseCommand):
-    help = 'Schedule updating of all tickets'
+    help = 'Schedule updating of MediaInfo of all unarchived tickets'
 
     def handle(self, *args, **options):
         for ticket in Ticket.objects.all():
