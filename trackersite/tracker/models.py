@@ -1110,6 +1110,8 @@ class MediaInfo(Model):
         self.thumb_url = data['url']
         self.canonicaltitle = data['canonicaltitle']
         self.name = data['canonicaltitle']
+        self.width = data.get('width')
+        self.height = data.get('height')
 
         self.mediainfocategory_set.all().delete()
         for category in data.get("categories", []):
