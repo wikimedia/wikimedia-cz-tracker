@@ -5,19 +5,35 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-06-16 11:25:26+0000\n"
-"X-POT-Import-Date: 2021-05-26 12:33:56+0000\n"
+"PO-Revision-Date: 2022-06-20 11:18:39+0000\n"
+"X-POT-Import-Date: 2022-06-18 20:35:08+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: yue\n"
 "X-Generator: MediaWiki 1.39.0-alpha; Translate 2022-04-26\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: static/commons-selection.js:143
+#: static/commons-selection.js:156
+msgid "Mediawiki username"
+msgstr ""
+
+#: static/commons-selection.js:159
+msgid "Filename prefix"
+msgstr ""
+
+#: static/commons-selection.js:184
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
 msgstr "攞你上傳嘅圖片嗰陣發生未知錯誤，請聯絡伺服器管理員。"
 
-#: static/commons-selection.js:317
-msgid "Your account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr "你嘅戶口未上傳過任何嘢上維基共享資源，上傳啲嘢先啦！"
+#: static/commons-selection.js:373
+msgid "Wikimedia Commons returned the following error"
+msgstr ""
+
+#: static/commons-selection.js:388
+msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
+msgstr ""
+
+#: static/commons-selection.js:393
+msgid "Your search does not match any files."
+msgstr ""
 

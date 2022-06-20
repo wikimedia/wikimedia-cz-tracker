@@ -1,7 +1,7 @@
-# Translation of Tracker - JavaScript to Spanish (español)
+# Translation of Tracker - JavaScript to Tamil (தமிழ்)
 # Exported from translatewiki.net
 #
-# Author: Alcarazzam
+# Author: Siddhan
 msgid ""
 msgstr ""
 ""
@@ -9,31 +9,31 @@ msgstr ""
 "X-POT-Import-Date: 2022-06-18 20:35:08+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
+"Language: ta\n"
 "X-Generator: MediaWiki 1.39.0-alpha; Translate 2022-04-26\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: static/commons-selection.js:156
 msgid "Mediawiki username"
-msgstr ""
+msgstr "மீடியாவிக்கி பயனர்பெயர்"
 
 #: static/commons-selection.js:159
 msgid "Filename prefix"
-msgstr ""
+msgstr "கோப்பு பெயர் முன்னொட்டு"
 
 #: static/commons-selection.js:184
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
-msgstr "Un error desconocido ocurrió al acceder a las imágenes que subió. Por favor contacte con el administrador del servidor."
+msgstr ""
 
 #: static/commons-selection.js:373
 msgid "Wikimedia Commons returned the following error"
-msgstr ""
+msgstr "விக்கிமீடியா காமன்ஸ் பின்வரும் பிழையை வழங்கியது"
 
 #: static/commons-selection.js:388
 msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr ""
+msgstr "விக்கிமீடியா காமன்ஸில் குறிப்பிடப்பட்ட கணக்கில் எந்தப் பதிவேற்றங்களும் இல்லை. முதலில் சில கோப்புகளைப் பதிவேற்றவும்!"
 
 #: static/commons-selection.js:393
 msgid "Your search does not match any files."
-msgstr ""
+msgstr "உங்கள் தேடல் எந்த கோப்புகளுடனும் பொருந்தவில்லை."
 

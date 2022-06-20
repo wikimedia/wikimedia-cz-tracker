@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-06-16 11:25:28+0000\n"
-"X-POT-Import-Date: 2021-05-26 12:33:54+0000\n"
+"PO-Revision-Date: 2022-06-20 11:18:40+0000\n"
+"X-POT-Import-Date: 2022-06-18 00:30:17+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
@@ -303,7 +303,7 @@ msgstr "неоплачений"
 msgid "partially paid"
 msgstr "частково оплачується"
 
-#: tracker/models.py:49 tracker/models.py:1192
+#: tracker/models.py:49 tracker/models.py:1186
 #: tracker/templates/tracker/export.html:248
 #: tracker/templates/tracker/grant_table.html:14
 #: tracker/templates/tracker/topic_finance.html:17
@@ -418,7 +418,7 @@ msgstr "Змінено документ"
 msgid "unknown"
 msgstr "невідомо"
 
-#: tracker/models.py:172 tracker/models.py:1442
+#: tracker/models.py:172 tracker/models.py:1436
 msgid "created"
 msgstr "створено"
 
@@ -463,8 +463,8 @@ msgstr "запит (текст)"
 msgid "Text description of who requested for this ticket, in case user is not filled in"
 msgstr "Текстовий опис того, хто запитував цей квиток, якщо користувач не заповнений"
 
-#: tracker/models.py:260 tracker/models.py:726 tracker/models.py:798
-#: tracker/models.py:988 tracker/views.py:798
+#: tracker/models.py:260 tracker/models.py:699 tracker/models.py:771
+#: tracker/models.py:954 tracker/views.py:798
 msgid "name"
 msgstr "назва"
 
@@ -472,7 +472,7 @@ msgstr "назва"
 msgid "Name for the ticket"
 msgstr "Назва квитка"
 
-#: tracker/models.py:261 tracker/models.py:731 tracker/views.py:559
+#: tracker/models.py:261 tracker/models.py:704 tracker/views.py:559
 msgid "topic"
 msgstr "тема"
 
@@ -522,9 +522,9 @@ msgstr "URL-адреса події"
 msgid "Link to a public page describing the event, if it exist"
 msgstr "Посилання на загальнодоступну сторінку з описом події, якщо вона існує"
 
-#: tracker/models.py:273 tracker/models.py:727 tracker/models.py:811
-#: tracker/models.py:903 tracker/models.py:960 tracker/models.py:1187
-#: tracker/models.py:1213 tracker/models.py:1372 tracker/views.py:799
+#: tracker/models.py:273 tracker/models.py:700 tracker/models.py:784
+#: tracker/models.py:869 tracker/models.py:926 tracker/models.py:1181
+#: tracker/models.py:1207 tracker/models.py:1366 tracker/views.py:799
 msgid "description"
 msgstr "опис"
 
@@ -632,7 +632,7 @@ msgstr "стан"
 msgid "E-mail"
 msgstr "Електронна пошта"
 
-#: tracker/models.py:429 tracker/models.py:1312
+#: tracker/models.py:429 tracker/models.py:1306
 #: tracker/templates/tracker/admin_user_list.html:31
 #: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
@@ -646,11 +646,11 @@ msgstr "немає облікового запису трекера"
 msgid "Requester details"
 msgstr "Деталі запитувача"
 
-#: tracker/models.py:651 tracker/templates/tracker/dumpaccounts/index.html:28
+#: tracker/models.py:624 tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Ticket"
 msgstr "Квиток"
 
-#: tracker/models.py:652 tracker/templates/tracker/cluster_detail.html:12
+#: tracker/models.py:625 tracker/templates/tracker/cluster_detail.html:12
 #: tracker/templates/tracker/cluster_detail.html:19
 #: tracker/templates/tracker/export.html:25
 #: tracker/templates/tracker/grant_table.html:6
@@ -665,138 +665,138 @@ msgstr "Квиток"
 msgid "Tickets"
 msgstr "Квитки"
 
-#: tracker/models.py:728 tracker/models.py:730
+#: tracker/models.py:701 tracker/models.py:703
 msgid "Description shown to users who enter tickets for this subtopic"
 msgstr "Опис показано користувачам, які вводять квитки на цю підтему"
 
-#: tracker/models.py:729 tracker/models.py:813
+#: tracker/models.py:702 tracker/models.py:786
 msgid "form description"
 msgstr "опис форми"
 
-#: tracker/models.py:732
+#: tracker/models.py:705
 msgid "Topic where this subtopic belongs"
 msgstr "Тема, до якої належить ця підтема"
 
-#: tracker/models.py:791 tracker/templates/tracker/index.html:24
+#: tracker/models.py:764 tracker/templates/tracker/index.html:24
 #: tracker/templates/tracker/ticket_common_detail.html:13
-#: tracker/templates/tracker/ticket_table.html:16
-#: tracker/templates/tracker/ticket_table.html:31
+#: tracker/templates/tracker/ticket_table.html:19
+#: tracker/templates/tracker/ticket_table.html:35
 msgid "Subtopic"
 msgstr "Підтема"
 
-#: tracker/models.py:792 tracker/templates/tracker/topic_detail.html:28
+#: tracker/models.py:765 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
 msgstr "Підтеми"
 
-#: tracker/models.py:799 tracker/views.py:588
+#: tracker/models.py:772 tracker/views.py:588
 msgid "grant"
 msgstr "грант"
 
-#: tracker/models.py:800
+#: tracker/models.py:773
 msgid "Grant project where this topic belongs"
 msgstr "Грантовий проєкт, до якого належить ця тема"
 
-#: tracker/models.py:801
+#: tracker/models.py:774
 msgid "open for tickets"
 msgstr "відкриті для квитків"
 
-#: tracker/models.py:802
+#: tracker/models.py:775
 msgid "Is this topic open for ticket submissions from users?"
 msgstr "Чи відкрита ця тема для подання квитків від користувачів?"
 
-#: tracker/models.py:803
+#: tracker/models.py:776
 msgid "ticket media"
 msgstr "білетний носій"
 
-#: tracker/models.py:804
+#: tracker/models.py:777
 msgid "Does this topic track ticket media items?"
 msgstr "Чи ця тема відстежує медіа-записи квитків?"
 
-#: tracker/models.py:805
+#: tracker/models.py:778
 msgid "ticket expenses"
 msgstr "витрати на квитки"
 
-#: tracker/models.py:806
+#: tracker/models.py:779
 msgid "Does this topic track ticket expenses?"
 msgstr "Ця тема відстежує витрати на квитки?"
 
-#: tracker/models.py:807
+#: tracker/models.py:780
 msgid "ticket preexpenses"
 msgstr "попередні витрати на квитки"
 
-#: tracker/models.py:808
+#: tracker/models.py:781
 msgid "Does this topic track preexpenses?"
 msgstr "Чи ця тема відстежує передвитрати?"
 
-#: tracker/models.py:809
+#: tracker/models.py:782
 msgid "require statutory declaration"
 msgstr "вимагати декларації, передбаченої законом"
 
-#: tracker/models.py:810
+#: tracker/models.py:783
 msgid "Does this topic require statutory declaration for car travelling?"
 msgstr "Чи ця тема вимагає законодавчої декларації для подорожі автомобілем?"
 
-#: tracker/models.py:812 tracker/models.py:904
+#: tracker/models.py:785 tracker/models.py:870
 msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
 msgstr "Детальний опис; Наразі HTML дозволений, розриви рядків автоматично аналізуються"
 
-#: tracker/models.py:814
+#: tracker/models.py:787
 msgid "Description shown to users who enter tickets for this topic"
 msgstr "Опис показано користувачам, які вводять квитки на цю тему"
 
-#: tracker/models.py:815
+#: tracker/models.py:788
 msgid "topic administrator"
 msgstr "адміністратор теми"
 
-#: tracker/models.py:816
+#: tracker/models.py:789
 msgid "Selected users will have administration access to this topic."
 msgstr "Вибрані користувачі матимуть адміністративний доступ до цієї теми."
 
-#: tracker/models.py:890 tracker/templates/tracker/dumpaccounts/index.html:11
+#: tracker/models.py:856 tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/index.html:23
 #: tracker/templates/tracker/ticket_common_detail.html:12
-#: tracker/templates/tracker/ticket_table.html:15
-#: tracker/templates/tracker/ticket_table.html:30
+#: tracker/templates/tracker/ticket_table.html:18
+#: tracker/templates/tracker/ticket_table.html:34
 #: tracker/templates/tracker/topic_content_acks_per_user.html:14
 #: tracker/templates/tracker/topic_finance.html:11
 #: tracker/templates/tracker/topic_table.html:5
 msgid "Topic"
 msgstr "Тема"
 
-#: tracker/models.py:891 tracker/templates/tracker/export.html:61
+#: tracker/models.py:857 tracker/templates/tracker/export.html:61
 #: tracker/templates/tracker/export.html:212
 #: tracker/templates/tracker/import.html:26
 msgid "Topics"
 msgstr "Теми"
 
-#: tracker/models.py:900
+#: tracker/models.py:866
 msgid "full name"
 msgstr "повна назва"
 
-#: tracker/models.py:900
+#: tracker/models.py:866
 msgid "Full name for headlines and such"
 msgstr "Повна назва заголовків тощо"
 
-#: tracker/models.py:901
+#: tracker/models.py:867
 msgid "short name"
 msgstr "коротке ім'я"
 
-#: tracker/models.py:901
+#: tracker/models.py:867
 msgid "Shorter name for use in tables"
 msgstr "Коротша назва для використання в таблицях"
 
-#: tracker/models.py:902
+#: tracker/models.py:868
 msgid "slug"
 msgstr "слуг"
 
-#: tracker/models.py:902
+#: tracker/models.py:868
 msgid "Shortcut for usage in URLs"
 msgstr "Ярлик для використання в URL-адресах"
 
-#: tracker/models.py:944 tracker/templates/tracker/grant_table.html:5
+#: tracker/models.py:910 tracker/templates/tracker/grant_table.html:5
 #: tracker/templates/tracker/index.html:22
-#: tracker/templates/tracker/ticket_table.html:14
-#: tracker/templates/tracker/ticket_table.html:29
+#: tracker/templates/tracker/ticket_table.html:17
+#: tracker/templates/tracker/ticket_table.html:33
 #: tracker/templates/tracker/topic_content_acks_per_user.html:13
 #: tracker/templates/tracker/topic_finance.html:10
 #: tracker/templates/tracker/topic_table.html:6
@@ -804,231 +804,231 @@ msgstr "Ярлик для використання в URL-адресах"
 msgid "Grant"
 msgstr "Грант"
 
-#: tracker/models.py:945 tracker/templates/tracker/export.html:141
+#: tracker/models.py:911 tracker/templates/tracker/export.html:141
 #: tracker/templates/tracker/import.html:34
 msgid "Grants"
 msgstr "Гранти"
 
-#: tracker/models.py:958 tracker/models.py:986 tracker/models.py:1185
-#: tracker/models.py:1211 tracker/views.py:514
+#: tracker/models.py:924 tracker/models.py:952 tracker/models.py:1179
+#: tracker/models.py:1205 tracker/views.py:514
 msgid "ticket"
 msgstr "квиток"
 
-#: tracker/models.py:959 tracker/models.py:987
+#: tracker/models.py:925 tracker/models.py:953
 msgid "Ticket this media info belongs to"
 msgstr "Квиток, якому належить ця інформація про медіа"
 
-#: tracker/models.py:960
+#: tracker/models.py:926
 msgid "Item description to show"
 msgstr "Опис товару для показу"
 
-#: tracker/models.py:961 tracker/models.py:974 tracker/models.py:992
+#: tracker/models.py:927 tracker/models.py:940 tracker/models.py:958
 msgid "URL"
 msgstr "URL"
 
-#: tracker/models.py:961
+#: tracker/models.py:927
 msgid "Link to media files"
 msgstr "Посилання на медіафайли"
 
-#: tracker/models.py:962
+#: tracker/models.py:928
 msgid "count"
 msgstr "рахувати"
 
-#: tracker/models.py:962 tracker/templates/tracker/ticket_show_media.html:45
+#: tracker/models.py:928 tracker/templates/tracker/ticket_show_media.html:45
 msgid "Number of files"
 msgstr "Кількість файлів"
 
-#: tracker/models.py:968 tracker/models.py:969 tracker/models.py:1157
-#: tracker/models.py:1158
+#: tracker/models.py:934 tracker/models.py:935 tracker/models.py:1150
+#: tracker/models.py:1151
 msgid "Ticket media"
 msgstr "Носії квитків"
 
-#: tracker/models.py:974
+#: tracker/models.py:940
 msgid "Link to file usage"
 msgstr "Посилання на використання файлів"
 
-#: tracker/models.py:975 tracker/models.py:981
+#: tracker/models.py:941 tracker/models.py:947
 msgid "title"
 msgstr "заголовок"
 
-#: tracker/models.py:976
+#: tracker/models.py:942
 msgid "project"
 msgstr "проєкт"
 
-#: tracker/models.py:989
+#: tracker/models.py:955
 msgid "page id"
 msgstr "ідентифікатор сторінки"
 
-#: tracker/models.py:990
+#: tracker/models.py:956
 msgid "width"
 msgstr "ширина"
 
-#: tracker/models.py:991
+#: tracker/models.py:957
 msgid "height"
 msgstr "висота"
 
-#: tracker/models.py:993
+#: tracker/models.py:959
 msgid "cannonical title"
 msgstr "канонічна назва"
 
-#: tracker/models.py:1186
+#: tracker/models.py:1180
 msgid "Ticket this expediture belongs to"
 msgstr "Квиток, якому належить ця витрата"
 
-#: tracker/models.py:1187
+#: tracker/models.py:1181
 msgid "Description of this expediture"
 msgstr "Опис цих витрат"
 
-#: tracker/models.py:1188 tracker/models.py:1214 tracker/models.py:1370
+#: tracker/models.py:1182 tracker/models.py:1208 tracker/models.py:1364
 msgid "amount"
 msgstr "сума"
 
-#: tracker/models.py:1189
+#: tracker/models.py:1183
 msgid "Expediture amount in"
 msgstr "Сума видатків у"
 
-#: tracker/models.py:1190 tracker/models.py:1373
+#: tracker/models.py:1184 tracker/models.py:1367
 msgid "accounting info"
 msgstr "бухгалтерська інформація"
 
-#: tracker/models.py:1191
+#: tracker/models.py:1185
 msgid "Accounting info, this is editable only through admin field"
 msgstr "Бухгалтерська інформація, її можна змінити лише через поле адміністратора"
 
-#: tracker/models.py:1193 tracker/models.py:1216
+#: tracker/models.py:1187 tracker/models.py:1210
 msgid "wage"
 msgstr "заробітна плата"
 
-#: tracker/models.py:1196 tracker/models.py:1219
+#: tracker/models.py:1190 tracker/models.py:1213
 #, python-format
 msgid "%(description)s (%(amount)s %(currency)s)"
 msgstr "%(description)s (%(amount)s %(currency)s)"
 
-#: tracker/models.py:1205
+#: tracker/models.py:1199
 msgid "Ticket expediture"
 msgstr "Витрати на квитки"
 
-#: tracker/models.py:1206
+#: tracker/models.py:1200
 msgid "Ticket expeditures"
 msgstr "Витрати на квитки"
 
-#: tracker/models.py:1212
+#: tracker/models.py:1206
 msgid "Ticket this preexpediture belongs to"
 msgstr "Квиток, до якого належить ця попередня експедиція"
 
-#: tracker/models.py:1213
+#: tracker/models.py:1207
 msgid "Description of this preexpediture"
 msgstr "Опис цього попереднього випередження"
 
-#: tracker/models.py:1215
+#: tracker/models.py:1209
 msgid "Preexpediture amount in"
 msgstr "Сума попередніх витрат у"
 
-#: tracker/models.py:1223
+#: tracker/models.py:1217
 msgid "Ticket preexpediture"
 msgstr "Попередня експедиція квитків"
 
-#: tracker/models.py:1224
+#: tracker/models.py:1218
 msgid "Ticket preexpeditures"
 msgstr "Попередні експедиції квитків"
 
-#: tracker/models.py:1228
+#: tracker/models.py:1222
 msgid "uploader"
 msgstr "завантажувач"
 
-#: tracker/models.py:1238 tracker/views.py:798
+#: tracker/models.py:1232 tracker/views.py:798
 msgid "We need a sane file name, such as my-invoice123.jpg"
 msgstr "Нам потрібна розумна назва файлу, наприклад my-invoice123.jpg"
 
-#: tracker/models.py:1279
+#: tracker/models.py:1273
 msgid "Ignored acks"
 msgstr "Проігноровані перевірки"
 
-#: tracker/models.py:1280
+#: tracker/models.py:1274
 msgid "Muted notifications"
 msgstr "Вимкнені сповіщення"
 
-#: tracker/models.py:1281
+#: tracker/models.py:1275
 msgid "Email language"
 msgstr "Мова електронної пошти"
 
-#: tracker/models.py:1283
+#: tracker/models.py:1277
 msgid "Display items"
 msgstr "Відображення елементів"
 
-#: tracker/models.py:1284
+#: tracker/models.py:1278
 msgid "How many items should we display in tables at once"
 msgstr "Скільки елементів ми повинні відображати в таблицях одночасно"
 
-#: tracker/models.py:1303
+#: tracker/models.py:1297
 msgid "Tracker user preference"
 msgstr "Вподобання користувача трекера"
 
-#: tracker/models.py:1304
+#: tracker/models.py:1298
 msgid "Tracker user preferences"
 msgstr "Користувацькі налаштування трекера"
 
-#: tracker/models.py:1309
+#: tracker/models.py:1303
 msgid "Username on mediawiki"
 msgstr "Ім'я користувача на mediawiki"
 
-#: tracker/models.py:1310 tracker/templates/tracker/admin_user_list.html:30
+#: tracker/models.py:1304 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
 msgstr "Банківський рахунок"
 
-#: tracker/models.py:1311
+#: tracker/models.py:1305
 msgid "Bank account information for money transfers"
 msgstr "Інформація про банківський рахунок для грошових переказів"
 
-#: tracker/models.py:1313
+#: tracker/models.py:1307
 msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
 msgstr "Інші контакти, такі як обліковий запис вікі; може бути корисним у разі, якщо адміністраторам тем необхідно уточнити деяку інформацію"
 
-#: tracker/models.py:1314 tracker/templates/tracker/admin_user_list.html:32
+#: tracker/models.py:1308 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
 msgstr "Інша ідентифікація"
 
-#: tracker/models.py:1315
+#: tracker/models.py:1309
 msgid "Address, or other identification information, so we know who are we sending money to"
 msgstr "Адреса або інша ідентифікаційна інформація, щоб ми знали, кому ми надсилаємо гроші"
 
-#: tracker/models.py:1346
+#: tracker/models.py:1340
 msgid "Tracker profile"
 msgstr "Профіль трекера"
 
-#: tracker/models.py:1347
+#: tracker/models.py:1341
 msgid "Tracker profiles"
 msgstr "Профілі трекерів"
 
-#: tracker/models.py:1365
+#: tracker/models.py:1359
 msgid "date"
 msgstr "дата"
 
-#: tracker/models.py:1366 tracker/models.py:1390
+#: tracker/models.py:1360 tracker/models.py:1384
 msgid "other party"
 msgstr "інша сторона"
 
-#: tracker/models.py:1367
+#: tracker/models.py:1361
 msgid "The other party; user who sent or received the payment"
 msgstr "Друга сторона; користувач, який надіслав або отримав платіж"
 
-#: tracker/models.py:1368
+#: tracker/models.py:1362
 msgid "other party (text)"
 msgstr "інша сторона (текст)"
 
-#: tracker/models.py:1369
+#: tracker/models.py:1363
 msgid "The other party; this text is used when user is not selected"
 msgstr "Друга сторона; цей текст використовується, коли користувача не вибрано"
 
-#: tracker/models.py:1371
+#: tracker/models.py:1365
 msgid "Payment amount; Positive value means transaction to the user, negative is a transaction from the user"
 msgstr "Сума оплати; Позитивне значення означає транзакцію для користувача, негативне — транзакцію від користувача"
 
-#: tracker/models.py:1372
+#: tracker/models.py:1366
 msgid "Description of this transaction"
 msgstr "Опис цієї транзакції"
 
-#: tracker/models.py:1373
+#: tracker/models.py:1367
 #: tracker/templates/feeds/transaction_description.html:6
 #: tracker/templates/tracker/cluster_detail.html:19
 #: tracker/templates/tracker/ticket_common_detail.html:64
@@ -1038,173 +1038,173 @@ msgstr "Опис цієї транзакції"
 msgid "Accounting info"
 msgstr "Бухгалтерська інформація"
 
-#: tracker/models.py:1374
+#: tracker/models.py:1368
 msgid "related tickets"
 msgstr "відповідні квитки"
 
-#: tracker/models.py:1375
+#: tracker/models.py:1369
 msgid "Tickets this trackaction is related to"
 msgstr "Квитки, з якими пов’язано це відстеження"
 
-#: tracker/models.py:1417
+#: tracker/models.py:1411
 msgid "Transaction"
 msgstr "Транзакція"
 
-#: tracker/models.py:1418 tracker/templates/tracker/cluster_detail.html:18
+#: tracker/models.py:1412 tracker/templates/tracker/cluster_detail.html:18
 #: tracker/templates/tracker/ticket_detail.html:30
 #: tracker/templates/tracker/user_detail.html:19
 msgid "Transactions"
 msgstr "Транзакції"
 
-#: tracker/models.py:1444
+#: tracker/models.py:1438
 msgid "comment"
 msgstr "коментар"
 
-#: tracker/models.py:1568
+#: tracker/models.py:1562
 #, python-format
 msgid "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> by user <tt>%(user)s</tt>"
 msgstr "Коментар <tt>%(comment)s</tt> додано до квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> користувачем <tt>%(user)s</tt>"
 
-#: tracker/models.py:1599
+#: tracker/models.py:1593
 #, python-format
 msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
 msgstr "Користувач <tt>%(user)s</tt> створив квиток <a href=\"%(ticket_url)s\">%(ticket)s</a> у темі <tt>%(topic)s</tt>."
 
-#: tracker/models.py:1615
+#: tracker/models.py:1609
 #, python-format
 msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> змінив примітки керівника квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1635
+#: tracker/models.py:1629
 #, python-format
 msgid "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> змінив опис квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1638
+#: tracker/models.py:1632
 #, python-format
 msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> змінив назву квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1641
+#: tracker/models.py:1635
 #, python-format
 msgid "User <tt>%(user)s</tt> changed link to report of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> змінив посилання на звіт про квиток <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1645
+#: tracker/models.py:1639
 #, python-format
 msgid "User <tt>%(user)s</tt> changed requested deposit of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> змінив запитуваний депозит квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1655
+#: tracker/models.py:1649
 #, python-format
 msgid "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> змінено «Чи обов'язковий звіт?» поле квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1667
+#: tracker/models.py:1661
 #, python-format
 msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
 msgstr "Квиток «%(ticket)s» видалено користувачем %(user)s"
 
-#: tracker/models.py:1684
+#: tracker/models.py:1678
 #, python-format
 msgid "User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> додав ack <tt>%(ack_type)s</tt> до квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1698
+#: tracker/models.py:1692
 #, python-format
 msgid "User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "Користувач <tt>%(user)s</tt> вилучив ack <tt>%(ack_type)s</tt> з квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
-#: tracker/models.py:1729
+#: tracker/models.py:1723
 #, python-format
 msgid "User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> додав заплановані витрати <tt>%(expeditures)s</tt> до квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1751
+#: tracker/models.py:1745
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
 msgstr "Користувач <tt>%(user)s</tt> встановив заплановані витрати <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> як заробітна плата."
 
-#: tracker/models.py:1754
+#: tracker/models.py:1748
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
 msgstr "Користувач <tt>%(user)s</tt> встановив заплановані витрати <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> як не заробітна плата."
 
-#: tracker/models.py:1757
+#: tracker/models.py:1751
 #, python-format
 msgid "User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> змінив заплановані витрати з <tt>%(old_expediture)s</tt> на <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1774
+#: tracker/models.py:1768
 #, python-format
 msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> вилучив заплановані витрати <tt>%(expediture)s</tt> з квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1795
+#: tracker/models.py:1789
 #, python-format
 msgid "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> додав реальні витрати <tt>%(expeditures)s</tt> до квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1818
+#: tracker/models.py:1812
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as paid."
 msgstr "Користувач <tt>%(user)s</tt> встановив реальні витрати <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> як оплачено."
 
-#: tracker/models.py:1821
+#: tracker/models.py:1815
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not paid."
 msgstr "Користувач <tt>%(user)s</tt> встановив реальні витрати <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> як не оплачується."
 
-#: tracker/models.py:1826
+#: tracker/models.py:1820
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
 msgstr "Користувач <tt>%(user)s</tt> встановив реальні витрати <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> як заробітна плата."
 
-#: tracker/models.py:1829
+#: tracker/models.py:1823
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
 msgstr "Користувач <tt>%(user)s</tt> встановив реальні витрати <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a> як не заробітна плата."
 
-#: tracker/models.py:1836
+#: tracker/models.py:1830
 #, python-format
 msgid "User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> змінив реальні витрати з <tt>%(old_expediture)s</tt> на <tt>%(expeditures)s</tt> квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1853
+#: tracker/models.py:1847
 #, python-format
 msgid "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> вилучив реальні витрати <tt>%(expeditures)s</tt> з квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1867
+#: tracker/models.py:1861
 #, python-format
 msgid "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> додав медіафайли до квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1870
+#: tracker/models.py:1864
 #, python-format
 msgid "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> змінив медіафайли квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1884
+#: tracker/models.py:1878
 #, python-format
 msgid "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> вилучив медіафайли з квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1897 tracker/models.py:1917
+#: tracker/models.py:1891 tracker/models.py:1911
 msgid "no description"
 msgstr "немає опису"
 
-#: tracker/models.py:1901
+#: tracker/models.py:1895
 #, python-format
 msgid "User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "Користувач <tt>%(user)s</tt> додав документ <tt>%(document_filename)s (%(document_description)s)</tt> до квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
-#: tracker/models.py:1903
+#: tracker/models.py:1897
 #, python-format
 msgid "User <tt>%(user)s</tt> changed document <tt>%(document_filename)s</tt> assigned to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "Користувач <tt>%(user)s</tt> змінив документ <tt>%(document_filename)s</tt>, призначений для квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
-#: tracker/models.py:1920
+#: tracker/models.py:1914
 #, python-format
 msgid "User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "Користувач <tt>%(user)s</tt> вилучив документ <tt>%(document_filename)s (%(document_description)s)</tt> з квитка <a href=\"%(ticket_url)s\">%(ticket)s</a>"
@@ -1562,13 +1562,13 @@ msgstr "Переплата"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/index.html:21
-#: tracker/templates/tracker/ticket_table.html:13
-#: tracker/templates/tracker/ticket_table.html:28
+#: tracker/templates/tracker/ticket_table.html:14
+#: tracker/templates/tracker/ticket_table.html:32
 msgid "ID"
 msgstr "ID"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
-#: tracker/templates/tracker/ticket_table.html:23
+#: tracker/templates/tracker/ticket_table.html:26
 msgid "Status"
 msgstr "Статус"
 
@@ -1649,8 +1649,8 @@ msgstr "особливий"
 #: tracker/templates/tracker/index.html:26
 #: tracker/templates/tracker/ticket_common_detail.html:47
 #: tracker/templates/tracker/ticket_form.html:20
-#: tracker/templates/tracker/ticket_table.html:19
-#: tracker/templates/tracker/ticket_table.html:33
+#: tracker/templates/tracker/ticket_table.html:22
+#: tracker/templates/tracker/ticket_table.html:37
 msgid "Preexpeditures"
 msgstr "Попередні експедиції"
 
@@ -1685,16 +1685,16 @@ msgstr "Менші або рівні"
 #: tracker/templates/tracker/index.html:27
 #: tracker/templates/tracker/ticket_common_detail.html:62
 #: tracker/templates/tracker/ticket_form.html:25
-#: tracker/templates/tracker/ticket_table.html:20
-#: tracker/templates/tracker/ticket_table.html:34
+#: tracker/templates/tracker/ticket_table.html:23
+#: tracker/templates/tracker/ticket_table.html:38
 msgid "Expeditures"
 msgstr "Витрати"
 
 #: tracker/templates/tracker/export.html:118
 #: tracker/templates/tracker/index.html:28
 #: tracker/templates/tracker/ticket_common_detail.html:72
-#: tracker/templates/tracker/ticket_table.html:21
-#: tracker/templates/tracker/ticket_table.html:35
+#: tracker/templates/tracker/ticket_table.html:24
+#: tracker/templates/tracker/ticket_table.html:39
 #: tracker/templates/tracker/user_list.html:13
 msgid "Accepted expeditures"
 msgstr "Прийняті витрати"
@@ -1914,41 +1914,41 @@ msgstr "Медіа"
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_common_detail.html:10
-#: tracker/templates/tracker/ticket_table.html:13
-#: tracker/templates/tracker/ticket_table.html:28
+#: tracker/templates/tracker/ticket_table.html:15
+#: tracker/templates/tracker/ticket_table.html:32
 msgid "Event date"
 msgstr "Дата події"
 
 #: tracker/templates/tracker/index.html:21
-#: tracker/templates/tracker/ticket_table.html:13
-#: tracker/templates/tracker/ticket_table.html:28
+#: tracker/templates/tracker/ticket_table.html:16
+#: tracker/templates/tracker/ticket_table.html:32
 msgid "Name"
 msgstr "Назва"
 
 #: tracker/templates/tracker/index.html:25
 #: tracker/templates/tracker/ticket_common_detail.html:11
-#: tracker/templates/tracker/ticket_table.html:17
-#: tracker/templates/tracker/ticket_table.html:32
+#: tracker/templates/tracker/ticket_table.html:20
+#: tracker/templates/tracker/ticket_table.html:36
 msgid "Requested by"
 msgstr "Запит від"
 
 #: tracker/templates/tracker/index.html:29
 #: tracker/templates/tracker/ticket_common_detail.html:73
-#: tracker/templates/tracker/ticket_table.html:22
-#: tracker/templates/tracker/ticket_table.html:36
+#: tracker/templates/tracker/ticket_table.html:25
+#: tracker/templates/tracker/ticket_table.html:40
 msgid "Paid expeditures"
 msgstr "Оплачені витрати"
 
 #: tracker/templates/tracker/index.html:30
 #: tracker/templates/tracker/ticket_common_detail.html:14
-#: tracker/templates/tracker/ticket_table.html:37
+#: tracker/templates/tracker/ticket_table.html:41
 msgid "State"
 msgstr "Штат"
 
 #: tracker/templates/tracker/index.html:31
 #: tracker/templates/tracker/ticket_common_detail.html:9
-#: tracker/templates/tracker/ticket_table.html:24
-#: tracker/templates/tracker/ticket_table.html:38
+#: tracker/templates/tracker/ticket_table.html:27
+#: tracker/templates/tracker/ticket_table.html:42
 msgid "Last changed"
 msgstr "Остання зміна"
 
@@ -2362,7 +2362,7 @@ msgstr "Категорія"
 msgid "Number"
 msgstr "Номер"
 
-#: tracker/templates/tracker/ticket_table.html:18
+#: tracker/templates/tracker/ticket_table.html:21
 #: tracker/templates/tracker/user_list.html:13
 msgid "Media count"
 msgstr "Кількість медіа"

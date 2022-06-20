@@ -3,22 +3,39 @@
 #
 # Author: A Chinese Wikipedian
 # Author: GuoPC
+# Author: Shanqi Wang
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-04-28 11:20:40+0000\n"
-"X-POT-Import-Date: 2021-05-26 12:33:56+0000\n"
+"PO-Revision-Date: 2022-06-20 11:18:39+0000\n"
+"X-POT-Import-Date: 2022-06-18 20:35:08+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh-Hans\n"
 "X-Generator: MediaWiki 1.39.0-alpha; Translate 2022-04-26\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: static/commons-selection.js:143
+#: static/commons-selection.js:156
+msgid "Mediawiki username"
+msgstr ""
+
+#: static/commons-selection.js:159
+msgid "Filename prefix"
+msgstr "文件名前缀"
+
+#: static/commons-selection.js:184
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
 msgstr "获取您上传的图像时发生未知错误。请联系服务器管理员。"
 
-#: static/commons-selection.js:317
-msgid "Your account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr "您的账户还没有上传任何内容到维基共享资源。请先上传一些文件！"
+#: static/commons-selection.js:373
+msgid "Wikimedia Commons returned the following error"
+msgstr ""
+
+#: static/commons-selection.js:388
+msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
+msgstr ""
+
+#: static/commons-selection.js:393
+msgid "Your search does not match any files."
+msgstr ""
 
