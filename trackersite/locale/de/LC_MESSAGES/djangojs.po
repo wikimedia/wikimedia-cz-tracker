@@ -1,7 +1,8 @@
-# Translation of Tracker - JavaScript to Korean (한국어)
+# Translation of Tracker - JavaScript to German (Deutsch)
 # Exported from translatewiki.net
 #
-# Author: Ykhwong
+# Author: Sebastian Wallroth
+# Author: ThisCarthing
 msgid ""
 msgstr ""
 ""
@@ -9,13 +10,13 @@ msgstr ""
 "X-POT-Import-Date: 2022-06-18 20:35:08+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
+"Language: de\n"
 "X-Generator: MediaWiki 1.39.0-alpha; Translate 2022-04-26\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: static/commons-selection.js:156
 msgid "Mediawiki username"
-msgstr "미디어위키 사용자 이름"
+msgstr "MediaWiki-Benutzername"
 
 #: static/commons-selection.js:159
 msgid "Filename prefix"
@@ -23,11 +24,11 @@ msgstr ""
 
 #: static/commons-selection.js:184
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
-msgstr "업로드한 이미지를 가져오는 동안 알 수 없는 오류가 발생했습니다. 서버 관리자에게 문의해 주십시오."
+msgstr ""
 
 #: static/commons-selection.js:373
 msgid "Wikimedia Commons returned the following error"
-msgstr "위키미디어 공용이 다음의 오류를 반환했습니다"
+msgstr ""
 
 #: static/commons-selection.js:388
 msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
@@ -35,5 +36,5 @@ msgstr ""
 
 #: static/commons-selection.js:393
 msgid "Your search does not match any files."
-msgstr "일치하는 파일을 찾지 못했습니다."
+msgstr "Deine Suche hat keine Ergebnisse erbracht."
 
