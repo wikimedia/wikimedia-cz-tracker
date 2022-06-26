@@ -364,13 +364,8 @@ class PreferencesForm(forms.ModelForm):
 
 
 def get_socialauth_connection_data(user, type):
-    has_connection = True
-    try:
-        UserSocialAuth.objects.get(user_id=user.id, provider=type)
-    except UserSocialAuth.DoesNotExist:
-        has_connection = False
     return {
-        'is_connected': has_connection,
+        'is_connected': user.trackerprofile.is_socialauth_connected(type),
         'has_password': user.has_usable_password()
     }
 

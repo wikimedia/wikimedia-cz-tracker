@@ -13,6 +13,7 @@ from django import template
 from django.conf import settings
 from django.contrib.admin.models import LogEntry, CHANGE
 from django.contrib.auth.models import User
+from social_django.models import UserSocialAuth
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.core.cache import cache
@@ -1335,6 +1336,13 @@ class TrackerProfile(models.Model):
     def transactions(self):
         return Transaction.objects.filter(other=self.user).aggregate(count=models.Count('id'),
                                                                      amount=models.Sum('amount'))
+
+    def is_socialauth_connected(self, type):
+        try:
+            UserSocialAuth.objects.get(user_id=self.id, provider=type)
+            return True
+        except UserSocialAuth.DoesNotExist:
+            return False
 
     def __str__(self):
         return str(self.user)
