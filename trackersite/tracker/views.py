@@ -699,7 +699,7 @@ def sign_ticket(request, pk):
 
 @login_required
 def manage_media(request, ticket_id):
-    if not request.user.social_auth.filter(provider='mediawiki').exists():
+    if not request.user.trackerprofile.is_socialauth_connected('mediawiki'):
         return render(request, 'tracker/connect_account.html', {
             'next': reverse('manage_media', kwargs={'ticket_id': ticket_id})
         }, status=403)
