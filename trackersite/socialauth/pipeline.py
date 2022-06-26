@@ -7,6 +7,9 @@ def save_extra_data(backend, user, response, *args, **kwargs):
     if backend.name == "mediawiki":
         user.trackerprofile.mediawiki_username = kwargs['details']['username']
         user.trackerprofile.save()
+    elif backend.name == "chapterwiki":
+        user.trackerprofile.chapter_username = kwargs['details']['username']
+        user.trackerprofile.save()
 
 
 def display_succes_message_link(backend, *args, **kwargs):

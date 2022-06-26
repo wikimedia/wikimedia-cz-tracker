@@ -1303,6 +1303,7 @@ class TrackerPreferences(models.Model):
 class TrackerProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     mediawiki_username = models.CharField(_('Username on mediawiki'), max_length=120, blank=True)
+    chapter_username = models.CharField(_('Chapter-issued username'), max_length=120, blank=True)
     bank_account = models.CharField(_('Bank account'), max_length=120, blank=True,
                                     help_text=_('Bank account information for money transfers'))
     other_contact = models.CharField(_('Other contact'), max_length=120, blank=True, help_text=_(

@@ -1054,7 +1054,7 @@ def user_detail(request, username):
 class UserDetailsChange(FormView):
     template_name = 'tracker/user_details_change.html'
     user_fields = ('first_name', 'last_name', 'email')
-    profile_fields = [f.name for f in TrackerProfile._meta.fields if f.name not in ('id', 'user', 'mediawiki_username')]
+    profile_fields = [f.name for f in TrackerProfile._meta.fields if f.name not in ('id', 'user', 'mediawiki_username', 'chapter_username')]
 
     def make_user_details_form(self):
         fields = fields_for_model(User, fields=self.user_fields)
