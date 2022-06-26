@@ -417,6 +417,10 @@ def preferences(request):
         mediawiki_connect_data = get_socialauth_connection_data(request.user, 'mediawiki')
         chapterwiki_connect_data = get_socialauth_connection_data(request.user, 'chapterwiki')
 
+        # TODO: get this to get_socialauth_connection_data
+        mediawiki_connect_data['username'] = request.user.trackerprofile.mediawiki_username
+        chapterwiki_connect_data['username'] = request.user.trackerprofile.chapter_username
+
         preferences_form = PreferencesForm(
             instance=request.user.trackerpreferences,
             initial=dict((pref.name, getattr(request.user.trackerpreferences, pref.name)) for pref in request.user.trackerpreferences._meta.fields if pref.name not in ('id', 'user'))
