@@ -1339,7 +1339,7 @@ class TrackerProfile(models.Model):
 
     def is_socialauth_connected(self, type):
         try:
-            UserSocialAuth.objects.get(user_id=self.id, provider=type)
+            UserSocialAuth.objects.get(user_id=self.user.id, provider=type)
             return True
         except UserSocialAuth.DoesNotExist:
             return False
