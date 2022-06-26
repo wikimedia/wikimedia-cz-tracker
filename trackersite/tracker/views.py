@@ -363,6 +363,18 @@ class PreferencesForm(forms.ModelForm):
         exclude = ('muted_notifications', 'muted_ack', 'user')
 
 
+def get_socialauth_connection_data(user, type):
+    has_connection = True
+    try:
+        UserSocialAuth.objects.get(user_id=user.id, provider=type)
+    except UserSocialAuth.DoesNotExist:
+        has_connection = False
+    return {
+        'is_connected': has_connection,
+        'has_password': user.has_usable_password()
+    }
+
+
 @login_required()
 def preferences(request):
     if request.method == 'POST':
@@ -407,19 +419,8 @@ def preferences(request):
                 ack_type[0] in ack_muted,
             ))
 
-        account_has_mediawiki_connection = True
-        try:
-            user_social_auth_object = UserSocialAuth.objects.get(user_id=request.user.id)
-        except UserSocialAuth.DoesNotExist:
-            account_has_mediawiki_connection = False
-        else:
-            if user_social_auth_object.provider != "mediawiki":
-                account_has_mediawiki_connection = False
-        mediawiki_connect_data = {
-            'is_connected': account_has_mediawiki_connection,
-            'username': request.user.trackerprofile.mediawiki_username,
-            'has_password': request.user.has_usable_password()
-        }
+        mediawiki_connect_data = get_socialauth_connection_data(request.user, 'mediawiki')
+        chapterwiki_connect_data = get_socialauth_connection_data(request.user, 'chapterwiki')
 
         preferences_form = PreferencesForm(
             instance=request.user.trackerpreferences,
@@ -429,6 +430,7 @@ def preferences(request):
             "notification_types": notification_types,
             "ack_types": ack_types,
             "mediawiki_connect_data": mediawiki_connect_data,
+            "chapterwiki_connect_data": chapterwiki_connect_data,
             "preferences_form": preferences_form
         })
 

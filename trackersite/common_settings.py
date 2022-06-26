@@ -153,10 +153,12 @@ LANGUAGES = (
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.mediawiki.MediaWiki',
+    'socialauth.chapterwiki.ChapterWiki',
     'django.contrib.auth.backends.ModelBackend',
 )
 
 SOCIAL_AUTH_MEDIAWIKI_CALLBACK = 'oob'
+SOCIAL_AUTH_CHAPTERWIKI_CALLBACK = 'oob'
 SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['groups', ]
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/account/register/details'
 SOCIAL_AUTH_PIPELINE = (
