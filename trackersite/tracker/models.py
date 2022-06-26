@@ -508,6 +508,14 @@ class Ticket(CachedModel, ModelDiffMixin):
         """ Can given user edit documents belonging to this ticket? """
         return (user == self.requested_user) or user.has_perm('tracker.edit_all_docs')
 
+    def can_see_comments(self, user):
+        return self.topic.ticket_comments_public or self.can_always_see_comments(user)
+
+    def can_always_see_comments(self, user):
+        return user.is_authenticated and (
+            (user == self.requested_user) or user.has_perm('tracker.change_ticket') or user.trackerprofile.is_socialauth_connected('chapterwiki')
+        )
+
     def can_copy_preexpeditures(self, user):
         return self.can_edit(user) and 'content' not in self.ack_set()
 
@@ -782,6 +790,9 @@ class Topic(CachedModel):
                                              help_text=_('Does this topic track preexpenses?'))
     ticket_statutory_declaration = models.BooleanField(_('require statutory declaration'), default=False, help_text=_(
         'Does this topic require statutory declaration for car travelling?'))
+    ticket_comments_public = models.BooleanField(_('make comments public'), default=True, help_text=_(
+        'Are comments under tickets public?'
+    ))
     description = models.TextField(_('description'), blank=True, help_text=_(
         'Detailed description; HTML is allowed for now, line breaks are auto-parsed'))
     form_description = models.TextField(_('form description'), blank=True,
@@ -1542,6 +1553,8 @@ class Notification(models.Model):
         for user in users:
             with translation.override(user.trackerpreferences.email_language):
                 if user == sender:
+                    continue
+                if notification_type == 'comment' and not ticket.can_see_comments(user):
                     continue
                 if notification_type in user.trackerpreferences.get_muted_notifications():
                     continue

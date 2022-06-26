@@ -73,6 +73,7 @@
 {% endif %}
 {% endif %}
 
+{% if user_can_see_comments %}
 {% get_comment_count for ticket as comment_count %}
 {% if comment_count %}
 <h2>{% trans "Comments" %} ({{ comment_count }})</h2>
@@ -94,6 +95,10 @@
 		</div>
 	</div>
 </div>
+{% endif %}
+{% else %}
+<h2>{% trans "Comments" %}</h2>
+<p>{% trans "Comments are only available to the ticket requestor, supervisors and chapter members." %}</p>
 {% endif %}
 
 {% endblock content %}

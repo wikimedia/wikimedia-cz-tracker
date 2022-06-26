@@ -189,8 +189,8 @@ class TopicAdmin(admin.ModelAdmin):
         else:
             return request.user.topic_set.all()
 
-    list_display = ('name', 'grant', 'open_for_tickets', 'ticket_media', 'ticket_expenses', 'ticket_preexpenses', 'ticket_statutory_declaration')
-    list_filter = ('grant', 'open_for_tickets', 'ticket_media', 'ticket_expenses', 'ticket_preexpenses', 'ticket_statutory_declaration')
+    list_display = ('name', 'grant', 'open_for_tickets', 'ticket_media', 'ticket_expenses', 'ticket_preexpenses', 'ticket_statutory_declaration', 'ticket_comments_public')
+    list_filter = ('grant', 'open_for_tickets', 'ticket_media', 'ticket_expenses', 'ticket_preexpenses', 'ticket_statutory_declaration', 'ticket_comments_public')
     filter_horizontal = ('admin', )
     actions = (open_topics_for_tickets, close_topics_for_tickets)
 

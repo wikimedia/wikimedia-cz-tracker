@@ -93,6 +93,7 @@ class TicketDetailView(CommentPostedCatcher, DetailView):
             context['user_selfuploaded_docs'] = ticket.document_set.none()
         context['user_can_copy_preexpeditures'] = ticket.can_copy_preexpeditures(user)
         context['user_admin_of_topic'] = user in ticket.topic.admin.all()
+        context['user_can_see_comments'] = ticket.can_see_comments(user)
         return context
 
 
