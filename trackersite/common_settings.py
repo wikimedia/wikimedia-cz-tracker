@@ -157,6 +157,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SOCIAL_AUTH_MEDIAWIKI_CALLBACK = 'oob'
+SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['groups', ]
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/account/register/details'
 SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.social_details',
