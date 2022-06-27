@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-06-20 11:18:40+0000\n"
-"X-POT-Import-Date: 2022-06-18 00:30:17+0000\n"
+"PO-Revision-Date: 2022-06-27 11:22:59+0000\n"
+"X-POT-Import-Date: 2022-06-26 20:30:20+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
@@ -118,9 +118,17 @@ msgstr "Yorum"
 msgid "Successfully linked your wikimedia account!"
 msgstr "Wikimedia hesabınıza başarıyla bağlandı!"
 
-#: socialauth/pipeline.py:21
+#: socialauth/pipeline.py:17
+msgid "Successfully linked your chapter account!"
+msgstr ""
+
+#: socialauth/pipeline.py:23
 msgid "Your wikimedia account is no longer linked."
 msgstr "Wikimedia hesabınız artık bağlı değil."
+
+#: socialauth/pipeline.py:25
+msgid "Your chapterwiki account is no longer linked."
+msgstr ""
 
 #: templates/403.html:3
 msgid "403 Forbidden"
@@ -306,7 +314,7 @@ msgstr "ödenmemiş"
 msgid "partially paid"
 msgstr "kısmen ödenmiş"
 
-#: tracker/models.py:49 tracker/models.py:1186
+#: tracker/models.py:49 tracker/models.py:1188
 #: tracker/templates/tracker/export.html:248
 #: tracker/templates/tracker/grant_table.html:14
 #: tracker/templates/tracker/topic_finance.html:17
@@ -421,7 +429,7 @@ msgstr "Belge değiştirildi"
 msgid "unknown"
 msgstr "bilinmiyor"
 
-#: tracker/models.py:172 tracker/models.py:1436
+#: tracker/models.py:172 tracker/models.py:1438
 msgid "created"
 msgstr "oluşturuldu"
 
@@ -467,7 +475,7 @@ msgid "Text description of who requested for this ticket, in case user is not fi
 msgstr "Bu bilet için kimin istediğini, kullanıcı tarafından doldurulmadığı takdirde, metin açıklaması"
 
 #: tracker/models.py:260 tracker/models.py:699 tracker/models.py:771
-#: tracker/models.py:954 tracker/views.py:798
+#: tracker/models.py:954 tracker/views.py:799
 msgid "name"
 msgstr "isim"
 
@@ -475,7 +483,7 @@ msgstr "isim"
 msgid "Name for the ticket"
 msgstr "Biletin adı"
 
-#: tracker/models.py:261 tracker/models.py:704 tracker/views.py:559
+#: tracker/models.py:261 tracker/models.py:704 tracker/views.py:560
 msgid "topic"
 msgstr "konu"
 
@@ -526,8 +534,8 @@ msgid "Link to a public page describing the event, if it exist"
 msgstr "Varsa, etkinliği açıklayan genel sayfaya bağlantı"
 
 #: tracker/models.py:273 tracker/models.py:700 tracker/models.py:784
-#: tracker/models.py:869 tracker/models.py:926 tracker/models.py:1181
-#: tracker/models.py:1207 tracker/models.py:1366 tracker/views.py:799
+#: tracker/models.py:869 tracker/models.py:926 tracker/models.py:1183
+#: tracker/models.py:1209 tracker/models.py:1368 tracker/views.py:800
 msgid "description"
 msgstr "açıklama"
 
@@ -635,7 +643,7 @@ msgstr "Durum"
 msgid "E-mail"
 msgstr "E-posta"
 
-#: tracker/models.py:429 tracker/models.py:1306
+#: tracker/models.py:429 tracker/models.py:1308
 #: tracker/templates/tracker/admin_user_list.html:31
 #: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
@@ -691,7 +699,7 @@ msgstr "Alt konu"
 msgid "Subtopics"
 msgstr "Alt konular"
 
-#: tracker/models.py:772 tracker/views.py:588
+#: tracker/models.py:772 tracker/views.py:589
 msgid "grant"
 msgstr "hibe"
 
@@ -812,8 +820,8 @@ msgstr "Hibe"
 msgid "Grants"
 msgstr "Hibeler"
 
-#: tracker/models.py:924 tracker/models.py:952 tracker/models.py:1179
-#: tracker/models.py:1205 tracker/views.py:514
+#: tracker/models.py:924 tracker/models.py:952 tracker/models.py:1181
+#: tracker/models.py:1207 tracker/views.py:515
 msgid "ticket"
 msgstr "bilet"
 
@@ -841,8 +849,8 @@ msgstr "sayı"
 msgid "Number of files"
 msgstr "Dosya sayısı"
 
-#: tracker/models.py:934 tracker/models.py:935 tracker/models.py:1150
-#: tracker/models.py:1151
+#: tracker/models.py:934 tracker/models.py:935 tracker/models.py:1152
+#: tracker/models.py:1153
 msgid "Ticket media"
 msgstr "Bilet medyası"
 
@@ -874,340 +882,340 @@ msgstr "yükseklik"
 msgid "cannonical title"
 msgstr "kanonik başlık"
 
-#: tracker/models.py:1180
+#: tracker/models.py:1182
 msgid "Ticket this expediture belongs to"
 msgstr "Bilet bu sefer aittir"
 
-#: tracker/models.py:1181
+#: tracker/models.py:1183
 msgid "Description of this expediture"
 msgstr "Bu giderin açıklaması"
 
-#: tracker/models.py:1182 tracker/models.py:1208 tracker/models.py:1364
+#: tracker/models.py:1184 tracker/models.py:1210 tracker/models.py:1366
 msgid "amount"
 msgstr "miktar"
 
-#: tracker/models.py:1183
+#: tracker/models.py:1185
 msgid "Expediture amount in"
 msgstr "Harcama tutarı"
 
-#: tracker/models.py:1184 tracker/models.py:1367
+#: tracker/models.py:1186 tracker/models.py:1369
 msgid "accounting info"
 msgstr "muhasebe bilgisi"
 
-#: tracker/models.py:1185
+#: tracker/models.py:1187
 msgid "Accounting info, this is editable only through admin field"
 msgstr "Muhasebe bilgileri, bu yalnızca hizmetli alanı üzerinden düzenlenebilir"
 
-#: tracker/models.py:1187 tracker/models.py:1210
+#: tracker/models.py:1189 tracker/models.py:1212
 msgid "wage"
 msgstr "ücret"
 
-#: tracker/models.py:1190 tracker/models.py:1213
+#: tracker/models.py:1192 tracker/models.py:1215
 #, python-format
 msgid "%(description)s (%(amount)s %(currency)s)"
 msgstr "%(description)s (%(amount)s %(currency)s)"
 
-#: tracker/models.py:1199
+#: tracker/models.py:1201
 msgid "Ticket expediture"
 msgstr "Bilet harcaması"
 
-#: tracker/models.py:1200
+#: tracker/models.py:1202
 msgid "Ticket expeditures"
 msgstr "Bilet harcamaları"
 
-#: tracker/models.py:1206
+#: tracker/models.py:1208
 msgid "Ticket this preexpediture belongs to"
 msgstr "Bu önceliğin ait olduğu bilet"
 
-#: tracker/models.py:1207
+#: tracker/models.py:1209
 msgid "Description of this preexpediture"
 msgstr "Bu hazırlığın tanımı"
 
-#: tracker/models.py:1209
+#: tracker/models.py:1211
 msgid "Preexpediture amount in"
 msgstr "Önceden düzenlenmiş miktar"
 
-#: tracker/models.py:1217
+#: tracker/models.py:1219
 msgid "Ticket preexpediture"
 msgstr "Bilet hazırlığı"
 
-#: tracker/models.py:1218
+#: tracker/models.py:1220
 msgid "Ticket preexpeditures"
 msgstr "Bilet hazırlıkları"
 
-#: tracker/models.py:1222
+#: tracker/models.py:1224
 msgid "uploader"
 msgstr "yükleyici"
 
-#: tracker/models.py:1232 tracker/views.py:798
+#: tracker/models.py:1234 tracker/views.py:799
 msgid "We need a sane file name, such as my-invoice123.jpg"
 msgstr "my-invoice123.jpg gibi bir mantıklı dosya adına ihtiyacımız var"
 
-#: tracker/models.py:1273
+#: tracker/models.py:1275
 msgid "Ignored acks"
 msgstr "Yoksayılmış"
 
-#: tracker/models.py:1274
+#: tracker/models.py:1276
 msgid "Muted notifications"
 msgstr "Sessiz bildirimler"
 
-#: tracker/models.py:1275
+#: tracker/models.py:1277
 msgid "Email language"
 msgstr "E-posta dili"
 
-#: tracker/models.py:1277
+#: tracker/models.py:1279
 msgid "Display items"
 msgstr "Öğeleri görüntüle"
 
-#: tracker/models.py:1278
+#: tracker/models.py:1280
 msgid "How many items should we display in tables at once"
 msgstr "Aynı anda tablolarda kaç tane öğe göstermeliyiz"
 
-#: tracker/models.py:1297
+#: tracker/models.py:1299
 msgid "Tracker user preference"
 msgstr "İzleyici kullanıcı tercihi"
 
-#: tracker/models.py:1298
+#: tracker/models.py:1300
 msgid "Tracker user preferences"
 msgstr "İzleyici kullanıcı tercihleri"
 
-#: tracker/models.py:1303
+#: tracker/models.py:1305
 msgid "Username on mediawiki"
 msgstr "Mediawiki'deki kullanıcı adı"
 
-#: tracker/models.py:1304 tracker/templates/tracker/admin_user_list.html:30
+#: tracker/models.py:1306 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
 msgstr "Banka hesabı"
 
-#: tracker/models.py:1305
+#: tracker/models.py:1307
 msgid "Bank account information for money transfers"
 msgstr "Para transferleri için banka hesap bilgileri"
 
-#: tracker/models.py:1307
+#: tracker/models.py:1309
 msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
 msgstr "Viki hesabı gibi diğer kişiler; konu yöneticilerinin bazı bilgileri netleştirmeleri gerektiğinde yararlı olabilir"
 
-#: tracker/models.py:1308 tracker/templates/tracker/admin_user_list.html:32
+#: tracker/models.py:1310 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
 msgstr "Diğer tanımlama"
 
-#: tracker/models.py:1309
+#: tracker/models.py:1311
 msgid "Address, or other identification information, so we know who are we sending money to"
 msgstr "Adres veya diğer kimlik bilgileri, kime para gönderdiğimizi biliyoruz."
 
-#: tracker/models.py:1340
+#: tracker/models.py:1342
 msgid "Tracker profile"
 msgstr "İzleyici profili"
 
-#: tracker/models.py:1341
+#: tracker/models.py:1343
 msgid "Tracker profiles"
 msgstr "İzleyici profilleri"
 
-#: tracker/models.py:1359
+#: tracker/models.py:1361
 msgid "date"
 msgstr "tarih"
 
-#: tracker/models.py:1360 tracker/models.py:1384
+#: tracker/models.py:1362 tracker/models.py:1386
 msgid "other party"
 msgstr "diğer parti"
 
-#: tracker/models.py:1361
+#: tracker/models.py:1363
 msgid "The other party; user who sent or received the payment"
 msgstr "Diğer taraf; ödemeyi gönderen veya alan kullanıcı"
 
-#: tracker/models.py:1362
+#: tracker/models.py:1364
 msgid "other party (text)"
 msgstr "diğer parti (metin)"
 
-#: tracker/models.py:1363
+#: tracker/models.py:1365
 msgid "The other party; this text is used when user is not selected"
 msgstr "Diğer taraf; Bu metin kullanıcı seçilmediğinde kullanılır"
 
-#: tracker/models.py:1365
+#: tracker/models.py:1367
 msgid "Payment amount; Positive value means transaction to the user, negative is a transaction from the user"
 msgstr "Ödeme miktarı; Pozitif değer, kullanıcıya yapılan işlem anlamına gelir; negatif, kullanıcıdan gelen bir işlemdir"
 
-#: tracker/models.py:1366
+#: tracker/models.py:1368
 msgid "Description of this transaction"
 msgstr "Bu işlemin açıklaması"
 
-#: tracker/models.py:1367
+#: tracker/models.py:1369
 #: tracker/templates/feeds/transaction_description.html:6
 #: tracker/templates/tracker/cluster_detail.html:19
 #: tracker/templates/tracker/ticket_common_detail.html:64
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1729
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1730
 msgid "Accounting info"
 msgstr "Muhasebe bilgisi"
 
-#: tracker/models.py:1368
+#: tracker/models.py:1370
 msgid "related tickets"
 msgstr "ilgili biletler"
 
-#: tracker/models.py:1369
+#: tracker/models.py:1371
 msgid "Tickets this trackaction is related to"
 msgstr "Bu izlemeyle ilgili biletler"
 
-#: tracker/models.py:1411
+#: tracker/models.py:1413
 msgid "Transaction"
 msgstr "İşlem"
 
-#: tracker/models.py:1412 tracker/templates/tracker/cluster_detail.html:18
+#: tracker/models.py:1414 tracker/templates/tracker/cluster_detail.html:18
 #: tracker/templates/tracker/ticket_detail.html:30
 #: tracker/templates/tracker/user_detail.html:19
 msgid "Transactions"
 msgstr "İşlemler"
 
-#: tracker/models.py:1438
+#: tracker/models.py:1440
 msgid "comment"
 msgstr "yorum"
 
-#: tracker/models.py:1562
+#: tracker/models.py:1564
 #, python-format
 msgid "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> by user <tt>%(user)s</tt>"
 msgstr "<tt>%(comment)s</tt> yorumu <tt>%(user)s</tt> adlı kullanıcının <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine eklendi."
 
-#: tracker/models.py:1593
+#: tracker/models.py:1595
 #, python-format
 msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <tt>%(topic)s</tt> başlığında <a href=\"%(ticket_url)s\">%(ticket)s</a> oluşturdu."
 
-#: tracker/models.py:1609
+#: tracker/models.py:1611
 #, python-format
 msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin yönetici notunu değiştirdi."
 
-#: tracker/models.py:1629
+#: tracker/models.py:1631
 #, python-format
 msgid "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin açıklamasını değiştirdi."
 
-#: tracker/models.py:1632
+#: tracker/models.py:1634
 #, python-format
 msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> adlı kullanıcı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin adını değiştirdi."
 
-#: tracker/models.py:1635
+#: tracker/models.py:1637
 #, python-format
 msgid "User <tt>%(user)s</tt> changed link to report of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> adlı kullanıcı, <a href=\"%(ticket_url)s\">%(ticket)s</a> bilet raporuna giden bağlantıyı değiştirdi."
 
-#: tracker/models.py:1639
+#: tracker/models.py:1641
 #, python-format
 msgid "User <tt>%(user)s</tt> changed requested deposit of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı istenen <a href=\"%(ticket_url)s\">%(ticket)s</a> bilet depozitosunu değiştirdi."
 
-#: tracker/models.py:1649
+#: tracker/models.py:1651
 #, python-format
 msgid "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> adlı kullanıcı değişti \"Rapor zorunlu mu?\" <a href=\"%(ticket_url)s\">%(ticket)s</a> bilet alanı."
 
-#: tracker/models.py:1661
+#: tracker/models.py:1663
 #, python-format
 msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
 msgstr "\"%(ticket)s\" bileti %(user)s kullanıcısı tarafından silindi"
 
-#: tracker/models.py:1678
+#: tracker/models.py:1680
 #, python-format
 msgid "User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine <tt>%(ack_type)s</tt> eklendi."
 
-#: tracker/models.py:1692
+#: tracker/models.py:1694
 #, python-format
 msgid "User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinden <tt>%(ack_type)s</tt> kaldırıldı"
 
-#: tracker/models.py:1723
+#: tracker/models.py:1725
 #, python-format
 msgid "User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, biletine <a href=\"%(ticket_url)s\">%(ticket)s</a> <tt>%(expeditures)s</tt> planlı keşif gezileri ekledi"
 
-#: tracker/models.py:1745
+#: tracker/models.py:1747
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> planlı seferini ücret olarak ayarlandı."
 
-#: tracker/models.py:1748
+#: tracker/models.py:1750
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> planlı seferini ücret olmayanı ayarlandı."
 
-#: tracker/models.py:1751
+#: tracker/models.py:1753
 #, python-format
 msgid "User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, planlanan sefer hızını <a href=\"%(ticket_url)s\">%(ticket)s</a> <tt>%(old_expediture)s</tt>'den <tt>%(expeditures)s</tt>'den değiştirdi."
 
-#: tracker/models.py:1768
+#: tracker/models.py:1770
 #, python-format
 msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a >biletinden <tt>%(expediture)s</tt> planlanan seferini kaldırdı."
 
-#: tracker/models.py:1789
+#: tracker/models.py:1791
 #, python-format
 msgid "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine <tt>%(expeditures)s</tt> gerçek keşifler ekledi."
 
-#: tracker/models.py:1812
+#: tracker/models.py:1814
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as paid."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> gerçek seferini ödendiği gibi ayarlandı."
 
-#: tracker/models.py:1815
+#: tracker/models.py:1817
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not paid."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> gerçek seferini ödenmediği gibi ayarlandı."
 
-#: tracker/models.py:1820
+#: tracker/models.py:1822
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> gerçek seferini ücret olarak ayarlandı."
 
-#: tracker/models.py:1823
+#: tracker/models.py:1825
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin <tt>%(expeditures)s</tt> gerçek seferini ücret olmayan ayarlandı."
 
-#: tracker/models.py:1830
+#: tracker/models.py:1832
 #, python-format
 msgid "User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, gerçek aperitifliği <tt>%(old_expediture)s</tt> <a href=\"%(ticket_url)s\">%(ticket)s</a>'den <tt>%(expeditures)s</tt>'den değiştirdi."
 
-#: tracker/models.py:1847
+#: tracker/models.py:1849
 #, python-format
 msgid "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <tt>%(expeditures)s</tt> gerçek harekatını kaldırdı <a href=\"%(ticket_url)s\">%(ticket)s </a>."
 
-#: tracker/models.py:1861
+#: tracker/models.py:1863
 #, python-format
 msgid "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine medya ekledi."
 
-#: tracker/models.py:1864
+#: tracker/models.py:1866
 #, python-format
 msgid "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinin ortamını değiştirdi."
 
-#: tracker/models.py:1878
+#: tracker/models.py:1880
 #, python-format
 msgid "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletinden medyayı çıkardı."
 
-#: tracker/models.py:1891 tracker/models.py:1911
+#: tracker/models.py:1893 tracker/models.py:1913
 msgid "no description"
 msgstr "açıklama yok"
 
-#: tracker/models.py:1895
+#: tracker/models.py:1897
 #, python-format
 msgid "User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> <tt>%(document_filename)s (%(document_description)s)</tt> belgesini ekledi."
 
-#: tracker/models.py:1897
+#: tracker/models.py:1899
 #, python-format
 msgid "User <tt>%(user)s</tt> changed document <tt>%(document_filename)s</tt> assigned to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> biletine atanan <tt>%(document_filename)s</tt> belgeyi değiştirdi."
 
-#: tracker/models.py:1914
+#: tracker/models.py:1916
 #, python-format
 msgid "User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 msgstr "<tt>%(user)s</tt> kullanıcısı, <a href=\"%(ticket_url)s\">%(ticket)s</a> <tt>%(document_filename)s (%(document_description)s)</tt> belgesini kaldırdı"
@@ -1247,8 +1255,8 @@ msgid "Total"
 msgstr "Toplam"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:39
-#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1727
-#: tracker/views.py:1736 tracker/views.py:1746
+#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1728
+#: tracker/views.py:1737 tracker/views.py:1747
 msgid "Ticket ID"
 msgstr "Bilet kimliği"
 
@@ -1340,9 +1348,9 @@ msgstr "Miktar"
 #: tracker/templates/tracker/ticket_common_detail.html:30
 #: tracker/templates/tracker/ticket_detail.html:34
 #: tracker/templates/tracker/transaction_list.html:15
-#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1708
-#: tracker/views.py:1713 tracker/views.py:1718 tracker/views.py:1727
-#: tracker/views.py:1736
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1709
+#: tracker/views.py:1714 tracker/views.py:1719 tracker/views.py:1728
+#: tracker/views.py:1737
 msgid "Description"
 msgstr "Açıklama"
 
@@ -1455,15 +1463,15 @@ msgid "Home"
 msgstr "Anasayfa"
 
 #: tracker/templates/tracker/admin_user_list.html:25
-#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1741
+#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1742
 msgid "Username"
 msgstr "Kullanıcı adı"
 
-#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1741
+#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1742
 msgid "First name"
 msgstr "Ad"
 
-#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1741
+#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1742
 msgid "Last name"
 msgstr "Soyad"
 
@@ -2002,14 +2010,35 @@ msgid "In order to disconnect your Wikimedia account, you first need to"
 msgstr "Wikimedia hesabınızın bağlantısını kesmek için önce yapmanız gereken"
 
 #: tracker/templates/tracker/preferences.html:80
+#: tracker/templates/tracker/preferences.html:106
 msgid "set a password."
 msgstr "bir şifre belirleyin."
 
 #: tracker/templates/tracker/preferences.html:88
+msgid "Chapter account"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:92
+msgid "Your account is connected to your chapter account"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:102
+msgid "Disconnect chapter account"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:106
+msgid "In order to disconnect your chapter account, you first need to"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:111
+msgid "Link chapter account"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:114
 msgid "Account actions"
 msgstr "Hesap işlemleri"
 
-#: tracker/templates/tracker/preferences.html:90
+#: tracker/templates/tracker/preferences.html:116
 #: tracker/templates/tracker/user_deactivate.html:4
 #: tracker/templates/tracker/user_deactivate.html:11
 msgid "Deactivate account"
@@ -2589,7 +2618,7 @@ msgstr "%(ticket_id)s \"%(confirmation)s\" eklendi. Ancak, banka hesap bilgileri
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
 msgstr "Bilet %(ticket_id)s onay \"%(confirmation)s\" eklendi."
 
-#: tracker/views.py:169 tracker/views.py:1758
+#: tracker/views.py:169 tracker/views.py:1759
 msgid "You cannot edit this"
 msgstr "Bunu düzenleyemezsin"
 
@@ -2614,219 +2643,219 @@ msgstr "Yasal bildirim yapmanız gerekmektedir."
 msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."
 msgstr "Alt konu, kullandığınız başlığa ait olmalıdır. Muhtemelen JavaScript'i kapattınız."
 
-#: tracker/views.py:390
+#: tracker/views.py:401
 msgid "We've updated your preferences"
 msgstr "Tercihlerinizi güncelledik"
 
-#: tracker/views.py:438
+#: tracker/views.py:439
 msgid "Please enter your password to confirm the deactivation of your account."
 msgstr "Lütfen hesabınızın devre dışı bırakılmasını onaylamak için şifrenizi girin."
 
-#: tracker/views.py:453
+#: tracker/views.py:454
 msgid "Account deactivation"
 msgstr "Hesap devre dışı bırakma"
 
-#: tracker/views.py:460
+#: tracker/views.py:461
 msgid "Your account has been deactivated."
 msgstr "Hesabınız devre dışı bırakıldı."
 
-#: tracker/views.py:463
+#: tracker/views.py:464
 msgid "Password is incorrect."
 msgstr "Şifre geçersiz."
 
-#: tracker/views.py:495
+#: tracker/views.py:496
 #, python-format
 msgid "Ticket's %s watching settings are changed."
 msgstr "Biletin %s izleme ayarları değiştirildi."
 
-#: tracker/views.py:544
+#: tracker/views.py:545
 #, python-format
 msgid "Topic's %s watching settings are changed."
 msgstr "Konunun %s izleme ayarları değiştirildi."
 
-#: tracker/views.py:574
+#: tracker/views.py:575
 #, python-format
 msgid "%s's watching settings are changed."
 msgstr "%s'nin izleme ayarları değişti."
 
-#: tracker/views.py:621
+#: tracker/views.py:622
 #, python-format
 msgid "Ticket %s is created"
 msgstr "%s bileti oluşturuldu"
 
-#: tracker/views.py:659 tracker/views.py:783
+#: tracker/views.py:660 tracker/views.py:784
 msgid "One or more fields are invalid. Check them to get more information."
 msgstr "Bir veya daha fazla alan geçersiz. Daha fazla bilgi almak için kontrol edin."
 
-#: tracker/views.py:670
+#: tracker/views.py:671
 msgid "I confirm the above"
 msgstr "Yukarıdakileri onaylıyorum"
 
-#: tracker/views.py:677
+#: tracker/views.py:678
 msgid "You cannot add statutory declaration to a ticket that does not support it."
 msgstr "Desteklemeyen bir bilete yasal bildirim ekleyemezsiniz."
 
-#: tracker/views.py:679
+#: tracker/views.py:680
 msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
 msgstr "Bu görünümü, oluşturduğunuz bir bilete yasal bir bildirim eklemek için kullanamazsınız. Bunun için bilet düzenleme düğmesini kullanın."
 
-#: tracker/views.py:686
+#: tracker/views.py:687
 msgid "You successfully added a statutory declaration to this ticket."
 msgstr "Bu bilete başarıyla yasal bir bildirim eklediniz."
 
-#: tracker/views.py:689
+#: tracker/views.py:690
 msgid "You successfully removed a statutory declaration from this ticket."
 msgstr "Bu biletten yasal bir bildirimi başarıyla kaldırdınız."
 
-#: tracker/views.py:715 tracker/views.py:726
+#: tracker/views.py:716 tracker/views.py:727
 msgid "You cannot edit this ticket"
 msgstr "Bu bileti düzenleyemezsiniz"
 
-#: tracker/views.py:762
+#: tracker/views.py:763
 #, python-format
 msgid "Ticket %s saved."
 msgstr "%s bileti kaydedildi."
 
-#: tracker/views.py:797
+#: tracker/views.py:798
 msgid "file"
 msgstr "dosya"
 
-#: tracker/views.py:827
+#: tracker/views.py:828
 msgid "You cannot edit this ticket documents, as it's no longer editable"
 msgstr "Bu bilet belgelerini düzenleyemezsiniz, çünkü artık düzenlenebilir değil"
 
-#: tracker/views.py:836
+#: tracker/views.py:837
 msgid "You cannot see this ticket's documents."
 msgstr "Bu biletin belgelerini göremezsiniz."
 
-#: tracker/views.py:863
+#: tracker/views.py:864
 #, python-format
 msgid "Document changes for ticket %s saved."
 msgstr "%s bileti için belge değişikliği kaydedildi."
 
-#: tracker/views.py:886
+#: tracker/views.py:887
 msgid "There is already a document with that name. Please try to reupload with a different name."
 msgstr "Bu isimde zaten bir belge var. Lütfen farklı bir adla yeniden yüklemeyi deneyin."
 
-#: tracker/views.py:898
+#: tracker/views.py:899
 #, python-format
 msgid "File %(filename)s has been saved."
 msgstr "%(filename)s dosyası kaydedildi."
 
-#: tracker/views.py:1086
+#: tracker/views.py:1087
 msgid "Your details have been saved."
 msgstr "Bilgileriniz kaydedildi."
 
-#: tracker/views.py:1530
+#: tracker/views.py:1531
 msgid "You must be staffer in order to export users"
 msgstr "Kullanıcıları dışa aktarmak için yetkili olmalısınız"
 
-#: tracker/views.py:1532
+#: tracker/views.py:1533
 msgid "You must fill the form validly"
 msgstr "Formu geçerli doldurmalısınız"
 
-#: tracker/views.py:1551
+#: tracker/views.py:1552
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
 msgstr "%(input_row_limit)s satırından fazlasını içe aktarma izniniz yok. İlk %(input_row_limit)s satırı zaten alınmış."
 
-#: tracker/views.py:1578
+#: tracker/views.py:1579
 msgid "You must be a staffer in order to be able to import topics."
 msgstr "Konuları içe aktarabilmek için yetkili olmalısınız."
 
-#: tracker/views.py:1611
+#: tracker/views.py:1612
 msgid "You must be a staffer in order to be able to import grants."
 msgstr "Hibeleri alabilmek için yetkili olmanız gerekir."
 
-#: tracker/views.py:1641 tracker/views.py:1655
+#: tracker/views.py:1642 tracker/views.py:1656
 msgid "You can't add preexpenses to a ticket that you did not create."
 msgstr "Oluşturmadığınız bir bilete önceden harcama yapamazsınız."
 
-#: tracker/views.py:1677
+#: tracker/views.py:1678
 msgid "You can't add media items to a ticket that you did not create."
 msgstr "Oluşturmadığınız bir bilete medya öğeleri ekleyemezsiniz."
 
-#: tracker/views.py:1680
+#: tracker/views.py:1681
 msgid "You must be a superuser in order to be able to import users."
 msgstr "Kullanıcıları içe aktarabilmek için bir süper kullanıcı olmanız gerekir."
 
-#: tracker/views.py:1698
+#: tracker/views.py:1699
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
 msgstr "Form garip değerler döndürdü. Lütfen sistem yöneticisine başvurun ve ne yapmaya çalıştığınızı söyleyin."
 
-#: tracker/views.py:1700
+#: tracker/views.py:1701
 msgid "Your CSV file was imported."
 msgstr "CSV dosyanız içe aktarıldı."
 
-#: tracker/views.py:1708
+#: tracker/views.py:1709
 msgid "Name of a ticket"
 msgstr "Biletin adı"
 
-#: tracker/views.py:1708 tracker/views.py:1713
+#: tracker/views.py:1709 tracker/views.py:1714
 msgid "Name of a topic"
 msgstr "Konunun adı"
 
-#: tracker/views.py:1713
+#: tracker/views.py:1714
 msgid "Name of a grant"
 msgstr "Hibenin adı"
 
-#: tracker/views.py:1713
+#: tracker/views.py:1714
 msgid "Form description"
 msgstr "Form açıklaması"
 
-#: tracker/views.py:1718
+#: tracker/views.py:1719
 msgid "Full name"
 msgstr "Tam ad"
 
-#: tracker/views.py:1718
+#: tracker/views.py:1719
 msgid "Short name"
 msgstr "Kısa ad"
 
-#: tracker/views.py:1718
+#: tracker/views.py:1719
 msgid "Slug"
 msgstr "Slug"
 
-#: tracker/views.py:1741
+#: tracker/views.py:1742
 msgid "Password"
 msgstr "Parola"
 
-#: tracker/views.py:1765
+#: tracker/views.py:1766
 msgid "Preexpeditures were succesfully copied to expeditures."
 msgstr "Ön harcamalar harcamalara başarıyla kopyalanmıştır."
 
-#: tracker/views.py:1781
+#: tracker/views.py:1782
 msgid "Executing API call with any action than whitelisted is prohibited."
 msgstr "Beyaz listeden başka herhangi bir işlemle API çağrısı yapmak yasaktır."
 
-#: tracker/views.py:1792
+#: tracker/views.py:1793
 msgid "No media to show are available"
 msgstr "Gösterilecek medya yok"
 
-#: tracker/views.py:1812
+#: tracker/views.py:1813
 msgid "Updating of medias for this ticket was successfully scheduled."
 msgstr "Bu bilet için ortamın güncellenmesi başarıyla planlandı."
 
-#: tracker/views.py:1817
+#: tracker/views.py:1818
 msgid "List of media was successfully updated"
 msgstr "Medya listesi başarıyla güncellendi"
 
-#: tracker/views.py:1822
+#: tracker/views.py:1823
 msgid "There was an error while processing your request"
 msgstr "İsteğiniz işlenirken bir hata oluştu"
 
-#: tracker/views.py:1847
+#: tracker/views.py:1848
 msgid "Notice from Tracker"
 msgstr "İzleyiciden Uyarı"
 
-#: tracker/views.py:1866
+#: tracker/views.py:1867
 msgid "This mandatory notice was sent to all active Tracker users."
 msgstr "Bu zorunlu bildirim tüm aktif İzleyici kullanıcılarına gönderildi."
 
-#: tracker/views.py:1874
+#: tracker/views.py:1875
 msgid "This mandatory notice was sent to all active Tracker administrators."
 msgstr "Bu zorunlu bildirim tüm aktif İzleyici yöneticilerine gönderildi."
 
-#: tracker/views.py:1887
+#: tracker/views.py:1888
 msgid "This mandatory notice was sent to all active Tracker roots."
 msgstr "Bu zorunlu bildirim tüm aktif İzleyici köklerine gönderildi."
 

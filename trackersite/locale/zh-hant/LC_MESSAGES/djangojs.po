@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-06-20 11:18:39+0000\n"
+"PO-Revision-Date: 2022-06-27 11:22:58+0000\n"
 "X-POT-Import-Date: 2022-06-18 20:35:08+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,11 +15,11 @@ msgstr ""
 
 #: static/commons-selection.js:156
 msgid "Mediawiki username"
-msgstr ""
+msgstr "MediaWiki 使用者名稱"
 
 #: static/commons-selection.js:159
 msgid "Filename prefix"
-msgstr ""
+msgstr "檔案名稱字首"
 
 #: static/commons-selection.js:184
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
@@ -27,13 +27,13 @@ msgstr "在索取您上傳的圖片時發生不明錯誤，請聯絡伺服器管
 
 #: static/commons-selection.js:373
 msgid "Wikimedia Commons returned the following error"
-msgstr ""
+msgstr "維基共享資源回傳以下錯誤"
 
 #: static/commons-selection.js:388
 msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr ""
+msgstr "指定的帳號還沒有上傳任何內容到維基共享資源。請先上傳一些檔案！"
 
 #: static/commons-selection.js:393
 msgid "Your search does not match any files."
-msgstr ""
+msgstr "您沒有找到任何符合的檔案。"
 
