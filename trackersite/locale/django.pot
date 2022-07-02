@@ -2392,7 +2392,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:16
 #: tracker/templates/tracker/ticket_media.html:25
-msgid "Mediawiki username"
+msgid "MediaWiki username"
 msgstr ""
 
 #: tracker/templates/tracker/ticket_media.html:21
