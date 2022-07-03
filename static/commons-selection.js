@@ -153,7 +153,7 @@
 
 			switch ( findByType ) {
 				case 'user':
-					document.querySelector( '#find-by-label' ).innerText = gettext( 'Mediawiki username' );
+					document.querySelector( '#find-by-label' ).innerText = gettext( 'MediaWiki username' );
 					break;
 				case 'filename':
 					document.querySelector( '#find-by-label' ).innerText = gettext( 'Filename prefix' );
