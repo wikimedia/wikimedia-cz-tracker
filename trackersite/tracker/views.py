@@ -33,7 +33,6 @@ from django.utils.translation import ugettext as _, ugettext_lazy
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, DetailView, FormView, DeleteView
 from sendfile import sendfile
-from social_django.models import UserSocialAuth
 
 from socialauth.api import MediaWiki
 from tracker.models import ACK_TYPES, NOTIFICATION_TYPES
