@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-10 15:37+0100\n"
-"PO-Revision-Date: 2022-06-27 11:22:57+0000\n"
+"PO-Revision-Date: 2022-07-07 11:21:07+0000\n"
 "Last-Translator: Petr Novák <petr.novak@cosmoboy.cz>\n"
 "Language-Team: none <none@example.org>\n"
 "Language: cs\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ( (n >= 2 && n <= 4) ? 1 : 2 );\n"
-"X-POT-Import-Date: 2022-06-26 20:30:20+0000\n"
+"X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "X-Generator: MediaWiki 1.39.0-alpha; Translate 2022-04-26\n"
 
 #: api/serializers.py:101
@@ -123,7 +123,7 @@ msgstr "Úspěšně jsme připojili váš účet Wikimedia"
 
 #: socialauth/pipeline.py:17
 msgid "Successfully linked your chapter account!"
-msgstr ""
+msgstr "Úspěšně jsme připojili váš pobočkový účet"
 
 #: socialauth/pipeline.py:23
 msgid "Your wikimedia account is no longer linked."
@@ -131,7 +131,7 @@ msgstr "Váš účet Wikimedia již není připojen"
 
 #: socialauth/pipeline.py:25
 msgid "Your chapterwiki account is no longer linked."
-msgstr ""
+msgstr "Váš pobočkový účet již není připojen."
 
 #: templates/403.html:3
 msgid "403 Forbidden"
@@ -2023,23 +2023,23 @@ msgstr "nastavit heslo"
 
 #: tracker/templates/tracker/preferences.html:88
 msgid "Chapter account"
-msgstr ""
+msgstr "Pobočkový účet"
 
 #: tracker/templates/tracker/preferences.html:92
 msgid "Your account is connected to your chapter account"
-msgstr ""
+msgstr "Váš účet je připojen k pobočkovému účtu."
 
 #: tracker/templates/tracker/preferences.html:102
 msgid "Disconnect chapter account"
-msgstr ""
+msgstr "Odpojit pobočkový účet"
 
 #: tracker/templates/tracker/preferences.html:106
 msgid "In order to disconnect your chapter account, you first need to"
-msgstr ""
+msgstr "Abyste mohl připojit svůj pobočkový účet, musíte nejdříve"
 
 #: tracker/templates/tracker/preferences.html:111
 msgid "Link chapter account"
-msgstr ""
+msgstr "Propojit pobočkový účet"
 
 #: tracker/templates/tracker/preferences.html:114
 msgid "Account actions"
@@ -2276,7 +2276,7 @@ msgstr "Hledat podle"
 
 #: tracker/templates/tracker/ticket_media.html:16
 #: tracker/templates/tracker/ticket_media.html:25
-msgid "Mediawiki username"
+msgid "MediaWiki username"
 msgstr "Uživatelské jméno na projektech Wikimedia"
 
 #: tracker/templates/tracker/ticket_media.html:21

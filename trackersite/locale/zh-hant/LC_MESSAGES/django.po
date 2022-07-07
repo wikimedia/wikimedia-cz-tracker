@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-06-30 11:21:28+0000\n"
-"X-POT-Import-Date: 2022-06-26 20:30:20+0000\n"
+"PO-Revision-Date: 2022-07-07 11:21:09+0000\n"
+"X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh-Hant\n"
@@ -2264,7 +2264,7 @@ msgstr "查找依照"
 
 #: tracker/templates/tracker/ticket_media.html:16
 #: tracker/templates/tracker/ticket_media.html:25
-msgid "Mediawiki username"
+msgid "MediaWiki username"
 msgstr "MediaWiki 使用者名稱"
 
 #: tracker/templates/tracker/ticket_media.html:21

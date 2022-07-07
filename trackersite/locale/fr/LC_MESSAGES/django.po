@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-06-27 11:22:58+0000\n"
-"X-POT-Import-Date: 2022-06-26 20:30:20+0000\n"
+"PO-Revision-Date: 2022-07-07 11:21:07+0000\n"
+"X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
@@ -103,7 +103,7 @@ msgstr "chinois traditionnel"
 
 #: common_settings.py:151
 msgid "Spanish"
-msgstr "Espagnol"
+msgstr "espagnol"
 
 #: customcomments/forms.py:21
 msgid "Your name"
@@ -970,7 +970,7 @@ msgstr "Afficher les éléments"
 
 #: tracker/models.py:1280
 msgid "How many items should we display in tables at once"
-msgstr "Combien d’éléments à la fois devrions-nous afficher dans les tableaux"
+msgstr "Combien d’éléments afficher simultanément dans les tableaux"
 
 #: tracker/models.py:1299
 msgid "Tracker user preference"
@@ -994,7 +994,7 @@ msgstr "Information de compte bancaire pour les transferts d’argent"
 
 #: tracker/models.py:1309
 msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
-msgstr "Autre contact, tel qu’un compte wiki ; peut être utile dans le cas où les administrateurs de sujets ont besoin de préciser une information"
+msgstr "Autre contact, tel qu’un compte wiki ; peut être utile dans le cas où les administrateurs de sujets doivent préciser certaines informations"
 
 #: tracker/models.py:1310 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
@@ -1002,7 +1002,7 @@ msgstr "Autre identification"
 
 #: tracker/models.py:1311
 msgid "Address, or other identification information, so we know who are we sending money to"
-msgstr "Adresse ou autres informations d’identification, afin que nous sachions à qui envoyons l’argent"
+msgstr "Adresse ou autres informations d’identification pour savoir à qui envoyer l’argent"
 
 #: tracker/models.py:1342
 msgid "Tracker profile"
@@ -1370,7 +1370,7 @@ msgstr "L’état d’un ticket suivi a été modifié"
 
 #: tracker/templates/notification/notification_html.html:31
 msgid "Supervisor notes on a watched ticket were changed"
-msgstr "Le superviseur a remarqué qu’un ticket suivi a été modifié"
+msgstr "Les notes de superviseurs sur un ticket suivi ont été modifiées"
 
 #: tracker/templates/notification/notification_html.html:40
 msgid "Changes were made to a watched ticket"
@@ -2271,7 +2271,7 @@ msgstr "Trouvé par"
 
 #: tracker/templates/tracker/ticket_media.html:16
 #: tracker/templates/tracker/ticket_media.html:25
-msgid "Mediawiki username"
+msgid "MediaWiki username"
 msgstr "Nom d’utilisateur MediaWiki"
 
 #: tracker/templates/tracker/ticket_media.html:21

@@ -2,11 +2,12 @@
 # Exported from translatewiki.net
 #
 # Author: Alcarazzam
+# Author: MarcoAurelio
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-06-20 11:18:39+0000\n"
-"X-POT-Import-Date: 2022-06-18 20:35:08+0000\n"
+"PO-Revision-Date: 2022-07-07 11:21:06+0000\n"
+"X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
@@ -14,8 +15,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: static/commons-selection.js:156
-msgid "Mediawiki username"
-msgstr ""
+msgid "MediaWiki username"
+msgstr "Nombre de usuario en MediaWiki"
 
 #: static/commons-selection.js:159
 msgid "Filename prefix"
