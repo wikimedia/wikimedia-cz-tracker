@@ -949,7 +949,7 @@ class MediaInfoOld(Model):
 
 class MediaInfoUsage(models.Model):
     mediainfo = models.ForeignKey('tracker.MediaInfo', on_delete=models.CASCADE)
-    url = models.URLField(_('URL'), help_text=_('Link to file usage'))
+    url = models.URLField(_('URL'), help_text=_('Link to file usage'), max_length=512)
     title = models.CharField(_('title'), max_length=255)
     project = models.CharField(_('project'), max_length=255)
 
