@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-07-07 11:21:07+0000\n"
+"PO-Revision-Date: 2022-07-21 11:22:26+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -140,7 +140,7 @@ msgstr "Interdit"
 
 #: templates/403.html:12
 msgid "You don't have permissions to do this!"
-msgstr "Vous n’avez pas le droit de faire cela !"
+msgstr "Vous n’avez pas les permissions pour faire cela !"
 
 #: templates/404.html:3
 msgid "404 Not Found"
