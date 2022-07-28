@@ -2,20 +2,21 @@
 # Exported from translatewiki.net
 #
 # Author: Bjankuloski06
+# Author: Vlad5250
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-07-07 11:21:07+0000\n"
+"PO-Revision-Date: 2022-07-28 11:24:30+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: mk\n"
-"X-Generator: MediaWiki 1.39.0-alpha; Translate 2022-04-26\n"
+"X-Generator: MediaWiki 1.39.0-alpha; Translate 2022-07-28\n"
 "Plural-Forms: nplurals=2; plural=(n == 1 || n%10 == 1) ? 0 : 1;\n"
 
 #: static/commons-selection.js:156
 msgid "MediaWiki username"
-msgstr ""
+msgstr "Корисничко име во МедијаВики"
 
 #: static/commons-selection.js:159
 msgid "Filename prefix"
