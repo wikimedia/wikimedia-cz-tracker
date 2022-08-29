@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-07-28 11:24:31+0000\n"
+"PO-Revision-Date: 2022-08-29 11:22:51+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -115,7 +115,7 @@ msgstr "Ваш обліковий запис Вікімедіа успішно �
 
 #: socialauth/pipeline.py:17
 msgid "Successfully linked your chapter account!"
-msgstr ""
+msgstr "Ваш обліковий запис відділу успішно пов’язано!"
 
 #: socialauth/pipeline.py:23
 msgid "Your wikimedia account is no longer linked."
@@ -123,7 +123,7 @@ msgstr "Ваш обліковий запис Вікімедіа більше н�
 
 #: socialauth/pipeline.py:25
 msgid "Your chapterwiki account is no longer linked."
-msgstr ""
+msgstr "Ваш обліковий запис chapterwiki більше не пов’язано."
 
 #: templates/403.html:3
 msgid "403 Forbidden"
