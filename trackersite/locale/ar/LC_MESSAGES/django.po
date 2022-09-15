@@ -1,6 +1,7 @@
 # Translation of Tracker - main to Arabic (العربية)
 # Exported from translatewiki.net
 #
+# Author: Dr-Taher
 # Author: Hhaboh162002
 # Author: Meno25
 # Author: ديفيد
@@ -8,7 +9,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-09-08 11:21:42+0000\n"
+"PO-Revision-Date: 2022-09-15 11:24:33+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -116,7 +117,7 @@ msgstr "ربطت بنجاح حسابك في ويكيميديا!"
 
 #: socialauth/pipeline.py:17
 msgid "Successfully linked your chapter account!"
-msgstr ""
+msgstr "جرى ربط حساب الفرع الخاص بك بنجاح!"
 
 #: socialauth/pipeline.py:23
 msgid "Your wikimedia account is no longer linked."
@@ -124,7 +125,7 @@ msgstr "لم يعد حساب ويكيميديا الخاص بك مرتبطا."
 
 #: socialauth/pipeline.py:25
 msgid "Your chapterwiki account is no longer linked."
-msgstr ""
+msgstr "لم يعد حساب ويكي الفصل الخاص بك مرتبطًا."
 
 #: templates/403.html:3
 msgid "403 Forbidden"
@@ -2022,23 +2023,23 @@ msgstr "ضبط كلمة سر."
 
 #: tracker/templates/tracker/preferences.html:88
 msgid "Chapter account"
-msgstr ""
+msgstr "حساب الفصل"
 
 #: tracker/templates/tracker/preferences.html:92
 msgid "Your account is connected to your chapter account"
-msgstr ""
+msgstr "حسابك متصل بحساب الفرع الخاص بك"
 
 #: tracker/templates/tracker/preferences.html:102
 msgid "Disconnect chapter account"
-msgstr ""
+msgstr "افصل حساب الفصل"
 
 #: tracker/templates/tracker/preferences.html:106
 msgid "In order to disconnect your chapter account, you first need to"
-msgstr ""
+msgstr "لفصل حساب الفرع الخاص بك ، تحتاج أولاً إلى"
 
 #: tracker/templates/tracker/preferences.html:111
 msgid "Link chapter account"
-msgstr ""
+msgstr "ربط حساب الفرع"
 
 #: tracker/templates/tracker/preferences.html:114
 msgid "Account actions"

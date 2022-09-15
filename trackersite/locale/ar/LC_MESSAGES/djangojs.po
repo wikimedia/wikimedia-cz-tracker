@@ -1,12 +1,13 @@
 # Translation of Tracker - JavaScript to Arabic (العربية)
 # Exported from translatewiki.net
 #
+# Author: Dr-Taher
 # Author: Meno25
 # Author: محمد أحمد عبد الفتاح
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-09-08 11:21:42+0000\n"
+"PO-Revision-Date: 2022-09-15 11:24:33+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +21,7 @@ msgstr "اسم مستخدم ميدياويكي"
 
 #: static/commons-selection.js:159
 msgid "Filename prefix"
-msgstr ""
+msgstr "بادئة اسم الملف"
 
 #: static/commons-selection.js:184
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
@@ -28,13 +29,13 @@ msgstr "حدث خطأ غير معروف أثناء جلب الصور التي ر
 
 #: static/commons-selection.js:373
 msgid "Wikimedia Commons returned the following error"
-msgstr ""
+msgstr "أظهر ويكيميديا كومنز الخطأ التالي"
 
 #: static/commons-selection.js:388
 msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr ""
+msgstr "الحساب المحدد ليس لديه أي مرفوعات في ويكيميديا كومنز. ارفع بعض الملفات أولا!"
 
 #: static/commons-selection.js:393
 msgid "Your search does not match any files."
-msgstr ""
+msgstr "بحثك لا يطابق أي ملفات."
 
