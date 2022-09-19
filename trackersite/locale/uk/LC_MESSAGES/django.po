@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-09-08 11:21:44+0000\n"
+"PO-Revision-Date: 2022-09-19 11:24:29+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2015,7 +2015,7 @@ msgstr "встановити пароль."
 
 #: tracker/templates/tracker/preferences.html:88
 msgid "Chapter account"
-msgstr ""
+msgstr "Акаунт глави"
 
 #: tracker/templates/tracker/preferences.html:92
 msgid "Your account is connected to your chapter account"
