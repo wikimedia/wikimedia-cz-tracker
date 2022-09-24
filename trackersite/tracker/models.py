@@ -1097,7 +1097,8 @@ class MediaInfo(Model):
                 "prop": "imageinfo|categories|globalusage",
                 "pageids": [self.media_id],
                 "iiprop": "dimensions|url|canonicaltitle",
-                "iiurlwidth": width
+                "iiurlwidth": width,
+                "clprop": "hidden",
             }).json()['query']['pages']
             data = data[list(data.keys())[0]]
             imagedata = data['imageinfo'][0]
