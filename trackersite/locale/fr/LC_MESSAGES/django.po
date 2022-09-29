@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-09-08 11:21:43+0000\n"
+"PO-Revision-Date: 2022-09-29 11:22:19+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -869,7 +869,7 @@ msgstr "projet"
 
 #: tracker/models.py:955
 msgid "page id"
-msgstr "id de page"
+msgstr "identifiant de page"
 
 #: tracker/models.py:956
 msgid "width"
@@ -1259,7 +1259,7 @@ msgstr "Total"
 #: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1728
 #: tracker/views.py:1737 tracker/views.py:1747
 msgid "Ticket ID"
-msgstr "ID de ticket"
+msgstr "Identifiant de ticket"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:42
 msgid "Approvals"
@@ -1576,7 +1576,7 @@ msgstr "Trop-perçu"
 #: tracker/templates/tracker/ticket_table.html:14
 #: tracker/templates/tracker/ticket_table.html:32
 msgid "ID"
-msgstr "ID"
+msgstr "Identifiant"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/ticket_table.html:26
