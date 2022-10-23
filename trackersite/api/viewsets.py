@@ -23,6 +23,7 @@ from .permissions import (ReadOnly, CanEditTicketElseReadOnly, CanEditExpediture
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import activate
 from django.conf import settings
+from django.db.utils import IntegrityError
 
 # ViewSets define the view behavior.
 
@@ -155,11 +156,23 @@ class MediaInfoViewSet(viewsets.ModelViewSet):
     search_fields = ('name', )
 
     def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data, many=isinstance(request.data, list))
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        items = request.data
+        if not isinstance(request.data, list):
+            items = [items]
+
+        created_items = []
+        for item in items:
+            serializer = self.get_serializer(data=item)
+            serializer.is_valid(raise_exception=True)
+            try:
+                self.perform_create(serializer)
+            except IntegrityError:
+                continue
+
+            created_items.append(item)
+
+        headers = self.get_success_headers(created_items)
+        return Response(created_items, status=status.HTTP_201_CREATED, headers=headers)
 
 
 class MediaInfoOldViewSet(viewsets.ModelViewSet):
