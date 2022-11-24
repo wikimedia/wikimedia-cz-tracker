@@ -3,6 +3,7 @@
 #
 # Author: A Chinese Wikipedian
 # Author: Angrydog001
+# Author: Lakejason0
 # Author: Looong
 # Author: VulpesVulpes825
 # Author: Winston Sung
@@ -14,7 +15,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-10-27 11:30:04+0000\n"
+"PO-Revision-Date: 2022-11-24 12:21:31+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -126,7 +127,7 @@ msgstr ""
 
 #: socialauth/pipeline.py:23
 msgid "Your wikimedia account is no longer linked."
-msgstr "您的维基媒体帐户已不再连接。"
+msgstr "您的维基媒体账户已不再连接。"
 
 #: socialauth/pipeline.py:25
 msgid "Your chapterwiki account is no longer linked."
