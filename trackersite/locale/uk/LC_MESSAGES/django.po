@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-12-01 12:21:41+0000\n"
+"PO-Revision-Date: 2022-12-05 12:20:54+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2020,11 +2020,11 @@ msgstr "Акаунт глави"
 
 #: tracker/templates/tracker/preferences.html:92
 msgid "Your account is connected to your chapter account"
-msgstr ""
+msgstr "Ваш обліковий запис підключено до вашого облікового запису відділення"
 
 #: tracker/templates/tracker/preferences.html:102
 msgid "Disconnect chapter account"
-msgstr ""
+msgstr "Відключити обліковий запис підрозділу"
 
 #: tracker/templates/tracker/preferences.html:106
 msgid "In order to disconnect your chapter account, you first need to"
@@ -2032,7 +2032,7 @@ msgstr "Щоб від’єднати обліковий запис розділ�
 
 #: tracker/templates/tracker/preferences.html:111
 msgid "Link chapter account"
-msgstr ""
+msgstr "Посилання на обліковий запис розділу"
 
 #: tracker/templates/tracker/preferences.html:114
 msgid "Account actions"
