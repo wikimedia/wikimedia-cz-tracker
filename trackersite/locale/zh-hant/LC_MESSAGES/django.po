@@ -3,11 +3,12 @@
 #
 # Author: Kly
 # Author: Winston Sung
+# Author: 捍粵者
 # Author: 沈澄心
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-10-27 11:30:05+0000\n"
+"PO-Revision-Date: 2022-12-15 12:23:44+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -996,7 +997,7 @@ msgstr "其它辨識"
 
 #: tracker/models.py:1311
 msgid "Address, or other identification information, so we know who are we sending money to"
-msgstr "地址或是其它的辨識資訊，以讓我們了解我們是寄送金錢給誰"
+msgstr "地址或其它辨識資訊讓我們了解金錢是寄送給誰"
 
 #: tracker/models.py:1342
 msgid "Tracker profile"
@@ -1534,7 +1535,7 @@ msgstr "權限不足"
 
 #: tracker/templates/tracker/connect_account.html:8
 msgid "You need to connect Tracker account with your Wikimedia account. To do so, click on the button below."
-msgstr "您需要將 Tracker 帳號與您的維基媒體帳號相連。請點擊下方按鈕來進行。"
+msgstr "您須將Tracker帳號與維基媒體帳號連結，請點擊下方按鈕。"
 
 #: tracker/templates/tracker/connect_account.html:9
 #: tracker/templates/tracker/preferences.html:85
@@ -2546,7 +2547,7 @@ msgstr "您的帶有使用者名稱 Tracker 帳號"
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "has been deactivated."
-msgstr "已被停用。"
+msgstr "已停用。"
 
 #: tracker/templates/tracker/user_deactivate_email.html:6
 msgid "Deactivation cannot be undone without the intervention of an admin."
@@ -2692,7 +2693,7 @@ msgstr "您不能對案件添加不支援的法定聲明。"
 
 #: tracker/views.py:680
 msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
-msgstr "您可使用此視圖來添加法定聲明至您所建立的案件。請使用編輯案件按鈕來進行。"
+msgstr "您不可用此視角來添加法定聲明至您建立的案件，應該用編輯案件按鈕。"
 
 #: tracker/views.py:687
 msgid "You successfully added a statutory declaration to this ticket."
@@ -2989,7 +2990,7 @@ msgstr "密碼重設完成"
 
 #: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
-msgstr "您的密碼已設定。您現在可以進行登入。"
+msgstr "您的密碼已設定，現在可以登入。"
 
 #: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
