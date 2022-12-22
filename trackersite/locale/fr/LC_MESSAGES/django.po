@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-11-07 12:30:41+0000\n"
+"PO-Revision-Date: 2022-12-22 12:22:31+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1085,7 +1085,7 @@ msgstr "L’utilisateur « <bdi>%(user)s</bdi> » a créé le ticket <a href
 #: tracker/models.py:1611
 #, python-format
 msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "L'utilisateur « <bdi>%(user)s</bdi> » a modifié les notes superviseur du ticket <a href=\"%(ticket_url)s\"><bdi>%(ticket)s</bdi></a>."
+msgstr "L’utilisateur « <bdi>%(user)s</bdi> » a modifié les notes de supervision du ticket <a href=\"%(ticket_url)s\"><bdi>%(ticket)s</bdi></a>."
 
 #: tracker/models.py:1631
 #, python-format
@@ -1370,7 +1370,7 @@ msgstr "L’état d’un ticket suivi a été modifié"
 
 #: tracker/templates/notification/notification_html.html:31
 msgid "Supervisor notes on a watched ticket were changed"
-msgstr "Les notes de superviseurs sur un ticket suivi ont été modifiées"
+msgstr "Des notes de relecteurs sur un ticket suivi ont été modifiées"
 
 #: tracker/templates/notification/notification_html.html:40
 msgid "Changes were made to a watched ticket"
@@ -2136,7 +2136,7 @@ msgstr "Confirmer"
 
 #: tracker/templates/tracker/ticket_common_detail.html:33
 msgid "Supervisor notes"
-msgstr "Informations superviseur"
+msgstr "Notes du superviseur"
 
 #: tracker/templates/tracker/ticket_common_detail.html:36
 msgid "Media (old)"
