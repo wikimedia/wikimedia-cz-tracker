@@ -1,12 +1,13 @@
 # Translation of Tracker - JavaScript to German (Deutsch)
 # Exported from translatewiki.net
 #
+# Author: Justman10000
 # Author: Sebastian Wallroth
 # Author: ThisCarthing
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-10-27 11:30:02+0000\n"
+"PO-Revision-Date: 2023-01-19 12:26:11+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,19 +21,19 @@ msgstr "MediaWiki-Benutzername"
 
 #: static/commons-selection.js:159
 msgid "Filename prefix"
-msgstr ""
+msgstr "Dateinamen-Präfix"
 
 #: static/commons-selection.js:184
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
-msgstr ""
+msgstr "Beim Abrufen der von dir hochgeladenen Bilder ist ein unbekannter Fehler aufgetreten. Bitte kontaktiere den Server-Administrator."
 
 #: static/commons-selection.js:373
 msgid "Wikimedia Commons returned the following error"
-msgstr ""
+msgstr "Wikimedia Commons meldet folgenden Fehler"
 
 #: static/commons-selection.js:388
 msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr ""
+msgstr "Der angegebene Account hat keine Uploads bei Wikimedia Commons. Lade zuerst einige Dateien hoch!"
 
 #: static/commons-selection.js:393
 msgid "Your search does not match any files."
