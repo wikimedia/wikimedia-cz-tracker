@@ -4,11 +4,12 @@
 # Author: Andrew J.Kurbiko
 # Author: DDPAT
 # Author: Ice bulldog
+# Author: Renvoy
 # Author: Пан Хаунд
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2022-12-05 12:20:54+0000\n"
+"PO-Revision-Date: 2023-01-23 12:21:33+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -116,7 +117,7 @@ msgstr "Ваш обліковий запис Вікімедіа успішно �
 
 #: socialauth/pipeline.py:17
 msgid "Successfully linked your chapter account!"
-msgstr "Ваш обліковий запис відділу успішно пов’язано!"
+msgstr "Обліковий запис вашого регіонального відділення успішно пов’язано!"
 
 #: socialauth/pipeline.py:23
 msgid "Your wikimedia account is no longer linked."
