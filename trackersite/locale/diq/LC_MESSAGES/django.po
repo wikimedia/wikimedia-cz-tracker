@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2023-01-26 12:30:21+0000\n"
+"PO-Revision-Date: 2023-02-06 12:23:33+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1349,7 +1349,7 @@ msgstr "Miqdar"
 #: tracker/views.py:1714 tracker/views.py:1719 tracker/views.py:1728
 #: tracker/views.py:1737
 msgid "Description"
-msgstr ""
+msgstr "Şınasnayış"
 
 #: tracker/templates/notification/notification_html.html:4
 msgid "List of new tickets"
