@@ -1,0 +1,39 @@
+# Translation of Tracker - JavaScript to Hebrew (עברית)
+# Exported from translatewiki.net
+#
+# Author: Amire80
+msgid ""
+msgstr ""
+""
+"PO-Revision-Date: 2023-02-20 12:22:31+0000\n"
+"X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: he\n"
+"X-Generator: MediaWiki 1.40.0-alpha; Translate 2023-01-24\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: static/commons-selection.js:156
+msgid "MediaWiki username"
+msgstr "שם משתמש של מדיה־ויקי"
+
+#: static/commons-selection.js:159
+msgid "Filename prefix"
+msgstr "תחילית שם קובץ"
+
+#: static/commons-selection.js:184
+msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
+msgstr "אירעה שגיאה לא ידועה בעת אחזור תמונות שהעלית. נא לפנות למנהל השרת."
+
+#: static/commons-selection.js:373
+msgid "Wikimedia Commons returned the following error"
+msgstr "ויקישיתוף החזיר את השגיאה הבאה"
+
+#: static/commons-selection.js:388
+msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
+msgstr "לחשבון שצוין אין העלאות כלשהן בוויקישיתוף.נא להעלות קודם כמה קבצים!"
+
+#: static/commons-selection.js:393
+msgid "Your search does not match any files."
+msgstr "לא התקבלו התאמות לחיפוש הקבצים שלך."
+
