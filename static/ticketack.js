@@ -19,14 +19,14 @@
 				// disable submit-via-enter for the newly added input
 				// the nicer behavior would be to add the ack instead, but that's
 				// left as a todo.
-				document.querySelectorAll('.add-block input').forEach( ( el ) => {
+				document.querySelectorAll( '.add-block input' ).forEach( ( el ) => {
 					el.addEventListener( 'keypress', ( e ) => {
-						if ( ( e.keyCode || e.which ) == 13 ) {
+						if ( ( e.keyCode || e.which ) === 13 ) {
 							e.preventDefault();
 						}
 					} );
 				} );
-			} )
+			} );
 	}
 
 	function submitAck( target, set ) {
