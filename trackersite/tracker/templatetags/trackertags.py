@@ -28,17 +28,17 @@ def safe_html(value):
 
 @register.filter
 def tracker_rich_text(value):
-    for match in re.findall(r"(#[0-9]+)[ ,.;)\]]", value):
+    for match in re.findall(r"(#[0-9]+)([ ,.;)\]]|$)", value, re.MULTILINE):
         try:
-            ticket_id = int(match[1:])
+            ticket_id = int(match[0][1:])
         except ValueError:
             continue
         if not Ticket.objects.filter(id=ticket_id).exists():
             continue
 
         ticket = Ticket.objects.get(id=ticket_id)
-        text = '<a href="%s">%s</a>' % (ticket.get_absolute_url(), "%s: %s" % (match, ticket.name))
-        value = value.replace(match, text)
+        text = '<a href="%s">%s</a>' % (ticket.get_absolute_url(), "%s: %s" % (match[0], ticket.name))
+        value = value.replace(match[0], text)
 
     usersmentioned = re.findall(r'@([-a-zA-Z0-9_.]+)', value)
     for user_name in usersmentioned:
