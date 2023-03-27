@@ -1,6 +1,7 @@
 # Translation of Tracker - main to Simplified Chinese (中文（简体）)
 # Exported from translatewiki.net
 #
+# Author: 850710247liu
 # Author: A Chinese Wikipedian
 # Author: Angrydog001
 # Author: Lakejason0
@@ -15,7 +16,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2023-03-16 12:25:07+0000\n"
+"PO-Revision-Date: 2023-03-27 11:15:55+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -123,7 +124,7 @@ msgstr "已成功连接您的维基媒体账户！"
 
 #: socialauth/pipeline.py:17
 msgid "Successfully linked your chapter account!"
-msgstr ""
+msgstr "已成功关联您的维基媒体账户！"
 
 #: socialauth/pipeline.py:23
 msgid "Your wikimedia account is no longer linked."
@@ -131,7 +132,7 @@ msgstr "您的维基媒体账户已不再连接。"
 
 #: socialauth/pipeline.py:25
 msgid "Your chapterwiki account is no longer linked."
-msgstr ""
+msgstr "已不再关联您的维基媒体账户。"
 
 #: templates/403.html:3
 msgid "403 Forbidden"
@@ -156,7 +157,7 @@ msgstr "找不到页面"
 #: templates/404.html:10
 #, python-format
 msgid "The requested URL %(request_path)s was not found on this server."
-msgstr ""
+msgstr "在此服务器上找不到请求的 URL %(request_path)s。"
 
 #: templates/500.html:3 templates/500.html:7
 msgid "Internal Error"
