@@ -16,7 +16,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2023-03-27 11:15:55+0000\n"
+"PO-Revision-Date: 2023-04-03 11:37:55+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -447,7 +447,7 @@ msgstr "更新"
 
 #: tracker/models.py:251
 msgid "media updated"
-msgstr ""
+msgstr "媒体已更新"
 
 #: tracker/models.py:252
 msgid "Date when cached information about media were last updated. Used in \"show media\" view."
@@ -697,11 +697,11 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:19
 #: tracker/templates/tracker/ticket_table.html:35
 msgid "Subtopic"
-msgstr ""
+msgstr "副话題"
 
 #: tracker/models.py:765 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
-msgstr ""
+msgstr "副话题"
 
 #: tracker/models.py:772 tracker/views.py:589
 msgid "grant"
