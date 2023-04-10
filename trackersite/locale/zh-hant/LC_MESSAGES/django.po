@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2023-03-16 12:25:07+0000\n"
+"PO-Revision-Date: 2023-04-10 11:25:05+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1258,7 +1258,7 @@ msgstr "案件 ID"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:42
 msgid "Approvals"
-msgstr "批准"
+msgstr "核准"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:46
 msgid "ADD ACK"
