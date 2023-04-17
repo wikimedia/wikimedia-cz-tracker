@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2023-04-10 11:25:05+0000\n"
+"PO-Revision-Date: 2023-04-17 11:22:32+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -197,7 +197,7 @@ msgstr "管理"
 
 #: templates/base.html:75 templates/base.html:90
 msgid "change language"
-msgstr "更改語言"
+msgstr "變更語言"
 
 #: templates/base.html:77 templates/base.html:92
 msgid "help"
@@ -230,7 +230,7 @@ msgstr "您正使用著 Internet Explorer。然而 Tracker 所需要的新功能
 
 #: templates/choose_language.html:5 templates/choose_language.html:8
 msgid "Change language"
-msgstr "更改語言"
+msgstr "變更語言"
 
 #: templates/choose_language.html:23
 msgid "Go"
