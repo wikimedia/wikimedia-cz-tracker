@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2023-03-16 12:25:06+0000\n"
+"PO-Revision-Date: 2023-04-20 11:22:44+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2586,7 +2586,7 @@ msgstr "Tickets assignés à aucun utilisateur Tracker"
 
 #: tracker/templates/tracker/user_list.html:22
 msgid "unassigned"
-msgstr "non assigné"
+msgstr "non affecté"
 
 #: tracker/templates/tracker/watch.html:4
 #: tracker/templates/tracker/watch.html:11
