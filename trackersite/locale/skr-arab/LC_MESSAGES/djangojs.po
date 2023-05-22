@@ -1,0 +1,39 @@
+# Translation of Tracker - JavaScript to Saraiki (Arabic script) (سرائیکی)
+# Exported from translatewiki.net
+#
+# Author: Saraiki
+msgid ""
+msgstr ""
+""
+"PO-Revision-Date: 2023-05-22 11:21:48+0000\n"
+"X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: skr-Arab\n"
+"X-Generator: MediaWiki 1.41.0-alpha; Translate 2023-04-26\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: static/commons-selection.js:156
+msgid "MediaWiki username"
+msgstr "میڈیاوکی ورتݨ ناں"
+
+#: static/commons-selection.js:159
+msgid "Filename prefix"
+msgstr "فائل ناں سابقہ"
+
+#: static/commons-selection.js:184
+msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
+msgstr ""
+
+#: static/commons-selection.js:373
+msgid "Wikimedia Commons returned the following error"
+msgstr ""
+
+#: static/commons-selection.js:388
+msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
+msgstr ""
+
+#: static/commons-selection.js:393
+msgid "Your search does not match any files."
+msgstr ""
+
