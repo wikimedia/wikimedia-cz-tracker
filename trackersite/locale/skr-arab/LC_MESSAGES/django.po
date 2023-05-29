@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2023-05-22 11:21:49+0000\n"
+"PO-Revision-Date: 2023-05-29 11:22:15+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -137,7 +137,7 @@ msgstr ""
 
 #: templates/404.html:3
 msgid "404 Not Found"
-msgstr ""
+msgstr "404 کائنی لبھا"
 
 #: templates/404.html:7
 msgid "Not Found"
@@ -158,11 +158,11 @@ msgstr ""
 
 #: templates/admin/base_site.html:4
 msgid "Tracker admin"
-msgstr ""
+msgstr "ٹریکر ایڈمن"
 
 #: templates/admin/base_site.html:7
 msgid "Tracker site administration"
-msgstr ""
+msgstr "ٹریکر سائٹ ایڈمن"
 
 #: templates/base.html:32
 msgid "There is no email address associated with this account. Please update your details now."
@@ -306,7 +306,7 @@ msgstr ""
 #: tracker/templates/tracker/grant_table.html:13
 #: tracker/templates/tracker/topic_table.html:15
 msgid "partially paid"
-msgstr ""
+msgstr "جزوی ادائیگی تھیا"
 
 #: tracker/models.py:49 tracker/models.py:1188
 #: tracker/templates/tracker/export.html:248
@@ -314,7 +314,7 @@ msgstr ""
 #: tracker/templates/tracker/topic_finance.html:17
 #: tracker/templates/tracker/topic_table.html:16
 msgid "paid"
-msgstr ""
+msgstr "ادا تھیا"
 
 #: tracker/models.py:50 tracker/templates/tracker/export.html:249
 #: tracker/templates/tracker/grant_table.html:15
@@ -437,7 +437,7 @@ msgstr "اپ ڈیٹ تھی ڳیا"
 
 #: tracker/models.py:251
 msgid "media updated"
-msgstr ""
+msgstr "میڈیا اپ ڈیٹ تھی ڳیا"
 
 #: tracker/models.py:252
 msgid "Date when cached information about media were last updated. Used in \"show media\" view."
@@ -513,7 +513,7 @@ msgstr ""
 
 #: tracker/models.py:269
 msgid "report url"
-msgstr ""
+msgstr "رپورٹ یوآرایل"
 
 #: tracker/models.py:270
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
@@ -521,7 +521,7 @@ msgstr ""
 
 #: tracker/models.py:271
 msgid "event url"
-msgstr ""
+msgstr "ایونٹ یوآرایل"
 
 #: tracker/models.py:272
 msgid "Link to a public page describing the event, if it exist"
@@ -902,12 +902,12 @@ msgstr ""
 
 #: tracker/models.py:1189 tracker/models.py:1212
 msgid "wage"
-msgstr ""
+msgstr "اجرت"
 
 #: tracker/models.py:1192 tracker/models.py:1215
 #, python-format
 msgid "%(description)s (%(amount)s %(currency)s)"
-msgstr ""
+msgstr "%(description)s (%(amount)s %(currency)s)"
 
 #: tracker/models.py:1201
 msgid "Ticket expediture"
@@ -955,7 +955,7 @@ msgstr ""
 
 #: tracker/models.py:1277
 msgid "Email language"
-msgstr ""
+msgstr "ای میل زبان"
 
 #: tracker/models.py:1279
 msgid "Display items"
@@ -1710,7 +1710,7 @@ msgstr ""
 #: tracker/templates/tracker/export.html:174
 #: tracker/templates/tracker/export.html:204
 msgid "Wage"
-msgstr ""
+msgstr "اُجرت"
 
 #: tracker/templates/tracker/export.html:216
 msgid "Supervisors"
@@ -1726,7 +1726,7 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:245
 msgid "N/A"
-msgstr ""
+msgstr "ناقابل اطلاق"
 
 #: tracker/templates/tracker/export.html:278
 msgid "Number of tickets created"
@@ -2007,7 +2007,7 @@ msgstr ""
 #: tracker/templates/tracker/preferences.html:80
 #: tracker/templates/tracker/preferences.html:106
 msgid "set a password."
-msgstr ""
+msgstr "پاس ورڈ مقرر کرو۔"
 
 #: tracker/templates/tracker/preferences.html:88
 msgid "Chapter account"
@@ -2053,7 +2053,7 @@ msgstr "جمع کرواؤ"
 #: tracker/templates/tracker/subtopic_detail.html:10
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "add ticket"
-msgstr ""
+msgstr "ٹکٹ شامل کرو"
 
 #: tracker/templates/tracker/subtopic_detail.html:16
 msgid "Total for this subtopic"
@@ -2151,7 +2151,7 @@ msgstr "آئٹم"
 #: tracker/templates/tracker/ticket_common_detail.html:49
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Wage?"
-msgstr ""
+msgstr "اجرت؟"
 
 #: tracker/templates/tracker/ticket_common_detail.html:56
 msgid "Total preexpeditures"
@@ -2163,7 +2163,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Yes,No"
-msgstr ""
+msgstr "جیا،کو"
 
 #: tracker/templates/tracker/ticket_common_detail.html:71
 msgid "Total expeditures"
@@ -2175,7 +2175,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:7
 msgid "Are you sure?"
-msgstr ""
+msgstr "بھلا تہاکوں پک ہے؟"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:9
 #, python-format
@@ -2200,11 +2200,11 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:23
 msgid "show media"
-msgstr ""
+msgstr "میڈیا ݙکھاؤ"
 
 #: tracker/templates/tracker/ticket_detail.html:24
 msgid "manage media"
-msgstr ""
+msgstr "میڈیا منیج کرو"
 
 #: tracker/templates/tracker/ticket_detail.html:31
 #, python-format
@@ -2877,11 +2877,11 @@ msgstr "یا۔۔۔"
 
 #: users/templates/users/login.html:31
 msgid "Login with Meta Wiki"
-msgstr ""
+msgstr "میٹا وکی نال لاگ ان تھیوو"
 
 #: users/templates/users/login.html:35
 msgid "Don't have an acount?"
-msgstr ""
+msgstr "تہاݙا کھاتہ کائنی؟"
 
 #: users/templates/users/login.html:35 users/templates/users/register.html:6
 #: users/templates/users/register.html:9 users/templates/users/register.html:19
