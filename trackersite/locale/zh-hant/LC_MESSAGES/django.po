@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2023-04-27 11:26:11+0000\n"
+"PO-Revision-Date: 2023-06-05 11:21:06+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1368,7 +1368,7 @@ msgstr "在所更改監視案件上的督導記錄"
 
 #: tracker/templates/notification/notification_html.html:40
 msgid "Changes were made to a watched ticket"
-msgstr "已對監視案件做出更改"
+msgstr "已編輯監視案件"
 
 #: tracker/templates/notification/notification_html.html:49
 msgid "The preexpenditures of a watched ticket were changed"
@@ -2633,7 +2633,7 @@ msgstr "您的存款大於您的預先支出"
 
 #: tracker/views.py:282
 msgid "You are required to do statutory declaration"
-msgstr "您被請求做出法定聲明"
+msgstr "您必須法定聲明"
 
 #: tracker/views.py:298
 msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."

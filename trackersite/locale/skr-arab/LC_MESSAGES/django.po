@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2023-05-29 11:22:15+0000\n"
+"PO-Revision-Date: 2023-06-05 11:21:05+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -641,7 +641,7 @@ msgstr "ای میل"
 #: tracker/templates/tracker/admin_user_list.html:31
 #: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
-msgstr ""
+msgstr "ٻیا رابطہ"
 
 #: tracker/models.py:433
 msgid "no tracker account listed"
@@ -1518,7 +1518,7 @@ msgstr ""
 
 #: tracker/templates/tracker/cluster_detail.html:14
 msgid "Total tickets"
-msgstr ""
+msgstr "کل ٹکٹاں"
 
 #: tracker/templates/tracker/cluster_detail.html:26
 msgid "Total transactions"
@@ -1789,7 +1789,7 @@ msgstr ""
 #: tracker/templates/tracker/index.html:3
 #: tracker/templates/tracker/index.html:15
 msgid "Ticket list"
-msgstr ""
+msgstr "ٹکٹ تندیر"
 
 #: tracker/templates/tracker/generic/ticket_list.html:12
 #: tracker/templates/tracker/index.html:12
@@ -1902,7 +1902,7 @@ msgstr ""
 #: tracker/templates/tracker/import.html:53
 #: tracker/templates/tracker/import.html:60
 msgid "example file"
-msgstr ""
+msgstr "مثال فائل"
 
 #: tracker/templates/tracker/import.html:41
 msgid "Preexpenses"
