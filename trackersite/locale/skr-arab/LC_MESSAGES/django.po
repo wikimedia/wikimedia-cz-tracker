@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2023-06-05 11:21:05+0000\n"
+"PO-Revision-Date: 2023-06-12 11:33:44+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -413,11 +413,11 @@ msgstr ""
 
 #: tracker/models.py:78
 msgid "Media changed"
-msgstr ""
+msgstr "میڈیا تبدیل تھی ڳیا"
 
 #: tracker/models.py:79
 msgid "Document changed"
-msgstr ""
+msgstr "دستاویز تبدیل تھی ڳئی"
 
 #: tracker/models.py:139
 msgid "unknown"
@@ -445,7 +445,7 @@ msgstr ""
 
 #: tracker/models.py:253
 msgid "event date"
-msgstr ""
+msgstr "ایونٹ تریخ"
 
 #: tracker/models.py:254
 msgid "Date of the event this ticket is about"
@@ -475,7 +475,7 @@ msgstr "ناں"
 
 #: tracker/models.py:260
 msgid "Name for the ticket"
-msgstr ""
+msgstr "ٹکٹ کیتے ناں"
 
 #: tracker/models.py:261 tracker/models.py:704 tracker/views.py:560
 msgid "topic"
@@ -555,7 +555,7 @@ msgstr ""
 
 #: tracker/models.py:282
 msgid "payment status"
-msgstr ""
+msgstr "ادائیگی حیثیت"
 
 #: tracker/models.py:283
 msgid "imported"
@@ -687,11 +687,11 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:19
 #: tracker/templates/tracker/ticket_table.html:35
 msgid "Subtopic"
-msgstr ""
+msgstr "نکا موضوع"
 
 #: tracker/models.py:765 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
-msgstr ""
+msgstr "نکے موضوع"
 
 #: tracker/models.py:772 tracker/views.py:589
 msgid "grant"
@@ -1011,7 +1011,7 @@ msgstr "تریخ"
 
 #: tracker/models.py:1362 tracker/models.py:1386
 msgid "other party"
-msgstr ""
+msgstr "ٻئی پارٹی"
 
 #: tracker/models.py:1363
 msgid "The other party; user who sent or received the payment"
@@ -1197,7 +1197,7 @@ msgstr ""
 
 #: tracker/models.py:1893 tracker/models.py:1913
 msgid "no description"
-msgstr ""
+msgstr "کوئی تفصیل کائنی"
 
 #: tracker/models.py:1897
 #, python-format
@@ -1829,7 +1829,7 @@ msgstr "اندر گھن آؤ"
 #: tracker/templates/tracker/generic/topic_list.html:4
 #: tracker/templates/tracker/generic/topic_list.html:8
 msgid "Topic list"
-msgstr ""
+msgstr "موضوع تندیر"
 
 #: tracker/templates/tracker/generic/topic_list.html:13
 #: tracker/templates/tracker/grant_list.html:12
@@ -1847,7 +1847,7 @@ msgstr ""
 #: tracker/templates/tracker/grant_detail.html:9
 #: tracker/templates/tracker/index.html:12
 msgid "grants"
-msgstr ""
+msgstr "عطیے"
 
 #: tracker/templates/tracker/grant_detail.html:11
 #: tracker/templates/tracker/ticket_detail.html:21
@@ -1858,7 +1858,7 @@ msgstr ""
 #: tracker/templates/tracker/grant_list.html:4
 #: tracker/templates/tracker/grant_list.html:8
 msgid "Grant list"
-msgstr ""
+msgstr "عطیہ تندیر"
 
 #: tracker/templates/tracker/grant_table.html:7
 #: tracker/templates/tracker/topic_table.html:8
@@ -1910,7 +1910,7 @@ msgstr ""
 
 #: tracker/templates/tracker/import.html:47
 msgid "Expenses"
-msgstr ""
+msgstr "خرچے"
 
 #: tracker/templates/tracker/import.html:53
 msgid "Media"
@@ -1921,7 +1921,7 @@ msgstr "میڈیا"
 #: tracker/templates/tracker/ticket_table.html:15
 #: tracker/templates/tracker/ticket_table.html:32
 msgid "Event date"
-msgstr ""
+msgstr "ایونٹ تریخ"
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_table.html:16
@@ -1990,7 +1990,7 @@ msgstr "بچاؤ"
 
 #: tracker/templates/tracker/preferences.html:62
 msgid "Wikimedia account"
-msgstr ""
+msgstr "وکی میڈیا کھاتہ"
 
 #: tracker/templates/tracker/preferences.html:66
 msgid "Your account is connected to Wikimedia account"
@@ -2112,7 +2112,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_common_detail.html:19
 msgid "Event URL"
-msgstr ""
+msgstr "ایونٹ یوآرایل"
 
 #: tracker/templates/tracker/ticket_common_detail.html:20
 msgid "Rating percentage"
@@ -2236,7 +2236,7 @@ msgstr ""
 #: tracker/templates/tracker/topic_detail.html:52
 #: tracker/templates/tracker/topic_detail.html:54
 msgid "Add comment"
-msgstr ""
+msgstr "تبصرہ کرو"
 
 #: tracker/templates/tracker/ticket_form.html:20
 msgid "preexpediture"
