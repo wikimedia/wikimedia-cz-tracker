@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2023-07-06 11:34:42+0000\n"
+"PO-Revision-Date: 2023-07-10 12:00:37+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -454,7 +454,7 @@ msgstr ""
 #: tracker/models.py:255 tracker/models.py:416
 #: tracker/templates/feeds/ticket_description.html:3
 msgid "requested by"
-msgstr ""
+msgstr "ولوں ارداس تھیا"
 
 #: tracker/models.py:256
 msgid "User who created/requested for this ticket"
@@ -939,7 +939,7 @@ msgstr ""
 
 #: tracker/models.py:1224
 msgid "uploader"
-msgstr ""
+msgstr "اپلوڈ کرݨ آلا"
 
 #: tracker/models.py:1234 tracker/views.py:799
 msgid "We need a sane file name, such as my-invoice123.jpg"
@@ -999,11 +999,11 @@ msgstr ""
 
 #: tracker/models.py:1342
 msgid "Tracker profile"
-msgstr ""
+msgstr "ٹریکر پروفائل"
 
 #: tracker/models.py:1343
 msgid "Tracker profiles"
-msgstr ""
+msgstr "ٹریکر پروفائل"
 
 #: tracker/models.py:1361
 msgid "date"
@@ -1701,7 +1701,7 @@ msgstr "خرچے"
 #: tracker/templates/tracker/ticket_table.html:39
 #: tracker/templates/tracker/user_list.html:13
 msgid "Accepted expeditures"
-msgstr ""
+msgstr "متوقع خرچے"
 
 #: tracker/templates/tracker/export.html:145
 msgid "You can't filter grants by any fields"
@@ -1755,7 +1755,7 @@ msgstr ""
 #: tracker/templates/tracker/fill_details.html:4
 #: tracker/templates/tracker/fill_details.html:9
 msgid "My personal information"
-msgstr ""
+msgstr "میݙی ذاتی معلومات"
 
 #: tracker/templates/tracker/fill_details.html:10
 msgid "To use tracker for expenses, we need a bit more information about you first."
@@ -1817,7 +1817,7 @@ msgstr "نویں ٹکٹ بݨاؤ"
 #: tracker/templates/tracker/generic/ticket_list.html:22
 #: tracker/templates/tracker/user_detail.html:15
 msgid "No tickets available."
-msgstr ""
+msgstr "کوئی ٹکٹاں دستیاب کائنی۔"
 
 #: tracker/templates/tracker/generic/ticket_list.html:33
 #: tracker/templates/tracker/import.html:4
@@ -1868,7 +1868,7 @@ msgstr ""
 #: tracker/templates/tracker/grant_table.html:8
 #: tracker/templates/tracker/topic_table.html:9
 msgid "Paid together"
-msgstr ""
+msgstr "کٹھے ادا تھئے"
 
 #: tracker/templates/tracker/grant_table.html:9
 #: tracker/templates/tracker/topic_table.html:10
@@ -1878,12 +1878,12 @@ msgstr ""
 #: tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
 msgid "no payment required"
-msgstr ""
+msgstr "ادائیگی ضروری کائنی"
 
 #: tracker/templates/tracker/grant_table.html:49
 #: tracker/templates/tracker/topic_table.html:53
 msgid "No topics available."
-msgstr ""
+msgstr "کوئی عنوان دستیاب کائنی۔"
 
 #: tracker/templates/tracker/import.html:10
 #, python-format
@@ -1906,7 +1906,7 @@ msgstr "مثال فائل"
 
 #: tracker/templates/tracker/import.html:41
 msgid "Preexpenses"
-msgstr ""
+msgstr "اڳون٘ہے خرچے"
 
 #: tracker/templates/tracker/import.html:47
 msgid "Expenses"
@@ -1934,14 +1934,14 @@ msgstr "ناں"
 #: tracker/templates/tracker/ticket_table.html:20
 #: tracker/templates/tracker/ticket_table.html:36
 msgid "Requested by"
-msgstr ""
+msgstr "ولوں ارداس تھیا"
 
 #: tracker/templates/tracker/index.html:29
 #: tracker/templates/tracker/ticket_common_detail.html:73
 #: tracker/templates/tracker/ticket_table.html:25
 #: tracker/templates/tracker/ticket_table.html:40
 msgid "Paid expeditures"
-msgstr ""
+msgstr "ادا تھئے خرچے"
 
 #: tracker/templates/tracker/index.html:30
 #: tracker/templates/tracker/ticket_common_detail.html:14
@@ -2037,7 +2037,7 @@ msgstr "کھاتہ عمل"
 #: tracker/templates/tracker/user_deactivate.html:4
 #: tracker/templates/tracker/user_deactivate.html:11
 msgid "Deactivate account"
-msgstr ""
+msgstr "کھاتہ غیرفعال کرو"
 
 #: tracker/templates/tracker/sign_ticket.html:4
 #: tracker/templates/tracker/sign_ticket.html:7
@@ -2137,11 +2137,11 @@ msgstr "میڈیا (پراݨا)"
 
 #: tracker/templates/tracker/ticket_common_detail.html:37
 msgid "Number of objects"
-msgstr ""
+msgstr "شئیاں دی تعداد"
 
 #: tracker/templates/tracker/ticket_common_detail.html:38
 msgid "Number of media files"
-msgstr ""
+msgstr "میڈیا فائلاں دی تعداد"
 
 #: tracker/templates/tracker/ticket_common_detail.html:49
 #: tracker/templates/tracker/ticket_common_detail.html:64
@@ -2155,11 +2155,11 @@ msgstr "اجرت؟"
 
 #: tracker/templates/tracker/ticket_common_detail.html:56
 msgid "Total preexpeditures"
-msgstr ""
+msgstr "کل اڳونہے خرچے"
 
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Paid?"
-msgstr ""
+msgstr "ادا تھیا؟"
 
 #: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Yes,No"
@@ -2167,7 +2167,7 @@ msgstr "جیا،کو"
 
 #: tracker/templates/tracker/ticket_common_detail.html:71
 msgid "Total expeditures"
-msgstr ""
+msgstr "کل خرچے"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:4
 msgid "Copying preexpeditures"
@@ -2395,12 +2395,12 @@ msgstr ""
 #: tracker/templates/tracker/ticketack_add.html:7
 #: tracker/templates/tracker/ticketack_confirm_delete.html:7
 msgid "confirmations"
-msgstr ""
+msgstr "تصدیقاں"
 
 #: tracker/templates/tracker/ticketack_add.html:26
 #: tracker/templates/tracker/ticketack_confirm_delete.html:17
 msgid "back to ticket"
-msgstr ""
+msgstr "ٹکٹ تے واپس"
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:11
 msgid "Added"
@@ -2408,7 +2408,7 @@ msgstr "شامل تھی ڳئے"
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:12
 msgid "Added by"
-msgstr ""
+msgstr "ولوں شامل تھیا"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:4
 #: tracker/templates/tracker/topic_content_acks_per_user.html:8
@@ -2468,7 +2468,7 @@ msgstr "منتظمین"
 #: tracker/templates/tracker/transaction_list.html:4
 #: tracker/templates/tracker/transaction_list.html:12
 msgid "Transaction list"
-msgstr ""
+msgstr "ٹرانزکشن تندیر"
 
 #: tracker/templates/tracker/transaction_list.html:7
 msgid "Latest transactions"
@@ -2534,7 +2534,7 @@ msgstr "ای میل:"
 
 #: tracker/templates/tracker/user_deactivate.html:32
 msgid "Deactivate my account"
-msgstr ""
+msgstr "میݙا کھاتہ غیرفعال کرو"
 
 #: tracker/templates/tracker/user_deactivate_email.html:3
 msgid "Tracker account deactivated"
@@ -2579,7 +2579,7 @@ msgstr ""
 
 #: tracker/templates/tracker/user_list.html:22
 msgid "unassigned"
-msgstr ""
+msgstr "کہیں دے ذمے کائنی لڳی"
 
 #: tracker/templates/tracker/watch.html:4
 #: tracker/templates/tracker/watch.html:11
@@ -2648,15 +2648,15 @@ msgstr ""
 
 #: tracker/views.py:454
 msgid "Account deactivation"
-msgstr ""
+msgstr "کھاتہ غیرفعال کرݨ"
 
 #: tracker/views.py:461
 msgid "Your account has been deactivated."
-msgstr ""
+msgstr "تہاݙا کھاتہ غیرفعال تھی ڳیا ہے۔"
 
 #: tracker/views.py:464
 msgid "Password is incorrect."
-msgstr ""
+msgstr "پاس ورڈ غلط ہے۔"
 
 #: tracker/views.py:496
 #, python-format
@@ -2676,7 +2676,7 @@ msgstr ""
 #: tracker/views.py:622
 #, python-format
 msgid "Ticket %s is created"
-msgstr ""
+msgstr "ٹکٹ %s تخلیق تھئی"
 
 #: tracker/views.py:660 tracker/views.py:784
 msgid "One or more fields are invalid. Check them to get more information."
@@ -2704,12 +2704,12 @@ msgstr ""
 
 #: tracker/views.py:716 tracker/views.py:727
 msgid "You cannot edit this ticket"
-msgstr ""
+msgstr "تساں ایں ٹکٹ وچ تبدیلی نہوے کر سڳدے"
 
 #: tracker/views.py:763
 #, python-format
 msgid "Ticket %s saved."
-msgstr ""
+msgstr "ٹکٹ %s محفوظ تھئی"
 
 #: tracker/views.py:798
 msgid "file"
@@ -2840,7 +2840,7 @@ msgstr ""
 
 #: tracker/views.py:1848
 msgid "Notice from Tracker"
-msgstr ""
+msgstr "ٹڑیکٹر ولوں نوٹس"
 
 #: tracker/views.py:1867
 msgid "This mandatory notice was sent to all active Tracker users."
@@ -2959,7 +2959,7 @@ msgstr "میݙا پاس ورڈ تبدیل کرو"
 #: users/templates/users/password_change_done.html:4
 #: users/templates/users/password_change_done.html:7
 msgid "Password change successful"
-msgstr ""
+msgstr "پاس ورڈ کامیابی نال تبدیل"
 
 #: users/templates/users/password_change_done.html:8
 msgid "Your password was changed."
@@ -2986,7 +2986,7 @@ msgstr "میݙا پاس ورڈ ولدا ٹھیک کرو"
 #: users/templates/users/password_reset_complete.html:4
 #: users/templates/users/password_reset_complete.html:8
 msgid "Password reset complete"
-msgstr ""
+msgstr "پاس ورڈ ٹھیک کرݨ مکمل"
 
 #: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
@@ -3019,7 +3019,7 @@ msgstr ""
 #: users/templates/users/password_reset_done.html:4
 #: users/templates/users/password_reset_done.html:8
 msgid "Password reset successful"
-msgstr ""
+msgstr "پاس ورڈ کامیابی نال ٹھیک تھی ڳیا"
 
 #: users/templates/users/password_reset_done.html:10
 msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
@@ -3040,12 +3040,12 @@ msgstr ""
 
 #: users/templates/users/password_reset_email.html:10
 msgid "Thanks for using our site!"
-msgstr ""
+msgstr "ساݙی سائٹ ورتݨ پاروں تھورا!"
 
 #: users/templates/users/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
-msgstr ""
+msgstr "%(site_name)s ٹیم"
 
 #: users/templates/users/register.html:25
 msgid "Register with Meta Wiki"
