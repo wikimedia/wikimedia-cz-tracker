@@ -30,6 +30,7 @@ from django.utils.html import strip_tags
 from django.utils.safestring import mark_safe
 from django.utils.translation import get_language
 from django.utils.translation import ugettext as _, ugettext_lazy
+from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, DetailView, FormView, DeleteView
 from sendfile import sendfile
@@ -914,6 +915,7 @@ def upload_ticket_doc(request, pk):
 
 
 @document_view_required(access='read', ticket_id_field='ticket_id', document_name_field='filename')
+@never_cache
 def download_document(request, ticket_id, filename):
     ticket = get_object_or_404(Ticket, id=ticket_id)
     doc = get_object_or_404(ticket.document_set, filename=filename)
