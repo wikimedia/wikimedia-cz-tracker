@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2023-07-06 11:34:41+0000\n"
+"PO-Revision-Date: 2023-07-17 11:28:34+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: static/commons-selection.js:184
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
-msgstr "攞你上傳嘅圖片嗰陣發生未知錯誤，請聯絡伺服器管理員。"
+msgstr ""
 
 #: static/commons-selection.js:373
 msgid "Wikimedia Commons returned the following error"
