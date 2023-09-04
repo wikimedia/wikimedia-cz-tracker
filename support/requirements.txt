@@ -18,7 +18,7 @@ django-filter
 django-rest-swagger
 
 # For makesettings
-click
+questionary
 
 # we'll presume MySQL as the database
 mysql

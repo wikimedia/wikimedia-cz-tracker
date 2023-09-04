@@ -3,7 +3,7 @@ import subprocess
 import sys
 
 import django
-import click
+import questionary
 from django.conf import settings
 from django.template import Template, Context
 from django.utils.crypto import get_random_string
@@ -11,15 +11,7 @@ from django.utils.crypto import get_random_string
 MY_PATH = os.path.abspath(os.path.dirname(__file__))
 
 
-@click.command()
-@click.option('--db_backend', type=click.Choice(['MySQL', 'SQLite']), default='MySQL')
-@click.option('--db_name', type=str)
-@click.option('--db_user', type=str)
-@click.option('--db_pass', type=str)
-@click.option('--db_host', type=str, default='')
-@click.option('--db_port', type=str, default='')
-@click.option('--db-creation/--no-db-creation', is_flag=True, default=True)
-def main(db_backend, db_name, db_user, db_pass, db_host, db_port, db_creation):
+def main():
     target_path = os.path.abspath(os.path.join(MY_PATH, '..', 'trackersite', 'settings.py'))
     if os.path.exists(target_path):
         print('Don\'t want to overwrite %s.\nIf you\'re sure, delete it and try again.' % target_path)
@@ -41,30 +33,37 @@ def main(db_backend, db_name, db_user, db_pass, db_host, db_port, db_creation):
     chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
     options['secret_key'] = get_random_string(50, chars)
 
-    if db_backend == "MySQL":
+    # DB provider
+    # TODO: Add Oracle and postgresql_psycopg2
+    db_choice = questionary.select(
+        "Select your database provider",
+        choices=[
+            "MySQL",
+            "SQLite"
+        ]
+    ).ask()
+    if db_choice == "MySQL":
         options['backend'] = 'mysql'
-        options['DB_NAME'] = db_name if db_name else click.prompt('Database name', default='tracker')
-        options['DB_USER'] = db_user if db_user else click.prompt('Database user', default='root')
-        options['DB_PASS'] = db_pass if db_pass else click.prompt('Database password', default='')
-        options['DB_HOST'] = db_host
-        options['DB_PORT'] = db_port
-
-        if db_creation:
-            print('INFO: Creating your database')
-            subprocess.call([
-                'mysql',
-                # Pass username
-                '-u', options['DB_USER'],
-                # Pass password
-                '-p' + options['DB_PASS'],
-                # Pass -h and hostname, but only if db_host is non-empty string
-                '-h ' + options['DB_HOST'] if options['DB_HOST'] else '',
-                # Same for db_port
-                '-P ' + options['DB_PORT'] if options['DB_PORT'] else '',
-                '-e',
-                'CREATE DATABASE %s' % options['DB_NAME']
-            ], stdout=subprocess.DEVNULL)
-    elif db_backend == "SQLite":
+        options['DB_NAME'] = questionary.text("Database name", default="tracker").ask()
+        options['DB_USER'] = questionary.text("Database username", default="root").ask()
+        options['DB_PASS'] = questionary.password("Database password").ask()
+        options['DB_HOST'] = questionary.text("Database hostname [localhost]").ask()
+        options['DB_PORT'] = questionary.text("Database port").ask()
+        print('INFO: Creating your database')
+        subprocess.call([
+            'mysql',
+            # Pass username
+            '-u', options['DB_USER'],
+            # Pass password
+            '-p' + options['DB_PASS'],
+            # Pass -h and hostname, but only if db_host is non-empty string
+            '-h ' + options['DB_HOST'] if options['DB_HOST'] else '',
+            # Same for db_port
+            '-P ' + options['DB_PORT'] if options['DB_PORT'] else '',
+            '-e',
+            'CREATE DATABASE %s' % options['DB_NAME']
+        ], stdout=subprocess.DEVNULL)
+    elif db_choice == "SQLite":
         options['backend'] = 'sqlite3'
         default_path = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'deploy', 'tracker.db'))
         options['DB_NAME'] = questionary.text("Path to new database file", default=default_path).ask()
@@ -72,8 +71,6 @@ def main(db_backend, db_name, db_user, db_pass, db_host, db_port, db_creation):
         options['DB_PASS'] = ''
         options['DB_HOST'] = ''
         options['DB_PORT'] = ''
-    else:
-        raise Exception('Invalid DB backend')
 
     context = Context(options)
     target = open(target_path, 'wb')
