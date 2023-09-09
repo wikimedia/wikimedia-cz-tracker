@@ -1060,7 +1060,7 @@ class UserDetailsChange(FormView):
     def make_user_details_form(self):
         fields = fields_for_model(User, fields=self.user_fields)
         fields['email'].required = True
-        fields.update(fields_for_model(TrackerProfile, exclude=('user', 'mediawiki_username')))
+        fields.update(fields_for_model(TrackerProfile, exclude=('user', 'mediawiki_username', 'chapter_username')))
         return type('UserDetailsForm', (forms.BaseForm,), {'base_fields': fields})
 
     def get_form_class(self):
