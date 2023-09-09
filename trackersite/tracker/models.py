@@ -1764,18 +1764,21 @@ def notify_preexpediture_change(sender, instance, **kwargs):
             'ticket': instance.ticket
         }
 
-        if old.wage != instance.wage and old.amount == instance.amount and old.description == instance.description:
+        if old.amount != instance.amount or old.description != instance.description:
+            text = _(
+                'User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
+            Notification.fire_notification(instance.ticket, text, "preexpeditures_change", get_user(True),
+                                           text_data=text_data)
+
+        if old.wage != instance.wage:
             if instance.wage:
                 text = _(
                     'User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as wage.')
             else:
                 text = _(
                     'User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as not wage.')
-        else:
-            text = _(
-                'User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
-        Notification.fire_notification(instance.ticket, text, "preexpeditures_change", get_user(True),
-                                       text_data=text_data)
+            Notification.fire_notification(instance.ticket, text, "preexpeditures_change", get_user(True),
+                                           text_data=text_data)
 
 
 @receiver(post_delete, sender=Preexpediture)
@@ -1830,7 +1833,11 @@ def notify_expediture_change(sender, instance, **kwargs):
             'expeditures': instance
         }
 
-        num_of_changes = 0
+        if old.amount != instance.amount or old.description != instance.description or old.accounting_info != instance.accounting_info:
+            text = _(
+                'User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
+            Notification.fire_notification(instance.ticket, text, "expeditures_change", get_user(True), text_data=text_data)
+
         if old.paid != instance.paid:
             if instance.paid:
                 text = _(
@@ -1838,7 +1845,7 @@ def notify_expediture_change(sender, instance, **kwargs):
             else:
                 text = _(
                     'User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as not paid.')
-            num_of_changes += 1
+            Notification.fire_notification(instance.ticket, text, "expeditures_change", get_user(True), text_data=text_data)
         if old.wage != instance.wage:
             if instance.wage:
                 text = _(
@@ -1846,15 +1853,7 @@ def notify_expediture_change(sender, instance, **kwargs):
             else:
                 text = _(
                     'User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a> as not wage.')
-            num_of_changes += 1
-
-        if num_of_changes == 0 and old.accounting_info != instance.accounting_info and old.amount == instance.amount and old.description == instance.description:
-            return
-        else:
-            text = _(
-                'User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href="%(ticket_url)s">%(ticket)s</a>.')
-
-        Notification.fire_notification(instance.ticket, text, "expeditures_change", get_user(True), text_data=text_data)
+            Notification.fire_notification(instance.ticket, text, "expeditures_change", get_user(True), text_data=text_data)
 
 
 @receiver(post_delete, sender=Expediture)
