@@ -21,7 +21,7 @@
 	<tbody>
 		{% for media in medias %}
 		<tr>
-			<td><a href="{{ media.mediawiki_link }}">{{ media.name }}</a></td>
+			<td><a href="{{ media.mediawiki_link }}">{{ media.page_title }}</a></td>
 			<td>{% if media.width and media.height %}{{ media.width }}x{{ media.height }}{% else %}{% trans "Unknown" %}{% endif %}</td>
 			<td>
 				<ul>

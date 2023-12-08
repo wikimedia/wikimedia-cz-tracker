@@ -16,7 +16,8 @@
 			.filter( input => input.checked )
 			.map( ( input ) => {
 				return {
-					name: input.name,
+					/* eslint-disable-next-line camelcase */
+					page_title: input.name,
 					ticket: `/api/tracker/tickets/${ ticketNumber }/`
 				};
 			} );
@@ -90,11 +91,7 @@
 	const existingImages = await ( await fetch( `/api/tracker/mediainfo/?ticket=${ ticketNumber }` ) ).json();
 	let existingImageNames = [];
 	for ( const image of existingImages ) {
-		if ( image.canonicaltitle !== null ) {
-			existingImageNames.push( image.canonicaltitle );
-		} else {
-			existingImageNames.push( image.name );
-		}
+		existingImageNames.push( image.page_title );
 	}
 
 	let previousCheck;
@@ -235,6 +232,7 @@
 
 		for ( const image of existingImages ) {
 			image.apiUrl = image.url;
+			image.canonicaltitle = image.page_title;
 			const imageElem = document.createElement( 'div' );
 			imageElem.classList.add( 'search-result' );
 			imageElem.innerHTML = await generateImageHtml( image, 'existing' );
@@ -418,11 +416,6 @@
 			extraCheckboxAttr = `data-media-api-url="${ image.apiUrl }"`;
 		}
 
-		let title = image.canonicaltitle;
-		if ( title === undefined || title === null ) {
-			title = image.name; // Fallback
-		}
-
 		return `
 			<img src="${ thumbUrl }" loading="lazy" alt="" height=${ Math.max( image.height, 200 ) }>
 
@@ -431,7 +424,7 @@
 
 			<p>
 				<a href="${ image.descriptionurl }">
-					${ title }
+					${ image.canonicaltitle }
 				</a>
 			</p>
 		`;
@@ -443,8 +436,8 @@
 
 		if ( !urlRegex.test( url ) ) {
 			const trackerUrlRegex = /^https:\/\/tracker\.wikimedia\.cz\/api/gmi;
-			if ( trackerUrlRegex.test( url ) && image.name !== undefined ) {
-				let data = await ( getImageByName( image.name ) );
+			if ( trackerUrlRegex.test( url ) && image.page_title !== undefined ) {
+				let data = await ( getImageByName( image.page_title ) );
 				url = data.url;
 				if ( !urlRegex.test( url ) ) {
 					throw new Error( 'Image URL is not in the expected format. This is probably an internal error.' );

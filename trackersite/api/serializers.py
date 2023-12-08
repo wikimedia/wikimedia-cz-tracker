@@ -137,7 +137,7 @@ class MediaInfoSerializer(serializers.HyperlinkedModelSerializer):
         return ticket
 
     class Meta:
-        read_only_fields = ('categories', 'width', 'height', 'usages', 'canonicaltitle', 'thumb_url')
+        read_only_fields = ('categories', 'width', 'height', 'usages', 'thumb_url')
         fields = '__all__'
         model = MediaInfo
 

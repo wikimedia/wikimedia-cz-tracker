@@ -963,12 +963,11 @@ class MediaInfo(Model):
     """ Media related to particular tickets. """
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'),
                                help_text=_('Ticket this media info belongs to'), on_delete=models.CASCADE)
-    name = models.CharField(_('name'), max_length=255, blank=True, null=True)
+    page_title = models.CharField(_('cannonical title'), max_length=255, null=True)
     page_id = models.IntegerField(_('page id'), null=True)
     width = models.IntegerField(_('width'), null=True)
     height = models.IntegerField(_('height'), null=True)
     thumb_url = models.URLField(_('URL'), max_length=500, null=True, blank=True)
-    canonicaltitle = models.CharField(_('cannonical title'), max_length=255, null=True)
 
     @property
     def media_id(self):
@@ -977,7 +976,7 @@ class MediaInfo(Model):
             data = mw.request({
                 "action": "query",
                 "format": "json",
-                "titles": self.name
+                "titles": self.page_title
             }).json()
             self.page_id = int(list(data['query']['pages'].keys())[0])
             self.save()
@@ -985,7 +984,7 @@ class MediaInfo(Model):
 
     @cached_property
     def _as_str(self):
-        if self.name == '' or self.name is None:
+        if self.page_title == '' or self.page_title is None:
             mw = MediaWiki(user=None)
             data = mw.request({
                 "action": "query",
@@ -993,11 +992,11 @@ class MediaInfo(Model):
                 "pageids": [self.media_id]
             }).json()
             try:
-                self.name = data['query']['pages'][list(data['query']['pages'].keys())[0]]['title']
+                self.page_title = data['query']['pages'][list(data['query']['pages'].keys())[0]]['title']
             except KeyError:
-                self.name = ''
+                self.page_title = ''
             self.save()
-        return self.name
+        return self.page_title
 
     def __str__(self):
         return self._as_str
@@ -1110,7 +1109,7 @@ class MediaInfo(Model):
 
             return {
                 "url": url,
-                "canonicaltitle": imagedata['canonicaltitle'],
+                "page_title": imagedata['canonicaltitle'],
                 'width': imagedata['width'],
                 'height': imagedata['height'],
                 'categories': data.get('categories', []),
@@ -1121,8 +1120,7 @@ class MediaInfo(Model):
         data = self.get_mediawiki_data(width=200)
 
         self.thumb_url = data['url']
-        self.canonicaltitle = data['canonicaltitle']
-        self.name = data['canonicaltitle']
+        self.page_title = data['page_title']
         self.width = data.get('width')
         self.height = data.get('height')
 
@@ -1164,7 +1162,7 @@ class MediaInfo(Model):
     class Meta:
         verbose_name = _('Ticket media')
         verbose_name_plural = _('Ticket media')
-        unique_together = ('name', 'ticket_id')
+        unique_together = ('page_title', 'ticket_id')
 
 
 task_error.connect(notify_on_failure)
@@ -1178,7 +1176,7 @@ def save_page_id(sender, instance, **kwargs):
         data = mw.request({
             "action": "query",
             "format": "json",
-            "titles": instance.name
+            "titles": instance.page_title
         }).json()
         instance.page_id = int(list(data['query']['pages'].keys())[0])
 
