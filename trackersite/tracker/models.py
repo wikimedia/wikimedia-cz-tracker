@@ -1163,7 +1163,7 @@ class MediaInfo(Model):
         media.store_mediawiki_data_internal()
 
     def save(self, no_update=False, *args, **kwargs):
-        if MediaInfo.objects.filter(ticket_id=self.ticket_id, page_title=self.page_title, page_id=self.page_id).exclude(id=self.id).exists():
+        if MediaInfo.objects.filter(ticket_id=self.ticket_id, page_title=self.page_title).exclude(id=self.id).exists():
             # we found a duplicate, self destruct instead
             self.delete()
             return
