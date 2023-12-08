@@ -1087,7 +1087,7 @@ class MediaInfo(Model):
     def mediawiki_link(self):
         return settings.MEDIAINFO_MEDIAWIKI_ARTICLE + str(self)
 
-    def get_mediawiki_data(self, width=None):
+    def get_mediawiki_data(self, width=None, delete_if_not_found=False):
         if settings.MEDIAINFO_MEDIAWIKI_API:
             mw = MediaWiki(user=None)
             data = mw.request({
@@ -1100,6 +1100,22 @@ class MediaInfo(Model):
                 "iiurlwidth": width,
                 "clprop": "hidden",
             }).json()['query']['pages'][0]
+
+            if 'imageinfo' not in data:
+                # page does not exist
+                if delete_if_not_found:
+                    # we already tried, drop
+                    self.delete()
+                    return
+
+                # to ensure the ID is re-loaded using the name
+                self.page_id = None
+                self.save(no_update=True)
+
+                # try again with page_id dropped; if it fails again, drop this entry
+                self.get_mediawiki_data(width=width, delete_if_not_found=True)
+                return
+
             imagedata = data['imageinfo'][0]
 
             if width:
