@@ -1093,13 +1093,13 @@ class MediaInfo(Model):
             data = mw.request({
                 "action": "query",
                 "format": "json",
+                "formatversion": 2,
                 "prop": "imageinfo|categories|globalusage",
                 "pageids": [self.media_id],
                 "iiprop": "dimensions|url|canonicaltitle",
                 "iiurlwidth": width,
                 "clprop": "hidden",
-            }).json()['query']['pages']
-            data = data[list(data.keys())[0]]
+            }).json()['query']['pages'][0]
             imagedata = data['imageinfo'][0]
 
             if width:
