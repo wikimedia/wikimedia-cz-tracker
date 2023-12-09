@@ -13,7 +13,7 @@ from django.contrib.admin.helpers import ActionForm
 
 class MediaInfoAdmin(admin.TabularInline):
     model = models.MediaInfo
-    fields = ('name', 'width', 'height')
+    fields = ('page_title', 'width', 'height')
     readonly_fields = ('width', 'height')
 
 
