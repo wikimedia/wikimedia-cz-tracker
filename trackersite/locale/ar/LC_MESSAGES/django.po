@@ -5,11 +5,12 @@
 # Author: Hhaboh162002
 # Author: Meno25
 # Author: ديفيد
+# Author: علاء
 # Author: محمد أحمد عبد الفتاح
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2023-12-07 12:52:53+0000\n"
+"PO-Revision-Date: 2023-12-18 12:35:36+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -137,7 +138,7 @@ msgstr "ممنوع"
 
 #: templates/403.html:12
 msgid "You don't have permissions to do this!"
-msgstr "ليست لديك صلاحية للقيام بذلك."
+msgstr "ليس لديك صلاحية للقيام بذلك!"
 
 #: templates/404.html:3
 msgid "404 Not Found"
@@ -1456,7 +1457,7 @@ msgstr "مستخدمو المقتفي"
 
 #: tracker/templates/tracker/admin_index_override.html:45
 msgid "You don't have permission to edit anything."
-msgstr "ليست لديك صلاحية لتعديل أي شيء."
+msgstr "ليس لديك صلاحية لتعديل أي شيء."
 
 #: tracker/templates/tracker/admin_user_list.html:8
 #: tracker/templates/tracker/export.html:67
@@ -2764,7 +2765,7 @@ msgstr "يجب عليك ملء النموذج بشكل صحيح"
 #: tracker/views.py:1552
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
-msgstr "ليست لديك صلاحية لاستيراد أكثر من %(input_row_limit)s من الصفوف; تم بالفعل استيراد أول %(input_row_limit)s من الصفوف."
+msgstr "ليس لديك صلاحية لاستيراد أكثر من %(input_row_limit)s من الصفوف; تم بالفعل استيراد أول %(input_row_limit)s من الصفوف."
 
 #: tracker/views.py:1579
 msgid "You must be a staffer in order to be able to import topics."
