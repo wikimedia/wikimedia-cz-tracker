@@ -349,6 +349,14 @@ class Ticket(CachedModel, ModelDiffMixin):
 
         super(Ticket, self).save(*args, **kwargs)
 
+        # update MediaWiki templates if appropriate
+        user_id = settings.TRACKER_MAINTENANCE_USER_ID
+        if get_request():
+            user_id = get_request().user.id
+        if user_id:
+            for mi in self.mediainfo_set.all():
+                MediaInfo.add_to_mediawiki(mi.id, user_id)
+
         self.flush_cache()
 
     def _note_comment(self, **kwargs):
