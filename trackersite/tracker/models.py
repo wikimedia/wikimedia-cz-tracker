@@ -354,10 +354,16 @@ class Ticket(CachedModel, ModelDiffMixin):
         if get_request():
             user_id = get_request().user.id
         if user_id:
-            for mi in self.mediainfo_set.all():
-                MediaInfo.add_to_mediawiki(mi.id, user_id)
+            Ticket._update_mediainfo(self.id, user_id)
 
         self.flush_cache()
+
+    @staticmethod
+    @background(schedule=10)
+    def _update_mediainfo(ticket_id, user_id):
+        ticket = Ticket.objects.get(id=ticket_id)
+        for mi in ticket.mediainfo_set.all():
+            MediaInfo.add_to_mediawiki(mi.id, user_id)
 
     def _note_comment(self, **kwargs):
         self.save()
