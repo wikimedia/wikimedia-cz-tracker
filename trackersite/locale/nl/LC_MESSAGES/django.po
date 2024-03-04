@@ -1,0 +1,3069 @@
+# Translation of Tracker - main to Dutch (Nederlands)
+# Exported from translatewiki.net
+#
+# Author: Elroy
+# Author: Marcelhospers
+# Author: Mitsjol
+# Author: Optilete
+# Author: Siebrand
+# Author: Xbaked potatox
+msgid ""
+msgstr ""
+""
+"PO-Revision-Date: 2024-03-04 12:27:22+0000\n"
+"X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Project-Id-Version: Tracker - main\n"
+"Report-Msgid-Bugs-To: translatewiki.net\n"
+"X-Translation-Project: translatewiki.net <https://translatewiki.net>\n"
+"X-Generator: MediaWiki 1.42.0-alpha; Translate 2024-01-22\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: api/serializers.py:101
+msgid "Deposit should be zero when creating a ticket"
+msgstr "Als een aanvraag wordt gemaakt moet de storting nul zijn."
+
+#: api/serializers.py:104
+msgid "Cannot edit deposit once a ticket has been preaccepted"
+msgstr ""
+
+#: api/serializers.py:109 api/serializers.py:112
+msgid "Deposit should be lower or equal to the sum of preexpeditures"
+msgstr ""
+
+#: api/serializers.py:134
+msgid "You can not add media to this ticket."
+msgstr "Je kunt geen media aan dit ticket toevoegen."
+
+#: api/serializers.py:136
+msgid "You can not edit the media of this ticket."
+msgstr "Je kunt de media van dit ticket niet bewerken."
+
+#: api/serializers.py:162
+msgid "You can not add expiditures to this ticket."
+msgstr ""
+
+#: api/serializers.py:164
+msgid "You can not edit expiditures of this ticket."
+msgstr ""
+
+#: api/serializers.py:178
+msgid "You can not add preexpiditures to this ticket."
+msgstr ""
+
+#: api/serializers.py:180
+msgid "You can not edit preexpiditures of this ticket."
+msgstr ""
+
+#: common_settings.py:138
+#: tracker/templates/tracker/ticket_common_detail.html:18
+msgid "CZK"
+msgstr "CZK"
+
+#: common_settings.py:141
+msgid "English"
+msgstr "Engels"
+
+#: common_settings.py:142
+msgid "Czech"
+msgstr "Tsjechisch"
+
+#: common_settings.py:143
+msgid "French"
+msgstr "Frans"
+
+#: common_settings.py:144
+msgid "Arabic"
+msgstr "Arabisch"
+
+#: common_settings.py:145
+msgid "Danish"
+msgstr "Deens"
+
+#: common_settings.py:146
+msgid "Finnish"
+msgstr "Fins"
+
+#: common_settings.py:147
+msgid "Korean"
+msgstr "Koreaans"
+
+#: common_settings.py:148
+msgid "Portuguese"
+msgstr "Portugees"
+
+#: common_settings.py:149
+msgid "Swedish"
+msgstr "Zweeds"
+
+#: common_settings.py:150
+msgid "Chinese-traditional"
+msgstr ""
+
+#: common_settings.py:151
+msgid "Spanish"
+msgstr "Spaans"
+
+#: customcomments/forms.py:21
+msgid "Your name"
+msgstr "Uw naam"
+
+#: customcomments/forms.py:22
+#: tracker/templates/tracker/ticketack_confirm_delete.html:13
+msgid "Comment"
+msgstr "Opmerking"
+
+#: socialauth/pipeline.py:15
+msgid "Successfully linked your wikimedia account!"
+msgstr "Je wikimedia-account is succesvol gekoppeld!"
+
+#: socialauth/pipeline.py:17
+msgid "Successfully linked your chapter account!"
+msgstr "Je chapteraccount is succesvol gekoppeld!"
+
+#: socialauth/pipeline.py:23
+msgid "Your wikimedia account is no longer linked."
+msgstr "Uw wikimedia-account is niet langer gekoppeld."
+
+#: socialauth/pipeline.py:25
+msgid "Your chapterwiki account is no longer linked."
+msgstr "Uw wikimedia-account is niet langer gekoppeld."
+
+#: templates/403.html:3
+msgid "403 Forbidden"
+msgstr "403 Forbidden"
+
+#: templates/403.html:7
+msgid "Forbidden"
+msgstr "Verboden"
+
+#: templates/403.html:12
+msgid "You don't have permissions to do this!"
+msgstr "Je hebt hiervoor geen rechten."
+
+#: templates/404.html:3
+msgid "404 Not Found"
+msgstr "404 Niet gevonden"
+
+#: templates/404.html:7
+msgid "Not Found"
+msgstr "Niet gevonden"
+
+#: templates/404.html:10
+#, python-format
+msgid "The requested URL %(request_path)s was not found on this server."
+msgstr "De opgevraagde URL %(request_path)s is niet gevonden op deze server."
+
+#: templates/500.html:3 templates/500.html:7
+msgid "Internal Error"
+msgstr "Interne fout"
+
+#: templates/500.html:10
+msgid "There was an error processing you request. Sorry about that."
+msgstr "Er is een fout opgetreden bij het verwerken van je verzoek. Sorry daarvoor."
+
+#: templates/admin/base_site.html:4
+msgid "Tracker admin"
+msgstr "Tracker admin"
+
+#: templates/admin/base_site.html:7
+msgid "Tracker site administration"
+msgstr ""
+
+#: templates/base.html:32
+msgid "There is no email address associated with this account. Please update your details now."
+msgstr "Er is geen e-mailadres aan dit account gekoppeld. Werk uw gegevens nu bij."
+
+#: templates/base.html:35
+msgid "Update details"
+msgstr "Bewerkingsdetails"
+
+#: templates/base.html:55
+msgid "Toggle navigation"
+msgstr "Navigatie inschakelen"
+
+#: templates/base.html:69
+msgid "change password"
+msgstr "wachtwoord wijzigen"
+
+#: templates/base.html:70
+msgid "change my details"
+msgstr "Verander mijn gegevens"
+
+#: templates/base.html:71 tracker/templates/tracker/user_deactivate.html:8
+msgid "preferences"
+msgstr "Voorkeuren"
+
+#: templates/base.html:73
+msgid "admin"
+msgstr "beheerder"
+
+#: templates/base.html:75 templates/base.html:90
+msgid "change language"
+msgstr "taal wijzigen"
+
+#: templates/base.html:77 templates/base.html:92
+msgid "help"
+msgstr "hulp"
+
+#: templates/base.html:79
+msgid "logout"
+msgstr "afmelden"
+
+#: templates/base.html:84 templates/base.html:87
+msgid "login"
+msgstr "aanmelden"
+
+#: templates/base.html:89
+msgid "register"
+msgstr "inschrijven"
+
+#: templates/base.html:106 templates/base.html:109
+msgid "Warning"
+msgstr "Waarschuwing"
+
+#: templates/base.html:106
+#, python-format
+msgid "You are not in production. If you want to request reimbursement of expenses, go to <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>."
+msgstr ""
+
+#: templates/base.html:109
+msgid "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox."
+msgstr "U gebruikt Internet Explorer. Tracker vereist echter moderne functies die Internet Explorer niet ondersteunt. Als gevolg hiervan werkt Tracker mogelijk niet goed in Internet Explorer. Wij raden u aan een andere browser te gebruiken, zoals Chrome of Firefox."
+
+#: templates/choose_language.html:5 templates/choose_language.html:8
+msgid "Change language"
+msgstr "Taal wijzigen"
+
+#: templates/choose_language.html:23
+msgid "Go"
+msgstr "Start"
+
+#: templates/comments/form.html:17 templates/comments/preview.html:31
+msgid "Post"
+msgstr "Plaatsen"
+
+#: templates/comments/form.html:18 templates/comments/preview.html:32
+msgid "Preview"
+msgstr "Voorbeeldweergave"
+
+#: templates/comments/preview.html:4 templates/comments/preview.html:15
+msgid "Preview your comment"
+msgstr "Een voorbeeld van uw opmerking weergeven"
+
+#: templates/comments/preview.html:13
+msgid "Please correct the error below"
+msgid_plural "Please correct the errors below"
+msgstr[0] "Corrigeer de onderstaande fout"
+msgstr[1] "Corrigeer de onderstaande fouten"
+
+#: tracker/admin.py:29 tracker/admin.py:35
+#: tracker/templates/tracker/ticketack_confirm_delete.html:10
+msgid "Type"
+msgstr "Soort"
+
+#: tracker/admin.py:43
+msgid "Add ack"
+msgstr ""
+
+#: tracker/admin.py:169
+msgid "Mark selected topics as opened for new tickets"
+msgstr ""
+
+#: tracker/admin.py:176
+msgid "Mark selected topics as closed for new tickets"
+msgstr ""
+
+#: tracker/admin.py:204
+msgid "Modify this value by opening or closing topics in this grant to tickets"
+msgstr ""
+
+#: tracker/feeds.py:12 tracker/templates/tracker/generic/ticket_list.html:7
+#: tracker/templates/tracker/topic_detail.html:5
+msgid "Latest tickets"
+msgstr "Laatste tickets"
+
+#: tracker/feeds.py:13
+msgid "Recently changed tickets"
+msgstr "Onlangs gewijzigde tickets"
+
+#: tracker/feeds.py:26 tracker/templates/tracker/generic/ticket_list.html:8
+#: tracker/templates/tracker/topic_detail.html:6
+msgid "Latest submitted tickets"
+msgstr "Laatst ingediende tickets"
+
+#: tracker/feeds.py:27
+msgid "Recently changed submitted tickets"
+msgstr "Onlangs gewijzigde ingediende tickets"
+
+#: tracker/models.py:46 tracker/templates/tracker/grant_table.html:11
+#: tracker/templates/tracker/topic_table.html:13
+msgid "n/a"
+msgstr "niet beschikbaar"
+
+#: tracker/models.py:47 tracker/templates/tracker/export.html:246
+#: tracker/templates/tracker/grant_table.html:12
+#: tracker/templates/tracker/topic_finance.html:16
+#: tracker/templates/tracker/topic_table.html:14
+msgid "unpaid"
+msgstr "niet betaald"
+
+#: tracker/models.py:48 tracker/templates/tracker/export.html:247
+#: tracker/templates/tracker/grant_table.html:13
+#: tracker/templates/tracker/topic_table.html:15
+msgid "partially paid"
+msgstr "gedeeltelijk betaald"
+
+#: tracker/models.py:49 tracker/models.py:1188
+#: tracker/templates/tracker/export.html:248
+#: tracker/templates/tracker/grant_table.html:14
+#: tracker/templates/tracker/topic_finance.html:17
+#: tracker/templates/tracker/topic_table.html:16
+msgid "paid"
+msgstr "Betaald"
+
+#: tracker/models.py:50 tracker/templates/tracker/export.html:249
+#: tracker/templates/tracker/grant_table.html:15
+#: tracker/templates/tracker/topic_finance.html:18
+#: tracker/templates/tracker/topic_table.html:17
+msgid "overpaid"
+msgstr ""
+
+#: tracker/models.py:54
+msgid "presubmitted"
+msgstr "vooringediend"
+
+#: tracker/models.py:55
+msgid "preaccepted"
+msgstr "vooraf geaccepteerd"
+
+#: tracker/models.py:56
+msgid "submitted"
+msgstr "ingediend"
+
+#: tracker/models.py:57
+msgid "accepted"
+msgstr "aanvaard"
+
+#: tracker/models.py:58
+msgid "expense documents submitted"
+msgstr ""
+
+#: tracker/models.py:59
+msgid "expense documents filed"
+msgstr "onkostendocumenten ingediend"
+
+#: tracker/models.py:60 tracker/models.py:379
+#: tracker/templates/tracker/export.html:52
+#: tracker/templates/tracker/export.html:53
+msgid "archived"
+msgstr "gearchiveerd"
+
+#: tracker/models.py:61 tracker/models.py:377
+#: tracker/templates/tracker/export.html:55
+#: tracker/templates/tracker/export.html:56
+msgid "closed"
+msgstr "gesloten"
+
+#: tracker/models.py:65
+msgid "All notifications"
+msgstr "Alle meldingen"
+
+#: tracker/models.py:66
+msgid "Comment added"
+msgstr "Commentaar toegevoegd"
+
+#: tracker/models.py:67
+msgid "Supervisor notes changed"
+msgstr "Aantekeningen van supervisor gewijzigd"
+
+#: tracker/models.py:68
+msgid "New ticket was created"
+msgstr "Er is een nieuw ticket aangemaakt"
+
+#: tracker/models.py:69
+msgid "Ticket was deleted"
+msgstr "Ticket is verwijderd"
+
+#: tracker/models.py:70
+msgid "Ack added"
+msgstr ""
+
+#: tracker/models.py:71
+msgid "Ack removed"
+msgstr ""
+
+#: tracker/models.py:72
+msgid "Ticket changed"
+msgstr "Ticket gewijzigd"
+
+#: tracker/models.py:73
+msgid "New preexpediture was created"
+msgstr ""
+
+#: tracker/models.py:74
+msgid "Preexpeditures changed"
+msgstr ""
+
+#: tracker/models.py:75
+msgid "New expediture was created"
+msgstr ""
+
+#: tracker/models.py:76
+msgid "Expeditures changed"
+msgstr ""
+
+#: tracker/models.py:77
+msgid "New media was created"
+msgstr ""
+
+#: tracker/models.py:78
+msgid "Media changed"
+msgstr "Media veranderd"
+
+#: tracker/models.py:79
+msgid "Document changed"
+msgstr "Document gewijzigd"
+
+#: tracker/models.py:139
+msgid "unknown"
+msgstr "onbekend"
+
+#: tracker/models.py:172 tracker/models.py:1438
+msgid "created"
+msgstr "aangemaakt"
+
+#: tracker/models.py:245
+msgid "Signed text"
+msgstr ""
+
+#: tracker/models.py:250
+msgid "updated"
+msgstr "bijgewerkt"
+
+#: tracker/models.py:251
+msgid "media updated"
+msgstr "media bijgewerkt"
+
+#: tracker/models.py:252
+msgid "Date when cached information about media were last updated. Used in \"show media\" view."
+msgstr ""
+
+#: tracker/models.py:253
+msgid "event date"
+msgstr ""
+
+#: tracker/models.py:254
+msgid "Date of the event this ticket is about"
+msgstr ""
+
+#: tracker/models.py:255 tracker/models.py:416
+#: tracker/templates/feeds/ticket_description.html:3
+msgid "requested by"
+msgstr "aangevraagd door"
+
+#: tracker/models.py:256
+msgid "User who created/requested for this ticket"
+msgstr "Gebruiker die dit ticket heeft aangemaakt/aangevraagd"
+
+#: tracker/models.py:258
+msgid "requested by (text)"
+msgstr "aangevraagd door (tekst)"
+
+#: tracker/models.py:259
+msgid "Text description of who requested for this ticket, in case user is not filled in"
+msgstr ""
+
+#: tracker/models.py:260 tracker/models.py:699 tracker/models.py:771
+#: tracker/models.py:954 tracker/views.py:799
+msgid "name"
+msgstr "naam"
+
+#: tracker/models.py:260
+msgid "Name for the ticket"
+msgstr "Naam van het ticket"
+
+#: tracker/models.py:261 tracker/models.py:704 tracker/views.py:560
+msgid "topic"
+msgstr "onderwerp"
+
+#: tracker/models.py:262
+msgid "Project topic this ticket belongs to"
+msgstr "Projectonderwerp waar dit ticket bij hoort"
+
+#: tracker/models.py:263
+msgid "subtopic"
+msgstr "subonderwerp"
+
+#: tracker/models.py:264
+msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
+msgstr "Subonderwerp waar dit ticket bij hoort (als je het niet weet, laat dit dan leeg)"
+
+#: tracker/models.py:266
+msgid "rating percentage"
+msgstr ""
+
+#: tracker/models.py:267
+msgid "Rating percentage set by topic administrator"
+msgstr ""
+
+#: tracker/models.py:268
+msgid "report mandatory"
+msgstr "rapport verplicht"
+
+#: tracker/models.py:268 tracker/templates/tracker/export.html:73
+#: tracker/templates/tracker/export.html:75
+#: tracker/templates/tracker/ticket_common_detail.html:15
+msgid "Is report mandatory?"
+msgstr "Is rapporteren verplicht?"
+
+#: tracker/models.py:269
+msgid "report url"
+msgstr "rapport-URL"
+
+#: tracker/models.py:270
+msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
+msgstr ""
+
+#: tracker/models.py:271
+msgid "event url"
+msgstr ""
+
+#: tracker/models.py:272
+msgid "Link to a public page describing the event, if it exist"
+msgstr ""
+
+#: tracker/models.py:273 tracker/models.py:700 tracker/models.py:784
+#: tracker/models.py:869 tracker/models.py:926 tracker/models.py:1183
+#: tracker/models.py:1209 tracker/models.py:1368 tracker/views.py:800
+msgid "description"
+msgstr "beschrijving"
+
+#: tracker/models.py:274
+msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description. You may use a limited subset of HTML."
+msgstr ""
+
+#: tracker/models.py:275
+msgid "supervisor notes"
+msgstr ""
+
+#: tracker/models.py:276
+msgid "This space is for notes of project supervisors and accounting staff."
+msgstr ""
+
+#: tracker/models.py:277
+msgid "deposit"
+msgstr ""
+
+#: tracker/models.py:280
+msgid "If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."
+msgstr "Als u een financiële storting aanvraagt, vult u hier het bedrag in. Het maximale bedrag is de som van de voorschotten. Als u geen aanbetaling vraagt, vult u hier 0 in."
+
+#: tracker/models.py:282
+msgid "payment status"
+msgstr "betalingsstatus"
+
+#: tracker/models.py:283
+msgid "imported"
+msgstr "geïmporteerd"
+
+#: tracker/models.py:284
+msgid "Was this ticket imported from older Tracker version?"
+msgstr ""
+
+#: tracker/models.py:285
+msgid "enable comments"
+msgstr ""
+
+#: tracker/models.py:286
+msgid "Can users comment on this ticket?"
+msgstr ""
+
+#: tracker/models.py:287
+msgid "Did you travel by car?"
+msgstr ""
+
+#: tracker/models.py:288
+msgid "Do you request reimbursement of car-type travel expense?"
+msgstr ""
+
+#: tracker/models.py:289
+msgid "Is this ticket completed?"
+msgstr ""
+
+#: tracker/models.py:373
+msgid "historical"
+msgstr ""
+
+#: tracker/models.py:382
+msgid "waiting for content rating"
+msgstr ""
+
+#: tracker/models.py:385 tracker/templates/tracker/export.html:49
+#: tracker/templates/tracker/export.html:50
+msgid "complete"
+msgstr "voltooid"
+
+#: tracker/models.py:387 tracker/templates/tracker/export.html:46
+#: tracker/templates/tracker/export.html:47
+msgid "waiting for filing of documents"
+msgstr ""
+
+#: tracker/models.py:389 tracker/templates/tracker/export.html:43
+#: tracker/templates/tracker/export.html:44
+msgid "waiting for document submission"
+msgstr ""
+
+#: tracker/models.py:392 tracker/models.py:399
+#: tracker/templates/tracker/export.html:40
+#: tracker/templates/tracker/export.html:41
+msgid "waiting for approval"
+msgstr ""
+
+#: tracker/models.py:394 tracker/templates/tracker/export.html:37
+#: tracker/templates/tracker/export.html:38
+msgid "waiting for submitting"
+msgstr "wachten op indiening"
+
+#: tracker/models.py:397 tracker/templates/tracker/export.html:34
+#: tracker/templates/tracker/export.html:35
+msgid "waiting for preapproval"
+msgstr ""
+
+#: tracker/models.py:401 tracker/templates/tracker/export.html:31
+#: tracker/templates/tracker/export.html:32
+msgid "draft"
+msgstr ""
+
+#: tracker/models.py:404 tracker/templates/tracker/export.html:30
+msgid "state"
+msgstr ""
+
+#: tracker/models.py:428 tracker/templates/tracker/admin_user_list.html:26
+msgid "E-mail"
+msgstr ""
+
+#: tracker/models.py:429 tracker/models.py:1308
+#: tracker/templates/tracker/admin_user_list.html:31
+#: tracker/templates/tracker/admin_user_list.html:34
+msgid "Other contact"
+msgstr ""
+
+#: tracker/models.py:433
+msgid "no tracker account listed"
+msgstr ""
+
+#: tracker/models.py:435
+msgid "Requester details"
+msgstr ""
+
+#: tracker/models.py:624 tracker/templates/tracker/dumpaccounts/index.html:28
+msgid "Ticket"
+msgstr "Ticket"
+
+#: tracker/models.py:625 tracker/templates/tracker/cluster_detail.html:12
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/export.html:25
+#: tracker/templates/tracker/grant_table.html:6
+#: tracker/templates/tracker/import.html:19
+#: tracker/templates/tracker/subtopic_detail.html:15
+#: tracker/templates/tracker/topic_detail.html:37
+#: tracker/templates/tracker/topic_finance.html:12
+#: tracker/templates/tracker/topic_table.html:7
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22
+#: tracker/templates/tracker/user_list.html:13
+msgid "Tickets"
+msgstr "Tickets"
+
+#: tracker/models.py:701 tracker/models.py:703
+msgid "Description shown to users who enter tickets for this subtopic"
+msgstr ""
+
+#: tracker/models.py:702 tracker/models.py:786
+msgid "form description"
+msgstr ""
+
+#: tracker/models.py:705
+msgid "Topic where this subtopic belongs"
+msgstr ""
+
+#: tracker/models.py:764 tracker/templates/tracker/index.html:24
+#: tracker/templates/tracker/ticket_common_detail.html:13
+#: tracker/templates/tracker/ticket_table.html:19
+#: tracker/templates/tracker/ticket_table.html:35
+msgid "Subtopic"
+msgstr ""
+
+#: tracker/models.py:765 tracker/templates/tracker/topic_detail.html:28
+msgid "Subtopics"
+msgstr ""
+
+#: tracker/models.py:772 tracker/views.py:589
+msgid "grant"
+msgstr ""
+
+#: tracker/models.py:773
+msgid "Grant project where this topic belongs"
+msgstr ""
+
+#: tracker/models.py:774
+msgid "open for tickets"
+msgstr ""
+
+#: tracker/models.py:775
+msgid "Is this topic open for ticket submissions from users?"
+msgstr ""
+
+#: tracker/models.py:776
+msgid "ticket media"
+msgstr ""
+
+#: tracker/models.py:777
+msgid "Does this topic track ticket media items?"
+msgstr ""
+
+#: tracker/models.py:778
+msgid "ticket expenses"
+msgstr ""
+
+#: tracker/models.py:779
+msgid "Does this topic track ticket expenses?"
+msgstr ""
+
+#: tracker/models.py:780
+msgid "ticket preexpenses"
+msgstr ""
+
+#: tracker/models.py:781
+msgid "Does this topic track preexpenses?"
+msgstr ""
+
+#: tracker/models.py:782
+msgid "require statutory declaration"
+msgstr ""
+
+#: tracker/models.py:783
+msgid "Does this topic require statutory declaration for car travelling?"
+msgstr ""
+
+#: tracker/models.py:785 tracker/models.py:870
+msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
+msgstr ""
+
+#: tracker/models.py:787
+msgid "Description shown to users who enter tickets for this topic"
+msgstr ""
+
+#: tracker/models.py:788
+msgid "topic administrator"
+msgstr ""
+
+#: tracker/models.py:789
+msgid "Selected users will have administration access to this topic."
+msgstr ""
+
+#: tracker/models.py:856 tracker/templates/tracker/dumpaccounts/index.html:11
+#: tracker/templates/tracker/index.html:23
+#: tracker/templates/tracker/ticket_common_detail.html:12
+#: tracker/templates/tracker/ticket_table.html:18
+#: tracker/templates/tracker/ticket_table.html:34
+#: tracker/templates/tracker/topic_content_acks_per_user.html:14
+#: tracker/templates/tracker/topic_finance.html:11
+#: tracker/templates/tracker/topic_table.html:5
+msgid "Topic"
+msgstr "Onderwerp"
+
+#: tracker/models.py:857 tracker/templates/tracker/export.html:61
+#: tracker/templates/tracker/export.html:212
+#: tracker/templates/tracker/import.html:26
+msgid "Topics"
+msgstr "Onderwerpen"
+
+#: tracker/models.py:866
+msgid "full name"
+msgstr "volledige naam"
+
+#: tracker/models.py:866
+msgid "Full name for headlines and such"
+msgstr ""
+
+#: tracker/models.py:867
+msgid "short name"
+msgstr "korte naam"
+
+#: tracker/models.py:867
+msgid "Shorter name for use in tables"
+msgstr ""
+
+#: tracker/models.py:868
+msgid "slug"
+msgstr ""
+
+#: tracker/models.py:868
+msgid "Shortcut for usage in URLs"
+msgstr ""
+
+#: tracker/models.py:910 tracker/templates/tracker/grant_table.html:5
+#: tracker/templates/tracker/index.html:22
+#: tracker/templates/tracker/ticket_table.html:17
+#: tracker/templates/tracker/ticket_table.html:33
+#: tracker/templates/tracker/topic_content_acks_per_user.html:13
+#: tracker/templates/tracker/topic_finance.html:10
+#: tracker/templates/tracker/topic_table.html:6
+#: tracker/templates/tracker/transaction_list.html:15
+msgid "Grant"
+msgstr ""
+
+#: tracker/models.py:911 tracker/templates/tracker/export.html:141
+#: tracker/templates/tracker/import.html:34
+msgid "Grants"
+msgstr ""
+
+#: tracker/models.py:924 tracker/models.py:952 tracker/models.py:1181
+#: tracker/models.py:1207 tracker/views.py:515
+msgid "ticket"
+msgstr ""
+
+#: tracker/models.py:925 tracker/models.py:953
+msgid "Ticket this media info belongs to"
+msgstr ""
+
+#: tracker/models.py:926
+msgid "Item description to show"
+msgstr ""
+
+#: tracker/models.py:927 tracker/models.py:940 tracker/models.py:958
+msgid "URL"
+msgstr ""
+
+#: tracker/models.py:927
+msgid "Link to media files"
+msgstr "Koppeling naar mediabestanden"
+
+#: tracker/models.py:928
+msgid "count"
+msgstr ""
+
+#: tracker/models.py:928 tracker/templates/tracker/ticket_show_media.html:45
+msgid "Number of files"
+msgstr ""
+
+#: tracker/models.py:934 tracker/models.py:935 tracker/models.py:1152
+#: tracker/models.py:1153
+msgid "Ticket media"
+msgstr ""
+
+#: tracker/models.py:940
+msgid "Link to file usage"
+msgstr ""
+
+#: tracker/models.py:941 tracker/models.py:947
+msgid "title"
+msgstr "titel"
+
+#: tracker/models.py:942
+msgid "project"
+msgstr "project"
+
+#: tracker/models.py:955
+msgid "page id"
+msgstr "pagina-id"
+
+#: tracker/models.py:956
+msgid "width"
+msgstr "breedte"
+
+#: tracker/models.py:957
+msgid "height"
+msgstr "hoogte"
+
+#: tracker/models.py:959
+msgid "cannonical title"
+msgstr ""
+
+#: tracker/models.py:1182
+msgid "Ticket this expediture belongs to"
+msgstr ""
+
+#: tracker/models.py:1183
+msgid "Description of this expediture"
+msgstr ""
+
+#: tracker/models.py:1184 tracker/models.py:1210 tracker/models.py:1366
+msgid "amount"
+msgstr ""
+
+#: tracker/models.py:1185
+msgid "Expediture amount in"
+msgstr ""
+
+#: tracker/models.py:1186 tracker/models.py:1369
+msgid "accounting info"
+msgstr ""
+
+#: tracker/models.py:1187
+msgid "Accounting info, this is editable only through admin field"
+msgstr ""
+
+#: tracker/models.py:1189 tracker/models.py:1212
+msgid "wage"
+msgstr ""
+
+#: tracker/models.py:1192 tracker/models.py:1215
+#, python-format
+msgid "%(description)s (%(amount)s %(currency)s)"
+msgstr ""
+
+#: tracker/models.py:1201
+msgid "Ticket expediture"
+msgstr ""
+
+#: tracker/models.py:1202
+msgid "Ticket expeditures"
+msgstr ""
+
+#: tracker/models.py:1208
+msgid "Ticket this preexpediture belongs to"
+msgstr ""
+
+#: tracker/models.py:1209
+msgid "Description of this preexpediture"
+msgstr ""
+
+#: tracker/models.py:1211
+msgid "Preexpediture amount in"
+msgstr ""
+
+#: tracker/models.py:1219
+msgid "Ticket preexpediture"
+msgstr ""
+
+#: tracker/models.py:1220
+msgid "Ticket preexpeditures"
+msgstr ""
+
+#: tracker/models.py:1224
+msgid "uploader"
+msgstr "uploader"
+
+#: tracker/models.py:1234 tracker/views.py:799
+msgid "We need a sane file name, such as my-invoice123.jpg"
+msgstr "We hebben een normale bestandsnaam nodig, zoals mijn-factuur123.jpg"
+
+#: tracker/models.py:1275
+msgid "Ignored acks"
+msgstr ""
+
+#: tracker/models.py:1276
+msgid "Muted notifications"
+msgstr ""
+
+#: tracker/models.py:1277
+msgid "Email language"
+msgstr ""
+
+#: tracker/models.py:1279
+msgid "Display items"
+msgstr ""
+
+#: tracker/models.py:1280
+msgid "How many items should we display in tables at once"
+msgstr ""
+
+#: tracker/models.py:1299
+msgid "Tracker user preference"
+msgstr ""
+
+#: tracker/models.py:1300
+msgid "Tracker user preferences"
+msgstr ""
+
+#: tracker/models.py:1305
+msgid "Username on mediawiki"
+msgstr "Gebruikersnaam op mediawiki"
+
+#: tracker/models.py:1306 tracker/templates/tracker/admin_user_list.html:30
+msgid "Bank account"
+msgstr "Bankrekening"
+
+#: tracker/models.py:1307
+msgid "Bank account information for money transfers"
+msgstr ""
+
+#: tracker/models.py:1309
+msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
+msgstr ""
+
+#: tracker/models.py:1310 tracker/templates/tracker/admin_user_list.html:32
+msgid "Other identification"
+msgstr ""
+
+#: tracker/models.py:1311
+msgid "Address, or other identification information, so we know who are we sending money to"
+msgstr ""
+
+#: tracker/models.py:1342
+msgid "Tracker profile"
+msgstr "Tracker-profiel"
+
+#: tracker/models.py:1343
+msgid "Tracker profiles"
+msgstr "Tracker-profielen"
+
+#: tracker/models.py:1361
+msgid "date"
+msgstr "datum"
+
+#: tracker/models.py:1362 tracker/models.py:1386
+msgid "other party"
+msgstr "andere partij"
+
+#: tracker/models.py:1363
+msgid "The other party; user who sent or received the payment"
+msgstr ""
+
+#: tracker/models.py:1364
+msgid "other party (text)"
+msgstr ""
+
+#: tracker/models.py:1365
+msgid "The other party; this text is used when user is not selected"
+msgstr ""
+
+#: tracker/models.py:1367
+msgid "Payment amount; Positive value means transaction to the user, negative is a transaction from the user"
+msgstr ""
+
+#: tracker/models.py:1368
+msgid "Description of this transaction"
+msgstr "Beschrijving van deze transactie"
+
+#: tracker/models.py:1369
+#: tracker/templates/feeds/transaction_description.html:6
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1730
+msgid "Accounting info"
+msgstr ""
+
+#: tracker/models.py:1370
+msgid "related tickets"
+msgstr "gerelateerde tickets"
+
+#: tracker/models.py:1371
+msgid "Tickets this trackaction is related to"
+msgstr ""
+
+#: tracker/models.py:1413
+msgid "Transaction"
+msgstr ""
+
+#: tracker/models.py:1414 tracker/templates/tracker/cluster_detail.html:18
+#: tracker/templates/tracker/ticket_detail.html:30
+#: tracker/templates/tracker/user_detail.html:19
+msgid "Transactions"
+msgstr "Transacties"
+
+#: tracker/models.py:1440
+msgid "comment"
+msgstr ""
+
+#: tracker/models.py:1564
+#, python-format
+msgid "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> by user <tt>%(user)s</tt>"
+msgstr ""
+
+#: tracker/models.py:1595
+#, python-format
+msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
+msgstr ""
+
+#: tracker/models.py:1611
+#, python-format
+msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1631
+#, python-format
+msgid "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1634
+#, python-format
+msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1637
+#, python-format
+msgid "User <tt>%(user)s</tt> changed link to report of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1641
+#, python-format
+msgid "User <tt>%(user)s</tt> changed requested deposit of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1651
+#, python-format
+msgid "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1663
+#, python-format
+msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
+msgstr ""
+
+#: tracker/models.py:1680
+#, python-format
+msgid "User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1694
+#, python-format
+msgid "User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+msgstr ""
+
+#: tracker/models.py:1725
+#, python-format
+msgid "User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1747
+#, python-format
+msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
+msgstr ""
+
+#: tracker/models.py:1750
+#, python-format
+msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
+msgstr ""
+
+#: tracker/models.py:1753
+#, python-format
+msgid "User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1770
+#, python-format
+msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1791
+#, python-format
+msgid "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1814
+#, python-format
+msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as paid."
+msgstr ""
+
+#: tracker/models.py:1817
+#, python-format
+msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not paid."
+msgstr ""
+
+#: tracker/models.py:1822
+#, python-format
+msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
+msgstr ""
+
+#: tracker/models.py:1825
+#, python-format
+msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
+msgstr ""
+
+#: tracker/models.py:1832
+#, python-format
+msgid "User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1849
+#, python-format
+msgid "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1863
+#, python-format
+msgid "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1866
+#, python-format
+msgid "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1880
+#, python-format
+msgid "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1893 tracker/models.py:1913
+msgid "no description"
+msgstr ""
+
+#: tracker/models.py:1897
+#, python-format
+msgid "User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+msgstr ""
+
+#: tracker/models.py:1899
+#, python-format
+msgid "User <tt>%(user)s</tt> changed document <tt>%(document_filename)s</tt> assigned to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr ""
+
+#: tracker/models.py:1916
+#, python-format
+msgid "User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
+msgid "REMOVE"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
+msgid "Really remove?"
+msgstr "Echt verwijderen?"
+
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
+msgid "YES"
+msgstr "JA"
+
+#: tracker/templates/admin/tracker/ticket/ack_norating_error.html:2
+msgid "You must fill rating percentage before you will be able to accept the ticket."
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/ack_noreport_error.html:2
+msgid "You cannot accept ticket when a report is mandatory and no report was given"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/add_ack.html:3
+msgid "add new ack"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:20
+#: tracker/templates/admin/tracker/ticket/tabular.html:76
+#: tracker/templates/admin/tracker/ticket/tabular.html:86
+#: tracker/templates/tracker/dumpaccounts/index.html:17
+#: tracker/templates/tracker/grant_table.html:34
+#: tracker/templates/tracker/topic_table.html:38
+#: tracker/templates/tracker/user_list.html:27
+msgid "Total"
+msgstr "Totaal"
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:39
+#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1728
+#: tracker/views.py:1737 tracker/views.py:1747
+msgid "Ticket ID"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:42
+msgid "Approvals"
+msgstr "Goedkeuringen"
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:46
+msgid "ADD ACK"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:66
+msgid "Ticket documents"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:69
+#: tracker/templates/tracker/edit_ticket.html:20
+#: tracker/templates/tracker/ticket_detail.html:19
+msgid "edit ticket documents"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:76
+msgid "There are no documents uploaded for this ticket."
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:79
+#: tracker/templates/tracker/ticket_detail.html:64
+#, python-format
+msgid "There is 1 document uploaded."
+msgid_plural "There are %(counter)s documents uploaded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:20
+msgid "Delete?"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:34
+#: tracker/templates/tracker/admin_index_override.html:27
+msgid "Change"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:34
+msgid "View"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:36
+msgid "View on site"
+msgstr ""
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:95
+#: tracker/templates/tracker/dumpaccounts/index.html:28
+msgid "Accepted"
+msgstr ""
+
+#: tracker/templates/feeds/ticket_description.html:2
+msgid "status"
+msgstr "status"
+
+#: tracker/templates/feeds/transaction_description.html:2
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22
+msgid "Date"
+msgstr "Datum"
+
+#: tracker/templates/feeds/transaction_description.html:3
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_list.html:13
+msgid "User"
+msgstr "Gebruiker"
+
+#: tracker/templates/feeds/transaction_description.html:4
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/export.html:153
+#: tracker/templates/tracker/export.html:183
+#: tracker/templates/tracker/ticket_common_detail.html:49
+#: tracker/templates/tracker/ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22
+msgid "Amount"
+msgstr ""
+
+#: tracker/templates/feeds/transaction_description.html:5
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_common_detail.html:30
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1709
+#: tracker/views.py:1714 tracker/views.py:1719 tracker/views.py:1728
+#: tracker/views.py:1737
+msgid "Description"
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:4
+msgid "List of new tickets"
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:13
+msgid "List of deleted tickets"
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:22
+msgid "The state of a watched ticket was changed"
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:31
+msgid "Supervisor notes on a watched ticket were changed"
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:40
+msgid "Changes were made to a watched ticket"
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:49
+msgid "The preexpenditures of a watched ticket were changed"
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:58
+msgid "The expenditures of a watched ticket were changed"
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:67
+msgid "Medias of a watched ticket"
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:76
+msgid "Documents of a watched ticket were changed"
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:85
+msgid "A comment was added to a watched ticket"
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:94
+msgid "List of tickets pending preapproval"
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:95
+#, python-format
+msgid "These tickets may be ready for preapproval. Before you preapprove them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:104
+msgid "List of tickets pending approval"
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:105
+#, python-format
+msgid "These tickets may be ready for approval. Before you approve them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
+msgstr ""
+
+#: tracker/templates/notification/notification_html.html:114
+msgid "Tracker notifications"
+msgstr "Tracker-meldingen"
+
+#: tracker/templates/notification/notification_subject.txt:1
+msgid "List of changes of watched tickets"
+msgstr ""
+
+#: tracker/templates/tracker/admin_index_override.html:10
+#, python-format
+msgid "Models available in the %(name)s application."
+msgstr ""
+
+#: tracker/templates/tracker/admin_index_override.html:11
+#, python-format
+msgid "%(name)s"
+msgstr ""
+
+#: tracker/templates/tracker/admin_index_override.html:21
+#: tracker/templates/tracker/ticketack_add.html:4
+#: tracker/templates/tracker/ticketack_add.html:8
+msgid "Add"
+msgstr ""
+
+#: tracker/templates/tracker/admin_index_override.html:39
+#: tracker/templates/tracker/user_list.html:4
+#: tracker/templates/tracker/user_list.html:8
+msgid "User list"
+msgstr ""
+
+#: tracker/templates/tracker/admin_index_override.html:40
+#: tracker/templates/tracker/admin_user_list.html:16
+msgid "Tracker users"
+msgstr ""
+
+#: tracker/templates/tracker/admin_index_override.html:45
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: tracker/templates/tracker/admin_user_list.html:8
+#: tracker/templates/tracker/export.html:67
+#: tracker/templates/tracker/export.html:274
+#: tracker/templates/tracker/import.html:60
+msgid "Users"
+msgstr "Gebruikers"
+
+#: tracker/templates/tracker/admin_user_list.html:13
+msgid "Home"
+msgstr ""
+
+#: tracker/templates/tracker/admin_user_list.html:25
+#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1742
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1742
+msgid "First name"
+msgstr ""
+
+#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1742
+msgid "Last name"
+msgstr ""
+
+#: tracker/templates/tracker/cluster_detail.html:4
+#: tracker/templates/tracker/cluster_detail.html:8
+#, python-format
+msgid "Cluster %(cid)s"
+msgstr ""
+
+#: tracker/templates/tracker/cluster_detail.html:7
+#: tracker/templates/tracker/edit_ticket.html:17
+#: tracker/templates/tracker/edit_ticket_docs.html:7
+#: tracker/templates/tracker/fill_details.html:7
+#: tracker/templates/tracker/generic/create_ticket.html:17
+#: tracker/templates/tracker/generic/ticket_list.html:12
+#: tracker/templates/tracker/generic/topic_list.html:7
+#: tracker/templates/tracker/grant_detail.html:9
+#: tracker/templates/tracker/grant_list.html:7
+#: tracker/templates/tracker/index.html:12
+#: tracker/templates/tracker/preferences.html:11
+#: tracker/templates/tracker/subtopic_detail.html:7
+#: tracker/templates/tracker/ticket_detail.html:12
+#: tracker/templates/tracker/ticket_media.html:8
+#: tracker/templates/tracker/ticket_show_media.html:8
+#: tracker/templates/tracker/ticketack_add.html:7
+#: tracker/templates/tracker/ticketack_confirm_delete.html:7
+#: tracker/templates/tracker/topic_content_acks_per_user.html:7
+#: tracker/templates/tracker/topic_detail.html:14
+#: tracker/templates/tracker/topic_finance.html:7
+#: tracker/templates/tracker/transaction_list.html:11
+#: tracker/templates/tracker/upload_ticket_doc.html:24
+#: tracker/templates/tracker/user_deactivate.html:8
+#: tracker/templates/tracker/user_detail.html:8
+#: tracker/templates/tracker/user_details_change.html:7
+#: tracker/templates/tracker/user_list.html:7
+#: tracker/templates/tracker/watch.html:8
+msgid "index"
+msgstr ""
+
+#: tracker/templates/tracker/cluster_detail.html:7
+#: tracker/templates/tracker/generic/ticket_list.html:12
+msgid "transactions"
+msgstr ""
+
+#: tracker/templates/tracker/cluster_detail.html:10
+#: tracker/templates/tracker/ticket_detail.html:31
+msgid "Payment status"
+msgstr ""
+
+#: tracker/templates/tracker/cluster_detail.html:14
+msgid "Total tickets"
+msgstr ""
+
+#: tracker/templates/tracker/cluster_detail.html:26
+msgid "Total transactions"
+msgstr ""
+
+#: tracker/templates/tracker/connect_account.html:4
+msgid "Connected account required"
+msgstr ""
+
+#: tracker/templates/tracker/connect_account.html:7
+msgid "Permission denied"
+msgstr ""
+
+#: tracker/templates/tracker/connect_account.html:8
+msgid "You need to connect Tracker account with your Wikimedia account. To do so, click on the button below."
+msgstr ""
+
+#: tracker/templates/tracker/connect_account.html:9
+#: tracker/templates/tracker/preferences.html:85
+msgid "Link Wikimedia account"
+msgstr ""
+
+#: tracker/templates/tracker/dumpaccounts/index.html:4
+#: tracker/templates/tracker/dumpaccounts/index.html:7
+msgid "Overview of"
+msgstr ""
+
+#: tracker/templates/tracker/dumpaccounts/index.html:8
+#: tracker/templates/tracker/dumpaccounts/ticket_detail.html:9
+msgid "Generated on"
+msgstr "Gegenereerd op"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:11
+msgid "Unpaid"
+msgstr "Niet betaald"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:11
+#: tracker/templates/tracker/export.html:207
+msgid "Paid"
+msgstr "Betaald"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:11
+msgid "Overpaid"
+msgstr "Te veel betaald"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:28
+#: tracker/templates/tracker/index.html:21
+#: tracker/templates/tracker/ticket_table.html:14
+#: tracker/templates/tracker/ticket_table.html:32
+msgid "ID"
+msgstr "ID"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:28
+#: tracker/templates/tracker/ticket_table.html:26
+msgid "Status"
+msgstr "Status"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:28
+msgid "Payment"
+msgstr "Betaling"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:36
+msgid "There are no tickets in this topic."
+msgstr "Er zijn geen tickets in dit onderwerp."
+
+#: tracker/templates/tracker/dumpaccounts/ticket_detail.html:13
+#: tracker/templates/tracker/ticket_detail.html:49
+msgid "Documents"
+msgstr "Documenten"
+
+#: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
+msgid "There aren't any documents here."
+msgstr "Er zijn hier geen documenten."
+
+#: tracker/templates/tracker/edit_ticket.html:4
+#: tracker/templates/tracker/edit_ticket.html:18
+msgid "Edit"
+msgstr "Bewerken"
+
+#: tracker/templates/tracker/edit_ticket.html:20
+#: tracker/templates/tracker/ticket_detail.html:17
+msgid "copy preexpeditures to expeditures"
+msgstr ""
+
+#: tracker/templates/tracker/edit_ticket.html:24
+#: tracker/templates/tracker/edit_ticket_docs.html:16
+msgid "save"
+msgstr ""
+
+#: tracker/templates/tracker/edit_ticket_docs.html:4
+#: tracker/templates/tracker/edit_ticket_docs.html:8
+msgid "Edit documents"
+msgstr "Documenten bewerken"
+
+#: tracker/templates/tracker/edit_ticket_docs.html:7
+#: tracker/templates/tracker/upload_ticket_doc.html:24
+msgid "edit"
+msgstr "bewerken"
+
+#: tracker/templates/tracker/edit_ticket_docs.html:10
+msgid "upload new document"
+msgstr "nieuw document uploaden"
+
+#: tracker/templates/tracker/edit_ticket_docs.html:14
+msgid "document"
+msgstr "document"
+
+#: tracker/templates/tracker/edit_ticket_docs.html:17
+#: tracker/templates/tracker/ticket_form.html:33
+#: tracker/templates/tracker/upload_ticket_doc.html:35
+#, python-format
+msgid "Fields marked with %(mark)s are required."
+msgstr ""
+
+#: tracker/templates/tracker/export.html:12
+#: tracker/templates/tracker/export.html:15
+#: tracker/templates/tracker/generic/ticket_list.html:35
+#: tracker/templates/tracker/index.html:42
+msgid "Export"
+msgstr "Export"
+
+#: tracker/templates/tracker/export.html:18
+msgid "Only filters with at least one checked checkbox are applied. You can either check all checkboxes or none of them, it's the same."
+msgstr ""
+
+#: tracker/templates/tracker/export.html:59
+msgid "custom"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:78
+#: tracker/templates/tracker/export.html:149
+#: tracker/templates/tracker/index.html:26
+#: tracker/templates/tracker/ticket_common_detail.html:47
+#: tracker/templates/tracker/ticket_form.html:20
+#: tracker/templates/tracker/ticket_table.html:22
+#: tracker/templates/tracker/ticket_table.html:37
+msgid "Preexpeditures"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:82
+#: tracker/templates/tracker/export.html:102
+#: tracker/templates/tracker/export.html:122
+#: tracker/templates/tracker/export.html:157
+#: tracker/templates/tracker/export.html:187
+#: tracker/templates/tracker/export.html:226
+#: tracker/templates/tracker/export.html:255
+#: tracker/templates/tracker/export.html:282
+#: tracker/templates/tracker/export.html:301
+#: tracker/templates/tracker/export.html:320
+msgid "Larger or equal"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:90
+#: tracker/templates/tracker/export.html:110
+#: tracker/templates/tracker/export.html:130
+#: tracker/templates/tracker/export.html:165
+#: tracker/templates/tracker/export.html:195
+#: tracker/templates/tracker/export.html:234
+#: tracker/templates/tracker/export.html:263
+#: tracker/templates/tracker/export.html:290
+#: tracker/templates/tracker/export.html:309
+#: tracker/templates/tracker/export.html:328
+msgid "Smaller or equal"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:98
+#: tracker/templates/tracker/export.html:179
+#: tracker/templates/tracker/index.html:27
+#: tracker/templates/tracker/ticket_common_detail.html:62
+#: tracker/templates/tracker/ticket_form.html:25
+#: tracker/templates/tracker/ticket_table.html:23
+#: tracker/templates/tracker/ticket_table.html:38
+msgid "Expeditures"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:118
+#: tracker/templates/tracker/index.html:28
+#: tracker/templates/tracker/ticket_common_detail.html:72
+#: tracker/templates/tracker/ticket_table.html:24
+#: tracker/templates/tracker/ticket_table.html:39
+#: tracker/templates/tracker/user_list.html:13
+msgid "Accepted expeditures"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:145
+msgid "You can't filter grants by any fields"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:174
+#: tracker/templates/tracker/export.html:204
+msgid "Wage"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:216
+msgid "Supervisors"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:222
+msgid "Number of tickets"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:242
+msgid "Number of tickets in certain payment state"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:245
+msgid "N/A"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:278
+msgid "Number of tickets created"
+msgstr "Aantal aangemaakte tickets"
+
+#: tracker/templates/tracker/export.html:297
+msgid "Amount of accepted expeditures"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:316
+msgid "Amount of paid expeditures"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:338
+msgid "normal"
+msgstr ""
+
+#: tracker/templates/tracker/export.html:343
+msgid "staff"
+msgstr "personeel"
+
+#: tracker/templates/tracker/export.html:348
+msgid "superuser"
+msgstr "supergebruiker"
+
+#: tracker/templates/tracker/fill_details.html:4
+#: tracker/templates/tracker/fill_details.html:9
+msgid "My personal information"
+msgstr "Mijn persoonlijke gegevens"
+
+#: tracker/templates/tracker/fill_details.html:10
+msgid "To use tracker for expenses, we need a bit more information about you first."
+msgstr ""
+
+#: tracker/templates/tracker/fill_details.html:21
+msgid "save & continue"
+msgstr "opslaan en doorgaan"
+
+#: tracker/templates/tracker/fill_details.html:22
+msgid "skip"
+msgstr "overslaan"
+
+#: tracker/templates/tracker/fill_details.html:25
+#: tracker/templates/tracker/user_details_change.html:23
+#: users/templates/users/register.html:28
+msgid "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them."
+msgstr ""
+
+#: tracker/templates/tracker/generic/create_ticket.html:4
+#: tracker/templates/tracker/generic/create_ticket.html:18
+msgid "Create ticket"
+msgstr ""
+
+#: tracker/templates/tracker/generic/create_ticket.html:23
+msgid "You'll be able to edit everything you've filled in even after submitting the form."
+msgstr ""
+
+#: tracker/templates/tracker/generic/ticket_list.html:4
+#: tracker/templates/tracker/generic/ticket_list.html:15
+#: tracker/templates/tracker/index.html:3
+#: tracker/templates/tracker/index.html:15
+msgid "Ticket list"
+msgstr "Ticketlijst"
+
+#: tracker/templates/tracker/generic/ticket_list.html:12
+#: tracker/templates/tracker/index.html:12
+#: tracker/templates/tracker/subtopic_detail.html:7
+#: tracker/templates/tracker/ticket_detail.html:12
+#: tracker/templates/tracker/topic_content_acks_per_user.html:7
+#: tracker/templates/tracker/topic_detail.html:14
+#: tracker/templates/tracker/topic_finance.html:7
+msgid "topics"
+msgstr "onderwerpen"
+
+#: tracker/templates/tracker/generic/ticket_list.html:12
+#: tracker/templates/tracker/index.html:12
+#: tracker/templates/tracker/user_detail.html:8
+msgid "users"
+msgstr "gebruikers"
+
+#: tracker/templates/tracker/generic/ticket_list.html:13
+#: tracker/templates/tracker/generic/ticket_list.html:32
+#: tracker/templates/tracker/index.html:13
+#: tracker/templates/tracker/user_detail.html:9
+msgid "Create new ticket"
+msgstr "Nieuw ticket aanmaken"
+
+#: tracker/templates/tracker/generic/ticket_list.html:22
+#: tracker/templates/tracker/user_detail.html:15
+msgid "No tickets available."
+msgstr "Geen tickets beschikbaar."
+
+#: tracker/templates/tracker/generic/ticket_list.html:33
+#: tracker/templates/tracker/import.html:4
+#: tracker/templates/tracker/import.html:7
+#: tracker/templates/tracker/index.html:39
+msgid "Import"
+msgstr "Importeren"
+
+#: tracker/templates/tracker/generic/topic_list.html:4
+#: tracker/templates/tracker/generic/topic_list.html:8
+msgid "Topic list"
+msgstr "Onderwerpenlijst"
+
+#: tracker/templates/tracker/generic/topic_list.html:13
+#: tracker/templates/tracker/grant_list.html:12
+msgid "Topics closed for new tickets"
+msgstr ""
+
+#: tracker/templates/tracker/generic/topic_list.html:18
+msgid "topic finance"
+msgstr ""
+
+#: tracker/templates/tracker/generic/topic_list.html:19
+msgid "topic ack overview"
+msgstr ""
+
+#: tracker/templates/tracker/grant_detail.html:9
+#: tracker/templates/tracker/index.html:12
+msgid "grants"
+msgstr "subsidies"
+
+#: tracker/templates/tracker/grant_detail.html:11
+#: tracker/templates/tracker/ticket_detail.html:21
+#: tracker/templates/tracker/topic_detail.html:25
+msgid "watch settings"
+msgstr ""
+
+#: tracker/templates/tracker/grant_list.html:4
+#: tracker/templates/tracker/grant_list.html:8
+msgid "Grant list"
+msgstr ""
+
+#: tracker/templates/tracker/grant_table.html:7
+#: tracker/templates/tracker/topic_table.html:8
+msgid "Paid wages"
+msgstr ""
+
+#: tracker/templates/tracker/grant_table.html:8
+#: tracker/templates/tracker/topic_table.html:9
+msgid "Paid together"
+msgstr ""
+
+#: tracker/templates/tracker/grant_table.html:9
+#: tracker/templates/tracker/topic_table.html:10
+msgid "Tickets per payment status"
+msgstr ""
+
+#: tracker/templates/tracker/grant_table.html:11
+#: tracker/templates/tracker/topic_table.html:13
+msgid "no payment required"
+msgstr ""
+
+#: tracker/templates/tracker/grant_table.html:49
+#: tracker/templates/tracker/topic_table.html:53
+msgid "No topics available."
+msgstr ""
+
+#: tracker/templates/tracker/import.html:10
+#, python-format
+msgid " Be warned that you need permission to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows. If you'll submit a file CSV with more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows, only the first %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s will be processed. If you really need to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s of objects, please contact the systemadmin."
+msgstr ""
+
+#: tracker/templates/tracker/import.html:14
+msgid "What kind of objects are you importing?"
+msgstr ""
+
+#: tracker/templates/tracker/import.html:19
+#: tracker/templates/tracker/import.html:26
+#: tracker/templates/tracker/import.html:34
+#: tracker/templates/tracker/import.html:41
+#: tracker/templates/tracker/import.html:47
+#: tracker/templates/tracker/import.html:53
+#: tracker/templates/tracker/import.html:60
+msgid "example file"
+msgstr ""
+
+#: tracker/templates/tracker/import.html:41
+msgid "Preexpenses"
+msgstr ""
+
+#: tracker/templates/tracker/import.html:47
+msgid "Expenses"
+msgstr ""
+
+#: tracker/templates/tracker/import.html:53
+msgid "Media"
+msgstr ""
+
+#: tracker/templates/tracker/index.html:21
+#: tracker/templates/tracker/ticket_common_detail.html:10
+#: tracker/templates/tracker/ticket_table.html:15
+#: tracker/templates/tracker/ticket_table.html:32
+msgid "Event date"
+msgstr ""
+
+#: tracker/templates/tracker/index.html:21
+#: tracker/templates/tracker/ticket_table.html:16
+#: tracker/templates/tracker/ticket_table.html:32
+msgid "Name"
+msgstr "Naam"
+
+#: tracker/templates/tracker/index.html:25
+#: tracker/templates/tracker/ticket_common_detail.html:11
+#: tracker/templates/tracker/ticket_table.html:20
+#: tracker/templates/tracker/ticket_table.html:36
+msgid "Requested by"
+msgstr ""
+
+#: tracker/templates/tracker/index.html:29
+#: tracker/templates/tracker/ticket_common_detail.html:73
+#: tracker/templates/tracker/ticket_table.html:25
+#: tracker/templates/tracker/ticket_table.html:40
+msgid "Paid expeditures"
+msgstr ""
+
+#: tracker/templates/tracker/index.html:30
+#: tracker/templates/tracker/ticket_common_detail.html:14
+#: tracker/templates/tracker/ticket_table.html:41
+msgid "State"
+msgstr ""
+
+#: tracker/templates/tracker/index.html:31
+#: tracker/templates/tracker/ticket_common_detail.html:9
+#: tracker/templates/tracker/ticket_table.html:27
+#: tracker/templates/tracker/ticket_table.html:42
+msgid "Last changed"
+msgstr ""
+
+#: tracker/templates/tracker/paginator.html:4
+msgid "previous"
+msgstr ""
+
+#: tracker/templates/tracker/paginator.html:8
+msgid "next"
+msgstr "volgende"
+
+#: tracker/templates/tracker/preferences.html:4
+#: tracker/templates/tracker/preferences.html:14
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+#: tracker/templates/tracker/preferences.html:18
+msgid "Mute notifications"
+msgstr "Meldingen dempen"
+
+#: tracker/templates/tracker/preferences.html:38
+msgid "Ignore ack types"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:51
+msgid "Other"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:59
+#: tracker/templates/tracker/ticket_form.html:31
+#: tracker/templates/tracker/user_details_change.html:21
+#: tracker/templates/tracker/watch.html:32
+msgid "Save"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:62
+msgid "Wikimedia account"
+msgstr "Wikimedia-account"
+
+#: tracker/templates/tracker/preferences.html:66
+msgid "Your account is connected to Wikimedia account"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:76
+msgid "Disconnect Wikimedia account"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:80
+msgid "In order to disconnect your Wikimedia account, you first need to"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:80
+#: tracker/templates/tracker/preferences.html:106
+msgid "set a password."
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:88
+msgid "Chapter account"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:92
+msgid "Your account is connected to your chapter account"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:102
+msgid "Disconnect chapter account"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:106
+msgid "In order to disconnect your chapter account, you first need to"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:111
+msgid "Link chapter account"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:114
+msgid "Account actions"
+msgstr ""
+
+#: tracker/templates/tracker/preferences.html:116
+#: tracker/templates/tracker/user_deactivate.html:4
+#: tracker/templates/tracker/user_deactivate.html:11
+msgid "Deactivate account"
+msgstr ""
+
+#: tracker/templates/tracker/sign_ticket.html:4
+#: tracker/templates/tracker/sign_ticket.html:7
+msgid "Add statutory declaration to"
+msgstr ""
+
+#: tracker/templates/tracker/sign_ticket.html:13
+#: tracker/templates/tracker/ticketack_add.html:21
+#: tracker/templates/tracker/ticketack_confirm_delete.html:16
+msgid "Submit"
+msgstr ""
+
+#: tracker/templates/tracker/subtopic_detail.html:10
+#: tracker/templates/tracker/topic_detail.html:19
+msgid "add ticket"
+msgstr ""
+
+#: tracker/templates/tracker/subtopic_detail.html:16
+msgid "Total for this subtopic"
+msgstr ""
+
+#: tracker/templates/tracker/tabular_formset.html:12
+msgid "delete"
+msgstr ""
+
+#: tracker/templates/tracker/tabular_formset.html:21
+msgid "Delete the item"
+msgstr ""
+
+#: tracker/templates/tracker/tabular_formset.html:91
+#, python-format
+msgid "Add another %(formset_item_name)s"
+msgstr ""
+
+#: tracker/templates/tracker/tabular_formset.html:97
+#: tracker/templates/tracker/ticketack_confirm_delete.html:4
+#: tracker/templates/tracker/ticketack_confirm_delete.html:8
+msgid "Remove"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:8
+#: tracker/templates/tracker/ticket_common_detail.html:52
+#: tracker/templates/tracker/ticket_common_detail.html:67
+msgid "Created"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:10
+msgid "unset"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:15
+#: tracker/templates/tracker/ticket_common_detail.html:52
+msgid "Yes"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:15
+#: tracker/templates/tracker/ticket_common_detail.html:52
+msgid "No"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:16
+msgid "Report URL"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:16
+msgid "No report filled"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:18
+msgid "Deposit"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:19
+msgid "Event URL"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:20
+msgid "Rating percentage"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:22
+msgid "remove"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:25
+#: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:15
+msgid "Confirm"
+msgstr "Bevestigen"
+
+#: tracker/templates/tracker/ticket_common_detail.html:33
+msgid "Supervisor notes"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:36
+msgid "Media (old)"
+msgstr "Media (oud)"
+
+#: tracker/templates/tracker/ticket_common_detail.html:37
+msgid "Number of objects"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:38
+msgid "Number of media files"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:49
+#: tracker/templates/tracker/ticket_common_detail.html:64
+msgid "Item"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:49
+#: tracker/templates/tracker/ticket_common_detail.html:64
+msgid "Wage?"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:56
+msgid "Total preexpeditures"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:64
+msgid "Paid?"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:67
+msgid "Yes,No"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_common_detail.html:71
+msgid "Total expeditures"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:4
+msgid "Copying preexpeditures"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:7
+msgid "Are you sure?"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:9
+#, python-format
+msgid "\n	You are going to copy preexpeditures to expeditures for ticket <a href=\"%(ticket.get_absolure_url)s\">%(ticket)s</a>. Are you sure you want to do so?\n	"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_detail.html:16
+msgid "edit ticket"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_detail.html:18
+msgid "edit in admin"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_detail.html:20
+msgid "duplicate"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_detail.html:22
+msgid "add yourself as a driver"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_detail.html:23
+msgid "show media"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_detail.html:24
+msgid "manage media"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_detail.html:31
+#, python-format
+msgid "part of <a href=\"%(c_link)s\">cluster %(c_id)s</a>: total tickets %(total_tickets)s&nbsp;%(cr)s, total transactions %(total_transactions)s&nbsp;%(cr)s"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_detail.html:41
+msgid "Associated transactions total"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_detail.html:65
+msgid "As you are not an administrator, you can see only documents you uploaded below."
+msgstr ""
+
+#: tracker/templates/tracker/ticket_detail.html:78
+#: tracker/templates/tracker/ticket_detail.html:82
+#: tracker/templates/tracker/topic_detail.html:43
+#: tracker/templates/tracker/topic_detail.html:46
+msgid "Comments"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_detail.html:83
+#: tracker/templates/tracker/topic_detail.html:47
+msgid "There are no comments yet."
+msgstr ""
+
+#: tracker/templates/tracker/ticket_detail.html:90
+#: tracker/templates/tracker/ticket_detail.html:92
+#: tracker/templates/tracker/topic_detail.html:52
+#: tracker/templates/tracker/topic_detail.html:54
+msgid "Add comment"
+msgstr "Opmerking toevoegen"
+
+#: tracker/templates/tracker/ticket_form.html:20
+msgid "preexpediture"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_form.html:25
+msgid "expediture"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_form.html:31
+msgid "submit"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:4
+msgid "Manage media for"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:9
+msgid "Add new media"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:13
+msgid "Find by"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:16
+#: tracker/templates/tracker/ticket_media.html:25
+msgid "MediaWiki username"
+msgstr "MediaWiki-gebruikersnaam"
+
+#: tracker/templates/tracker/ticket_media.html:21
+msgid "Filename prefix"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:30
+msgid "Number of images to fetch"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:34
+msgid "Category to filter by"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:41
+msgid "Search"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:45
+msgid "To select more images at once, select the first one, press Shift, and select the last one."
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:47
+msgid "Select all"
+msgstr "Alles selecteren"
+
+#: tracker/templates/tracker/ticket_media.html:48
+msgid "Deselect all"
+msgstr "Alles deselecteren"
+
+#: tracker/templates/tracker/ticket_media.html:49
+msgid "Invert selection"
+msgstr "Selectie omkeren"
+
+#: tracker/templates/tracker/ticket_media.html:62
+msgid "Load more"
+msgstr "Meer laden"
+
+#: tracker/templates/tracker/ticket_media.html:63
+msgid "Loading..."
+msgstr "Bezig met laden…"
+
+#: tracker/templates/tracker/ticket_media.html:68
+msgid "Choose selected photos"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:71
+msgid "Remove existing media"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:72
+msgid "It can take up to five minutes for the images you added to show here."
+msgstr ""
+
+#: tracker/templates/tracker/ticket_media.html:80
+msgid "Delete selected photos"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_show_media.html:3
+msgid "Show media for"
+msgstr "Media weergeven voor"
+
+#: tracker/templates/tracker/ticket_show_media.html:9
+msgid "List of linked media"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_show_media.html:10
+msgid "Last updated"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_show_media.html:10
+msgid "update"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_show_media.html:11
+msgid "Page will be updated within 24 hours."
+msgstr ""
+
+#: tracker/templates/tracker/ticket_show_media.html:15
+msgid "File name"
+msgstr "Bestandsnaam"
+
+#: tracker/templates/tracker/ticket_show_media.html:16
+msgid "Dimension"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_show_media.html:17
+msgid "Categories"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_show_media.html:18
+msgid "Used in"
+msgstr "Gebruikt in"
+
+#: tracker/templates/tracker/ticket_show_media.html:25
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: tracker/templates/tracker/ticket_show_media.html:49
+msgid "Number of usages"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_show_media.html:53
+msgid "Number of Wikidata items"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_show_media.html:57
+msgid "Number of unique Wikidata items"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_show_media.html:63
+msgid "Photos per category"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_show_media.html:67
+msgid "Category"
+msgstr "Categorie"
+
+#: tracker/templates/tracker/ticket_show_media.html:68
+msgid "Number"
+msgstr ""
+
+#: tracker/templates/tracker/ticket_table.html:21
+#: tracker/templates/tracker/user_list.html:13
+msgid "Media count"
+msgstr ""
+
+#: tracker/templates/tracker/ticketack_add.html:7
+#: tracker/templates/tracker/ticketack_confirm_delete.html:7
+msgid "confirmations"
+msgstr ""
+
+#: tracker/templates/tracker/ticketack_add.html:26
+#: tracker/templates/tracker/ticketack_confirm_delete.html:17
+msgid "back to ticket"
+msgstr ""
+
+#: tracker/templates/tracker/ticketack_confirm_delete.html:11
+msgid "Added"
+msgstr "Toegevoegd"
+
+#: tracker/templates/tracker/ticketack_confirm_delete.html:12
+msgid "Added by"
+msgstr "Toegevoegd door"
+
+#: tracker/templates/tracker/topic_content_acks_per_user.html:4
+#: tracker/templates/tracker/topic_content_acks_per_user.html:8
+msgid "Topic ack overview"
+msgstr ""
+
+#: tracker/templates/tracker/topic_content_acks_per_user.html:12
+msgid "Supervisor"
+msgstr ""
+
+#: tracker/templates/tracker/topic_content_acks_per_user.html:15
+msgid "Ack count"
+msgstr ""
+
+#: tracker/templates/tracker/topic_content_acks_per_user.html:27
+msgid "download csv"
+msgstr ""
+
+#: tracker/templates/tracker/topic_detail.html:19
+msgid "Topic is open for new tickets"
+msgstr ""
+
+#: tracker/templates/tracker/topic_detail.html:22
+msgid "Topic administrators"
+msgstr ""
+
+#: tracker/templates/tracker/topic_detail.html:22
+msgid "Topic administrator"
+msgstr ""
+
+#: tracker/templates/tracker/topic_detail.html:38
+msgid "Total for this topic"
+msgstr ""
+
+#: tracker/templates/tracker/topic_finance.html:4
+#: tracker/templates/tracker/topic_finance.html:8
+msgid "Topic finance"
+msgstr ""
+
+#: tracker/templates/tracker/topic_finance.html:13
+msgid "Amounts per payment status"
+msgstr ""
+
+#: tracker/templates/tracker/topic_finance.html:34
+#, python-format
+msgid "Total %(gname)s"
+msgstr ""
+
+#: tracker/templates/tracker/topic_finance.html:44
+msgid "Marked topics involve partial payments that have no clear relation to topic, and have been split equally among possible candidates."
+msgstr ""
+
+#: tracker/templates/tracker/topic_table.html:11
+msgid "Administrators"
+msgstr "Beheerders"
+
+#: tracker/templates/tracker/transaction_list.html:4
+#: tracker/templates/tracker/transaction_list.html:12
+msgid "Transaction list"
+msgstr "Transactielijst"
+
+#: tracker/templates/tracker/transaction_list.html:7
+msgid "Latest transactions"
+msgstr "Laatste transacties"
+
+#: tracker/templates/tracker/transaction_list.html:22
+#: tracker/templates/tracker/user_detail.html:31
+msgid "Transactions total"
+msgstr "Transacties totaal"
+
+#: tracker/templates/tracker/transaction_list.html:24
+msgid "No transactions available."
+msgstr "Geen transacties beschikbaar."
+
+#: tracker/templates/tracker/transaction_list.html:26
+msgid "download as csv"
+msgstr "downloaden als csv"
+
+#: tracker/templates/tracker/upload_ticket_doc.html:21
+#: tracker/templates/tracker/upload_ticket_doc.html:25
+msgid "Upload document"
+msgstr "Document uploaden"
+
+#: tracker/templates/tracker/upload_ticket_doc.html:24
+msgid "documents"
+msgstr "documenten"
+
+#: tracker/templates/tracker/upload_ticket_doc.html:34
+msgid "upload"
+msgstr ""
+
+#: tracker/templates/tracker/upload_ticket_doc.html:34
+msgid "upload and add another"
+msgstr "uploaden en nog een toevoegen"
+
+#: tracker/templates/tracker/upload_ticket_doc.html:35
+msgid "This document, including its file name and description, will be visible only to the ticket owner and specially privileged users."
+msgstr ""
+
+#: tracker/templates/tracker/user_deactivate.html:14
+msgid "Deactivating your account will mean that it is no longer possible to login."
+msgstr ""
+
+#: tracker/templates/tracker/user_deactivate.html:15
+msgid "Deactivation is irreversible without the intervention of an admin."
+msgstr ""
+
+#: tracker/templates/tracker/user_deactivate.html:16
+msgid "You can contact an admin by replying to the email which confirms the deactivation."
+msgstr ""
+
+#: tracker/templates/tracker/user_deactivate.html:18
+msgid "The following account will be deactivated:"
+msgstr ""
+
+#: tracker/templates/tracker/user_deactivate.html:20
+msgid "Username:"
+msgstr "Gebruikersnaam:"
+
+#: tracker/templates/tracker/user_deactivate.html:21
+msgid "Email:"
+msgstr "E-mailadres:"
+
+#: tracker/templates/tracker/user_deactivate.html:32
+msgid "Deactivate my account"
+msgstr ""
+
+#: tracker/templates/tracker/user_deactivate_email.html:3
+msgid "Tracker account deactivated"
+msgstr ""
+
+#: tracker/templates/tracker/user_deactivate_email.html:5
+msgid "Your tracker account with username"
+msgstr ""
+
+#: tracker/templates/tracker/user_deactivate_email.html:5
+msgid "has been deactivated."
+msgstr ""
+
+#: tracker/templates/tracker/user_deactivate_email.html:6
+msgid "Deactivation cannot be undone without the intervention of an admin."
+msgstr ""
+
+#: tracker/templates/tracker/user_deactivate_email.html:7
+msgid "You can contact an admin by replying to this email."
+msgstr ""
+
+#: tracker/templates/tracker/user_deactivate_email.html:10
+msgid "Tracker"
+msgstr ""
+
+#: tracker/templates/tracker/user_detail.html:13
+msgid "Total for this user"
+msgstr ""
+
+#: tracker/templates/tracker/user_detail.html:32
+msgid "Accepted expeditures total"
+msgstr ""
+
+#: tracker/templates/tracker/user_details_change.html:4
+#: tracker/templates/tracker/user_details_change.html:9
+msgid "My details"
+msgstr ""
+
+#: tracker/templates/tracker/user_list.html:22
+msgid "Tickets not assigned to any tracker user"
+msgstr ""
+
+#: tracker/templates/tracker/user_list.html:22
+msgid "unassigned"
+msgstr "niet toegewezen"
+
+#: tracker/templates/tracker/watch.html:4
+#: tracker/templates/tracker/watch.html:11
+msgid "Watch"
+msgstr ""
+
+#: tracker/templates/tracker/watch.html:19
+msgid "All"
+msgstr ""
+
+#: tracker/views.py:55
+#, python-format
+msgid "User %s created."
+msgstr ""
+
+#: tracker/views.py:73
+msgid "Comment posted, thank you."
+msgstr "Reactie geplaatst, bedankt."
+
+#: tracker/views.py:114
+msgid "You cannot add ack to a ticket you do not own."
+msgstr ""
+
+#: tracker/views.py:128
+#, python-format
+msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added. However, no bank account information filled. Without it, we can't reimburse you. Go to <a href=\"%(details_url)s\">your details</a> to fill it."
+msgstr ""
+
+#: tracker/views.py:136
+#, python-format
+msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
+msgstr ""
+
+#: tracker/views.py:169 tracker/views.py:1759
+msgid "You cannot edit this"
+msgstr ""
+
+#: tracker/views.py:174
+#, python-format
+msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been deleted."
+msgstr ""
+
+#: tracker/views.py:218
+msgid "Statutory declaration"
+msgstr ""
+
+#: tracker/views.py:265
+msgid "Your deposit is bigger than your preexpeditures"
+msgstr ""
+
+#: tracker/views.py:282
+msgid "You are required to do statutory declaration"
+msgstr ""
+
+#: tracker/views.py:298
+msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."
+msgstr ""
+
+#: tracker/views.py:401
+msgid "We've updated your preferences"
+msgstr ""
+
+#: tracker/views.py:439
+msgid "Please enter your password to confirm the deactivation of your account."
+msgstr ""
+
+#: tracker/views.py:454
+msgid "Account deactivation"
+msgstr ""
+
+#: tracker/views.py:461
+msgid "Your account has been deactivated."
+msgstr ""
+
+#: tracker/views.py:464
+msgid "Password is incorrect."
+msgstr "Wachtwoord is niet correct."
+
+#: tracker/views.py:496
+#, python-format
+msgid "Ticket's %s watching settings are changed."
+msgstr ""
+
+#: tracker/views.py:545
+#, python-format
+msgid "Topic's %s watching settings are changed."
+msgstr ""
+
+#: tracker/views.py:575
+#, python-format
+msgid "%s's watching settings are changed."
+msgstr ""
+
+#: tracker/views.py:622
+#, python-format
+msgid "Ticket %s is created"
+msgstr ""
+
+#: tracker/views.py:660 tracker/views.py:784
+msgid "One or more fields are invalid. Check them to get more information."
+msgstr ""
+
+#: tracker/views.py:671
+msgid "I confirm the above"
+msgstr ""
+
+#: tracker/views.py:678
+msgid "You cannot add statutory declaration to a ticket that does not support it."
+msgstr ""
+
+#: tracker/views.py:680
+msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
+msgstr ""
+
+#: tracker/views.py:687
+msgid "You successfully added a statutory declaration to this ticket."
+msgstr ""
+
+#: tracker/views.py:690
+msgid "You successfully removed a statutory declaration from this ticket."
+msgstr ""
+
+#: tracker/views.py:716 tracker/views.py:727
+msgid "You cannot edit this ticket"
+msgstr ""
+
+#: tracker/views.py:763
+#, python-format
+msgid "Ticket %s saved."
+msgstr ""
+
+#: tracker/views.py:798
+msgid "file"
+msgstr "bestand"
+
+#: tracker/views.py:828
+msgid "You cannot edit this ticket documents, as it's no longer editable"
+msgstr ""
+
+#: tracker/views.py:837
+msgid "You cannot see this ticket's documents."
+msgstr ""
+
+#: tracker/views.py:864
+#, python-format
+msgid "Document changes for ticket %s saved."
+msgstr ""
+
+#: tracker/views.py:887
+msgid "There is already a document with that name. Please try to reupload with a different name."
+msgstr ""
+
+#: tracker/views.py:899
+#, python-format
+msgid "File %(filename)s has been saved."
+msgstr ""
+
+#: tracker/views.py:1087
+msgid "Your details have been saved."
+msgstr ""
+
+#: tracker/views.py:1531
+msgid "You must be staffer in order to export users"
+msgstr ""
+
+#: tracker/views.py:1533
+msgid "You must fill the form validly"
+msgstr ""
+
+#: tracker/views.py:1552
+#, python-format
+msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
+msgstr ""
+
+#: tracker/views.py:1579
+msgid "You must be a staffer in order to be able to import topics."
+msgstr ""
+
+#: tracker/views.py:1612
+msgid "You must be a staffer in order to be able to import grants."
+msgstr ""
+
+#: tracker/views.py:1642 tracker/views.py:1656
+msgid "You can't add preexpenses to a ticket that you did not create."
+msgstr ""
+
+#: tracker/views.py:1678
+msgid "You can't add media items to a ticket that you did not create."
+msgstr ""
+
+#: tracker/views.py:1681
+msgid "You must be a superuser in order to be able to import users."
+msgstr ""
+
+#: tracker/views.py:1699
+msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
+msgstr ""
+
+#: tracker/views.py:1701
+msgid "Your CSV file was imported."
+msgstr "Uw CSV-bestand is geïmporteerd."
+
+#: tracker/views.py:1709
+msgid "Name of a ticket"
+msgstr "Naam van een ticket"
+
+#: tracker/views.py:1709 tracker/views.py:1714
+msgid "Name of a topic"
+msgstr "Naam van een onderwerp"
+
+#: tracker/views.py:1714
+msgid "Name of a grant"
+msgstr ""
+
+#: tracker/views.py:1714
+msgid "Form description"
+msgstr ""
+
+#: tracker/views.py:1719
+msgid "Full name"
+msgstr ""
+
+#: tracker/views.py:1719
+msgid "Short name"
+msgstr ""
+
+#: tracker/views.py:1719
+msgid "Slug"
+msgstr ""
+
+#: tracker/views.py:1742
+msgid "Password"
+msgstr ""
+
+#: tracker/views.py:1766
+msgid "Preexpeditures were succesfully copied to expeditures."
+msgstr ""
+
+#: tracker/views.py:1782
+msgid "Executing API call with any action than whitelisted is prohibited."
+msgstr ""
+
+#: tracker/views.py:1793
+msgid "No media to show are available"
+msgstr ""
+
+#: tracker/views.py:1813
+msgid "Updating of medias for this ticket was successfully scheduled."
+msgstr ""
+
+#: tracker/views.py:1818
+msgid "List of media was successfully updated"
+msgstr ""
+
+#: tracker/views.py:1823
+msgid "There was an error while processing your request"
+msgstr ""
+
+#: tracker/views.py:1848
+msgid "Notice from Tracker"
+msgstr ""
+
+#: tracker/views.py:1867
+msgid "This mandatory notice was sent to all active Tracker users."
+msgstr ""
+
+#: tracker/views.py:1875
+msgid "This mandatory notice was sent to all active Tracker administrators."
+msgstr ""
+
+#: tracker/views.py:1888
+msgid "This mandatory notice was sent to all active Tracker roots."
+msgstr ""
+
+#: users/forms.py:13 users/templates/users/password_change.html:27
+msgid "Old password"
+msgstr ""
+
+#: users/templates/users/login.html:4 users/templates/users/login.html:12
+#: users/templates/users/login.html:24 users/templates/users/register.html:29
+msgid "Login"
+msgstr ""
+
+#: users/templates/users/login.html:7
+msgid "You need to log in to access the following page."
+msgstr ""
+
+#: users/templates/users/login.html:10
+msgid "Your username and password didn't match. Please try again."
+msgstr ""
+
+#: users/templates/users/login.html:28 users/templates/users/register.html:22
+msgid "Or..."
+msgstr "Of..."
+
+#: users/templates/users/login.html:31
+msgid "Login with Meta Wiki"
+msgstr ""
+
+#: users/templates/users/login.html:35
+msgid "Don't have an acount?"
+msgstr "Hebt u geen account?"
+
+#: users/templates/users/login.html:35 users/templates/users/register.html:6
+#: users/templates/users/register.html:9 users/templates/users/register.html:19
+msgid "Register"
+msgstr ""
+
+#: users/templates/users/login.html:36
+msgid "Forgot password?"
+msgstr ""
+
+#: users/templates/users/login.html:36
+msgid "Reset password"
+msgstr "Wachtwoord opnieuw instellen"
+
+#: users/templates/users/logout.html:4
+msgid "Logged out"
+msgstr "Afgemeld"
+
+#: users/templates/users/logout.html:7
+msgid "Bye!"
+msgstr "Doei!"
+
+#: users/templates/users/logout.html:8
+msgid "Go to index."
+msgstr ""
+
+#: users/templates/users/oauth_invalid.html:4
+#: users/templates/users/oauth_invalid.html:8
+#, python-format
+msgid "Connection to %(provider)s account is no longer valid"
+msgstr ""
+
+#: users/templates/users/oauth_invalid.html:9
+msgid "To keep Tracker fully working, you should refresh the connection, by clicking the button below"
+msgstr ""
+
+#: users/templates/users/oauth_invalid.html:10
+#, python-format
+msgid "Refresh connection with %(provider)s"
+msgstr ""
+
+#: users/templates/users/password_change.html:5
+#: users/templates/users/password_change.html:16 users/views.py:90
+msgid "Password change"
+msgstr ""
+
+#: users/templates/users/password_change.html:12
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] ""
+msgstr[1] ""
+
+#: users/templates/users/password_change.html:19
+msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
+msgstr ""
+
+#: users/templates/users/password_change.html:21
+#: users/templates/users/password_reset_confirm.html:12
+msgid "Please enter your new password twice so we can verify you typed it in correctly."
+msgstr ""
+
+#: users/templates/users/password_change.html:33
+msgid "New password"
+msgstr ""
+
+#: users/templates/users/password_change.html:38
+msgid "Password (again)"
+msgstr ""
+
+#: users/templates/users/password_change.html:42
+#: users/templates/users/password_reset_confirm.html:19
+msgid "Change my password"
+msgstr ""
+
+#: users/templates/users/password_change_done.html:4
+#: users/templates/users/password_change_done.html:7
+msgid "Password change successful"
+msgstr ""
+
+#: users/templates/users/password_change_done.html:8
+msgid "Your password was changed."
+msgstr ""
+
+#: users/templates/users/password_reset.html:4
+#: users/templates/users/password_reset.html:8
+#: users/templates/users/password_reset_confirm.html:4
+msgid "Password reset"
+msgstr ""
+
+#: users/templates/users/password_reset.html:10
+msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
+msgstr ""
+
+#: users/templates/users/password_reset.html:14
+msgid "E-mail address:"
+msgstr "E-mailadres:"
+
+#: users/templates/users/password_reset.html:14
+msgid "Reset my password"
+msgstr ""
+
+#: users/templates/users/password_reset_complete.html:4
+#: users/templates/users/password_reset_complete.html:8
+msgid "Password reset complete"
+msgstr ""
+
+#: users/templates/users/password_reset_complete.html:10
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr ""
+
+#: users/templates/users/password_reset_complete.html:12
+msgid "Log in"
+msgstr ""
+
+#: users/templates/users/password_reset_confirm.html:10
+msgid "Enter new password"
+msgstr ""
+
+#: users/templates/users/password_reset_confirm.html:16
+msgid "New password:"
+msgstr ""
+
+#: users/templates/users/password_reset_confirm.html:18
+msgid "Confirm password:"
+msgstr "Wachtwoord bevestigen:"
+
+#: users/templates/users/password_reset_confirm.html:24
+msgid "Password reset unsuccessful"
+msgstr ""
+
+#: users/templates/users/password_reset_confirm.html:26
+msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
+msgstr ""
+
+#: users/templates/users/password_reset_done.html:4
+#: users/templates/users/password_reset_done.html:8
+msgid "Password reset successful"
+msgstr ""
+
+#: users/templates/users/password_reset_done.html:10
+msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
+msgstr ""
+
+#: users/templates/users/password_reset_email.html:2
+#, python-format
+msgid "You're receiving this e-mail because you requested a password reset for your user account at %(site_name)s."
+msgstr ""
+
+#: users/templates/users/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: users/templates/users/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: users/templates/users/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "Bedankt voor het gebruiken van onze site!"
+
+#: users/templates/users/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: users/templates/users/register.html:25
+msgid "Register with Meta Wiki"
+msgstr "Met Meta Wiki inschrijven"
+
+#: users/templates/users/register.html:29
+msgid "Already have an acount?"
+msgstr "Hebt u al een profiel?"
+
+#: users/views.py:46
+msgid "Will be used for password recovery and notifications, if you enable them."
+msgstr ""
+
