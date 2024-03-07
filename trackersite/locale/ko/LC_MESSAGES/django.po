@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2024-01-25 12:30:31+0000\n"
+"PO-Revision-Date: 2024-03-07 12:26:51+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,7 +84,7 @@ msgstr "덴마크어"
 
 #: common_settings.py:146
 msgid "Finnish"
-msgstr ""
+msgstr "핀란드어"
 
 #: common_settings.py:147
 msgid "Korean"
@@ -1588,7 +1588,7 @@ msgstr ""
 
 #: tracker/templates/tracker/dumpaccounts/index.html:36
 msgid "There are no tickets in this topic."
-msgstr ""
+msgstr "이 주제에 대한 티켓이 없습니다."
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:13
 #: tracker/templates/tracker/ticket_detail.html:49
@@ -1597,7 +1597,7 @@ msgstr "문서"
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
 msgid "There aren't any documents here."
-msgstr ""
+msgstr "여기에 문서가 없습니다."
 
 #: tracker/templates/tracker/edit_ticket.html:4
 #: tracker/templates/tracker/edit_ticket.html:18
@@ -1617,7 +1617,7 @@ msgstr "저장"
 #: tracker/templates/tracker/edit_ticket_docs.html:4
 #: tracker/templates/tracker/edit_ticket_docs.html:8
 msgid "Edit documents"
-msgstr ""
+msgstr "문서 편집"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:7
 #: tracker/templates/tracker/upload_ticket_doc.html:24
@@ -1626,7 +1626,7 @@ msgstr "편집"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:10
 msgid "upload new document"
-msgstr ""
+msgstr "새 문서 업로드"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:14
 msgid "document"
@@ -2315,7 +2315,7 @@ msgstr "불러오는 중..."
 
 #: tracker/templates/tracker/ticket_media.html:68
 msgid "Choose selected photos"
-msgstr ""
+msgstr "선택한 사진 선택"
 
 #: tracker/templates/tracker/ticket_media.html:71
 msgid "Remove existing media"

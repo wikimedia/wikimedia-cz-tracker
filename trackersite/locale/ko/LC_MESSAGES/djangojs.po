@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2024-01-25 12:30:29+0000\n"
+"PO-Revision-Date: 2024-03-07 12:26:49+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,7 +22,7 @@ msgstr "미디어위키 사용자 이름"
 
 #: static/commons-selection.js:159
 msgid "Filename prefix"
-msgstr ""
+msgstr "파일 이름 접두사"
 
 #: static/commons-selection.js:184
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
@@ -34,7 +34,7 @@ msgstr "위키미디어 공용이 다음의 오류를 반환했습니다"
 
 #: static/commons-selection.js:388
 msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr ""
+msgstr "지정된 계정에는 위키미디어 공용에 업로드된 항목이 없습니다. 먼저 파일을 업로드하십시오!"
 
 #: static/commons-selection.js:393
 msgid "Your search does not match any files."
