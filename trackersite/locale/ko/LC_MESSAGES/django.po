@@ -4,13 +4,14 @@
 # Author: Garam
 # Author: Gongsoonyee
 # Author: SeoJeongHo
+# Author: Suleiman the Magnificent Television
 # Author: Ykhwong
 # Author: 그냥기여자
 # Author: 아라
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2024-04-25 12:29:06+0000\n"
+"PO-Revision-Date: 2024-05-16 12:29:39+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +24,7 @@ msgstr ""
 
 #: api/serializers.py:101
 msgid "Deposit should be zero when creating a ticket"
-msgstr ""
+msgstr "티켓을 만들 때 예금은 0이어야 합니다."
 
 #: api/serializers.py:104
 msgid "Cannot edit deposit once a ticket has been preaccepted"
