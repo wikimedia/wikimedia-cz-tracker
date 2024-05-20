@@ -3,6 +3,7 @@
 #
 # Author: Elroy
 # Author: Marcelhospers
+# Author: McDutchie
 # Author: Mitsjol
 # Author: Optilete
 # Author: Siebrand
@@ -10,7 +11,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2024-04-25 12:29:06+0000\n"
+"PO-Revision-Date: 2024-05-20 12:25:14+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -182,7 +183,7 @@ msgstr "Bewerkingsdetails"
 
 #: templates/base.html:55
 msgid "Toggle navigation"
-msgstr "Navigatie inschakelen"
+msgstr "Navigatie omschakelen"
 
 #: templates/base.html:69
 msgid "change password"
