@@ -1,0 +1,42 @@
+# Translation of Tracker - JavaScript to Slovak (slovenčina)
+# Exported from translatewiki.net
+#
+# Author: Oujon
+msgid ""
+msgstr ""
+""
+"PO-Revision-Date: 2024-07-01 12:28:39+0000\n"
+"X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sk\n"
+"Project-Id-Version: Tracker - JavaScript\n"
+"Report-Msgid-Bugs-To: translatewiki.net\n"
+"X-Translation-Project: translatewiki.net <https://translatewiki.net>\n"
+"X-Generator: MediaWiki 1.43.0-alpha; Translate 2024-04-24\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ( (n >= 2 && n <= 4) ? 1 : 2 );\n"
+
+#: static/commons-selection.js:156
+msgid "MediaWiki username"
+msgstr "Používateľské meno MediaWiki"
+
+#: static/commons-selection.js:159
+msgid "Filename prefix"
+msgstr "Prednáma názvu súboru"
+
+#: static/commons-selection.js:184
+msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
+msgstr "Neznáma chyba sa stala pri získavaní obrázkov, ktoré ste nahráli. Prosím, kontaktujte správcu serveru."
+
+#: static/commons-selection.js:373
+msgid "Wikimedia Commons returned the following error"
+msgstr "Wikimedia Commons vrátilo nasledujúcu chybu"
+
+#: static/commons-selection.js:388
+msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
+msgstr "Zadaný účet nemá žiadne nahrávania na Wikimedia Commons. Najprv nahrajte nejaké súbory!"
+
+#: static/commons-selection.js:393
+msgid "Your search does not match any files."
+msgstr "Váš vyhľadávanie sa nezhodí s žiadnymi súbormi."
+
