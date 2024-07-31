@@ -96,7 +96,7 @@ $( '#emailModal' ).on('hidden.bs.modal', (e) => {
 	</div>
 	</div>
 </nav>
-<div class="container error-container">
+<div class="{% if container_name %}{{ container_name }}{% else %}container{% endif %} error-container">
 	{% for message in messages %}
 	<!-- htmllint attr-no-dup="false" -->
 	<div {% if message.tags %}class="alert alert-{{ message.tags }} alert-dismissable" {% else %}class="alert alert-info alert-dismissable" {% endif %}><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ message }}</div>
@@ -109,7 +109,7 @@ $( '#emailModal' ).on('hidden.bs.modal', (e) => {
 	<div class="alert alert-warning">{% trans "Warning" %}: {% trans "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox." %}</div>
 	{% endif %}
 </div>
-<div class="container">
+<div class="{% if container_name %}{{ container_name }}{% else %}container{% endif %}">
 {% block content %}{% endblock %}
 </div>
 {% endblock body %}
