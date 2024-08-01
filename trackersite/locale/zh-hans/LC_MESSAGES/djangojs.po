@@ -3,11 +3,12 @@
 #
 # Author: A Chinese Wikipedian
 # Author: GuoPC
+# Author: Huajing
 # Author: Shanqi Wang
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2024-07-11 12:31:28+0000\n"
+"PO-Revision-Date: 2024-08-01 12:25:14+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: static/commons-selection.js:156
 msgid "MediaWiki username"
-msgstr ""
+msgstr "MediaWiki用户名"
 
 #: static/commons-selection.js:159
 msgid "Filename prefix"
@@ -32,13 +33,13 @@ msgstr "获取您上传的图像时发生未知错误。请联系服务器管理
 
 #: static/commons-selection.js:373
 msgid "Wikimedia Commons returned the following error"
-msgstr ""
+msgstr "维基共享资源返回了以下错误"
 
 #: static/commons-selection.js:388
 msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr ""
+msgstr "指定账户没有上传任何内容至维基共享资源。请先上传一些文件！"
 
 #: static/commons-selection.js:393
 msgid "Your search does not match any files."
-msgstr ""
+msgstr "您的搜索没有匹配到任何文档。"
 
