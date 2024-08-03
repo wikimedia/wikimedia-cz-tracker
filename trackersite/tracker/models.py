@@ -361,7 +361,10 @@ class Ticket(CachedModel, ModelDiffMixin):
     @staticmethod
     @background(schedule=10)
     def _update_mediainfo(ticket_id, user_id):
-        ticket = Ticket.objects.get(id=ticket_id)
+        try:
+            ticket = Ticket.objects.get(id=ticket_id)
+        except Ticket.DoesNotExist:
+            return
         for mi in ticket.mediainfo_set.all():
             MediaInfo.add_to_mediawiki(mi.id, user_id)
 
@@ -574,7 +577,10 @@ class Ticket(CachedModel, ModelDiffMixin):
     @staticmethod
     @background(schedule=10)
     def update_media(ticket_id):
-        ticket = Ticket.objects.get(id=ticket_id)
+        try:
+            ticket = Ticket.objects.get(id=ticket_id)
+        except Ticket.DoesNotExist:
+            return
         for media in ticket.mediainfo_set.all():
             media.store_mediawiki_data_internal()
         ticket.media_updated = datetime.datetime.now(tz=utc)
@@ -1173,7 +1179,10 @@ class MediaInfo(Model):
     @staticmethod
     @background(schedule=10)
     def store_mediawiki_data(media_id):
-        media = MediaInfo.objects.get(id=media_id)
+        try:
+            media = MediaInfo.objects.get(id=media_id)
+        except MediaInfo.DoesNotExist:
+            return
         media.store_mediawiki_data_internal()
 
     def save(self, no_update=False, *args, **kwargs):
