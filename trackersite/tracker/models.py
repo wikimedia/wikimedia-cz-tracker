@@ -1122,7 +1122,12 @@ class MediaInfo(Model):
                 "iiprop": "dimensions|url|canonicaltitle",
                 "iiurlwidth": width,
                 "clprop": "hidden",
-            }).json()['query']['pages'][0]
+            }).json()
+
+            try:
+                data = data['query']['pages'][0]
+            except KeyError:
+                return
 
             if 'imageinfo' not in data:
                 # page does not exist
