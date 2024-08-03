@@ -1182,6 +1182,16 @@ class MediaInfo(Model):
             self.delete()
             return
 
+        # Same as MediaInfo.media_id
+        if not self.page_id and self.page_title:
+            mw = MediaWiki(user=None)
+            data = mw.request({
+                "action": "query",
+                "format": "json",
+                "titles": self.page_title
+            }).json()
+            self.page_id = int(list(data['query']['pages'].keys())[0])
+
         super(MediaInfo, self).save(*args, **kwargs)
 
         if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE and not no_update:
@@ -1201,19 +1211,6 @@ class MediaInfo(Model):
 
 
 task_error.connect(notify_on_failure)
-
-
-@receiver(pre_save, sender=MediaInfo)
-def save_page_id(sender, instance, **kwargs):
-    # Same as MediaInfo.media_id
-    if not instance.page_id:
-        mw = MediaWiki(user=None)
-        data = mw.request({
-            "action": "query",
-            "format": "json",
-            "titles": instance.page_title
-        }).json()
-        instance.page_id = int(list(data['query']['pages'].keys())[0])
 
 
 @receiver(post_delete, sender=MediaInfo)
