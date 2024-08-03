@@ -998,7 +998,10 @@ class MediaInfo(Model):
                 "format": "json",
                 "titles": self.page_title
             }).json()
-            self.page_id = int(list(data['query']['pages'].keys())[0])
+            try:
+                self.page_id = int(list(data['query']['pages'].keys())[0])
+            except KeyError:
+                return None
             self.save()
         return self.page_id
 
@@ -1014,7 +1017,7 @@ class MediaInfo(Model):
             try:
                 self.page_title = data['query']['pages'][list(data['query']['pages'].keys())[0]]['title']
             except KeyError:
-                self.page_title = ''
+                return self.page_title
             self.save()
         return self.page_title
 
