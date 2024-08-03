@@ -1163,6 +1163,9 @@ class MediaInfo(Model):
     def store_mediawiki_data_internal(self):
         data = self.get_mediawiki_data(width=200)
 
+        if data is None:
+            return
+
         self.thumb_url = data['url']
         self.page_title = data['page_title']
         self.width = data.get('width')
