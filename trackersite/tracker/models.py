@@ -1053,6 +1053,9 @@ class MediaInfo(Model):
     @staticmethod
     @background(schedule=10)
     def remove_from_mediawiki(media_id, user_id):
+        if settings.MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE is None:
+            return
+
         try:
             mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
         except User.DoesNotExist:
@@ -1067,6 +1070,9 @@ class MediaInfo(Model):
     @staticmethod
     @background(schedule=10)
     def add_to_mediawiki(media_id, user_id):
+        if settings.MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE is None:
+            return
+
         try:
             media = MediaInfo.objects.get(id=media_id)
         except MediaInfo.DoesNotExist:
