@@ -1053,7 +1053,7 @@ class MediaInfo(Model):
     @staticmethod
     @background(schedule=10)
     def remove_from_mediawiki(media_id, user_id):
-        if settings.MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE is None:
+        if not settings.MEDIAINFO_MEDIAWIKI_TEMPLATE or not settings.MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE:
             return
 
         try:
@@ -1070,7 +1070,7 @@ class MediaInfo(Model):
     @staticmethod
     @background(schedule=10)
     def add_to_mediawiki(media_id, user_id):
-        if settings.MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE is None:
+        if not settings.MEDIAINFO_MEDIAWIKI_TEMPLATE or not settings.MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE:
             return
 
         try:
@@ -1220,7 +1220,7 @@ class MediaInfo(Model):
 
         super(MediaInfo, self).save(*args, **kwargs)
 
-        if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE and not no_update:
+        if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE and settings.MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE and not no_update:
             logging.getLogger(__name__).info('Scheduling adding MediaInfo %d' % self.id)
             MediaInfo.add_to_mediawiki(self.id, get_request().user.id)
 
@@ -1241,7 +1241,7 @@ task_error.connect(notify_on_failure)
 
 @receiver(post_delete, sender=MediaInfo)
 def delete_mediainfo(sender, instance, **kwargs):
-    if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE:
+    if get_request() and settings.MEDIAINFO_MEDIAWIKI_TEMPLATE and settings.MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE:
         MediaInfo.remove_from_mediawiki(instance.media_id, get_request().user.id)
 
 
