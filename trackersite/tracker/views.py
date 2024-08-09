@@ -205,6 +205,7 @@ class TopicDetailView(CommentPostedCatcher, DetailView):
     def get_context_data(self, **kwargs):
         context = super(TopicDetailView, self).get_context_data(**kwargs)
         context['user_admin_of_topic'] = self.request.user in self.object.admin.all()
+        context["container_name"] = "container-fluid"
         return context
 
 
@@ -213,6 +214,11 @@ topic_detail = TopicDetailView.as_view()
 
 class SubtopicDetailView(CommentPostedCatcher, DetailView):
     model = Subtopic
+
+    def get_context_data(self, **kwargs):
+        context = super(SubtopicDetailView, self).get_context_data(**kwargs)
+        context["container_name"] = "container-fluid"
+        return context
 
 
 subtopic_detail = SubtopicDetailView.as_view()
