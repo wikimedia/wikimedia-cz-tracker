@@ -4,6 +4,7 @@
 # Author: Martin Urbanec
 # Author: Patriccck
 # Author: Patrik L.
+# Author: ShaggyCZ - Main
 # Author: Vojtěch Dostál
 # Author: YjM
 msgid ""
@@ -12,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Tracker - main\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "POT-Creation-Date: 2019-01-10 15:37+0100\n"
-"PO-Revision-Date: 2024-07-11 12:31:27+0000\n"
+"PO-Revision-Date: 2024-09-30 12:26:48+0000\n"
 "Last-Translator: Petr Novák <petr.novak@cosmoboy.cz>\n"
 "Language-Team: none <none@example.org>\n"
 "Language: cs\n"
@@ -1219,7 +1220,7 @@ msgstr "Uživatel <tt>%(user)s</tt> přidal doklad <tt>%(document_filename)s (%(
 #: tracker/models.py:1899
 #, python-format
 msgid "User <tt>%(user)s</tt> changed document <tt>%(document_filename)s</tt> assigned to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Uživatel <tt>%(user)s</tt> změnil dokument <tt>%(document_filename)s</tt> přiřazený k tiketu <a href=\"%(ticket_url)s\"> %(ticket)s</a>."
 
 #: tracker/models.py:1916
 #, python-format
@@ -2193,7 +2194,7 @@ msgstr "Jste si jisti?"
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:9
 #, python-format
 msgid "\n	You are going to copy preexpeditures to expeditures for ticket <a href=\"%(ticket.get_absolure_url)s\">%(ticket)s</a>. Are you sure you want to do so?\n	"
-msgstr ""
+msgstr "\n	Chystáte se zkopírovat předběžné expedice do expedic pro lístek <a href=\"%(ticket.get_absolure_url)s\">%(ticket)s</a>. Opravdu to chcete udělat?\n	"
 
 #: tracker/templates/tracker/ticket_detail.html:16
 msgid "edit ticket"
@@ -2619,7 +2620,7 @@ msgstr "Nemůžete změnit stav tiketu, který nevlastníte."
 #: tracker/views.py:128
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added. However, no bank account information filled. Without it, we can't reimburse you. Go to <a href=\"%(details_url)s\">your details</a> to fill it."
-msgstr ""
+msgstr "Bylo přidáno potvrzení %(ticket_id)s \"%(confirmation)s\". Nebyly však vyplněny žádné údaje o bankovním účtu. Bez toho vám to nemůžeme vrátit. Přejděte na <a href=\"%(details_url)s\">své údaje</a> a vyplňte je."
 
 #: tracker/views.py:136
 #, python-format
