@@ -1256,6 +1256,7 @@ class Expediture(Model):
                                        help_text=_('Accounting info, this is editable only through admin field'))
     paid = models.BooleanField(_('paid'), default=False)
     wage = models.BooleanField(_('wage'), default=False)
+    archived = models.BooleanField(_('archived'), default=False, help_text=_('This is only editable through the admin'))
 
     def __str__(self):
         return _('%(description)s (%(amount)s %(currency)s)') % {'description': self.description, 'amount': self.amount,
