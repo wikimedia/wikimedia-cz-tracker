@@ -1,6 +1,6 @@
 document.addEventListener( 'DOMContentLoaded', () => {
-	const allButton = document.querySelector( '.all-checkbox' ),
-		otherNotifTypes = document.querySelectorAll( '.otherNotifTypes' );
+	const allButton = document.querySelector( 'input#all' ),
+		otherNotifTypes = document.querySelectorAll( 'input.otherNotifTypes' );
 
 	allButton.addEventListener( 'change', () => {
 		otherNotifTypes.forEach( ( checkbox ) => {
