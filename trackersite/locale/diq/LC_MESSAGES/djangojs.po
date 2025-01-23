@@ -1,4 +1,4 @@
-# Translation of Tracker - JavaScript to Zazaki (Zazaki)
+# Translation of Tracker - JavaScript to Dimli (Zazaki)
 # Exported from translatewiki.net
 #
 # Author: 1917 Ekim Devrimi
@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2024-10-24 12:29:26+0000\n"
+"PO-Revision-Date: 2025-01-23 12:24:45+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
