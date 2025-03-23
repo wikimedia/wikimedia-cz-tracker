@@ -1,7 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from tracker.models import Ticket, MediaInfo
 from os import getcwd, path
-from django.conf import settings
 
 
 class Command(BaseCommand):
@@ -29,7 +28,7 @@ class Command(BaseCommand):
         for ticket_id in ticket_ids:
             try:
                 for mediainfo in MediaInfo.objects.filter(ticket_id=ticket_id):
-                    MediaInfo.add_to_mediawiki(mediainfo.id, settings.TRACKER_MAINTENANCE_USER_ID)
+                    MediaInfo.add_to_mediawiki(mediainfo.id, MediaInfo.get_maintenance_user_id())
 
             except Ticket.DoesNotExist:
                 raise CommandError('Ticket %s does not exist' % ticket_id)

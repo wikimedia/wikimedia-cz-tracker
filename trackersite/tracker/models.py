@@ -350,7 +350,7 @@ class Ticket(CachedModel, ModelDiffMixin):
         super(Ticket, self).save(*args, **kwargs)
 
         # update MediaWiki templates if appropriate
-        user_id = settings.TRACKER_MAINTENANCE_USER_ID
+        user_id = MediaInfo.get_maintenance_user_id()
         if get_request():
             user_id = get_request().user.id
         if user_id:
@@ -1115,6 +1115,10 @@ class MediaInfo(Model):
 
     def mediawiki_link(self):
         return settings.MEDIAINFO_MEDIAWIKI_ARTICLE + str(self)
+
+    @staticmethod
+    def get_maintenance_user_id():
+        return settings.TRACKER_MAINTENANCE_USER_ID if hasattr(settings, 'TRACKER_MAINTENANCE_USER_ID') else None
 
     def get_mediawiki_data(self, width=None, delete_if_not_found=False):
         if settings.MEDIAINFO_MEDIAWIKI_API:
