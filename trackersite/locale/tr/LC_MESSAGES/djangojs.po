@@ -2,10 +2,11 @@
 # Exported from translatewiki.net
 #
 # Author: BaRaN6161 TURK
+# Author: Slickdaddy
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2025-03-13 12:27:36+0000\n"
+"PO-Revision-Date: 2025-04-24 13:13:02+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,11 +19,11 @@ msgstr ""
 
 #: static/commons-selection.js:156
 msgid "MediaWiki username"
-msgstr ""
+msgstr "MediaWiki kullanıcı adı"
 
 #: static/commons-selection.js:159
 msgid "Filename prefix"
-msgstr ""
+msgstr "Dosya adı ön eki"
 
 #: static/commons-selection.js:184
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
@@ -30,7 +31,7 @@ msgstr "Yüklediğiniz resimler alınırken bilinmeyen bir hata oluştu. Lütfen
 
 #: static/commons-selection.js:373
 msgid "Wikimedia Commons returned the following error"
-msgstr ""
+msgstr "Wikimedia Commons aşağıdaki hatayı verdi"
 
 #: static/commons-selection.js:388
 msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
