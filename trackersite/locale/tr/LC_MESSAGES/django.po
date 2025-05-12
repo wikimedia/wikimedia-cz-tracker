@@ -5,6 +5,7 @@
 # Author: BaRaN6161 TURK
 # Author: Cobija
 # Author: Hedda
+# Author: Leo
 # Author: Mirzali
 # Author: MuratTheTurkish
 # Author: Okkerem
@@ -12,7 +13,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2025-05-08 12:32:53+0000\n"
+"PO-Revision-Date: 2025-05-12 12:30:35+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -123,7 +124,7 @@ msgstr "Wikimedia hesabınıza başarıyla bağlandı!"
 
 #: socialauth/pipeline.py:17
 msgid "Successfully linked your chapter account!"
-msgstr ""
+msgstr "Bölüm hesabınız başarıyla bağlandı!"
 
 #: socialauth/pipeline.py:23
 msgid "Your wikimedia account is no longer linked."
@@ -131,7 +132,7 @@ msgstr "Wikimedia hesabınız artık bağlı değil."
 
 #: socialauth/pipeline.py:25
 msgid "Your chapterwiki account is no longer linked."
-msgstr ""
+msgstr "Chapterwiki hesabınız artık bağlantılı değil."
 
 #: templates/403.html:3
 msgid "403 Forbidden"
@@ -2019,23 +2020,23 @@ msgstr "bir şifre belirleyin."
 
 #: tracker/templates/tracker/preferences.html:88
 msgid "Chapter account"
-msgstr ""
+msgstr "Bölüm hesabı"
 
 #: tracker/templates/tracker/preferences.html:92
 msgid "Your account is connected to your chapter account"
-msgstr ""
+msgstr "Hesabınız bölüm hesabınıza bağlı"
 
 #: tracker/templates/tracker/preferences.html:102
 msgid "Disconnect chapter account"
-msgstr ""
+msgstr "Bölüm hesabını kes"
 
 #: tracker/templates/tracker/preferences.html:106
 msgid "In order to disconnect your chapter account, you first need to"
-msgstr ""
+msgstr "Bölüm hesabınızın bağlantısını kesmek için öncelikle şunları yapmanız gerekir:"
 
 #: tracker/templates/tracker/preferences.html:111
 msgid "Link chapter account"
-msgstr ""
+msgstr "Bağlantı bölümü hesabı"
 
 #: tracker/templates/tracker/preferences.html:114
 msgid "Account actions"

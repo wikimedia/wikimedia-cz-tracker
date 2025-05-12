@@ -1,6 +1,7 @@
 # Translation of Tracker - main to Serbian (Cyrillic script) (српски (ћирилица))
 # Exported from translatewiki.net
 #
+# Author: Aca
 # Author: BadDog
 # Author: Kizule
 # Author: Zenfiric
@@ -9,7 +10,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2025-05-08 12:32:53+0000\n"
+"PO-Revision-Date: 2025-05-12 12:30:35+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"

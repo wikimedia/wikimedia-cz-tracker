@@ -1,9 +1,7 @@
-# Translation of Tracker - JavaScript to Turkish (Türkçe)
+# Translation of Tracker - JavaScript to Norwegian Bokmål (norsk bokmål)
 # Exported from translatewiki.net
 #
-# Author: BaRaN6161 TURK
-# Author: Leo
-# Author: Slickdaddy
+# Author: Jon Harald Søby
 msgid ""
 msgstr ""
 ""
@@ -11,34 +9,34 @@ msgstr ""
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
-"X-Generator: MediaWiki 1.45.0-alpha; Translate 2025-03-15\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: nb\n"
 "Project-Id-Version: Tracker - JavaScript\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "X-Translation-Project: translatewiki.net <https://translatewiki.net>\n"
+"X-Generator: MediaWiki 1.45.0-alpha; Translate 2025-03-15\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: static/commons-selection.js:156
 msgid "MediaWiki username"
-msgstr "MediaWiki kullanıcı adı"
+msgstr "MediaWiki-brukernavn"
 
 #: static/commons-selection.js:159
 msgid "Filename prefix"
-msgstr "Dosya adı ön eki"
+msgstr "Filnavnprefiks"
 
 #: static/commons-selection.js:184
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
-msgstr "Yüklediğiniz resimler alınırken bilinmeyen bir hata oluştu. Lütfen sunucu yöneticisine başvurun."
+msgstr "Ukjent feil oppsto under henting av bilder du har lastet opp. Kontakt tjeneradministratoren."
 
 #: static/commons-selection.js:373
 msgid "Wikimedia Commons returned the following error"
-msgstr "Wikimedia Commons aşağıdaki hatayı verdi"
+msgstr "Wikimedia Commons returnerte følgende feil"
 
 #: static/commons-selection.js:388
 msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr "Belirtilen hesabın Wikimedia Commons'ta herhangi bir yüklemesi yok. Önce birkaç dosya yükleyin!"
+msgstr "Den angitte kontoen har ikke noen opplastinger på Wikimedia Commons. Last opp noen filer først!"
 
 #: static/commons-selection.js:393
 msgid "Your search does not match any files."
-msgstr "Aradığınız dosya hiçbir dosyayla eşleşmiyor."
+msgstr "Søket ditt matcher ingen filer."
 
