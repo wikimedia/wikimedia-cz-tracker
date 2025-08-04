@@ -1,6 +1,7 @@
 # Translation of Tracker - main to Dutch (Nederlands)
 # Exported from translatewiki.net
 #
+# Author: ABPMAB
 # Author: Elroy
 # Author: Marcelhospers
 # Author: McDutchie
@@ -11,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2025-05-08 12:32:51+0000\n"
+"PO-Revision-Date: 2025-08-04 12:32:56+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Project-Id-Version: Tracker - main\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "X-Translation-Project: translatewiki.net <https://translatewiki.net>\n"
-"X-Generator: MediaWiki 1.45.0-alpha; Translate 2025-03-15\n"
+"X-Generator: MediaWiki 1.45.0-alpha; Translate 2025-07-31\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: api/serializers.py:101
@@ -596,11 +597,11 @@ msgstr ""
 
 #: tracker/models.py:373
 msgid "historical"
-msgstr ""
+msgstr "historisch"
 
 #: tracker/models.py:382
 msgid "waiting for content rating"
-msgstr ""
+msgstr "wachten op inhoudsbeoordeling"
 
 #: tracker/models.py:385 tracker/templates/tracker/export.html:49
 #: tracker/templates/tracker/export.html:50
@@ -610,18 +611,18 @@ msgstr "voltooid"
 #: tracker/models.py:387 tracker/templates/tracker/export.html:46
 #: tracker/templates/tracker/export.html:47
 msgid "waiting for filing of documents"
-msgstr ""
+msgstr "wachten op het indienen van documenten"
 
 #: tracker/models.py:389 tracker/templates/tracker/export.html:43
 #: tracker/templates/tracker/export.html:44
 msgid "waiting for document submission"
-msgstr ""
+msgstr "wachten op documentinzending"
 
 #: tracker/models.py:392 tracker/models.py:399
 #: tracker/templates/tracker/export.html:40
 #: tracker/templates/tracker/export.html:41
 msgid "waiting for approval"
-msgstr ""
+msgstr "wachten op goedkeuring"
 
 #: tracker/models.py:394 tracker/templates/tracker/export.html:37
 #: tracker/templates/tracker/export.html:38
@@ -636,7 +637,7 @@ msgstr ""
 #: tracker/models.py:401 tracker/templates/tracker/export.html:31
 #: tracker/templates/tracker/export.html:32
 msgid "draft"
-msgstr ""
+msgstr "concept"
 
 #: tracker/models.py:404 tracker/templates/tracker/export.html:30
 msgid "state"
@@ -644,7 +645,7 @@ msgstr ""
 
 #: tracker/models.py:428 tracker/templates/tracker/admin_user_list.html:26
 msgid "E-mail"
-msgstr ""
+msgstr "E-mail"
 
 #: tracker/models.py:429 tracker/models.py:1308
 #: tracker/templates/tracker/admin_user_list.html:31
@@ -696,15 +697,15 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:19
 #: tracker/templates/tracker/ticket_table.html:35
 msgid "Subtopic"
-msgstr ""
+msgstr "Subonderwerp"
 
 #: tracker/models.py:765 tracker/templates/tracker/topic_detail.html:28
 msgid "Subtopics"
-msgstr ""
+msgstr "Subonderwerpen"
 
 #: tracker/models.py:772 tracker/views.py:589
 msgid "grant"
-msgstr ""
+msgstr "studiebeurs"
 
 #: tracker/models.py:773
 msgid "Grant project where this topic belongs"
@@ -1062,7 +1063,7 @@ msgstr ""
 
 #: tracker/models.py:1413
 msgid "Transaction"
-msgstr ""
+msgstr "Transactie"
 
 #: tracker/models.py:1414 tracker/templates/tracker/cluster_detail.html:18
 #: tracker/templates/tracker/ticket_detail.html:30
@@ -1072,7 +1073,7 @@ msgstr "Transacties"
 
 #: tracker/models.py:1440
 msgid "comment"
-msgstr ""
+msgstr "Opmerking"
 
 #: tracker/models.py:1564
 #, python-format
@@ -1206,7 +1207,7 @@ msgstr ""
 
 #: tracker/models.py:1893 tracker/models.py:1913
 msgid "no description"
-msgstr ""
+msgstr "geen beschrijving"
 
 #: tracker/models.py:1897
 #, python-format
@@ -1225,7 +1226,7 @@ msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "REMOVE"
-msgstr ""
+msgstr "VERWIJDEREN"
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "Really remove?"
@@ -1295,16 +1296,16 @@ msgstr[1] ""
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:20
 msgid "Delete?"
-msgstr ""
+msgstr "Verwijder?"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:34
 #: tracker/templates/tracker/admin_index_override.html:27
 msgid "Change"
-msgstr ""
+msgstr "Wijzigen"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:34
 msgid "View"
-msgstr ""
+msgstr "Bekijken"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:36
 msgid "View on site"
@@ -1313,7 +1314,7 @@ msgstr ""
 #: tracker/templates/admin/tracker/ticket/tabular.html:95
 #: tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Accepted"
-msgstr ""
+msgstr "Geaccepteerd"
 
 #: tracker/templates/feeds/ticket_description.html:2
 msgid "status"
@@ -1345,7 +1346,7 @@ msgstr "Gebruiker"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22
 msgid "Amount"
-msgstr ""
+msgstr "Hoeveelheid"
 
 #: tracker/templates/feeds/transaction_description.html:5
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -1356,15 +1357,15 @@ msgstr ""
 #: tracker/views.py:1714 tracker/views.py:1719 tracker/views.py:1728
 #: tracker/views.py:1737
 msgid "Description"
-msgstr ""
+msgstr "Beschrijving"
 
 #: tracker/templates/notification/notification_html.html:4
 msgid "List of new tickets"
-msgstr ""
+msgstr "Lijst van nieuwe tickets"
 
 #: tracker/templates/notification/notification_html.html:13
 msgid "List of deleted tickets"
-msgstr ""
+msgstr "Lijst van verwijderde tickets"
 
 #: tracker/templates/notification/notification_html.html:22
 msgid "The state of a watched ticket was changed"
@@ -1453,7 +1454,7 @@ msgstr ""
 
 #: tracker/templates/tracker/admin_index_override.html:45
 msgid "You don't have permission to edit anything."
-msgstr ""
+msgstr "U heeft geen toestemming om iets te bewerken."
 
 #: tracker/templates/tracker/admin_user_list.html:8
 #: tracker/templates/tracker/export.html:67
@@ -1473,11 +1474,11 @@ msgstr "Gebruikersnaam"
 
 #: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1742
 msgid "First name"
-msgstr ""
+msgstr "Voornaam"
 
 #: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1742
 msgid "Last name"
-msgstr ""
+msgstr "Achternaam"
 
 #: tracker/templates/tracker/cluster_detail.html:4
 #: tracker/templates/tracker/cluster_detail.html:8
@@ -1518,28 +1519,28 @@ msgstr ""
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/generic/ticket_list.html:12
 msgid "transactions"
-msgstr ""
+msgstr "transacties"
 
 #: tracker/templates/tracker/cluster_detail.html:10
 #: tracker/templates/tracker/ticket_detail.html:31
 msgid "Payment status"
-msgstr ""
+msgstr "Betalingsstatus"
 
 #: tracker/templates/tracker/cluster_detail.html:14
 msgid "Total tickets"
-msgstr ""
+msgstr "Totaal aantal tickets"
 
 #: tracker/templates/tracker/cluster_detail.html:26
 msgid "Total transactions"
-msgstr ""
+msgstr "Totaal aantal transacties"
 
 #: tracker/templates/tracker/connect_account.html:4
 msgid "Connected account required"
-msgstr ""
+msgstr "Verbonden account vereist"
 
 #: tracker/templates/tracker/connect_account.html:7
 msgid "Permission denied"
-msgstr ""
+msgstr "Toestemming geweigerd"
 
 #: tracker/templates/tracker/connect_account.html:8
 msgid "You need to connect Tracker account with your Wikimedia account. To do so, click on the button below."
@@ -1553,7 +1554,7 @@ msgstr ""
 #: tracker/templates/tracker/dumpaccounts/index.html:4
 #: tracker/templates/tracker/dumpaccounts/index.html:7
 msgid "Overview of"
-msgstr ""
+msgstr "Overzicht van"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:8
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:9
@@ -1615,7 +1616,7 @@ msgstr ""
 #: tracker/templates/tracker/edit_ticket.html:24
 #: tracker/templates/tracker/edit_ticket_docs.html:16
 msgid "save"
-msgstr ""
+msgstr "opslaan"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:4
 #: tracker/templates/tracker/edit_ticket_docs.html:8
@@ -1787,7 +1788,7 @@ msgstr ""
 #: tracker/templates/tracker/generic/create_ticket.html:4
 #: tracker/templates/tracker/generic/create_ticket.html:18
 msgid "Create ticket"
-msgstr ""
+msgstr "Ticket aanmaken"
 
 #: tracker/templates/tracker/generic/create_ticket.html:23
 msgid "You'll be able to edit everything you've filled in even after submitting the form."
@@ -1923,7 +1924,7 @@ msgstr ""
 
 #: tracker/templates/tracker/import.html:53
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_common_detail.html:10
