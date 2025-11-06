@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2025-10-30 12:48:50+0000\n"
+"PO-Revision-Date: 2025-11-06 12:45:26+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -450,7 +450,7 @@ msgstr "تم التحديث"
 
 #: tracker/models.py:251
 msgid "media updated"
-msgstr "تم تحديث الوسائط"
+msgstr "حُدثَت الوسائط"
 
 #: tracker/models.py:252
 msgid "Date when cached information about media were last updated. Used in \"show media\" view."
