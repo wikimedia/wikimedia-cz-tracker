@@ -45,7 +45,7 @@ class MediaWiki():
         try:
             r.raise_for_status()
         except requests.exceptions.HTTPError:
-            logging.getLogger(__name__).error(f'API request to {r.url} failed (status={r.status_code}, response={r.text})')
+            logging.getLogger(__name__).error(f'API request to {r.url} failed (status={r.status_code}, response={r.text}, user={self.user})')
             raise
         return r
 
