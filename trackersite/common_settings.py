@@ -87,6 +87,11 @@ LOGGING = {
             'handlers': ['file'],
             'level': 'DEBUG',
             'propagate': True
+        },
+        'socialauth': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True
         }
     }
 }
