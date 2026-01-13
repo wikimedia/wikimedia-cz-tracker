@@ -1,5 +1,6 @@
 from requests_oauthlib import OAuth1
 import requests
+import logging
 from django.conf import settings
 
 
@@ -38,9 +39,15 @@ class MediaWiki():
         elif authorized_only:
             raise ValueError("Given user isn't connected with any MediaWiki account and you require authorized request only.")
         if method == "POST":
-            return self.session.post(self.api_url, data=payload, **kwargs)
+            r = self.session.post(self.api_url, data=payload, **kwargs)
         else:
-            return self.session.get(self.api_url, params=payload, **kwargs)
+            r = self.session.get(self.api_url, params=payload, **kwargs)
+        try:
+            r.raise_for_status()
+        except requests.exceptions.HTTPError:
+            logging.getLogger(__name__).error(f'API request to {r.url} failed (status={r.status_code}, response={r.text})')
+            raise
+        return r
 
     def get_token(self, type="csrf"):
         return self.request({
