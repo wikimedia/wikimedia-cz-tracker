@@ -141,6 +141,7 @@ LOGOUT_URL = '/account/logout/'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.fallback.FallbackStorage'
 
 TRACKER_CURRENCY = _('CZK')
+TRACKER_USER_AGENT = 'DevTracker (https://github.com/wikimedia/wikimedia-cz-tracker)'
 
 LANGUAGES = (
     ('en', _('English')),

@@ -7,7 +7,7 @@ from django.conf import settings
 class MediaWiki():
     def __init__(self, user=None, api_url=None):
         self.session = requests.Session()
-        self.session.headers.update({'User-Agent': 'Tracker (tracker@wikimedia.cz; https://tracker.wikimedia.cz)'})
+        self.session.headers.update({'User-Agent': settings.TRACKER_USER_AGENT})
         self.user = user
         if api_url:
             self.api_url = api_url
