@@ -158,7 +158,7 @@ LANGUAGES = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'trackersite.socialauth.providers.MediaWikiWithUA',
+    'socialauth.providers.MediaWikiWithUA',
     'socialauth.chapterwiki.ChapterWiki',
     'django.contrib.auth.backends.ModelBackend',
 )
