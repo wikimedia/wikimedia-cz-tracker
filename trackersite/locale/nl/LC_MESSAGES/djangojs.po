@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2025-10-30 12:48:50+0000\n"
+"PO-Revision-Date: 2026-02-05 12:30:35+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr "MediaWiki-gebruikersnaam"
 
 #: static/commons-selection.js:159
 msgid "Filename prefix"
-msgstr ""
+msgstr "Bestandsnaamvoorvoegsel"
 
 #: static/commons-selection.js:184
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
@@ -31,13 +31,13 @@ msgstr "Er is een onbekende fout opgetreden tijdens het uploaden van uw afbeeldi
 
 #: static/commons-selection.js:373
 msgid "Wikimedia Commons returned the following error"
-msgstr ""
+msgstr "Wikimedia Commons gaf de volgende foutmelding"
 
 #: static/commons-selection.js:388
 msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr ""
+msgstr "Het opgegeven account heeft nog geen bestanden geüpload naar Wikimedia Commons. Upload eerst een paar bestanden!"
 
 #: static/commons-selection.js:393
 msgid "Your search does not match any files."
-msgstr ""
+msgstr "Uw zoekopdracht heeft geen bestanden opgeleverd."
 
