@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-02-02 12:33:16+0000\n"
+"PO-Revision-Date: 2026-02-12 12:33:23+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2894,7 +2894,7 @@ msgstr "ਇੰਦਰਾਜ ਕਰਾਓ"
 
 #: users/templates/users/login.html:36
 msgid "Forgot password?"
-msgstr "ਪਾਰਸ਼ਬਦ ਭੁੱਲ ਗਏ?"
+msgstr "ਲੰਘ-ਸ਼ਬਦ ਭੁੱਲ ਗਏ?"
 
 #: users/templates/users/login.html:36
 msgid "Reset password"
