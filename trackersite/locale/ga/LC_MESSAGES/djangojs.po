@@ -1,0 +1,42 @@
+# Translation of Tracker - JavaScript to Irish (Gaeilge)
+# Exported from translatewiki.net
+#
+# Author: Aindriu80
+msgid ""
+msgstr ""
+""
+"PO-Revision-Date: 2026-04-02 12:32:49+0000\n"
+"X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ga\n"
+"Project-Id-Version: Tracker - JavaScript\n"
+"Report-Msgid-Bugs-To: translatewiki.net\n"
+"X-Translation-Project: translatewiki.net <https://translatewiki.net>\n"
+"X-Generator: MediaWiki 1.46.0-alpha; Translate 2025-07-31\n"
+"Plural-Forms: nplurals=5; plural=(n == 1) ? 0 : ( (n == 2) ? 1 : ( (n < 7) ? 2 : ( (n < 11) ? 3 : 4 ) ) );\n"
+
+#: static/commons-selection.js:156
+msgid "MediaWiki username"
+msgstr "Ainm úsáideora MediaWiki"
+
+#: static/commons-selection.js:159
+msgid "Filename prefix"
+msgstr "Réimír ainm comhaid"
+
+#: static/commons-selection.js:184
+msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
+msgstr "Tharla earráid anaithnid agus íomhánna a d’uaslódáil tú á bhfáil. Téigh i dteagmháil le riarthóir an fhreastalaí le do thoil."
+
+#: static/commons-selection.js:373
+msgid "Wikimedia Commons returned the following error"
+msgstr "Thug Wikimedia Commons an earráid seo a leanas ar ais"
+
+#: static/commons-selection.js:388
+msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
+msgstr "Níl aon uaslódálacha ag an gcuntas sonraithe ar Wikimedia Commons. Uaslódáil roinnt comhad ar dtús!"
+
+#: static/commons-selection.js:393
+msgid "Your search does not match any files."
+msgstr "Ní bhfaigheann tú aon chomhad le do chuardach."
+

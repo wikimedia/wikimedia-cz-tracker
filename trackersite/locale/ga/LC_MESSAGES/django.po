@@ -1,0 +1,3073 @@
+# Translation of Tracker - main to Irish (Gaeilge)
+# Exported from translatewiki.net
+#
+# Author: Aindriu80
+msgid ""
+msgstr ""
+""
+"PO-Revision-Date: 2026-04-02 12:32:50+0000\n"
+"X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ga\n"
+"Project-Id-Version: Tracker - main\n"
+"Report-Msgid-Bugs-To: translatewiki.net\n"
+"X-Translation-Project: translatewiki.net <https://translatewiki.net>\n"
+"X-Generator: MediaWiki 1.46.0-alpha; Translate 2025-07-31\n"
+"Plural-Forms: nplurals=5; plural=(n == 1) ? 0 : ( (n == 2) ? 1 : ( (n < 7) ? 2 : ( (n < 11) ? 3 : 4 ) ) );\n"
+
+#: api/serializers.py:101
+msgid "Deposit should be zero when creating a ticket"
+msgstr "Ba chóir go mbeadh an éarlais nialasach agus ticéad á chruthú"
+
+#: api/serializers.py:104
+msgid "Cannot edit deposit once a ticket has been preaccepted"
+msgstr "Ní féidir an éarlais a chur in eagar a luaithe a ghlactar leis an ticéad roimh ré."
+
+#: api/serializers.py:109 api/serializers.py:112
+msgid "Deposit should be lower or equal to the sum of preexpeditures"
+msgstr "Ba chóir go mbeadh an éarlais níos ísle nó cothrom le suim na réamhchaiteachas"
+
+#: api/serializers.py:134
+msgid "You can not add media to this ticket."
+msgstr "Ní féidir leat meáin a chur leis an ticéad seo."
+
+#: api/serializers.py:136
+msgid "You can not edit the media of this ticket."
+msgstr "Ní féidir leat meáin an ticéid seo a chur in eagar."
+
+#: api/serializers.py:162
+msgid "You can not add expiditures to this ticket."
+msgstr "Ní féidir leat turais a chur leis an ticéad seo."
+
+#: api/serializers.py:164
+msgid "You can not edit expiditures of this ticket."
+msgstr "Ní féidir leat dáta éaga an ticéid seo a chur in eagar."
+
+#: api/serializers.py:178
+msgid "You can not add preexpiditures to this ticket."
+msgstr "Ní féidir leat réamh-dhátaí a chur leis an ticéad seo."
+
+#: api/serializers.py:180
+msgid "You can not edit preexpiditures of this ticket."
+msgstr "Ní féidir leat réamhdhátaí éaga an ticéid seo a chur in eagar."
+
+#: common_settings.py:138
+#: tracker/templates/tracker/ticket_common_detail.html:18
+msgid "CZK"
+msgstr "CZK"
+
+#: common_settings.py:141
+msgid "English"
+msgstr "Béarla"
+
+#: common_settings.py:142
+msgid "Czech"
+msgstr "Seiceach"
+
+#: common_settings.py:143
+msgid "French"
+msgstr "Fraincis"
+
+#: common_settings.py:144
+msgid "Arabic"
+msgstr "Araibis"
+
+#: common_settings.py:145
+msgid "Danish"
+msgstr "Danmhairgis"
+
+#: common_settings.py:146
+msgid "Finnish"
+msgstr "Fionlainnis"
+
+#: common_settings.py:147
+msgid "Korean"
+msgstr "Cóiréach"
+
+#: common_settings.py:148
+msgid "Portuguese"
+msgstr "Portaingéilis"
+
+#: common_settings.py:149
+msgid "Swedish"
+msgstr "Sualainnis"
+
+#: common_settings.py:150
+msgid "Chinese-traditional"
+msgstr "Traidisiúnta na Síne"
+
+#: common_settings.py:151
+msgid "Spanish"
+msgstr "Spáinnis"
+
+#: customcomments/forms.py:21
+msgid "Your name"
+msgstr "D'ainm"
+
+#: customcomments/forms.py:22
+#: tracker/templates/tracker/ticketack_confirm_delete.html:13
+msgid "Comment"
+msgstr "Trácht"
+
+#: socialauth/pipeline.py:15
+msgid "Successfully linked your wikimedia account!"
+msgstr "Nascadh do chuntas Vicipéid go rathúil!"
+
+#: socialauth/pipeline.py:17
+msgid "Successfully linked your chapter account!"
+msgstr "Nascadh do chuntas caibidle go rathúil!"
+
+#: socialauth/pipeline.py:23
+msgid "Your wikimedia account is no longer linked."
+msgstr "Níl do chuntas Vicipéid nasctha a thuilleadh."
+
+#: socialauth/pipeline.py:25
+msgid "Your chapterwiki account is no longer linked."
+msgstr "Níl do chuntas chapterwiki nasctha a thuilleadh."
+
+#: templates/403.html:3
+msgid "403 Forbidden"
+msgstr "403 Toirmiscthe"
+
+#: templates/403.html:7
+msgid "Forbidden"
+msgstr "Toirmiscthe"
+
+#: templates/403.html:12
+msgid "You don't have permissions to do this!"
+msgstr "Níl cead agat é seo a dhéanamh!"
+
+#: templates/404.html:3
+msgid "404 Not Found"
+msgstr "404 Gan Aimsiú"
+
+#: templates/404.html:7
+msgid "Not Found"
+msgstr "Níor aimsíodh"
+
+#: templates/404.html:10
+#, python-format
+msgid "The requested URL %(request_path)s was not found on this server."
+msgstr "Níor aimsíodh an URL iarrtha %(request_path)s ar an bhfreastalaí seo."
+
+#: templates/500.html:3 templates/500.html:7
+msgid "Internal Error"
+msgstr "Earráid Inmheánach"
+
+#: templates/500.html:10
+msgid "There was an error processing you request. Sorry about that."
+msgstr "Tharla earráid agus d’iarratas á phróiseáil. Gabh mo leithscéal as sin."
+
+#: templates/admin/base_site.html:4
+msgid "Tracker admin"
+msgstr "Riarthóir rianaithe"
+
+#: templates/admin/base_site.html:7
+msgid "Tracker site administration"
+msgstr "Riarachán suíomh rianaithe"
+
+#: templates/base.html:32
+msgid "There is no email address associated with this account. Please update your details now."
+msgstr "Níl aon seoladh ríomhphoist bainteach leis an gcuntas seo. Nuashonraigh do shonraí anois le do thoil."
+
+#: templates/base.html:35
+msgid "Update details"
+msgstr "Nuashonraigh sonraí"
+
+#: templates/base.html:55
+msgid "Toggle navigation"
+msgstr "Nascleanúint a scoránaigh"
+
+#: templates/base.html:69
+msgid "change password"
+msgstr "athrú pasfhocal"
+
+#: templates/base.html:70
+msgid "change my details"
+msgstr "mo shonraí a athrú"
+
+#: templates/base.html:71 tracker/templates/tracker/user_deactivate.html:8
+msgid "preferences"
+msgstr "roghanna"
+
+#: templates/base.html:73
+msgid "admin"
+msgstr "riarthóir"
+
+#: templates/base.html:75 templates/base.html:90
+msgid "change language"
+msgstr "athrú teanga"
+
+#: templates/base.html:77 templates/base.html:92
+msgid "help"
+msgstr "cabhair"
+
+#: templates/base.html:79
+msgid "logout"
+msgstr "logáil amach"
+
+#: templates/base.html:84 templates/base.html:87
+msgid "login"
+msgstr "logáil isteach"
+
+#: templates/base.html:89
+msgid "register"
+msgstr "cláraigh"
+
+#: templates/base.html:106 templates/base.html:109
+msgid "Warning"
+msgstr "Rabhadh"
+
+#: templates/base.html:106
+#, python-format
+msgid "You are not in production. If you want to request reimbursement of expenses, go to <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>."
+msgstr "Níl tú i mbun léiriúcháin. Más mian leat aisíocaíocht costais a iarraidh, téigh chuig <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>."
+
+#: templates/base.html:109
+msgid "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox."
+msgstr "Tá tú ag úsáid Internet Explorer. Mar sin féin, teastaíonn gnéithe nua-aimseartha ó Tracker nach dtacaíonn Internet Explorer leo. Mar thoradh air sin, b'fhéidir nach n-oibreoidh Tracker i gceart in Internet Explorer. Molaimid duit brabhsálaí eile a úsáid, amhail Chrome nó Firefox."
+
+#: templates/choose_language.html:5 templates/choose_language.html:8
+msgid "Change language"
+msgstr "Athraigh teanga"
+
+#: templates/choose_language.html:23
+msgid "Go"
+msgstr "Téigh"
+
+#: templates/comments/form.html:17 templates/comments/preview.html:31
+msgid "Post"
+msgstr "Post"
+
+#: templates/comments/form.html:18 templates/comments/preview.html:32
+msgid "Preview"
+msgstr "Réamhamharc"
+
+#: templates/comments/preview.html:4 templates/comments/preview.html:15
+msgid "Preview your comment"
+msgstr "Réamhamharc ar do thrácht"
+
+#: templates/comments/preview.html:13
+msgid "Please correct the error below"
+msgid_plural "Please correct the errors below"
+msgstr[0] "one=Ceartaigh an earráid thíos le do thoil"
+msgstr[1] "two=Ceartaigh na hearráidí thíos le do thoil"
+msgstr[2] "few=Ceartaigh na hearráidí thíos le do thoil"
+msgstr[3] "many=Ceartaigh na hearráidí thíos le do thoil"
+msgstr[4] "other=Ceartaigh na hearráidí thíos le do thoil"
+
+#: tracker/admin.py:29 tracker/admin.py:35
+#: tracker/templates/tracker/ticketack_confirm_delete.html:10
+msgid "Type"
+msgstr "Cineál"
+
+#: tracker/admin.py:43
+msgid "Add ack"
+msgstr "Cuir admháil leis"
+
+#: tracker/admin.py:169
+msgid "Mark selected topics as opened for new tickets"
+msgstr "Marcáil na topaicí roghnaithe mar oscailte do thicéid nua"
+
+#: tracker/admin.py:176
+msgid "Mark selected topics as closed for new tickets"
+msgstr "Marcáil na topaicí roghnaithe mar dhúnta le haghaidh ticéid nua"
+
+#: tracker/admin.py:204
+msgid "Modify this value by opening or closing topics in this grant to tickets"
+msgstr "Athraigh an luach seo trí thopaicí sa deontas seo do thicéid a oscailt nó a dhúnadh"
+
+#: tracker/feeds.py:12 tracker/templates/tracker/generic/ticket_list.html:7
+#: tracker/templates/tracker/topic_detail.html:5
+msgid "Latest tickets"
+msgstr "Ticéid is déanaí"
+
+#: tracker/feeds.py:13
+msgid "Recently changed tickets"
+msgstr "Ticéid athraithe le déanaí"
+
+#: tracker/feeds.py:26 tracker/templates/tracker/generic/ticket_list.html:8
+#: tracker/templates/tracker/topic_detail.html:6
+msgid "Latest submitted tickets"
+msgstr "Ticéid is déanaí a cuireadh isteach"
+
+#: tracker/feeds.py:27
+msgid "Recently changed submitted tickets"
+msgstr "Ticéid a cuireadh isteach le déanaí a athraíodh"
+
+#: tracker/models.py:46 tracker/templates/tracker/grant_table.html:11
+#: tracker/templates/tracker/topic_table.html:13
+msgid "n/a"
+msgstr "n/b"
+
+#: tracker/models.py:47 tracker/templates/tracker/export.html:246
+#: tracker/templates/tracker/grant_table.html:12
+#: tracker/templates/tracker/topic_finance.html:16
+#: tracker/templates/tracker/topic_table.html:14
+msgid "unpaid"
+msgstr "gan íoc"
+
+#: tracker/models.py:48 tracker/templates/tracker/export.html:247
+#: tracker/templates/tracker/grant_table.html:13
+#: tracker/templates/tracker/topic_table.html:15
+msgid "partially paid"
+msgstr "íoctha go páirteach"
+
+#: tracker/models.py:49 tracker/models.py:1188
+#: tracker/templates/tracker/export.html:248
+#: tracker/templates/tracker/grant_table.html:14
+#: tracker/templates/tracker/topic_finance.html:17
+#: tracker/templates/tracker/topic_table.html:16
+msgid "paid"
+msgstr "íoctha"
+
+#: tracker/models.py:50 tracker/templates/tracker/export.html:249
+#: tracker/templates/tracker/grant_table.html:15
+#: tracker/templates/tracker/topic_finance.html:18
+#: tracker/templates/tracker/topic_table.html:17
+msgid "overpaid"
+msgstr "ró-íoctha"
+
+#: tracker/models.py:54
+msgid "presubmitted"
+msgstr "réamh-churtha isteach"
+
+#: tracker/models.py:55
+msgid "preaccepted"
+msgstr "réamhghlactha"
+
+#: tracker/models.py:56
+msgid "submitted"
+msgstr "curtha isteach"
+
+#: tracker/models.py:57
+msgid "accepted"
+msgstr "glactha"
+
+#: tracker/models.py:58
+msgid "expense documents submitted"
+msgstr "doiciméid chaiteachais a cuireadh isteach"
+
+#: tracker/models.py:59
+msgid "expense documents filed"
+msgstr "doiciméid chaiteachais comhdaithe"
+
+#: tracker/models.py:60 tracker/models.py:379
+#: tracker/templates/tracker/export.html:52
+#: tracker/templates/tracker/export.html:53
+msgid "archived"
+msgstr "cartlannaithe"
+
+#: tracker/models.py:61 tracker/models.py:377
+#: tracker/templates/tracker/export.html:55
+#: tracker/templates/tracker/export.html:56
+msgid "closed"
+msgstr "dúnta"
+
+#: tracker/models.py:65
+msgid "All notifications"
+msgstr "Gach fógra"
+
+#: tracker/models.py:66
+msgid "Comment added"
+msgstr "Trácht curtha leis"
+
+#: tracker/models.py:67
+msgid "Supervisor notes changed"
+msgstr "Nótaí maoirseora athraithe"
+
+#: tracker/models.py:68
+msgid "New ticket was created"
+msgstr "Cruthaíodh ticéad nua"
+
+#: tracker/models.py:69
+msgid "Ticket was deleted"
+msgstr "Scriosadh an ticéad"
+
+#: tracker/models.py:70
+msgid "Ack added"
+msgstr "Deimhniú curtha leis"
+
+#: tracker/models.py:71
+msgid "Ack removed"
+msgstr "Baineadh an admháil"
+
+#: tracker/models.py:72
+msgid "Ticket changed"
+msgstr "Ticéad athraithe"
+
+#: tracker/models.py:73
+msgid "New preexpediture was created"
+msgstr "Cruthaíodh réamh-eispéireas nua"
+
+#: tracker/models.py:74
+msgid "Preexpeditures changed"
+msgstr "Athraíodh réamh-eispéiris"
+
+#: tracker/models.py:75
+msgid "New expediture was created"
+msgstr "Cruthaíodh caiteachas nua"
+
+#: tracker/models.py:76
+msgid "Expeditures changed"
+msgstr "Caiteachais athraithe"
+
+#: tracker/models.py:77
+msgid "New media was created"
+msgstr "Cruthaíodh meáin nua"
+
+#: tracker/models.py:78
+msgid "Media changed"
+msgstr "Athraíodh na meáin"
+
+#: tracker/models.py:79
+msgid "Document changed"
+msgstr "Athraíodh an doiciméad"
+
+#: tracker/models.py:139
+msgid "unknown"
+msgstr "anaithnid"
+
+#: tracker/models.py:172 tracker/models.py:1438
+msgid "created"
+msgstr "cruthaithe"
+
+#: tracker/models.py:245
+msgid "Signed text"
+msgstr "Téacs sínithe"
+
+#: tracker/models.py:250
+msgid "updated"
+msgstr "nuashonraithe"
+
+#: tracker/models.py:251
+msgid "media updated"
+msgstr "na meáin nuashonraithe"
+
+#: tracker/models.py:252
+msgid "Date when cached information about media were last updated. Used in \"show media\" view."
+msgstr "Dáta an dáta a nuashonraíodh faisnéis taisceáilte faoi na meáin go deireanach. Úsáidte san amharc \"taispeáin meáin\"."
+
+#: tracker/models.py:253
+msgid "event date"
+msgstr "dáta an imeachta"
+
+#: tracker/models.py:254
+msgid "Date of the event this ticket is about"
+msgstr "Dáta na hócáide lena mbaineann an ticéad seo"
+
+#: tracker/models.py:255 tracker/models.py:416
+#: tracker/templates/feeds/ticket_description.html:3
+msgid "requested by"
+msgstr "iarrtha ag"
+
+#: tracker/models.py:256
+msgid "User who created/requested for this ticket"
+msgstr "Úsáideoir a chruthaigh/a d'iarr an ticéad seo"
+
+#: tracker/models.py:258
+msgid "requested by (text)"
+msgstr "iarrtha ag (téacs)"
+
+#: tracker/models.py:259
+msgid "Text description of who requested for this ticket, in case user is not filled in"
+msgstr "Cur síos téacs ar cé a d'iarr an ticéad seo, mura bhfuil an t-úsáideoir líonta isteach"
+
+#: tracker/models.py:260 tracker/models.py:699 tracker/models.py:771
+#: tracker/models.py:954 tracker/views.py:799
+msgid "name"
+msgstr "ainm"
+
+#: tracker/models.py:260
+msgid "Name for the ticket"
+msgstr "Ainm don ticéad"
+
+#: tracker/models.py:261 tracker/models.py:704 tracker/views.py:560
+msgid "topic"
+msgstr "ábhar"
+
+#: tracker/models.py:262
+msgid "Project topic this ticket belongs to"
+msgstr "Ábhar tionscadail a bhaineann leis an ticéad seo"
+
+#: tracker/models.py:263
+msgid "subtopic"
+msgstr "fo-ábhar"
+
+#: tracker/models.py:264
+msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
+msgstr "Fo-ábhar lena mbaineann an ticéad seo (mura bhfuil a fhios agat, fág folamh é seo)"
+
+#: tracker/models.py:266
+msgid "rating percentage"
+msgstr "céatadán rátála"
+
+#: tracker/models.py:267
+msgid "Rating percentage set by topic administrator"
+msgstr "Céatadán rátála socraithe ag riarthóir na topaice"
+
+#: tracker/models.py:268
+msgid "report mandatory"
+msgstr "tuairisc éigeantach"
+
+#: tracker/models.py:268 tracker/templates/tracker/export.html:73
+#: tracker/templates/tracker/export.html:75
+#: tracker/templates/tracker/ticket_common_detail.html:15
+msgid "Is report mandatory?"
+msgstr "An bhfuil tuarascáil éigeantach?"
+
+#: tracker/models.py:269
+msgid "report url"
+msgstr "Gearán faoi url"
+
+#: tracker/models.py:270
+msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
+msgstr "URL chuig do thuairisc, más mian leat rud éigin a thuairisciú (nó más éigeantach do thuairisc de réir riarthóra na topaice)."
+
+#: tracker/models.py:271
+msgid "event url"
+msgstr "url imeachta"
+
+#: tracker/models.py:272
+msgid "Link to a public page describing the event, if it exist"
+msgstr "Nasc chuig leathanach poiblí ina bhfuil cur síos ar an imeacht, más ann dó"
+
+#: tracker/models.py:273 tracker/models.py:700 tracker/models.py:784
+#: tracker/models.py:869 tracker/models.py:926 tracker/models.py:1183
+#: tracker/models.py:1209 tracker/models.py:1368 tracker/views.py:800
+msgid "description"
+msgstr "cur síos"
+
+#: tracker/models.py:274
+msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description. You may use a limited subset of HTML."
+msgstr "Spás le haghaidh nótaí breise. Má tá tú ag cur isteach turas inis dúinn cá ndeachaigh tú agus cad a rinne tú ann. Is féidir leat nasc a dhéanamh le ticéid eile trí #ticketid a chur le do thuairisc. Féadfaidh tú fo-thacar teoranta de HTML a úsáid."
+
+#: tracker/models.py:275
+msgid "supervisor notes"
+msgstr "nótaí maoirseora"
+
+#: tracker/models.py:276
+msgid "This space is for notes of project supervisors and accounting staff."
+msgstr "Tá an spás seo le haghaidh nótaí maoirseoirí tionscadail agus baill foirne cuntasaíochta."
+
+#: tracker/models.py:277
+msgid "deposit"
+msgstr "taisce"
+
+#: tracker/models.py:280
+msgid "If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."
+msgstr "Más éarlais airgeadais atá uait, líon isteach anseo a méid. Is é an tsuim uasta suim na réamhchaiteachas. Mura bhfuil éarlais á hiarraidh agat, líon isteach anseo 0."
+
+#: tracker/models.py:282
+msgid "payment status"
+msgstr "stádas íocaíochta"
+
+#: tracker/models.py:283
+msgid "imported"
+msgstr "allmhairithe"
+
+#: tracker/models.py:284
+msgid "Was this ticket imported from older Tracker version?"
+msgstr "An ndearnadh an ticéad seo a allmhairiú ó leagan níos sine de Tracker?"
+
+#: tracker/models.py:285
+msgid "enable comments"
+msgstr "cumasaigh tuairimí"
+
+#: tracker/models.py:286
+msgid "Can users comment on this ticket?"
+msgstr "An féidir le húsáideoirí trácht a dhéanamh ar an ticéad seo?"
+
+#: tracker/models.py:287
+msgid "Did you travel by car?"
+msgstr "Ar thaistil tú i gcarr?"
+
+#: tracker/models.py:288
+msgid "Do you request reimbursement of car-type travel expense?"
+msgstr "An bhfuil tú ag iarraidh aisíocaíocht ar chostas taistil i gcarr?"
+
+#: tracker/models.py:289
+msgid "Is this ticket completed?"
+msgstr "An bhfuil an ticéad seo críochnaithe?"
+
+#: tracker/models.py:373
+msgid "historical"
+msgstr "stairiúil"
+
+#: tracker/models.py:382
+msgid "waiting for content rating"
+msgstr "ag fanacht le rátáil ábhair"
+
+#: tracker/models.py:385 tracker/templates/tracker/export.html:49
+#: tracker/templates/tracker/export.html:50
+msgid "complete"
+msgstr "críochnaithe"
+
+#: tracker/models.py:387 tracker/templates/tracker/export.html:46
+#: tracker/templates/tracker/export.html:47
+msgid "waiting for filing of documents"
+msgstr "ag fanacht le doiciméid a chomhdú"
+
+#: tracker/models.py:389 tracker/templates/tracker/export.html:43
+#: tracker/templates/tracker/export.html:44
+msgid "waiting for document submission"
+msgstr "ag fanacht le cur isteach doiciméad"
+
+#: tracker/models.py:392 tracker/models.py:399
+#: tracker/templates/tracker/export.html:40
+#: tracker/templates/tracker/export.html:41
+msgid "waiting for approval"
+msgstr "ag fanacht le formheas"
+
+#: tracker/models.py:394 tracker/templates/tracker/export.html:37
+#: tracker/templates/tracker/export.html:38
+msgid "waiting for submitting"
+msgstr "ag fanacht le cur isteach"
+
+#: tracker/models.py:397 tracker/templates/tracker/export.html:34
+#: tracker/templates/tracker/export.html:35
+msgid "waiting for preapproval"
+msgstr "ag fanacht le réamhcheadú"
+
+#: tracker/models.py:401 tracker/templates/tracker/export.html:31
+#: tracker/templates/tracker/export.html:32
+msgid "draft"
+msgstr "dréacht"
+
+#: tracker/models.py:404 tracker/templates/tracker/export.html:30
+msgid "state"
+msgstr "stát"
+
+#: tracker/models.py:428 tracker/templates/tracker/admin_user_list.html:26
+msgid "E-mail"
+msgstr "Ríomhphost"
+
+#: tracker/models.py:429 tracker/models.py:1308
+#: tracker/templates/tracker/admin_user_list.html:31
+#: tracker/templates/tracker/admin_user_list.html:34
+msgid "Other contact"
+msgstr "Teagmháil eile"
+
+#: tracker/models.py:433
+msgid "no tracker account listed"
+msgstr "níl aon chuntas rianaithe liostaithe"
+
+#: tracker/models.py:435
+msgid "Requester details"
+msgstr "Sonraí an iarratasóra"
+
+#: tracker/models.py:624 tracker/templates/tracker/dumpaccounts/index.html:28
+msgid "Ticket"
+msgstr "Ticéad"
+
+#: tracker/models.py:625 tracker/templates/tracker/cluster_detail.html:12
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/export.html:25
+#: tracker/templates/tracker/grant_table.html:6
+#: tracker/templates/tracker/import.html:19
+#: tracker/templates/tracker/subtopic_detail.html:15
+#: tracker/templates/tracker/topic_detail.html:37
+#: tracker/templates/tracker/topic_finance.html:12
+#: tracker/templates/tracker/topic_table.html:7
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22
+#: tracker/templates/tracker/user_list.html:13
+msgid "Tickets"
+msgstr "Ticéid"
+
+#: tracker/models.py:701 tracker/models.py:703
+msgid "Description shown to users who enter tickets for this subtopic"
+msgstr "Cur síos a thaispeántar d’úsáideoirí a chuireann ticéid isteach don fho-ábhar seo"
+
+#: tracker/models.py:702 tracker/models.py:786
+msgid "form description"
+msgstr "cur síos ar an bhfoirm"
+
+#: tracker/models.py:705
+msgid "Topic where this subtopic belongs"
+msgstr "Topaic lena mbaineann an fho-thopaic seo"
+
+#: tracker/models.py:764 tracker/templates/tracker/index.html:24
+#: tracker/templates/tracker/ticket_common_detail.html:13
+#: tracker/templates/tracker/ticket_table.html:19
+#: tracker/templates/tracker/ticket_table.html:35
+msgid "Subtopic"
+msgstr "Fo-ábhar"
+
+#: tracker/models.py:765 tracker/templates/tracker/topic_detail.html:28
+msgid "Subtopics"
+msgstr "Fo-ábhair"
+
+#: tracker/models.py:772 tracker/views.py:589
+msgid "grant"
+msgstr "deontas"
+
+#: tracker/models.py:773
+msgid "Grant project where this topic belongs"
+msgstr "Tionscadal deontais ina mbaineann an topaic seo"
+
+#: tracker/models.py:774
+msgid "open for tickets"
+msgstr "oscailte do thicéid"
+
+#: tracker/models.py:775
+msgid "Is this topic open for ticket submissions from users?"
+msgstr "An bhfuil an topaic seo oscailte d’iarratais ticéad ó úsáideoirí?"
+
+#: tracker/models.py:776
+msgid "ticket media"
+msgstr "meáin ticéad"
+
+#: tracker/models.py:777
+msgid "Does this topic track ticket media items?"
+msgstr "An bhfuil an topaic seo ag rianú míreanna meán ticéad?"
+
+#: tracker/models.py:778
+msgid "ticket expenses"
+msgstr "costais ticéad"
+
+#: tracker/models.py:779
+msgid "Does this topic track ticket expenses?"
+msgstr "An ndéanann an topaic seo rianú ar chostais ticéad?"
+
+#: tracker/models.py:780
+msgid "ticket preexpenses"
+msgstr "réamhchostais ticéad"
+
+#: tracker/models.py:781
+msgid "Does this topic track preexpenses?"
+msgstr "An ndéanann an topaic seo rianú ar réamhchostais?"
+
+#: tracker/models.py:782
+msgid "require statutory declaration"
+msgstr "dearbhú reachtúil a éileamh"
+
+#: tracker/models.py:783
+msgid "Does this topic require statutory declaration for car travelling?"
+msgstr "An bhfuil dearbhú reachtúil ag teastáil don ábhar seo le haghaidh taisteal i gcarr?"
+
+#: tracker/models.py:785 tracker/models.py:870
+msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
+msgstr "Cur síos mionsonraithe; Ceadaítear HTML faoi láthair, déantar briseadh líne a pharsáil go huathoibríoch"
+
+#: tracker/models.py:787
+msgid "Description shown to users who enter tickets for this topic"
+msgstr "Cur síos a thaispeántar d’úsáideoirí a chuireann ticéid isteach don ábhar seo"
+
+#: tracker/models.py:788
+msgid "topic administrator"
+msgstr "riarthóir topaice"
+
+#: tracker/models.py:789
+msgid "Selected users will have administration access to this topic."
+msgstr "Beidh rochtain riaracháin ag úsáideoirí roghnaithe ar an ábhar seo."
+
+#: tracker/models.py:856 tracker/templates/tracker/dumpaccounts/index.html:11
+#: tracker/templates/tracker/index.html:23
+#: tracker/templates/tracker/ticket_common_detail.html:12
+#: tracker/templates/tracker/ticket_table.html:18
+#: tracker/templates/tracker/ticket_table.html:34
+#: tracker/templates/tracker/topic_content_acks_per_user.html:14
+#: tracker/templates/tracker/topic_finance.html:11
+#: tracker/templates/tracker/topic_table.html:5
+msgid "Topic"
+msgstr "Topaic"
+
+#: tracker/models.py:857 tracker/templates/tracker/export.html:61
+#: tracker/templates/tracker/export.html:212
+#: tracker/templates/tracker/import.html:26
+msgid "Topics"
+msgstr "Topaicí"
+
+#: tracker/models.py:866
+msgid "full name"
+msgstr "ainm iomlán"
+
+#: tracker/models.py:866
+msgid "Full name for headlines and such"
+msgstr "Ainm iomlán le haghaidh ceannlínte agus a leithéid"
+
+#: tracker/models.py:867
+msgid "short name"
+msgstr "ainm gearr"
+
+#: tracker/models.py:867
+msgid "Shorter name for use in tables"
+msgstr "Ainm níos giorra le húsáid i dtáblaí"
+
+#: tracker/models.py:868
+msgid "slug"
+msgstr "sluga"
+
+#: tracker/models.py:868
+msgid "Shortcut for usage in URLs"
+msgstr "Aicearra le húsáid in URLanna"
+
+#: tracker/models.py:910 tracker/templates/tracker/grant_table.html:5
+#: tracker/templates/tracker/index.html:22
+#: tracker/templates/tracker/ticket_table.html:17
+#: tracker/templates/tracker/ticket_table.html:33
+#: tracker/templates/tracker/topic_content_acks_per_user.html:13
+#: tracker/templates/tracker/topic_finance.html:10
+#: tracker/templates/tracker/topic_table.html:6
+#: tracker/templates/tracker/transaction_list.html:15
+msgid "Grant"
+msgstr "Deontas"
+
+#: tracker/models.py:911 tracker/templates/tracker/export.html:141
+#: tracker/templates/tracker/import.html:34
+msgid "Grants"
+msgstr "Deontais"
+
+#: tracker/models.py:924 tracker/models.py:952 tracker/models.py:1181
+#: tracker/models.py:1207 tracker/views.py:515
+msgid "ticket"
+msgstr "ticéad"
+
+#: tracker/models.py:925 tracker/models.py:953
+msgid "Ticket this media info belongs to"
+msgstr "Ticéad a bhaineann leis an bhfaisnéis meán seo"
+
+#: tracker/models.py:926
+msgid "Item description to show"
+msgstr "Cur síos ar an earra le taispeáint"
+
+#: tracker/models.py:927 tracker/models.py:940 tracker/models.py:958
+msgid "URL"
+msgstr "URL"
+
+#: tracker/models.py:927
+msgid "Link to media files"
+msgstr "Nasc chuig comhaid meán"
+
+#: tracker/models.py:928
+msgid "count"
+msgstr "comhaireamh"
+
+#: tracker/models.py:928 tracker/templates/tracker/ticket_show_media.html:45
+msgid "Number of files"
+msgstr "Líon na gcomhad"
+
+#: tracker/models.py:934 tracker/models.py:935 tracker/models.py:1152
+#: tracker/models.py:1153
+msgid "Ticket media"
+msgstr "Meáin ticéad"
+
+#: tracker/models.py:940
+msgid "Link to file usage"
+msgstr "Nasc chuig úsáid comhaid"
+
+#: tracker/models.py:941 tracker/models.py:947
+msgid "title"
+msgstr "teideal"
+
+#: tracker/models.py:942
+msgid "project"
+msgstr "tionscadal"
+
+#: tracker/models.py:955
+msgid "page id"
+msgstr "aitheantas leathanaigh"
+
+#: tracker/models.py:956
+msgid "width"
+msgstr "leithead"
+
+#: tracker/models.py:957
+msgid "height"
+msgstr "airde"
+
+#: tracker/models.py:959
+msgid "cannonical title"
+msgstr "teideal canónach"
+
+#: tracker/models.py:1182
+msgid "Ticket this expediture belongs to"
+msgstr "Ticéad a bhaineann leis an turas seo"
+
+#: tracker/models.py:1183
+msgid "Description of this expediture"
+msgstr "Cur síos ar an gcaiteachas seo"
+
+#: tracker/models.py:1184 tracker/models.py:1210 tracker/models.py:1366
+msgid "amount"
+msgstr "méid"
+
+#: tracker/models.py:1185
+msgid "Expediture amount in"
+msgstr "Méid caiteachais i"
+
+#: tracker/models.py:1186 tracker/models.py:1369
+msgid "accounting info"
+msgstr "eolas cuntasaíochta"
+
+#: tracker/models.py:1187
+msgid "Accounting info, this is editable only through admin field"
+msgstr "Eolas cuntasaíochta, ní féidir é seo a chur in eagar ach tríd an réimse riaracháin"
+
+#: tracker/models.py:1189 tracker/models.py:1212
+msgid "wage"
+msgstr "pá"
+
+#: tracker/models.py:1192 tracker/models.py:1215
+#, python-format
+msgid "%(description)s (%(amount)s %(currency)s)"
+msgstr "%(description)s (%(amount)s %(currency)s)"
+
+#: tracker/models.py:1201
+msgid "Ticket expediture"
+msgstr "Caiteachas ticéad"
+
+#: tracker/models.py:1202
+msgid "Ticket expeditures"
+msgstr "Caiteachas ticéad"
+
+#: tracker/models.py:1208
+msgid "Ticket this preexpediture belongs to"
+msgstr "Ticéad a bhaineann leis an réamh-eispéireas seo"
+
+#: tracker/models.py:1209
+msgid "Description of this preexpediture"
+msgstr "Cur síos ar an réamh-chaiteachas seo"
+
+#: tracker/models.py:1211
+msgid "Preexpediture amount in"
+msgstr "Méid réamhchaiteachais i"
+
+#: tracker/models.py:1219
+msgid "Ticket preexpediture"
+msgstr "Réamh-dhíol ticéad"
+
+#: tracker/models.py:1220
+msgid "Ticket preexpeditures"
+msgstr "Réamh-eispéiris ticéad"
+
+#: tracker/models.py:1224
+msgid "uploader"
+msgstr "uaslódálaí"
+
+#: tracker/models.py:1234 tracker/views.py:799
+msgid "We need a sane file name, such as my-invoice123.jpg"
+msgstr "Teastaíonn ainm comhaid réasúnta uainn, amhail my-invoice123.jpg"
+
+#: tracker/models.py:1275
+msgid "Ignored acks"
+msgstr "Neamhaird déanta ar acks"
+
+#: tracker/models.py:1276
+msgid "Muted notifications"
+msgstr "Fógraí balbhaithe"
+
+#: tracker/models.py:1277
+msgid "Email language"
+msgstr "Teanga ríomhphoist"
+
+#: tracker/models.py:1279
+msgid "Display items"
+msgstr "Míreanna taispeána"
+
+#: tracker/models.py:1280
+msgid "How many items should we display in tables at once"
+msgstr "Cé mhéad mír ba chóir dúinn a thaispeáint sna táblaí ag an am céanna"
+
+#: tracker/models.py:1299
+msgid "Tracker user preference"
+msgstr "Rogha úsáideora an rianaitheora"
+
+#: tracker/models.py:1300
+msgid "Tracker user preferences"
+msgstr "Roghanna úsáideora an rianaitheora"
+
+#: tracker/models.py:1305
+msgid "Username on mediawiki"
+msgstr "Ainm úsáideora ar mediawiki"
+
+#: tracker/models.py:1306 tracker/templates/tracker/admin_user_list.html:30
+msgid "Bank account"
+msgstr "Cuntas bainc"
+
+#: tracker/models.py:1307
+msgid "Bank account information for money transfers"
+msgstr "Faisnéis chuntais bhainc le haghaidh aistrithe airgid"
+
+#: tracker/models.py:1309
+msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
+msgstr "Teagmhálacha eile amhail cuntas vicí; is féidir leo a bheith úsáideach i gcás go gcaithfidh riarthóirí topaice roinnt eolais a shoiléiriú"
+
+#: tracker/models.py:1310 tracker/templates/tracker/admin_user_list.html:32
+msgid "Other identification"
+msgstr "Aitheantas eile"
+
+#: tracker/models.py:1311
+msgid "Address, or other identification information, so we know who are we sending money to"
+msgstr "Seoladh, nó faisnéis aitheantais eile, ionas go mbeidh a fhios againn cé chuige a bhfuilimid ag seoladh airgid"
+
+#: tracker/models.py:1342
+msgid "Tracker profile"
+msgstr "Próifíl rianaitheora"
+
+#: tracker/models.py:1343
+msgid "Tracker profiles"
+msgstr "Próifílí rianaithe"
+
+#: tracker/models.py:1361
+msgid "date"
+msgstr "dáta"
+
+#: tracker/models.py:1362 tracker/models.py:1386
+msgid "other party"
+msgstr "páirtí eile"
+
+#: tracker/models.py:1363
+msgid "The other party; user who sent or received the payment"
+msgstr "An páirtí eile; an t-úsáideoir a sheol nó a fuair an íocaíocht"
+
+#: tracker/models.py:1364
+msgid "other party (text)"
+msgstr "páirtí eile (téacs)"
+
+#: tracker/models.py:1365
+msgid "The other party; this text is used when user is not selected"
+msgstr "An páirtí eile; úsáidtear an téacs seo nuair nach bhfuil an t-úsáideoir roghnaithe"
+
+#: tracker/models.py:1367
+msgid "Payment amount; Positive value means transaction to the user, negative is a transaction from the user"
+msgstr "Méid íocaíochta; Ciallaíonn luach dearfach idirbheart chuig an úsáideoir, ciallaíonn luach diúltach idirbheart ón úsáideoir"
+
+#: tracker/models.py:1368
+msgid "Description of this transaction"
+msgstr "Cur síos ar an idirbheart seo"
+
+#: tracker/models.py:1369
+#: tracker/templates/feeds/transaction_description.html:6
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1730
+msgid "Accounting info"
+msgstr "Eolas cuntasaíochta"
+
+#: tracker/models.py:1370
+msgid "related tickets"
+msgstr "ticéid ghaolmhara"
+
+#: tracker/models.py:1371
+msgid "Tickets this trackaction is related to"
+msgstr "Ticéid a bhaineann leis an ngníomh rianaithe seo"
+
+#: tracker/models.py:1413
+msgid "Transaction"
+msgstr "Idirbheart"
+
+#: tracker/models.py:1414 tracker/templates/tracker/cluster_detail.html:18
+#: tracker/templates/tracker/ticket_detail.html:30
+#: tracker/templates/tracker/user_detail.html:19
+msgid "Transactions"
+msgstr "Idirbhearta"
+
+#: tracker/models.py:1440
+msgid "comment"
+msgstr "trácht"
+
+#: tracker/models.py:1564
+#, python-format
+msgid "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> by user <tt>%(user)s</tt>"
+msgstr "Cuireadh trácht <tt>%(comment)s</tt> leis an ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a> ag an úsáideoir <tt>%(user)s</tt>"
+
+#: tracker/models.py:1595
+#, python-format
+msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
+msgstr "Chruthaigh úsáideoir <tt>%(user)s</tt> ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a> sa topaic <tt>%(topic)s</tt>."
+
+#: tracker/models.py:1611
+#, python-format
+msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "D'athraigh an t-úsáideoir <tt>%(user)s</tt> nótaí maoirseora an ticéid <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1631
+#, python-format
+msgid "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "D'athraigh an t-úsáideoir <tt>%(user)s</tt> cur síos an ticéid <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1634
+#, python-format
+msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "D'athraigh an t-úsáideoir <tt>%(user)s</tt> ainm an ticéid <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1637
+#, python-format
+msgid "User <tt>%(user)s</tt> changed link to report of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "D'athraigh an t-úsáideoir <tt>%(user)s</tt> an nasc chuig tuairisc ar thicéad <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1641
+#, python-format
+msgid "User <tt>%(user)s</tt> changed requested deposit of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "D'athraigh an t-úsáideoir <tt>%(user)s</tt> an éarlais iarrtha ar an ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1651
+#, python-format
+msgid "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "D'athraigh an t-úsáideoir <tt>%(user)s</tt> réimse \"An bhfuil tuairisc éigeantach?\" den ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1663
+#, python-format
+msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
+msgstr "Scriosadh an ticéad \"%(ticket)s\" ag an úsáideoir %(user)s"
+
+#: tracker/models.py:1680
+#, python-format
+msgid "User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "Chuir an t-úsáideoir <tt>%(user)s</tt> ack <tt>%(ack_type)s</tt> leis an ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1694
+#, python-format
+msgid "User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+msgstr "Bhain an t-úsáideoir <tt>%(user)s</tt> an admháil <tt>%(ack_type)s</tt> den ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+
+#: tracker/models.py:1725
+#, python-format
+msgid "User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "Chuir an t-úsáideoir <tt>%(user)s</tt> turais phleanáilte <tt>%(expeditures)s</tt> leis an ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1747
+#, python-format
+msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
+msgstr "Shocraigh an t-úsáideoir <tt>%(user)s</tt> an caiteachas pleanáilte <tt>%(expeditures)s</tt> den ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a> mar phá."
+
+#: tracker/models.py:1750
+#, python-format
+msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
+msgstr "Shocraigh an t-úsáideoir <tt>%(user)s</tt> an caiteachas pleanáilte <tt>%(expeditures)s</tt> den ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a> mar thuarastal seachas pá."
+
+#: tracker/models.py:1753
+#, python-format
+msgid "User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "D'athraigh an t-úsáideoir <tt>%(user)s</tt> an caiteachas pleanáilte ó <tt>%(old_expediture)s</tt> go <tt>%(expeditures)s</tt> den ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1770
+#, python-format
+msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "Bhain an t-úsáideoir <tt>%(user)s</tt> an turas pleanáilte <tt>%(expediture)s</tt> den ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1791
+#, python-format
+msgid "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "Chuir an t-úsáideoir <tt>%(user)s</tt> fíor-chaiteachas <tt>%(expeditures)s</tt> leis an ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1814
+#, python-format
+msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as paid."
+msgstr "Shocraigh an t-úsáideoir <tt>%(user)s</tt> fíorchaitheamh <tt>%(expeditures)s</tt> den ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a> mar íoctha."
+
+#: tracker/models.py:1817
+#, python-format
+msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not paid."
+msgstr "Shocraigh an t-úsáideoir <tt>%(user)s</tt> fíorchaitheamh <tt>%(expeditures)s</tt> den ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a> mar neamhíoctha."
+
+#: tracker/models.py:1822
+#, python-format
+msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
+msgstr "Shocraigh an t-úsáideoir <tt>%(user)s</tt> fíorchaiteachas <tt>%(expeditures)s</tt> den ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a> mar phá."
+
+#: tracker/models.py:1825
+#, python-format
+msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
+msgstr "Shocraigh an t-úsáideoir <tt>%(user)s</tt> fíorchaiteachas <tt>%(expeditures)s</tt> den ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a> mar phá seachas pá."
+
+#: tracker/models.py:1832
+#, python-format
+msgid "User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "Athraíonn an t-úsáideoir <tt>%(user)s</tt> an caiteachas iarbhír ó <tt>%(old_expediture)s</tt> go <tt>%(expeditures)s</tt> den ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1849
+#, python-format
+msgid "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "Bhain an t-úsáideoir <tt>%(user)s</tt> fíorchaiteachas <tt>%(expeditures)s</tt> den ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1863
+#, python-format
+msgid "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "Chuir an t-úsáideoir <tt>%(user)s</tt> meáin leis an ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1866
+#, python-format
+msgid "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "D'athraigh an t-úsáideoir <tt>%(user)s</tt> meán an ticéid <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1880
+#, python-format
+msgid "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "Bhain an t-úsáideoir <tt>%(user)s</tt> meáin as an ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1893 tracker/models.py:1913
+msgid "no description"
+msgstr "gan cur síos"
+
+#: tracker/models.py:1897
+#, python-format
+msgid "User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+msgstr "Chuir an t-úsáideoir <tt>%(user)s</tt> doiciméad <tt>%(document_filename)s (%(document_description)s)</tt> leis an ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+
+#: tracker/models.py:1899
+#, python-format
+msgid "User <tt>%(user)s</tt> changed document <tt>%(document_filename)s</tt> assigned to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+msgstr "D'athraigh an t-úsáideoir <tt>%(user)s</tt> an doiciméad <tt>%(document_filename)s</tt> a sannadh don ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>."
+
+#: tracker/models.py:1916
+#, python-format
+msgid "User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+msgstr "Bain an t-úsáideoir <tt>%(user)s</tt> an doiciméad <tt>%(document_filename)s (%(document_description)s)</tt> ón ticéad <a href=\"%(ticket_url)s\">%(ticket)s</a>"
+
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
+msgid "REMOVE"
+msgstr "BAIN"
+
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
+msgid "Really remove?"
+msgstr "Bain i ndáiríre?"
+
+#: tracker/templates/admin/tracker/ticket/ack_line.html:1
+msgid "YES"
+msgstr "TÁ"
+
+#: tracker/templates/admin/tracker/ticket/ack_norating_error.html:2
+msgid "You must fill rating percentage before you will be able to accept the ticket."
+msgstr "Ní mór duit céatadán rátála a líonadh isteach sula mbeidh tú in ann glacadh leis an ticéad."
+
+#: tracker/templates/admin/tracker/ticket/ack_noreport_error.html:2
+msgid "You cannot accept ticket when a report is mandatory and no report was given"
+msgstr "Ní féidir leat ticéad a ghlacadh nuair atá tuarascáil éigeantach agus nár tugadh aon tuarascáil"
+
+#: tracker/templates/admin/tracker/ticket/add_ack.html:3
+msgid "add new ack"
+msgstr "cuir ack nua leis"
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:20
+#: tracker/templates/admin/tracker/ticket/tabular.html:76
+#: tracker/templates/admin/tracker/ticket/tabular.html:86
+#: tracker/templates/tracker/dumpaccounts/index.html:17
+#: tracker/templates/tracker/grant_table.html:34
+#: tracker/templates/tracker/topic_table.html:38
+#: tracker/templates/tracker/user_list.html:27
+msgid "Total"
+msgstr "Iomlán"
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:39
+#: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1728
+#: tracker/views.py:1737 tracker/views.py:1747
+msgid "Ticket ID"
+msgstr "Aitheantas Ticéid"
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:42
+msgid "Approvals"
+msgstr "Ceaduithe"
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:46
+msgid "ADD ACK"
+msgstr "CUIR ACK LEIS"
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:66
+msgid "Ticket documents"
+msgstr "Doiciméid ticéid"
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:69
+#: tracker/templates/tracker/edit_ticket.html:20
+#: tracker/templates/tracker/ticket_detail.html:19
+msgid "edit ticket documents"
+msgstr "doiciméid ticéad a chur in eagar"
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:76
+msgid "There are no documents uploaded for this ticket."
+msgstr "Níl aon doiciméid uaslódáilte don ticéad seo."
+
+#: tracker/templates/admin/tracker/ticket/change_form.html:79
+#: tracker/templates/tracker/ticket_detail.html:64
+#, python-format
+msgid "There is 1 document uploaded."
+msgid_plural "There are %(counter)s documents uploaded."
+msgstr[0] "one=Tá 1 doiciméad uaslódáilte."
+msgstr[1] "two=Tá %(counter)s doiciméad uaslódáilte."
+msgstr[2] "few=Tá %(counter)s doiciméad uaslódáilte."
+msgstr[3] "many=Tá %(counter)s doiciméad uaslódáilte."
+msgstr[4] "other=Tá %(counter)s doiciméad uaslódáilte."
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:20
+msgid "Delete?"
+msgstr "Scrios?"
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:34
+#: tracker/templates/tracker/admin_index_override.html:27
+msgid "Change"
+msgstr "Athraigh"
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:34
+msgid "View"
+msgstr "Amharc"
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:36
+msgid "View on site"
+msgstr "Féach ar an láthair"
+
+#: tracker/templates/admin/tracker/ticket/tabular.html:95
+#: tracker/templates/tracker/dumpaccounts/index.html:28
+msgid "Accepted"
+msgstr "Glactha"
+
+#: tracker/templates/feeds/ticket_description.html:2
+msgid "status"
+msgstr "stádas"
+
+#: tracker/templates/feeds/transaction_description.html:2
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22
+msgid "Date"
+msgstr "Dáta"
+
+#: tracker/templates/feeds/transaction_description.html:3
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_list.html:13
+msgid "User"
+msgstr "Úsáideoir"
+
+#: tracker/templates/feeds/transaction_description.html:4
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/export.html:153
+#: tracker/templates/tracker/export.html:183
+#: tracker/templates/tracker/ticket_common_detail.html:49
+#: tracker/templates/tracker/ticket_common_detail.html:64
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22
+msgid "Amount"
+msgstr "Méid"
+
+#: tracker/templates/feeds/transaction_description.html:5
+#: tracker/templates/tracker/cluster_detail.html:19
+#: tracker/templates/tracker/ticket_common_detail.html:30
+#: tracker/templates/tracker/ticket_detail.html:34
+#: tracker/templates/tracker/transaction_list.html:15
+#: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1709
+#: tracker/views.py:1714 tracker/views.py:1719 tracker/views.py:1728
+#: tracker/views.py:1737
+msgid "Description"
+msgstr "Cur síos"
+
+#: tracker/templates/notification/notification_html.html:4
+msgid "List of new tickets"
+msgstr "Liosta ticéid nua"
+
+#: tracker/templates/notification/notification_html.html:13
+msgid "List of deleted tickets"
+msgstr "Liosta ticéid scriosta"
+
+#: tracker/templates/notification/notification_html.html:22
+msgid "The state of a watched ticket was changed"
+msgstr "Athraíodh staid ticéid faire"
+
+#: tracker/templates/notification/notification_html.html:31
+msgid "Supervisor notes on a watched ticket were changed"
+msgstr "Athraíodh nótaí maoirseora ar thicéad faire"
+
+#: tracker/templates/notification/notification_html.html:40
+msgid "Changes were made to a watched ticket"
+msgstr "Rinneadh athruithe ar thicéad faire"
+
+#: tracker/templates/notification/notification_html.html:49
+msgid "The preexpenditures of a watched ticket were changed"
+msgstr "Athraíodh réamhchaiteachas ticéid faire"
+
+#: tracker/templates/notification/notification_html.html:58
+msgid "The expenditures of a watched ticket were changed"
+msgstr "Athraíodh caiteachas ticéid faire"
+
+#: tracker/templates/notification/notification_html.html:67
+msgid "Medias of a watched ticket"
+msgstr "Meáin ticéid faire"
+
+#: tracker/templates/notification/notification_html.html:76
+msgid "Documents of a watched ticket were changed"
+msgstr "Athraíodh doiciméid ticéid faire"
+
+#: tracker/templates/notification/notification_html.html:85
+msgid "A comment was added to a watched ticket"
+msgstr "Cuireadh trácht le ticéad faire"
+
+#: tracker/templates/notification/notification_html.html:94
+msgid "List of tickets pending preapproval"
+msgstr "Liosta ticéad atá ar feitheamh réamhcheadaithe"
+
+#: tracker/templates/notification/notification_html.html:95
+#, python-format
+msgid "These tickets may be ready for preapproval. Before you preapprove them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
+msgstr "B’fhéidir go bhfuil na ticéid seo réidh le haghaidh réamhcheadaithe. Sula ndéanann tú réamhcheadú orthu, déan cinnte i gcónaí go gcomhlíonann siad ár <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">polasaí airgeadais</a>."
+
+#: tracker/templates/notification/notification_html.html:104
+msgid "List of tickets pending approval"
+msgstr "Liosta ticéad atá ar feitheamh ceadaithe"
+
+#: tracker/templates/notification/notification_html.html:105
+#, python-format
+msgid "These tickets may be ready for approval. Before you approve them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
+msgstr "B’fhéidir go bhfuil na ticéid seo réidh le haghaidh formheasa. Sula ndéanann tú iad a cheadú, déan cinnte i gcónaí go gcomhlíonann siad ár <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">polasaí airgeadais</a>."
+
+#: tracker/templates/notification/notification_html.html:114
+msgid "Tracker notifications"
+msgstr "Fógraí rianaithe"
+
+#: tracker/templates/notification/notification_subject.txt:1
+msgid "List of changes of watched tickets"
+msgstr "Liosta athruithe ar thicéid faire"
+
+#: tracker/templates/tracker/admin_index_override.html:10
+#, python-format
+msgid "Models available in the %(name)s application."
+msgstr "Samhlacha atá ar fáil san fheidhmchlár %(name)s."
+
+#: tracker/templates/tracker/admin_index_override.html:11
+#, python-format
+msgid "%(name)s"
+msgstr "%(name)s"
+
+#: tracker/templates/tracker/admin_index_override.html:21
+#: tracker/templates/tracker/ticketack_add.html:4
+#: tracker/templates/tracker/ticketack_add.html:8
+msgid "Add"
+msgstr "Cuir leis"
+
+#: tracker/templates/tracker/admin_index_override.html:39
+#: tracker/templates/tracker/user_list.html:4
+#: tracker/templates/tracker/user_list.html:8
+msgid "User list"
+msgstr "Liosta úsáideoirí"
+
+#: tracker/templates/tracker/admin_index_override.html:40
+#: tracker/templates/tracker/admin_user_list.html:16
+msgid "Tracker users"
+msgstr "Úsáideoirí rianaithe"
+
+#: tracker/templates/tracker/admin_index_override.html:45
+msgid "You don't have permission to edit anything."
+msgstr "Níl cead agat aon rud a chur in eagar."
+
+#: tracker/templates/tracker/admin_user_list.html:8
+#: tracker/templates/tracker/export.html:67
+#: tracker/templates/tracker/export.html:274
+#: tracker/templates/tracker/import.html:60
+msgid "Users"
+msgstr "Úsáideoirí"
+
+#: tracker/templates/tracker/admin_user_list.html:13
+msgid "Home"
+msgstr "Baile"
+
+#: tracker/templates/tracker/admin_user_list.html:25
+#: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1742
+msgid "Username"
+msgstr "Ainm úsáideora"
+
+#: tracker/templates/tracker/admin_user_list.html:28 tracker/views.py:1742
+msgid "First name"
+msgstr "Céadainm"
+
+#: tracker/templates/tracker/admin_user_list.html:29 tracker/views.py:1742
+msgid "Last name"
+msgstr "Sloinne"
+
+#: tracker/templates/tracker/cluster_detail.html:4
+#: tracker/templates/tracker/cluster_detail.html:8
+#, python-format
+msgid "Cluster %(cid)s"
+msgstr "Braisle %(cid)s"
+
+#: tracker/templates/tracker/cluster_detail.html:7
+#: tracker/templates/tracker/edit_ticket.html:17
+#: tracker/templates/tracker/edit_ticket_docs.html:7
+#: tracker/templates/tracker/fill_details.html:7
+#: tracker/templates/tracker/generic/create_ticket.html:17
+#: tracker/templates/tracker/generic/ticket_list.html:12
+#: tracker/templates/tracker/generic/topic_list.html:7
+#: tracker/templates/tracker/grant_detail.html:9
+#: tracker/templates/tracker/grant_list.html:7
+#: tracker/templates/tracker/index.html:12
+#: tracker/templates/tracker/preferences.html:11
+#: tracker/templates/tracker/subtopic_detail.html:7
+#: tracker/templates/tracker/ticket_detail.html:12
+#: tracker/templates/tracker/ticket_media.html:8
+#: tracker/templates/tracker/ticket_show_media.html:8
+#: tracker/templates/tracker/ticketack_add.html:7
+#: tracker/templates/tracker/ticketack_confirm_delete.html:7
+#: tracker/templates/tracker/topic_content_acks_per_user.html:7
+#: tracker/templates/tracker/topic_detail.html:14
+#: tracker/templates/tracker/topic_finance.html:7
+#: tracker/templates/tracker/transaction_list.html:11
+#: tracker/templates/tracker/upload_ticket_doc.html:24
+#: tracker/templates/tracker/user_deactivate.html:8
+#: tracker/templates/tracker/user_detail.html:8
+#: tracker/templates/tracker/user_details_change.html:7
+#: tracker/templates/tracker/user_list.html:7
+#: tracker/templates/tracker/watch.html:8
+msgid "index"
+msgstr "innéacs"
+
+#: tracker/templates/tracker/cluster_detail.html:7
+#: tracker/templates/tracker/generic/ticket_list.html:12
+msgid "transactions"
+msgstr "idirbhearta"
+
+#: tracker/templates/tracker/cluster_detail.html:10
+#: tracker/templates/tracker/ticket_detail.html:31
+msgid "Payment status"
+msgstr "Stádas íocaíochta"
+
+#: tracker/templates/tracker/cluster_detail.html:14
+msgid "Total tickets"
+msgstr "Líon iomlán na dticéad"
+
+#: tracker/templates/tracker/cluster_detail.html:26
+msgid "Total transactions"
+msgstr "Iomlán na n-idirbheart"
+
+#: tracker/templates/tracker/connect_account.html:4
+msgid "Connected account required"
+msgstr "Cuntas ceangailte ag teastáil"
+
+#: tracker/templates/tracker/connect_account.html:7
+msgid "Permission denied"
+msgstr "Cead diúltaithe"
+
+#: tracker/templates/tracker/connect_account.html:8
+msgid "You need to connect Tracker account with your Wikimedia account. To do so, click on the button below."
+msgstr "Ní mór duit cuntas Tracker a nascadh le do chuntas Wikimedia. Chun seo a dhéanamh, cliceáil ar an gcnaipe thíos."
+
+#: tracker/templates/tracker/connect_account.html:9
+#: tracker/templates/tracker/preferences.html:85
+msgid "Link Wikimedia account"
+msgstr "Nasc cuntas Wikimedia"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:4
+#: tracker/templates/tracker/dumpaccounts/index.html:7
+msgid "Overview of"
+msgstr "Forbhreathnú ar"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:8
+#: tracker/templates/tracker/dumpaccounts/ticket_detail.html:9
+msgid "Generated on"
+msgstr "Gineadh ar"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:11
+msgid "Unpaid"
+msgstr "Gan Íoc"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:11
+#: tracker/templates/tracker/export.html:207
+msgid "Paid"
+msgstr "Íoctha"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:11
+msgid "Overpaid"
+msgstr "Ró-íoctha"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:28
+#: tracker/templates/tracker/index.html:21
+#: tracker/templates/tracker/ticket_table.html:14
+#: tracker/templates/tracker/ticket_table.html:32
+msgid "ID"
+msgstr "Aitheantas"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:28
+#: tracker/templates/tracker/ticket_table.html:26
+msgid "Status"
+msgstr "Stádas"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:28
+msgid "Payment"
+msgstr "Íocaíocht"
+
+#: tracker/templates/tracker/dumpaccounts/index.html:36
+msgid "There are no tickets in this topic."
+msgstr "Níl aon ticéid sa topaic seo."
+
+#: tracker/templates/tracker/dumpaccounts/ticket_detail.html:13
+#: tracker/templates/tracker/ticket_detail.html:49
+msgid "Documents"
+msgstr "Doiciméid"
+
+#: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
+msgid "There aren't any documents here."
+msgstr "Níl aon doiciméid anseo."
+
+#: tracker/templates/tracker/edit_ticket.html:4
+#: tracker/templates/tracker/edit_ticket.html:18
+msgid "Edit"
+msgstr "Cuir in Eagar"
+
+#: tracker/templates/tracker/edit_ticket.html:20
+#: tracker/templates/tracker/ticket_detail.html:17
+msgid "copy preexpeditures to expeditures"
+msgstr "cóip réamhchaiteachas freisin caiteachais"
+
+#: tracker/templates/tracker/edit_ticket.html:24
+#: tracker/templates/tracker/edit_ticket_docs.html:16
+msgid "save"
+msgstr "sábháil"
+
+#: tracker/templates/tracker/edit_ticket_docs.html:4
+#: tracker/templates/tracker/edit_ticket_docs.html:8
+msgid "Edit documents"
+msgstr "Cuir doiciméid in eagar"
+
+#: tracker/templates/tracker/edit_ticket_docs.html:7
+#: tracker/templates/tracker/upload_ticket_doc.html:24
+msgid "edit"
+msgstr "cur in eagar"
+
+#: tracker/templates/tracker/edit_ticket_docs.html:10
+msgid "upload new document"
+msgstr "uaslódáil doiciméad nua"
+
+#: tracker/templates/tracker/edit_ticket_docs.html:14
+msgid "document"
+msgstr "doiciméad"
+
+#: tracker/templates/tracker/edit_ticket_docs.html:17
+#: tracker/templates/tracker/ticket_form.html:33
+#: tracker/templates/tracker/upload_ticket_doc.html:35
+#, python-format
+msgid "Fields marked with %(mark)s are required."
+msgstr "Tá réimsí marcáilte le %(mark)s riachtanach."
+
+#: tracker/templates/tracker/export.html:12
+#: tracker/templates/tracker/export.html:15
+#: tracker/templates/tracker/generic/ticket_list.html:35
+#: tracker/templates/tracker/index.html:42
+msgid "Export"
+msgstr "Easpórtáil"
+
+#: tracker/templates/tracker/export.html:18
+msgid "Only filters with at least one checked checkbox are applied. You can either check all checkboxes or none of them, it's the same."
+msgstr "Ní chuirtear i bhfeidhm ach scagairí a bhfuil bosca seiceála amháin ar a laghad ticithe iontu. Is féidir leat na boscaí seiceála go léir a sheiceáil nó gan aon cheann acu a sheiceáil, is ionann é."
+
+#: tracker/templates/tracker/export.html:59
+msgid "custom"
+msgstr "saincheaptha"
+
+#: tracker/templates/tracker/export.html:78
+#: tracker/templates/tracker/export.html:149
+#: tracker/templates/tracker/index.html:26
+#: tracker/templates/tracker/ticket_common_detail.html:47
+#: tracker/templates/tracker/ticket_form.html:20
+#: tracker/templates/tracker/ticket_table.html:22
+#: tracker/templates/tracker/ticket_table.html:37
+msgid "Preexpeditures"
+msgstr "Réamh-eispéiris"
+
+#: tracker/templates/tracker/export.html:82
+#: tracker/templates/tracker/export.html:102
+#: tracker/templates/tracker/export.html:122
+#: tracker/templates/tracker/export.html:157
+#: tracker/templates/tracker/export.html:187
+#: tracker/templates/tracker/export.html:226
+#: tracker/templates/tracker/export.html:255
+#: tracker/templates/tracker/export.html:282
+#: tracker/templates/tracker/export.html:301
+#: tracker/templates/tracker/export.html:320
+msgid "Larger or equal"
+msgstr "Níos mó nó cothrom"
+
+#: tracker/templates/tracker/export.html:90
+#: tracker/templates/tracker/export.html:110
+#: tracker/templates/tracker/export.html:130
+#: tracker/templates/tracker/export.html:165
+#: tracker/templates/tracker/export.html:195
+#: tracker/templates/tracker/export.html:234
+#: tracker/templates/tracker/export.html:263
+#: tracker/templates/tracker/export.html:290
+#: tracker/templates/tracker/export.html:309
+#: tracker/templates/tracker/export.html:328
+msgid "Smaller or equal"
+msgstr "Níos lú nó cothrom"
+
+#: tracker/templates/tracker/export.html:98
+#: tracker/templates/tracker/export.html:179
+#: tracker/templates/tracker/index.html:27
+#: tracker/templates/tracker/ticket_common_detail.html:62
+#: tracker/templates/tracker/ticket_form.html:25
+#: tracker/templates/tracker/ticket_table.html:23
+#: tracker/templates/tracker/ticket_table.html:38
+msgid "Expeditures"
+msgstr "Caiteachais"
+
+#: tracker/templates/tracker/export.html:118
+#: tracker/templates/tracker/index.html:28
+#: tracker/templates/tracker/ticket_common_detail.html:72
+#: tracker/templates/tracker/ticket_table.html:24
+#: tracker/templates/tracker/ticket_table.html:39
+#: tracker/templates/tracker/user_list.html:13
+msgid "Accepted expeditures"
+msgstr "Caiteachais glactha"
+
+#: tracker/templates/tracker/export.html:145
+msgid "You can't filter grants by any fields"
+msgstr "Ní féidir leat deontais a scagadh de réir aon réimsí"
+
+#: tracker/templates/tracker/export.html:174
+#: tracker/templates/tracker/export.html:204
+msgid "Wage"
+msgstr "Pá"
+
+#: tracker/templates/tracker/export.html:216
+msgid "Supervisors"
+msgstr "Maoirseoirí"
+
+#: tracker/templates/tracker/export.html:222
+msgid "Number of tickets"
+msgstr "Líon na dticéad"
+
+#: tracker/templates/tracker/export.html:242
+msgid "Number of tickets in certain payment state"
+msgstr "Líon na dticéad i stát íocaíochta áirithe"
+
+#: tracker/templates/tracker/export.html:245
+msgid "N/A"
+msgstr "N/B"
+
+#: tracker/templates/tracker/export.html:278
+msgid "Number of tickets created"
+msgstr "Líon na dticéad cruthaithe"
+
+#: tracker/templates/tracker/export.html:297
+msgid "Amount of accepted expeditures"
+msgstr "Méid na gcaiteachas glactha"
+
+#: tracker/templates/tracker/export.html:316
+msgid "Amount of paid expeditures"
+msgstr "Méid na gcaiteachas íoctha"
+
+#: tracker/templates/tracker/export.html:338
+msgid "normal"
+msgstr "gnáth"
+
+#: tracker/templates/tracker/export.html:343
+msgid "staff"
+msgstr "foireann"
+
+#: tracker/templates/tracker/export.html:348
+msgid "superuser"
+msgstr "sárúsáideoir"
+
+#: tracker/templates/tracker/fill_details.html:4
+#: tracker/templates/tracker/fill_details.html:9
+msgid "My personal information"
+msgstr "Mo chuid faisnéise pearsanta"
+
+#: tracker/templates/tracker/fill_details.html:10
+msgid "To use tracker for expenses, we need a bit more information about you first."
+msgstr "Chun rianaitheoir costais a úsáid, teastaíonn beagán níos mó eolais uainn fút ar dtús."
+
+#: tracker/templates/tracker/fill_details.html:21
+msgid "save & continue"
+msgstr "sábháil & lean ar aghaidh"
+
+#: tracker/templates/tracker/fill_details.html:22
+msgid "skip"
+msgstr "scipeáil"
+
+#: tracker/templates/tracker/fill_details.html:25
+#: tracker/templates/tracker/user_details_change.html:23
+#: users/templates/users/register.html:28
+msgid "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them."
+msgstr "Trí Tracker a úsáid, toilíonn tú le próiseáil sonraí. Úsáidimid do shonraí chun gach íocaíocht a thaispeáint i gceart agus dár gcuntasaíocht. Ní mór duit do sheoladh ríomhphoist a thabhairt dúinn; féadfar iarraidh ort tuilleadh sonraí a thabhairt dúinn. Ní thugtar sonraí do thríú páirtithe agus ní cheadaítear ach do bhaill foirne údaraithe rochtain a fháil orthu."
+
+#: tracker/templates/tracker/generic/create_ticket.html:4
+#: tracker/templates/tracker/generic/create_ticket.html:18
+msgid "Create ticket"
+msgstr "Cruthaigh ticéad"
+
+#: tracker/templates/tracker/generic/create_ticket.html:23
+msgid "You'll be able to edit everything you've filled in even after submitting the form."
+msgstr "Beidh tú in ann gach rud atá líonta isteach agat a chur in eagar fiú tar éis duit an fhoirm a chur isteach."
+
+#: tracker/templates/tracker/generic/ticket_list.html:4
+#: tracker/templates/tracker/generic/ticket_list.html:15
+#: tracker/templates/tracker/index.html:3
+#: tracker/templates/tracker/index.html:15
+msgid "Ticket list"
+msgstr "Liosta ticéad"
+
+#: tracker/templates/tracker/generic/ticket_list.html:12
+#: tracker/templates/tracker/index.html:12
+#: tracker/templates/tracker/subtopic_detail.html:7
+#: tracker/templates/tracker/ticket_detail.html:12
+#: tracker/templates/tracker/topic_content_acks_per_user.html:7
+#: tracker/templates/tracker/topic_detail.html:14
+#: tracker/templates/tracker/topic_finance.html:7
+msgid "topics"
+msgstr "topaicí"
+
+#: tracker/templates/tracker/generic/ticket_list.html:12
+#: tracker/templates/tracker/index.html:12
+#: tracker/templates/tracker/user_detail.html:8
+msgid "users"
+msgstr "úsáideoirí"
+
+#: tracker/templates/tracker/generic/ticket_list.html:13
+#: tracker/templates/tracker/generic/ticket_list.html:32
+#: tracker/templates/tracker/index.html:13
+#: tracker/templates/tracker/user_detail.html:9
+msgid "Create new ticket"
+msgstr "Cruthaigh ticéad nua"
+
+#: tracker/templates/tracker/generic/ticket_list.html:22
+#: tracker/templates/tracker/user_detail.html:15
+msgid "No tickets available."
+msgstr "Níl aon ticéid ar fáil."
+
+#: tracker/templates/tracker/generic/ticket_list.html:33
+#: tracker/templates/tracker/import.html:4
+#: tracker/templates/tracker/import.html:7
+#: tracker/templates/tracker/index.html:39
+msgid "Import"
+msgstr "Iompórtáil"
+
+#: tracker/templates/tracker/generic/topic_list.html:4
+#: tracker/templates/tracker/generic/topic_list.html:8
+msgid "Topic list"
+msgstr "Liosta topaicí"
+
+#: tracker/templates/tracker/generic/topic_list.html:13
+#: tracker/templates/tracker/grant_list.html:12
+msgid "Topics closed for new tickets"
+msgstr "Topaicí dúnta le haghaidh ticéid nua"
+
+#: tracker/templates/tracker/generic/topic_list.html:18
+msgid "topic finance"
+msgstr "airgeadas topaic"
+
+#: tracker/templates/tracker/generic/topic_list.html:19
+msgid "topic ack overview"
+msgstr "forbhreathnú ar ábhar aitheantais"
+
+#: tracker/templates/tracker/grant_detail.html:9
+#: tracker/templates/tracker/index.html:12
+msgid "grants"
+msgstr "deontais"
+
+#: tracker/templates/tracker/grant_detail.html:11
+#: tracker/templates/tracker/ticket_detail.html:21
+#: tracker/templates/tracker/topic_detail.html:25
+msgid "watch settings"
+msgstr "socruithe faire"
+
+#: tracker/templates/tracker/grant_list.html:4
+#: tracker/templates/tracker/grant_list.html:8
+msgid "Grant list"
+msgstr "Liosta deontas"
+
+#: tracker/templates/tracker/grant_table.html:7
+#: tracker/templates/tracker/topic_table.html:8
+msgid "Paid wages"
+msgstr "Pá íoctha"
+
+#: tracker/templates/tracker/grant_table.html:8
+#: tracker/templates/tracker/topic_table.html:9
+msgid "Paid together"
+msgstr "Íoctha le chéile"
+
+#: tracker/templates/tracker/grant_table.html:9
+#: tracker/templates/tracker/topic_table.html:10
+msgid "Tickets per payment status"
+msgstr "Ticéid de réir stádas íocaíochta"
+
+#: tracker/templates/tracker/grant_table.html:11
+#: tracker/templates/tracker/topic_table.html:13
+msgid "no payment required"
+msgstr "níl aon íocaíocht ag teastáil"
+
+#: tracker/templates/tracker/grant_table.html:49
+#: tracker/templates/tracker/topic_table.html:53
+msgid "No topics available."
+msgstr "Níl aon topaicí ar fáil."
+
+#: tracker/templates/tracker/import.html:10
+#, python-format
+msgid " Be warned that you need permission to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows. If you'll submit a file CSV with more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows, only the first %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s will be processed. If you really need to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s of objects, please contact the systemadmin."
+msgstr "Tabhair faoi deara go dteastaíonn cead uait chun níos mó ná %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s sraitheanna a allmhairiú. Má chuireann tú comhad CSV isteach le níos mó ná %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s sraitheanna, ní phróiseálfar ach na chéad %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s. Más gá duit níos mó ná %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s d'réada a allmhairiú i ndáiríre, déan teagmháil le riarthóir an chórais."
+
+#: tracker/templates/tracker/import.html:14
+msgid "What kind of objects are you importing?"
+msgstr "Cén cineál réad atá á n-allmhairiú agat?"
+
+#: tracker/templates/tracker/import.html:19
+#: tracker/templates/tracker/import.html:26
+#: tracker/templates/tracker/import.html:34
+#: tracker/templates/tracker/import.html:41
+#: tracker/templates/tracker/import.html:47
+#: tracker/templates/tracker/import.html:53
+#: tracker/templates/tracker/import.html:60
+msgid "example file"
+msgstr "comhad samplach"
+
+#: tracker/templates/tracker/import.html:41
+msgid "Preexpenses"
+msgstr "Réamhchostais"
+
+#: tracker/templates/tracker/import.html:47
+msgid "Expenses"
+msgstr "Costais"
+
+#: tracker/templates/tracker/import.html:53
+msgid "Media"
+msgstr "Meáin"
+
+#: tracker/templates/tracker/index.html:21
+#: tracker/templates/tracker/ticket_common_detail.html:10
+#: tracker/templates/tracker/ticket_table.html:15
+#: tracker/templates/tracker/ticket_table.html:32
+msgid "Event date"
+msgstr "Dáta an imeachta"
+
+#: tracker/templates/tracker/index.html:21
+#: tracker/templates/tracker/ticket_table.html:16
+#: tracker/templates/tracker/ticket_table.html:32
+msgid "Name"
+msgstr "Ainm"
+
+#: tracker/templates/tracker/index.html:25
+#: tracker/templates/tracker/ticket_common_detail.html:11
+#: tracker/templates/tracker/ticket_table.html:20
+#: tracker/templates/tracker/ticket_table.html:36
+msgid "Requested by"
+msgstr "Iarrtha ag"
+
+#: tracker/templates/tracker/index.html:29
+#: tracker/templates/tracker/ticket_common_detail.html:73
+#: tracker/templates/tracker/ticket_table.html:25
+#: tracker/templates/tracker/ticket_table.html:40
+msgid "Paid expeditures"
+msgstr "Caiteachais íoctha"
+
+#: tracker/templates/tracker/index.html:30
+#: tracker/templates/tracker/ticket_common_detail.html:14
+#: tracker/templates/tracker/ticket_table.html:41
+msgid "State"
+msgstr "Stát"
+
+#: tracker/templates/tracker/index.html:31
+#: tracker/templates/tracker/ticket_common_detail.html:9
+#: tracker/templates/tracker/ticket_table.html:27
+#: tracker/templates/tracker/ticket_table.html:42
+msgid "Last changed"
+msgstr "Athraithe go deireanach"
+
+#: tracker/templates/tracker/paginator.html:4
+msgid "previous"
+msgstr "roimhe seo"
+
+#: tracker/templates/tracker/paginator.html:8
+msgid "next"
+msgstr "Ar aghaidh"
+
+#: tracker/templates/tracker/preferences.html:4
+#: tracker/templates/tracker/preferences.html:14
+msgid "Preferences"
+msgstr "Roghanna"
+
+#: tracker/templates/tracker/preferences.html:18
+msgid "Mute notifications"
+msgstr "Balbhaigh fógraí"
+
+#: tracker/templates/tracker/preferences.html:38
+msgid "Ignore ack types"
+msgstr "Déan neamhaird de chineálacha ack"
+
+#: tracker/templates/tracker/preferences.html:51
+msgid "Other"
+msgstr "Eile"
+
+#: tracker/templates/tracker/preferences.html:59
+#: tracker/templates/tracker/ticket_form.html:31
+#: tracker/templates/tracker/user_details_change.html:21
+#: tracker/templates/tracker/watch.html:32
+msgid "Save"
+msgstr "Sábháil"
+
+#: tracker/templates/tracker/preferences.html:62
+msgid "Wikimedia account"
+msgstr "Cuntas Wikimedia"
+
+#: tracker/templates/tracker/preferences.html:66
+msgid "Your account is connected to Wikimedia account"
+msgstr "Tá do chuntas ceangailte le cuntas Wikimedia"
+
+#: tracker/templates/tracker/preferences.html:76
+msgid "Disconnect Wikimedia account"
+msgstr "Dícheangail cuntas Wikimedia"
+
+#: tracker/templates/tracker/preferences.html:80
+msgid "In order to disconnect your Wikimedia account, you first need to"
+msgstr "Chun do chuntas Wikimedia a dhícheangal, ní mór duit ar dtús"
+
+#: tracker/templates/tracker/preferences.html:80
+#: tracker/templates/tracker/preferences.html:106
+msgid "set a password."
+msgstr "socraigh pasfhocal."
+
+#: tracker/templates/tracker/preferences.html:88
+msgid "Chapter account"
+msgstr "Cuntas caibidle"
+
+#: tracker/templates/tracker/preferences.html:92
+msgid "Your account is connected to your chapter account"
+msgstr "Tá do chuntas ceangailte le do chuntas caibidle"
+
+#: tracker/templates/tracker/preferences.html:102
+msgid "Disconnect chapter account"
+msgstr "Dícheangail cuntas caibidle"
+
+#: tracker/templates/tracker/preferences.html:106
+msgid "In order to disconnect your chapter account, you first need to"
+msgstr "Chun do chuntas caibidle a dhícheangal, ní mór duit ar dtús"
+
+#: tracker/templates/tracker/preferences.html:111
+msgid "Link chapter account"
+msgstr "Nasc cuntas caibidle"
+
+#: tracker/templates/tracker/preferences.html:114
+msgid "Account actions"
+msgstr "Gníomhartha cuntais"
+
+#: tracker/templates/tracker/preferences.html:116
+#: tracker/templates/tracker/user_deactivate.html:4
+#: tracker/templates/tracker/user_deactivate.html:11
+msgid "Deactivate account"
+msgstr "Díghníomhachtaigh cuntas"
+
+#: tracker/templates/tracker/sign_ticket.html:4
+#: tracker/templates/tracker/sign_ticket.html:7
+msgid "Add statutory declaration to"
+msgstr "Cuir dearbhú reachtúil leis"
+
+#: tracker/templates/tracker/sign_ticket.html:13
+#: tracker/templates/tracker/ticketack_add.html:21
+#: tracker/templates/tracker/ticketack_confirm_delete.html:16
+msgid "Submit"
+msgstr "Cuir isteach"
+
+#: tracker/templates/tracker/subtopic_detail.html:10
+#: tracker/templates/tracker/topic_detail.html:19
+msgid "add ticket"
+msgstr "cuir ticéad leis"
+
+#: tracker/templates/tracker/subtopic_detail.html:16
+msgid "Total for this subtopic"
+msgstr "Iomlán don fho-ábhar seo"
+
+#: tracker/templates/tracker/tabular_formset.html:12
+msgid "delete"
+msgstr "scrios"
+
+#: tracker/templates/tracker/tabular_formset.html:21
+msgid "Delete the item"
+msgstr "Scrios an mhír"
+
+#: tracker/templates/tracker/tabular_formset.html:91
+#, python-format
+msgid "Add another %(formset_item_name)s"
+msgstr "Cuir %(formset_item_name)s eile leis"
+
+#: tracker/templates/tracker/tabular_formset.html:97
+#: tracker/templates/tracker/ticketack_confirm_delete.html:4
+#: tracker/templates/tracker/ticketack_confirm_delete.html:8
+msgid "Remove"
+msgstr "Bain"
+
+#: tracker/templates/tracker/ticket_common_detail.html:8
+#: tracker/templates/tracker/ticket_common_detail.html:52
+#: tracker/templates/tracker/ticket_common_detail.html:67
+msgid "Created"
+msgstr "Cruthaithe"
+
+#: tracker/templates/tracker/ticket_common_detail.html:10
+msgid "unset"
+msgstr "díshuiteáil"
+
+#: tracker/templates/tracker/ticket_common_detail.html:15
+#: tracker/templates/tracker/ticket_common_detail.html:52
+msgid "Yes"
+msgstr "Tá"
+
+#: tracker/templates/tracker/ticket_common_detail.html:15
+#: tracker/templates/tracker/ticket_common_detail.html:52
+msgid "No"
+msgstr "Níl"
+
+#: tracker/templates/tracker/ticket_common_detail.html:16
+msgid "Report URL"
+msgstr "Déan gearán faoi URL"
+
+#: tracker/templates/tracker/ticket_common_detail.html:16
+msgid "No report filled"
+msgstr "Gan aon tuarascáil líonta"
+
+#: tracker/templates/tracker/ticket_common_detail.html:18
+msgid "Deposit"
+msgstr "Taisce"
+
+#: tracker/templates/tracker/ticket_common_detail.html:19
+msgid "Event URL"
+msgstr "URL na hImeachta"
+
+#: tracker/templates/tracker/ticket_common_detail.html:20
+msgid "Rating percentage"
+msgstr "Céatadán rátála"
+
+#: tracker/templates/tracker/ticket_common_detail.html:22
+msgid "remove"
+msgstr "bain"
+
+#: tracker/templates/tracker/ticket_common_detail.html:25
+#: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:15
+msgid "Confirm"
+msgstr "Deimhnigh"
+
+#: tracker/templates/tracker/ticket_common_detail.html:33
+msgid "Supervisor notes"
+msgstr "Nótaí maoirseora"
+
+#: tracker/templates/tracker/ticket_common_detail.html:36
+msgid "Media (old)"
+msgstr "Meáin (sean)"
+
+#: tracker/templates/tracker/ticket_common_detail.html:37
+msgid "Number of objects"
+msgstr "Líon na réad"
+
+#: tracker/templates/tracker/ticket_common_detail.html:38
+msgid "Number of media files"
+msgstr "Líon na gcomhad meán"
+
+#: tracker/templates/tracker/ticket_common_detail.html:49
+#: tracker/templates/tracker/ticket_common_detail.html:64
+msgid "Item"
+msgstr "Mír"
+
+#: tracker/templates/tracker/ticket_common_detail.html:49
+#: tracker/templates/tracker/ticket_common_detail.html:64
+msgid "Wage?"
+msgstr "Pá?"
+
+#: tracker/templates/tracker/ticket_common_detail.html:56
+msgid "Total preexpeditures"
+msgstr "Réamhchaiteachas iomlán"
+
+#: tracker/templates/tracker/ticket_common_detail.html:64
+msgid "Paid?"
+msgstr "Íoctha?"
+
+#: tracker/templates/tracker/ticket_common_detail.html:67
+msgid "Yes,No"
+msgstr "Sea, Níl"
+
+#: tracker/templates/tracker/ticket_common_detail.html:71
+msgid "Total expeditures"
+msgstr "Caiteachas iomlán"
+
+#: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:4
+msgid "Copying preexpeditures"
+msgstr "Réamh-chaitheamh a chóipeáil"
+
+#: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:7
+msgid "Are you sure?"
+msgstr "An bhfuil tú cinnte?"
+
+#: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:9
+#, python-format
+msgid "\n	You are going to copy preexpeditures to expeditures for ticket <a href=\"%(ticket.get_absolure_url)s\">%(ticket)s</a>. Are you sure you want to do so?\n	"
+msgstr "\n	Tá tú chun réamhchaitheamh a chóipeáil chuig caiteachas don ticéad <a href=\"%(ticket.get_absolute_url)s\">%(ticket)s</a>. An bhfuil tú cinnte gur mhaith leat é sin a dhéanamh?\n	"
+
+#: tracker/templates/tracker/ticket_detail.html:16
+msgid "edit ticket"
+msgstr "cuir ticéad in eagar"
+
+#: tracker/templates/tracker/ticket_detail.html:18
+msgid "edit in admin"
+msgstr "eagarthóireacht san riarthóir"
+
+#: tracker/templates/tracker/ticket_detail.html:20
+msgid "duplicate"
+msgstr "dúblach"
+
+#: tracker/templates/tracker/ticket_detail.html:22
+msgid "add yourself as a driver"
+msgstr "cuir tú féin leis mar thiománaí"
+
+#: tracker/templates/tracker/ticket_detail.html:23
+msgid "show media"
+msgstr "meáin taispeántais"
+
+#: tracker/templates/tracker/ticket_detail.html:24
+msgid "manage media"
+msgstr "bainistigh meáin"
+
+#: tracker/templates/tracker/ticket_detail.html:31
+#, python-format
+msgid "part of <a href=\"%(c_link)s\">cluster %(c_id)s</a>: total tickets %(total_tickets)s&nbsp;%(cr)s, total transactions %(total_transactions)s&nbsp;%(cr)s"
+msgstr "cuid de <a href=\"%(c_link)s\">braisle %(c_id)s</a>: líon iomlán na dticéad %(total_tickets)s&nbsp;%(cr)s, líon iomlán na n-idirbheart %(total_transactions)s&nbsp;%(cr)s"
+
+#: tracker/templates/tracker/ticket_detail.html:41
+msgid "Associated transactions total"
+msgstr "Iomlán na n-idirbheart gaolmhar"
+
+#: tracker/templates/tracker/ticket_detail.html:65
+msgid "As you are not an administrator, you can see only documents you uploaded below."
+msgstr "Ós rud é nach riarthóir thú, ní féidir leat ach doiciméid a d'uaslódáil tú a fheiceáil thíos."
+
+#: tracker/templates/tracker/ticket_detail.html:78
+#: tracker/templates/tracker/ticket_detail.html:82
+#: tracker/templates/tracker/topic_detail.html:43
+#: tracker/templates/tracker/topic_detail.html:46
+msgid "Comments"
+msgstr "Tráchtanna"
+
+#: tracker/templates/tracker/ticket_detail.html:83
+#: tracker/templates/tracker/topic_detail.html:47
+msgid "There are no comments yet."
+msgstr "Níl aon tuairimí ann fós."
+
+#: tracker/templates/tracker/ticket_detail.html:90
+#: tracker/templates/tracker/ticket_detail.html:92
+#: tracker/templates/tracker/topic_detail.html:52
+#: tracker/templates/tracker/topic_detail.html:54
+msgid "Add comment"
+msgstr "Cuir trácht leis"
+
+#: tracker/templates/tracker/ticket_form.html:20
+msgid "preexpediture"
+msgstr "réamh-eispéireas"
+
+#: tracker/templates/tracker/ticket_form.html:25
+msgid "expediture"
+msgstr "caiteachas"
+
+#: tracker/templates/tracker/ticket_form.html:31
+msgid "submit"
+msgstr "cuir isteach"
+
+#: tracker/templates/tracker/ticket_media.html:4
+msgid "Manage media for"
+msgstr "Bainistigh meáin le haghaidh"
+
+#: tracker/templates/tracker/ticket_media.html:9
+msgid "Add new media"
+msgstr "Cuir meáin nua leis"
+
+#: tracker/templates/tracker/ticket_media.html:13
+msgid "Find by"
+msgstr "Aimsigh de réir"
+
+#: tracker/templates/tracker/ticket_media.html:16
+#: tracker/templates/tracker/ticket_media.html:25
+msgid "MediaWiki username"
+msgstr "Ainm úsáideora MediaWiki"
+
+#: tracker/templates/tracker/ticket_media.html:21
+msgid "Filename prefix"
+msgstr "Réimír ainm comhaid"
+
+#: tracker/templates/tracker/ticket_media.html:30
+msgid "Number of images to fetch"
+msgstr "Líon na n-íomhánna le híoslódáil"
+
+#: tracker/templates/tracker/ticket_media.html:34
+msgid "Category to filter by"
+msgstr "Catagóir le scagadh de réir"
+
+#: tracker/templates/tracker/ticket_media.html:41
+msgid "Search"
+msgstr "Cuardaigh"
+
+#: tracker/templates/tracker/ticket_media.html:45
+msgid "To select more images at once, select the first one, press Shift, and select the last one."
+msgstr "Chun níos mó íomhánna a roghnú ag an am céanna, roghnaigh an chéad cheann, brúigh Shift, agus roghnaigh an ceann deireanach."
+
+#: tracker/templates/tracker/ticket_media.html:47
+msgid "Select all"
+msgstr "Roghnaigh gach rud"
+
+#: tracker/templates/tracker/ticket_media.html:48
+msgid "Deselect all"
+msgstr "Díroghnaigh gach rud"
+
+#: tracker/templates/tracker/ticket_media.html:49
+msgid "Invert selection"
+msgstr "Inbhéartaigh an rogha"
+
+#: tracker/templates/tracker/ticket_media.html:62
+msgid "Load more"
+msgstr "Luchtaigh níos mó"
+
+#: tracker/templates/tracker/ticket_media.html:63
+msgid "Loading..."
+msgstr "Ag lódáil..."
+
+#: tracker/templates/tracker/ticket_media.html:68
+msgid "Choose selected photos"
+msgstr "Roghnaigh grianghraif roghnaithe"
+
+#: tracker/templates/tracker/ticket_media.html:71
+msgid "Remove existing media"
+msgstr "Bain na meáin atá ann cheana"
+
+#: tracker/templates/tracker/ticket_media.html:72
+msgid "It can take up to five minutes for the images you added to show here."
+msgstr "Féadfaidh sé suas le cúig nóiméad a thógáil chun na híomhánna a chuir tú leis a thaispeáint anseo."
+
+#: tracker/templates/tracker/ticket_media.html:80
+msgid "Delete selected photos"
+msgstr "Scrios grianghraif roghnaithe"
+
+#: tracker/templates/tracker/ticket_show_media.html:3
+msgid "Show media for"
+msgstr "Taispeáin meáin le haghaidh"
+
+#: tracker/templates/tracker/ticket_show_media.html:9
+msgid "List of linked media"
+msgstr "Liosta na meán nasctha"
+
+#: tracker/templates/tracker/ticket_show_media.html:10
+msgid "Last updated"
+msgstr "Nuashonraithe go deireanach"
+
+#: tracker/templates/tracker/ticket_show_media.html:10
+msgid "update"
+msgstr "nuashonrú"
+
+#: tracker/templates/tracker/ticket_show_media.html:11
+msgid "Page will be updated within 24 hours."
+msgstr "Déanfar an leathanach a nuashonrú laistigh de 24 uair an chloig."
+
+#: tracker/templates/tracker/ticket_show_media.html:15
+msgid "File name"
+msgstr "Ainm comhaid"
+
+#: tracker/templates/tracker/ticket_show_media.html:16
+msgid "Dimension"
+msgstr "Toise"
+
+#: tracker/templates/tracker/ticket_show_media.html:17
+msgid "Categories"
+msgstr "Catagóirí"
+
+#: tracker/templates/tracker/ticket_show_media.html:18
+msgid "Used in"
+msgstr "Úsáidte i"
+
+#: tracker/templates/tracker/ticket_show_media.html:25
+msgid "Unknown"
+msgstr "Anaithnid"
+
+#: tracker/templates/tracker/ticket_show_media.html:49
+msgid "Number of usages"
+msgstr "Líon na n-úsáidí"
+
+#: tracker/templates/tracker/ticket_show_media.html:53
+msgid "Number of Wikidata items"
+msgstr "Líon na míreanna Wikidata"
+
+#: tracker/templates/tracker/ticket_show_media.html:57
+msgid "Number of unique Wikidata items"
+msgstr "Líon na míreanna uathúla Wikidata"
+
+#: tracker/templates/tracker/ticket_show_media.html:63
+msgid "Photos per category"
+msgstr "Grianghraif de réir catagóire"
+
+#: tracker/templates/tracker/ticket_show_media.html:67
+msgid "Category"
+msgstr "Catagóir"
+
+#: tracker/templates/tracker/ticket_show_media.html:68
+msgid "Number"
+msgstr "Uimhir"
+
+#: tracker/templates/tracker/ticket_table.html:21
+#: tracker/templates/tracker/user_list.html:13
+msgid "Media count"
+msgstr "Líon na meán"
+
+#: tracker/templates/tracker/ticketack_add.html:7
+#: tracker/templates/tracker/ticketack_confirm_delete.html:7
+msgid "confirmations"
+msgstr "dearbhuithe"
+
+#: tracker/templates/tracker/ticketack_add.html:26
+#: tracker/templates/tracker/ticketack_confirm_delete.html:17
+msgid "back to ticket"
+msgstr "ar ais chuig an ticéad"
+
+#: tracker/templates/tracker/ticketack_confirm_delete.html:11
+msgid "Added"
+msgstr "Cuireadh leis"
+
+#: tracker/templates/tracker/ticketack_confirm_delete.html:12
+msgid "Added by"
+msgstr "Curtha leis ag"
+
+#: tracker/templates/tracker/topic_content_acks_per_user.html:4
+#: tracker/templates/tracker/topic_content_acks_per_user.html:8
+msgid "Topic ack overview"
+msgstr "Forbhreathnú ar an ábhar"
+
+#: tracker/templates/tracker/topic_content_acks_per_user.html:12
+msgid "Supervisor"
+msgstr "Maoirseoir"
+
+#: tracker/templates/tracker/topic_content_acks_per_user.html:15
+msgid "Ack count"
+msgstr "Líon dearbhaithe"
+
+#: tracker/templates/tracker/topic_content_acks_per_user.html:27
+msgid "download csv"
+msgstr "íoslódáil csv"
+
+#: tracker/templates/tracker/topic_detail.html:19
+msgid "Topic is open for new tickets"
+msgstr "Tá an topaic oscailte do thicéid nua"
+
+#: tracker/templates/tracker/topic_detail.html:22
+msgid "Topic administrators"
+msgstr "Riarthóirí topaicí"
+
+#: tracker/templates/tracker/topic_detail.html:22
+msgid "Topic administrator"
+msgstr "Riarthóir topaice"
+
+#: tracker/templates/tracker/topic_detail.html:38
+msgid "Total for this topic"
+msgstr "Iomlán don ábhar seo"
+
+#: tracker/templates/tracker/topic_finance.html:4
+#: tracker/templates/tracker/topic_finance.html:8
+msgid "Topic finance"
+msgstr "Airgeadas Topaic"
+
+#: tracker/templates/tracker/topic_finance.html:13
+msgid "Amounts per payment status"
+msgstr "Méideanna in aghaidh stádas íocaíochta"
+
+#: tracker/templates/tracker/topic_finance.html:34
+#, python-format
+msgid "Total %(gname)s"
+msgstr "%(gname)s san iomlán"
+
+#: tracker/templates/tracker/topic_finance.html:44
+msgid "Marked topics involve partial payments that have no clear relation to topic, and have been split equally among possible candidates."
+msgstr "Is íocaíochtaí páirteacha iad na topaicí marcáilte nach bhfuil aon bhaint shoiléir acu leis an topaic, agus atá roinnte go cothrom i measc iarrthóirí féideartha."
+
+#: tracker/templates/tracker/topic_table.html:11
+msgid "Administrators"
+msgstr "Riarthóirí"
+
+#: tracker/templates/tracker/transaction_list.html:4
+#: tracker/templates/tracker/transaction_list.html:12
+msgid "Transaction list"
+msgstr "Liosta idirbheart"
+
+#: tracker/templates/tracker/transaction_list.html:7
+msgid "Latest transactions"
+msgstr "Idirbhearta is déanaí"
+
+#: tracker/templates/tracker/transaction_list.html:22
+#: tracker/templates/tracker/user_detail.html:31
+msgid "Transactions total"
+msgstr "Iomlán na n-idirbheart"
+
+#: tracker/templates/tracker/transaction_list.html:24
+msgid "No transactions available."
+msgstr "Níl aon idirbhearta ar fáil."
+
+#: tracker/templates/tracker/transaction_list.html:26
+msgid "download as csv"
+msgstr "íoslódáil mar csv"
+
+#: tracker/templates/tracker/upload_ticket_doc.html:21
+#: tracker/templates/tracker/upload_ticket_doc.html:25
+msgid "Upload document"
+msgstr "Uaslódáil doiciméad"
+
+#: tracker/templates/tracker/upload_ticket_doc.html:24
+msgid "documents"
+msgstr "doiciméid"
+
+#: tracker/templates/tracker/upload_ticket_doc.html:34
+msgid "upload"
+msgstr "uaslódáil"
+
+#: tracker/templates/tracker/upload_ticket_doc.html:34
+msgid "upload and add another"
+msgstr "uaslódáil agus cuir ceann eile leis"
+
+#: tracker/templates/tracker/upload_ticket_doc.html:35
+msgid "This document, including its file name and description, will be visible only to the ticket owner and specially privileged users."
+msgstr "Ní bheidh an doiciméad seo, lena n-áirítear a ainm comhaid agus a thuairisc, le feiceáil ach ag úinéir an ticéid agus ag úsáideoirí a bhfuil pribhléidí speisialta acu."
+
+#: tracker/templates/tracker/user_deactivate.html:14
+msgid "Deactivating your account will mean that it is no longer possible to login."
+msgstr "Má dhíghníomhachtaíonn tú do chuntas, ní bheidh tú in ann logáil isteach a thuilleadh."
+
+#: tracker/templates/tracker/user_deactivate.html:15
+msgid "Deactivation is irreversible without the intervention of an admin."
+msgstr "Ní féidir díghníomhachtú a aisiompú gan idirghabháil riarthóra."
+
+#: tracker/templates/tracker/user_deactivate.html:16
+msgid "You can contact an admin by replying to the email which confirms the deactivation."
+msgstr "Is féidir leat teagmháil a dhéanamh le riarthóir trí fhreagairt a thabhairt ar an ríomhphost a dheimhníonn an díghníomhachtú."
+
+#: tracker/templates/tracker/user_deactivate.html:18
+msgid "The following account will be deactivated:"
+msgstr "Díghníomhachtófar an cuntas seo a leanas:"
+
+#: tracker/templates/tracker/user_deactivate.html:20
+msgid "Username:"
+msgstr "Ainm úsáideora:"
+
+#: tracker/templates/tracker/user_deactivate.html:21
+msgid "Email:"
+msgstr "Ríomhphost:"
+
+#: tracker/templates/tracker/user_deactivate.html:32
+msgid "Deactivate my account"
+msgstr "Díghníomhachtaigh mo chuntas"
+
+#: tracker/templates/tracker/user_deactivate_email.html:3
+msgid "Tracker account deactivated"
+msgstr "Cuntas rianaithe díghníomhachtaithe"
+
+#: tracker/templates/tracker/user_deactivate_email.html:5
+msgid "Your tracker account with username"
+msgstr "Do chuntas rianaitheora le hainm úsáideora"
+
+#: tracker/templates/tracker/user_deactivate_email.html:5
+msgid "has been deactivated."
+msgstr "tá sé díghníomhachtaithe."
+
+#: tracker/templates/tracker/user_deactivate_email.html:6
+msgid "Deactivation cannot be undone without the intervention of an admin."
+msgstr "Ní féidir díghníomhachtú a chealú gan idirghabháil riarthóra."
+
+#: tracker/templates/tracker/user_deactivate_email.html:7
+msgid "You can contact an admin by replying to this email."
+msgstr "Is féidir leat teagmháil a dhéanamh le riarthóir trí fhreagra a thabhairt ar an ríomhphost seo."
+
+#: tracker/templates/tracker/user_deactivate_email.html:10
+msgid "Tracker"
+msgstr "Rianaitheoir"
+
+#: tracker/templates/tracker/user_detail.html:13
+msgid "Total for this user"
+msgstr "Iomlán don úsáideoir seo"
+
+#: tracker/templates/tracker/user_detail.html:32
+msgid "Accepted expeditures total"
+msgstr "Iomlán na gcaiteachas glactha"
+
+#: tracker/templates/tracker/user_details_change.html:4
+#: tracker/templates/tracker/user_details_change.html:9
+msgid "My details"
+msgstr "Mo shonraí"
+
+#: tracker/templates/tracker/user_list.html:22
+msgid "Tickets not assigned to any tracker user"
+msgstr "Níor sannadh ticéid d'aon úsáideoir rianaithe"
+
+#: tracker/templates/tracker/user_list.html:22
+msgid "unassigned"
+msgstr "neamhshannta"
+
+#: tracker/templates/tracker/watch.html:4
+#: tracker/templates/tracker/watch.html:11
+msgid "Watch"
+msgstr "Faire"
+
+#: tracker/templates/tracker/watch.html:19
+msgid "All"
+msgstr "Gach"
+
+#: tracker/views.py:55
+#, python-format
+msgid "User %s created."
+msgstr "Úsáideoir %s cruthaithe."
+
+#: tracker/views.py:73
+msgid "Comment posted, thank you."
+msgstr "Trácht curtha suas, go raibh maith agat."
+
+#: tracker/views.py:114
+msgid "You cannot add ack to a ticket you do not own."
+msgstr "Ní féidir leat ack a chur le ticéad nach leatsa."
+
+#: tracker/views.py:128
+#, python-format
+msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added. However, no bank account information filled. Without it, we can't reimburse you. Go to <a href=\"%(details_url)s\">your details</a> to fill it."
+msgstr "Tá dearbhú ticéad %(ticket_id)s \"%(confirmation)s\" curtha leis. Níor líonadh aon fhaisnéis chuntais bhainc isteach, áfach. Gan í, ní féidir linn aisíocaíocht a thabhairt duit. Téigh chuig <a href=\"%(details_url)s\">do shonraí</a> chun í a líonadh isteach."
+
+#: tracker/views.py:136
+#, python-format
+msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
+msgstr "Cuireadh dearbhú ticéad %(ticket_id)s \"%(confirmation)s\" leis."
+
+#: tracker/views.py:169 tracker/views.py:1759
+msgid "You cannot edit this"
+msgstr "Ní féidir leat é seo a chur in eagar"
+
+#: tracker/views.py:174
+#, python-format
+msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been deleted."
+msgstr "Scriosadh dearbhú ticéad %(ticket_id)s \"%(confirmation)s\"."
+
+#: tracker/views.py:218
+msgid "Statutory declaration"
+msgstr "Dearbhú reachtúil"
+
+#: tracker/views.py:265
+msgid "Your deposit is bigger than your preexpeditures"
+msgstr "Tá d’éarlais níos mó ná do réamhchaiteachas"
+
+#: tracker/views.py:282
+msgid "You are required to do statutory declaration"
+msgstr "Tá ort dearbhú reachtúil a dhéanamh"
+
+#: tracker/views.py:298
+msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."
+msgstr "Caithfidh fo-ábhar a bheith mar chuid den ábhar a d'úsáid tú. Is dócha go bhfuil JavaScript múchta agat."
+
+#: tracker/views.py:401
+msgid "We've updated your preferences"
+msgstr "Tá do chuid roghanna nuashonraithe againn"
+
+#: tracker/views.py:439
+msgid "Please enter your password to confirm the deactivation of your account."
+msgstr "Cuir isteach do phasfhocal le do thoil chun díghníomhachtú do chuntais a dhearbhú."
+
+#: tracker/views.py:454
+msgid "Account deactivation"
+msgstr "Díghníomhachtú cuntais"
+
+#: tracker/views.py:461
+msgid "Your account has been deactivated."
+msgstr "Tá do chuntas díghníomhachtaithe."
+
+#: tracker/views.py:464
+msgid "Password is incorrect."
+msgstr "Tá an focal faire mícheart."
+
+#: tracker/views.py:496
+#, python-format
+msgid "Ticket's %s watching settings are changed."
+msgstr "Tá socruithe féachana %s an ticéid athraithe."
+
+#: tracker/views.py:545
+#, python-format
+msgid "Topic's %s watching settings are changed."
+msgstr "Tá socruithe féachana %s an ábhair athraithe."
+
+#: tracker/views.py:575
+#, python-format
+msgid "%s's watching settings are changed."
+msgstr "Tá socruithe féachana %s athraithe."
+
+#: tracker/views.py:622
+#, python-format
+msgid "Ticket %s is created"
+msgstr "Tá ticéad %s cruthaithe"
+
+#: tracker/views.py:660 tracker/views.py:784
+msgid "One or more fields are invalid. Check them to get more information."
+msgstr "Tá réimse amháin nó níos mó neamhbhailí. Seiceáil iad chun tuilleadh eolais a fháil."
+
+#: tracker/views.py:671
+msgid "I confirm the above"
+msgstr "Deimhním an méid thuas"
+
+#: tracker/views.py:678
+msgid "You cannot add statutory declaration to a ticket that does not support it."
+msgstr "Ní féidir leat dearbhú reachtúil a chur le ticéad nach dtacaíonn leis."
+
+#: tracker/views.py:680
+msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
+msgstr "Ní féidir leat an radharc seo a úsáid chun dearbhú reachtúil a chur le ticéad a chruthaigh tú. Úsáid an cnaipe 'cuir ticéad in eagar' chuige seo."
+
+#: tracker/views.py:687
+msgid "You successfully added a statutory declaration to this ticket."
+msgstr "Chuir tú dearbhú reachtúil leis an ticéad seo go rathúil."
+
+#: tracker/views.py:690
+msgid "You successfully removed a statutory declaration from this ticket."
+msgstr "Bhain tú dearbhú reachtúil den ticéad seo go rathúil."
+
+#: tracker/views.py:716 tracker/views.py:727
+msgid "You cannot edit this ticket"
+msgstr "Ní féidir leat an ticéad seo a chur in eagar"
+
+#: tracker/views.py:763
+#, python-format
+msgid "Ticket %s saved."
+msgstr "Ticéad %s sábháilte."
+
+#: tracker/views.py:798
+msgid "file"
+msgstr "comhad"
+
+#: tracker/views.py:828
+msgid "You cannot edit this ticket documents, as it's no longer editable"
+msgstr "Ní féidir leat na doiciméid ticéid seo a chur in eagar, mar ní féidir iad a chur in eagar a thuilleadh"
+
+#: tracker/views.py:837
+msgid "You cannot see this ticket's documents."
+msgstr "Ní féidir leat doiciméid an ticéid seo a fheiceáil."
+
+#: tracker/views.py:864
+#, python-format
+msgid "Document changes for ticket %s saved."
+msgstr "Athruithe doiciméad le haghaidh ticéad %s sábháilte."
+
+#: tracker/views.py:887
+msgid "There is already a document with that name. Please try to reupload with a different name."
+msgstr "Tá doiciméad ann cheana féin leis an ainm sin. Déan iarracht é a athuaslódáil le hainm difriúil."
+
+#: tracker/views.py:899
+#, python-format
+msgid "File %(filename)s has been saved."
+msgstr "Tá an comhad %(filename)s sábháilte."
+
+#: tracker/views.py:1087
+msgid "Your details have been saved."
+msgstr "Tá do shonraí sábháilte."
+
+#: tracker/views.py:1531
+msgid "You must be staffer in order to export users"
+msgstr "Ní mór duit a bheith i do bhall foirne chun úsáideoirí a easpórtáil"
+
+#: tracker/views.py:1533
+msgid "You must fill the form validly"
+msgstr "Ní mór duit an fhoirm a líonadh go bailí"
+
+#: tracker/views.py:1552
+#, python-format
+msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
+msgstr "Níl cead agat níos mó ná %(input_row_limit)s sraitheanna a allmhairiú. Tá na chéad %(input_row_limit)s sraitheanna allmhairithe cheana féin."
+
+#: tracker/views.py:1579
+msgid "You must be a staffer in order to be able to import topics."
+msgstr "Ní mór duit a bheith i do bhall foirne le go mbeidh tú in ann topaicí a allmhairiú."
+
+#: tracker/views.py:1612
+msgid "You must be a staffer in order to be able to import grants."
+msgstr "Ní mór duit a bheith i do bhall foirne le go mbeidh tú in ann deontais a allmhairiú."
+
+#: tracker/views.py:1642 tracker/views.py:1656
+msgid "You can't add preexpenses to a ticket that you did not create."
+msgstr "Ní féidir leat réamhchostais a chur le ticéad nach tú féin a chruthaigh."
+
+#: tracker/views.py:1678
+msgid "You can't add media items to a ticket that you did not create."
+msgstr "Ní féidir leat míreanna meán a chur le ticéad nach tú féin a chruthaigh."
+
+#: tracker/views.py:1681
+msgid "You must be a superuser in order to be able to import users."
+msgstr "Ní mór duit a bheith i do shárúsáideoir le go mbeidh tú in ann úsáideoirí a allmhairiú."
+
+#: tracker/views.py:1699
+msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
+msgstr "Tá luachanna aisteacha tugtha ar ais ag an bhfoirm. Téigh i dteagmháil leis an riarthóir córais agus inis dó cad a rinne tú iarracht a dhéanamh."
+
+#: tracker/views.py:1701
+msgid "Your CSV file was imported."
+msgstr "Iompórtáladh do chomhad CSV."
+
+#: tracker/views.py:1709
+msgid "Name of a ticket"
+msgstr "Ainm ticéid"
+
+#: tracker/views.py:1709 tracker/views.py:1714
+msgid "Name of a topic"
+msgstr "Ainm topaiceAinm topaice"
+
+#: tracker/views.py:1714
+msgid "Name of a grant"
+msgstr "Ainm deontais"
+
+#: tracker/views.py:1714
+msgid "Form description"
+msgstr "Cur síos ar an bhfoirm"
+
+#: tracker/views.py:1719
+msgid "Full name"
+msgstr "Ainm iomlán"
+
+#: tracker/views.py:1719
+msgid "Short name"
+msgstr "Ainm gearr"
+
+#: tracker/views.py:1719
+msgid "Slug"
+msgstr "Sluga"
+
+#: tracker/views.py:1742
+msgid "Password"
+msgstr "Pasfhocal"
+
+#: tracker/views.py:1766
+msgid "Preexpeditures were succesfully copied to expeditures."
+msgstr "Cóipeáladh Réamhchaiteachas go rathúil chuig caiteachais."
+
+#: tracker/views.py:1782
+msgid "Executing API call with any action than whitelisted is prohibited."
+msgstr "Tá cosc ​​ar ghlao API a fhorghníomhú le haon ghníomh seachas an ceann atá ar an liosta bán."
+
+#: tracker/views.py:1793
+msgid "No media to show are available"
+msgstr "Níl aon mheáin le taispeáint ar fáil"
+
+#: tracker/views.py:1813
+msgid "Updating of medias for this ticket was successfully scheduled."
+msgstr "Sceidealaíodh nuashonrú na meán don ticéad seo go rathúil."
+
+#: tracker/views.py:1818
+msgid "List of media was successfully updated"
+msgstr "Nuashonraíodh an liosta meán go rathúil"
+
+#: tracker/views.py:1823
+msgid "There was an error while processing your request"
+msgstr "Tharla earráid agus d’iarratas á phróiseáil"
+
+#: tracker/views.py:1848
+msgid "Notice from Tracker"
+msgstr "Fógra ón Rianaitheoir"
+
+#: tracker/views.py:1867
+msgid "This mandatory notice was sent to all active Tracker users."
+msgstr "Seoladh an fógra éigeantach seo chuig gach úsáideoir gníomhach Tracker."
+
+#: tracker/views.py:1875
+msgid "This mandatory notice was sent to all active Tracker administrators."
+msgstr "Seoladh an fógra éigeantach seo chuig gach riarthóir gníomhach de chuid an Tracker."
+
+#: tracker/views.py:1888
+msgid "This mandatory notice was sent to all active Tracker roots."
+msgstr "Seoladh an fógra éigeantach seo chuig gach fréamh Tracker gníomhach."
+
+#: users/forms.py:13 users/templates/users/password_change.html:27
+msgid "Old password"
+msgstr "Seanfhocal faire"
+
+#: users/templates/users/login.html:4 users/templates/users/login.html:12
+#: users/templates/users/login.html:24 users/templates/users/register.html:29
+msgid "Login"
+msgstr "Logáil Isteach"
+
+#: users/templates/users/login.html:7
+msgid "You need to log in to access the following page."
+msgstr "Ní mór duit logáil isteach chun rochtain a fháil ar an leathanach seo a leanas."
+
+#: users/templates/users/login.html:10
+msgid "Your username and password didn't match. Please try again."
+msgstr "Níorbh ionann d'ainm úsáideora agus do phasfhocal. Déan iarracht arís."
+
+#: users/templates/users/login.html:28 users/templates/users/register.html:22
+msgid "Or..."
+msgstr "Nó..."
+
+#: users/templates/users/login.html:31
+msgid "Login with Meta Wiki"
+msgstr "Logáil isteach le Meta Wiki"
+
+#: users/templates/users/login.html:35
+msgid "Don't have an acount?"
+msgstr "Nach bhfuil cuntas agat?"
+
+#: users/templates/users/login.html:35 users/templates/users/register.html:6
+#: users/templates/users/register.html:9 users/templates/users/register.html:19
+msgid "Register"
+msgstr "Cláraigh"
+
+#: users/templates/users/login.html:36
+msgid "Forgot password?"
+msgstr "Pasfhocal dearmadta?"
+
+#: users/templates/users/login.html:36
+msgid "Reset password"
+msgstr "Athshocraigh an focal faire"
+
+#: users/templates/users/logout.html:4
+msgid "Logged out"
+msgstr "Logáilte amach"
+
+#: users/templates/users/logout.html:7
+msgid "Bye!"
+msgstr "Slán!"
+
+#: users/templates/users/logout.html:8
+msgid "Go to index."
+msgstr "Téigh go dtí an innéacs."
+
+#: users/templates/users/oauth_invalid.html:4
+#: users/templates/users/oauth_invalid.html:8
+#, python-format
+msgid "Connection to %(provider)s account is no longer valid"
+msgstr "Níl an nasc le cuntas %(provider)s bailí a thuilleadh"
+
+#: users/templates/users/oauth_invalid.html:9
+msgid "To keep Tracker fully working, you should refresh the connection, by clicking the button below"
+msgstr "Chun Tracker a choinneáil ag obair go hiomlán, ba chóir duit an nasc a athnuachan trí chliceáil ar an gcnaipe thíos"
+
+#: users/templates/users/oauth_invalid.html:10
+#, python-format
+msgid "Refresh connection with %(provider)s"
+msgstr "Athnuachan an nasc le %(provider)s"
+
+#: users/templates/users/password_change.html:5
+#: users/templates/users/password_change.html:16 users/views.py:90
+msgid "Password change"
+msgstr "Athrú pasfhocail"
+
+#: users/templates/users/password_change.html:12
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] "one=Ceartaigh an earráid thíos le do thoil"
+msgstr[1] "two=Ceartaigh na hearráidí thíos le do thoil."
+msgstr[2] "few=Ceartaigh na hearráidí thíos le do thoil."
+msgstr[3] "many=Ceartaigh na hearráidí thíos le do thoil."
+msgstr[4] "other=Ceartaigh na hearráidí thíos le do thoil."
+
+#: users/templates/users/password_change.html:19
+msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
+msgstr "Cuir isteach do sheanfhocal faire, ar mhaithe le slándáil, agus ansin cuir isteach do phasfhocal nua faoi dhó ionas gur féidir linn a fhíorú gur chlóscríobh tú isteach i gceart é."
+
+#: users/templates/users/password_change.html:21
+#: users/templates/users/password_reset_confirm.html:12
+msgid "Please enter your new password twice so we can verify you typed it in correctly."
+msgstr "Cuir isteach do phasfhocal nua faoi dhó le do thoil ionas gur féidir linn a fhíorú gur chlóscríobh tú isteach i gceart é."
+
+#: users/templates/users/password_change.html:33
+msgid "New password"
+msgstr "Pasfhocal nua"
+
+#: users/templates/users/password_change.html:38
+msgid "Password (again)"
+msgstr "Pasfhocal (arís)"
+
+#: users/templates/users/password_change.html:42
+#: users/templates/users/password_reset_confirm.html:19
+msgid "Change my password"
+msgstr "Athraigh mo phasfhocal"
+
+#: users/templates/users/password_change_done.html:4
+#: users/templates/users/password_change_done.html:7
+msgid "Password change successful"
+msgstr "Athrú pasfhocail rathúil"
+
+#: users/templates/users/password_change_done.html:8
+msgid "Your password was changed."
+msgstr "Athraíodh do phasfhocal."
+
+#: users/templates/users/password_reset.html:4
+#: users/templates/users/password_reset.html:8
+#: users/templates/users/password_reset_confirm.html:4
+msgid "Password reset"
+msgstr "Athshocrú pasfhocail"
+
+#: users/templates/users/password_reset.html:10
+msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
+msgstr "An ndearna tú dearmad ar do phasfhocal? Cuir isteach do sheoladh ríomhphoist thíos, agus cuirfimid treoracha chugat trí ríomhphost chun ceann nua a shocrú."
+
+#: users/templates/users/password_reset.html:14
+msgid "E-mail address:"
+msgstr "Seoladh ríomhphoist:"
+
+#: users/templates/users/password_reset.html:14
+msgid "Reset my password"
+msgstr "Athshocraigh mo phasfhocal"
+
+#: users/templates/users/password_reset_complete.html:4
+#: users/templates/users/password_reset_complete.html:8
+msgid "Password reset complete"
+msgstr "Athshocrú pasfhocail críochnaithe"
+
+#: users/templates/users/password_reset_complete.html:10
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr "Tá do phasfhocal socraithe. Is féidir leat logáil isteach anois."
+
+#: users/templates/users/password_reset_complete.html:12
+msgid "Log in"
+msgstr "Logáil isteach"
+
+#: users/templates/users/password_reset_confirm.html:10
+msgid "Enter new password"
+msgstr "Cuir isteach focal faire nua"
+
+#: users/templates/users/password_reset_confirm.html:16
+msgid "New password:"
+msgstr "Pasfhocal nua:"
+
+#: users/templates/users/password_reset_confirm.html:18
+msgid "Confirm password:"
+msgstr "Deimhnigh an focal faire:"
+
+#: users/templates/users/password_reset_confirm.html:24
+msgid "Password reset unsuccessful"
+msgstr "Theip ar athshocrú pasfhocail"
+
+#: users/templates/users/password_reset_confirm.html:26
+msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
+msgstr "Bhí an nasc athshocraithe pasfhocail neamhbhailí, b'fhéidir toisc gur úsáideadh é cheana féin. Iarr athshocrú pasfhocail nua le do thoil."
+
+#: users/templates/users/password_reset_done.html:4
+#: users/templates/users/password_reset_done.html:8
+msgid "Password reset successful"
+msgstr "Athshocrú pasfhocail rathúil"
+
+#: users/templates/users/password_reset_done.html:10
+msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
+msgstr "Tá treoracha seolta againn chugat trí ríomhphost chuig an seoladh ríomhphoist a chuir tú isteach maidir le do phasfhocal a shocrú. Ba chóir go bhfaighidh tú iad go luath."
+
+#: users/templates/users/password_reset_email.html:2
+#, python-format
+msgid "You're receiving this e-mail because you requested a password reset for your user account at %(site_name)s."
+msgstr "Tá an ríomhphost seo á fháil agat mar gur iarr tú athshocrú pasfhocail do do chuntas úsáideora ag %(site_name)s."
+
+#: users/templates/users/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr "Téigh go dtí an leathanach seo a leanas agus roghnaigh pasfhocal nua:"
+
+#: users/templates/users/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr "D'ainm úsáideora, ar eagla go ndearna tú dearmad air:"
+
+#: users/templates/users/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "Go raibh maith agat as ár suíomh a úsáid!"
+
+#: users/templates/users/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "An fhoireann %(site_name)s"
+
+#: users/templates/users/register.html:25
+msgid "Register with Meta Wiki"
+msgstr "Cláraigh le Meta Wiki"
+
+#: users/templates/users/register.html:29
+msgid "Already have an acount?"
+msgstr "An bhfuil cuntas agat cheana féin?"
+
+#: users/views.py:46
+msgid "Will be used for password recovery and notifications, if you enable them."
+msgstr "Úsáidfear iad le haghaidh aisghabháil pasfhocail agus fógraí, má chuireann tú ar chumas iad."
+
