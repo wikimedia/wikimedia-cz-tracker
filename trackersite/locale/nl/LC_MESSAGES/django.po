@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2025-10-30 12:48:51+0000\n"
+"PO-Revision-Date: 2026-04-13 12:31:34+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,11 +29,11 @@ msgstr "Als een aanvraag wordt gemaakt moet de storting nul zijn."
 
 #: api/serializers.py:104
 msgid "Cannot edit deposit once a ticket has been preaccepted"
-msgstr ""
+msgstr "Het is niet mogelijk om een aanbetaling te wijzigen nadat een ticket is geaccepteerd"
 
 #: api/serializers.py:109 api/serializers.py:112
 msgid "Deposit should be lower or equal to the sum of preexpeditures"
-msgstr ""
+msgstr "De borgsom moet lager of gelijk zijn aan de som van de vooruitbetaalde kosten"
 
 #: api/serializers.py:134
 msgid "You can not add media to this ticket."
@@ -45,19 +45,19 @@ msgstr "Je kunt de media van dit ticket niet bewerken."
 
 #: api/serializers.py:162
 msgid "You can not add expiditures to this ticket."
-msgstr ""
+msgstr "U kunt geen extra diensten aan dit ticket toevoegen."
 
 #: api/serializers.py:164
 msgid "You can not edit expiditures of this ticket."
-msgstr ""
+msgstr "U kunt de uitgaven van dit ticket niet wijzigen."
 
 #: api/serializers.py:178
 msgid "You can not add preexpiditures to this ticket."
-msgstr ""
+msgstr "U kunt aan dit ticket geen vooruit betaalde uitgaven toevoegen."
 
 #: api/serializers.py:180
 msgid "You can not edit preexpiditures of this ticket."
-msgstr ""
+msgstr "U kunt geen vooruit betaalde uitgaven van dit ticket wijzigen."
 
 #: common_settings.py:138
 #: tracker/templates/tracker/ticket_common_detail.html:18
@@ -102,7 +102,7 @@ msgstr "Zweeds"
 
 #: common_settings.py:150
 msgid "Chinese-traditional"
-msgstr ""
+msgstr "Chinees-traditioneel"
 
 #: common_settings.py:151
 msgid "Spanish"
@@ -172,7 +172,7 @@ msgstr "Tracker admin"
 
 #: templates/admin/base_site.html:7
 msgid "Tracker site administration"
-msgstr ""
+msgstr "Tracker-sitebeheer"
 
 #: templates/base.html:32
 msgid "There is no email address associated with this account. Please update your details now."
@@ -229,7 +229,7 @@ msgstr "Waarschuwing"
 #: templates/base.html:106
 #, python-format
 msgid "You are not in production. If you want to request reimbursement of expenses, go to <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>."
-msgstr ""
+msgstr "U bevindt zich niet in de productieomgeving. Als u een vergoeding voor gemaakte kosten wilt aanvragen, ga dan naar <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>."
 
 #: templates/base.html:109
 msgid "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox."
@@ -268,19 +268,19 @@ msgstr "Soort"
 
 #: tracker/admin.py:43
 msgid "Add ack"
-msgstr ""
+msgstr "Bevestiging toevoegen"
 
 #: tracker/admin.py:169
 msgid "Mark selected topics as opened for new tickets"
-msgstr ""
+msgstr "Markeer geselecteerde onderwerpen als open voor nieuwe tickets"
 
 #: tracker/admin.py:176
 msgid "Mark selected topics as closed for new tickets"
-msgstr ""
+msgstr "Markeer geselecteerde onderwerpen als gesloten voor nieuwe tickets"
 
 #: tracker/admin.py:204
 msgid "Modify this value by opening or closing topics in this grant to tickets"
-msgstr ""
+msgstr "Wijzig deze waarde door onderwerpen in deze toekenning aan tickets te openen of te sluiten"
 
 #: tracker/feeds.py:12 tracker/templates/tracker/generic/ticket_list.html:7
 #: tracker/templates/tracker/topic_detail.html:5
@@ -331,7 +331,7 @@ msgstr "Betaald"
 #: tracker/templates/tracker/topic_finance.html:18
 #: tracker/templates/tracker/topic_table.html:17
 msgid "overpaid"
-msgstr ""
+msgstr "te veel betaald"
 
 #: tracker/models.py:54
 msgid "presubmitted"
@@ -351,7 +351,7 @@ msgstr "aanvaard"
 
 #: tracker/models.py:58
 msgid "expense documents submitted"
-msgstr ""
+msgstr "onkostendocumenten ingediend"
 
 #: tracker/models.py:59
 msgid "expense documents filed"
@@ -391,11 +391,11 @@ msgstr "Ticket is verwijderd"
 
 #: tracker/models.py:70
 msgid "Ack added"
-msgstr ""
+msgstr "Bevestiging toegevoegd"
 
 #: tracker/models.py:71
 msgid "Ack removed"
-msgstr ""
+msgstr "Bevestiging verwijderd"
 
 #: tracker/models.py:72
 msgid "Ticket changed"
@@ -403,23 +403,23 @@ msgstr "Ticket gewijzigd"
 
 #: tracker/models.py:73
 msgid "New preexpediture was created"
-msgstr ""
+msgstr "Er is een nieuwe vooruit betaalde uitgave gemaakt"
 
 #: tracker/models.py:74
 msgid "Preexpeditures changed"
-msgstr ""
+msgstr "Vooruit betaalde uitgave gewijzigd"
 
 #: tracker/models.py:75
 msgid "New expediture was created"
-msgstr ""
+msgstr "Nieuwe uitgave gemaakt"
 
 #: tracker/models.py:76
 msgid "Expeditures changed"
-msgstr ""
+msgstr "Uitgaven gewijzigd"
 
 #: tracker/models.py:77
 msgid "New media was created"
-msgstr ""
+msgstr "Nieuwe media gemaakt"
 
 #: tracker/models.py:78
 msgid "Media changed"
@@ -439,7 +439,7 @@ msgstr "aangemaakt"
 
 #: tracker/models.py:245
 msgid "Signed text"
-msgstr ""
+msgstr "Ondertekende tekst"
 
 #: tracker/models.py:250
 msgid "updated"
@@ -451,15 +451,15 @@ msgstr "media bijgewerkt"
 
 #: tracker/models.py:252
 msgid "Date when cached information about media were last updated. Used in \"show media\" view."
-msgstr ""
+msgstr "Datum waarop de in de cache opgeslagen informatie over media voor het laatst is bijgewerkt. Wordt gebruikt in de weergave \"media weergeven\"."
 
 #: tracker/models.py:253
 msgid "event date"
-msgstr ""
+msgstr "evenementdatum"
 
 #: tracker/models.py:254
 msgid "Date of the event this ticket is about"
-msgstr ""
+msgstr "Datum van het evenement waarvoor dit ticket geldt"
 
 #: tracker/models.py:255 tracker/models.py:416
 #: tracker/templates/feeds/ticket_description.html:3
@@ -476,7 +476,7 @@ msgstr "aangevraagd door (tekst)"
 
 #: tracker/models.py:259
 msgid "Text description of who requested for this ticket, in case user is not filled in"
-msgstr ""
+msgstr "Tekstuele beschrijving van wie dit ticket heeft aangevraagd, voor het geval de gebruiker niet is ingevuld."
 
 #: tracker/models.py:260 tracker/models.py:699 tracker/models.py:771
 #: tracker/models.py:954 tracker/views.py:799
@@ -505,11 +505,11 @@ msgstr "Subonderwerp waar dit ticket bij hoort (als je het niet weet, laat dit d
 
 #: tracker/models.py:266
 msgid "rating percentage"
-msgstr ""
+msgstr "beoordelingspercentage"
 
 #: tracker/models.py:267
 msgid "Rating percentage set by topic administrator"
-msgstr ""
+msgstr "Beoordelingspercentage ingesteld door de onderwerpbeheerder"
 
 #: tracker/models.py:268
 msgid "report mandatory"
@@ -527,15 +527,15 @@ msgstr "rapport-URL"
 
 #: tracker/models.py:270
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
-msgstr ""
+msgstr "URL naar uw rapport, als u iets wilt rapporteren of als uw rapport verplicht is volgens de richtlijnen van de onderwerpbeheerder."
 
 #: tracker/models.py:271
 msgid "event url"
-msgstr ""
+msgstr "evenement-URL"
 
 #: tracker/models.py:272
 msgid "Link to a public page describing the event, if it exist"
-msgstr ""
+msgstr "Koppeling naar een openbare pagina met een beschrijving van het evenement, indien deze bestaat."
 
 #: tracker/models.py:273 tracker/models.py:700 tracker/models.py:784
 #: tracker/models.py:869 tracker/models.py:926 tracker/models.py:1183
@@ -545,19 +545,19 @@ msgstr "beschrijving"
 
 #: tracker/models.py:274
 msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description. You may use a limited subset of HTML."
-msgstr ""
+msgstr "Ruimte voor aanvullende notities. Als u een reis registreert, vertel ons dan waar u bent geweest en wat u daar hebt gedaan. U kunt koppelen naar andere tickets door #ticketid in uw beschrijving toe te voegen. U mag een beperkte subset van HTML gebruiken."
 
 #: tracker/models.py:275
 msgid "supervisor notes"
-msgstr ""
+msgstr "aantekeningen van de supervisor"
 
 #: tracker/models.py:276
 msgid "This space is for notes of project supervisors and accounting staff."
-msgstr ""
+msgstr "Deze ruimte is bedoeld voor notities van projectleiders en medewerkers van de boekhouding."
 
 #: tracker/models.py:277
 msgid "deposit"
-msgstr ""
+msgstr "borg"
 
 #: tracker/models.py:280
 msgid "If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."
@@ -573,27 +573,27 @@ msgstr "geïmporteerd"
 
 #: tracker/models.py:284
 msgid "Was this ticket imported from older Tracker version?"
-msgstr ""
+msgstr "Is dit ticket geïmporteerd vanuit een oudere versie van Tracker?"
 
 #: tracker/models.py:285
 msgid "enable comments"
-msgstr ""
+msgstr "opmerkingen inschakelen"
 
 #: tracker/models.py:286
 msgid "Can users comment on this ticket?"
-msgstr ""
+msgstr "Kunnen gebruikers reageren op dit ticket?"
 
 #: tracker/models.py:287
 msgid "Did you travel by car?"
-msgstr ""
+msgstr "Heeft u met de auto gereisd?"
 
 #: tracker/models.py:288
 msgid "Do you request reimbursement of car-type travel expense?"
-msgstr ""
+msgstr "Vraagt u een vergoeding aan voor autogerelateerde reiskosten?"
 
 #: tracker/models.py:289
 msgid "Is this ticket completed?"
-msgstr ""
+msgstr "Is dit ticket afgehandeld?"
 
 #: tracker/models.py:373
 msgid "historical"
@@ -632,7 +632,7 @@ msgstr "wachten op indiening"
 #: tracker/models.py:397 tracker/templates/tracker/export.html:34
 #: tracker/templates/tracker/export.html:35
 msgid "waiting for preapproval"
-msgstr ""
+msgstr "wachten op goedkeuring vooraf"
 
 #: tracker/models.py:401 tracker/templates/tracker/export.html:31
 #: tracker/templates/tracker/export.html:32
@@ -641,7 +641,7 @@ msgstr "concept"
 
 #: tracker/models.py:404 tracker/templates/tracker/export.html:30
 msgid "state"
-msgstr ""
+msgstr "status"
 
 #: tracker/models.py:428 tracker/templates/tracker/admin_user_list.html:26
 msgid "E-mail"
@@ -651,15 +651,15 @@ msgstr "E-mail"
 #: tracker/templates/tracker/admin_user_list.html:31
 #: tracker/templates/tracker/admin_user_list.html:34
 msgid "Other contact"
-msgstr ""
+msgstr "Ander contact"
 
 #: tracker/models.py:433
 msgid "no tracker account listed"
-msgstr ""
+msgstr "geen Tracker-account in de lijst"
 
 #: tracker/models.py:435
 msgid "Requester details"
-msgstr ""
+msgstr "Details over de aanvrager"
 
 #: tracker/models.py:624 tracker/templates/tracker/dumpaccounts/index.html:28
 msgid "Ticket"
@@ -682,15 +682,15 @@ msgstr "Tickets"
 
 #: tracker/models.py:701 tracker/models.py:703
 msgid "Description shown to users who enter tickets for this subtopic"
-msgstr ""
+msgstr "Beschrijving die wordt weergegeven aan gebruikers die tickets voor dit subonderwerp invoeren"
 
 #: tracker/models.py:702 tracker/models.py:786
 msgid "form description"
-msgstr ""
+msgstr "formulierbeschrijving"
 
 #: tracker/models.py:705
 msgid "Topic where this subtopic belongs"
-msgstr ""
+msgstr "Onderwerp waar dit subonderwerp toe hoort"
 
 #: tracker/models.py:764 tracker/templates/tracker/index.html:24
 #: tracker/templates/tracker/ticket_common_detail.html:13
@@ -709,63 +709,63 @@ msgstr "studiebeurs"
 
 #: tracker/models.py:773
 msgid "Grant project where this topic belongs"
-msgstr ""
+msgstr "Grantproject waar dit onderwerp toe behoort"
 
 #: tracker/models.py:774
 msgid "open for tickets"
-msgstr ""
+msgstr "open voor tickets"
 
 #: tracker/models.py:775
 msgid "Is this topic open for ticket submissions from users?"
-msgstr ""
+msgstr "Is dit onderwerp open voor tickets van gebruikers?"
 
 #: tracker/models.py:776
 msgid "ticket media"
-msgstr ""
+msgstr "ticketmedia"
 
 #: tracker/models.py:777
 msgid "Does this topic track ticket media items?"
-msgstr ""
+msgstr "Volgt dit onderwerp media-items?"
 
 #: tracker/models.py:778
 msgid "ticket expenses"
-msgstr ""
+msgstr "kosten voor ticket"
 
 #: tracker/models.py:779
 msgid "Does this topic track ticket expenses?"
-msgstr ""
+msgstr "Volg dit onderwerp de ticketuitgaven?"
 
 #: tracker/models.py:780
 msgid "ticket preexpenses"
-msgstr ""
+msgstr "vooruit betaalde uitgaven voor ticket"
 
 #: tracker/models.py:781
 msgid "Does this topic track preexpenses?"
-msgstr ""
+msgstr "Volg dit onderwerp vooruit betaalde uitgaven?"
 
 #: tracker/models.py:782
 msgid "require statutory declaration"
-msgstr ""
+msgstr "wettelijke verklaring vereisen"
 
 #: tracker/models.py:783
 msgid "Does this topic require statutory declaration for car travelling?"
-msgstr ""
+msgstr "Is voor dit onderwerp een wettelijke verklaring nodig voor autoreizen?"
 
 #: tracker/models.py:785 tracker/models.py:870
 msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
-msgstr ""
+msgstr "Detailleerde beschrijving; HTML is nu toegestaan, lijnbrekingen worden automatisch verwerkt"
 
 #: tracker/models.py:787
 msgid "Description shown to users who enter tickets for this topic"
-msgstr ""
+msgstr "Beschrijving die wordt weergegeven aan gebruikers die tickets voor dit onderwerp invoeren"
 
 #: tracker/models.py:788
 msgid "topic administrator"
-msgstr ""
+msgstr "onderwerpbeheerder"
 
 #: tracker/models.py:789
 msgid "Selected users will have administration access to this topic."
-msgstr ""
+msgstr "De geselecteerde gebruikers hebben administratieve toegang tot dit onderwerp."
 
 #: tracker/models.py:856 tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/index.html:23
@@ -790,7 +790,7 @@ msgstr "volledige naam"
 
 #: tracker/models.py:866
 msgid "Full name for headlines and such"
-msgstr ""
+msgstr "Volledige naam voor koppen en dergelijke"
 
 #: tracker/models.py:867
 msgid "short name"
@@ -798,15 +798,15 @@ msgstr "korte naam"
 
 #: tracker/models.py:867
 msgid "Shorter name for use in tables"
-msgstr ""
+msgstr "Kortere naam voor gebruik in tabellen"
 
 #: tracker/models.py:868
 msgid "slug"
-msgstr ""
+msgstr "slag"
 
 #: tracker/models.py:868
 msgid "Shortcut for usage in URLs"
-msgstr ""
+msgstr "Snelkoppeling voor gebruik in URL's"
 
 #: tracker/models.py:910 tracker/templates/tracker/grant_table.html:5
 #: tracker/templates/tracker/index.html:22
@@ -817,29 +817,29 @@ msgstr ""
 #: tracker/templates/tracker/topic_table.html:6
 #: tracker/templates/tracker/transaction_list.html:15
 msgid "Grant"
-msgstr ""
+msgstr "Toelage"
 
 #: tracker/models.py:911 tracker/templates/tracker/export.html:141
 #: tracker/templates/tracker/import.html:34
 msgid "Grants"
-msgstr ""
+msgstr "Toelages"
 
 #: tracker/models.py:924 tracker/models.py:952 tracker/models.py:1181
 #: tracker/models.py:1207 tracker/views.py:515
 msgid "ticket"
-msgstr ""
+msgstr "ticket"
 
 #: tracker/models.py:925 tracker/models.py:953
 msgid "Ticket this media info belongs to"
-msgstr ""
+msgstr "Ticket waar deze media toe behoort"
 
 #: tracker/models.py:926
 msgid "Item description to show"
-msgstr ""
+msgstr "Weer te geven beschrijving van het item"
 
 #: tracker/models.py:927 tracker/models.py:940 tracker/models.py:958
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: tracker/models.py:927
 msgid "Link to media files"
@@ -847,20 +847,20 @@ msgstr "Koppeling naar mediabestanden"
 
 #: tracker/models.py:928
 msgid "count"
-msgstr ""
+msgstr "aantal"
 
 #: tracker/models.py:928 tracker/templates/tracker/ticket_show_media.html:45
 msgid "Number of files"
-msgstr ""
+msgstr "Aantal bestanden"
 
 #: tracker/models.py:934 tracker/models.py:935 tracker/models.py:1152
 #: tracker/models.py:1153
 msgid "Ticket media"
-msgstr ""
+msgstr "Ticketmedia"
 
 #: tracker/models.py:940
 msgid "Link to file usage"
-msgstr ""
+msgstr "Koppeling naar bestandsgebruik"
 
 #: tracker/models.py:941 tracker/models.py:947
 msgid "title"
@@ -884,68 +884,68 @@ msgstr "hoogte"
 
 #: tracker/models.py:959
 msgid "cannonical title"
-msgstr ""
+msgstr "canonieke titel"
 
 #: tracker/models.py:1182
 msgid "Ticket this expediture belongs to"
-msgstr ""
+msgstr "Uitgave waar dit ticket toe behoort"
 
 #: tracker/models.py:1183
 msgid "Description of this expediture"
-msgstr ""
+msgstr "Beschrijving van deze uitgave"
 
 #: tracker/models.py:1184 tracker/models.py:1210 tracker/models.py:1366
 msgid "amount"
-msgstr ""
+msgstr "bedrag"
 
 #: tracker/models.py:1185
 msgid "Expediture amount in"
-msgstr ""
+msgstr "Uitgavebedrag in"
 
 #: tracker/models.py:1186 tracker/models.py:1369
 msgid "accounting info"
-msgstr ""
+msgstr "boekhoudkundige gegevens"
 
 #: tracker/models.py:1187
 msgid "Accounting info, this is editable only through admin field"
-msgstr ""
+msgstr "Boekhoudkundige gegevens, dit is alleen bewerkbaar via adminveld"
 
 #: tracker/models.py:1189 tracker/models.py:1212
 msgid "wage"
-msgstr ""
+msgstr "loon"
 
 #: tracker/models.py:1192 tracker/models.py:1215
 #, python-format
 msgid "%(description)s (%(amount)s %(currency)s)"
-msgstr ""
+msgstr "%(description)s (%(amount)s %(currency)s)"
 
 #: tracker/models.py:1201
 msgid "Ticket expediture"
-msgstr ""
+msgstr "Ticketuitgave"
 
 #: tracker/models.py:1202
 msgid "Ticket expeditures"
-msgstr ""
+msgstr "Ticketuitgaven"
 
 #: tracker/models.py:1208
 msgid "Ticket this preexpediture belongs to"
-msgstr ""
+msgstr "Vooruit betaalde uitgave waar dit ticket toe behoort"
 
 #: tracker/models.py:1209
 msgid "Description of this preexpediture"
-msgstr ""
+msgstr "Beschrijving van deze vooruit betaalde uitgave"
 
 #: tracker/models.py:1211
 msgid "Preexpediture amount in"
-msgstr ""
+msgstr "Vooruit betaald uitgavebedrag in"
 
 #: tracker/models.py:1219
 msgid "Ticket preexpediture"
-msgstr ""
+msgstr "Vooruit betaalde uitgave voor ticket"
 
 #: tracker/models.py:1220
 msgid "Ticket preexpeditures"
-msgstr ""
+msgstr "Vooruit betaalde uitgaven voor ticket"
 
 #: tracker/models.py:1224
 msgid "uploader"
@@ -957,31 +957,31 @@ msgstr "We hebben een normale bestandsnaam nodig, zoals mijn-factuur123.jpg"
 
 #: tracker/models.py:1275
 msgid "Ignored acks"
-msgstr ""
+msgstr "Genereerde bevestigingen"
 
 #: tracker/models.py:1276
 msgid "Muted notifications"
-msgstr ""
+msgstr "Gedempte meldingen"
 
 #: tracker/models.py:1277
 msgid "Email language"
-msgstr ""
+msgstr "E-mailtaal"
 
 #: tracker/models.py:1279
 msgid "Display items"
-msgstr ""
+msgstr "Items weergeven"
 
 #: tracker/models.py:1280
 msgid "How many items should we display in tables at once"
-msgstr ""
+msgstr "Hoeveel items tegelijk in tabellen weergegeven moeten worden"
 
 #: tracker/models.py:1299
 msgid "Tracker user preference"
-msgstr ""
+msgstr "Tracker gebruikersvoorkeur"
 
 #: tracker/models.py:1300
 msgid "Tracker user preferences"
-msgstr ""
+msgstr "Tracker gebruikersvoorkeuren"
 
 #: tracker/models.py:1305
 msgid "Username on mediawiki"
@@ -993,19 +993,19 @@ msgstr "Bankrekening"
 
 #: tracker/models.py:1307
 msgid "Bank account information for money transfers"
-msgstr ""
+msgstr "Bankrekeninggegevens voor geldoverschrijvingen"
 
 #: tracker/models.py:1309
 msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
-msgstr ""
+msgstr "Andere contacten zoals wiki account; kan nuttig zijn in het geval dat onderwerpbeheerders wat informatie moeten verduidelijken"
 
 #: tracker/models.py:1310 tracker/templates/tracker/admin_user_list.html:32
 msgid "Other identification"
-msgstr ""
+msgstr "Andere identificatie"
 
 #: tracker/models.py:1311
 msgid "Address, or other identification information, so we know who are we sending money to"
-msgstr ""
+msgstr "Adres, of andere identificatiegegevens, zodat we weten aan wie we geld sturen"
 
 #: tracker/models.py:1342
 msgid "Tracker profile"
@@ -1025,19 +1025,19 @@ msgstr "andere partij"
 
 #: tracker/models.py:1363
 msgid "The other party; user who sent or received the payment"
-msgstr ""
+msgstr "De andere partij; gebruiker die de betaling heeft verzonden of ontvangen"
 
 #: tracker/models.py:1364
 msgid "other party (text)"
-msgstr ""
+msgstr "andere partij (tekst)"
 
 #: tracker/models.py:1365
 msgid "The other party; this text is used when user is not selected"
-msgstr ""
+msgstr "De andere partij; deze tekst wordt gebruikt wanneer de gebruiker niet is geselecteerd"
 
 #: tracker/models.py:1367
 msgid "Payment amount; Positive value means transaction to the user, negative is a transaction from the user"
-msgstr ""
+msgstr "Bedrag ban de betaling: positieve waarde betekent transactie voor de gebruiker, negatieve waarde is transactie van de gebruiker"
 
 #: tracker/models.py:1368
 msgid "Description of this transaction"
@@ -1051,7 +1051,7 @@ msgstr "Beschrijving van deze transactie"
 #: tracker/templates/tracker/transaction_list.html:15
 #: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1730
 msgid "Accounting info"
-msgstr ""
+msgstr "Boekhoudkundige gegevens"
 
 #: tracker/models.py:1370
 msgid "related tickets"
@@ -1059,7 +1059,7 @@ msgstr "gerelateerde tickets"
 
 #: tracker/models.py:1371
 msgid "Tickets this trackaction is related to"
-msgstr ""
+msgstr "Tickets waar deze volghandeling op van toepassing is"
 
 #: tracker/models.py:1413
 msgid "Transaction"
@@ -1078,32 +1078,32 @@ msgstr "Opmerking"
 #: tracker/models.py:1564
 #, python-format
 msgid "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> by user <tt>%(user)s</tt>"
-msgstr ""
+msgstr "Opmerking <tt>%(comment)s</tt> is toegevoegd aan ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> door gebruiker %(user)s<tt>%(user)s</tt>"
 
 #: tracker/models.py:1595
 #, python-format
 msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft een ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> gemaakt in onderwerp %(topic)s."
 
 #: tracker/models.py:1611
 #, python-format
 msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft toezichthoudersnotities gewijzigd van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1631
 #, python-format
 msgid "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft de beschrijving gewijzigd van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1634
 #, python-format
 msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft de naam van het ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> veranderd."
 
 #: tracker/models.py:1637
 #, python-format
 msgid "User <tt>%(user)s</tt> changed link to report of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft de koppeling gewijzigd naar de rapportage ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1641
 #, python-format
@@ -1246,7 +1246,7 @@ msgstr ""
 
 #: tracker/templates/admin/tracker/ticket/add_ack.html:3
 msgid "add new ack"
-msgstr ""
+msgstr "nieuwe bevestiging toevoegen"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:20
 #: tracker/templates/admin/tracker/ticket/tabular.html:76
@@ -1262,7 +1262,7 @@ msgstr "Totaal"
 #: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1728
 #: tracker/views.py:1737 tracker/views.py:1747
 msgid "Ticket ID"
-msgstr ""
+msgstr "Ticket-ID"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:42
 msgid "Approvals"
@@ -1270,21 +1270,21 @@ msgstr "Goedkeuringen"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:46
 msgid "ADD ACK"
-msgstr ""
+msgstr "BEVESTIGING TOEVOEGEN"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:66
 msgid "Ticket documents"
-msgstr ""
+msgstr "Ticketsdocumenten"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:69
 #: tracker/templates/tracker/edit_ticket.html:20
 #: tracker/templates/tracker/ticket_detail.html:19
 msgid "edit ticket documents"
-msgstr ""
+msgstr "ticketdocumenten bewerken"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:76
 msgid "There are no documents uploaded for this ticket."
-msgstr ""
+msgstr "Er zijn geen documenten geüpload voor dit ticket."
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:79
 #: tracker/templates/tracker/ticket_detail.html:64
@@ -1439,18 +1439,18 @@ msgstr ""
 #: tracker/templates/tracker/ticketack_add.html:4
 #: tracker/templates/tracker/ticketack_add.html:8
 msgid "Add"
-msgstr ""
+msgstr "Toevoegen"
 
 #: tracker/templates/tracker/admin_index_override.html:39
 #: tracker/templates/tracker/user_list.html:4
 #: tracker/templates/tracker/user_list.html:8
 msgid "User list"
-msgstr ""
+msgstr "Gebruikerslijst"
 
 #: tracker/templates/tracker/admin_index_override.html:40
 #: tracker/templates/tracker/admin_user_list.html:16
 msgid "Tracker users"
-msgstr ""
+msgstr "Tracker-gebruikers"
 
 #: tracker/templates/tracker/admin_index_override.html:45
 msgid "You don't have permission to edit anything."
@@ -1465,7 +1465,7 @@ msgstr "Gebruikers"
 
 #: tracker/templates/tracker/admin_user_list.html:13
 msgid "Home"
-msgstr ""
+msgstr "Startpagina"
 
 #: tracker/templates/tracker/admin_user_list.html:25
 #: tracker/templates/tracker/user_details_change.html:12 tracker/views.py:1742
@@ -1484,7 +1484,7 @@ msgstr "Achternaam"
 #: tracker/templates/tracker/cluster_detail.html:8
 #, python-format
 msgid "Cluster %(cid)s"
-msgstr ""
+msgstr "Cluster %(cid)s"
 
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/edit_ticket.html:17
@@ -1514,7 +1514,7 @@ msgstr ""
 #: tracker/templates/tracker/user_list.html:7
 #: tracker/templates/tracker/watch.html:8
 msgid "index"
-msgstr ""
+msgstr "index"
 
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/generic/ticket_list.html:12
@@ -1544,12 +1544,12 @@ msgstr "Toestemming geweigerd"
 
 #: tracker/templates/tracker/connect_account.html:8
 msgid "You need to connect Tracker account with your Wikimedia account. To do so, click on the button below."
-msgstr ""
+msgstr "U moet uw Tracker-account verbinden met uw Wikimedia-account. Klik hieronder op de knop."
 
 #: tracker/templates/tracker/connect_account.html:9
 #: tracker/templates/tracker/preferences.html:85
 msgid "Link Wikimedia account"
-msgstr ""
+msgstr "Wikimedia-account koppelen"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:4
 #: tracker/templates/tracker/dumpaccounts/index.html:7
@@ -1641,7 +1641,7 @@ msgstr "document"
 #: tracker/templates/tracker/upload_ticket_doc.html:35
 #, python-format
 msgid "Fields marked with %(mark)s are required."
-msgstr ""
+msgstr "Velden met %(mark)s zijn vereist."
 
 #: tracker/templates/tracker/export.html:12
 #: tracker/templates/tracker/export.html:15
@@ -1652,11 +1652,11 @@ msgstr "Export"
 
 #: tracker/templates/tracker/export.html:18
 msgid "Only filters with at least one checked checkbox are applied. You can either check all checkboxes or none of them, it's the same."
-msgstr ""
+msgstr "Alleen filters met ten minste één aangevinkte vinkvakje worden toegepast. U kunt alle vinkvakjes aanvinken of geen enkele, het is hetzelfde."
 
 #: tracker/templates/tracker/export.html:59
 msgid "custom"
-msgstr ""
+msgstr "aangepast"
 
 #: tracker/templates/tracker/export.html:78
 #: tracker/templates/tracker/export.html:149
@@ -1679,7 +1679,7 @@ msgstr ""
 #: tracker/templates/tracker/export.html:301
 #: tracker/templates/tracker/export.html:320
 msgid "Larger or equal"
-msgstr ""
+msgstr "Groter of gelijk aan"
 
 #: tracker/templates/tracker/export.html:90
 #: tracker/templates/tracker/export.html:110
@@ -1692,7 +1692,7 @@ msgstr ""
 #: tracker/templates/tracker/export.html:309
 #: tracker/templates/tracker/export.html:328
 msgid "Smaller or equal"
-msgstr ""
+msgstr "Kleiner of gelijk aan"
 
 #: tracker/templates/tracker/export.html:98
 #: tracker/templates/tracker/export.html:179
@@ -1715,28 +1715,28 @@ msgstr ""
 
 #: tracker/templates/tracker/export.html:145
 msgid "You can't filter grants by any fields"
-msgstr ""
+msgstr "U kunt subsidies niet filteren op enig veld"
 
 #: tracker/templates/tracker/export.html:174
 #: tracker/templates/tracker/export.html:204
 msgid "Wage"
-msgstr ""
+msgstr "Loon"
 
 #: tracker/templates/tracker/export.html:216
 msgid "Supervisors"
-msgstr ""
+msgstr "Supervisors"
 
 #: tracker/templates/tracker/export.html:222
 msgid "Number of tickets"
-msgstr ""
+msgstr "Aantal tickets"
 
 #: tracker/templates/tracker/export.html:242
 msgid "Number of tickets in certain payment state"
-msgstr ""
+msgstr "Aantal tickets in bepaalde betalingsstatus"
 
 #: tracker/templates/tracker/export.html:245
 msgid "N/A"
-msgstr ""
+msgstr "N.v.t."
 
 #: tracker/templates/tracker/export.html:278
 msgid "Number of tickets created"
@@ -1957,18 +1957,18 @@ msgstr ""
 #: tracker/templates/tracker/ticket_common_detail.html:14
 #: tracker/templates/tracker/ticket_table.html:41
 msgid "State"
-msgstr ""
+msgstr "Status"
 
 #: tracker/templates/tracker/index.html:31
 #: tracker/templates/tracker/ticket_common_detail.html:9
 #: tracker/templates/tracker/ticket_table.html:27
 #: tracker/templates/tracker/ticket_table.html:42
 msgid "Last changed"
-msgstr ""
+msgstr "Laatste wijziging"
 
 #: tracker/templates/tracker/paginator.html:4
 msgid "previous"
-msgstr ""
+msgstr "vorige"
 
 #: tracker/templates/tracker/paginator.html:8
 msgid "next"
@@ -1985,18 +1985,18 @@ msgstr "Meldingen dempen"
 
 #: tracker/templates/tracker/preferences.html:38
 msgid "Ignore ack types"
-msgstr ""
+msgstr "Bevestigingstypes negeren"
 
 #: tracker/templates/tracker/preferences.html:51
 msgid "Other"
-msgstr ""
+msgstr "Overige"
 
 #: tracker/templates/tracker/preferences.html:59
 #: tracker/templates/tracker/ticket_form.html:31
 #: tracker/templates/tracker/user_details_change.html:21
 #: tracker/templates/tracker/watch.html:32
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #: tracker/templates/tracker/preferences.html:62
 msgid "Wikimedia account"
@@ -2004,133 +2004,133 @@ msgstr "Wikimedia-account"
 
 #: tracker/templates/tracker/preferences.html:66
 msgid "Your account is connected to Wikimedia account"
-msgstr ""
+msgstr "Uw account is verbonden met het Wikimedia-account"
 
 #: tracker/templates/tracker/preferences.html:76
 msgid "Disconnect Wikimedia account"
-msgstr ""
+msgstr "Wikimedia-account ontkoppelen"
 
 #: tracker/templates/tracker/preferences.html:80
 msgid "In order to disconnect your Wikimedia account, you first need to"
-msgstr ""
+msgstr "Om uw Wikimedia-account te ontkoppelen, moet u eerst"
 
 #: tracker/templates/tracker/preferences.html:80
 #: tracker/templates/tracker/preferences.html:106
 msgid "set a password."
-msgstr ""
+msgstr "een wachtwoord instellen."
 
 #: tracker/templates/tracker/preferences.html:88
 msgid "Chapter account"
-msgstr ""
+msgstr "Chapteraccount"
 
 #: tracker/templates/tracker/preferences.html:92
 msgid "Your account is connected to your chapter account"
-msgstr ""
+msgstr "Uw account is verbonden met uw chapteraccount"
 
 #: tracker/templates/tracker/preferences.html:102
 msgid "Disconnect chapter account"
-msgstr ""
+msgstr "Chapteraccount ontkoppelen"
 
 #: tracker/templates/tracker/preferences.html:106
 msgid "In order to disconnect your chapter account, you first need to"
-msgstr ""
+msgstr "Om uw Wikimedia-account te ontkoppelen, moet u eerst"
 
 #: tracker/templates/tracker/preferences.html:111
 msgid "Link chapter account"
-msgstr ""
+msgstr "Chapteraccount koppelen"
 
 #: tracker/templates/tracker/preferences.html:114
 msgid "Account actions"
-msgstr ""
+msgstr "Accounthandelingen"
 
 #: tracker/templates/tracker/preferences.html:116
 #: tracker/templates/tracker/user_deactivate.html:4
 #: tracker/templates/tracker/user_deactivate.html:11
 msgid "Deactivate account"
-msgstr ""
+msgstr "Account uitschakelen"
 
 #: tracker/templates/tracker/sign_ticket.html:4
 #: tracker/templates/tracker/sign_ticket.html:7
 msgid "Add statutory declaration to"
-msgstr ""
+msgstr "Voeg een wettelijke verklaring toe aan"
 
 #: tracker/templates/tracker/sign_ticket.html:13
 #: tracker/templates/tracker/ticketack_add.html:21
 #: tracker/templates/tracker/ticketack_confirm_delete.html:16
 msgid "Submit"
-msgstr ""
+msgstr "Opslaan"
 
 #: tracker/templates/tracker/subtopic_detail.html:10
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "add ticket"
-msgstr ""
+msgstr "ticket toevoegen"
 
 #: tracker/templates/tracker/subtopic_detail.html:16
 msgid "Total for this subtopic"
-msgstr ""
+msgstr "Totaal voor dit subonderwerp"
 
 #: tracker/templates/tracker/tabular_formset.html:12
 msgid "delete"
-msgstr ""
+msgstr "verwijderen"
 
 #: tracker/templates/tracker/tabular_formset.html:21
 msgid "Delete the item"
-msgstr ""
+msgstr "Item verwijderen"
 
 #: tracker/templates/tracker/tabular_formset.html:91
 #, python-format
 msgid "Add another %(formset_item_name)s"
-msgstr ""
+msgstr "Nog een %(formset_item_name)s toevoegen"
 
 #: tracker/templates/tracker/tabular_formset.html:97
 #: tracker/templates/tracker/ticketack_confirm_delete.html:4
 #: tracker/templates/tracker/ticketack_confirm_delete.html:8
 msgid "Remove"
-msgstr ""
+msgstr "Verwijderen"
 
 #: tracker/templates/tracker/ticket_common_detail.html:8
 #: tracker/templates/tracker/ticket_common_detail.html:52
 #: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Created"
-msgstr ""
+msgstr "Aangemaakt"
 
 #: tracker/templates/tracker/ticket_common_detail.html:10
 msgid "unset"
-msgstr ""
+msgstr "niet ingesteld"
 
 #: tracker/templates/tracker/ticket_common_detail.html:15
 #: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: tracker/templates/tracker/ticket_common_detail.html:15
 #: tracker/templates/tracker/ticket_common_detail.html:52
 msgid "No"
-msgstr ""
+msgstr "Nee"
 
 #: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "Report URL"
-msgstr ""
+msgstr "Rapport-URL"
 
 #: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "No report filled"
-msgstr ""
+msgstr "Geen rapport toegevoegd"
 
 #: tracker/templates/tracker/ticket_common_detail.html:18
 msgid "Deposit"
-msgstr ""
+msgstr "Borg"
 
 #: tracker/templates/tracker/ticket_common_detail.html:19
 msgid "Event URL"
-msgstr ""
+msgstr "Evenement-URL"
 
 #: tracker/templates/tracker/ticket_common_detail.html:20
 msgid "Rating percentage"
-msgstr ""
+msgstr "Beoordelingspercentage"
 
 #: tracker/templates/tracker/ticket_common_detail.html:22
 msgid "remove"
-msgstr ""
+msgstr "verwijderen"
 
 #: tracker/templates/tracker/ticket_common_detail.html:25
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:15
@@ -2139,7 +2139,7 @@ msgstr "Bevestigen"
 
 #: tracker/templates/tracker/ticket_common_detail.html:33
 msgid "Supervisor notes"
-msgstr ""
+msgstr "Toezichthoudernotities"
 
 #: tracker/templates/tracker/ticket_common_detail.html:36
 msgid "Media (old)"
@@ -2147,74 +2147,74 @@ msgstr "Media (oud)"
 
 #: tracker/templates/tracker/ticket_common_detail.html:37
 msgid "Number of objects"
-msgstr ""
+msgstr "Aantal objecten"
 
 #: tracker/templates/tracker/ticket_common_detail.html:38
 msgid "Number of media files"
-msgstr ""
+msgstr "Aantal mediabestanden"
 
 #: tracker/templates/tracker/ticket_common_detail.html:49
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Item"
-msgstr ""
+msgstr "Item"
 
 #: tracker/templates/tracker/ticket_common_detail.html:49
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Wage?"
-msgstr ""
+msgstr "Loon?"
 
 #: tracker/templates/tracker/ticket_common_detail.html:56
 msgid "Total preexpeditures"
-msgstr ""
+msgstr "Totaal vooruit betaalde uitgaven"
 
 #: tracker/templates/tracker/ticket_common_detail.html:64
 msgid "Paid?"
-msgstr ""
+msgstr "Betaald?"
 
 #: tracker/templates/tracker/ticket_common_detail.html:67
 msgid "Yes,No"
-msgstr ""
+msgstr "Ja,Nee"
 
 #: tracker/templates/tracker/ticket_common_detail.html:71
 msgid "Total expeditures"
-msgstr ""
+msgstr "Totaal uitgaven"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:4
 msgid "Copying preexpeditures"
-msgstr ""
+msgstr "Vooruit betaalde uitgaven aan het kopiëren"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:7
 msgid "Are you sure?"
-msgstr ""
+msgstr "Weet u het zeker?"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:9
 #, python-format
 msgid "\n	You are going to copy preexpeditures to expeditures for ticket <a href=\"%(ticket.get_absolure_url)s\">%(ticket)s</a>. Are you sure you want to do so?\n	"
-msgstr ""
+msgstr "\n	U gaat vooruit betaalde uitgaven kopiëren naar uitgaven voor ticket <a href=\"%(ticket.get_absolure_url)s\">%(ticket)s</a>. Weet u zeker dat u dit wilt doen?\n	"
 
 #: tracker/templates/tracker/ticket_detail.html:16
 msgid "edit ticket"
-msgstr ""
+msgstr "ticket bewerken"
 
 #: tracker/templates/tracker/ticket_detail.html:18
 msgid "edit in admin"
-msgstr ""
+msgstr "in adminmodus bewerken"
 
 #: tracker/templates/tracker/ticket_detail.html:20
 msgid "duplicate"
-msgstr ""
+msgstr "dupliceren"
 
 #: tracker/templates/tracker/ticket_detail.html:22
 msgid "add yourself as a driver"
-msgstr ""
+msgstr "uzelf toevoegen als chauffeur"
 
 #: tracker/templates/tracker/ticket_detail.html:23
 msgid "show media"
-msgstr ""
+msgstr "media weergeven"
 
 #: tracker/templates/tracker/ticket_detail.html:24
 msgid "manage media"
-msgstr ""
+msgstr "media beheren"
 
 #: tracker/templates/tracker/ticket_detail.html:31
 #, python-format
@@ -2223,23 +2223,23 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_detail.html:41
 msgid "Associated transactions total"
-msgstr ""
+msgstr "Totaal gekoppelde transacties"
 
 #: tracker/templates/tracker/ticket_detail.html:65
 msgid "As you are not an administrator, you can see only documents you uploaded below."
-msgstr ""
+msgstr "Omdat u geen beheerder bent, kunt u alleen documenten zien die u hieronder hebt geüpload."
 
 #: tracker/templates/tracker/ticket_detail.html:78
 #: tracker/templates/tracker/ticket_detail.html:82
 #: tracker/templates/tracker/topic_detail.html:43
 #: tracker/templates/tracker/topic_detail.html:46
 msgid "Comments"
-msgstr ""
+msgstr "Opmerkingen"
 
 #: tracker/templates/tracker/ticket_detail.html:83
 #: tracker/templates/tracker/topic_detail.html:47
 msgid "There are no comments yet."
-msgstr ""
+msgstr "Er zijn nog geen opmerkingen."
 
 #: tracker/templates/tracker/ticket_detail.html:90
 #: tracker/templates/tracker/ticket_detail.html:92
@@ -2250,27 +2250,27 @@ msgstr "Opmerking toevoegen"
 
 #: tracker/templates/tracker/ticket_form.html:20
 msgid "preexpediture"
-msgstr ""
+msgstr "vooruit betaalde uitgave"
 
 #: tracker/templates/tracker/ticket_form.html:25
 msgid "expediture"
-msgstr ""
+msgstr "uitgave"
 
 #: tracker/templates/tracker/ticket_form.html:31
 msgid "submit"
-msgstr ""
+msgstr "opslaan"
 
 #: tracker/templates/tracker/ticket_media.html:4
 msgid "Manage media for"
-msgstr ""
+msgstr "Media beheren voor"
 
 #: tracker/templates/tracker/ticket_media.html:9
 msgid "Add new media"
-msgstr ""
+msgstr "Nieuwe media toevoegen"
 
 #: tracker/templates/tracker/ticket_media.html:13
 msgid "Find by"
-msgstr ""
+msgstr "Zoeken op"
 
 #: tracker/templates/tracker/ticket_media.html:16
 #: tracker/templates/tracker/ticket_media.html:25
@@ -2279,23 +2279,23 @@ msgstr "MediaWiki-gebruikersnaam"
 
 #: tracker/templates/tracker/ticket_media.html:21
 msgid "Filename prefix"
-msgstr ""
+msgstr "Bestandsnaamvoorvoegsel"
 
 #: tracker/templates/tracker/ticket_media.html:30
 msgid "Number of images to fetch"
-msgstr ""
+msgstr "Aantal te downloaden afbeeldingen"
 
 #: tracker/templates/tracker/ticket_media.html:34
 msgid "Category to filter by"
-msgstr ""
+msgstr "Categorie om op te filteren"
 
 #: tracker/templates/tracker/ticket_media.html:41
 msgid "Search"
-msgstr ""
+msgstr "Zoeken"
 
 #: tracker/templates/tracker/ticket_media.html:45
 msgid "To select more images at once, select the first one, press Shift, and select the last one."
-msgstr ""
+msgstr "Om meer afbeeldingen tegelijk te selecteren, selecteer de eerste, druk op Shift en selecteer het laatste."
 
 #: tracker/templates/tracker/ticket_media.html:47
 msgid "Select all"
@@ -2319,19 +2319,19 @@ msgstr "Bezig met laden…"
 
 #: tracker/templates/tracker/ticket_media.html:68
 msgid "Choose selected photos"
-msgstr ""
+msgstr "Kies geselecteerde afbeeldingen"
 
 #: tracker/templates/tracker/ticket_media.html:71
 msgid "Remove existing media"
-msgstr ""
+msgstr "Bestaande media verwijderen"
 
 #: tracker/templates/tracker/ticket_media.html:72
 msgid "It can take up to five minutes for the images you added to show here."
-msgstr ""
+msgstr "Het kan tot vijf minuten duren voor de beelden die u hier hebt toegevoegd."
 
 #: tracker/templates/tracker/ticket_media.html:80
 msgid "Delete selected photos"
-msgstr ""
+msgstr "Geselecteerde afbeeldingen verwijderen"
 
 #: tracker/templates/tracker/ticket_show_media.html:3
 msgid "Show media for"
@@ -2339,19 +2339,19 @@ msgstr "Media weergeven voor"
 
 #: tracker/templates/tracker/ticket_show_media.html:9
 msgid "List of linked media"
-msgstr ""
+msgstr "Lijst van gekoppelde media"
 
 #: tracker/templates/tracker/ticket_show_media.html:10
 msgid "Last updated"
-msgstr ""
+msgstr "Laatst bijgewerkt"
 
 #: tracker/templates/tracker/ticket_show_media.html:10
 msgid "update"
-msgstr ""
+msgstr "bijwerken"
 
 #: tracker/templates/tracker/ticket_show_media.html:11
 msgid "Page will be updated within 24 hours."
-msgstr ""
+msgstr "De pagina wordt binnen 24 uur bijgewerkt."
 
 #: tracker/templates/tracker/ticket_show_media.html:15
 msgid "File name"
@@ -2359,11 +2359,11 @@ msgstr "Bestandsnaam"
 
 #: tracker/templates/tracker/ticket_show_media.html:16
 msgid "Dimension"
-msgstr ""
+msgstr "Dimensie"
 
 #: tracker/templates/tracker/ticket_show_media.html:17
 msgid "Categories"
-msgstr ""
+msgstr "Categorieën"
 
 #: tracker/templates/tracker/ticket_show_media.html:18
 msgid "Used in"
@@ -2375,19 +2375,19 @@ msgstr "Onbekend"
 
 #: tracker/templates/tracker/ticket_show_media.html:49
 msgid "Number of usages"
-msgstr ""
+msgstr "Aantal toepassingen"
 
 #: tracker/templates/tracker/ticket_show_media.html:53
 msgid "Number of Wikidata items"
-msgstr ""
+msgstr "Aantal Wikidata-items"
 
 #: tracker/templates/tracker/ticket_show_media.html:57
 msgid "Number of unique Wikidata items"
-msgstr ""
+msgstr "Aantal unieke Wikidata-items"
 
 #: tracker/templates/tracker/ticket_show_media.html:63
 msgid "Photos per category"
-msgstr ""
+msgstr "Afbeeldingen per categorie"
 
 #: tracker/templates/tracker/ticket_show_media.html:67
 msgid "Category"
@@ -2395,22 +2395,22 @@ msgstr "Categorie"
 
 #: tracker/templates/tracker/ticket_show_media.html:68
 msgid "Number"
-msgstr ""
+msgstr "Getal"
 
 #: tracker/templates/tracker/ticket_table.html:21
 #: tracker/templates/tracker/user_list.html:13
 msgid "Media count"
-msgstr ""
+msgstr "Aantal media"
 
 #: tracker/templates/tracker/ticketack_add.html:7
 #: tracker/templates/tracker/ticketack_confirm_delete.html:7
 msgid "confirmations"
-msgstr ""
+msgstr "bevestigingen"
 
 #: tracker/templates/tracker/ticketack_add.html:26
 #: tracker/templates/tracker/ticketack_confirm_delete.html:17
 msgid "back to ticket"
-msgstr ""
+msgstr "terug naar ticket"
 
 #: tracker/templates/tracker/ticketack_confirm_delete.html:11
 msgid "Added"
@@ -2423,40 +2423,40 @@ msgstr "Toegevoegd door"
 #: tracker/templates/tracker/topic_content_acks_per_user.html:4
 #: tracker/templates/tracker/topic_content_acks_per_user.html:8
 msgid "Topic ack overview"
-msgstr ""
+msgstr "Bevestigingsoverzicht voor onderwerp"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:12
 msgid "Supervisor"
-msgstr ""
+msgstr "Supervisor"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:15
 msgid "Ack count"
-msgstr ""
+msgstr "Aantal bevestigingen"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:27
 msgid "download csv"
-msgstr ""
+msgstr "csv downloaden"
 
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "Topic is open for new tickets"
-msgstr ""
+msgstr "Het onderwerp staat open voor nieuwe tickets"
 
 #: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrators"
-msgstr ""
+msgstr "Onderwerpbeheerders"
 
 #: tracker/templates/tracker/topic_detail.html:22
 msgid "Topic administrator"
-msgstr ""
+msgstr "Onderwerpbeheerder"
 
 #: tracker/templates/tracker/topic_detail.html:38
 msgid "Total for this topic"
-msgstr ""
+msgstr "Totaal voor dit onderwerp"
 
 #: tracker/templates/tracker/topic_finance.html:4
 #: tracker/templates/tracker/topic_finance.html:8
 msgid "Topic finance"
-msgstr ""
+msgstr "Onderwerp financieren"
 
 #: tracker/templates/tracker/topic_finance.html:13
 msgid "Amounts per payment status"
