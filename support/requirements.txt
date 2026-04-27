@@ -1,6 +1,6 @@
 # just our usual stuff
 Django==3.0.*
-django-sendfile
+django-sendfile2
 django-recaptcha2
 django-contrib-comments
 django-widget-tweaks
