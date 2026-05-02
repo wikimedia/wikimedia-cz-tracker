@@ -164,7 +164,7 @@ class TicketSumTests(TestCase):
         full_ticket.mediainfoold_set.create(description='Vague pictures')
         full_ticket.mediainfoold_set.create(description='Counted pictures', count=15)
         full_ticket.mediainfoold_set.create(description='Even more pictures', count=16)
-        full_ticket.mediainfo_set.create(name='testSummary.jpg')
+        full_ticket.mediainfo_set.create(page_title='testSummary.jpg')
         full_ticket.expediture_set.create(description='Some expense', amount=99)
         full_ticket.expediture_set.create(description='Some other expense', amount=101)
         full_ticket.preexpediture_set.create(description='Preexpediture', amount=99)
@@ -917,8 +917,8 @@ class SummaryTest(TestCase):
         self.ticket.expediture_set.create(description='foo', amount=200)
         self.ticket.expediture_set.create(description='foo', amount=100)
         self.ticket.mediainfoold_set.create(description='foo', count=5)
-        self.ticket.mediainfo_set.create(name='test_summaryTest.jpg')
-        self.ticket.mediainfo_set.create(name='test2_summary.jpg')
+        self.ticket.mediainfo_set.create(page_title='test_summaryTest.jpg')
+        self.ticket.mediainfo_set.create(page_title='test2_summary.jpg')
 
         self.ticket2 = Ticket(name='foo', requested_user=self.user, topic=self.topic, rating_percentage=100)
         self.ticket2.save()
@@ -927,7 +927,7 @@ class SummaryTest(TestCase):
         self.ticket2.expediture_set.create(description='foo', amount=10)
         self.ticket2.mediainfoold_set.create(description='foo', count=5)
         self.ticket2.mediainfoold_set.create(description='foo', count=3)
-        self.ticket2.mediainfo_set.create(name='test_summaryTest.jpg')
+        self.ticket2.mediainfo_set.create(page_title='test_summaryTest.jpg')
 
     def get_grant(self):
         q = Grant.objects.filter(slug='g')
@@ -1605,12 +1605,12 @@ class MediaInfoCommunicationTests(TestCase):
     @patch("tracker.models.MediaInfo.get_mediawiki_data")
     def test_store_mediawiki_data(self, mock_request):
         mock_request.return_value = {'url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Example.svg'
-                                            '/200px-Example.svg.png', 'canonicaltitle': 'File:Example.svg'}
+                                            '/200px-Example.svg.png', 'page_title': 'File:Example.svg'}
 
-        self.assertEqual(self.mediainfo.canonicaltitle, None)
+        self.assertEqual(self.mediainfo.page_title, None)
         MediaInfo.store_mediawiki_data.task_function(self.mediainfo.id)
         self.mediainfo.refresh_from_db()
-        self.assertEqual(self.mediainfo.canonicaltitle, "File:Example.svg")
+        self.assertEqual(self.mediainfo.page_title, "File:Example.svg")
 
     @patch("socialauth.api.MediaWiki.put_content")
     def test_add_to_mediawiki(self, mock_request):
