@@ -3,15 +3,12 @@ from django.urls import include, path
 from django.views.generic import DetailView
 
 import tracker.views
-from tracker import feeds
 from tracker.models import Grant
 
 urlpatterns = [
     path('tickets/', tracker.views.ticket_list, name='ticket_list'),
     path('tickets/page/<int:page>/', tracker.views.ticket_list, name='ticket_list'),
     path('ticket/watch/<int:pk>/', tracker.views.watch_ticket, name='watch_ticket'),
-    path('tickets/feed/', feeds.LatestTicketsFeed(), name='ticket_list_feed'),
-    path('tickets/feed/submitted/', feeds.SubmittedTicketsFeed(), name='ticket_submitted_feed'),
     path('ticket/<int:pk>/', tracker.views.ticket_detail, name='ticket_detail'),
     path('ticket/<int:pk>/sign/', tracker.views.sign_ticket, name='sign_ticket'),
     path('ticket/<int:pk>/edit/', tracker.views.edit_ticket, name='edit_ticket'),
@@ -34,8 +31,6 @@ urlpatterns = [
     path('topic/<int:pk>/', tracker.views.topic_detail, name='topic_detail'),
     path('subtopic/<int:pk>/', tracker.views.subtopic_detail, name='subtopic_detail'),
     path('topic/watch/<int:pk>/', tracker.views.watch_topic, name='watch_topic'),
-    path('topic/<int:pk>/feed/', feeds.TopicTicketsFeed(), name='topic_ticket_feed'),
-    path('topic/<int:pk>/feed/submitted/', feeds.TopicSubmittedTicketsFeed(), name='topic_submitted_ticket_feed'),
     path('grants/', tracker.views.grant_list, name='grant_list'),
     path('grant/watch/<int:pk>/', tracker.views.watch_grant, name='watch_grant'),
     path('grant/<slug:slug>/', DetailView.as_view(model=Grant), name='grant_detail'),
@@ -44,9 +39,6 @@ urlpatterns = [
     path('my/details/', tracker.views.user_details_change, name='user_details_change'),
     path('my/preferences/', tracker.views.preferences, name='preferences'),
     path('my/deactivate/', tracker.views.deactivate_account, name='deactivate_account'),
-    path('transactions/', tracker.views.transaction_list, name='transaction_list'),
-    path('transactions/feed/', feeds.TransactionsFeed(), name='transactions_feed'),
-    path('transactions/transactions.csv', tracker.views.transactions_csv, name='transactions_csv'),
     path('cluster/<int:pk>/', tracker.views.cluster_detail, name='cluster_detail'),
     path('comments/', include('django_comments.urls')),
     path('admin/users/', tracker.views.admin_user_list, name='admin_user_list'),

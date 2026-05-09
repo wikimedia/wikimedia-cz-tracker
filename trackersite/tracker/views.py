@@ -38,7 +38,7 @@ from django_sendfile import sendfile
 from socialauth.api import MediaWiki
 from tracker.models import ACK_TYPES, NOTIFICATION_TYPES
 from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, MediaInfoOld, Expediture, \
-    Preexpediture, Transaction, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher, \
+    Preexpediture, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher, \
     Signature
 from tracker.services import get_request
 from users.models import UserWrapper
@@ -997,31 +997,6 @@ def topic_content_acks_per_user_csv(request):
     response = HttpResponseCsv(['user', 'grant', 'topic', 'ack_count'])
     for row in _get_topic_content_acks_per_user():
         response.writerow([row.user, row.grant, row.topic, row.ack_count])
-    return response
-
-
-def transaction_list(request):
-    return render(request, 'tracker/transaction_list.html', {
-        'transaction_list': Transaction.objects.all(),
-        'total': Transaction.objects.aggregate(amount=models.Sum('amount'))['amount'],
-    })
-
-
-def transactions_csv(request):
-    response = HttpResponseCsv(
-        ['DATE', 'OTHER PARTY', 'AMOUNT ' + settings.TRACKER_CURRENCY, 'DESCRIPTION', 'TICKETS', 'GRANTS', 'ACCOUNTING INFO']
-    )
-
-    for tx in Transaction.objects.all():
-        response.writerow([
-            tx.date.strftime('%Y-%m-%d'),
-            tx.other_party(),
-            tx.amount,
-            tx.description,
-            u' '.join([t.id for t in tx.tickets.all()]),
-            u' '.join([g.short_name for g in tx.grant_set()]),
-            tx.accounting_info,
-        ])
     return response
 
 
