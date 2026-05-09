@@ -1012,12 +1012,12 @@ class MediaInfo(Model):
             data = mw.request({
                 "action": "query",
                 "format": "json",
-                "pageids": [self.media_id]
+                "pageids": [self.page_id]
             }).json()
             try:
                 self.page_title = data['query']['pages'][list(data['query']['pages'].keys())[0]]['title']
             except KeyError:
-                return self.page_title
+                return None
             self.save()
         return self.page_title
 
