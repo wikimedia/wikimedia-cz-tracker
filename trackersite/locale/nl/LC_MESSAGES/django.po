@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-04-13 12:31:34+0000\n"
+"PO-Revision-Date: 2026-05-11 12:29:43+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1118,7 +1118,7 @@ msgstr ""
 #: tracker/models.py:1663
 #, python-format
 msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
-msgstr ""
+msgstr "Aanvraag \"%(ticket)s\" is verwijderd door gebruiker %(user)s"
 
 #: tracker/models.py:1680
 #, python-format
@@ -1920,7 +1920,7 @@ msgstr ""
 
 #: tracker/templates/tracker/import.html:47
 msgid "Expenses"
-msgstr ""
+msgstr "Uitgaven"
 
 #: tracker/templates/tracker/import.html:53
 msgid "Media"
@@ -1944,14 +1944,14 @@ msgstr "Naam"
 #: tracker/templates/tracker/ticket_table.html:20
 #: tracker/templates/tracker/ticket_table.html:36
 msgid "Requested by"
-msgstr ""
+msgstr "Aangevraagd door"
 
 #: tracker/templates/tracker/index.html:29
 #: tracker/templates/tracker/ticket_common_detail.html:73
 #: tracker/templates/tracker/ticket_table.html:25
 #: tracker/templates/tracker/ticket_table.html:40
 msgid "Paid expeditures"
-msgstr ""
+msgstr "Betaalde uitgaven"
 
 #: tracker/templates/tracker/index.html:30
 #: tracker/templates/tracker/ticket_common_detail.html:14
@@ -2460,12 +2460,12 @@ msgstr "Onderwerp financieren"
 
 #: tracker/templates/tracker/topic_finance.html:13
 msgid "Amounts per payment status"
-msgstr ""
+msgstr "Bedragen per betalingsstatus"
 
 #: tracker/templates/tracker/topic_finance.html:34
 #, python-format
 msgid "Total %(gname)s"
-msgstr ""
+msgstr "Totaal %(gname)s"
 
 #: tracker/templates/tracker/topic_finance.html:44
 msgid "Marked topics involve partial payments that have no clear relation to topic, and have been split equally among possible candidates."
@@ -2508,7 +2508,7 @@ msgstr "documenten"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload"
-msgstr ""
+msgstr "uploaden"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload and add another"
@@ -2568,24 +2568,24 @@ msgstr ""
 
 #: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
-msgstr ""
+msgstr "Tracker"
 
 #: tracker/templates/tracker/user_detail.html:13
 msgid "Total for this user"
-msgstr ""
+msgstr "Totaal voor deze gebruiker"
 
 #: tracker/templates/tracker/user_detail.html:32
 msgid "Accepted expeditures total"
-msgstr ""
+msgstr "Geaccepteerde uitgaven totaal"
 
 #: tracker/templates/tracker/user_details_change.html:4
 #: tracker/templates/tracker/user_details_change.html:9
 msgid "My details"
-msgstr ""
+msgstr "Mijn details"
 
 #: tracker/templates/tracker/user_list.html:22
 msgid "Tickets not assigned to any tracker user"
-msgstr ""
+msgstr "Tickets die niet aan een trackergebruiker zijn toegewezen"
 
 #: tracker/templates/tracker/user_list.html:22
 msgid "unassigned"
@@ -2594,16 +2594,16 @@ msgstr "niet toegewezen"
 #: tracker/templates/tracker/watch.html:4
 #: tracker/templates/tracker/watch.html:11
 msgid "Watch"
-msgstr ""
+msgstr "Volgen"
 
 #: tracker/templates/tracker/watch.html:19
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #: tracker/views.py:55
 #, python-format
 msgid "User %s created."
-msgstr ""
+msgstr "Gebruiker %s aangemaakt."
 
 #: tracker/views.py:73
 msgid "Comment posted, thank you."
@@ -2625,7 +2625,7 @@ msgstr ""
 
 #: tracker/views.py:169 tracker/views.py:1759
 msgid "You cannot edit this"
-msgstr ""
+msgstr "U kunt dit niet bewerken"
 
 #: tracker/views.py:174
 #, python-format
@@ -2634,11 +2634,11 @@ msgstr ""
 
 #: tracker/views.py:218
 msgid "Statutory declaration"
-msgstr ""
+msgstr "Wettelijke verklaring"
 
 #: tracker/views.py:265
 msgid "Your deposit is bigger than your preexpeditures"
-msgstr ""
+msgstr "Uw storting is groter dan uw aanloopkosten"
 
 #: tracker/views.py:282
 msgid "You are required to do statutory declaration"
@@ -2774,7 +2774,7 @@ msgstr ""
 
 #: tracker/views.py:1642 tracker/views.py:1656
 msgid "You can't add preexpenses to a ticket that you did not create."
-msgstr ""
+msgstr "U kunt geen voorschot toevoegen aan een aanvraag die u niet zelf hebt gemaakt."
 
 #: tracker/views.py:1678
 msgid "You can't add media items to a ticket that you did not create."
@@ -2826,7 +2826,7 @@ msgstr ""
 
 #: tracker/views.py:1766
 msgid "Preexpeditures were succesfully copied to expeditures."
-msgstr ""
+msgstr "Aanloopkosten zijn gekopieerd naar kosten."
 
 #: tracker/views.py:1782
 msgid "Executing API call with any action than whitelisted is prohibited."
