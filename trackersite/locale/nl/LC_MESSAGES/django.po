@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-05-18 13:00:54+0000\n"
+"PO-Revision-Date: 2026-05-21 12:23:40+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,11 +37,11 @@ msgstr "De borgsom moet lager of gelijk zijn aan de som van de vooruitbetaalde k
 
 #: api/serializers.py:134
 msgid "You can not add media to this ticket."
-msgstr "Je kunt geen media aan dit ticket toevoegen."
+msgstr "U kunt geen media aan dit ticket toevoegen."
 
 #: api/serializers.py:136
 msgid "You can not edit the media of this ticket."
-msgstr "Je kunt de media van dit ticket niet bewerken."
+msgstr "U kunt de media van dit ticket niet bewerken."
 
 #: api/serializers.py:162
 msgid "You can not add expiditures to this ticket."
@@ -119,11 +119,11 @@ msgstr "Opmerking"
 
 #: socialauth/pipeline.py:15
 msgid "Successfully linked your wikimedia account!"
-msgstr "Je wikimedia-account is succesvol gekoppeld!"
+msgstr "Uw wikimedia-account is gekoppeld!"
 
 #: socialauth/pipeline.py:17
 msgid "Successfully linked your chapter account!"
-msgstr "Je chapteraccount is succesvol gekoppeld!"
+msgstr "Uw chapteraccount is gekoppeld!"
 
 #: socialauth/pipeline.py:23
 msgid "Your wikimedia account is no longer linked."
@@ -135,7 +135,7 @@ msgstr "Uw wikimedia-account is niet langer gekoppeld."
 
 #: templates/403.html:3
 msgid "403 Forbidden"
-msgstr "403 Forbidden"
+msgstr "403 Verboden"
 
 #: templates/403.html:7
 msgid "Forbidden"
@@ -143,7 +143,7 @@ msgstr "Verboden"
 
 #: templates/403.html:12
 msgid "You don't have permissions to do this!"
-msgstr "Je hebt hiervoor geen rechten."
+msgstr "U hebt hiervoor geen rechten."
 
 #: templates/404.html:3
 msgid "404 Not Found"
@@ -156,7 +156,7 @@ msgstr "Niet gevonden"
 #: templates/404.html:10
 #, python-format
 msgid "The requested URL %(request_path)s was not found on this server."
-msgstr "De opgevraagde URL %(request_path)s is niet gevonden op deze server."
+msgstr "De opgevraagde url %(request_path)s is niet gevonden op deze server."
 
 #: templates/500.html:3 templates/500.html:7
 msgid "Internal Error"
@@ -164,11 +164,11 @@ msgstr "Interne fout"
 
 #: templates/500.html:10
 msgid "There was an error processing you request. Sorry about that."
-msgstr "Er is een fout opgetreden bij het verwerken van je verzoek. Sorry daarvoor."
+msgstr "Er is helaas een fout opgetreden bij het verwerken van uw verzoek."
 
 #: templates/admin/base_site.html:4
 msgid "Tracker admin"
-msgstr "Tracker admin"
+msgstr "Tracker Bheer"
 
 #: templates/admin/base_site.html:7
 msgid "Tracker site administration"
@@ -192,11 +192,11 @@ msgstr "wachtwoord wijzigen"
 
 #: templates/base.html:70
 msgid "change my details"
-msgstr "Verander mijn gegevens"
+msgstr "mijn gegevens wijzigen"
 
 #: templates/base.html:71 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
-msgstr "Voorkeuren"
+msgstr "voorkeuren"
 
 #: templates/base.html:73
 msgid "admin"
@@ -241,7 +241,7 @@ msgstr "Taal wijzigen"
 
 #: templates/choose_language.html:23
 msgid "Go"
-msgstr "Start"
+msgstr "Starten"
 
 #: templates/comments/form.html:17 templates/comments/preview.html:31
 msgid "Post"
@@ -324,7 +324,7 @@ msgstr "gedeeltelijk betaald"
 #: tracker/templates/tracker/topic_finance.html:17
 #: tracker/templates/tracker/topic_table.html:16
 msgid "paid"
-msgstr "Betaald"
+msgstr "betaald"
 
 #: tracker/models.py:50 tracker/templates/tracker/export.html:249
 #: tracker/templates/tracker/grant_table.html:15
@@ -423,7 +423,7 @@ msgstr "Nieuwe media gemaakt"
 
 #: tracker/models.py:78
 msgid "Media changed"
-msgstr "Media veranderd"
+msgstr "Media gewijzigd"
 
 #: tracker/models.py:79
 msgid "Document changed"
@@ -501,7 +501,7 @@ msgstr "subonderwerp"
 
 #: tracker/models.py:264
 msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
-msgstr "Subonderwerp waar dit ticket bij hoort (als je het niet weet, laat dit dan leeg)"
+msgstr "Subonderwerp waar dit ticket bij hoort (als i het niet weet, laat dit dan leeg)"
 
 #: tracker/models.py:266
 msgid "rating percentage"
@@ -513,7 +513,7 @@ msgstr "Beoordelingspercentage ingesteld door de onderwerpbeheerder"
 
 #: tracker/models.py:268
 msgid "report mandatory"
-msgstr "rapport verplicht"
+msgstr "rapportage verplicht"
 
 #: tracker/models.py:268 tracker/templates/tracker/export.html:73
 #: tracker/templates/tracker/export.html:75
@@ -523,7 +523,7 @@ msgstr "Is rapporteren verplicht?"
 
 #: tracker/models.py:269
 msgid "report url"
-msgstr "rapport-URL"
+msgstr "rapport-url"
 
 #: tracker/models.py:270
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
@@ -601,7 +601,7 @@ msgstr "historisch"
 
 #: tracker/models.py:382
 msgid "waiting for content rating"
-msgstr "wachten op inhoudsbeoordeling"
+msgstr "wachten op inhoudelijke beoordeling"
 
 #: tracker/models.py:385 tracker/templates/tracker/export.html:49
 #: tracker/templates/tracker/export.html:50
@@ -627,7 +627,7 @@ msgstr "wachten op goedkeuring"
 #: tracker/models.py:394 tracker/templates/tracker/export.html:37
 #: tracker/templates/tracker/export.html:38
 msgid "waiting for submitting"
-msgstr "wachten op indiening"
+msgstr "wachten op indienen"
 
 #: tracker/models.py:397 tracker/templates/tracker/export.html:34
 #: tracker/templates/tracker/export.html:35
@@ -705,7 +705,7 @@ msgstr "Subonderwerpen"
 
 #: tracker/models.py:772 tracker/views.py:589
 msgid "grant"
-msgstr "studiebeurs"
+msgstr "beurs"
 
 #: tracker/models.py:773
 msgid "Grant project where this topic belongs"
@@ -953,7 +953,7 @@ msgstr "uploader"
 
 #: tracker/models.py:1234 tracker/views.py:799
 msgid "We need a sane file name, such as my-invoice123.jpg"
-msgstr "We hebben een normale bestandsnaam nodig, zoals mijn-factuur123.jpg"
+msgstr "We hebben een beschrijvende bestandsnaam nodig, zoals mijn-factuur123.jpg"
 
 #: tracker/models.py:1275
 msgid "Ignored acks"
@@ -985,7 +985,7 @@ msgstr "Tracker gebruikersvoorkeuren"
 
 #: tracker/models.py:1305
 msgid "Username on mediawiki"
-msgstr "Gebruikersnaam op mediawiki"
+msgstr "Gebruikersnaam op MediaWiki"
 
 #: tracker/models.py:1306 tracker/templates/tracker/admin_user_list.html:30
 msgid "Bank account"
@@ -1108,12 +1108,12 @@ msgstr "Gebruiker <tt>%(user)s</tt> heeft de koppeling gewijzigd naar de rapport
 #: tracker/models.py:1641
 #, python-format
 msgid "User <tt>%(user)s</tt> changed requested deposit of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft de gevraagde borgsom van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> gewijzigd."
 
 #: tracker/models.py:1651
 #, python-format
 msgid "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft het veld \"Is rapporteren verplicht?\" van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> gewijzigd."
 
 #: tracker/models.py:1663
 #, python-format
@@ -1123,87 +1123,87 @@ msgstr "Aanvraag \"%(ticket)s\" is verwijderd door gebruiker %(user)s"
 #: tracker/models.py:1680
 #, python-format
 msgid "User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft bevestiging <tt>%(ack_type)s</tt> toegevoegd aan ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1694
 #, python-format
 msgid "User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft bevestiging <tt>%(ack_type)s</tt> verwijderd van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
 #: tracker/models.py:1725
 #, python-format
 msgid "User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft geplande uitgaven <tt>%(expeditures)s</tt> toegevoegd aan ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1747
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft geplande uitgave <tt>%(expeditures)s</tt> van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> als loon ingesteld."
 
 #: tracker/models.py:1750
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft geplande uitgave <tt>%(expeditures)s</tt> van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> als geen loon ingesteld."
 
 #: tracker/models.py:1753
 #, python-format
 msgid "User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft geplande uitgave van <tt>%(old_expediture)s</tt> naar <tt>%(expeditures)s</tt> gewijzigd van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1770
 #, python-format
 msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft geplande uitgave <tt>%(expediture)s</tt> verwijderd van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1791
 #, python-format
 msgid "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft werkelijke uitgaven <tt>%(expeditures)s</tt> toegevoegd aan ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1814
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as paid."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft werkelijke uitgave <tt>%(expeditures)s</tt> van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> als betaald ingesteld."
 
 #: tracker/models.py:1817
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not paid."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft werkelijke uitgave <tt>%(expeditures)s</tt> van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> als niet betaald ingesteld."
 
 #: tracker/models.py:1822
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft werkelijke uitgave <tt>%(expeditures)s</tt> van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> als loon ingesteld."
 
 #: tracker/models.py:1825
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft werkelijke uitgave <tt>%(expeditures)s</tt> van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> als geen loon ingesteld."
 
 #: tracker/models.py:1832
 #, python-format
 msgid "User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft werkelijke uitgave van <tt>%(old_expediture)s</tt> naar <tt>%(expeditures)s</tt> gewijzigd van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1849
 #, python-format
 msgid "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft werkelijke uitgaven <tt>%(expeditures)s</tt> verwijderd van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1863
 #, python-format
 msgid "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft media toegevoegd aan ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1866
 #, python-format
 msgid "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft media van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> gewijzigd."
 
 #: tracker/models.py:1880
 #, python-format
 msgid "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft media verwijderd van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
 
 #: tracker/models.py:1893 tracker/models.py:1913
 msgid "no description"
@@ -1212,17 +1212,17 @@ msgstr "geen beschrijving"
 #: tracker/models.py:1897
 #, python-format
 msgid "User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft document <tt>%(document_filename)s (%(document_description)s)</tt> toegevoegd aan ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
 #: tracker/models.py:1899
 #, python-format
 msgid "User <tt>%(user)s</tt> changed document <tt>%(document_filename)s</tt> assigned to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft document <tt>%(document_filename)s</tt> toegewezen aan ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> gewijzigd."
 
 #: tracker/models.py:1916
 #, python-format
 msgid "User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
-msgstr ""
+msgstr "Gebruiker <tt>%(user)s</tt> heeft document <tt>%(document_filename)s (%(document_description)s)</tt> verwijderd van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "REMOVE"
@@ -1238,11 +1238,11 @@ msgstr "JA"
 
 #: tracker/templates/admin/tracker/ticket/ack_norating_error.html:2
 msgid "You must fill rating percentage before you will be able to accept the ticket."
-msgstr ""
+msgstr "U moet het beoordelingspercentage invullen voordat u het ticket kunt accepteren."
 
 #: tracker/templates/admin/tracker/ticket/ack_noreport_error.html:2
 msgid "You cannot accept ticket when a report is mandatory and no report was given"
-msgstr ""
+msgstr "U kunt een ticket niet accepteren als een rapport verplicht is en er geen rapport is ingediend"
 
 #: tracker/templates/admin/tracker/ticket/add_ack.html:3
 msgid "add new ack"
@@ -1291,12 +1291,12 @@ msgstr "Er zijn geen documenten geüpload voor dit ticket."
 #, python-format
 msgid "There is 1 document uploaded."
 msgid_plural "There are %(counter)s documents uploaded."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Er is 1 document geüpload."
+msgstr[1] "Er zijn %(counter)s documenten geüpload."
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:20
 msgid "Delete?"
-msgstr "Verwijder?"
+msgstr "Verwijderen?"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:34
 #: tracker/templates/tracker/admin_index_override.html:27
@@ -1309,7 +1309,7 @@ msgstr "Bekijken"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:36
 msgid "View on site"
-msgstr ""
+msgstr "Op site bekijken"
 
 #: tracker/templates/admin/tracker/ticket/tabular.html:95
 #: tracker/templates/tracker/dumpaccounts/index.html:28
@@ -1369,53 +1369,53 @@ msgstr "Lijst van verwijderde tickets"
 
 #: tracker/templates/notification/notification_html.html:22
 msgid "The state of a watched ticket was changed"
-msgstr ""
+msgstr "De status van een gevolgd ticket is gewijzigd"
 
 #: tracker/templates/notification/notification_html.html:31
 msgid "Supervisor notes on a watched ticket were changed"
-msgstr ""
+msgstr "Toezichthoudernotities van een gevolgd ticket zijn gewijzigd"
 
 #: tracker/templates/notification/notification_html.html:40
 msgid "Changes were made to a watched ticket"
-msgstr ""
+msgstr "Er zijn wijzigingen aangebracht in een gevolgd ticket"
 
 #: tracker/templates/notification/notification_html.html:49
 msgid "The preexpenditures of a watched ticket were changed"
-msgstr ""
+msgstr "De vooruit betaalde uitgaven van een gevolgd ticket zijn gewijzigd"
 
 #: tracker/templates/notification/notification_html.html:58
 msgid "The expenditures of a watched ticket were changed"
-msgstr ""
+msgstr "De uitgaven van een gevolgd ticket zijn gewijzigd"
 
 #: tracker/templates/notification/notification_html.html:67
 msgid "Medias of a watched ticket"
-msgstr ""
+msgstr "Media van een gevolgd ticket"
 
 #: tracker/templates/notification/notification_html.html:76
 msgid "Documents of a watched ticket were changed"
-msgstr ""
+msgstr "Documenten van een gevolgd ticket zijn gewijzigd"
 
 #: tracker/templates/notification/notification_html.html:85
 msgid "A comment was added to a watched ticket"
-msgstr ""
+msgstr "Er is een opmerking toegevoegd aan een gevolgd ticket"
 
 #: tracker/templates/notification/notification_html.html:94
 msgid "List of tickets pending preapproval"
-msgstr ""
+msgstr "Lijst van tickets die wachten op goedkeuring vooraf"
 
 #: tracker/templates/notification/notification_html.html:95
 #, python-format
 msgid "These tickets may be ready for preapproval. Before you preapprove them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
-msgstr ""
+msgstr "Deze tickets zijn mogelijk klaar voor goedkeuring vooraf. Controleer voordat u ze goedkeurt altijd of ze voldoen aan ons <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financieel beleid</a>."
 
 #: tracker/templates/notification/notification_html.html:104
 msgid "List of tickets pending approval"
-msgstr ""
+msgstr "Lijst van tickets die wachten op goedkeuring"
 
 #: tracker/templates/notification/notification_html.html:105
 #, python-format
 msgid "These tickets may be ready for approval. Before you approve them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
-msgstr ""
+msgstr "Deze tickets zijn mogelijk klaar voor goedkeuring. Controleer voordat u ze goedkeurt altijd of ze voldoen aan ons <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financieel beleid</a>."
 
 #: tracker/templates/notification/notification_html.html:114
 msgid "Tracker notifications"
@@ -1423,17 +1423,17 @@ msgstr "Tracker-meldingen"
 
 #: tracker/templates/notification/notification_subject.txt:1
 msgid "List of changes of watched tickets"
-msgstr ""
+msgstr "Lijst van wijzigingen van gevolgde tickets"
 
 #: tracker/templates/tracker/admin_index_override.html:10
 #, python-format
 msgid "Models available in the %(name)s application."
-msgstr ""
+msgstr "Modellen beschikbaar in de %(name)s-toepassing."
 
 #: tracker/templates/tracker/admin_index_override.html:11
 #, python-format
 msgid "%(name)s"
-msgstr ""
+msgstr "%(name)s"
 
 #: tracker/templates/tracker/admin_index_override.html:21
 #: tracker/templates/tracker/ticketack_add.html:4
@@ -1536,7 +1536,7 @@ msgstr "Totaal aantal transacties"
 
 #: tracker/templates/tracker/connect_account.html:4
 msgid "Connected account required"
-msgstr "Verbonden account vereist"
+msgstr "Gekoppelde account vereist"
 
 #: tracker/templates/tracker/connect_account.html:7
 msgid "Permission denied"
@@ -1559,7 +1559,7 @@ msgstr "Overzicht van"
 #: tracker/templates/tracker/dumpaccounts/index.html:8
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:9
 msgid "Generated on"
-msgstr "Gegenereerd op"
+msgstr "Aangemaakt op"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Unpaid"
@@ -1611,7 +1611,7 @@ msgstr "Bewerken"
 #: tracker/templates/tracker/edit_ticket.html:20
 #: tracker/templates/tracker/ticket_detail.html:17
 msgid "copy preexpeditures to expeditures"
-msgstr ""
+msgstr "vooruit betaalde uitgaven kopiëren naar uitgaven"
 
 #: tracker/templates/tracker/edit_ticket.html:24
 #: tracker/templates/tracker/edit_ticket_docs.html:16
@@ -1648,7 +1648,7 @@ msgstr "Velden met %(mark)s zijn vereist."
 #: tracker/templates/tracker/generic/ticket_list.html:35
 #: tracker/templates/tracker/index.html:42
 msgid "Export"
-msgstr "Export"
+msgstr "Exporteren"
 
 #: tracker/templates/tracker/export.html:18
 msgid "Only filters with at least one checked checkbox are applied. You can either check all checkboxes or none of them, it's the same."
@@ -1666,7 +1666,7 @@ msgstr "aangepast"
 #: tracker/templates/tracker/ticket_table.html:22
 #: tracker/templates/tracker/ticket_table.html:37
 msgid "Preexpeditures"
-msgstr ""
+msgstr "Vooruit betaalde uitgaven"
 
 #: tracker/templates/tracker/export.html:82
 #: tracker/templates/tracker/export.html:102
@@ -1702,7 +1702,7 @@ msgstr "Kleiner of gelijk aan"
 #: tracker/templates/tracker/ticket_table.html:23
 #: tracker/templates/tracker/ticket_table.html:38
 msgid "Expeditures"
-msgstr ""
+msgstr "Uitgaven"
 
 #: tracker/templates/tracker/export.html:118
 #: tracker/templates/tracker/index.html:28
@@ -1711,7 +1711,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:39
 #: tracker/templates/tracker/user_list.html:13
 msgid "Accepted expeditures"
-msgstr ""
+msgstr "Geaccepteerde uitgaven"
 
 #: tracker/templates/tracker/export.html:145
 msgid "You can't filter grants by any fields"
@@ -1744,19 +1744,19 @@ msgstr "Aantal aangemaakte tickets"
 
 #: tracker/templates/tracker/export.html:297
 msgid "Amount of accepted expeditures"
-msgstr ""
+msgstr "Bedrag van geaccepteerde uitgaven"
 
 #: tracker/templates/tracker/export.html:316
 msgid "Amount of paid expeditures"
-msgstr ""
+msgstr "Bedrag van betaalde uitgaven"
 
 #: tracker/templates/tracker/export.html:338
 msgid "normal"
-msgstr ""
+msgstr "normaal"
 
 #: tracker/templates/tracker/export.html:343
 msgid "staff"
-msgstr "personeel"
+msgstr "medewerkers"
 
 #: tracker/templates/tracker/export.html:348
 msgid "superuser"
@@ -1769,7 +1769,7 @@ msgstr "Mijn persoonlijke gegevens"
 
 #: tracker/templates/tracker/fill_details.html:10
 msgid "To use tracker for expenses, we need a bit more information about you first."
-msgstr ""
+msgstr "Om de tracker voor uitgaven te gebruiken, hebben we eerst wat meer informatie over u nodig."
 
 #: tracker/templates/tracker/fill_details.html:21
 msgid "save & continue"
@@ -1783,7 +1783,7 @@ msgstr "overslaan"
 #: tracker/templates/tracker/user_details_change.html:23
 #: users/templates/users/register.html:28
 msgid "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them."
-msgstr ""
+msgstr "Door Tracker te gebruiken stemt u in met gegevensverwerking. We gebruiken uw gegevens om alle betalingen correct weer te geven en voor onze boekhouding. U moet ons uw e-mailadres geven; u kunt worden gevraagd om aanvullende gegevens te verstrekken. Gegevens worden niet aan derden verstrekt en alleen geautoriseerde medewerkers hebben er toegang toe."
 
 #: tracker/templates/tracker/generic/create_ticket.html:4
 #: tracker/templates/tracker/generic/create_ticket.html:18
@@ -1792,7 +1792,7 @@ msgstr "Ticket aanmaken"
 
 #: tracker/templates/tracker/generic/create_ticket.html:23
 msgid "You'll be able to edit everything you've filled in even after submitting the form."
-msgstr ""
+msgstr "U kunt alles wat u hebt ingevuld ook na het indienen van het formulier nog bewerken."
 
 #: tracker/templates/tracker/generic/ticket_list.html:4
 #: tracker/templates/tracker/generic/ticket_list.html:15
@@ -1844,15 +1844,15 @@ msgstr "Onderwerpenlijst"
 #: tracker/templates/tracker/generic/topic_list.html:13
 #: tracker/templates/tracker/grant_list.html:12
 msgid "Topics closed for new tickets"
-msgstr ""
+msgstr "Onderwerpen gesloten voor nieuwe tickets"
 
 #: tracker/templates/tracker/generic/topic_list.html:18
 msgid "topic finance"
-msgstr ""
+msgstr "onderwerp financiën"
 
 #: tracker/templates/tracker/generic/topic_list.html:19
 msgid "topic ack overview"
-msgstr ""
+msgstr "bevestigingsoverzicht voor onderwerp"
 
 #: tracker/templates/tracker/grant_detail.html:9
 #: tracker/templates/tracker/index.html:12
@@ -1863,46 +1863,46 @@ msgstr "subsidies"
 #: tracker/templates/tracker/ticket_detail.html:21
 #: tracker/templates/tracker/topic_detail.html:25
 msgid "watch settings"
-msgstr ""
+msgstr "volginstellingen"
 
 #: tracker/templates/tracker/grant_list.html:4
 #: tracker/templates/tracker/grant_list.html:8
 msgid "Grant list"
-msgstr ""
+msgstr "Subsidielijst"
 
 #: tracker/templates/tracker/grant_table.html:7
 #: tracker/templates/tracker/topic_table.html:8
 msgid "Paid wages"
-msgstr ""
+msgstr "Betaalde lonen"
 
 #: tracker/templates/tracker/grant_table.html:8
 #: tracker/templates/tracker/topic_table.html:9
 msgid "Paid together"
-msgstr ""
+msgstr "Samen betaald"
 
 #: tracker/templates/tracker/grant_table.html:9
 #: tracker/templates/tracker/topic_table.html:10
 msgid "Tickets per payment status"
-msgstr ""
+msgstr "Tickets per betalingsstatus"
 
 #: tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
 msgid "no payment required"
-msgstr ""
+msgstr "geen betaling vereist"
 
 #: tracker/templates/tracker/grant_table.html:49
 #: tracker/templates/tracker/topic_table.html:53
 msgid "No topics available."
-msgstr ""
+msgstr "Geen onderwerpen beschikbaar."
 
 #: tracker/templates/tracker/import.html:10
 #, python-format
 msgid " Be warned that you need permission to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows. If you'll submit a file CSV with more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows, only the first %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s will be processed. If you really need to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s of objects, please contact the systemadmin."
-msgstr ""
+msgstr " Let op: u hebt toestemming nodig om meer dan %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rijen te importeren. Als u een CSV-bestand met meer dan %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rijen indient, worden alleen de eerste %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s verwerkt. Als u echt meer dan %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s objecten moet importeren, neem dan contact op met de systeembeheerder."
 
 #: tracker/templates/tracker/import.html:14
 msgid "What kind of objects are you importing?"
-msgstr ""
+msgstr "Wat voor soort objecten importeert u?"
 
 #: tracker/templates/tracker/import.html:19
 #: tracker/templates/tracker/import.html:26
@@ -1912,11 +1912,11 @@ msgstr ""
 #: tracker/templates/tracker/import.html:53
 #: tracker/templates/tracker/import.html:60
 msgid "example file"
-msgstr ""
+msgstr "voorbeeldbestand"
 
 #: tracker/templates/tracker/import.html:41
 msgid "Preexpenses"
-msgstr ""
+msgstr "Vooruit betaalde uitgaven"
 
 #: tracker/templates/tracker/import.html:47
 msgid "Expenses"
@@ -1931,7 +1931,7 @@ msgstr "Media"
 #: tracker/templates/tracker/ticket_table.html:15
 #: tracker/templates/tracker/ticket_table.html:32
 msgid "Event date"
-msgstr ""
+msgstr "Evenementdatum"
 
 #: tracker/templates/tracker/index.html:21
 #: tracker/templates/tracker/ticket_table.html:16
@@ -2219,7 +2219,7 @@ msgstr "media beheren"
 #: tracker/templates/tracker/ticket_detail.html:31
 #, python-format
 msgid "part of <a href=\"%(c_link)s\">cluster %(c_id)s</a>: total tickets %(total_tickets)s&nbsp;%(cr)s, total transactions %(total_transactions)s&nbsp;%(cr)s"
-msgstr ""
+msgstr "onderdeel van <a href=\"%(c_link)s\">cluster %(c_id)s</a>: totaal aantal tickets %(total_tickets)s&nbsp;%(cr)s, totaal aantal transacties %(total_transactions)s&nbsp;%(cr)s"
 
 #: tracker/templates/tracker/ticket_detail.html:41
 msgid "Associated transactions total"
@@ -2469,7 +2469,7 @@ msgstr "Totaal %(gname)s"
 
 #: tracker/templates/tracker/topic_finance.html:44
 msgid "Marked topics involve partial payments that have no clear relation to topic, and have been split equally among possible candidates."
-msgstr ""
+msgstr "Gemarkeerde onderwerpen bevatten gedeeltelijke betalingen die geen duidelijke relatie met het onderwerp hebben en gelijk zijn verdeeld over mogelijke kandidaten."
 
 #: tracker/templates/tracker/topic_table.html:11
 msgid "Administrators"
@@ -2495,7 +2495,7 @@ msgstr "Geen transacties beschikbaar."
 
 #: tracker/templates/tracker/transaction_list.html:26
 msgid "download as csv"
-msgstr "downloaden als csv"
+msgstr "downloaden als CSV"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:21
 #: tracker/templates/tracker/upload_ticket_doc.html:25
@@ -2516,23 +2516,23 @@ msgstr "uploaden en nog een toevoegen"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:35
 msgid "This document, including its file name and description, will be visible only to the ticket owner and specially privileged users."
-msgstr ""
+msgstr "Dit document, inclusief de bestandsnaam en beschrijving, is alleen zichtbaar voor de eigenaar van het ticket en speciaal bevoegde gebruikers."
 
 #: tracker/templates/tracker/user_deactivate.html:14
 msgid "Deactivating your account will mean that it is no longer possible to login."
-msgstr ""
+msgstr "Het uitschakelen van uw account betekent dat het niet langer mogelijk is om in te loggen."
 
 #: tracker/templates/tracker/user_deactivate.html:15
 msgid "Deactivation is irreversible without the intervention of an admin."
-msgstr ""
+msgstr "Uitschakeling is onomkeerbaar zonder tussenkomst van een beheerder."
 
 #: tracker/templates/tracker/user_deactivate.html:16
 msgid "You can contact an admin by replying to the email which confirms the deactivation."
-msgstr ""
+msgstr "U kunt contact opnemen met een beheerder door te antwoorden op de e-mail die de uitschakeling bevestigt."
 
 #: tracker/templates/tracker/user_deactivate.html:18
 msgid "The following account will be deactivated:"
-msgstr ""
+msgstr "Het volgende account wordt uitgeschakeld:"
 
 #: tracker/templates/tracker/user_deactivate.html:20
 msgid "Username:"
@@ -2544,27 +2544,27 @@ msgstr "E-mailadres:"
 
 #: tracker/templates/tracker/user_deactivate.html:32
 msgid "Deactivate my account"
-msgstr ""
+msgstr "Mijn account uitschakelen"
 
 #: tracker/templates/tracker/user_deactivate_email.html:3
 msgid "Tracker account deactivated"
-msgstr ""
+msgstr "Tracker-account uitgeschakeld"
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "Your tracker account with username"
-msgstr ""
+msgstr "Uw Tracker-account met gebruikersnaam"
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "has been deactivated."
-msgstr ""
+msgstr "is uitgeschakeld."
 
 #: tracker/templates/tracker/user_deactivate_email.html:6
 msgid "Deactivation cannot be undone without the intervention of an admin."
-msgstr ""
+msgstr "Uitschakeling kan niet ongedaan worden gemaakt zonder tussenkomst van een beheerder."
 
 #: tracker/templates/tracker/user_deactivate_email.html:7
 msgid "You can contact an admin by replying to this email."
-msgstr ""
+msgstr "U kunt contact opnemen met een beheerder door op deze e-mail te antwoorden."
 
 #: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
@@ -2611,17 +2611,17 @@ msgstr "Reactie geplaatst, bedankt."
 
 #: tracker/views.py:114
 msgid "You cannot add ack to a ticket you do not own."
-msgstr ""
+msgstr "U kunt geen bevestiging toevoegen aan een ticket dat niet van u is."
 
 #: tracker/views.py:128
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added. However, no bank account information filled. Without it, we can't reimburse you. Go to <a href=\"%(details_url)s\">your details</a> to fill it."
-msgstr ""
+msgstr "Ticketbevestiging \"%(confirmation)s\" is toegevoegd aan ticket %(ticket_id)s. Er zijn echter geen bankrekeninggegevens ingevuld. Zonder deze gegevens kunnen we u niet vergoeden. Ga naar <a href=\"%(details_url)s\">uw gegevens</a> om deze in te vullen."
 
 #: tracker/views.py:136
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
-msgstr ""
+msgstr "Ticketbevestiging \"%(confirmation)s\" is toegevoegd aan ticket %(ticket_id)s."
 
 #: tracker/views.py:169 tracker/views.py:1759
 msgid "You cannot edit this"
@@ -2630,7 +2630,7 @@ msgstr "U kunt dit niet bewerken"
 #: tracker/views.py:174
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been deleted."
-msgstr ""
+msgstr "Ticketbevestiging \"%(confirmation)s\" is verwijderd van ticket %(ticket_id)s."
 
 #: tracker/views.py:218
 msgid "Statutory declaration"
@@ -2642,27 +2642,27 @@ msgstr "Uw storting is groter dan uw aanloopkosten"
 
 #: tracker/views.py:282
 msgid "You are required to do statutory declaration"
-msgstr ""
+msgstr "U bent verplicht een wettelijke verklaring af te leggen"
 
 #: tracker/views.py:298
 msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."
-msgstr ""
+msgstr "Het subonderwerp moet bij het gebruikte onderwerp horen. Waarschijnlijk hebt u JavaScript uitgeschakeld."
 
 #: tracker/views.py:401
 msgid "We've updated your preferences"
-msgstr ""
+msgstr "Uw voorkeuren zijn bijgewerkt"
 
 #: tracker/views.py:439
 msgid "Please enter your password to confirm the deactivation of your account."
-msgstr ""
+msgstr "Voer uw wachtwoord in om de uitschakeling van uw account te bevestigen."
 
 #: tracker/views.py:454
 msgid "Account deactivation"
-msgstr ""
+msgstr "Account uitschakelen"
 
 #: tracker/views.py:461
 msgid "Your account has been deactivated."
-msgstr ""
+msgstr "Uw account is uitgeschakeld."
 
 #: tracker/views.py:464
 msgid "Password is incorrect."
@@ -2671,55 +2671,55 @@ msgstr "Wachtwoord is niet correct."
 #: tracker/views.py:496
 #, python-format
 msgid "Ticket's %s watching settings are changed."
-msgstr ""
+msgstr "De volginstellingen van ticket %s zijn gewijzigd."
 
 #: tracker/views.py:545
 #, python-format
 msgid "Topic's %s watching settings are changed."
-msgstr ""
+msgstr "De volginstellingen van onderwerp %s zijn gewijzigd."
 
 #: tracker/views.py:575
 #, python-format
 msgid "%s's watching settings are changed."
-msgstr ""
+msgstr "De volginstellingen van %s zijn gewijzigd."
 
 #: tracker/views.py:622
 #, python-format
 msgid "Ticket %s is created"
-msgstr ""
+msgstr "Ticket %s is aangemaakt"
 
 #: tracker/views.py:660 tracker/views.py:784
 msgid "One or more fields are invalid. Check them to get more information."
-msgstr ""
+msgstr "Een of meer velden zijn ongeldig. Controleer ze voor meer informatie."
 
 #: tracker/views.py:671
 msgid "I confirm the above"
-msgstr ""
+msgstr "Ik bevestig het bovenstaande"
 
 #: tracker/views.py:678
 msgid "You cannot add statutory declaration to a ticket that does not support it."
-msgstr ""
+msgstr "U kunt geen wettelijke verklaring toevoegen aan een ticket dat dit niet ondersteunt."
 
 #: tracker/views.py:680
 msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
-msgstr ""
+msgstr "U kunt deze weergave niet gebruiken om een wettelijke verklaring toe te voegen aan een ticket dat u hebt aangemaakt. Gebruik hiervoor de knop ticket bewerken."
 
 #: tracker/views.py:687
 msgid "You successfully added a statutory declaration to this ticket."
-msgstr ""
+msgstr "U hebt een wettelijke verklaring aan dit ticket toegevoegd."
 
 #: tracker/views.py:690
 msgid "You successfully removed a statutory declaration from this ticket."
-msgstr ""
+msgstr "U hebt een wettelijke verklaring van dit ticket verwijderd."
 
 #: tracker/views.py:716 tracker/views.py:727
 msgid "You cannot edit this ticket"
-msgstr ""
+msgstr "U kunt dit ticket niet bewerken"
 
 #: tracker/views.py:763
 #, python-format
 msgid "Ticket %s saved."
-msgstr ""
+msgstr "Ticket %s opgeslagen."
 
 #: tracker/views.py:798
 msgid "file"
@@ -2727,50 +2727,50 @@ msgstr "bestand"
 
 #: tracker/views.py:828
 msgid "You cannot edit this ticket documents, as it's no longer editable"
-msgstr ""
+msgstr "U kunt de documenten van dit ticket niet bewerken, omdat het niet meer bewerkbaar is"
 
 #: tracker/views.py:837
 msgid "You cannot see this ticket's documents."
-msgstr ""
+msgstr "U kunt de documenten van dit ticket niet bekijken."
 
 #: tracker/views.py:864
 #, python-format
 msgid "Document changes for ticket %s saved."
-msgstr ""
+msgstr "Documentwijzigingen voor ticket %s opgeslagen."
 
 #: tracker/views.py:887
 msgid "There is already a document with that name. Please try to reupload with a different name."
-msgstr ""
+msgstr "Er bestaat al een document met die naam. Probeer het opnieuw te uploaden met een andere naam."
 
 #: tracker/views.py:899
 #, python-format
 msgid "File %(filename)s has been saved."
-msgstr ""
+msgstr "Bestand %(filename)s is opgeslagen."
 
 #: tracker/views.py:1087
 msgid "Your details have been saved."
-msgstr ""
+msgstr "Uw gegevens zijn opgeslagen."
 
 #: tracker/views.py:1531
 msgid "You must be staffer in order to export users"
-msgstr ""
+msgstr "U moet medewerker zijn om gebruikers te kunnen exporteren"
 
 #: tracker/views.py:1533
 msgid "You must fill the form validly"
-msgstr ""
+msgstr "U moet het formulier geldig invullen"
 
 #: tracker/views.py:1552
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
-msgstr ""
+msgstr "U hebt geen toestemming om meer dan %(input_row_limit)s rijen te importeren. De eerste %(input_row_limit)s rijen zijn al geïmporteerd."
 
 #: tracker/views.py:1579
 msgid "You must be a staffer in order to be able to import topics."
-msgstr ""
+msgstr "U moet medewerker zijn om onderwerpen te kunnen importeren."
 
 #: tracker/views.py:1612
 msgid "You must be a staffer in order to be able to import grants."
-msgstr ""
+msgstr "U moet medewerker zijn om subsidies te kunnen importeren."
 
 #: tracker/views.py:1642 tracker/views.py:1656
 msgid "You can't add preexpenses to a ticket that you did not create."
@@ -2778,15 +2778,15 @@ msgstr "U kunt geen voorschot toevoegen aan een aanvraag die u niet zelf hebt ge
 
 #: tracker/views.py:1678
 msgid "You can't add media items to a ticket that you did not create."
-msgstr ""
+msgstr "U kunt geen media-items toevoegen aan een ticket dat u niet hebt aangemaakt."
 
 #: tracker/views.py:1681
 msgid "You must be a superuser in order to be able to import users."
-msgstr ""
+msgstr "U moet supergebruiker zijn om gebruikers te kunnen importeren."
 
 #: tracker/views.py:1699
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
-msgstr ""
+msgstr "Het formulier heeft vreemde waarden geretourneerd. Neem contact op met de systeembeheerder en vertel wat u probeerde te doen."
 
 #: tracker/views.py:1701
 msgid "Your CSV file was imported."
@@ -2802,27 +2802,27 @@ msgstr "Naam van een onderwerp"
 
 #: tracker/views.py:1714
 msgid "Name of a grant"
-msgstr ""
+msgstr "Naam van een subsidie"
 
 #: tracker/views.py:1714
 msgid "Form description"
-msgstr ""
+msgstr "Formulierbeschrijving"
 
 #: tracker/views.py:1719
 msgid "Full name"
-msgstr ""
+msgstr "Volledige naam"
 
 #: tracker/views.py:1719
 msgid "Short name"
-msgstr ""
+msgstr "Korte naam"
 
 #: tracker/views.py:1719
 msgid "Slug"
-msgstr ""
+msgstr "Slug"
 
 #: tracker/views.py:1742
 msgid "Password"
-msgstr ""
+msgstr "Wachtwoord"
 
 #: tracker/views.py:1766
 msgid "Preexpeditures were succesfully copied to expeditures."
@@ -2830,56 +2830,56 @@ msgstr "Aanloopkosten zijn gekopieerd naar kosten."
 
 #: tracker/views.py:1782
 msgid "Executing API call with any action than whitelisted is prohibited."
-msgstr ""
+msgstr "Het uitvoeren van een API-aanroep met een andere handeling dan de toegestane is verboden."
 
 #: tracker/views.py:1793
 msgid "No media to show are available"
-msgstr ""
+msgstr "Er zijn geen media beschikbaar om weer te geven"
 
 #: tracker/views.py:1813
 msgid "Updating of medias for this ticket was successfully scheduled."
-msgstr ""
+msgstr "Het bijwerken van media voor dit ticket is ingepland."
 
 #: tracker/views.py:1818
 msgid "List of media was successfully updated"
-msgstr ""
+msgstr "De lijst met media is bijgewerkt"
 
 #: tracker/views.py:1823
 msgid "There was an error while processing your request"
-msgstr ""
+msgstr "Er is een fout opgetreden bij het verwerken van uw verzoek"
 
 #: tracker/views.py:1848
 msgid "Notice from Tracker"
-msgstr ""
+msgstr "Bericht van Tracker"
 
 #: tracker/views.py:1867
 msgid "This mandatory notice was sent to all active Tracker users."
-msgstr ""
+msgstr "Dit verplichte bericht is verzonden naar alle actieve Tracker-gebruikers."
 
 #: tracker/views.py:1875
 msgid "This mandatory notice was sent to all active Tracker administrators."
-msgstr ""
+msgstr "Dit verplichte bericht is verzonden naar alle actieve Tracker-beheerders."
 
 #: tracker/views.py:1888
 msgid "This mandatory notice was sent to all active Tracker roots."
-msgstr ""
+msgstr "Dit verplichte bericht is verzonden naar alle actieve Tracker-rootgebruikers."
 
 #: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
-msgstr ""
+msgstr "Oud wachtwoord"
 
 #: users/templates/users/login.html:4 users/templates/users/login.html:12
 #: users/templates/users/login.html:24 users/templates/users/register.html:29
 msgid "Login"
-msgstr ""
+msgstr "Aanmelden"
 
 #: users/templates/users/login.html:7
 msgid "You need to log in to access the following page."
-msgstr ""
+msgstr "U moet inloggen om de volgende pagina te openen."
 
 #: users/templates/users/login.html:10
 msgid "Your username and password didn't match. Please try again."
-msgstr ""
+msgstr "Uw gebruikersnaam en wachtwoord komen niet overeen. Probeer het opnieuw."
 
 #: users/templates/users/login.html:28 users/templates/users/register.html:22
 msgid "Or..."
@@ -2887,7 +2887,7 @@ msgstr "Of..."
 
 #: users/templates/users/login.html:31
 msgid "Login with Meta Wiki"
-msgstr ""
+msgstr "Aanmelden met Meta Wiki"
 
 #: users/templates/users/login.html:35
 msgid "Don't have an acount?"
@@ -2896,11 +2896,11 @@ msgstr "Hebt u geen account?"
 #: users/templates/users/login.html:35 users/templates/users/register.html:6
 #: users/templates/users/register.html:9 users/templates/users/register.html:19
 msgid "Register"
-msgstr ""
+msgstr "Inschrijven"
 
 #: users/templates/users/login.html:36
 msgid "Forgot password?"
-msgstr ""
+msgstr "Wachtwoord vergeten?"
 
 #: users/templates/users/login.html:36
 msgid "Reset password"
@@ -2912,78 +2912,78 @@ msgstr "Afgemeld"
 
 #: users/templates/users/logout.html:7
 msgid "Bye!"
-msgstr "Doei!"
+msgstr "Tot ziens!"
 
 #: users/templates/users/logout.html:8
 msgid "Go to index."
-msgstr ""
+msgstr "Ga naar de indexpagina."
 
 #: users/templates/users/oauth_invalid.html:4
 #: users/templates/users/oauth_invalid.html:8
 #, python-format
 msgid "Connection to %(provider)s account is no longer valid"
-msgstr ""
+msgstr "De verbinding met het %(provider)s-account is niet meer geldig"
 
 #: users/templates/users/oauth_invalid.html:9
 msgid "To keep Tracker fully working, you should refresh the connection, by clicking the button below"
-msgstr ""
+msgstr "Om Tracker volledig te laten werken, moet u de verbinding vernieuwen door op de onderstaande knop te klikken"
 
 #: users/templates/users/oauth_invalid.html:10
 #, python-format
 msgid "Refresh connection with %(provider)s"
-msgstr ""
+msgstr "Verbinding met %(provider)s vernieuwen"
 
 #: users/templates/users/password_change.html:5
 #: users/templates/users/password_change.html:16 users/views.py:90
 msgid "Password change"
-msgstr ""
+msgstr "Wachtwoord wijzigen"
 
 #: users/templates/users/password_change.html:12
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Corrigeer de onderstaande fout."
+msgstr[1] "Corrigeer de onderstaande fouten."
 
 #: users/templates/users/password_change.html:19
 msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
-msgstr ""
+msgstr "Voer voor de veiligheid uw oude wachtwoord in en voer vervolgens uw nieuwe wachtwoord twee keer in, zodat we kunnen controleren of u het correct hebt ingevoerd."
 
 #: users/templates/users/password_change.html:21
 #: users/templates/users/password_reset_confirm.html:12
 msgid "Please enter your new password twice so we can verify you typed it in correctly."
-msgstr ""
+msgstr "Voer uw nieuwe wachtwoord twee keer in, zodat we kunnen controleren of u het correct hebt ingevoerd."
 
 #: users/templates/users/password_change.html:33
 msgid "New password"
-msgstr ""
+msgstr "Nieuw wachtwoord"
 
 #: users/templates/users/password_change.html:38
 msgid "Password (again)"
-msgstr ""
+msgstr "Wachtwoord (nogmaals)"
 
 #: users/templates/users/password_change.html:42
 #: users/templates/users/password_reset_confirm.html:19
 msgid "Change my password"
-msgstr ""
+msgstr "Mijn wachtwoord wijzigen"
 
 #: users/templates/users/password_change_done.html:4
 #: users/templates/users/password_change_done.html:7
 msgid "Password change successful"
-msgstr ""
+msgstr "Wachtwoord is gewijzigd"
 
 #: users/templates/users/password_change_done.html:8
 msgid "Your password was changed."
-msgstr ""
+msgstr "Uw wachtwoord is gewijzigd."
 
 #: users/templates/users/password_reset.html:4
 #: users/templates/users/password_reset.html:8
 #: users/templates/users/password_reset_confirm.html:4
 msgid "Password reset"
-msgstr ""
+msgstr "Wachtwoord opnieuw instellen"
 
 #: users/templates/users/password_reset.html:10
 msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
-msgstr ""
+msgstr "Wachtwoord vergeten? Voer hieronder uw e-mailadres in en we sturen u instructies voor het instellen van een nieuw wachtwoord."
 
 #: users/templates/users/password_reset.html:14
 msgid "E-mail address:"
@@ -2991,28 +2991,28 @@ msgstr "E-mailadres:"
 
 #: users/templates/users/password_reset.html:14
 msgid "Reset my password"
-msgstr ""
+msgstr "Mijn wachtwoord opnieuw instellen"
 
 #: users/templates/users/password_reset_complete.html:4
 #: users/templates/users/password_reset_complete.html:8
 msgid "Password reset complete"
-msgstr ""
+msgstr "Wachtwoord opnieuw instellen voltooid"
 
 #: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
-msgstr ""
+msgstr "Uw wachtwoord is ingesteld. U kunt nu inloggen."
 
 #: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
-msgstr ""
+msgstr "Inloggen"
 
 #: users/templates/users/password_reset_confirm.html:10
 msgid "Enter new password"
-msgstr ""
+msgstr "Nieuw wachtwoord invoeren"
 
 #: users/templates/users/password_reset_confirm.html:16
 msgid "New password:"
-msgstr ""
+msgstr "Nieuw wachtwoord:"
 
 #: users/templates/users/password_reset_confirm.html:18
 msgid "Confirm password:"
@@ -3020,33 +3020,33 @@ msgstr "Wachtwoord bevestigen:"
 
 #: users/templates/users/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
-msgstr ""
+msgstr "Wachtwoord opnieuw instellen mislukt"
 
 #: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
-msgstr ""
+msgstr "De koppeling voor het opnieuw instellen van het wachtwoord is ongeldig, mogelijk omdat deze al is gebruikt. Vraag een nieuw wachtwoord opnieuw instellen aan."
 
 #: users/templates/users/password_reset_done.html:4
 #: users/templates/users/password_reset_done.html:8
 msgid "Password reset successful"
-msgstr ""
+msgstr "Wachtwoord opnieuw instellen gelukt"
 
 #: users/templates/users/password_reset_done.html:10
 msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
-msgstr ""
+msgstr "We hebben u instructies voor het instellen van uw wachtwoord gemaild naar het e-mailadres dat u hebt opgegeven. U zou deze binnenkort moeten ontvangen."
 
 #: users/templates/users/password_reset_email.html:2
 #, python-format
 msgid "You're receiving this e-mail because you requested a password reset for your user account at %(site_name)s."
-msgstr ""
+msgstr "U ontvangt deze e-mail omdat u een wachtwoordherstel hebt aangevraagd voor uw gebruikersaccount op %(site_name)s."
 
 #: users/templates/users/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr ""
+msgstr "Ga naar de volgende pagina en kies een nieuw wachtwoord:"
 
 #: users/templates/users/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
-msgstr ""
+msgstr "Uw gebruikersnaam, voor het geval u deze bent vergeten:"
 
 #: users/templates/users/password_reset_email.html:10
 msgid "Thanks for using our site!"
@@ -3055,17 +3055,17 @@ msgstr "Bedankt voor het gebruiken van onze site!"
 #: users/templates/users/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
-msgstr ""
+msgstr "Het %(site_name)s-team"
 
 #: users/templates/users/register.html:25
 msgid "Register with Meta Wiki"
-msgstr "Met Meta Wiki inschrijven"
+msgstr "Met Meta-Wiki inschrijven"
 
 #: users/templates/users/register.html:29
 msgid "Already have an acount?"
-msgstr "Hebt u al een profiel?"
+msgstr "Hebt u al een account?"
 
 #: users/views.py:46
 msgid "Will be used for password recovery and notifications, if you enable them."
-msgstr ""
+msgstr "Wordt gebruikt voor wachtwoordherstel en meldingen, als u deze inschakelt."
 
