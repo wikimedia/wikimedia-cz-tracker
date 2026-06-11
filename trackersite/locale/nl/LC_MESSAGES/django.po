@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-06-08 12:30:04+0000\n"
+"PO-Revision-Date: 2026-06-11 12:30:23+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -519,7 +519,7 @@ msgstr "rapportage verplicht"
 #: tracker/templates/tracker/export.html:75
 #: tracker/templates/tracker/ticket_common_detail.html:15
 msgid "Is report mandatory?"
-msgstr "Is rapporteren verplicht?"
+msgstr "Is melden verplicht?"
 
 #: tracker/models.py:269
 msgid "report url"
@@ -527,11 +527,11 @@ msgstr "rapport-url"
 
 #: tracker/models.py:270
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
-msgstr "URL naar uw rapport, als u iets wilt rapporteren of als uw rapport verplicht is volgens de richtlijnen van de onderwerpbeheerder."
+msgstr "Url naar uw rapport, als u iets wilt melden of als uw melding verplicht is volgens de richtlijnen van de onderwerpbeheerder."
 
 #: tracker/models.py:271
 msgid "event url"
-msgstr "evenement-URL"
+msgstr "evenement-url"
 
 #: tracker/models.py:272
 msgid "Link to a public page describing the event, if it exist"
@@ -839,7 +839,7 @@ msgstr "Weer te geven beschrijving van het item"
 
 #: tracker/models.py:927 tracker/models.py:940 tracker/models.py:958
 msgid "URL"
-msgstr "URL"
+msgstr "Url"
 
 #: tracker/models.py:927
 msgid "Link to media files"
@@ -1113,7 +1113,7 @@ msgstr "Gebruiker <tt>%(user)s</tt> heeft de gevraagde borgsom van ticket <a hre
 #: tracker/models.py:1651
 #, python-format
 msgid "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr "Gebruiker <tt>%(user)s</tt> heeft het veld \"Is rapporteren verplicht?\" van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> gewijzigd."
+msgstr "Gebruiker <tt>%(user)s</tt> heeft het veld \"Is melden verplicht?\" van ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> gewijzigd."
 
 #: tracker/models.py:1663
 #, python-format
@@ -2110,7 +2110,7 @@ msgstr "Nee"
 
 #: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "Report URL"
-msgstr "Rapport-URL"
+msgstr "Rapport-url"
 
 #: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "No report filled"
@@ -2122,7 +2122,7 @@ msgstr "Borg"
 
 #: tracker/templates/tracker/ticket_common_detail.html:19
 msgid "Event URL"
-msgstr "Evenement-URL"
+msgstr "Evenement-url"
 
 #: tracker/templates/tracker/ticket_common_detail.html:20
 msgid "Rating percentage"
