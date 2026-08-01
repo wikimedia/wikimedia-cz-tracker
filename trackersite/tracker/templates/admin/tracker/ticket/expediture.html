@@ -1,0 +1,16 @@
+{% load i18n trackertags %}
+
+<div id="expediture_set-wrapper">
+	{% include "admin/edit_inline/stacked.html" %}
+	<div class="form-row field-amount">
+		<p class="total">
+			{% trans "Total" %}: <b>{{ 0|get_total_ex:object_id }}</b>
+		</p>
+		<p class="accepted">
+			{% trans "Accepted" %}: <b>{{ 0|get_accepted_expeditures:object_id }}</b>
+		</p>
+	</div>
+</div>
+
+<script src="{{STATIC_URL}}admin/tracker/ticket/expediture.js"></script>
+

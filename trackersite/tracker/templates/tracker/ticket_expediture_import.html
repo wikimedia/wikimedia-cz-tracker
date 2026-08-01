@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{% load i18n trackertags %}
+
+{% block title %}{% trans "Import expenditures" %}: {{ ticket.name }}{% endblock %}
+
+{% block content %}
+	<p class="nav">
+		<a href="{% url 'ticket_list' %}">{% trans "index" %}</a> &gt;
+		<a href="{% url 'ticket_detail' ticket.id %}">{{ ticket.name }}</a> &gt;
+		<a href="{% url 'ticket_expediture_import' ticket.id %}">{% trans "import" %}</a> &gt;
+	</p>
+	<h1>{% trans "Import expenditures" %}: {{ ticket.name }}</h1>
+
+	{% if 'precontent' not in ticket.ack_set and 'content' not in ticket.ack_set %}
+		<div class="alert alert-warning alert-dismissable">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+			{% trans "This ticket has not been pre-approved or approved yet." %}
+		</div>
+	{% endif %}
+
+	{% if ticket.rating_percentage < 100 %}
+		<div class="alert alert-danger alert-dismissable">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+			{% trans "This ticket has rating percentage: " %} {{ ticket.rating_percentage }}%
+		</div>
+	{% endif %}
+
+	{% if user_can_see_all_documents %}
+		<div class="import-documents">
+			<h2>{% trans "Documents" %}</h2>
+			{% if ticket.signature_set.count > 0 or ticket.document_set.count > 0 %}
+				<ul>
+					{% for sig in ticket.signature_set.all %}
+						<li>{{ sig.signed_text }} --{{ sig.user }}{% if sig.created %}, {{ sig.created }}{% endif %}</li>
+					{% endfor %}
+					{% for doc in ticket.document_set.all %}
+						<li>{{ doc.html_item }}</li>
+					{% endfor %}
+				</ul>
+			{% else %}
+				<ul>
+					<li>{% trans "There are no uploaded documents." %}</li>
+				</ul>
+			{% endif %}
+		</div>
+	{% endif %}
+
+	{% if ready_expenditures %}
+		<h2>{% trans "Expenditures ready for import" %}</h2>
+		<form method="post" class="import-form">
+			{% csrf_token %}
+			<table class="table table-striped table-hover">
+				<thead>
+				<tr>
+					<th class="import-column">{% trans "Import" %}</th>
+					<th>{% trans "Item" %}</th>
+					<th>{% trans "Amount" %}</th>
+					<th>{% trans "Accounting info" %}</th>
+					<th>{% trans "Type" %}</th>
+					<th>{% trans "Target Account" %}</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for item in ready_expenditures %}
+					<tr>
+						<td class="text-center">
+							<input type="checkbox" name="expenditure_ids" value="{{ item.id }}">
+						</td>
+						<td>
+							{{ item.description }}
+							{% if item.linked_expenditure %}
+								<small><a href="{{ item.linked_expenditure.ticket.get_absolute_url }}">{% trans "Linked ticket" %}
+									#{{ item.linked_expenditure.ticket_id }}</a></small>
+							{% endif %}
+							{% if item.get_computed_state is error_state %}
+								<span class="text-danger" title="{% trans 'Error during import' %}">
+									<strong>!</strong>
+								</span>
+							{% endif %}
+						</td>
+						<td class="money">{{ item.amount|money }}</td>
+						<td class="money">{{ item.accounting_info }}</td>
+						<td>{{ item.get_payment_type_display }}</td>
+						<td>
+							<strong>{{ item.get_target_account }}</strong>
+
+							{% if item.payment_info.saved_account %}
+								({{ item.payment_info.saved_account.user.user.username }})
+							{% endif %}
+						</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+			<div class="form-actions">
+				<div>
+					<strong><label for="execution_date">{% trans "Due date" %}:</label></strong>
+					<input type="date" id="execution_date" name="execution_date" class="form-control" value="{{ today_date }}" required>
+				</div>
+				<br>
+				<button type="submit" class="btn btn-primary">
+					{% trans "Import expenditures" %}
+				</button>
+			</div>
+		</form>
+	{% else %}
+		<div class="alert alert-warning">
+			{% trans "There are no expenditures ready for import on this ticket. Make sure that all bank accounts are properly filled." %}
+		</div>
+	{% endif %}
+
+	{% if imported_expenditures %}
+		<h2>{% trans "Imported expenditures" %}</h2>
+		<p>{% trans "These expenditures are already imported." %}</p>
+		<table class="table table-striped table-hover">
+			<thead>
+			<tr>
+				<th>{% trans "Item" %}</th>
+				<th>{% trans "Amount" %}</th>
+				<th>{% trans "Type" %}</th>
+				<th>{% trans "Target Account" %}</th>
+				<th>{% trans "Imported" %}</th>
+				<th>{% trans "Action" %}</th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for item in imported_expenditures %}
+				<tr>
+					<td>
+						{{ item.description }}
+						{% if item.linked_expenditure %}
+							<small><a href="{{ item.linked_expenditure.ticket.get_absolute_url }}">{% trans "Linked ticket" %}
+								#{{ item.linked_expenditure.ticket_id }}</a></small>
+						{% endif %}
+					</td>
+					<td class="money">{{ item.amount|money }}</td>
+					<td>{{ item.get_payment_type_display }}</td>
+					<td>{{ item.get_target_account }}</td>
+					<td>{{ item.import_info.imported_at }}</td>
+					<td>
+						{% if not item.get_computed_state.paid %}
+							<form method="post" action=""
+								onsubmit="return confirm('{% trans "Are you sure you want to re-import this expenditure? The system cannot verify if the original Fio bank order was cancelled. This may result in duplicate payments." %}');">
+								{% csrf_token %}
+								<input type="hidden" name="revert_expenditure_id" value="{{ item.id }}">
+								<button type="submit" class="btn btn-sm btn-danger">
+									{% trans "Re-import" %}
+								</button>
+							</form>
+						{% endif %}
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+
+	{% if other_expenditures %}
+		<h2>{% trans "Expenditures waiting for data" %}</h2>
+		<p>{% trans "These expenditures will be ready for import after adding data." %}</p>
+		<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+				<th>{% trans "Item" %}</th>
+				<th>{% trans "Amount" %}</th>
+				<th>{% trans "Reason" %}</th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for item in other_expenditures %}
+				<tr>
+					<td>
+						{{ item.description }}
+						{% if item.linked_expenditure %}
+							<small><a href="{{ item.linked_expenditure.ticket.get_absolute_url }}">{% trans "Linked ticket" %}
+								#{{ item.linked_expenditure.ticket_id }}</a></small>
+						{% endif %}
+					</td>
+					<td class="money">{{ item.amount|money }}</td>
+					<td>
+						{{ item.get_import_block_reason }}
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		<a href="{% url 'admin:tracker_ticket_change' ticket.id %}#expediture_set-group" class="btn btn-primary">
+			{% trans "Edit in admin" %}
+		</a>
+	{% endif %}
+
+{% endblock content %}

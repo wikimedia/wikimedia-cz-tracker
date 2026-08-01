@@ -68,7 +68,11 @@ $( '#emailModal' ).on('hidden.bs.modal', (e) => {
 				<li style="list-style: none;">{{wrapped_user.get_html_link}}</li>
 				<li><a href="{% url "password_change" %}">{% trans "change password" %}</a></li>
 				<li><a href="{% url "user_details_change" %}">{% trans "change my details" %}</a></li>
+				<li><a href="{% url "bank_account_list" %}">{% trans "my bank accounts" %}</a></li>
 				<li><a href="{% url "preferences" %}">{% trans "preferences" %}</a></li>
+				{% if perms.tracker.import_expenditures %}
+					<li><a href="{% url "global_expediture_import" %}">{% trans "import expenditures" %}</a></li>
+				{% endif %}
 				{% if user.is_staff %}
 					<li><a href="{% url "admin:index" %}">{% trans "admin" %}</a></li>
 				{% endif%}

@@ -57,6 +57,9 @@ def tracker_rich_text(value):
 # Get sum of preexpediture amount, functions are used in admin/tabular.html
 @register.filter
 def get_total_preex(value, identificator):
+    if not identificator:
+        return 0
+
     value = Ticket.objects.get(id=int(identificator.strip())).preexpeditures_amount()
     return value
 
@@ -64,11 +67,17 @@ def get_total_preex(value, identificator):
 # Get sum of expediture amount
 @register.filter
 def get_total_ex(value, identificator):
+    if not identificator:
+        return 0
+
     value = Ticket.objects.get(id=int(identificator.strip())).expeditures_amount()
     return value
 
 
 @register.filter
 def get_accepted_expeditures(value, identificator):
+    if not identificator:
+        return 0
+
     accepted = Ticket.objects.get(id=int(identificator.strip())).accepted_expeditures()
     return accepted

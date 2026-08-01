@@ -218,3 +218,7 @@ MESSAGE_TAGS = {
 
 ALLOWED_TAGS = ['a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em', 'i', 'li', 'ol', 'strong', 'ul', 'big', 'small']
 ALLOWED_ATTRIBUTES = {'a': ['href', 'title'], 'acronym': ['title'], 'abbr': ['title']}
+
+#
+FIO_API_TOKENS = {}
+FIO_API_CURRENCIES = {}

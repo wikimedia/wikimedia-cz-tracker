@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+	<h2>{% trans "Remove bank account" %}</h2>
+
+	<div class="alert alert-warning">
+		<p>
+			{% blocktrans %}
+			Do you really want to remove <strong>{{ object }}</strong>?
+			{% endblocktrans %}
+		</p>
+		<p>
+			<em>
+				{% trans "The account will be removed from your list of accounts, but it will be archived for our historical data." %}
+			</em>
+		</p>
+	</div>
+
+	<form method="post">
+		{% csrf_token %}
+		<button type="submit" class="btn btn-danger">{% trans "Remove" %}</button>
+		<a href="{% url 'bank_account_list' %}" class="btn btn-default">{% trans "Cancel" %}</a>
+	</form>
+</div>
+{% endblock %}

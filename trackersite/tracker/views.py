@@ -11,10 +11,10 @@ from django import forms
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.admin import widgets as adminwidgets
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
 from django.contrib.auth.views import redirect_to_login
-from django.core.exceptions import PermissionDenied
+from django.core.exceptions import PermissionDenied, ValidationError
 from django.core.mail import mail_admins
 from django.db import models, connection
 from django.db.models import Q
@@ -22,26 +22,32 @@ from django.db.models.functions import Coalesce
 from django.forms.models import fields_for_model, inlineformset_factory, BaseInlineFormSet
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest, Http404
 from django.http import JsonResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.template import Context
 from django.template.loader import get_template
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.utils import timezone
 from django.utils.html import strip_tags
 from django.utils.safestring import mark_safe
 from django.utils.translation import get_language
 from django.utils.translation import ugettext as _, ugettext_lazy
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import ListView, DetailView, FormView, DeleteView
+from django.views.generic import ListView, DetailView, FormView, DeleteView, CreateView
 from django_sendfile import sendfile
 
 from socialauth.api import MediaWiki
+
+from tracker.validators import validate_full_bank_account
 from tracker.models import ACK_TYPES, NOTIFICATION_TYPES
 from tracker.models import Ticket, Topic, Subtopic, Grant, FinanceStatus, MediaInfo, MediaInfoOld, Expediture, \
     Preexpediture, Cluster, TrackerPreferences, TrackerProfile, Document, TicketAck, PossibleAck, Watcher, \
     Signature
-from tracker.services import get_request
+from tracker.utils import get_request
+from tracker.services import PaymentService
 from users.models import UserWrapper
+
+from tracker.models import PaymentType, BankAccount, ExpenditureState
 
 TICKET_EXCLUDE_FIELDS = (
     'created', 'media_updated', 'updated', 'requested_user', 'requested_text',
@@ -354,16 +360,154 @@ class ExtraItemFormSet(BaseInlineFormSet):
             return original_count
 
 
-EXPEDITURE_FIELDS = ('description', 'amount', 'wage')
-expeditureformset_factory = partial(
-    inlineformset_factory, Ticket, Expediture,
-    formset=ExtraItemFormSet, fields=EXPEDITURE_FIELDS
-)
+class ExpediturePaymentMixin(forms.ModelForm):
+    payment_type = forms.ChoiceField(choices=list(PaymentType.choices),
+                                     initial=PaymentType.BANK_TRANSFER, label=_('Payment type'))
+    saved_account = forms.ModelChoiceField(queryset=BankAccount.objects.all(), required=False,
+                                           label=_('Saved account'), empty_label=_('Enter manually'))
+    account_number = forms.CharField(max_length=50, required=False, label=_('Account number'),
+                                     widget=forms.TextInput(attrs={'placeholder': '0123456789/0100'}))
+    variable_symbol = forms.CharField(max_length=20, required=False, label=_('Variable symbol'))
+    specific_symbol = forms.CharField(max_length=20, required=False, label=_('Specific symbol'))
+    constant_symbol = forms.CharField(max_length=20, required=False, label=_('Constant symbol'))
+
+    def clean_account_number(self):
+        acc_num = self.cleaned_data.get('account_number')
+        if acc_num:
+            acc_num = acc_num.replace(" ", "")
+            try:
+                validate_full_bank_account(acc_num)
+            except ValidationError as e:
+                raise ValidationError(e.messages[0] if hasattr(e, 'messages') else e)
+        return acc_num
+
+    def init_payment_fields(self):
+        if self.instance and self.instance.pk and getattr(self.instance, 'payment_info', None):
+            p_info = self.instance.payment_info
+            self.initial['saved_account'] = p_info.saved_account
+            self.initial['account_number'] = p_info.account_number
+            self.initial['variable_symbol'] = p_info.variable_symbol
+            self.initial['specific_symbol'] = p_info.specific_symbol
+            self.initial['constant_symbol'] = p_info.constant_symbol
+
+    def save_payment_details(self, expenditure, commit=True):
+        payment_data = {
+            'saved_account': self.cleaned_data.get('saved_account'),
+            'account_number': self.cleaned_data.get('account_number'),
+            'variable_symbol': self.cleaned_data.get('variable_symbol'),
+            'specific_symbol': self.cleaned_data.get('specific_symbol'),
+            'constant_symbol': self.cleaned_data.get('constant_symbol'),
+        }
+
+        try:
+            expenditure = PaymentService.update_payment_details(expenditure, self.cleaned_data.get('payment_type'), payment_data, commit=commit)
+        except ValueError as e:
+            raise ValidationError(str(e))
+
+        return expenditure
+
+
+class FrontendExpeditureFormSet(ExtraItemFormSet):
+    def clean(self):
+        super().clean()
+        for form in self.forms:
+            if self.can_delete and self._should_delete_form(form):
+                instance = form.instance
+                if instance.pk:
+                    is_imported = instance.import_info and instance.import_info.imported_at and not instance.import_info.error
+                    is_income = instance.payment_type == PaymentType.INCOME
+                    is_internal = instance.payment_type == PaymentType.INTERNAL_TRANSFER
+
+                    if instance.paid or is_imported or is_income or is_internal:
+                        raise ValidationError(
+                            _('Cannot delete expenditure #%(id)s: It is locked (paid, imported, or co-financing).')
+                            % {'id': instance.pk}
+                        )
+
+
+class ExpeditureForm(ExpediturePaymentMixin):
+    class Meta:
+        model = Expediture
+        fields = ('description', 'amount', 'wage', 'payment_type')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        if 'payment_type' in self.fields:
+            current_type = self.instance.payment_type if self.instance else None
+
+            allowed_choices = [
+                c for c in PaymentType.choices
+                if c[0] not in [PaymentType.INCOME, PaymentType.INTERNAL_TRANSFER] or c[0] == current_type
+            ]
+            self.fields['payment_type'].choices = allowed_choices
+
+        self.init_payment_fields()
+
+        request = get_request()
+        qs = request.user.trackerprofile.get_active_bank_accounts() if request and request.user.is_authenticated else BankAccount.objects.none()
+
+        if self.instance and self.instance.pk:
+            if self.instance.payment_info and self.instance.payment_info.saved_account:
+                saved_acc = self.instance.payment_info.saved_account
+                qs = qs | BankAccount.objects.filter(pk=saved_acc.pk)
+
+            is_imported = self.instance.import_info and self.instance.import_info.imported_at and not self.instance.import_info.error
+            is_income = self.instance.payment_type == PaymentType.INCOME
+            is_internal = self.instance.payment_type == PaymentType.INTERNAL_TRANSFER
+
+            if self.instance.paid or is_imported or is_income or is_internal:
+                for field_name, field in self.fields.items():
+                    field.disabled = True
+
+        self.fields['saved_account'].queryset = qs.distinct()
+
+    def has_changed(self):
+        changed = super().has_changed()
+
+        if changed and not self.instance.pk:
+            desc = self['description'].value()
+            amount = self['amount'].value()
+
+            if not desc and not amount:
+                return False
+
+        return changed
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        if self.instance and self.instance.pk:
+            is_imported = self.instance.import_info and self.instance.import_info.imported_at and not self.instance.import_info.error
+            is_income = self.instance.payment_type == PaymentType.INCOME
+            is_internal = self.instance.payment_type == PaymentType.INTERNAL_TRANSFER
+
+            if self.instance.paid or is_imported or is_income or is_internal:
+                if self.has_changed():
+                    raise ValidationError(_('You cannot edit this expenditure.'))
+
+        return cleaned_data
+
+    def save(self, commit=True):
+        expenditure = super().save(commit=False)
+
+        expenditure = self.save_payment_details(expenditure, commit)
+
+        if commit:
+            expenditure.save()
+
+        return expenditure
+
 
 PREEXPEDITURE_FIELDS = ('description', 'amount', 'wage')
 preexpeditureformset_factory = partial(
     inlineformset_factory, Ticket, Preexpediture,
     formset=ExtraItemFormSet, fields=PREEXPEDITURE_FIELDS
+)
+
+expeditureformset_factory = partial(
+    inlineformset_factory, Ticket, Expediture,
+    form=ExpeditureForm, formset=FrontendExpeditureFormSet
 )
 
 
@@ -647,11 +791,21 @@ def create_ticket(request):
         ticketform = TicketForm(initial=initial)
         initialExpeditures = []
         if 'ticket' in request.GET:
-            for e in Expediture.objects.filter(ticket=ticket):
-                initialE = {}
-                initialE['description'] = e.description
-                initialE['amount'] = e.amount
-                initialE['wage'] = e.wage
+            for e in Expediture.objects.filter(ticket=ticket).select_related('payment_info'):
+                initialE = {
+                    'description': e.description,
+                    'amount': e.amount,
+                    'wage': e.wage,
+                    'payment_type': e.payment_type,
+                }
+
+                if e.payment_info:
+                    initialE['saved_account'] = e.payment_info.saved_account_id
+                    initialE['account_number'] = e.payment_info.account_number
+                    initialE['variable_symbol'] = e.payment_info.variable_symbol
+                    initialE['specific_symbol'] = e.payment_info.specific_symbol
+                    initialE['constant_symbol'] = e.payment_info.constant_symbol
+
                 initialExpeditures.append(initialE)
         ExpeditureFormSet = expeditureformset_factory(extra=2 + len(initialExpeditures), can_delete=False)
         expeditures = ExpeditureFormSet(prefix='expediture', initial=initialExpeditures)
@@ -1075,6 +1229,63 @@ class UserDetailsChange(FormView):
 
 
 user_details_change = login_required(UserDetailsChange.as_view())
+
+
+class BankAccountForm(forms.ModelForm):
+    class Meta:
+        model = BankAccount
+        fields = ['name', 'prefix', 'number', 'bank']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'prefix': forms.TextInput(attrs={'class': 'form-control'}),
+            'number': forms.TextInput(attrs={'class': 'form-control'}),
+            'bank': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+
+class BankAccountListView(ListView):
+    model = BankAccount
+    template_name = 'tracker/bank_account_list.html'
+    context_object_name = 'accounts'
+
+    def get_queryset(self):
+        return BankAccount.objects.filter(
+            user=self.request.user.trackerprofile,
+            deleted_at__isnull=True
+        ).order_by('id')
+
+
+class BankAccountCreateView(CreateView):
+    model = BankAccount
+    form_class = BankAccountForm
+    template_name = 'tracker/bank_account_form.html'
+    success_url = reverse_lazy('bank_account_list')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user.trackerprofile
+        messages.success(self.request, _('Bank account was succesfully created.'))
+        return super().form_valid(form)
+
+
+class BankAccountDeleteView(DeleteView):
+    model = BankAccount
+    template_name = 'tracker/bank_account_confirm_delete.html'
+    success_url = reverse_lazy('bank_account_list')
+
+    def get_queryset(self):
+        return BankAccount.objects.filter(user=self.request.user.trackerprofile)
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.deleted_at = timezone.now()
+        self.object.save()
+        messages.success(request, _('Bank account was successfully removed.'))
+        return HttpResponseRedirect(self.get_success_url())
+
+
+bank_account_list = login_required(BankAccountListView.as_view())
+bank_account_create = login_required(BankAccountCreateView.as_view())
+bank_account_delete = login_required(BankAccountDeleteView.as_view())
 
 
 def cluster_detail(request, pk):
@@ -1808,6 +2019,142 @@ def update_media_success(request, ticket_id):
 def update_media_error(request, ticket_id):
     messages.error(request, _('There was an error while processing your request'))
     return HttpResponseRedirect(reverse('ticket_detail', kwargs={"pk": ticket_id}))
+
+
+@login_required
+@permission_required('tracker.import_expenditures', raise_exception=True)
+def ticket_import(request, ticket_id):
+    ticket = get_object_or_404(Ticket, id=ticket_id)
+
+    imported_expenditures = []
+    ready_expenditures = []
+    other_expenditures = []
+
+    for exp in ticket.expediture_set.all():
+        computed_state = exp.get_computed_state()
+        if computed_state in [ExpenditureState.IMPORTED, ExpenditureState.PAID]:
+            imported_expenditures.append(exp)
+        elif computed_state in [ExpenditureState.READY, ExpenditureState.ERROR]:
+            ready_expenditures.append(exp)
+        elif computed_state == ExpenditureState.MISSING:
+            other_expenditures.append(exp)
+
+    user_can_see_all_documents = ticket.can_see_all_documents(request.user)
+    today_date = datetime.date.today().isoformat()
+
+    if request.method == 'POST':
+        # REVERT
+        revert_id = request.POST.get('revert_expenditure_id')
+        if revert_id:
+            valid_imported_ids = [str(exp.id) for exp in imported_expenditures]
+
+            if str(revert_id) in valid_imported_ids:
+                try:
+                    if PaymentService.revert_import(revert_id):
+                        messages.success(request, _('Import status was successfully cleared.'))
+                    else:
+                        messages.error(request, _('Cannot revert import: missing import info.'))
+                except ValueError as e:
+                    messages.error(request, str(e))
+
+            return redirect('ticket_expediture_import', ticket_id=ticket.id)
+
+        # IMPORT
+        return import_expenditures(request, ready_expenditures)
+
+    return render(request, 'tracker/ticket_expediture_import.html', {
+        'ticket': ticket,
+        'imported_expenditures': imported_expenditures,
+        'ready_expenditures': ready_expenditures,
+        'other_expenditures': other_expenditures,
+        'today_date': today_date,
+        'user_can_see_all_documents': user_can_see_all_documents,
+        'error_state': ExpenditureState.ERROR,
+    })
+
+
+@login_required
+@permission_required('tracker.import_expenditures', raise_exception=True)
+def global_ticket_import(request):
+    expenditures = Expediture.objects.filter(
+        payment_type__in=[PaymentType.BANK_TRANSFER, PaymentType.INTERNAL_TRANSFER],
+        paid=False
+    ).filter(
+        Q(import_info__isnull=True) | Q(import_info__error=True)
+    ).select_related('ticket__topic__grant', 'payment_info', 'import_info')
+
+    ticket_summaries = {}
+    ready_expenditures = []
+
+    for exp in expenditures:
+        ticket = exp.ticket
+
+        if ticket.id not in ticket_summaries:
+            ticket_summaries[ticket.id] = {
+                'ticket': ticket,
+                'total_count': 0,
+                'ready_count': 0,
+                'missing_count': 0,
+                'error_count': 0,
+            }
+
+        ticket_summaries[ticket.id]['total_count'] += 1
+
+        computed_state = exp.get_computed_state()
+
+        if computed_state == ExpenditureState.READY:
+            ticket_summaries[ticket.id]['ready_count'] += 1
+            ready_expenditures.append(exp)
+
+        elif computed_state == ExpenditureState.MISSING:
+            ticket_summaries[ticket.id]['missing_count'] += 1
+
+        elif computed_state == ExpenditureState.ERROR:
+            ticket_summaries[ticket.id]['error_count'] += 1
+
+    ticket_summaries = sorted(ticket_summaries.values(), key=lambda x: x['ticket'].id, reverse=True)
+
+    today_date = datetime.date.today().isoformat()
+
+    return render(request, 'tracker/global_expediture_import.html', {
+        'ticket_summaries': ticket_summaries,
+        'ready_expenditures_count': len(ready_expenditures),
+        'today_date': today_date
+    })
+
+
+def import_expenditures(request, ready_expenditures):
+    selected_ids_raw = request.POST.getlist('expenditure_ids')
+    execution_date_raw = request.POST.get('execution_date')
+
+    try:
+        parsed_date = datetime.date.fromisoformat(execution_date_raw)
+        if parsed_date < datetime.date.today():
+            raise ValueError("Date is in the past.")
+        execution_date = execution_date_raw
+    except ValueError:
+        messages.error(request, _('Invalid or past execution date selected.'))
+        return HttpResponseRedirect(request.path)
+
+    valid_ready_ids = [str(exp.id) for exp in ready_expenditures]
+    selected_ids = [int(exp_id) for exp_id in selected_ids_raw if exp_id in valid_ready_ids]
+
+    if not selected_ids:
+        messages.warning(request, _('No valid expenditures selected for import.'))
+        return HttpResponseRedirect(request.path)
+
+    report = PaymentService.execute_fio_import(selected_ids, execution_date)
+
+    if report['success_count'] > 0:
+        messages.success(request, _("Successfully sent {} payments to Fio API.").format(report['success_count']))
+
+    for error in report['errors']:
+        messages.error(request, error)
+
+    for warning in report['warnings']:
+        messages.warning(request, warning)
+
+    return HttpResponseRedirect(request.path)
 
 
 @csrf_exempt

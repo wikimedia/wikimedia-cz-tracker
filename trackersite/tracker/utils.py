@@ -1,10 +1,16 @@
 import traceback
 
+from crequest.middleware import CrequestMiddleware
+
 from django.contrib.sites.models import Site
 from django.core.mail import mail_managers
 from django.template import loader
 from django.urls import reverse
 from django.utils.html import strip_tags
+
+
+def get_request():
+    return CrequestMiddleware.get_request()
 
 
 def notify_on_failure(**kwargs):

@@ -5,3 +5,4 @@
 /.idea
 /.vscode
 /.uwsgi_plugins_builder
+/.venv/

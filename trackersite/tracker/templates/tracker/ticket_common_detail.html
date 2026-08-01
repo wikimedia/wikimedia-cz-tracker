@@ -64,7 +64,16 @@
 <thead><tr><th>{% trans "Item" %}</th><th>{% trans "Amount" %}</th><th>{% trans "Accounting info" %}</th><th>{% trans "Paid?" %}</th><th>{% trans "Wage?" %}</th></tr></thead>
 <tbody>
 {% for item in ticket.expediture_set.all %}
-<tr {% if item.created %}title="{% trans "Created" %} {{item.created}}"{% endif %}><td>{{item.description}}</td><td class="money">{{item.amount|money}}</td><td>{{item.accounting_info}}</td><td>{{ item.paid|yesno:_("Yes,No") }}</td><td>{{ item.wage|yesno:_("Yes,No") }}</td></tr>
+<tr {% if item.created %}title="{% trans "Created" %} {{item.created}}"{% endif %}>
+<td>
+{{item.description}}
+{% if item.linked_expenditure %}<a href="{{ item.linked_expenditure.ticket.get_absolute_url }}">{% trans "Linked ticket" %} #{{ item.linked_expenditure.ticket_id }}</a>{% endif %}
+</td>
+<td class="money">{{item.amount|money}}</td>
+<td>{{item.accounting_info}}</td>
+<td>{{ item.paid|yesno:_("Yes,No") }}</td>
+<td>{{ item.wage|yesno:_("Yes,No") }}</td>
+</tr>
 {% endfor %}
 </tbody>
 <tfoot>

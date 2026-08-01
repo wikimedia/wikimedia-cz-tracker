@@ -2,7 +2,10 @@
 	function statutoryDeclaration() {
 		const fieldStatuatoryDeclaration = document.querySelector( '.field-statutory_declaration' ),
 			idCarTravel = document.querySelector( '#id_car_travel' );
-		fieldStatuatoryDeclaration.hidden = !idCarTravel.checked;
+
+		if ( fieldStatuatoryDeclaration && idCarTravel ) {
+			fieldStatuatoryDeclaration.hidden = !idCarTravel.checked;
+		}
 	}
 
 	function getTopicById( topicId ) {
@@ -24,7 +27,12 @@
 	}
 
 	document.addEventListener( 'DOMContentLoaded', () => {
-		document.querySelector( '.field-car_travel' ).addEventListener( 'change', statutoryDeclaration );
+		const carTravelField = document.querySelector( '.field-car_travel' );
+
+		if ( carTravelField ) {
+			carTravelField.addEventListener( 'change', statutoryDeclaration );
+		}
+
 		statutoryDeclaration();
 	} );
 }

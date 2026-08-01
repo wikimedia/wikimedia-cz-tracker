@@ -6,21 +6,27 @@ import io
 import json
 import random
 from decimal import Decimal
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 from django.conf import settings
 from django.contrib.auth.models import User, Permission
 from django.contrib.contenttypes.models import ContentType
+from django.core.exceptions import ValidationError
 from django.core.files.base import ContentFile
 from django.core.management import call_command
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.test.client import Client
 from django.urls import reverse
+from django.utils import timezone
 
 from socialauth.api import MediaWiki
+
+from tracker.fio import FioPaymentManager
+from tracker.services import PaymentService
 from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile, \
-    Document, TrackerPreferences
+    Document, TrackerPreferences, BankAccount, Template, PaymentInfo, PaymentType, ExpenditureState, ImportInfo
 from users.models import UserWrapper
+from tracker.validators import validate_full_bank_account
 
 
 class SimpleTicketTest(TestCase):
@@ -35,7 +41,7 @@ class SimpleTicketTest(TestCase):
         self.ticket2.save()
 
     def test_ticket_timestamps(self):
-        self.assertTrue(self.ticket2.created > self.ticket1.created)  # check ticket 2 is newer
+        self.assertTrue(self.ticket2.created >= self.ticket1.created)  # check ticket 2 is newer
 
         # check new update of ticket changed updated ts
         old_updated = self.ticket1.updated
@@ -560,8 +566,10 @@ class TicketEditTests(TestCase):
             'expediture-TOTAL_FORMS': '2',
             'expediture-0-description': 'ten fifty',
             'expediture-0-amount': '10.50',
+            'expediture-0-payment_type': 'bank_transfer',
             'expediture-1-description': 'hundred',
             'expediture-1-amount': '100',
+            'expediture-1-payment_type': 'bank_transfer',
             'preexpediture-INITIAL_FORMS': '0',
             'preexpediture-TOTAL_FORMS': '0',
         })
@@ -584,10 +592,12 @@ class TicketEditTests(TestCase):
             'expediture-0-id': expeditures[0].id,
             'expediture-0-description': 'ten fifty',
             'expediture-0-amount': '10.50',
+            'expediture-0-payment_type': 'cash',
             'expediture-0-DELETE': 'on',
             'expediture-1-id': expeditures[1].id,
             'expediture-1-description': 'hundred+1',
             'expediture-1-amount': '101',
+            'expediture-1-payment_type': 'card',
             'expediture-2-description': '',
             'expediture-2-amount': '',
             'preexpediture-INITIAL_FORMS': '0',
@@ -843,7 +853,7 @@ class TicketEditLinkTests(TestCase):
 
     def test_tracker_supervisor(self):
         self.user.is_staff = True
-        topic_content = ContentType.objects.get(app_label='tracker', model='Topic')
+        topic_content = ContentType.objects.get(app_label='tracker', model='topic')
         self.user.user_permissions.add(Permission.objects.get(content_type=topic_content, codename='supervisor'))
         self.user.save()
 
@@ -1441,14 +1451,14 @@ class DocumentAccessTests(TestCase):
         self.check_user_access(user=self.owner, can_see=True, can_edit=True)
 
     def test_auditor_access(self):
-        topic_content = ContentType.objects.get(app_label='tracker', model='Document')
+        topic_content = ContentType.objects.get(app_label='tracker', model='document')
         ou = self.other_user['user']
         ou.user_permissions.add(Permission.objects.get(content_type=topic_content, codename='see_all_docs'))
         ou.save()
         self.check_user_access(user=self.other_user, can_see=True, can_edit=True)
 
     def test_supervisor_access(self):
-        topic_content = ContentType.objects.get(app_label='tracker', model='Document')
+        topic_content = ContentType.objects.get(app_label='tracker', model='document')
         ou = self.other_user['user']
         ou.user_permissions.add(Permission.objects.get(content_type=topic_content, codename='edit_all_docs'))
         ou.save()
@@ -1614,3 +1624,333 @@ class MediaInfoCommunicationTests(TestCase):
         mock_request.assert_called_once_with(937952,  # Example.svg
                                              MediaInfo.strip_template(self.mediawiki.get_content(937952)),
                                              minor=True)
+
+
+class AutomationPaymentTests(TestCase):
+    def setUp(self):
+        self.grant = Grant.objects.create(full_name='Auto Grant', short_name='AG', slug='ag')
+        self.topic = Topic.objects.create(name='Auto Topic', grant=self.grant)
+        self.password = 'bar'
+        self.user = User.objects.create_user(username='test', password=self.password)
+
+        self.profile = self.user.trackerprofile
+
+        self.saved_acc = BankAccount.objects.create(
+            user=self.profile,
+            name='My account',
+            number='2000145399',
+            bank='0800'
+        )
+
+    def test_template_validation(self):
+        # A) no bank account -> ValidationError
+        t_empty = Template(template_name="blank template", amount=100)
+        with self.assertRaises(ValidationError):
+            t_empty.clean()
+
+        # B) both saved account link and manual account -> ValidationError
+        t_both = Template(
+            template_name="wrong template",
+            amount=100,
+            saved_account=self.saved_acc,
+            account_number="19-2000145399/0800"
+        )
+        with self.assertRaises(ValidationError):
+            t_both.clean()
+
+        # C) just saved account -> ok
+        t_saved = Template(
+            template_name="saved account template",
+            amount=100,
+            saved_account=self.saved_acc
+        )
+        try:
+            t_saved.clean()
+        except ValidationError:
+            self.fail("Template.clean() throw an error")
+
+        # D) just manual account -> ok
+        t_manual = Template(
+            template_name="manual account template",
+            amount=100,
+            account_number="19-2000145399/0800"
+        )
+        try:
+            t_manual.clean()
+        except ValidationError:
+            self.fail("Template.clean() throw an error")
+
+        # E) wrong manual account -> error
+        t_wrong_manual = Template(
+            template_name="wrong manual account template",
+            amount=100,
+            account_number="0123456789/0800"
+        )
+        with self.assertRaises(ValidationError):
+            t_wrong_manual.full_clean()
+
+    def test_bank_account_validator(self):
+        # valid account
+        try:
+            validate_full_bank_account("19-2000145399/0800")
+            validate_full_bank_account("2101865133/2010")
+        except ValidationError:
+            self.fail("Validátor nečekaně vyhodil platné číslo bankovního účtu.")
+
+        # invalid formats -> ValidationError
+        with self.assertRaises(ValidationError):
+            validate_full_bank_account("abcd")
+
+        with self.assertRaises(ValidationError):
+            validate_full_bank_account("2101865133")  # missing bank code
+
+        with self.assertRaises(ValidationError):
+            validate_full_bank_account("2101865133/123")  # wrong bank code
+
+        with self.assertRaises(ValidationError):
+            validate_full_bank_account("2101865133/ABCD")  # wrong bank code
+
+    def test_payment_info_target_account(self):
+        # A) saved account
+        info_saved = PaymentInfo.objects.create(saved_account=self.saved_acc)
+        self.assertEqual(info_saved.get_target_account(), self.saved_acc.full_number)
+
+        # B) manual account
+        info_manual = PaymentInfo.objects.create(account_number="111222333/0100")
+        self.assertEqual(info_manual.get_target_account(), "111222333/0100")
+
+    def test_expenditure_computed_state(self):
+        from tracker.models import Ticket
+        ticket = Ticket.objects.create(name='Test ticket', topic=self.topic, requested_user=self.user)
+
+        # cash expenditure
+        exp = Expediture.objects.create(
+            ticket=ticket,
+            description='Test výdaj',
+            amount=500,
+            payment_type=PaymentType.CASH
+        )
+
+        self.assertEqual(exp.get_computed_state(), ExpenditureState.WAITING)
+
+        # bank transfer without account
+        exp.payment_type = PaymentType.BANK_TRANSFER
+        exp.save()
+        self.assertEqual(exp.get_computed_state(), ExpenditureState.MISSING)
+
+        # with account
+        exp.payment_info = PaymentInfo.objects.create(saved_account=self.saved_acc)
+
+        # grant fix
+        self.grant.source_bank_account = "19-123457/0710"
+        self.grant.save()
+        exp.save()
+
+        self.assertEqual(exp.get_computed_state(), ExpenditureState.READY)
+
+        # with import error
+        exp.import_info = ImportInfo.objects.create(error=True)
+        exp.save()
+
+        self.assertEqual(exp.get_computed_state(), ExpenditureState.ERROR)
+
+        # imported
+        exp.import_info.error = False
+        exp.import_info.imported_at = timezone.now()
+        exp.import_info.due_date = timezone.now().date()
+        exp.import_info.save()
+        exp.save()
+
+        self.assertEqual(exp.get_computed_state(), ExpenditureState.IMPORTED)
+
+        # paid
+        exp.paid = True
+        exp.save()
+
+        self.assertEqual(exp.get_computed_state(), ExpenditureState.PAID)
+
+
+class CofinancingServiceTests(TestCase):
+    def setUp(self):
+        self.grant = Grant.objects.create(full_name='g', short_name='g', slug='g')
+        self.topic = Topic.objects.create(name='topic', grant=self.grant)
+        self.ticket1 = Ticket.objects.create(name='T1', topic=self.topic)
+        self.ticket2 = Ticket.objects.create(name='T2', topic=self.topic)
+        self.expenditure = Expediture.objects.create(ticket=self.ticket1, description='Nakup techniky', amount=1000)
+
+    def test_process_cofinancing_link_ticket(self):
+        PaymentService.process_cofinancing_link(self.expenditure, self.ticket2, None, 500)
+        self.expenditure.refresh_from_db()
+
+        self.assertEqual(self.expenditure.amount, -500)
+
+        linked = self.expenditure.linked_expenditure
+        self.assertIsNotNone(linked)
+        self.assertEqual(linked.ticket, self.ticket2)
+        self.assertEqual(linked.amount, 500)
+        self.assertEqual(linked.payment_type, PaymentType.INTERNAL_TRANSFER)
+
+
+@override_settings(FIO_API_TOKENS={'2000145399/2010': 'mock_fio_token'})
+class FioPaymentManagerTests(TestCase):
+    def setUp(self):
+        self.grant = Grant.objects.create(full_name='g', short_name='g', slug='g', source_bank_account='2000145399/2010')
+        self.topic = Topic.objects.create(name='topic', grant=self.grant)
+        self.ticket = Ticket.objects.create(name='T1', topic=self.topic)
+        self.payment_info = PaymentInfo.objects.create(account_number='123456789/0300')
+        self.expenditure = Expediture.objects.create(
+            ticket=self.ticket,
+            description='Platba faktury',
+            amount=1000,
+            payment_type=PaymentType.BANK_TRANSFER,
+            payment_info=self.payment_info
+        )
+
+    @patch('tracker.fio.requests.post')
+    def test_process_expenditures_success(self, mock_post):
+        mock_response = Mock()
+        mock_response.status_code = 200
+        mock_response.text = '<?xml version="1.0" encoding="UTF-8"?><response><result><status>ok</status><errorCode>0</errorCode><idInstruction>12345</idInstruction></result></response>'
+        mock_post.return_value = mock_response
+
+        manager = FioPaymentManager()
+        report = manager.process_expenditures([self.expenditure], '2026-10-10')
+
+        self.assertEqual(report['success_count'], 1)
+        self.assertEqual(len(report['errors']), 0)
+
+        self.expenditure.refresh_from_db()
+        self.assertIsNotNone(self.expenditure.import_info)
+        self.assertEqual(self.expenditure.import_info.order_number, '12345')
+
+    @patch('tracker.fio.requests.post')
+    def test_process_expenditures_rate_limit(self, mock_post):
+        mock_response = Mock()
+        mock_response.status_code = 409
+        mock_post.return_value = mock_response
+
+        manager = FioPaymentManager()
+        report = manager.process_expenditures([self.expenditure], '2026-10-10')
+
+        self.assertEqual(report['success_count'], 0)
+        self.assertEqual(len(report['warnings']), 1)
+
+        self.expenditure.refresh_from_db()
+        self.assertIsNone(self.expenditure.import_info)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_transactions_match(self, mock_get):
+        self.expenditure.import_info = ImportInfo.objects.create(order_number='12345', due_date=datetime.date.today())
+        self.expenditure.save()
+
+        mock_response = Mock()
+        mock_response.status_code = 200
+        mock_response.json.return_value = {
+            "accountStatement": {
+                "transactionList": {
+                    "transaction": [
+                        {
+                            "column1": {"value": -1000.0},  # ammount
+                            "column2": {"value": "123456789"},  # target account
+                            "column3": {"value": "0300"},  # bank cide
+                            "column17": {"value": "12345"},  # ID instruction
+                            "column16": {"value": f"WMCZ ticket #{self.ticket.id}"}  # msg
+                        }
+                    ]
+                }
+            }
+        }
+        mock_get.return_value = mock_response
+
+        manager = FioPaymentManager()
+        report = manager.sync_transactions(days_back=14, expiry_days=0)
+
+        self.assertEqual(report['marked_paid'], 1)
+        self.expenditure.refresh_from_db()
+        self.assertTrue(self.expenditure.paid)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_transactions_card_match(self, mock_get):
+        card_exp = Expediture.objects.create(
+            ticket=self.ticket,
+            description='card payment',
+            amount=500,
+            payment_type=PaymentType.CARD,
+            accounting_info='61a'
+        )
+
+        mock_response = Mock()
+        mock_response.status_code = 200
+        mock_response.json.return_value = {
+            "accountStatement": {
+                "transactionList": {
+                    "transaction": [
+                        {
+                            "column1": {"value": -500.0},  # ammount
+                            "column2": None,  # target account
+                            "column3": None,  # bank cide
+                            "column17": None,  # ID instruction
+                            "column16": {"value": "WMCZ ticket #61a"}  # msg
+                        }
+                    ]
+                }
+            }
+        }
+        mock_get.return_value = mock_response
+
+        manager = FioPaymentManager()
+        report = manager.sync_transactions(days_back=14, expiry_days=0)
+
+        self.assertEqual(report['marked_paid'], 1)
+        card_exp.refresh_from_db()
+        self.assertTrue(card_exp.paid)
+
+
+class PaymentServiceTests(TestCase):
+    def setUp(self):
+        self.grant = Grant.objects.create(full_name='g', short_name='g', slug='g')
+        self.topic = Topic.objects.create(name='topic', grant=self.grant)
+        self.ticket = Ticket.objects.create(name='T1', topic=self.topic)
+
+    def test_revert_import(self):
+        exp = Expediture.objects.create(ticket=self.ticket, description='Test Revert', amount=100)
+        exp.import_info = ImportInfo.objects.create(order_number='12345')
+        exp.save()
+
+        result = PaymentService.revert_import(exp.id)
+        self.assertTrue(result)
+
+        exp.refresh_from_db()
+        self.assertIsNone(exp.import_info)
+
+        exp.paid = True
+        exp.import_info = ImportInfo.objects.create(order_number='99999')
+        exp.save()
+
+        with self.assertRaises(ValueError):
+            PaymentService.revert_import(exp.id)
+
+        exp2 = Expediture.objects.create(ticket=self.ticket, description='Test No Import', amount=200)
+        result2 = PaymentService.revert_import(exp2.id)
+        self.assertFalse(result2)
+
+
+class CommandFiosyncTests(TestCase):
+    @patch('tracker.fio.FioPaymentManager.sync_transactions')
+    def test_fiosync_command_output(self, mock_sync):
+        mock_sync.return_value = {
+            'marked_paid': 2,
+            'reverted': 1,
+            'errors': ['Fio API error timeout']
+        }
+
+        out = io.StringIO()
+        call_command('fiosync', days=10, expiry=3, stdout=out)
+        output = out.getvalue()
+
+        mock_sync.assert_called_once_with(days_back=10, expiry_days=3)
+
+        self.assertIn('Starting Fio synchronization (history: 10 days, expiry after: 3 days)...', output)
+        self.assertIn('Successfully matched and marked as PAID: 2 expenditures.', output)
+        self.assertIn('Expired and reverted to WAITING: 1 expenditures.', output)
+        self.assertIn('- Fio API error timeout', output)

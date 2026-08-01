@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load i18n trackertags %}
+
+{% block title %}{% trans "Import overview" %}{% endblock %}
+
+{% block content %}
+	<p class="nav">
+		<a href="{% url 'ticket_list' %}">{% trans "index" %}</a> &gt;
+		<a href="{% url 'global_expediture_import' %}">{% trans "import overview" %}</a> &gt;
+	</p>
+
+	<h1>{% trans "Expenditures awaiting import" %}</h1>
+
+	{% if ticket_summaries %}
+		<p>{% trans "Select a ticket to review and import its expenditures." %}</p>
+
+		<table class="table table-striped table-hover">
+			<thead>
+			<tr>
+				<th>{% trans "Ticket" %}</th>
+				<th>{% trans "Topic" %}</th>
+				<th class="text-center">{% trans "Total to process" %}</th>
+				<th class="text-center import-success">{% trans "Ready" %}</th>
+				<th class="text-center import-warning">{% trans "Missing data" %}</th>
+				<th class="text-center import-error">{% trans "Error" %}</th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for summary in ticket_summaries %}
+				<tr>
+					<td>
+						<strong>
+							<a href="{% url 'ticket_detail' summary.ticket.id %}">
+								#{{ summary.ticket.id }} {{ summary.ticket.name }}
+							</a>
+						</strong>
+					</td>
+					<td>
+						<small class="text-muted">{{ summary.ticket.topic.name }}</small>
+					</td>
+					<td class="text-center">
+						<b>{{ summary.total_count }}</b>
+					</td>
+					<td class="text-center">
+						{% if summary.ready_count > 0 %}
+							<span class="badge import-success">{{ summary.ready_count }}</span>
+						{% else %}
+							<span class="import-none">0</span>
+						{% endif %}
+					</td>
+					<td class="text-center">
+						{% if summary.missing_count > 0 %}
+							<span class="badge import-warning">{{ summary.missing_count }}</span>
+						{% else %}
+							<span class="import-none">0</span>
+						{% endif %}
+					</td>
+					<td class="text-center">
+						{% if summary.error_count > 0 %}
+							<span class="badge import-error">{{ summary.error_count }}</span>
+						{% else %}
+							<span class="import-none">0</span>
+						{% endif %}
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<div class="alert alert-success">
+			<i class="fa fa-check-circle"></i> {% trans "There are no tickets waiting for import. Everything is up to date." %}
+		</div>
+	{% endif %}
+
+{% endblock content %}

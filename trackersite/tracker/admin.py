@@ -4,11 +4,21 @@ import json
 from django.conf.urls import url
 from django.contrib import admin
 from django import forms
+from django.forms.formsets import DELETION_FIELD_NAME
+from django.forms.models import BaseInlineFormSet
+from django.utils.html import format_html
+
+from tracker.services import PaymentService
+from tracker.fio import FioPaymentManager
 from tracker import models
 from django.utils.translation import ugettext_lazy as _, get_language, activate
 from django.http import Http404, HttpResponse, HttpResponseNotAllowed
 from django.template.loader import get_template
 from django.contrib.admin.helpers import ActionForm
+from django.urls import reverse
+
+from tracker.views import ExpediturePaymentMixin
+from tracker.validators import validate_full_bank_account
 
 
 class MediaInfoAdmin(admin.TabularInline):
@@ -17,8 +27,255 @@ class MediaInfoAdmin(admin.TabularInline):
     readonly_fields = ('width', 'height')
 
 
-class ExpeditureAdmin(admin.TabularInline):
+class ExpeditureInlineFormSet(BaseInlineFormSet):
+    def add_fields(self, form, index):
+        super().add_fields(form, index)
+
+        if self.can_delete and DELETION_FIELD_NAME in form.fields:
+            if form.instance and form.instance.pk:
+                is_internal = form.instance.payment_type == models.PaymentType.INTERNAL_TRANSFER
+
+                if form.instance.paid or is_internal:
+                    form.fields[DELETION_FIELD_NAME].disabled = True
+
+    def clean(self):
+        super().clean()
+        for form in self.forms:
+            if self.can_delete and self._should_delete_form(form):
+                instance = form.instance
+                if instance.pk:
+                    is_internal = instance.payment_type == models.PaymentType.INTERNAL_TRANSFER
+
+                    if instance.paid or is_internal:
+                        raise forms.ValidationError(
+                            _('Cannot delete expenditure #%(id)s: It is either an internal transfer or already paid.')
+                            % {'id': instance.pk}
+                        )
+
+
+class ExpeditureAdminForm(ExpediturePaymentMixin):
+    AUTOMATED_PAYMENT_TYPES = (
+        models.PaymentType.BANK_TRANSFER,
+        models.PaymentType.INTERNAL_TRANSFER,
+        models.PaymentType.INCOME,
+        models.PaymentType.CARD
+    )
+
+    template_choice = forms.ModelChoiceField(
+        queryset=models.Template.objects.all(),
+        required=False,
+        label=_('Load from a template')
+    )
+
+    class Meta:
+        model = models.Expediture
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.init_payment_fields()
+
+        if 'account_number' in self.fields:
+            self.fields['account_number'].label = _('Or enter manually:')
+
+        templates = models.Template.objects.all()
+        templates_data = {}
+        for t in templates:
+            templates_data[t.id] = {
+                'saved_account': t.saved_account_id or '',
+                'account_number': t.account_number or '',
+                'variable_symbol': t.variable_symbol or '',
+                'specific_symbol': t.specific_symbol or '',
+                'constant_symbol': t.constant_symbol or '',
+                'amount': str(t.amount) if t.amount else '',
+            }
+
+        self.fields['template_choice'].widget.attrs['data-templates'] = json.dumps(templates_data)
+
+        if 'payment_type' in self.fields:
+            choices = [c for c in models.PaymentType.choices if c[0] != models.PaymentType.INCOME]
+            self.fields['payment_type'].choices = choices
+
+        if self.instance and self.instance.payment_type in self.AUTOMATED_PAYMENT_TYPES and 'paid' in self.fields:
+            self.fields['paid'].disabled = True
+
+        is_imported = self.instance.import_info and self.instance.import_info.imported_at and not self.instance.import_info.error
+        is_internal = self.instance.payment_type == models.PaymentType.INTERNAL_TRANSFER
+
+        if self.instance.paid or is_imported:
+            for field_name, field in self.fields.items():
+                field.disabled = True
+
+        elif is_internal:
+            for field_name, field in self.fields.items():
+                if field_name != 'accounting_info':
+                    field.disabled = True
+
+    def clean_account_number(self):
+        account_number = self.cleaned_data.get('account_number')
+
+        if account_number:
+            validate_full_bank_account(account_number)
+
+        return account_number
+
+    def save(self, commit=True):
+        expenditure = super(forms.ModelForm, self).save(commit=False)
+
+        if self.instance.payment_type in self.AUTOMATED_PAYMENT_TYPES:
+            expenditure = self.save_payment_details(expenditure, commit=False)
+
+        if commit:
+            if getattr(expenditure, 'payment_info', None) and expenditure.payment_type == models.PaymentType.BANK_TRANSFER:
+                expenditure.payment_info.save()
+
+            expenditure.save()
+
+        return expenditure
+
+
+class ExpeditureAdmin(admin.StackedInline):
     model = models.Expediture
+    form = ExpeditureAdminForm
+    formset = ExpeditureInlineFormSet
+    exclude = ('payment_info',)
+    extra = 0
+    readonly_fields = ('get_linked_ticket_link',)
+
+    fieldsets = (
+        (None, {
+            'fields': (
+                ('template_choice', 'description', 'amount', 'wage', 'payment_type', 'accounting_info', 'paid', 'get_linked_ticket_link'),
+            )
+        }),
+        (_('Payment Details (Bank Transfer)'), {
+            'classes': ('collapse',),
+            'fields': (
+                ('saved_account', 'account_number'),
+                ('variable_symbol', 'specific_symbol', 'constant_symbol')
+            )
+        })
+    )
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.exclude(payment_type=models.PaymentType.INCOME)
+
+    def get_linked_ticket_link(self, obj):
+        if obj.pk and obj.linked_expenditure:
+            ticket_id = obj.linked_expenditure.ticket_id
+            ticket_url = reverse('admin:tracker_ticket_change', args=[ticket_id])
+            return format_html('<a href="{}" style="font-weight: bold; color: #0088cc;">Linked ticket #{}</a>', ticket_url, ticket_id)
+        return "-"
+
+    get_linked_ticket_link.short_description = _('Linked Co-financing')
+
+
+class CofinancingAdminForm(forms.ModelForm):
+    cofinance_filter_grant = forms.ModelChoiceField(queryset=models.Grant.objects.all(), required=False, label=_('Filter by Grant'))
+    cofinance_source_ticket = forms.ModelChoiceField(queryset=models.Ticket.objects.all(), required=False, label=_('Source ticket'))
+    cofinance_source_account = forms.ChoiceField(choices=[], required=False, label=_('Source account'))
+    cofinance_amount = forms.DecimalField(max_digits=10, decimal_places=2, required=False, label=_('Amount'))
+
+    class Meta:
+        model = models.Expediture
+        fields = ('cofinance_filter_grant', 'cofinance_source_ticket', 'cofinance_source_account', 'cofinance_amount')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        available_accounts = FioPaymentManager.get_available_accounts()
+        self.fields['cofinance_source_account'].choices = [('', '---------')] + [(acc, acc) for acc in available_accounts]
+
+        tickets = models.Ticket.objects.select_related('topic__grant').all()
+        mapping = {t.id: t.topic.grant_id for t in tickets if t.topic and t.topic.grant_id}
+        self.fields['cofinance_source_ticket'].widget.attrs['data-ticket-grants'] = json.dumps(mapping)
+
+        if self.instance and self.instance.pk:
+            self.fields['cofinance_amount'].initial = abs(self.instance.amount) if self.instance.amount else None
+
+            if self.instance.linked_expenditure:
+                source_ticket_id = self.instance.linked_expenditure.ticket_id
+                self.fields['cofinance_source_ticket'].initial = source_ticket_id
+
+                source_ticket = models.Ticket.objects.filter(id=source_ticket_id).select_related('topic__grant').first()
+                if source_ticket and source_ticket.topic and source_ticket.topic.grant_id:
+                    self.fields['cofinance_filter_grant'].initial = source_ticket.topic.grant_id
+
+            elif self.instance.description and "account " in self.instance.description:
+                parts = self.instance.description.split("account ")
+                if len(parts) > 1:
+                    self.fields['cofinance_source_account'].initial = parts[1].strip()
+
+            is_imported = self.instance.import_info and self.instance.import_info.imported_at and not self.instance.import_info.error
+
+            if self.instance.paid or is_imported:
+                for field_name, field in self.fields.items():
+                    field.disabled = True
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        if not cleaned_data.get('DELETE'):
+            source_ticket = cleaned_data.get('cofinance_source_ticket')
+            source_account = cleaned_data.get('cofinance_source_account')
+            cof_amount = cleaned_data.get('cofinance_amount')
+
+            if not cof_amount or cof_amount <= 0:
+                self.add_error('cofinance_amount', _('You must enter a positive amount for co-financing.'))
+            if not source_ticket and not source_account:
+                raise forms.ValidationError(_('You must select either a source ticket or a source account.'))
+            if source_ticket and source_account:
+                raise forms.ValidationError(_('Choose only one co-financing source, not both.'))
+
+        return cleaned_data
+
+    def save(self, commit=True):
+        expenditure = super().save(commit=False)
+        expenditure.payment_type = models.PaymentType.INCOME
+
+        source_ticket = self.cleaned_data.get('cofinance_source_ticket')
+        source_account = self.cleaned_data.get('cofinance_source_account')
+        cof_amount = self.cleaned_data.get('cofinance_amount')
+
+        expenditure = PaymentService.process_cofinancing_link(
+            expenditure, source_ticket, source_account, cof_amount, commit=commit
+        )
+
+        return expenditure
+
+
+class CofinancingAdmin(admin.StackedInline):
+    model = models.Expediture
+    form = CofinancingAdminForm
+    formset = ExpeditureInlineFormSet
+    extra = 0
+    verbose_name = _('Co-financing')
+    verbose_name_plural = _('Co-financings')
+
+    readonly_fields = ('get_linked_ticket',)
+
+    fieldsets = (
+        (None, {
+            'fields': (
+                ('cofinance_filter_grant', 'cofinance_source_ticket', 'cofinance_source_account', 'cofinance_amount', 'get_linked_ticket'),
+            )
+        }),
+    )
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.filter(payment_type=models.PaymentType.INCOME)
+
+    def get_linked_ticket(self, obj):
+        if obj.pk and obj.linked_expenditure:
+            ticket_id = obj.linked_expenditure.ticket_id
+            ticket_url = reverse('admin:tracker_ticket_change', args=[ticket_id])
+            return format_html('<a href="{}" style="font-weight: bold; color: #0088cc;">Linked ticket #{}</a>',
+                               ticket_url, ticket_id)
+        return "-"
+
+    get_linked_ticket.short_description = _('Linked ticket')
 
 
 class PreexpeditureAdmin(admin.TabularInline):
@@ -79,7 +336,7 @@ class TicketAdmin(admin.ModelAdmin):
     list_filter = ('topic', 'subtopic', 'payment_status')
     date_hierarchy = 'event_date'
     search_fields = ['id', 'requested_user__username', 'requested_text', 'name']
-    inlines = [SignatureAdmin, MediaInfoAdmin, PreexpeditureAdmin, ExpeditureAdmin]
+    inlines = [SignatureAdmin, MediaInfoAdmin, PreexpeditureAdmin, ExpeditureAdmin, CofinancingAdmin]
     action_form = AddAckActionForm
     actions = (add_ack, )
 
@@ -147,7 +404,13 @@ class TicketAdmin(admin.ModelAdmin):
         obj.save(saved_from_admin=True)
 
     def render_change_form(self, request, context, *args, **kwargs):
-        context['adminform'].form.fields['subtopic'].queryset = models.Subtopic.objects.filter(topic=self.ticket.topic)
+        obj = kwargs.get('obj')
+
+        if obj and hasattr(obj, 'topic') and obj.topic:
+            context['adminform'].form.fields['subtopic'].queryset = models.Subtopic.objects.filter(topic=obj.topic)
+        else:
+            context['adminform'].form.fields['subtopic'].queryset = models.Subtopic.objects.none()
+
         return super(TicketAdmin, self).render_change_form(request, context, *args, **kwargs)
 
 
@@ -199,6 +462,19 @@ admin.site.register(models.Topic, TopicAdmin)
 
 
 class GrantAdminForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        available_accounts = FioPaymentManager.get_available_accounts()
+        account_choices = [('', '---------')] + [(acc, acc) for acc in available_accounts]
+
+        self.fields['source_bank_account'] = forms.ChoiceField(
+            choices=account_choices,
+            required=False,
+            label=_('Source bank account'),
+            help_text=_('Number of the transparent account from which the funds will be disbursed')
+        )
+
     class Meta:
         model = models.Grant
         help_texts = {'open_for_tickets': _('Modify this value by opening or closing topics in this grant to tickets')}
@@ -221,6 +497,27 @@ class TrackerProfileAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.TrackerProfile, TrackerProfileAdmin)
+
+
+class TemplateAdmin(admin.ModelAdmin):
+    list_display = ('template_name', 'amount', 'get_target_account', 'variable_symbol', 'specific_symbol', 'constant_symbol')
+    fieldsets = (
+        (_('Main Template Info'), {
+            'description': _('You can use templates to quickly create new expenditures. Payment data will be automatically filled in for you.'),
+            'fields': ('template_name', 'amount')
+        }),
+        (_('Payment Destination'), {
+            'description': _('Specify the recipient account. You must choose exactly one way to specify the account: either a saved account OR enter it manually.'),
+            'fields': ('saved_account', 'account_number')
+        }),
+        (_('Symbols'), {
+            'description': _('Optional payment symbols.'),
+            'fields': ('variable_symbol', 'specific_symbol', 'constant_symbol')
+        }),
+    )
+
+
+admin.site.register(models.Template, TemplateAdmin)
 
 # piggypatch admin site to display our own index template with some bonus links
 admin.site.index_template = 'tracker/admin_index_override.html'

@@ -24,6 +24,8 @@ urlpatterns = [
     path('ticket/<int:ticket_id>/media/manage/', tracker.views.manage_media, name='manage_media'),
     path('ticket/<int:ticket_id>/media/manage/success/', tracker.views.update_media_success, name='update_media_success'),
     path('ticket/<int:ticket_id>/media/manage/error/', tracker.views.update_media_error, name='update_media_error'),
+    path('ticket/<int:ticket_id>/import/', tracker.views.ticket_import, name='ticket_expediture_import'),
+    path('ticket/import/', tracker.views.global_ticket_import, name='global_expediture_import'),
     path('topics/', tracker.views.topic_list, name='topic_list'),
     path('topics/finance/', tracker.views.topic_finance, name='topic_finance'),
     path('topics/acks/', tracker.views.topic_content_acks_per_user, name='topic_content_acks_per_user'),
@@ -47,4 +49,7 @@ urlpatterns = [
     path('tickets/json/<str:lang>.json', tracker.views.tickets_json, name='tickets_json'),
     path('api/mediawiki/', tracker.views.mediawiki_api, name='mediawiki_api'),
     path('api/email_users', tracker.views.sendgrid_handler, name='sendgrid_handler'),
+    path('accounts/', tracker.views.bank_account_list, name='bank_account_list'),
+    path('accounts/add/', tracker.views.bank_account_create, name='bank_account_create'),
+    path('accounts/<int:pk>/delete/', tracker.views.bank_account_delete, name='bank_account_delete'),
 ]

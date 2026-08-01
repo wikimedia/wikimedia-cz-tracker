@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container-fluid">
+	<h2>{% trans "My bank accounts" %}</h2>
+
+	<div>
+		<a href="{% url 'bank_account_create' %}" class="btn btn-primary">
+			<span class="glyphicon glyphicon-plus"></span> {% trans "New account" %}
+		</a>
+	</div>
+
+	<br>
+
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>{% trans "Name" %}</th>
+				<th>{% trans "Account number" %}</th>
+				<th>{% trans "Actions" %}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for account in accounts %}
+			<tr>
+				<td><strong>{{ account.name }}</strong></td>
+				<td>{{ account.full_number }}</td>
+				<td>
+					<a href="{% url 'bank_account_delete' account.pk %}" class="btn btn-danger btn-sm">{% trans "Remove" %}</a>
+				</td>
+			</tr>
+			{% empty %}
+			<tr>
+				<td colspan="5" class="text-center">{% trans "You have not saved any bank accounts yet" %}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

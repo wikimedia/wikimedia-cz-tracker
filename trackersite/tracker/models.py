@@ -13,6 +13,7 @@ from django import template
 from django.conf import settings
 from django.contrib.admin.models import LogEntry, CHANGE
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 from social_django.models import UserSocialAuth
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
@@ -39,9 +40,9 @@ from django_comments.signals import comment_was_posted
 from pytz import utc
 
 from socialauth.api import MediaWiki
-from tracker.services import get_request
-from tracker.utils import notify_on_failure
+from tracker.utils import notify_on_failure, get_request
 from users.models import UserWrapper
+from tracker.validators import validate_cnb_mod_11, validate_bank_code, validate_full_bank_account
 
 PAYMENT_STATUS_CHOICES = (
     ('n_a', _('n/a')),
@@ -84,6 +85,24 @@ LANGUAGE_CHOICES = settings.LANGUAGES
 
 USER_EDITABLE_ACK_TYPES = ('user_precontent', 'user_content', 'user_docs')
 WAIT_NEEDED_ACK_TYPES = ('precontent', 'content')
+
+
+class PaymentType(models.TextChoices):
+    BANK_TRANSFER = 'bank_transfer', _('Bank transfer')
+    FOREIGN_TRANSFER = 'foreign_transfer', _('International bank transfer')
+    CARD = 'card', _('Card')
+    CASH = 'cash', _('Cash')
+    INTERNAL_TRANSFER = 'internal_transfer', _('Internal transfer')
+    INCOME = 'income', _('Income (Co-financing)')
+
+
+class ExpenditureState(models.TextChoices):
+    WAITING = 'waiting', _('Waiting for payment')
+    ERROR = 'error', _('Import error')
+    PAID = 'paid', _('Paid')
+    READY = 'ready', _('Ready for import')
+    MISSING = 'missing', _('Missing data')
+    IMPORTED = 'imported', _('Imported')
 
 
 class ModelDiffMixin(object):
@@ -653,6 +672,9 @@ class Ticket(CachedModel, ModelDiffMixin):
         verbose_name = _('Ticket')
         verbose_name_plural = _('Tickets')
         ordering = ['-id']
+        permissions = (
+            ("import_expenditures", "Can import all expenditures"),
+        )
 
 
 class TicketModerator(CommentModerator):
@@ -900,6 +922,8 @@ class Grant(CachedModel):
     slug = models.SlugField(_('slug'), help_text=_('Shortcut for usage in URLs'), unique=True)
     description = models.TextField(_('description'), blank=True, help_text=_(
         'Detailed description; HTML is allowed for now, line breaks are auto-parsed'))
+    source_bank_account = models.CharField(_('Source bank account'), max_length=22, blank=True,
+                                           help_text=_('Number of the transparent account from which the funds will be disbursed'))
 
     def __str__(self):
         return self.full_name
@@ -1249,6 +1273,48 @@ def delete_mediainfo(sender, instance, **kwargs):
         MediaInfo.remove_from_mediawiki(instance.media_id, get_request().user.id)
 
 
+class PaymentInfo(models.Model):
+    variable_symbol = models.CharField(_('variable symbol'), max_length=20, blank=True)
+    specific_symbol = models.CharField(_('specific symbol'), max_length=20, blank=True)
+    constant_symbol = models.CharField(_('constant symbol'), max_length=20, blank=True)
+
+    saved_account = models.ForeignKey('BankAccount', verbose_name=_('account link'), on_delete=models.SET_NULL, null=True, blank=True, help_text=_('Choose from saved accounts.'))
+    account_number = models.CharField(_('bank account'), max_length=50, blank=True, help_text=_('Or you can enter your account number manually, but do not use both.'), validators=[validate_full_bank_account])
+
+    def get_target_account(self):
+        return self.saved_account.full_number if self.saved_account else self.account_number
+
+
+class Template(PaymentInfo):
+    template_name = models.CharField(_('template name'), max_length=100)
+    amount = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_('Amount'))
+
+    def __str__(self):
+        return self.template_name
+
+    def clean(self):
+        super().clean()
+
+        if not self.saved_account and not self.account_number:
+            msg = _('You must provide either an Account link or a Bank account.')
+            raise ValidationError({'saved_account': msg, 'account_number': msg})
+
+        elif self.saved_account and self.account_number:
+            msg = _('You cannot provide both. Choose either an Account link or a manually typed Bank account.')
+            raise ValidationError({'saved_account': msg, 'account_number': msg})
+
+    class Meta:
+        verbose_name = _('Template')
+        verbose_name_plural = _('Templates')
+
+
+class ImportInfo(models.Model):
+    imported_at = models.DateTimeField(_('Imported at'), default=timezone.now)
+    due_date = models.DateField(_('Due date'), null=True, blank=True)
+    order_number = models.CharField(_('Order number'), max_length=64, blank=True)
+    error = models.BooleanField(_('error'), default=False)
+
+
 class Expediture(Model):
     """ Expenses related to particular tickets. """
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'),
@@ -1262,9 +1328,90 @@ class Expediture(Model):
     wage = models.BooleanField(_('wage'), default=False)
     archived = models.BooleanField(_('archived'), default=False, help_text=_('This is only editable through the admin'))
 
+    payment_type = models.CharField(_('payment type'), max_length=30, choices=PaymentType.choices, default=PaymentType.BANK_TRANSFER)
+    payment_info = models.OneToOneField('PaymentInfo', verbose_name=_('payment info'), on_delete=models.SET_NULL, null=True, blank=True)
+    import_info = models.OneToOneField('ImportInfo', verbose_name=_('import info'), on_delete=models.SET_NULL, null=True, blank=True)
+
+    linked_expenditure = models.OneToOneField('self', verbose_name=_('linked expenditure'), on_delete=models.CASCADE,
+                                              null=True, blank=True)
+
+    def is_locked_for_user(self):
+        is_imported = self.import_info and self.import_info.imported_at and not self.import_info.error
+        is_special_type = self.payment_type in ['income', 'internal_transfer']
+        return self.paid or is_imported or is_special_type
+
+    def get_target_account(self):
+        if self.payment_type == PaymentType.BANK_TRANSFER and self.payment_info:
+            return self.payment_info.get_target_account()
+        elif self.payment_type == PaymentType.INCOME and self.ticket.topic.grant.source_bank_account:
+            return self.ticket.topic.grant.source_bank_account
+        elif self.payment_type == PaymentType.INTERNAL_TRANSFER and self.linked_expenditure:
+            return self.linked_expenditure.ticket.topic.grant.source_bank_account
+        else:
+            return None
+
+    def get_source_account(self):
+        if self.payment_type == PaymentType.INCOME and self.linked_expenditure:
+            return self.linked_expenditure.ticket.topic.grant.source_bank_account
+
+        return self.ticket.topic.grant.source_bank_account
+
+    def is_cofinancing(self):
+        return self.payment_type == 'internal_transfer' or self.payment_type == 'income'
+
+    def get_import_block_reason(self):
+        current_state = self.get_computed_state()
+
+        if current_state == ExpenditureState.READY:
+            return _('Ready')
+
+        if current_state == ExpenditureState.PAID:
+            return _('Already paid.')
+
+        if self.import_info and self.import_info.imported_at and not self.import_info.error:
+            return _('Already imported.')
+
+        if current_state == ExpenditureState.WAITING:
+            return _('Payment type of this expenditure is not supported for import.')
+
+        if not self.amount:
+            return _('Amount is not specified.')
+
+        if not self.payment_info or (not self.payment_info.saved_account and not self.payment_info.account_number):
+            return _("Receiver's bank account is not specified.")
+
+        if not self.ticket.topic.grant.source_bank_account:
+            return _('Grant bank account is not specified.')
+
+        return _('Unknown')
+
+    def get_computed_state(self):
+        if self.paid:
+            return ExpenditureState.PAID
+
+        if self.import_info and self.import_info.error:
+            return ExpenditureState.ERROR
+
+        if self.import_info and self.import_info.imported_at:
+            return ExpenditureState.IMPORTED
+
+        if self.payment_type in [PaymentType.FOREIGN_TRANSFER, PaymentType.CARD, PaymentType.CASH, PaymentType.INCOME]:
+            return ExpenditureState.WAITING
+
+        if self.amount and (self.payment_type == PaymentType.INTERNAL_TRANSFER or (self.payment_info and (self.payment_info.saved_account or self.payment_info.account_number) and self.ticket.topic.grant.source_bank_account)):
+            return ExpenditureState.READY
+        else:
+            return ExpenditureState.MISSING
+
+    def state_str(self):
+        return self.get_computed_state().label
+
+    state_str.admin_order_field = 'payment_state'
+    state_str.short_description = _('state')
+
     def __str__(self):
-        return _('%(description)s (%(amount)s %(currency)s)') % {'description': self.description, 'amount': self.amount,
-                                                                 'currency': settings.TRACKER_CURRENCY}
+        return _('%(description)s (%(amount)s %(currency)s, %(state)s)') % {'description': self.description, 'amount': self.amount,
+                                                                            'currency': settings.TRACKER_CURRENCY, 'state': self.state_str()}
 
     def save(self, *args, **kwargs):
         super(Expediture, self).save(*args, **kwargs)
@@ -1417,6 +1564,9 @@ class TrackerProfile(models.Model):
         except UserSocialAuth.DoesNotExist:
             return False
 
+    def get_active_bank_accounts(self):
+        return self.bank_accounts.filter(deleted_at__isnull=True)
+
     def __str__(self):
         return str(self.user)
 
@@ -1436,6 +1586,31 @@ def create_user_profile(sender, **kwargs):
         TrackerProfile.objects.create(user=user)
     if len(TrackerPreferences.objects.filter(user=user)) == 0:
         TrackerPreferences.objects.create(user=user)
+
+
+class BankAccount(Model):
+    user = models.ForeignKey('TrackerProfile', verbose_name=_('Account owner'), on_delete=models.CASCADE, related_name='bank_accounts')
+    name = models.CharField(_('Account name'), max_length=100)
+    prefix = models.CharField(_('Account prefix'), max_length=6, blank=True, validators=[validate_cnb_mod_11])
+    number = models.CharField(_('Account number'), max_length=10, validators=[validate_cnb_mod_11])
+    bank = models.CharField(_('Account bank code'), max_length=4, validators=[validate_bank_code])
+    deleted_at = models.DateTimeField(_('Deleted at'), null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.user} - {self.name} ({self.full_number})"
+
+    @property
+    def full_number(self):
+        prefix_part = f"{self.prefix}-" if self.prefix else ""
+        return f"{prefix_part}{self.number}/{self.bank}"
+
+    @property
+    def is_active(self):
+        return self.deleted_at is None
+
+    class Meta:
+        verbose_name = _('Bank account')
+        verbose_name_plural = _('Bank accounts')
 
 
 class Transaction(Model):

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+	<h1>{% trans "New bank account" %}</h1>
+
+	<form method="post" class="form-horizontal" style="margin-top: 20px;">
+		{% csrf_token %}
+		{{ form.non_field_errors }}
+
+		{% for field in form %}
+			<div class="form-group {% if field.errors %}has-error{% endif %}">
+				<label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}:</label>
+				{{ field }}
+				{% if field.errors %}
+					<span class="help-block">{{ field.errors|striptags }}</span>
+				{% endif %}
+			</div>
+		{% endfor %}
+
+		<div class="form-group" style="margin-top: 20px;">
+			<button type="submit" class="btn btn-success">{% trans "Save account" %}</button>
+			<a href="{% url 'bank_account_list' %}" class="btn btn-default">{% trans "Back" %}</a>
+		</div>
+	</form>
+</div>
+{% endblock %}
