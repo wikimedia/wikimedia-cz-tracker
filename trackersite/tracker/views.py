@@ -2132,7 +2132,7 @@ def import_expenditures(request, ready_expenditures):
         if parsed_date < datetime.date.today():
             raise ValueError("Date is in the past.")
         execution_date = execution_date_raw
-    except ValueError:
+    except (ValueError, TypeError):
         messages.error(request, _('Invalid or past execution date selected.'))
         return HttpResponseRedirect(request.path)
 

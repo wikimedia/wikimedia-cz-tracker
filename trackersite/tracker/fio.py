@@ -6,6 +6,7 @@ from django.db.models import Q
 from django.utils import timezone
 from django.db import transaction
 import requests
+import re
 import logging
 from django.utils.translation import ugettext_lazy as _
 
@@ -16,6 +17,15 @@ logger = logging.getLogger(__name__)
 
 class FioPaymentManager:
     FIO_IMPORT_URL = 'https://fioapi.fio.cz/v1/rest/import/'
+
+    # How strongly an expenditure fits a bank transaction, strongest first.
+    # The bank message is the only field that names one expenditure. The order
+    # number is the same for all the expenditures of one import batch, and so
+    # it must rank below the message.
+    MATCH_MESSAGE_AND_BATCH = 3
+    MATCH_MESSAGE = 2
+    MATCH_BATCH = 1
+    MATCH_NONE = 0
 
     @staticmethod
     def normalize_account(account_str):
@@ -30,6 +40,17 @@ class FioPaymentManager:
     def get_available_accounts():
         raw_tokens = getattr(settings, 'FIO_API_TOKENS', {})
         return [FioPaymentManager.normalize_account(k) for k in raw_tokens.keys()]
+
+    @staticmethod
+    def _message_matches(expected_msg, message):
+        """
+        Fio's message field may carry extra text around our reference, so this
+        is a substring match -- but anchored, so "WMCZ ticket #1" does not
+        match "WMCZ ticket #12".
+        """
+        if not expected_msg or not message:
+            return False
+        return re.search(re.escape(expected_msg) + r'(?!\w)', message) is not None
 
     def __init__(self):
         raw_tokens = getattr(settings, 'FIO_API_TOKENS', {})
@@ -275,6 +296,68 @@ class FioPaymentManager:
 
         return report
 
+    def _match_strength(self, expediture, abs_amount, id_instruction, message, full_target_account):
+        """
+        Tell how strongly an expenditure fits one bank transaction.
+
+        A larger value is stronger evidence. MATCH_NONE means the expenditure
+        does not fit the transaction.
+        """
+        try:
+            expected_msg = self._get_payment_message(expediture)
+        except ValueError:
+            # We never sent a payment reference for this expenditure, thus no
+            # transaction can carry one. An expenditure that failed the import
+            # keeps its ImportInfo and stays a candidate, so this can happen.
+            logger.debug(f"No payment message for expenditure {expediture.id}.")
+            return self.MATCH_NONE
+
+        is_msg_match = self._message_matches(expected_msg, message)
+        is_amount_match = expediture.amount == abs_amount
+
+        if expediture.payment_type == PaymentType.CARD:
+            return self.MATCH_MESSAGE if is_msg_match and is_amount_match else self.MATCH_NONE
+
+        is_batch_match = bool(id_instruction and getattr(expediture.import_info, 'order_number', None) == id_instruction)
+        is_account_match = expediture.get_target_account() == full_target_account
+
+        if is_batch_match and is_msg_match:
+            return self.MATCH_MESSAGE_AND_BATCH
+        if is_msg_match and is_amount_match and is_account_match:
+            return self.MATCH_MESSAGE
+        if is_batch_match and is_amount_match and is_account_match:
+            return self.MATCH_BATCH
+
+        return self.MATCH_NONE
+
+    def _best_matches(self, candidates, abs_amount, id_instruction, message, full_target_account):
+        """
+        Find the expenditures that fit one bank transaction best.
+
+        All the expenditures of one import batch have the same order number and
+        frequently also the same amount and the same target account. Only the
+        bank message tells them apart. Thus the strongest match is not always
+        the first candidate found, and it is not always unique. Return every
+        expenditure with the strongest match. The caller must not pay any of
+        them when there is more than one.
+        """
+        matches = []
+        best = self.MATCH_NONE
+
+        for expediture in candidates:
+            strength = self._match_strength(expediture, abs_amount, id_instruction, message, full_target_account)
+
+            if strength == self.MATCH_NONE:
+                continue
+
+            if strength > best:
+                best = strength
+                matches = [expediture]
+            elif strength == best:
+                matches.append(expediture)
+
+        return matches
+
     def sync_transactions(self, days_back=14, expiry_days=1):
         date_to = datetime.date.today()
         date_from = date_to - datetime.timedelta(days=days_back)
@@ -321,30 +404,25 @@ class FioPaymentManager:
 
                     candidates = Expediture.objects.filter(query & match_q).select_related('import_info', 'payment_info', 'linked_expenditure')
 
-                    for exp in candidates:
-                        is_match = False
+                    matches = self._best_matches(candidates, abs_amount, id_instruction, message, full_target_account)
 
-                        expected_msg = self._get_payment_message(exp)
-                        is_batch_match = bool(id_instruction and getattr(exp.import_info, 'order_number', None) == id_instruction)
-                        is_msg_match = bool(expected_msg and expected_msg in message)
+                    if len(matches) > 1:
+                        matched_ids = ', '.join(str(exp.id) for exp in matches)
+                        logger.warning(
+                            f"Ambiguous Fio transaction on account {account} "
+                            f"(amount {abs_amount}, order number {id_instruction}, message {message!r}): "
+                            f"expenditures {matched_ids} match equally well."
+                        )
+                        report['errors'].append(
+                            f"Account {account}: a payment of {abs_amount} matches expenditures {matched_ids} "
+                            "equally well. Mark the correct one as paid manually."
+                        )
+                        continue
 
-                        if exp.payment_type == PaymentType.CARD:
-                            if is_msg_match and exp.amount == abs_amount:
-                                is_match = True
-                        else:
-                            if is_batch_match and is_msg_match:
-                                is_match = True
-                            elif is_msg_match and exp.amount == abs_amount and exp.get_target_account() == full_target_account:
-                                is_match = True
-                            elif is_batch_match and exp.amount == abs_amount and exp.get_target_account() == full_target_account:
-                                is_match = True
-
-                        if is_match:
-                            with transaction.atomic():
-                                exp.paid = True
-                                exp.save(update_fields=['paid'])
-                                report['marked_paid'] += 1
-                            break
+                    if matches:
+                        with transaction.atomic():
+                            matches[0].mark_paid()
+                            report['marked_paid'] += 1
 
             except Exception as e:
                 logger.exception(f"Error when downloading transactions for account {account}: {e}")

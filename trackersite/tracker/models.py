@@ -1359,6 +1359,19 @@ class Expediture(Model):
     def is_cofinancing(self):
         return self.payment_type == 'internal_transfer' or self.payment_type == 'income'
 
+    def mark_paid(self, paid=True):
+        """
+        Set the paid flag on this expenditure and on its co-financing
+        counterpart. The two halves of a co-financing pair represent one
+        movement of money, so they must never end up half paid.
+        """
+        for exp in (self, self.linked_expenditure):
+            if exp is not None and exp.paid != paid:
+                exp.paid = paid
+                exp.save(update_fields=['paid'])
+
+    mark_paid.alters_data = True
+
     def get_import_block_reason(self):
         current_state = self.get_computed_state()
 

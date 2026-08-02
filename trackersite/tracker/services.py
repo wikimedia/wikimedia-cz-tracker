@@ -69,10 +69,13 @@ class PaymentService:
                         expenditure.linked_expenditure = transfer
                         expenditure.save(update_fields=['linked_expenditure'])
                 else:
-                    if expenditure.linked_expenditure:
-                        expenditure.linked_expenditure.delete()
+                    linked = expenditure.linked_expenditure
+                    if linked:
+                        # The link is bi-directional; detach before deleting; otherwise we delete the row
+                        # we are about to save.
                         expenditure.linked_expenditure = None
                         expenditure.save(update_fields=['linked_expenditure'])
+                        linked.delete()
 
         return expenditure
 

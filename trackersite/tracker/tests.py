@@ -14,7 +14,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError
 from django.core.files.base import ContentFile
 from django.core.management import call_command
-from django.test import TestCase, override_settings
+from django.test import SimpleTestCase, TestCase, override_settings
 from django.test.client import Client
 from django.urls import reverse
 from django.utils import timezone
@@ -933,8 +933,7 @@ class SummaryTest(TestCase):
     def test_topic_ticket_counts(self):
         self.assertEqual({'unpaid': 2}, self.topic.tickets_per_payment_status())
         for e in self.ticket.expediture_set.all():
-            e.paid = True
-            e.save()
+            e.mark_paid()
         self.assertEqual({'unpaid': 1, 'paid': 1}, self.topic.tickets_per_payment_status())
 
     def test_topic_ticket_counts2(self):
@@ -1764,8 +1763,7 @@ class AutomationPaymentTests(TestCase):
         self.assertEqual(exp.get_computed_state(), ExpenditureState.IMPORTED)
 
         # paid
-        exp.paid = True
-        exp.save()
+        exp.mark_paid()
 
         self.assertEqual(exp.get_computed_state(), ExpenditureState.PAID)
 
@@ -1790,6 +1788,75 @@ class CofinancingServiceTests(TestCase):
         self.assertEqual(linked.amount, 500)
         self.assertEqual(linked.payment_type, PaymentType.INTERNAL_TRANSFER)
 
+    def test_process_cofinancing_link_switch_to_account(self):
+        PaymentService.process_cofinancing_link(self.expenditure, self.ticket2, None, 500)
+        self.expenditure.refresh_from_db()
+        transfer_id = self.expenditure.linked_expenditure_id
+        self.assertIsNotNone(transfer_id)
+
+        # switching the source from a ticket to a bare account must drop the transfer
+        # without taking the income row with it.
+        PaymentService.process_cofinancing_link(self.expenditure, None, '2000145399/2010', 500)
+
+        self.expenditure.refresh_from_db()
+        self.assertIsNone(self.expenditure.linked_expenditure)
+        self.assertFalse(Expediture.objects.filter(id=transfer_id).exists())
+
+    def test_mark_paid_syncs_cofinancing_pair(self):
+        PaymentService.process_cofinancing_link(self.expenditure, self.ticket2, None, 500)
+        self.expenditure.refresh_from_db()
+
+        transfer = self.expenditure.linked_expenditure
+        transfer.mark_paid()
+
+        transfer.refresh_from_db()
+        self.expenditure.refresh_from_db()
+        self.assertTrue(transfer.paid)
+        self.assertTrue(self.expenditure.paid)
+
+        transfer.mark_paid(False)
+        transfer.refresh_from_db()
+        self.expenditure.refresh_from_db()
+        self.assertFalse(transfer.paid)
+        self.assertFalse(self.expenditure.paid)
+
+
+class FioMessageMatchingTests(SimpleTestCase):
+    """
+    Fio's message field can carry extra text around our payment reference, so
+    the matcher does a substring search -- but it must be anchored, or
+    "WMCZ ticket #1" silently matches ticket #12's transaction.
+    """
+
+    CASES = [
+        # (expected_msg, bank_message, should_match, description)
+        ('WMCZ ticket #12', 'WMCZ ticket #12', True, 'exact'),
+        ('WMCZ ticket #12', 'PLATBA WMCZ ticket #12 faktura', True, 'embedded in longer text'),
+        ('WMCZ ticket #12', 'WMCZ ticket #12, dekujeme', True, 'followed by punctuation'),
+        ('WMCZ ticket #12', 'WMCZ ticket #12-faktura', True, 'followed by a hyphen'),
+        ('WMCZ ticket #1', 'WMCZ ticket #12', False, 'prefix of a longer ticket number'),
+        ('WMCZ ticket #1', 'WMCZ ticket #1234', False, 'prefix of a much longer number'),
+        ('WMCZ ticket #12', 'WMCZ ticket #1', False, 'longer than the message reference'),
+        ('WMCZ ticket #1', 'WMCZ ticket #31', False, 'different number sharing a digit'),
+        ('WMCZ ticket #61', 'WMCZ ticket #61a', False, 'prefix of an alphanumeric accounting_info'),
+        ('WMCZ ticket #61a', 'WMCZ ticket #61a', True, 'alphanumeric accounting_info'),
+        # the trailing _ko already terminates the co-financing reference; these
+        # cases are here so that nobody drops it as redundant
+        ('Kofinancování ticketu #7_ko', 'Kofinancování ticketu #7_ko', True, 'co-financing exact'),
+        ('Kofinancování ticketu #7_ko', 'Kofinancování ticketu #71_ko', False, 'co-financing prefix'),
+        ('', 'WMCZ ticket #12', False, 'empty reference'),
+        ('WMCZ ticket #12', '', False, 'empty bank message'),
+        ('WMCZ ticket #12', None, False, 'missing bank message'),
+    ]
+
+    def test_message_matching(self):
+        for expected_msg, message, should_match, description in self.CASES:
+            with self.subTest(case=description):
+                self.assertEqual(
+                    FioPaymentManager._message_matches(expected_msg, message),
+                    should_match,
+                )
+
 
 @override_settings(FIO_API_TOKENS={'2000145399/2010': 'mock_fio_token'})
 class FioPaymentManagerTests(TestCase):
@@ -1805,6 +1872,37 @@ class FioPaymentManagerTests(TestCase):
             payment_type=PaymentType.BANK_TRANSFER,
             payment_info=self.payment_info
         )
+
+    def _imported_expenditure(self, accounting_info, order_number, amount=1000):
+        """An expenditure already sent to Fio, and so a candidate for matching."""
+        return Expediture.objects.create(
+            ticket=self.ticket,
+            description=f'expenditure {accounting_info}',
+            amount=amount,
+            payment_type=PaymentType.BANK_TRANSFER,
+            accounting_info=accounting_info,
+            payment_info=PaymentInfo.objects.create(account_number='123456789/0300'),
+            import_info=ImportInfo.objects.create(order_number=order_number, due_date=datetime.date.today()),
+        )
+
+    @staticmethod
+    def _fio_transaction(amount, message, order_number=None, account='123456789', bank='0300'):
+        return {
+            "column1": {"value": amount},  # amount
+            "column2": {"value": account} if account else None,  # target account
+            "column3": {"value": bank} if bank else None,  # bank code
+            "column17": {"value": order_number} if order_number else None,  # ID instruction
+            "column16": {"value": message} if message else None,  # msg
+        }
+
+    @staticmethod
+    def _fio_response(*transactions):
+        response = Mock()
+        response.status_code = 200
+        response.json.return_value = {
+            "accountStatement": {"transactionList": {"transaction": list(transactions)}}
+        }
+        return response
 
     @patch('tracker.fio.requests.post')
     def test_process_expenditures_success(self, mock_post):
@@ -1843,24 +1941,9 @@ class FioPaymentManagerTests(TestCase):
         self.expenditure.import_info = ImportInfo.objects.create(order_number='12345', due_date=datetime.date.today())
         self.expenditure.save()
 
-        mock_response = Mock()
-        mock_response.status_code = 200
-        mock_response.json.return_value = {
-            "accountStatement": {
-                "transactionList": {
-                    "transaction": [
-                        {
-                            "column1": {"value": -1000.0},  # ammount
-                            "column2": {"value": "123456789"},  # target account
-                            "column3": {"value": "0300"},  # bank cide
-                            "column17": {"value": "12345"},  # ID instruction
-                            "column16": {"value": f"WMCZ ticket #{self.ticket.id}"}  # msg
-                        }
-                    ]
-                }
-            }
-        }
-        mock_get.return_value = mock_response
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-1000.0, f'WMCZ ticket #{self.ticket.id}', order_number='12345')
+        )
 
         manager = FioPaymentManager()
         report = manager.sync_transactions(days_back=14, expiry_days=0)
@@ -1879,24 +1962,9 @@ class FioPaymentManagerTests(TestCase):
             accounting_info='61a'
         )
 
-        mock_response = Mock()
-        mock_response.status_code = 200
-        mock_response.json.return_value = {
-            "accountStatement": {
-                "transactionList": {
-                    "transaction": [
-                        {
-                            "column1": {"value": -500.0},  # ammount
-                            "column2": None,  # target account
-                            "column3": None,  # bank cide
-                            "column17": None,  # ID instruction
-                            "column16": {"value": "WMCZ ticket #61a"}  # msg
-                        }
-                    ]
-                }
-            }
-        }
-        mock_get.return_value = mock_response
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-500.0, 'WMCZ ticket #61a', account=None, bank=None)
+        )
 
         manager = FioPaymentManager()
         report = manager.sync_transactions(days_back=14, expiry_days=0)
@@ -1904,6 +1972,62 @@ class FioPaymentManagerTests(TestCase):
         self.assertEqual(report['marked_paid'], 1)
         card_exp.refresh_from_db()
         self.assertTrue(card_exp.paid)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_does_not_match_reference_prefix(self, mock_get):
+        # _get_payment_message() prefers accounting_info over the ticket id, so
+        # pinning it keeps the references stable whatever the auto-increment ids are.
+        short = self._imported_expenditure(accounting_info='1', order_number='999')
+        long_ref = self._imported_expenditure(accounting_info='12', order_number='999')
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-1000.0, 'WMCZ ticket #12', order_number='999')
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=14, expiry_days=0)
+
+        short.refresh_from_db()
+        long_ref.refresh_from_db()
+        self.assertFalse(short.paid, 'ticket #1 must not be paid by ticket #12 transaction')
+        self.assertTrue(long_ref.paid)
+        self.assertEqual(report['marked_paid'], 1)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_refuses_to_guess_between_identical_orders(self, mock_get):
+        first = self._imported_expenditure(accounting_info='40', order_number='777')
+        second = self._imported_expenditure(accounting_info='41', order_number='777')
+
+        # same amount, same target account, same batch, and a bank message that
+        # identifies neither -- there is nothing left to tell them apart, so
+        # marking either one would be a guess
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-1000.0, '', order_number='777')
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=14, expiry_days=0)
+
+        first.refresh_from_db()
+        second.refresh_from_db()
+        self.assertFalse(first.paid)
+        self.assertFalse(second.paid)
+        self.assertEqual(report['marked_paid'], 0)
+        self.assertEqual(len(report['errors']), 1)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_matches_amount_that_is_not_binary_exact(self, mock_get):
+        # Decimal('10.10') != 10.1, so comparing the model amount against the raw
+        # JSON float drops most real amounts with cents
+        exp = self._imported_expenditure(accounting_info='77', order_number='555', amount=Decimal('10.10'))
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-10.1, 'WMCZ ticket #77', order_number='555')
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=14, expiry_days=0)
+
+        exp.refresh_from_db()
+        self.assertTrue(exp.paid)
+        self.assertEqual(report['marked_paid'], 1)
 
 
 class PaymentServiceTests(TestCase):

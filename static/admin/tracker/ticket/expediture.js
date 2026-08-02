@@ -20,7 +20,7 @@ document.addEventListener( 'DOMContentLoaded', async () => {
 	}
 
 	const preexpeditureDiv = document.querySelector( '#preexpediture_set-group' );
-	const expeditureDiv = document.querySelector( '#expediture_set-wrapper' ) || document.querySelector( '#expediture_set-wrapper' );
+	const expeditureDiv = document.querySelector( '#expediture_set-wrapper' );
 
 	function updatePreexpediture() {
 		updateTotal( preexpeditureDiv );
