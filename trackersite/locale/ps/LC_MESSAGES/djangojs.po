@@ -1,0 +1,43 @@
+# Translation of Tracker - JavaScript to Pashto (پښتو)
+# Exported from translatewiki.net
+#
+# Author: باران
+# Author: شاه زمان پټان
+msgid ""
+msgstr ""
+""
+"PO-Revision-Date: 2026-08-27 12:31:48+0000\n"
+"X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ps\n"
+"Project-Id-Version: Tracker - JavaScript\n"
+"Report-Msgid-Bugs-To: translatewiki.net\n"
+"X-Translation-Project: translatewiki.net <https://translatewiki.net>\n"
+"X-Generator: MediaWiki 1.47.0-alpha; Translate 2025-07-31\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: static/commons-selection.js:156
+msgid "MediaWiki username"
+msgstr "مېډياويکي کارن‌نوم"
+
+#: static/commons-selection.js:159
+msgid "Filename prefix"
+msgstr "د دوتنې‌نوم مختاړی"
+
+#: static/commons-selection.js:184
+msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
+msgstr "ستاسو د راپورته کړو انځورونو د ترلاسن پرمهال نامالومه تېروتنه وشوه. مهرباني وکړئ د پالنگر پازوال سره اړيکه ونيسئ."
+
+#: static/commons-selection.js:373
+msgid "Wikimedia Commons returned the following error"
+msgstr "ويکي‌رسنۍ خونديځ لاندې تېروتنه راوگرځوله"
+
+#: static/commons-selection.js:388
+msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
+msgstr "مشخص شوي گڼون په ويکي‌رسنۍ خونديځ کې هېڅ راپورته‌کېدنه نلري. لومړی يو څو دوتنې راپورته کړئ!"
+
+#: static/commons-selection.js:393
+msgid "Your search does not match any files."
+msgstr "ستاسې پلټنه د هېڅ دوتنې سره ورته نه وه."
+

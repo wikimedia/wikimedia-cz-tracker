@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-06-11 12:30:23+0000\n"
+"PO-Revision-Date: 2026-08-27 12:31:50+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2875,7 +2875,7 @@ msgstr "Aanmelden"
 
 #: users/templates/users/login.html:7
 msgid "You need to log in to access the following page."
-msgstr "U moet inloggen om de volgende pagina te openen."
+msgstr "U moet aanmelden om de volgende pagina te openen."
 
 #: users/templates/users/login.html:10
 msgid "Your username and password didn't match. Please try again."
@@ -3000,11 +3000,11 @@ msgstr "Wachtwoord opnieuw instellen voltooid"
 
 #: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
-msgstr "Uw wachtwoord is ingesteld. U kunt nu inloggen."
+msgstr "Uw wachtwoord is ingesteld. U kunt nu aanmelden."
 
 #: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
-msgstr "Inloggen"
+msgstr "Aanmelden"
 
 #: users/templates/users/password_reset_confirm.html:10
 msgid "Enter new password"
