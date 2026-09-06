@@ -8,11 +8,13 @@
 
 <h1>{% trans "My personal information" %}</h1>
 <p>{% trans "To use tracker for expenses, we need a bit more information about you first." %}</p>
+<p>{% trans "The bank account is optional. If you give it to us, we can send the money for your expenses to it." %}</p>
 <form method="post">
 {% for field in form %}
 <div class="form-group form-check">
 {{ field.errors }}
 {{ field.label_tag }} {{ field|add_class:"form-control" }}
+{% if field.help_text %}<span class="helptext">{{ field.help_text }}</span>{% endif %}
 </div>
 {% endfor %}
 {% csrf_token %}

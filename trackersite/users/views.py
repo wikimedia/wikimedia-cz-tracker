@@ -47,6 +47,26 @@ class TrackerProfileDetailsForm(forms.ModelForm):
         for field_name in REQUIRED_BANK_ACCOUNT_FIELDS:
             self.fields[field_name].required = False
         self.fields.update(fields_for_model(TrackerProfile, fields=PROFILE_FIELDS))
+        self.set_bank_account_help_texts()
+
+    def set_bank_account_help_texts(self):
+        """
+        Explain the bank account fields to the new user.
+
+        An account number has three parts: an optional prefix, the number
+        and the code of the bank. The help texts tell the user which part
+        goes into which field.
+        """
+        help_texts = {
+            "name": _('Your own name for this account, for example "Personal account". '
+                      'It helps you to select the correct account when you ask for a payment.'),
+            "prefix": _("The part of the account number before the dash. "
+                        "Many accounts have no prefix; then leave this field empty."),
+            "number": _("The part of the account number before the slash."),
+            "bank": _("The four-digit code of your bank, after the slash. For example 0800."),
+        }
+        for field_name, help_text in help_texts.items():
+            self.fields[field_name].help_text = help_text
 
     def has_bank_account(self):
         """ Tell if the user filled any part of the bank account. """
