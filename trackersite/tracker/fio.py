@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 import xml.etree.ElementTree as ET
+from decimal import Decimal
 from django.conf import settings
 from django.db.models import Q
 from django.utils import timezone
@@ -388,7 +389,12 @@ class FioPaymentManager:
                     if amount >= 0:
                         continue
 
-                    abs_amount = abs(amount)
+                    # Fio sends the amount as a JSON float, but the expenditure
+                    # keeps a decimal. Decimal('10.10') != 10.1, thus we must
+                    # compare a decimal against a decimal. Go through str() to
+                    # get the decimal that the float shows, not the binary value
+                    # behind it.
+                    abs_amount = Decimal(str(abs(amount)))
 
                     id_instruction = str(t.get('column17', {}).get('value', '')) if t.get('column17') else None
                     message = str(t.get('column16', {}).get('value', '')) if t.get('column16') else ""

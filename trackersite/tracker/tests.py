@@ -2029,6 +2029,46 @@ class FioPaymentManagerTests(TestCase):
         self.assertTrue(exp.paid)
         self.assertEqual(report['marked_paid'], 1)
 
+    @patch('tracker.fio.requests.get')
+    def test_sync_matches_amount_with_cents_without_order_number(self, mock_get):
+        # Fio does not return the order number for every transaction. Then the
+        # amount and the target account must confirm the message, and so the
+        # amount decides. Decimal('10.10') != 10.1, thus a comparison against
+        # the raw JSON float drops the transaction.
+        exp = self._imported_expenditure(accounting_info='78', order_number='556', amount=Decimal('10.10'))
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-10.1, 'WMCZ ticket #78')
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=14, expiry_days=0)
+
+        exp.refresh_from_db()
+        self.assertTrue(exp.paid)
+        self.assertEqual(report['marked_paid'], 1)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_matches_card_amount_with_cents(self, mock_get):
+        # A card payment never has an order number, and so the amount always
+        # decides.
+        card_exp = Expediture.objects.create(
+            ticket=self.ticket,
+            description='card payment with cents',
+            amount=Decimal('10.10'),
+            payment_type=PaymentType.CARD,
+            accounting_info='88a'
+        )
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-10.1, 'WMCZ ticket #88a', account=None, bank=None)
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=14, expiry_days=0)
+
+        card_exp.refresh_from_db()
+        self.assertTrue(card_exp.paid)
+        self.assertEqual(report['marked_paid'], 1)
+
 
 class PaymentServiceTests(TestCase):
     def setUp(self):
