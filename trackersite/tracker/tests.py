@@ -17,6 +17,8 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError
 from django.core.files.base import ContentFile
 from django.core.management import call_command
+from django.forms.formsets import DELETION_FIELD_NAME
+from django.forms.models import inlineformset_factory
 from django.test import SimpleTestCase, TestCase, override_settings
 from django.test.client import Client
 from django.urls import reverse
@@ -24,6 +26,7 @@ from django.utils import timezone
 
 from socialauth.api import MediaWiki
 
+from tracker.admin import ExpeditureInlineFormSet
 from tracker.fio import FioPaymentManager
 from tracker.services import PaymentService
 from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile, \
@@ -1838,6 +1841,90 @@ class CofinancingServiceTests(TestCase):
         self.expenditure.refresh_from_db()
         self.assertFalse(transfer.paid)
         self.assertFalse(self.expenditure.paid)
+
+
+class AdminExpeditureDeleteGuardTests(TestCase):
+    """
+    A co-financing pair is two rows that point at each other with a mutual
+    CASCADE. A delete of one row therefore also removes the other row, which
+    can be paid or can have an order at the bank. The admin formset must refuse
+    to delete either row.
+    """
+
+    def setUp(self):
+        self.grant = Grant.objects.create(full_name='g', short_name='g', slug='g')
+        self.topic = Topic.objects.create(name='topic', grant=self.grant)
+        self.ticket1 = Ticket.objects.create(name='T1', topic=self.topic)
+        self.ticket2 = Ticket.objects.create(name='T2', topic=self.topic)
+
+        self.income = Expediture.objects.create(
+            ticket=self.ticket1, description='Nakup techniky', amount=1000,
+            payment_type=PaymentType.INCOME,
+        )
+        PaymentService.process_cofinancing_link(self.income, self.ticket2, None, 500)
+        self.income.refresh_from_db()
+        self.transfer = self.income.linked_expenditure
+
+    def _build_formset(self, ticket, expenditure):
+        """Build a bound admin inline formset that asks to delete one row."""
+        formset_class = inlineformset_factory(
+            Ticket, Expediture, formset=ExpeditureInlineFormSet,
+            fields=('description', 'amount'), extra=0, can_delete=True,
+        )
+        prefix = formset_class.get_default_prefix()
+        data = {
+            '%s-TOTAL_FORMS' % prefix: '1',
+            '%s-INITIAL_FORMS' % prefix: '1',
+            '%s-MIN_NUM_FORMS' % prefix: '0',
+            '%s-MAX_NUM_FORMS' % prefix: '1000',
+            '%s-0-id' % prefix: str(expenditure.pk),
+            '%s-0-ticket' % prefix: str(ticket.pk),
+            '%s-0-description' % prefix: expenditure.description,
+            '%s-0-amount' % prefix: str(expenditure.amount),
+            '%s-0-DELETE' % prefix: 'on',
+        }
+        return formset_class(data, instance=ticket, queryset=Expediture.objects.filter(pk=expenditure.pk))
+
+    def _try_to_delete(self, ticket, expenditure):
+        formset = self._build_formset(ticket, expenditure)
+        if formset.is_valid():
+            formset.save()
+
+    def test_delete_is_disabled_for_both_halves(self):
+        for ticket, expenditure in ((self.ticket1, self.income), (self.ticket2, self.transfer)):
+            formset = self._build_formset(ticket, expenditure)
+            self.assertTrue(formset.forms[0].fields[DELETION_FIELD_NAME].disabled)
+
+    def test_deleting_the_income_row_keeps_the_pair(self):
+        self._try_to_delete(self.ticket1, self.income)
+
+        self.assertTrue(Expediture.objects.filter(pk=self.income.pk).exists())
+        self.assertTrue(Expediture.objects.filter(pk=self.transfer.pk).exists())
+
+    def test_deleting_the_transfer_row_keeps_the_pair(self):
+        self._try_to_delete(self.ticket2, self.transfer)
+
+        self.assertTrue(Expediture.objects.filter(pk=self.income.pk).exists())
+        self.assertTrue(Expediture.objects.filter(pk=self.transfer.pk).exists())
+
+    def test_imported_expenditure_cannot_be_deleted(self):
+        expenditure = Expediture.objects.create(
+            ticket=self.ticket1, description='Kancelarske potreby', amount=200,
+            import_info=ImportInfo.objects.create(),
+        )
+
+        self._try_to_delete(self.ticket1, expenditure)
+
+        self.assertTrue(Expediture.objects.filter(pk=expenditure.pk).exists())
+
+    def test_plain_expenditure_can_still_be_deleted(self):
+        expenditure = Expediture.objects.create(
+            ticket=self.ticket1, description='Kancelarske potreby', amount=200,
+        )
+
+        self._try_to_delete(self.ticket1, expenditure)
+
+        self.assertFalse(Expediture.objects.filter(pk=expenditure.pk).exists())
 
 
 class FioMessageMatchingTests(SimpleTestCase):

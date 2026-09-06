@@ -28,29 +28,33 @@ class MediaInfoAdmin(admin.TabularInline):
 
 
 class ExpeditureInlineFormSet(BaseInlineFormSet):
+    """
+    Formset that refuses to delete a locked expenditure.
+
+    The two halves of a co-financing pair point at each other with a mutual
+    CASCADE, so a delete of one half also removes the other. The other half can
+    be paid, or an order for it can already be at the bank. Therefore the guard
+    must reject both halves, not only the internal transfer. It uses the same
+    rule as the API and the public form.
+    """
+
     def add_fields(self, form, index):
         super().add_fields(form, index)
 
         if self.can_delete and DELETION_FIELD_NAME in form.fields:
-            if form.instance and form.instance.pk:
-                is_internal = form.instance.payment_type == models.PaymentType.INTERNAL_TRANSFER
-
-                if form.instance.paid or is_internal:
-                    form.fields[DELETION_FIELD_NAME].disabled = True
+            if form.instance and form.instance.pk and form.instance.is_locked_for_user():
+                form.fields[DELETION_FIELD_NAME].disabled = True
 
     def clean(self):
         super().clean()
         for form in self.forms:
             if self.can_delete and self._should_delete_form(form):
                 instance = form.instance
-                if instance.pk:
-                    is_internal = instance.payment_type == models.PaymentType.INTERNAL_TRANSFER
-
-                    if instance.paid or is_internal:
-                        raise forms.ValidationError(
-                            _('Cannot delete expenditure #%(id)s: It is either an internal transfer or already paid.')
-                            % {'id': instance.pk}
-                        )
+                if instance.pk and instance.is_locked_for_user():
+                    raise forms.ValidationError(
+                        _('Cannot delete expenditure #%(id)s: It is locked (paid, imported, or co-financing).')
+                        % {'id': instance.pk}
+                    )
 
 
 class ExpeditureAdminForm(ExpediturePaymentMixin):
