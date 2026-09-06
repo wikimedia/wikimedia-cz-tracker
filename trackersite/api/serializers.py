@@ -148,9 +148,20 @@ class MediaInfoOldSerializer(serializers.HyperlinkedModelSerializer):
         model = MediaInfoOld
 
 
+# The API does not publish PaymentInfo and ImportInfo. A hyperlink to them
+# cannot resolve, and PaymentInfo holds bank account numbers. Keep both fields
+# out of the API.
+EXPEDITURE_EXCLUDE_FIELDS = ('payment_info', 'import_info')
+
+# The payment automation owns these fields. Only the ticket form and the Fio
+# import can change them.
+EXPEDITURE_AUTOMATION_FIELDS = ('payment_type', 'linked_expenditure')
+
+
 class ExpeditureAdminSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        fields = '__all__'
+        exclude = EXPEDITURE_EXCLUDE_FIELDS
+        read_only_fields = EXPEDITURE_AUTOMATION_FIELDS
         model = Expediture
 
 
@@ -164,9 +175,23 @@ class ExpeditureSerializer(serializers.HyperlinkedModelSerializer):
             raise serializers.ValidationError(_('You can not edit expiditures of this ticket.'))
         return ticket
 
+    def validate(self, attrs):
+        """
+        Refuse a change to an expenditure that the payment automation owns.
+
+        The ticket form disables such an expenditure. The API must refuse it
+        too. If the API accepts it, a user can clear the import mark and offer
+        an order for import a second time, or change the payee after the order
+        goes to the bank.
+        """
+        if self.instance is not None and self.instance.is_locked_for_user():
+            raise serializers.ValidationError(_('You can not edit this expiditure.'))
+
+        return attrs
+
     class Meta:
-        read_only_fields = ('accounting_info', 'paid')
-        fields = '__all__'
+        exclude = EXPEDITURE_EXCLUDE_FIELDS
+        read_only_fields = ('accounting_info', 'paid') + EXPEDITURE_AUTOMATION_FIELDS
         model = Expediture
 
 

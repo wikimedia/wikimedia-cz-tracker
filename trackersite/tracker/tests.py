@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import base64
 import csv
 import datetime
 import io
@@ -2182,3 +2183,98 @@ class CommandFiosyncTests(TestCase):
         self.assertIn('Successfully matched and marked as PAID: 2 expenditures.', output)
         self.assertIn('Expired and reverted to WAITING: 1 expenditures.', output)
         self.assertIn('- Fio API error timeout', output)
+
+
+class ExpeditureApiTests(TestCase):
+    """The API must not be a way around the locks of the payment automation."""
+
+    def setUp(self):
+        self.password = 'secret'
+        self.user = User.objects.create_user('apiuser', 'api@example.com', self.password)
+        self.grant = Grant.objects.create(full_name='g', short_name='g', slug='g', source_bank_account='2000145399/2010')
+        self.topic = Topic.objects.create(name='topic', grant=self.grant)
+        self.ticket = Ticket.objects.create(name='T1', topic=self.topic, requested_user=self.user)
+        self.expenditure = Expediture.objects.create(
+            ticket=self.ticket,
+            description='Platba faktury',
+            amount=Decimal('1000.00'),
+            payment_type=PaymentType.BANK_TRANSFER,
+            payment_info=PaymentInfo.objects.create(account_number='123456789/0300'),
+        )
+
+    def _auth(self):
+        """Use HTTP Basic, because it needs no CSRF token."""
+        credentials = base64.b64encode(f'apiuser:{self.password}'.encode()).decode('ascii')
+        return {'HTTP_AUTHORIZATION': f'Basic {credentials}'}
+
+    def _detail_url(self, expenditure):
+        return reverse('expediture-detail', kwargs={'pk': expenditure.id})
+
+    def _mark_imported(self):
+        self.expenditure.import_info = ImportInfo.objects.create(order_number='12345')
+        self.expenditure.save(update_fields=['import_info'])
+
+    def _patch(self, body):
+        return self.client.patch(
+            self._detail_url(self.expenditure),
+            data=json.dumps(body),
+            content_type='application/json',
+            **self._auth()
+        )
+
+    def test_api_reads_an_expenditure_that_has_payment_details(self):
+        # The API does not publish PaymentInfo and ImportInfo. A hyperlink to
+        # them cannot resolve, thus these two fields must stay out of the API.
+        self._mark_imported()
+
+        response = self.client.get(self._detail_url(self.expenditure), **self._auth())
+
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn('payment_info', response.json())
+        self.assertNotIn('import_info', response.json())
+
+    def test_api_refuses_to_change_an_imported_expenditure(self):
+        self._mark_imported()
+
+        response = self._patch({'amount': '9999.00'})
+
+        self.assertEqual(response.status_code, 400)
+        self.expenditure.refresh_from_db()
+        self.assertEqual(self.expenditure.amount, Decimal('1000.00'))
+
+    def test_api_cannot_clear_the_import_mark(self):
+        # If the API clears the mark, the expenditure returns to the import
+        # queue and the same order goes to the bank a second time.
+        self._mark_imported()
+
+        self._patch({'import_info': None})
+
+        self.expenditure.refresh_from_db()
+        self.assertIsNotNone(self.expenditure.import_info)
+        self.assertEqual(self.expenditure.get_computed_state(), ExpenditureState.IMPORTED)
+
+    def test_api_cannot_change_the_payment_type(self):
+        response = self._patch({'payment_type': PaymentType.INTERNAL_TRANSFER})
+
+        self.assertEqual(response.status_code, 200)
+        self.expenditure.refresh_from_db()
+        self.assertEqual(self.expenditure.payment_type, PaymentType.BANK_TRANSFER)
+
+    def test_api_cannot_link_another_expenditure(self):
+        # mark_paid() marks the linked expenditure as paid too. A link that a
+        # user makes can thus mark the expenditure of another ticket as paid.
+        other = Expediture.objects.create(ticket=self.ticket, description='other', amount=Decimal('5.00'))
+
+        self._patch({'linked_expenditure': self._detail_url(other)})
+
+        self.expenditure.refresh_from_db()
+        self.assertIsNone(self.expenditure.linked_expenditure)
+
+    def test_api_cannot_delete_a_paid_expenditure(self):
+        self.expenditure.paid = True
+        self.expenditure.save(update_fields=['paid'])
+
+        response = self.client.delete(self._detail_url(self.expenditure), **self._auth())
+
+        self.assertEqual(response.status_code, 403)
+        self.assertTrue(Expediture.objects.filter(id=self.expenditure.id).exists())

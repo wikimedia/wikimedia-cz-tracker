@@ -17,11 +17,12 @@ from .serializers import (
 )
 from rest_framework import viewsets
 from rest_framework import status
+from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
 from .permissions import (ReadOnly, CanEditTicketElseReadOnly, CanEditExpedituresElseReadOnly, IsSelfTrackerProfile,
                           IsOwnTrackerPreferences)
 from django.contrib.contenttypes.models import ContentType
-from django.utils.translation import activate
+from django.utils.translation import activate, ugettext as _
 from django.conf import settings
 from django.db.utils import IntegrityError
 
@@ -193,6 +194,15 @@ class ExpeditureViewSet(viewsets.ModelViewSet):
         if not self.request.user.is_staff:
             return ExpeditureSerializer
         return ExpeditureAdminSerializer
+
+    def perform_destroy(self, instance):
+        # A paid or imported expenditure is an accounting record, thus it must
+        # stay. A co-financing expenditure also deletes its counterpart on the
+        # other ticket, because the two rows point at each other.
+        if instance.is_locked_for_user():
+            raise PermissionDenied(_('You can not delete this expiditure.'))
+
+        instance.delete()
 
 
 class PreexpeditureViewSet(viewsets.ModelViewSet):
