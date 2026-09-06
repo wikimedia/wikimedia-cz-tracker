@@ -19,6 +19,10 @@ logger = logging.getLogger(__name__)
 class FioPaymentManager:
     FIO_IMPORT_URL = 'https://fioapi.fio.cz/v1/rest/import/'
 
+    # Connect timeout and read timeout for the Fio API, in seconds. The import
+    # runs in a web request. A call must not hold a worker for an unlimited time.
+    HTTP_TIMEOUT = (10, 60)
+
     # How strongly an expenditure fits a bank transaction, strongest first.
     # The bank message is the only field that names one expenditure. The order
     # number is the same for all the expenditures of one import batch, and so
@@ -165,6 +169,83 @@ class FioPaymentManager:
             logger.error(f"XML parsing failed Raw: {xml_string}")
             return 'error', ["XML parsing failed"], None
 
+    def _claim_for_import(self, expenditures, execution_date):
+        """
+        Reserve the expenditures before the order goes to Fio.
+
+        The claim is one transaction with locked rows. A second import that runs
+        at the same time finds the rows claimed and stops. The claim also stays
+        in place when the Fio call ends with an unknown result. A lost response
+        thus cannot put the order back in the queue on its own.
+
+        Return False if one expenditure is no longer ready for import. Nothing
+        is claimed then, and the caller must not send the batch.
+        """
+        ids = [exp.id for exp in expenditures]
+
+        with transaction.atomic():
+            # Lock in a stable order. Two imports that overlap then wait for each
+            # other instead of deadlocking.
+            locked = {
+                current.id: current
+                for current in Expediture.objects.select_for_update().filter(
+                    id__in=ids
+                ).select_related('import_info').order_by('id')
+            }
+
+            for exp in expenditures:
+                current = locked.get(exp.id)
+                if current is None or current.paid:
+                    return False
+                if current.import_info and not current.import_info.error:
+                    return False
+
+            for exp in expenditures:
+                stale_info = locked[exp.id].import_info
+                exp.import_info = ImportInfo.objects.create(imported_at=timezone.now(), due_date=execution_date)
+                exp.save(update_fields=['import_info'])
+
+                if stale_info:
+                    stale_info.delete()
+
+        return True
+
+    def _confirm_claim(self, expenditures, order_number):
+        """Write the Fio order number into the claim. Fio has the order now."""
+        with transaction.atomic():
+            for exp in expenditures:
+                exp.import_info.order_number = order_number or ''
+                exp.import_info.save(update_fields=['order_number'])
+
+    def _release_claim(self, expenditures, mark_error):
+        """
+        Give the expenditures back to the import queue.
+
+        Use this only when Fio refuses the batch. If the result of the call is
+        unknown, keep the claim. An operator must then look at the order in Fio
+        and revert the import by hand.
+
+        Set mark_error to show the operator that the attempt failed. Clear
+        mark_error when Fio only rate limits the batch, because the data of the
+        expenditure is correct.
+        """
+        with transaction.atomic():
+            for exp in expenditures:
+                info = exp.import_info
+                if info is None:
+                    continue
+
+                if mark_error:
+                    # No order exists, thus the due date has no meaning. Clear it,
+                    # or the expiry sweep removes the error mark at that date.
+                    info.error = True
+                    info.due_date = None
+                    info.save(update_fields=['error', 'due_date'])
+                else:
+                    exp.import_info = None
+                    exp.save(update_fields=['import_info'])
+                    info.delete()
+
     def process_expenditures(self, expenditures, execution_date):
         batches = {}
         report = {
@@ -196,7 +277,20 @@ class FioPaymentManager:
         for account, exps in batches.items():
             try:
                 xml_data = self._generate_xml(account, exps, execution_date)
+            except Exception as e:
+                # The order is not sent yet. The expenditures stay in the queue.
+                report['errors'].append(_("Cannot prepare the batch for account {}: {}").format(account, str(e)))
+                logger.exception(f"Fio import cannot build the batch for account {account}: {str(e)}")
+                continue
 
+            if not self._claim_for_import(exps, execution_date):
+                report['warnings'].append(_(
+                    "Expenditures for account {} changed while the import ran. Nothing was sent. Please try again."
+                ).format(account))
+                logger.warning(f"Fio import cannot claim the batch for account {account}.")
+                continue
+
+            try:
                 data = {
                     'token': self.tokens[account],
                     'type': 'xml'
@@ -205,9 +299,12 @@ class FioPaymentManager:
                     'file': ('import.xml', xml_data, 'text/xml')
                 }
 
-                response = requests.post(self.FIO_IMPORT_URL, data=data, files=files)
+                response = requests.post(self.FIO_IMPORT_URL, data=data, files=files, timeout=self.HTTP_TIMEOUT)
 
                 if response.status_code == 409:
+                    # Fio refuses the batch, thus no order exists.
+                    self._release_claim(exps, mark_error=False)
+
                     warning_msg = _("Fio API requires a 30-second delay between requests. Please wait a moment and try again.")
 
                     report['warnings'].append(warning_msg)
@@ -215,15 +312,12 @@ class FioPaymentManager:
                     continue
 
                 if response.status_code == 500:
+                    # Fio refuses the token, thus no order exists.
+                    self._release_claim(exps, mark_error=True)
+
                     error_msg = _("Fio API error 500: Invalid or inactive token for account {}.").format(account)
                     report['errors'].append(error_msg)
                     logger.error(f"Fio API 500 Error for account {account}. Check token validity.")
-                    with transaction.atomic():
-                        for exp in exps:
-                            if exp.import_info:
-                                exp.import_info.delete()
-                            exp.import_info = ImportInfo.objects.create(error=True)
-                            exp.save(update_fields=['import_info'])
                     continue
 
                 response.raise_for_status()
@@ -232,12 +326,7 @@ class FioPaymentManager:
 
                 with transaction.atomic():
                     if status in ['ok', 'warning']:
-                        for exp in exps:
-                            new_import_info = ImportInfo.objects.create(imported_at=timezone.now(), due_date=execution_date, order_number=id_instruction or '')
-                            if exp.import_info:
-                                exp.import_info.delete()
-                            exp.import_info = new_import_info
-                            exp.save()
+                        self._confirm_claim(exps, id_instruction)
 
                         report['success_count'] += len(exps)
 
@@ -246,52 +335,27 @@ class FioPaymentManager:
                             report['warnings'].append(_("Batch for account {} was accepted with warning: {}").format(account, warning_msg))
 
                     else:
+                        # Fio refuses the batch, thus no order exists.
                         if len(messages) == len(exps):
                             for exp, msg in zip(exps, messages):
                                 if msg and msg.strip().upper() != 'OK':
-                                    if exp.import_info:
-                                        exp.import_info.delete()
-                                    exp.import_info = ImportInfo.objects.create(error=True)
-                                    exp.save(update_fields=['import_info'])
+                                    self._release_claim([exp], mark_error=True)
                                     report['errors'].append(f"{exp.description}: {msg}")
                                 else:
-                                    if exp.import_info:
-                                        old_info = exp.import_info
-                                        exp.import_info = None
-                                        exp.save(update_fields=['import_info'])
-                                        old_info.delete()
+                                    self._release_claim([exp], mark_error=False)
                         else:
-                            for exp in exps:
-                                if exp.import_info:
-                                    exp.import_info.delete()
-                                exp.import_info = ImportInfo.objects.create(error=True)
-                                exp.save(update_fields=['import_info'])
+                            self._release_claim(exps, mark_error=True)
                             error_msg = " | ".join([m for m in messages if m])
                             report['errors'].append(_("API rejected batch for account {}: {}").format(account, error_msg))
 
-            except requests.exceptions.ConnectionError as e:
-                with transaction.atomic():
-                    for exp in exps:
-                        if exp.import_info:
-                            exp.import_info.delete()
-                        exp.import_info = ImportInfo.objects.create(error=True)
-                        exp.save(update_fields=['import_info'])
-
-                ui_error = _(
-                    "Connection error to Fio API for account {}. Please check your network or try again later.").format(
-                    account)
-                report['errors'].append(ui_error)
-                logger.exception(f"Fio import connection failed for account {account}: {str(e)}")
-
             except Exception as e:
-                with transaction.atomic():
-                    for exp in exps:
-                        if exp.import_info:
-                            exp.import_info.delete()
-                        exp.import_info = ImportInfo.objects.create(error=True)
-                        exp.save(update_fields=['import_info'])
-
-                ui_error = _("Communication with Fio failed for account {}: {}").format(account, str(e))
+                # The batch can be on its way to Fio, but the result is unknown.
+                # Keep the claim. If you release it here, a second import can
+                # send the same order again and pay it twice.
+                ui_error = _(
+                    "Communication with Fio failed for account {}: {}. The expenditures stay marked as imported. "
+                    "Check the order in Fio internet banking before you revert the import."
+                ).format(account, str(e))
                 report['errors'].append(ui_error)
                 logger.exception(f"Fio import failed for batch on account {account}: {str(e)}")
 
@@ -373,7 +437,7 @@ class FioPaymentManager:
             url = f"https://fioapi.fio.cz/v1/rest/periods/{token}/{date_from.isoformat()}/{date_to.isoformat()}/transactions.json"
 
             try:
-                response = requests.get(url)
+                response = requests.get(url, timeout=self.HTTP_TIMEOUT)
                 response.raise_for_status()
                 data = response.json()
 

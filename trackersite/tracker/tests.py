@@ -8,6 +8,8 @@ import random
 from decimal import Decimal
 from unittest.mock import patch, Mock
 
+import requests
+
 from django.conf import settings
 from django.contrib.auth.models import User, Permission
 from django.contrib.contenttypes.models import ContentType
@@ -1936,6 +1938,44 @@ class FioPaymentManagerTests(TestCase):
         self.expenditure.refresh_from_db()
         self.assertIsNone(self.expenditure.import_info)
 
+    @patch('tracker.fio.requests.post')
+    def test_import_keeps_the_claim_when_the_result_is_unknown(self, mock_post):
+        # A lost response does not tell us whether Fio took the order. The
+        # expenditure must stay out of the queue, or the next import pays twice.
+        mock_post.side_effect = requests.exceptions.ReadTimeout('timed out')
+
+        report = FioPaymentManager().process_expenditures([self.expenditure], '2026-10-10')
+
+        self.assertEqual(report['success_count'], 0)
+        self.assertEqual(len(report['errors']), 1)
+
+        self.expenditure.refresh_from_db()
+        self.assertIsNotNone(self.expenditure.import_info)
+        self.assertFalse(self.expenditure.import_info.error)
+        self.assertEqual(self.expenditure.get_computed_state(), ExpenditureState.IMPORTED)
+
+    @patch('tracker.fio.requests.post')
+    def test_import_refuses_an_expenditure_that_is_already_imported(self, mock_post):
+        self.expenditure.import_info = ImportInfo.objects.create(due_date=datetime.date.today())
+        self.expenditure.save(update_fields=['import_info'])
+
+        report = FioPaymentManager().process_expenditures([self.expenditure], '2026-10-10')
+
+        mock_post.assert_not_called()
+        self.assertEqual(report['success_count'], 0)
+        self.assertEqual(len(report['warnings']), 1)
+
+    @patch('tracker.fio.requests.post')
+    def test_import_uses_a_timeout(self, mock_post):
+        mock_response = Mock()
+        mock_response.status_code = 200
+        mock_response.text = '<?xml version="1.0" encoding="UTF-8"?><response><result><status>ok</status><errorCode>0</errorCode><idInstruction>12345</idInstruction></result></response>'
+        mock_post.return_value = mock_response
+
+        FioPaymentManager().process_expenditures([self.expenditure], '2026-10-10')
+
+        self.assertEqual(mock_post.call_args.kwargs['timeout'], FioPaymentManager.HTTP_TIMEOUT)
+
     @patch('tracker.fio.requests.get')
     def test_sync_transactions_match(self, mock_get):
         self.expenditure.import_info = ImportInfo.objects.create(order_number='12345', due_date=datetime.date.today())
@@ -2068,6 +2108,14 @@ class FioPaymentManagerTests(TestCase):
         card_exp.refresh_from_db()
         self.assertTrue(card_exp.paid)
         self.assertEqual(report['marked_paid'], 1)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_uses_a_timeout(self, mock_get):
+        mock_get.return_value = self._fio_response()
+
+        FioPaymentManager().sync_transactions(days_back=14, expiry_days=0)
+
+        self.assertEqual(mock_get.call_args.kwargs['timeout'], FioPaymentManager.HTTP_TIMEOUT)
 
 
 class PaymentServiceTests(TestCase):
