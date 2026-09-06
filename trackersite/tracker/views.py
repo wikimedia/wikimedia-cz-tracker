@@ -134,12 +134,12 @@ class TicketAckAddView(FormView):
         )
 
         if self.kwargs['ack_type'] == "user_content" and \
-                TrackerProfile.objects.get(user=self.request.user).bank_account == "":
+                not TrackerProfile.objects.get(user=self.request.user).get_active_bank_accounts().exists():
             messages.warning(self.request, mark_safe(_('Ticket %(ticket_id)s confirmation "%(confirmation)s" has been '
-                                                       'added. However, no bank account information filled. Without it,'
+                                                       'added. However, you have no bank account saved. Without it,'
                                                        ' we can\'t reimburse you. Go to '
-                                                       '<a href="%(details_url)s">your details</a> to fill it.')
-                                                     % {"details_url": reverse("user_details_change"),
+                                                       '<a href="%(accounts_url)s">your bank accounts</a> to add one.')
+                                                     % {"accounts_url": reverse("bank_account_list"),
                                                         "ticket_id": ticket.id,
                                                         "confirmation": ack.get_ack_type_display()}))
         else:
@@ -1193,7 +1193,7 @@ def user_detail(request, username):
 class UserDetailsChange(FormView):
     template_name = 'tracker/user_details_change.html'
     user_fields = ('first_name', 'last_name', 'email')
-    profile_fields = [f.name for f in TrackerProfile._meta.fields if f.name not in ('id', 'user', 'mediawiki_username', 'chapter_username')]
+    profile_fields = [f.name for f in TrackerProfile._meta.fields if f.editable and f.name not in ('id', 'user', 'mediawiki_username', 'chapter_username')]
 
     def make_user_details_form(self):
         fields = fields_for_model(User, fields=self.user_fields)
@@ -1720,10 +1720,10 @@ def export(request):
                         users = tmp
                         del(tmp)
 
-                    response = HttpResponseCsv(['id', 'username', 'first_name', 'last_name', 'email', 'is_active', 'is_staff', 'is_superuser', 'last_login', 'date_joined', 'created_tickets', 'accepted_expeditures', 'paid_expeditures', 'bank_account', 'other_contact', 'other_identification'])
+                    response = HttpResponseCsv(['id', 'username', 'first_name', 'last_name', 'email', 'is_active', 'is_staff', 'is_superuser', 'last_login', 'date_joined', 'created_tickets', 'accepted_expeditures', 'paid_expeditures', 'bank_account', 'bank_accounts', 'other_contact', 'other_identification'])
                     response['Content-Disposition'] = 'attachment; filename="exported-users.csv"'
                     for user in users:
-                        response.writerow([user.user.id, user.user.username, user.user.first_name, user.user.last_name, user.user.email, user.user.is_active, user.user.is_staff, user.user.is_superuser, user.user.last_login, user.user.date_joined, user.count_ticket_created(), user.accepted_expeditures(), user.paid_expeditures(), user.bank_account, user.other_contact, user.bank_account])
+                        response.writerow([user.user.id, user.user.username, user.user.first_name, user.user.last_name, user.user.email, user.user.is_active, user.user.is_staff, user.user.is_superuser, user.user.last_login, user.user.date_joined, user.count_ticket_created(), user.accepted_expeditures(), user.paid_expeditures(), user.bank_account, user.bank_accounts_display(), user.other_contact, user.other_identification])
                     return response
             raise PermissionDenied(_('You must be staffer in order to export users'))
 

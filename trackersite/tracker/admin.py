@@ -492,8 +492,8 @@ admin.site.register(models.Grant, GrantAdmin)
 
 
 class TrackerProfileAdmin(admin.ModelAdmin):
-    readonly_fields = ('mediawiki_username', 'chapter_username', 'user')
-    list_display = ('user', 'bank_account', 'other_contact', 'other_identification')
+    readonly_fields = ('mediawiki_username', 'chapter_username', 'user', 'bank_account')
+    list_display = ('user', 'bank_account', 'bank_accounts_display', 'other_contact', 'other_identification')
 
 
 admin.site.register(models.TrackerProfile, TrackerProfileAdmin)

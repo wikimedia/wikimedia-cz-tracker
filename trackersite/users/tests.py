@@ -32,25 +32,73 @@ class CreateUserTest(TestCase):
         # user does not exist -> we've been killed by captcha
         self.assertEqual(0, len(User.objects.filter(username=USERNAME)))
 
-    def test_signup_process(self):
-        c = Client()
+    def register(self, client):
         USERNAME, PW, EMAIL = 'foouser', 'foo', 'foo@example.com'
-        response = c.post(reverse('register'), {
+        response = client.post(reverse('register'), {
             'username': USERNAME, 'password1': PW, 'password2': PW, 'email': EMAIL,
         }, follow=True)
         self.assertRedirects(response, reverse("fill_details"))
         self.assertEqual(1, len(User.objects.filter(username=USERNAME)))
 
-        user = User.objects.get(username=USERNAME)
+        return User.objects.get(username=USERNAME)
 
-        BANK, CONTACT, ID = 'foo', 'bar', 'baz'
+    def test_signup_process(self):
+        c = Client()
+        user = self.register(c)
+
+        NAME, PREFIX, NUMBER, BANK = 'My account', '19', '2000145399', '0800'
+        CONTACT, ID = 'bar', 'baz'
         response = c.post(reverse('fill_details'), {
-            'bank_account': BANK,
+            'name': NAME,
+            'prefix': PREFIX,
+            'number': NUMBER,
+            'bank': BANK,
             'other_contact': CONTACT,
             'other_identification': ID
         }, follow=True)
         self.assertRedirects(response, reverse("ticket_list"))
-        self.assertEqual(1, len(TrackerProfile.objects.filter(user=user, bank_account=BANK, other_contact=CONTACT, other_identification=ID)))
+        self.assertEqual(1, len(TrackerProfile.objects.filter(user=user, other_contact=CONTACT, other_identification=ID)))
+
+        account = user.trackerprofile.bank_accounts.get()
+        self.assertEqual(account.name, NAME)
+        self.assertEqual(account.full_number, '19-2000145399/0800')
+
+        # the deprecated text field stays empty
+        self.assertEqual(user.trackerprofile.bank_account, '')
+
+    def test_signup_process_without_bank_account(self):
+        c = Client()
+        user = self.register(c)
+
+        CONTACT, ID = 'bar', 'baz'
+        response = c.post(reverse('fill_details'), {
+            'name': '',
+            'prefix': '',
+            'number': '',
+            'bank': '',
+            'other_contact': CONTACT,
+            'other_identification': ID
+        }, follow=True)
+        self.assertRedirects(response, reverse("ticket_list"))
+        self.assertEqual(1, len(TrackerProfile.objects.filter(user=user, other_contact=CONTACT, other_identification=ID)))
+        self.assertEqual(0, user.trackerprofile.bank_accounts.count())
+
+    def test_signup_process_with_incomplete_bank_account(self):
+        c = Client()
+        user = self.register(c)
+
+        response = c.post(reverse('fill_details'), {
+            'name': '',
+            'prefix': '',
+            'number': '2000145399',
+            'bank': '',
+            'other_contact': 'bar',
+            'other_identification': 'baz'
+        })
+        self.assertEqual(200, response.status_code)
+        self.assertIn('name', response.context['form'].errors)
+        self.assertIn('bank', response.context['form'].errors)
+        self.assertEqual(0, user.trackerprofile.bank_accounts.count())
 
 
 class PasswordResetTests(TestCase):

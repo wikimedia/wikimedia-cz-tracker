@@ -1532,7 +1532,6 @@ class PreferencesTests(TestCase):
             'email': 'test@example.com',
             'first_name': 'Test',
             'last_name': 'User',
-            'bank_account': '63770002/5500',
             'other_contact': 'foo',
             'other_identification': 'bar'
         })
@@ -1541,9 +1540,26 @@ class PreferencesTests(TestCase):
         self.assertEqual(user.email, 'test@example.com')
         self.assertEqual(user.first_name, 'Test')
         self.assertEqual(user.last_name, 'User')
-        self.assertEqual(user.trackerprofile.bank_account, '63770002/5500')
         self.assertEqual(user.trackerprofile.other_contact, 'foo')
         self.assertEqual(user.trackerprofile.other_identification, 'bar')
+
+    def test_details_submit_keeps_deprecated_bank_account(self):
+        profile = self.user.trackerprofile
+        profile.bank_account = '63770002/5500'
+        profile.save()
+
+        c = self.get_client()
+        r = c.post(reverse('user_details_change'), {
+            'email': 'test@example.com',
+            'first_name': 'Test',
+            'last_name': 'User',
+            'bank_account': '2101865133/2010',
+            'other_contact': 'foo',
+            'other_identification': 'bar'
+        })
+        self.assertEqual(r.status_code, 302)
+        user = User.objects.get(id=self.user.id)
+        self.assertEqual(user.trackerprofile.bank_account, '63770002/5500')
 
     def test_preferences_load(self):
         c = self.get_client()

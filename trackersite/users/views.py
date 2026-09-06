@@ -9,10 +9,11 @@ from django.http import HttpResponseRedirect
 from django.template.response import TemplateResponse
 from django.utils.translation import ugettext as _
 from django.views.decorators.debug import sensitive_post_parameters
+from django.forms.models import fields_for_model
 from django.views.generic import FormView
 from django.shortcuts import render, get_object_or_404
 
-from tracker.models import TrackerProfile
+from tracker.models import BankAccount, TrackerProfile
 
 from snowpenguin.django.recaptcha2.fields import ReCaptchaField
 from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
@@ -20,10 +21,44 @@ from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 from .forms import CustomPasswordChangeForm
 
 
+# Bank account fields of the details form. The user can leave them all
+# empty, but a partially filled account is an error.
+BANK_ACCOUNT_FIELDS = ("name", "prefix", "number", "bank")
+REQUIRED_BANK_ACCOUNT_FIELDS = ("name", "number", "bank")
+
+PROFILE_FIELDS = ("other_contact", "other_identification")
+
+
 class TrackerProfileDetailsForm(forms.ModelForm):
+    """
+    The details form that the user gets after the registration.
+
+    The form makes a bank account for the new user. It also fills the
+    contact details in the profile of the user. The bank account is
+    optional, because the user can add one later.
+    """
+
     class Meta:
-        model = TrackerProfile
-        fields = ("bank_account", "other_contact", "other_identification")
+        model = BankAccount
+        fields = BANK_ACCOUNT_FIELDS
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name in REQUIRED_BANK_ACCOUNT_FIELDS:
+            self.fields[field_name].required = False
+        self.fields.update(fields_for_model(TrackerProfile, fields=PROFILE_FIELDS))
+
+    def has_bank_account(self):
+        """ Tell if the user filled any part of the bank account. """
+        return any(self.cleaned_data.get(field_name) for field_name in BANK_ACCOUNT_FIELDS)
+
+    def clean(self):
+        cleaned_data = super().clean()
+        if self.has_bank_account():
+            for field_name in REQUIRED_BANK_ACCOUNT_FIELDS:
+                if not cleaned_data.get(field_name):
+                    self.add_error(field_name, self.fields[field_name].error_messages['required'])
+        return cleaned_data
 
 
 class AddTrackerProfileDetails(FormView):
@@ -32,10 +67,15 @@ class AddTrackerProfileDetails(FormView):
 
     def form_valid(self, form):
         tracker_profile = get_object_or_404(TrackerProfile, user=self.request.user)
-        tracker_profile.bank_account = form.cleaned_data['bank_account']
-        tracker_profile.other_contact = form.cleaned_data['other_contact']
-        tracker_profile.other_identification = form.cleaned_data['other_identification']
+        for field_name in PROFILE_FIELDS:
+            setattr(tracker_profile, field_name, form.cleaned_data[field_name])
         tracker_profile.save()
+
+        if form.has_bank_account():
+            bank_account = form.save(commit=False)
+            bank_account.user = tracker_profile
+            bank_account.save()
+
         return HttpResponseRedirect(reverse('ticket_list'))
 
 

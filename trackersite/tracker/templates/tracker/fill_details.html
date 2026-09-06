@@ -11,7 +11,7 @@
 <form method="post">
 {% for field in form %}
 <div class="form-group form-check">
-{{ field.error }}
+{{ field.errors }}
 {{ field.label_tag }} {{ field|add_class:"form-control" }}
 </div>
 {% endfor %}

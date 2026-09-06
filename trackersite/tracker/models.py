@@ -1538,7 +1538,9 @@ class TrackerProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     mediawiki_username = models.CharField(_('Username on mediawiki'), max_length=120, blank=True)
     chapter_username = models.CharField(_('Chapter-issued username'), max_length=120, blank=True)
-    bank_account = models.CharField(_('Bank account'), max_length=120, blank=True,
+    # Deprecated. The BankAccount model holds the accounts of the user now.
+    # The field stays read-only, because it still holds old data.
+    bank_account = models.CharField(_('Bank account'), max_length=120, blank=True, editable=False,
                                     help_text=_('Bank account information for money transfers'))
     other_contact = models.CharField(_('Other contact'), max_length=120, blank=True, help_text=_(
         'Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information'))
@@ -1579,6 +1581,12 @@ class TrackerProfile(models.Model):
 
     def get_active_bank_accounts(self):
         return self.bank_accounts.filter(deleted_at__isnull=True)
+
+    def bank_accounts_display(self):
+        """ Numbers of all active accounts of the user, as one text. """
+        return ', '.join(account.full_number for account in self.get_active_bank_accounts())
+
+    bank_accounts_display.short_description = _('Bank accounts')
 
     def __str__(self):
         return str(self.user)
