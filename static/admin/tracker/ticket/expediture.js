@@ -13,9 +13,13 @@ document.addEventListener( 'DOMContentLoaded', async () => {
 		} );
 
 		sum = parseFloat( sum ).toFixed( 2 );
-		let totalContainer = div.querySelector( '.total' );
-		if ( totalContainer ) {
-			totalContainer.innerHTML = `{% trans "Total" %}: <b>${ sum }</b>`;
+
+		// The template renders the label and the number. This file is static,
+		// thus it cannot translate a label of its own. Write only the number and
+		// keep the translated label that the server sent.
+		let totalValue = div.querySelector( '.total b' );
+		if ( totalValue ) {
+			totalValue.textContent = sum;
 		}
 	}
 
@@ -43,16 +47,15 @@ document.addEventListener( 'DOMContentLoaded', async () => {
 			return;
 		}
 
-		const fieldsets = inlineRow.querySelectorAll( 'fieldset.module' );
+		// The fieldset carries the payment-details class. Do not match its
+		// heading, because the heading is translated.
+		const fieldsets = inlineRow.querySelectorAll( 'fieldset.payment-details' );
 
 		fieldsets.forEach( ( fieldset ) => {
-			const h2 = fieldset.querySelector( 'h2' );
-			if ( h2 && h2.textContent.includes( 'Payment Details' ) ) {
-				if ( selectElement.value === 'bank_transfer' ) {
-					fieldset.style.display = 'block';
-				} else {
-					fieldset.style.display = 'none';
-				}
+			if ( selectElement.value === 'bank_transfer' ) {
+				fieldset.style.display = 'block';
+			} else {
+				fieldset.style.display = 'none';
 			}
 		} );
 	}

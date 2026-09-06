@@ -14,6 +14,7 @@ import requests
 from django.conf import settings
 from django.contrib.auth.models import User, Permission
 from django.contrib.contenttypes.models import ContentType
+from django.contrib.staticfiles import finders
 from django.core.exceptions import ValidationError
 from django.core.files.base import ContentFile
 from django.core.management import call_command
@@ -1513,6 +1514,30 @@ class AdminTests(TestCase):
         c = self.get_client()
         response = c.get('/admin/tracker/ticket/%d/change/' % random_id)
         self.assertEqual(404, response.status_code)
+
+    def test_ticket_change_page_carries_the_javascript_hooks(self):
+        """
+        expediture.js is a static file, thus Django does not render it. It must
+        not hold a template tag, it must find the payment fieldset by a class,
+        and it must write the total into the element that the template has
+        already translated.
+        """
+        grant = Grant.objects.create(full_name='g', short_name='g', slug='g')
+        topic = Topic.objects.create(name='topic', grant=grant)
+        ticket = Ticket.objects.create(name='T1', topic=topic)
+
+        c = self.get_client()
+        response = c.get('/admin/tracker/ticket/%d/change/' % ticket.id)
+        self.assertEqual(200, response.status_code)
+
+        html = response.content.decode('utf-8')
+        self.assertIn('payment-details', html)
+        self.assertRegex(html, r'<p class="total">\s*[^<]*<b>')
+
+        js_path = finders.find('admin/tracker/ticket/expediture.js')
+        self.assertIsNotNone(js_path)
+        with open(js_path, encoding='utf-8') as fd:
+            self.assertNotIn('{%', fd.read())
 
 
 class PreferencesTests(TestCase):

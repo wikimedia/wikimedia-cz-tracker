@@ -153,7 +153,8 @@ class ExpeditureAdmin(admin.StackedInline):
             )
         }),
         (_('Payment Details (Bank Transfer)'), {
-            'classes': ('collapse',),
+            # expediture.js shows and hides this fieldset by the payment-details class.
+            'classes': ('collapse', 'payment-details'),
             'fields': (
                 ('saved_account', 'account_number'),
                 ('variable_symbol', 'specific_symbol', 'constant_symbol')
