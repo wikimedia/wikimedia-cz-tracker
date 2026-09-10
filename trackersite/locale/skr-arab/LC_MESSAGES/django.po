@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-09-07 12:39:24+0000\n"
+"PO-Revision-Date: 2026-09-10 12:10:37+0000\n"
 "X-POT-Import-Date: 2026-09-07 04:31:31+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1239,7 +1239,7 @@ msgstr "اݨ سونہاں"
 #: tracker/models.py:1426
 #, python-format
 msgid "%(description)s (%(amount)s %(currency)s, %(state)s)"
-msgstr ""
+msgstr "%(description)s (%(amount)s %(currency)s, %(state)s)"
 
 #: tracker/models.py:1435
 msgid "Ticket expediture"
@@ -1358,7 +1358,7 @@ msgstr ""
 
 #: tracker/models.py:1614
 msgid "Account name"
-msgstr ""
+msgstr "کھاتے دا ناں"
 
 #: tracker/models.py:1615
 msgid "Account prefix"
@@ -1830,7 +1830,7 @@ msgstr "ہٹاؤ"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:24
 msgid "Cancel"
-msgstr ""
+msgstr "منسوخ"
 
 #: tracker/templates/tracker/bank_account_form.html:6
 msgid "New bank account"
@@ -2301,7 +2301,7 @@ msgstr ""
 
 #: tracker/templates/tracker/global_expediture_import.html:25
 msgid "Error"
-msgstr ""
+msgstr "نقص"
 
 #: tracker/templates/tracker/global_expediture_import.html:71
 msgid "There are no tickets waiting for import. Everything is up to date."
@@ -2762,7 +2762,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_expediture_import.html:166
 msgid "Reason"
-msgstr ""
+msgstr "سبب"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:188
 msgid "Edit in admin"

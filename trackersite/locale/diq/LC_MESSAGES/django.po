@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-09-07 12:39:21+0000\n"
+"PO-Revision-Date: 2026-09-10 12:10:36+0000\n"
 "X-POT-Import-Date: 2026-09-07 04:31:31+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1134,11 +1134,11 @@ msgstr ""
 
 #: tracker/models.py:1307
 msgid "Template"
-msgstr ""
+msgstr "Şablon"
 
 #: tracker/models.py:1308
 msgid "Templates"
-msgstr ""
+msgstr "Şabloni"
 
 #: tracker/models.py:1312
 msgid "Imported at"
@@ -1155,7 +1155,7 @@ msgstr ""
 
 #: tracker/models.py:1315
 msgid "error"
-msgstr ""
+msgstr "xeta"
 
 #: tracker/models.py:1321
 msgid "Ticket this expediture belongs to"
@@ -1360,7 +1360,7 @@ msgstr ""
 
 #: tracker/models.py:1614
 msgid "Account name"
-msgstr ""
+msgstr "Nameyê hesabi"
 
 #: tracker/models.py:1615
 msgid "Account prefix"
@@ -1832,7 +1832,7 @@ msgstr "Wedarnê"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:24
 msgid "Cancel"
-msgstr ""
+msgstr "Bıtexelne"
 
 #: tracker/templates/tracker/bank_account_form.html:6
 msgid "New bank account"
@@ -2058,7 +2058,7 @@ msgstr ""
 
 #: tracker/templates/tracker/expediture_formset.html:19
 msgid "Delete"
-msgstr ""
+msgstr "Bestere"
 
 #: tracker/templates/tracker/expediture_formset.html:76
 msgid "This item is locked and cannot be deleted."
@@ -2303,7 +2303,7 @@ msgstr ""
 
 #: tracker/templates/tracker/global_expediture_import.html:25
 msgid "Error"
-msgstr ""
+msgstr "Xeta"
 
 #: tracker/templates/tracker/global_expediture_import.html:71
 msgid "There are no tickets waiting for import. Everything is up to date."
@@ -2764,7 +2764,7 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_expediture_import.html:166
 msgid "Reason"
-msgstr ""
+msgstr "Sebeb"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:188
 msgid "Edit in admin"
