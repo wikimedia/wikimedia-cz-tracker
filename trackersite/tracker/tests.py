@@ -1656,7 +1656,7 @@ class MediaInfoCommunicationTests(TestCase):
     @patch("socialauth.api.MediaWiki.put_content")
     def test_add_to_mediawiki(self, mock_request):
         MediaInfo.add_to_mediawiki.task_function(self.mediainfo.id, self.owner.id)
-        self.assertEquals(mock_request.call_args[0][0], 937952)  # Example.svg
+        self.assertEqual(mock_request.call_args[0][0], 937952)  # Example.svg
         expected_template = "{{{template}|podtéma={subtopic}|rok={year}|tiket={ticket_id}}}".format(
             template=settings.MEDIAINFO_MEDIAWIKI_TEMPLATE,
             subtopic=self.mediainfo.ticket.subtopic or '',
