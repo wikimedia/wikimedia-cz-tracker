@@ -1850,6 +1850,7 @@ def importcsv(request):
                     else:
                         raise PermissionDenied(_("You can't add preexpenses to a ticket that you did not create."))
             elif request.POST['type'] == 'media':
+                changed_tickets = {}
                 for line in reader:
                     imported += 1
                     if (imported > import_limit and not import_unlimited) and not request.user.has_perm('tracker.import_unlimited_rows'):
@@ -1865,12 +1866,16 @@ def importcsv(request):
                             "format": "json",
                             "titles": name
                         }).json()
-                        page_id = int(list(data['query']['pages'].keys())[0])
-                        MediaInfo.objects.create(ticket=ticket, page_id=page_id)
-
-                        ticket.save()
+                        page_id, page = list(data['query']['pages'].items())[0]
+                        # Store the title too. MediaInfo.save() deletes a new media when the ticket has a media
+                        # with the same title. Without titles, the second media of a ticket matches the first media.
+                        MediaInfo.objects.create(ticket=ticket, page_id=int(page_id), page_title=page['title'])
+                        changed_tickets[ticket.id] = ticket
                     else:
                         raise PermissionDenied(_("You can't add media items to a ticket that you did not create."))
+                # Save each ticket one time, not one time for each row
+                for ticket in changed_tickets.values():
+                    ticket.save()
             elif request.POST['type'] == 'user':
                 if not request.user.is_superuser:
                     raise PermissionDenied(_('You must be a superuser in order to be able to import users.'))

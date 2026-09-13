@@ -1703,6 +1703,10 @@ class FakeCommons:
                 pages.append({'pageid': by_title[target], 'ns': 6, 'title': target})
             else:
                 pages.append({'ns': 6, 'title': target, 'missing': True})
+        if payload.get('formatversion') != 2:
+            return {'query': {'pages': {
+                str(page.get('pageid', -1)): {'title': page['title']} for page in pages
+            }}}
         return {'query': {'normalized': normalized, 'pages': pages}}
 
     def _query_revisions(self, payload, page_ids):
@@ -2220,6 +2224,27 @@ class MediaInfoTemplateTests(MediaInfoTestCase):
         Ticket._update_mediainfo(self.ticket.id, self.owner.id)
 
         self.assertEqual(self.tasks('_update_mediainfo').count(), 1)
+
+
+class MediaImportTests(MediaInfoTestCase):
+    def test_import_saves_each_ticket_once(self):
+        User.objects.create_superuser(username='importer', password='pw', email='importer@example.com')
+        other_ticket = Ticket.objects.create(name='other', topic=self.topic)
+        for page_id in range(1, 4):
+            self.commons.add_file(page_id, 'File:%d.jpg' % page_id)
+        csvfile = io.BytesIO(b'ticket_id;name\n%d;File:1.jpg\n%d;File:2.jpg\n%d;File:3.jpg\n' % (
+            self.ticket.id, self.ticket.id, other_ticket.id))
+        csvfile.name = 'media.csv'
+        client = Client()
+        client.login(username='importer', password='pw')
+
+        with patch.object(Ticket, 'save', autospec=True, side_effect=Ticket.save) as save:
+            response = client.post(reverse('importcsv'), {'type': 'media', 'csvfile': csvfile})
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(sorted(call[0][0].id for call in save.call_args_list), sorted([self.ticket.id, other_ticket.id]))
+        self.assertEqual(sorted(self.ticket.mediainfo_set.values_list('page_title', flat=True)), ['File:1.jpg', 'File:2.jpg'])
+        self.assertEqual(self.tasks('_update_mediainfo').count(), 0)
 
 
 class AutomationPaymentTests(TestCase):
