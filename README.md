@@ -15,7 +15,7 @@ Issues can be reported at https://phabricator.wikimedia.org/project/board/3391/ 
 3. Create `/deploy` folder
 4. Create Python3 virtual environment (venv) by running `virtualenv -p python3 deploy/pyenv`
 5. Activate the venv by running `source deploy/pyenv/bin/activate`
-6. Install required packages by running `pip install -r support/requirements.txt`
+6. Install required packages by running `pip install -r support/requirements.txt -c support/constraints.txt`
 7. Run `python support/makesettings.py` to get example settings.py
 8. Edit settings.py's DATABASES sections to contain valid DB settings
 9. Run `python trackersite/manage.py migrate` to apply [schema migrations](https://en.wikipedia.org/wiki/Schema_migration)

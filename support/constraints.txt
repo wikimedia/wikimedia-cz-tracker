@@ -1,0 +1,54 @@
+# Exact versions of all Python packages that the tracker installs, direct and
+# indirect. CI and deploys use this file, thus production gets the versions
+# that CI tested.
+#
+# requirements.txt names the packages. This file sets their versions. When you
+# add a package or change a version, change this file in the same commit.
+#
+# To make this file again, install requirements.txt without this file into a
+# new Python 3.13 virtual environment. Then run "pip freeze --all" and remove
+# the lines for pip and wheel.
+#
+# Source: tox environment "jenkins" of CI build wikimedia-cz-tracker-tox #168
+# (Python 3.13.12). Production had the same versions on 14 September 2026.
+# The one exception is setuptools: CI had 67.6.1 and production had 84.0.0.
+# This file uses 84.0.0, thus a deploy does not downgrade production.
+asgiref==3.12.1
+bleach==6.4.0
+certifi==2026.7.22
+cffi==2.1.1
+charset-normalizer==3.5.1
+cryptography==50.0.1
+defusedxml==0.7.1
+Django==3.2.25
+django-background-tasks==1.2.5
+django-compat==1.0.15
+django-contrib-comments==2.2.0
+django-crequest==2018.5.11
+django-filter==23.5
+django-recaptcha==4.1.0
+django-sendfile2==0.7.2
+django-widget-tweaks==1.5.0
+djangorestframework==3.15.1
+idna==3.19
+legacy-cgi==2.6.4
+mysql==0.0.3
+mysqlclient==2.2.8
+oauthlib==3.3.1
+prompt_toolkit==3.0.53
+pycparser==3.0
+PyJWT==2.14.0
+pymemcache==4.0.0
+python3-openid==3.2.0
+pytz==2026.3.post1
+questionary==2.1.1
+requests==2.34.2
+requests-oauthlib==2.0.0
+setuptools==84.0.0
+six==1.17.0
+social-auth-app-django==5.4.3
+social-auth-core==4.9.1
+sqlparse==0.6.0
+urllib3==2.7.0
+wcwidth==0.8.3
+webencodings==0.6.1

@@ -1,3 +1,5 @@
+# Package versions are in constraints.txt. Update it when you change this file.
+
 # just our usual stuff
 Django==3.2.*
 django-sendfile2

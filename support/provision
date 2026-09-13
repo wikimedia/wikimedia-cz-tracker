@@ -39,7 +39,7 @@ echo "INFO: Creating Python virtualenv..."
 virtualenv -p $(which python3) $deploydir/pyenv > /dev/null
 source $deploydir/pyenv/bin/activate
 echo "INFO: Installing Python dependencies..."
-pip install -r $supportdir/requirements.txt > /dev/null
+pip install -r $supportdir/requirements.txt -c $supportdir/constraints.txt > /dev/null
 
 # Provision settings.py
 echo "INFO: Creating settings file..."
