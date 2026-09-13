@@ -432,7 +432,9 @@
 
 	async function fileToThumb( image ) {
 		let url = image.url;
-		const urlRegex = /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/([0-9a-f])\/([0-9a-f]{2})\/(.+?\.(.+))$/gmi;
+		// The API can add a query string (for example, utm_source) to the URL.
+		// Do not include it in the file name.
+		const urlRegex = /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/([0-9a-f])\/([0-9a-f]{2})\/([^/?#]+?\.([^./?#]+))(?:[?#].*)?$/gmi;
 
 		if ( !urlRegex.test( url ) ) {
 			const trackerUrlRegex = /^https:\/\/tracker\.wikimedia\.cz\/api/gmi;
@@ -456,7 +458,21 @@
 			extension
 		] = urlRegex.exec( url );
 
-		const thumbSizePx = Math.min( image.width, 200 );
+		// Wikimedia rejects thumbnail URLs with a width that is not a standard size.
+		// See https://www.mediawiki.org/wiki/Common_thumbnail_sizes.
+		const standardThumbSizesPx = [ 20, 40, 60, 120, 250, 330, 500, 960, 1280, 1920, 3840 ];
+		const preferredThumbSizePx = 250;
+
+		let thumbSizePx = preferredThumbSizePx;
+		if ( image.width < preferredThumbSizePx ) {
+			// Do not request a thumbnail that is wider than the original image.
+			thumbSizePx = standardThumbSizesPx.filter( size => size <= image.width ).pop();
+		}
+
+		if ( thumbSizePx === undefined ) {
+			// The original image is smaller than all standard sizes. Show the original image.
+			return url;
+		}
 
 		let thumbExtension = 'jpg';
 
