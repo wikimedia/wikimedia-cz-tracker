@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from os.path import dirname, abspath, join
 from django.contrib import messages
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 SITE_DIR = abspath(dirname(__file__))
 PROJECT_DIR = abspath(join(dirname(__file__), '..'))

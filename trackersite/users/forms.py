@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import PasswordChangeForm
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 
 class CustomPasswordChangeForm(PasswordChangeForm):

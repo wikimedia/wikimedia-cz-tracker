@@ -30,7 +30,7 @@ from django.utils import timezone
 from django.utils.html import strip_tags
 from django.utils.safestring import mark_safe
 from django.utils.translation import get_language
-from django.utils.translation import ugettext as _, ugettext_lazy
+from django.utils.translation import gettext as _, gettext_lazy
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, DetailView, FormView, DeleteView, CreateView
@@ -231,7 +231,7 @@ subtopic_detail = SubtopicDetailView.as_view()
 
 
 class TicketForm(forms.ModelForm):
-    statutory_declaration = forms.BooleanField(label=ugettext_lazy('Statutory declaration'), help_text=settings.STATUTORY_DECLARATION_TEXT, required=False)
+    statutory_declaration = forms.BooleanField(label=gettext_lazy('Statutory declaration'), help_text=settings.STATUTORY_DECLARATION_TEXT, required=False)
 
     def __init__(self, *args, **kwargs):
         super(TicketForm, self).__init__(*args, **kwargs)
@@ -960,7 +960,7 @@ def edit_ticket(request, pk):
 
 class UploadDocumentForm(forms.Form):
     file = forms.FileField(widget=forms.ClearableFileInput(attrs={'size': '60'}), label=_('file'))
-    name = forms.RegexField(r'^[-_\.A-Za-z0-9]+\.[A-Za-z0-9]+$', error_messages={'invalid': ugettext_lazy('We need a sane file name, such as my-invoice123.jpg')}, widget=forms.TextInput(attrs={'size': '30'}), label=_('name'))
+    name = forms.RegexField(r'^[-_\.A-Za-z0-9]+\.[A-Za-z0-9]+$', error_messages={'invalid': gettext_lazy('We need a sane file name, such as my-invoice123.jpg')}, widget=forms.TextInput(attrs={'size': '30'}), label=_('name'))
     description = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'size': '60'}), label=_('description'))
 
 

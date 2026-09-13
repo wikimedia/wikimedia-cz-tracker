@@ -1,7 +1,6 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from random import choice, randint
 from re import search
-from pytz import UTC
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
 from django.db.utils import IntegrityError, DataError
@@ -157,7 +156,7 @@ class Command(BaseCommand):
             day = randint(1, 28)
             hour = randint(1, 23)
             minute = randint(1, 59)
-            return datetime(year, month, day, hour, minute, tzinfo=UTC)
+            return datetime(year, month, day, hour, minute, tzinfo=timezone.utc)
 
         user_objects = User.objects.filter(username__startswith=USERNAME_PREFIX)
         if not user_objects.exists():

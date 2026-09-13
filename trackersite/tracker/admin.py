@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 
-from django.conf.urls import url
+from django.urls import re_path
 from django.contrib import admin
 from django import forms
 from django.forms.formsets import DELETION_FIELD_NAME
@@ -11,7 +11,7 @@ from django.utils.html import format_html
 from tracker.services import PaymentService
 from tracker.fio import FioPaymentManager
 from tracker import models
-from django.utils.translation import ugettext_lazy as _, get_language, activate
+from django.utils.translation import gettext_lazy as _, get_language, activate
 from django.http import Http404, HttpResponse, HttpResponseNotAllowed
 from django.template.loader import get_template
 from django.contrib.admin.helpers import ActionForm
@@ -401,8 +401,8 @@ class TicketAdmin(admin.ModelAdmin):
 
     def get_urls(self):
         return [
-            url(r'^(?P<object_id>\d+)/acks/add/$', self.add_ack),
-            url(r'^(?P<object_id>\d+)/acks/remove/$', self.remove_ack),
+            re_path(r'^(?P<object_id>\d+)/acks/add/$', self.add_ack),
+            re_path(r'^(?P<object_id>\d+)/acks/remove/$', self.remove_ack),
         ] + super(TicketAdmin, self).get_urls()
 
     def save_model(self, request, obj, form, change):

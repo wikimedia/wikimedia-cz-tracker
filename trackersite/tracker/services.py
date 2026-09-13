@@ -1,5 +1,5 @@
 from django.db import transaction
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from tracker.models import Expediture, ExpenditureState, PaymentInfo, PaymentType
 from .fio import FioPaymentManager
 

@@ -28,16 +28,15 @@ from django.urls import NoReverseMatch
 from django.urls import reverse
 from django.utils import timezone
 from django.utils import translation
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils.formats import number_format
 from django.utils.functional import cached_property
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.text import format_lazy
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django_comments.moderation import CommentModerator, moderator
 from django_comments.signals import comment_was_posted
-from pytz import utc
 
 from socialauth.api import MediaWiki
 from tracker.utils import notify_on_failure, get_request
@@ -340,7 +339,7 @@ class Ticket(CachedModel, ModelDiffMixin):
                 user_id=get_request().user.id,
                 content_type_id=ct.pk,
                 object_id=self.pk,
-                object_repr=force_text(self),
+                object_repr=force_str(self),
                 action_flag=CHANGE,
                 change_message=change_message
             )
@@ -355,7 +354,7 @@ class Ticket(CachedModel, ModelDiffMixin):
             self.statutory_declaration = False
 
         if not just_payment_status:
-            self.updated = datetime.datetime.now(tz=utc)
+            self.updated = datetime.datetime.now(tz=datetime.timezone.utc)
 
         if self.event_date is None:
             self.event_date = datetime.date.today()
@@ -602,7 +601,7 @@ class Ticket(CachedModel, ModelDiffMixin):
             return
         for media in ticket.mediainfo_set.all():
             media.store_mediawiki_data_internal()
-        ticket.media_updated = datetime.datetime.now(tz=utc)
+        ticket.media_updated = datetime.datetime.now(tz=datetime.timezone.utc)
         ticket.save()
 
     def get_cached_ticket(self):

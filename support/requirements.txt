@@ -7,7 +7,6 @@ django-widget-tweaks
 python-memcached
 social-auth-app-django
 django-crequest
-pytz
 jsonfield2
 django-background-tasks
 bleach

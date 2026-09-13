@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group, Permission
 from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, MediaInfoOld, Expediture, Preexpediture, TrackerProfile, TrackerPreferences
 from django.contrib.contenttypes.models import ContentType
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from rest_framework import serializers
 from tracker.views import TICKET_EXCLUDE_FIELDS
 

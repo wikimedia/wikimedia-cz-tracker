@@ -22,7 +22,7 @@ from rest_framework.response import Response
 from .permissions import (ReadOnly, CanEditTicketElseReadOnly, CanEditExpedituresElseReadOnly, IsSelfTrackerProfile,
                           IsOwnTrackerPreferences)
 from django.contrib.contenttypes.models import ContentType
-from django.utils.translation import activate, ugettext as _
+from django.utils.translation import activate, gettext as _
 from django.conf import settings
 from django.db.utils import IntegrityError
 
