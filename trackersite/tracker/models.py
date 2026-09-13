@@ -593,7 +593,7 @@ class Ticket(CachedModel, ModelDiffMixin):
         return [PossibleAck(ack_type) for ack_type in self.possible_user_ack_types()]
 
     @staticmethod
-    @background(schedule=10)
+    @background(schedule=10, remove_existing_tasks=True)
     def update_media(ticket_id):
         try:
             ticket = Ticket.objects.get(id=ticket_id)
