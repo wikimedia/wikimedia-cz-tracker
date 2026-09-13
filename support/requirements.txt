@@ -1,5 +1,5 @@
 # just our usual stuff
-Django==3.0.*
+Django==3.2.*
 django-sendfile2
 django-recaptcha2
 django-contrib-comments
@@ -7,7 +7,6 @@ django-widget-tweaks
 python-memcached
 social-auth-app-django
 django-crequest
-jsonfield2
 django-background-tasks
 bleach
 

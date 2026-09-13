@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import jsonfield.fields
 
 
 class Migration(migrations.Migration):
@@ -27,7 +26,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='mediainfo',
             name='categories',
-            field=jsonfield.fields.JSONField(default=[], verbose_name='categories'),
+            field=models.JSONField(default=list, verbose_name='categories'),
         ),
         migrations.AddField(
             model_name='mediainfo',
@@ -47,7 +46,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='mediainfo',
             name='usages',
-            field=jsonfield.fields.JSONField(default=[], verbose_name='usages'),
+            field=models.JSONField(default=list, verbose_name='usages'),
         ),
         migrations.AddField(
             model_name='mediainfo',

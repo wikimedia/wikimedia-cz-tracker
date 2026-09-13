@@ -130,6 +130,10 @@ INSTALLED_APPS = (
 
 USE_TZ = True
 
+# Keep integer primary keys. Django 3.2 defaults new projects to
+# BigAutoField, but a switch here rewrites every table.
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 COMMENTS_APP = 'customcomments'
 
 ROOT_URLCONF = 'urls'

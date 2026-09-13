@@ -22,16 +22,8 @@ ACCEPTABLE_STATUS_CODES = (200, 302, 405)
 
 # URLs that answer with a different status code, with the reason.
 EXPECTED_STATUS_CODES = {
-    # Each model admin has an autocomplete view. The view answers 404 if the
-    # model admin has no search_fields.
-    '/admin/tracker/grant/autocomplete/': (404,),
-    '/admin/tracker/subtopic/autocomplete/': (404,),
-    '/admin/tracker/template/autocomplete/': (404,),
-    '/admin/tracker/topic/autocomplete/': (404,),
-    '/admin/tracker/trackerprofile/autocomplete/': (404,),
-    # The legacy old/ redirect in urls.py has no start anchor. Django 3.0
-    # finds old/ at the end of this path and redirects to the web root.
-    '/api/tracker/mediainfoold/': (301,),
+    # Needs an app_label and a model_name in the query string.
+    '/admin/autocomplete/': (403,),
 }
 
 # URLs the test must not request, with the reason.

@@ -14,6 +14,8 @@ import users.urls
 from api.router import router
 
 admin.autodiscover()
+# Django 3.1 added a navigation sidebar to every admin page. Do not show it.
+admin.site.enable_nav_sidebar = False
 
 js_info_dict = [
     'django.contrib.admin'

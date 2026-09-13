@@ -6,7 +6,7 @@ def main():
     with open("trackersite/locale/django.pot", "rb") as fd:
         entries = fd.read().count(b"msgid")
 
-    subprocess.run("cd trackersite; python3 manage.py makemessages --keep-pot", shell=True, check=True,
+    subprocess.run("cd trackersite; python3 manage.py makemessages --all --keep-pot", shell=True, check=True,
                    stdout=subprocess.DEVNULL)
 
     with open("trackersite/locale/django.pot", "rb") as fd:

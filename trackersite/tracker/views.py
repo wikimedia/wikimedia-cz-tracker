@@ -750,13 +750,12 @@ def create_ticket(request):
 
     if request.method == 'POST':
         ticketform = TicketForm(request.POST)
-        try:
-            expeditures = ExpeditureFormSet(request.POST, prefix='expediture')
-            preexpeditures = PreexpeditureFormSet(request.POST, prefix='preexpediture')
-            expeditures.media  # this seems to be a regression between Django 1.3 and 1.6
-            preexpeditures.media  # test
-        except forms.ValidationError as e:
-            return HttpResponseBadRequest(str(e))
+        expeditures = ExpeditureFormSet(request.POST, prefix='expediture')
+        preexpeditures = PreexpeditureFormSet(request.POST, prefix='preexpediture')
+        # Since Django 3.2 a missing management form is a form error, not an
+        # exception. Keep the old behaviour and reject the request.
+        if not expeditures.management_form.is_valid() or not preexpeditures.management_form.is_valid():
+            return HttpResponseBadRequest('ManagementForm data is missing or has been tampered with.')
 
         check_ticket_form_deposit(ticketform, preexpeditures)
         check_statutory_declaration(ticketform)
