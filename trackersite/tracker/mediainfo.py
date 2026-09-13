@@ -410,7 +410,7 @@ class MediaInfoSync:
 
         self._sync_related_rows(
             media, media.mediainfocategory_set.all(), ('title', ),
-            [(category['title'], ) for category in data.get('categories', []) if 'hidden' not in category]
+            [(category['title'], ) for category in data.get('categories', []) if not category.get('hidden')]
         )
         self._sync_related_rows(
             media, media.mediainfousage_set.all(), ('url', 'title', 'project'),

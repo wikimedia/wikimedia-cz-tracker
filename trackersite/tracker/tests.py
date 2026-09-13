@@ -1781,10 +1781,8 @@ class FakeCommons:
     @staticmethod
     def _category(category):
         title, hidden = category if isinstance(category, tuple) else (category, False)
-        item = {'ns': 14, 'title': title}
-        if hidden:
-            item['hidden'] = True
-        return item
+        # With formatversion=2, the API gives the hidden flag for all the categories
+        return {'ns': 14, 'title': title, 'hidden': hidden}
 
     @staticmethod
     def _usage(title):
@@ -1939,6 +1937,14 @@ class MediaInfoRefreshTests(MediaInfoTestCase):
         self.assertEqual(list(MediaInfo.objects.get(page_id=2).mediainfousage_set.values_list('title', flat=True)),
                          ['U6'])
         self.assertTrue(len(self.commons.calls) > 1)
+
+    def test_refresh_stores_visible_categories(self):
+        self.commons.add_file(1, 'File:1.jpg', categories=['Category:Visible', ('Category:Hidden', True)])
+        media = self.create_media(1, 'File:1.jpg')
+
+        Ticket.update_media.task_function(self.ticket.id)
+
+        self.assertEqual(list(media.mediainfocategory_set.values_list('title', flat=True)), ['Category:Visible'])
 
     def test_refresh_of_one_file_does_not_get_old_versions(self):
         self.commons.add_file(1, 'File:1.jpg', categories=['Category:A'])
