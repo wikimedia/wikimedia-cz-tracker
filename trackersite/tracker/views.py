@@ -2,7 +2,6 @@
 import csv
 import datetime
 import json
-import logging
 from collections import namedtuple
 from functools import partial
 from io import TextIOWrapper
@@ -15,7 +14,6 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
 from django.contrib.auth.views import redirect_to_login
 from django.core.exceptions import PermissionDenied, ValidationError
-from django.core.mail import mail_admins
 from django.db import models, connection
 from django.db.models import Q
 from django.db.models.functions import Coalesce
@@ -2155,70 +2153,3 @@ def import_expenditures(request, ready_expenditures):
         messages.warning(request, warning)
 
     return HttpResponseRedirect(request.path)
-
-
-@csrf_exempt
-def sendgrid_handler(request):
-    if request.GET.get('token') != settings.MAIL_ALL_TOKEN:
-        raise PermissionDenied()
-
-    logging.getLogger(__name__).debug('Tracker was commanded to email its users, processing started')
-
-    headers = request.POST.get('headers').split('\n')
-    sender = None
-    subject = None
-    for header_raw in headers:
-        header = header_raw.split(':')
-        header_name = header[0].strip()
-        if header_name == "X-Original-From":
-            sender = header[1].strip()
-        elif header_name == "Subject":
-            subject = header[1].strip()
-        if sender is not None and subject is not None:
-            break
-
-    if subject is None:
-        subject = _("Notice from Tracker")
-
-    if sender is None:
-        sender = request.POST.get('from')
-
-    envelope = json.loads(request.POST.get('envelope'))
-    email_type = envelope['to'][0].split('@')[0]
-    logging.info('Tracker commanded to email users, sender %s, subject %s, type %s' % (sender, subject, email_type))
-    html_message = request.POST.get('html', request.POST.get('text', ''))
-    if email_type == "tracker-root":
-        email_tracker_root(sender, subject, html_message)
-    elif email_type == "tracker-users":
-        email_all_users(sender, subject, html_message)
-    elif email_type == "tracker-admins":
-        email_all_admins(sender, subject, html_message)
-    return HttpResponse('Ok')
-
-
-def email_all_users(sender, subject, html_message):
-    mail_html = html_message + "<hr><small>" + _('This mandatory notice was sent to all active Tracker users.') + "</small>"
-    mail_text = strip_tags(mail_html)
-    mail_subject = '[Tracker] ' + subject
-    for u in User.objects.filter(is_active=True):
-        u.email_user(mail_subject, mail_text, html_message=mail_html)
-
-
-def email_all_admins(sender, subject, html_message):
-    mail_html = html_message + "<hr><small>" + _('This mandatory notice was sent to all active Tracker administrators.') + "</small>"
-    mail_text = strip_tags(mail_html)
-    mail_subject = '[Tracker] ' + subject
-    users = set()
-    for topic in Topic.objects.filter(open_for_tickets=True):
-        for u in topic.admin.filter(is_active=True):
-            users.add(u)
-
-    for u in users:
-        u.email_user(mail_subject, mail_text, html_message=mail_html)
-
-
-def email_tracker_root(sender, subject, html_message):
-    mail_html = html_message + "<hr><small>" + _('This mandatory notice was sent to all active Tracker roots.') + "</small>"
-    mail_text = strip_tags(mail_html)
-    mail_subject = '[Tracker] ' + subject
-    mail_admins(mail_subject, mail_text, html_message=mail_html)
