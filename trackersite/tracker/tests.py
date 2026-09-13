@@ -2280,6 +2280,22 @@ class MediaImportTests(MediaInfoTestCase):
         self.assertEqual(sorted(self.ticket.mediainfo_set.values_list('page_title', flat=True)), ['File:1.jpg', 'File:2.jpg'])
         self.assertEqual(self.tasks('_update_mediainfo').count(), 0)
 
+    def test_import_of_media_that_the_ticket_has(self):
+        User.objects.create_superuser(username='importer', password='pw', email='importer@example.com')
+        for page_id in range(1, 3):
+            self.commons.add_file(page_id, 'File:%d.jpg' % page_id)
+        self.create_media(1, 'File:1.jpg')
+        csvfile = io.BytesIO(b'ticket_id;name\n%d;File:1.jpg\n%d;File:2.jpg\n%d;File:2.jpg\n' % (
+            self.ticket.id, self.ticket.id, self.ticket.id))
+        csvfile.name = 'media.csv'
+        client = Client()
+        client.login(username='importer', password='pw')
+
+        response = client.post(reverse('importcsv'), {'type': 'media', 'csvfile': csvfile})
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(sorted(self.ticket.mediainfo_set.values_list('page_title', flat=True)), ['File:1.jpg', 'File:2.jpg'])
+
 
 @override_settings(CACHES={'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
                                        'LOCATION': 'oauth-middleware-tests'}})

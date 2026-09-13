@@ -1089,7 +1089,9 @@ class MediaInfo(Model):
     def save(self, no_update=False, *args, **kwargs):
         if MediaInfo.objects.filter(ticket_id=self.ticket_id, page_title=self.page_title).exclude(id=self.id).exists():
             # we found a duplicate, self destruct instead
-            self.delete()
+            # A new media is not in the database, thus do not save it
+            if self.pk is not None:
+                self.delete()
             return
 
         # Same as MediaInfo.media_id
