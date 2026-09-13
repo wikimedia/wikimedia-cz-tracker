@@ -15,7 +15,6 @@ bleach
 # For API
 djangorestframework
 django-filter
-django-rest-swagger
 
 # For makesettings
 questionary

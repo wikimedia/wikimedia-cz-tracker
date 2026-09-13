@@ -123,7 +123,6 @@ INSTALLED_APPS = (
     'social_django',
     'rest_framework',
     'rest_framework.authtoken',
-    'rest_framework_swagger',
     'django_filters',
     'background_task',
     'crequest',
