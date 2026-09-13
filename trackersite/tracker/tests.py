@@ -25,6 +25,8 @@ from django.test.client import Client
 from django.urls import reverse
 from django.utils import timezone
 
+from background_task.models import Task
+
 from socialauth.api import MediaWiki, MediaWikiError
 
 from tracker.admin import ExpeditureInlineFormSet
@@ -1762,6 +1764,49 @@ class MediaInfoCommunicationTests(TestCase):
         mock_request.assert_called_once_with(937952,  # Example.svg
                                              MediaInfo.strip_template(self.mediawiki.get_content(937952)),
                                              minor=True)
+
+
+class MediaUpdateTests(TestCase):
+    def setUp(self):
+        self.owner = User.objects.create(username='ticket_owner')
+        self.topic = Topic.objects.create(name='test_topic', ticket_expenses=True,
+                                          grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
+        self.ticket = Ticket.objects.create(name='ticket', topic=self.topic, requested_user=self.owner)
+        for page_id in (1, 2):
+            MediaInfo.objects.create(ticket=self.ticket, page_id=page_id, page_title='File:%d.jpg' % page_id)
+        Task.objects.all().delete()
+
+    @patch('tracker.models.MediaInfo.store_mediawiki_data_internal', autospec=True)
+    def test_update_media_does_not_save_ticket(self, store):
+        updated = Ticket.objects.get(id=self.ticket.id).updated
+
+        def store_with_concurrent_edit(media):
+            Ticket.objects.filter(id=self.ticket.id).update(name='edited during refresh')
+        store.side_effect = store_with_concurrent_edit
+
+        Ticket.update_media.task_function(self.ticket.id)
+
+        ticket = Ticket.objects.get(id=self.ticket.id)
+        self.assertIsNotNone(ticket.media_updated)
+        self.assertEqual(ticket.updated, updated)
+        self.assertEqual(ticket.name, 'edited during refresh')
+
+    @patch('tracker.models.MediaInfo.store_mediawiki_data_internal', autospec=True)
+    def test_update_media_flushes_media_count(self, store):
+        store.side_effect = lambda media: media.delete() if media.page_id == 2 else None
+        self.assertEqual(Ticket.objects.get(id=self.ticket.id).media_count(), 2)
+
+        Ticket.update_media.task_function(self.ticket.id)
+
+        self.assertEqual(Ticket.objects.get(id=self.ticket.id).media_count(), 1)
+
+    @patch('tracker.models.MediaInfo.store_mediawiki_data_internal', autospec=True)
+    def test_update_media_schedules_template_update(self, store):
+        with override_settings(TRACKER_MAINTENANCE_USER_ID=self.owner.id):
+            Ticket.update_media.task_function(self.ticket.id)
+
+        task = Task.objects.get(task_name='tracker.models._update_mediainfo')
+        self.assertEqual(json.loads(task.task_params), [[self.ticket.id, self.owner.id], {}])
 
 
 class AutomationPaymentTests(TestCase):

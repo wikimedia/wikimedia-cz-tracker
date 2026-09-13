@@ -601,8 +601,16 @@ class Ticket(CachedModel, ModelDiffMixin):
             return
         for media in ticket.mediainfo_set.all():
             media.store_mediawiki_data_internal()
-        ticket.media_updated = datetime.datetime.now(tz=datetime.timezone.utc)
-        ticket.save()
+        # The refresh can delete media, thus the cached media counts can change
+        ticket.flush_cache()
+
+        # Do not use ticket.save(). It writes all the fields from the old copy of the ticket.
+        Ticket.objects.filter(pk=ticket.pk).update(media_updated=datetime.datetime.now(tz=datetime.timezone.utc))
+
+        # A user can remove the template from MediaWiki. Add it again.
+        user_id = MediaInfo.get_maintenance_user_id()
+        if user_id:
+            Ticket._update_mediainfo(ticket.id, user_id)
 
     def get_cached_ticket(self):
         subtopic = self.subtopic
