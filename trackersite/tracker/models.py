@@ -6,6 +6,7 @@ import logging
 import re
 from collections import OrderedDict
 
+import requests
 from background_task import background
 from background_task.models import Task
 from background_task.signals import task_error
@@ -38,7 +39,7 @@ from django.utils.translation import gettext_lazy as _
 from django_comments.moderation import CommentModerator, moderator
 from django_comments.signals import comment_was_posted
 
-from socialauth.api import MediaWiki
+from socialauth.api import MediaWiki, MediaWikiError
 from tracker.utils import notify_on_failure, get_request
 from users.models import UserWrapper
 from tracker.validators import validate_cnb_mod_11, validate_bank_code, validate_full_bank_account
@@ -81,6 +82,9 @@ NOTIFICATION_TYPES = [
 ]
 
 LANGUAGE_CHOICES = settings.LANGUAGES
+
+# Errors of a MediaWiki request. The request can fail, or the response can have an unexpected format.
+MEDIAWIKI_ERRORS = (requests.exceptions.RequestException, MediaWikiError, ValueError, KeyError)
 
 USER_EDITABLE_ACK_TYPES = ('user_precontent', 'user_content', 'user_docs')
 WAIT_NEEDED_ACK_TYPES = ('precontent', 'content')
@@ -365,26 +369,36 @@ class Ticket(CachedModel, ModelDiffMixin):
         acks = self.ack_set()
         self.is_completed = ('archive' in acks) or ('close' in acks)
 
+        # The MediaWiki template of the media contains the subtopic.
+        # Other changes do not change the template.
+        subtopic_changed = self.pk is not None and self.get_field_diff('subtopic') is not None
+
         super(Ticket, self).save(*args, **kwargs)
 
-        # update MediaWiki templates if appropriate
-        user_id = MediaInfo.get_maintenance_user_id()
-        if get_request():
-            user_id = get_request().user.id
-        if user_id:
-            Ticket._update_mediainfo(self.id, user_id)
+        if subtopic_changed:
+            user_id = MediaInfo.get_maintenance_user_id()
+            if get_request():
+                user_id = get_request().user.id
+            if user_id:
+                Ticket._update_mediainfo(self.id, user_id)
 
         self.flush_cache()
 
     @staticmethod
-    @background(schedule=10)
+    @background(schedule=10, remove_existing_tasks=True)
     def _update_mediainfo(ticket_id, user_id):
+        """ Make sure that the MediaWiki page of each media has the correct template. """
+        if not settings.MEDIAINFO_MEDIAWIKI_TEMPLATE or not settings.MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE:
+            return
         try:
             ticket = Ticket.objects.get(id=ticket_id)
-        except Ticket.DoesNotExist:
+            user = User.objects.get(id=user_id)
+        except (Ticket.DoesNotExist, User.DoesNotExist):
             return
-        for mi in ticket.mediainfo_set.all():
-            MediaInfo.add_to_mediawiki(mi.id, user_id)
+        errors = MediaInfo.add_templates_to_mediawiki(ticket.mediainfo_set.all(), user)
+        if errors:
+            raise MediaWikiError('%d of the MediaWiki requests failed for ticket %d' % (len(errors), ticket_id)) \
+                from errors[-1]
 
     def _note_comment(self, **kwargs):
         self.save()
@@ -1012,6 +1026,11 @@ class MediaInfoCategory(models.Model):
 
 class MediaInfo(Model):
     """ Media related to particular tickets. """
+    # The MediaWiki API gives page contents for 50 pages in each request
+    MEDIAWIKI_BATCH_SIZE = 50
+    # Number of times to send a failed MediaWiki request again
+    MEDIAWIKI_RETRIES = 3
+
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'),
                                help_text=_('Ticket this media info belongs to'), on_delete=models.CASCADE)
     page_title = models.CharField(_('cannonical title'), max_length=255, null=True)
@@ -1108,19 +1127,6 @@ class MediaInfo(Model):
             media = MediaInfo.objects.get(id=media_id)
         except MediaInfo.DoesNotExist:
             return
-        parameters_unsorted = {
-            'rok': datetime.date.today().year,
-            'podtéma': media.ticket.subtopic or '',
-            'tiket': media.ticket.id,
-        }
-        if media.created is not None:
-            parameters_unsorted['rok'] = media.created.year
-        parameters = OrderedDict(sorted(parameters_unsorted.items(), key=lambda t: t[0]))
-
-        template = '{{%s' % settings.MEDIAINFO_MEDIAWIKI_TEMPLATE
-        for param in parameters:
-            template += "|%s=%s" % (param, str(parameters[param]))
-        template += '}}'
 
         try:
             mw = MediaWiki(User.objects.get(id=user_id), settings.MEDIAINFO_MEDIAWIKI_API)
@@ -1131,18 +1137,85 @@ class MediaInfo(Model):
         if old is None:
             return
 
-        if template not in old:
+        new, minor = MediaInfo.add_template(old, media.mediawiki_template())
+        if new is not None:
             logging.getLogger(__name__).info('Adding MediaInfo %d from MediaWiki by user %d' % (media_id, user_id))
+            mw.put_content(media.page_id, new, minor=minor)
 
-            old = MediaInfo.strip_template(old)
-            insert_to = MediaInfo.get_template_end_position(old, settings.MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE)
+    def mediawiki_template(self):
+        """ Return the template that marks this media on MediaWiki. """
+        parameters_unsorted = {
+            'rok': datetime.date.today().year,
+            'podtéma': self.ticket.subtopic or '',
+            'tiket': self.ticket.id,
+        }
+        if self.created is not None:
+            parameters_unsorted['rok'] = self.created.year
+        parameters = OrderedDict(sorted(parameters_unsorted.items(), key=lambda t: t[0]))
 
-            if insert_to != -1:
-                new = old[:insert_to] + u"\n" + template + old[insert_to:]
-                mw.put_content(media.page_id, new)
-                return
+        template = '{{%s' % settings.MEDIAINFO_MEDIAWIKI_TEMPLATE
+        for param in parameters:
+            template += "|%s=%s" % (param, str(parameters[param]))
+        template += '}}'
+        return template
 
-            mw.put_content(media.page_id, old + u"\n" + template, minor=True)
+    @staticmethod
+    def add_template(text, template):
+        """
+        Add the template to the page text.
+
+        Return a tuple of the new text and of the minor flag for the edit.
+        When the text contains the template already, return (None, None).
+        """
+        if template in text:
+            return None, None
+
+        text = MediaInfo.strip_template(text)
+        insert_to = MediaInfo.get_template_end_position(text, settings.MEDIAINFO_MEDIAWIKI_INFO_TEMPLATE)
+        if insert_to != -1:
+            return text[:insert_to] + u"\n" + template + text[insert_to:], False
+        return text + u"\n" + template, True
+
+    @staticmethod
+    def add_templates_to_mediawiki(medias, user):
+        """
+        Add the template to the MediaWiki pages of the medias that do not have it.
+
+        Read the pages in batches, and edit only the pages that change. When a
+        request fails, continue with the other pages. Return the list of errors.
+        """
+        mw = MediaWiki(user, settings.MEDIAINFO_MEDIAWIKI_API)
+        medias_by_page_id = {}
+        for media in medias:
+            if media.page_id and media.page_id > 0:
+                medias_by_page_id.setdefault(media.page_id, media)
+
+        errors = []
+        page_ids = sorted(medias_by_page_id)
+        for i in range(0, len(page_ids), MediaInfo.MEDIAWIKI_BATCH_SIZE):
+            batch = page_ids[i:i + MediaInfo.MEDIAWIKI_BATCH_SIZE]
+            try:
+                contents = mw.get_contents(batch, retries=MediaInfo.MEDIAWIKI_RETRIES)
+            except MEDIAWIKI_ERRORS as e:
+                logging.getLogger(__name__).exception('Cannot read %d MediaWiki pages' % len(batch))
+                errors.append(e)
+                continue
+
+            for page_id in batch:
+                if page_id not in contents:
+                    # The page does not exist
+                    continue
+                media = medias_by_page_id[page_id]
+                new, minor = MediaInfo.add_template(contents[page_id], media.mediawiki_template())
+                if new is None:
+                    continue
+                logging.getLogger(__name__).info('Adding MediaInfo %d to MediaWiki by user %d' % (media.id, user.id))
+                try:
+                    mw.put_content(page_id, new, minor=minor, retries=MediaInfo.MEDIAWIKI_RETRIES)
+                except MEDIAWIKI_ERRORS as e:
+                    logging.getLogger(__name__).exception('Cannot edit MediaWiki page %d' % page_id)
+                    errors.append(e)
+        return errors
 
     def mediawiki_link(self):
         return settings.MEDIAINFO_MEDIAWIKI_ARTICLE + str(self)

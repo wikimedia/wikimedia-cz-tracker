@@ -1634,6 +1634,63 @@ class PreferencesTests(TestCase):
         self.assertEqual(preferences.email_language, "es")
 
 
+class FakeCommons:
+    """
+    A fake of the MediaWiki API of Wikimedia Commons, for MediaWiki.request.
+
+    It has the limit of the real API: 50 pages in each request.
+    """
+
+    def __init__(self):
+        self.contents = {}
+        self.calls = []
+        self.edits = []
+        self.fail_page_ids = set()
+
+    def request(self, payload, method="POST", authorized_only=False, retries=0):
+        payload = dict(payload)
+        self.calls.append(payload)
+        if payload.get('action') == 'edit':
+            self.edits.append((payload['pageid'], payload['text'], payload['minor']))
+            self.contents[payload['pageid']] = payload['text']
+            return self._response({'edit': {'result': 'Success'}})
+        if payload.get('meta') == 'tokens':
+            return self._response({'query': {'tokens': {'csrftoken': '+\\'}}})
+        raw_page_ids = payload['pageids']
+        if isinstance(raw_page_ids, list):
+            raw_page_ids = '|'.join(str(page_id) for page_id in raw_page_ids)
+        page_ids = [int(page_id) for page_id in str(raw_page_ids).split('|')]
+        if len(page_ids) > 50:
+            return self._response({'error': {'code': 'toomanyvalues'}})
+        if self.fail_page_ids.intersection(page_ids):
+            raise requests.exceptions.ConnectionError('fake connection error')
+        if payload.get('prop') == 'revisions':
+            return self._response(self._query_revisions(payload, page_ids))
+        raise AssertionError('FakeCommons does not support this request: %r' % payload)
+
+    @staticmethod
+    def _response(data):
+        response = Mock()
+        response.json.return_value = data
+        return response
+
+    def _query_revisions(self, payload, page_ids):
+        pages = []
+        for page_id in page_ids:
+            if page_id not in self.contents:
+                pages.append({'pageid': page_id, 'missing': True})
+                continue
+            pages.append({'pageid': page_id, 'ns': 6, 'title': 'File:%d' % page_id, 'revisions': [
+                {'slots': {'main': {'content': self.contents[page_id]}}}
+            ]})
+        if payload.get('formatversion') != 2:
+            return {'query': {'pages': {
+                str(page['pageid']): {'revisions': [{'slots': {'main': {'*': page['revisions'][0]['slots']['main']['content']}}}]}
+                for page in pages if 'revisions' in page
+            }}}
+        return {'query': {'pages': pages}}
+
+
 def make_response(status_code, headers=None, data=None):
     response = requests.Response()
     response.status_code = status_code
@@ -1726,6 +1783,132 @@ class MediaWikiClientTests(SimpleTestCase):
                 self.mw.get_contents([1])
 
 
+class MediaInfoTestCase(TestCase):
+    def setUp(self):
+        self.owner = User.objects.create(username='ticket_owner')
+        self.topic = Topic.objects.create(name='test_topic', ticket_expenses=True,
+                                          grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
+        self.ticket = Ticket.objects.create(name='ticket', topic=self.topic, requested_user=self.owner)
+        self.commons = FakeCommons()
+        patcher = patch.object(MediaWiki, 'request', self.commons.request)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def create_media(self, page_id, title=None, ticket=None):
+        media = MediaInfo.objects.create(ticket=ticket or self.ticket, page_id=page_id, page_title=title)
+        Task.objects.all().delete()
+        return media
+
+    def tasks(self, name):
+        return Task.objects.filter(task_name='tracker.models.%s' % name)
+
+
+class MediaInfoSchedulingTests(MediaInfoTestCase):
+    @override_settings(TRACKER_MAINTENANCE_USER_ID=1)
+    def test_ticket_save_does_not_update_templates(self):
+        self.create_media(1, 'File:1.jpg')
+        ticket = Ticket.objects.get(id=self.ticket.id)
+        ticket.description = 'changed'
+        ticket.save()
+        ticket.update_payment_status()
+
+        self.assertEqual(self.tasks('_update_mediainfo').count(), 0)
+
+    def test_subtopic_change_updates_templates(self):
+        self.create_media(1, 'File:1.jpg')
+        subtopic = Subtopic.objects.create(name='subtopic', topic=self.topic)
+        ticket = Ticket.objects.get(id=self.ticket.id)
+        ticket.subtopic = subtopic
+
+        with override_settings(TRACKER_MAINTENANCE_USER_ID=self.owner.id):
+            ticket.save()
+
+        task = self.tasks('_update_mediainfo').get()
+        self.assertEqual(json.loads(task.task_params), [[self.ticket.id, self.owner.id], {}])
+
+    def test_new_ticket_does_not_update_templates(self):
+        subtopic = Subtopic.objects.create(name='subtopic', topic=self.topic)
+        with override_settings(TRACKER_MAINTENANCE_USER_ID=self.owner.id):
+            Ticket.objects.create(name='new', topic=self.topic, subtopic=subtopic)
+
+        self.assertEqual(self.tasks('_update_mediainfo').count(), 0)
+
+
+class MediaInfoTemplateTests(MediaInfoTestCase):
+    def template(self, media):
+        return '{{%s|podtéma=%s|rok=%d|tiket=%d}}' % (
+            settings.MEDIAINFO_MEDIAWIKI_TEMPLATE, media.ticket.subtopic or '', media.created.year, media.ticket.id)
+
+    def test_add_to_mediawiki(self):
+        self.commons.contents[937952] = '{{Information|description=Example}}\n[[Category:Example]]'
+        media = self.create_media(937952)
+
+        MediaInfo.add_to_mediawiki.task_function(media.id, self.owner.id)
+
+        page_id, text, minor = self.commons.edits[0]
+        self.assertEqual(page_id, 937952)
+        self.assertEqual(text, '{{Information|description=Example}}\n%s\n[[Category:Example]]' % self.template(media))
+        self.assertFalse(minor)
+
+    def test_remove_from_mediawiki(self):
+        media = self.create_media(937952)
+        self.commons.contents[937952] = '{{Information}}\n%s\n[[Category:Example]]' % self.template(media)
+
+        MediaInfo.remove_from_mediawiki.task_function(media.page_id, self.owner.id)
+
+        self.assertEqual(self.commons.edits, [(937952, '{{Information}}\n[[Category:Example]]', True)])
+
+    def test_add_templates_reads_pages_in_batches(self):
+        for page_id in range(1, 61):
+            self.commons.contents[page_id] = '{{Information}}'
+            self.create_media(page_id, 'File:%d.jpg' % page_id)
+
+        Ticket._update_mediainfo.task_function(self.ticket.id, self.owner.id)
+
+        reads = [call for call in self.commons.calls if call.get('prop') == 'revisions']
+        self.assertEqual(len(reads), 2)
+        self.assertTrue(all(len(call['pageids'].split('|')) <= 50 for call in reads))
+        self.assertEqual(len(self.commons.edits), 60)
+
+    def test_add_templates_edits_only_pages_that_change(self):
+        subtopic = Subtopic.objects.create(name='new subtopic', topic=self.topic)
+        Ticket.objects.filter(id=self.ticket.id).update(subtopic=subtopic)
+        correct = self.create_media(1, 'File:1.jpg')
+        outdated = self.create_media(2, 'File:2.jpg')
+        without_information = self.create_media(3, 'File:3.jpg')
+        self.create_media(4, 'File:Missing.jpg')
+        self.commons.contents[1] = '{{Information}}\n' + self.template(MediaInfo.objects.get(id=correct.id))
+        self.commons.contents[2] = '{{Information}}\n{{%s|podtéma=old|rok=2020|tiket=%d}}\n[[Category:A]]' % (
+            settings.MEDIAINFO_MEDIAWIKI_TEMPLATE, self.ticket.id)
+        self.commons.contents[3] = 'No information template'
+
+        Ticket._update_mediainfo.task_function(self.ticket.id, self.owner.id)
+
+        outdated = MediaInfo.objects.get(id=outdated.id)
+        without_information = MediaInfo.objects.get(id=without_information.id)
+        self.assertEqual(self.commons.edits, [
+            (2, '{{Information}}\n' + self.template(outdated) + '\n[[Category:A]]', False),
+            (3, 'No information template\n' + self.template(without_information), True),
+        ])
+
+    def test_failed_read_does_not_stop_other_batches(self):
+        for page_id in range(1, 61):
+            self.commons.contents[page_id] = '{{Information}}'
+            self.create_media(page_id, 'File:%d.jpg' % page_id)
+        self.commons.fail_page_ids = {1}
+
+        with self.assertRaises(MediaWikiError):
+            Ticket._update_mediainfo.task_function(self.ticket.id, self.owner.id)
+
+        self.assertEqual(sorted(page_id for page_id, text, minor in self.commons.edits), list(range(51, 61)))
+
+    def test_template_update_is_in_queue_once(self):
+        Ticket._update_mediainfo(self.ticket.id, self.owner.id)
+        Ticket._update_mediainfo(self.ticket.id, self.owner.id)
+
+        self.assertEqual(self.tasks('_update_mediainfo').count(), 1)
+
+
 class MediaInfoCommunicationTests(TestCase):
 
     def setUp(self):
@@ -1735,7 +1918,6 @@ class MediaInfoCommunicationTests(TestCase):
         self.ticket = Ticket.objects.create(name='ticket', topic=self.topic, requested_user=self.owner)
         self.mediainfo = MediaInfo.objects.create(ticket=self.ticket, page_id=937952,
                                                   thumb_url="https://commons.wikimedia.org/wiki/File:Example.svg")
-        self.mediawiki = MediaWiki(User.objects.get(id=self.owner.id), settings.MEDIAINFO_MEDIAWIKI_API)
 
     @patch("tracker.models.MediaInfo.get_mediawiki_data")
     def test_store_mediawiki_data(self, mock_request):
@@ -1746,24 +1928,6 @@ class MediaInfoCommunicationTests(TestCase):
         MediaInfo.store_mediawiki_data.task_function(self.mediainfo.id)
         self.mediainfo.refresh_from_db()
         self.assertEqual(self.mediainfo.page_title, "File:Example.svg")
-
-    @patch("socialauth.api.MediaWiki.put_content")
-    def test_add_to_mediawiki(self, mock_request):
-        MediaInfo.add_to_mediawiki.task_function(self.mediainfo.id, self.owner.id)
-        self.assertEqual(mock_request.call_args[0][0], 937952)  # Example.svg
-        expected_template = "{{{template}|podtéma={subtopic}|rok={year}|tiket={ticket_id}}}".format(
-            template=settings.MEDIAINFO_MEDIAWIKI_TEMPLATE,
-            subtopic=self.mediainfo.ticket.subtopic or '',
-            year=datetime.date.today().year,
-            ticket_id=self.mediainfo.ticket.id)
-        self.assertTrue(expected_template in mock_request.call_args[0][1])
-
-    @patch("socialauth.api.MediaWiki.put_content")
-    def test_remove_from_mediawiki(self, mock_request):
-        MediaInfo.remove_from_mediawiki.task_function(self.mediainfo.page_id, self.owner.id)
-        mock_request.assert_called_once_with(937952,  # Example.svg
-                                             MediaInfo.strip_template(self.mediawiki.get_content(937952)),
-                                             minor=True)
 
 
 class MediaUpdateTests(TestCase):
