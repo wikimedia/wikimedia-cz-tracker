@@ -2303,6 +2303,18 @@ class MediaImportTests(MediaInfoTestCase):
         self.assertEqual(sorted(self.ticket.mediainfo_set.values_list('page_title', flat=True)), ['File:1.jpg', 'File:2.jpg'])
 
 
+class MediaInfoApiTests(MediaInfoTestCase):
+    def test_list_filters_by_ticket(self):
+        other_ticket = Ticket.objects.create(name='other', topic=self.topic)
+        self.create_media(1, 'File:1.jpg')
+        self.create_media(2, 'File:2.jpg', ticket=other_ticket)
+
+        response = Client().get('/api/tracker/mediainfo/', {'ticket': self.ticket.id})
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual([item['page_title'] for item in response.json()], ['File:1.jpg'])
+
+
 @override_settings(CACHES={'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
                                        'LOCATION': 'oauth-middleware-tests'}})
 class InvalidOauthMiddlewareTests(TestCase):

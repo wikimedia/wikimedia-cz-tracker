@@ -37,7 +37,7 @@ class ContentTypeViewSet(viewsets.ModelViewSet):
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.none()
-    filter_fields = ('is_active', 'is_staff', 'is_superuser')
+    filterset_fields = ('is_active', 'is_staff', 'is_superuser')
     search_fields = ('first_name', 'last_name', 'username', 'email')
 
     def get_queryset(self):
@@ -75,7 +75,7 @@ class TrackerProfileViewSet(viewsets.ModelViewSet):
     queryset = TrackerProfile.objects.none()
     serializer_class = TrackerProfileSerializer
     permission_classes = (IsSelfTrackerProfile,)
-    filter_fields = ('user', )
+    filterset_fields = ('user', )
 
     def get_queryset(self):
         if self.request.user and self.request.user.is_staff:
@@ -112,14 +112,14 @@ class GrantViewSet(viewsets.ModelViewSet):
 class TopicViewSet(viewsets.ModelViewSet):
     queryset = Topic.objects.all()
     serializer_class = TopicSerializer
-    filter_fields = ('grant', 'open_for_tickets', 'ticket_media', 'ticket_expenses', 'ticket_preexpenses')
+    filterset_fields = ('grant', 'open_for_tickets', 'ticket_media', 'ticket_expenses', 'ticket_preexpenses')
     search_fields = ('name', 'description', 'form_description')
 
 
 class SubtopicViewSet(viewsets.ModelViewSet):
     queryset = Subtopic.objects.all()
     serializer_class = SubtopicSerializer
-    filter_fields = ('topic', )
+    filterset_fields = ('topic', )
     search_fields = ('name', 'description')
 
 
@@ -153,7 +153,7 @@ class MediaInfoViewSet(viewsets.ModelViewSet):
     queryset = MediaInfo.objects.all()
     serializer_class = MediaInfoSerializer
     permission_classes = (CanEditExpedituresElseReadOnly, )
-    filter_fields = ('ticket', )
+    filterset_fields = ('ticket', )
     search_fields = ('name', )
 
     def create(self, request, *args, **kwargs):
@@ -180,14 +180,14 @@ class MediaInfoOldViewSet(viewsets.ModelViewSet):
     queryset = MediaInfoOld.objects.all()
     serializer_class = MediaInfoOldSerializer
     permission_classes = (ReadOnly, )
-    filter_fields = ('ticket', )
+    filterset_fields = ('ticket', )
     search_fields = ('name', )
 
 
 class ExpeditureViewSet(viewsets.ModelViewSet):
     queryset = Expediture.objects.all()
     permission_classes = (CanEditExpedituresElseReadOnly, )
-    filter_fields = ('ticket', 'wage', 'paid')
+    filterset_fields = ('ticket', 'wage', 'paid')
     search_fields = ('description', 'accounting_info')
 
     def get_serializer_class(self):
@@ -209,5 +209,5 @@ class PreexpeditureViewSet(viewsets.ModelViewSet):
     queryset = Preexpediture.objects.all()
     serializer_class = PreexpeditureSerializer
     permission_classes = (CanEditExpedituresElseReadOnly, )
-    filter_fields = ('ticket', 'wage')
+    filterset_fields = ('ticket', 'wage')
     search_fields = ('description', )
