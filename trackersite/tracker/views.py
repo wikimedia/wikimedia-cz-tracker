@@ -1329,7 +1329,8 @@ def export(request):
                     tickets += Ticket.get_tickets_with_state(request.POST[state])
             if len(tickets) == 0:
                 tickets = list(Ticket.objects.all())
-            tickets = list(set(tickets))
+            # A set has no fixed order. Sort the tickets, so the rows come in ID order.
+            tickets = sorted(set(tickets), key=lambda ticket: ticket.id)
             topics = []
             for item in request.POST:
                 if item.startswith('ticket-topic-'):
