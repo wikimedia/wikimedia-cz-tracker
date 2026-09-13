@@ -25,7 +25,7 @@ from django.test.client import Client
 from django.urls import reverse
 from django.utils import timezone
 
-from socialauth.api import MediaWiki
+from socialauth.api import MediaWiki, MediaWikiError
 
 from tracker.admin import ExpeditureInlineFormSet
 from tracker.fio import FioPaymentManager
@@ -1630,6 +1630,98 @@ class PreferencesTests(TestCase):
         self.assertTrue("close" in preferences.muted_ack)
         self.assertEqual(preferences.display_items, 20)
         self.assertEqual(preferences.email_language, "es")
+
+
+def make_response(status_code, headers=None, data=None):
+    response = requests.Response()
+    response.status_code = status_code
+    response.reason = 'fake'
+    response.url = 'https://commons.wikimedia.org/w/api.php'
+    response.headers.update(headers or {})
+    response._content = json.dumps(data or {}).encode('utf-8')
+    response.request = Mock(headers={})
+    return response
+
+
+class MediaWikiClientTests(SimpleTestCase):
+    def setUp(self):
+        self.mw = MediaWiki(user=None, api_url='https://commons.wikimedia.org/w/api.php')
+
+    @patch('socialauth.api.time.sleep')
+    @patch('requests.Session.post')
+    def test_request_sets_timeout(self, post, sleep):
+        post.return_value = make_response(200)
+        self.mw.request({'action': 'query'})
+        self.assertEqual(post.call_args[1]['timeout'], MediaWiki.TIMEOUT)
+        sleep.assert_not_called()
+
+    @patch('socialauth.api.time.sleep')
+    @patch('requests.Session.post')
+    def test_request_does_not_retry_by_default(self, post, sleep):
+        post.return_value = make_response(503)
+        with self.assertRaises(requests.exceptions.HTTPError):
+            self.mw.request({'action': 'query'})
+        self.assertEqual(post.call_count, 1)
+        sleep.assert_not_called()
+
+    @patch('socialauth.api.time.sleep')
+    @patch('requests.Session.post')
+    def test_request_retries_with_retry_after(self, post, sleep):
+        post.side_effect = [make_response(429, {'Retry-After': '7'}), make_response(200, data={'ok': True})]
+        response = self.mw.request({'action': 'query'}, retries=3)
+        self.assertEqual(response.json(), {'ok': True})
+        self.assertEqual(post.call_count, 2)
+        sleep.assert_called_once_with(7)
+
+    @patch('socialauth.api.time.sleep')
+    @patch('requests.Session.post')
+    def test_request_limits_retry_wait(self, post, sleep):
+        post.side_effect = [make_response(503, {'Retry-After': '100000'}), make_response(200)]
+        self.mw.request({'action': 'query'}, retries=1)
+        sleep.assert_called_once_with(MediaWiki.MAX_RETRY_WAIT)
+
+    @patch('socialauth.api.time.sleep')
+    @patch('requests.Session.post')
+    def test_request_raises_after_last_retry(self, post, sleep):
+        post.side_effect = requests.exceptions.ConnectionError('down')
+        with self.assertRaises(requests.exceptions.ConnectionError):
+            self.mw.request({'action': 'query'}, retries=2)
+        self.assertEqual(post.call_count, 3)
+        self.assertEqual(sleep.call_count, 2)
+
+    @patch('socialauth.api.time.sleep')
+    @patch('requests.Session.post')
+    def test_request_does_not_retry_client_errors(self, post, sleep):
+        post.return_value = make_response(400)
+        with self.assertRaises(requests.exceptions.HTTPError):
+            self.mw.request({'action': 'query'}, retries=3)
+        self.assertEqual(post.call_count, 1)
+
+    def test_get_contents_follows_continuation(self):
+        responses = [
+            {'continue': {'rvcontinue': '2|x', 'continue': '||'}, 'query': {'pages': [
+                {'pageid': 1, 'revisions': [{'slots': {'main': {'content': 'one'}}}]},
+                {'pageid': 2},
+                {'pageid': 3, 'missing': True},
+            ]}},
+            {'query': {'pages': [
+                {'pageid': 1},
+                {'pageid': 2, 'revisions': [{'slots': {'main': {'content': 'two'}}}]},
+                {'pageid': 3, 'missing': True},
+            ]}},
+        ]
+        with patch.object(MediaWiki, 'request', side_effect=[Mock(json=Mock(return_value=r)) for r in responses]) as request:
+            contents = self.mw.get_contents([1, 2, 3], retries=2)
+        self.assertEqual(contents, {1: 'one', 2: 'two'})
+        self.assertEqual(request.call_args_list[0][0][0]['pageids'], '1|2|3')
+        self.assertEqual(request.call_args_list[1][0][0]['rvcontinue'], '2|x')
+        self.assertEqual(request.call_args_list[1][1]['retries'], 2)
+
+    def test_get_contents_raises_api_error(self):
+        response = Mock(json=Mock(return_value={'error': {'code': 'toomanyvalues'}}))
+        with patch.object(MediaWiki, 'request', return_value=response):
+            with self.assertRaises(MediaWikiError):
+                self.mw.get_contents([1])
 
 
 class MediaInfoCommunicationTests(TestCase):
