@@ -1,7 +1,13 @@
+import hashlib
+
 from socialauth.api import MediaWiki
+from django.core.cache import cache
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.conf import settings
+
+# Number of seconds to remember that the MediaWiki tokens of a user are valid
+OAUTH_VALID_CACHE_SECONDS = 600
 
 
 def WarnIEUsers(get_response):
@@ -29,6 +35,12 @@ def InvalidOauth(get_response):
             # Verify MediaWiki token, if we have any to verify
             mw = MediaWiki(request.user)
             if mw.tokens:
+                # The key contains the token, thus new tokens are verified again
+                token_hash = hashlib.sha256(str(mw.tokens.get('oauth_token')).encode('utf-8')).hexdigest()
+                cache_key = 'tracker:oauth-valid:%d:%s' % (request.user.id, token_hash)
+                if cache.get(cache_key):
+                    return response
+
                 resp = mw.request({
                     "action": "query",
                     "meta": "userinfo"
@@ -37,6 +49,8 @@ def InvalidOauth(get_response):
                     return redirect(reverse('invalid_oauth_tokens', kwargs={
                         'provider': 'mediawiki'
                     }) + "?next=" + request.path)
+                if 'error' not in resp:
+                    cache.set(cache_key, True, OAUTH_VALID_CACHE_SECONDS)
         return response
 
     return process_request

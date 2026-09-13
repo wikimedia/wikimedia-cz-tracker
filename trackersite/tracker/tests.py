@@ -15,6 +15,7 @@ from django.conf import settings
 from django.contrib.auth.models import User, Permission
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.staticfiles import finders
+from django.core.cache import cache
 from django.core.exceptions import ValidationError
 from django.core.files.base import ContentFile
 from django.core.management import call_command
@@ -26,6 +27,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from background_task.models import Task
+from social_django.models import UserSocialAuth
 
 from socialauth.api import MediaWiki, MediaWikiError
 
@@ -2245,6 +2247,45 @@ class MediaImportTests(MediaInfoTestCase):
         self.assertEqual(sorted(call[0][0].id for call in save.call_args_list), sorted([self.ticket.id, other_ticket.id]))
         self.assertEqual(sorted(self.ticket.mediainfo_set.values_list('page_title', flat=True)), ['File:1.jpg', 'File:2.jpg'])
         self.assertEqual(self.tasks('_update_mediainfo').count(), 0)
+
+
+@override_settings(CACHES={'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+                                       'LOCATION': 'oauth-middleware-tests'}})
+class InvalidOauthMiddlewareTests(TestCase):
+    def setUp(self):
+        cache.clear()
+        self.user = User.objects.create_user(username='oauth_user', password='pw')
+        self.social = UserSocialAuth.objects.create(user=self.user, provider='mediawiki', uid='1', extra_data={
+            'access_token': {'oauth_token': 'token-1', 'oauth_token_secret': 'secret'}
+        })
+        self.client.login(username='oauth_user', password='pw')
+
+    def userinfo_response(self, data):
+        return Mock(json=Mock(return_value=data))
+
+    def test_valid_tokens_are_checked_once(self):
+        with patch.object(MediaWiki, 'request', return_value=self.userinfo_response({'query': {'userinfo': {}}})) as request:
+            self.client.get(reverse('ticket_list'))
+            self.client.get(reverse('ticket_list'))
+        self.assertEqual(request.call_count, 1)
+
+    def test_new_tokens_are_checked_again(self):
+        with patch.object(MediaWiki, 'request', return_value=self.userinfo_response({'query': {'userinfo': {}}})) as request:
+            self.client.get(reverse('ticket_list'))
+            self.social.extra_data = {'access_token': {'oauth_token': 'token-2', 'oauth_token_secret': 'secret'}}
+            self.social.save()
+            self.client.get(reverse('ticket_list'))
+        self.assertEqual(request.call_count, 2)
+
+    def test_invalid_tokens_redirect_every_time(self):
+        invalid = self.userinfo_response({'error': {'code': 'mwoauth-invalid-authorization'}})
+        with patch.object(MediaWiki, 'request', return_value=invalid) as request:
+            first = self.client.get(reverse('ticket_list'))
+            second = self.client.get(reverse('ticket_list'))
+        expected = reverse('invalid_oauth_tokens', kwargs={'provider': 'mediawiki'})
+        self.assertTrue(first['Location'].startswith(expected))
+        self.assertTrue(second['Location'].startswith(expected))
+        self.assertEqual(request.call_count, 2)
 
 
 class AutomationPaymentTests(TestCase):
