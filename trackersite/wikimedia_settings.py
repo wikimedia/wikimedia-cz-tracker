@@ -42,8 +42,10 @@ SENDFILE_ROOT = TRACKER_DOCS_ROOT
 SITE_ID = 1
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 STATIC_URL = '/static/'
-RECAPTCHA_PUBLIC_KEY = ''
-RECAPTCHA_PRIVATE_KEY = ''
+# Google's public reCAPTCHA test keys. They always validate.
+RECAPTCHA_PUBLIC_KEY = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
+RECAPTCHA_PRIVATE_KEY = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'
+SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
 SENDFILE_BACKEND = 'django_sendfile.backends.development'
 BASE_URL = 'https://example.com'
 GOOGLE_ANALYTICS = None

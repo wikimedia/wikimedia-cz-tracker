@@ -118,7 +118,7 @@ INSTALLED_APPS = (
     'api',
     'customcomments',
     'django_sendfile',
-    'snowpenguin.django.recaptcha2',
+    'django_recaptcha',
     'widget_tweaks',
     'social_django',
     'rest_framework',

@@ -1,7 +1,7 @@
 # just our usual stuff
 Django==3.2.*
 django-sendfile2
-django-recaptcha2
+django-recaptcha
 django-contrib-comments
 django-widget-tweaks
 python-memcached

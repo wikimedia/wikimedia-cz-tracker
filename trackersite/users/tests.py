@@ -1,31 +1,31 @@
 # -*- coding: utf-8 -*-
-import os
+from unittest.mock import patch
+
 from django.core import mail
 from django.test import TestCase
 from django.test.client import Client
 from django.urls import reverse
 
 from django.contrib.auth.models import User
+from django_recaptcha.client import RecaptchaResponse
 
 from tracker.models import TrackerProfile
 
 
 class CreateUserTest(TestCase):
     def setUp(self):
-        os.environ['RECAPTCHA_DISABLE'] = 'True'
-
-    def tearDown(self):
-        try:
-            del os.environ['RECAPTCHA_DISABLE']
-        except KeyError:
-            # sometimes deleted for tests
-            pass
+        # Do not call Google. Accept every captcha unless a test says otherwise.
+        patcher = patch('django_recaptcha.fields.client.submit')
+        self.captcha_submit = patcher.start()
+        self.captcha_submit.return_value = RecaptchaResponse(is_valid=True)
+        self.addCleanup(patcher.stop)
 
     def test_user_registration_captcha(self):
-        del os.environ['RECAPTCHA_DISABLE']
+        self.captcha_submit.return_value = RecaptchaResponse(is_valid=False)
         USERNAME, PW, EMAIL = 'foouser', 'foo', 'foo@example.com'
         response = Client().post(reverse('register'), {
             'username': USERNAME, 'password1': PW, 'password2': PW, 'email': EMAIL,
+            'g-recaptcha-response': 'FAILED',
         })
         self.assertEqual(200, response.status_code)
 
@@ -36,6 +36,7 @@ class CreateUserTest(TestCase):
         USERNAME, PW, EMAIL = 'foouser', 'foo', 'foo@example.com'
         response = client.post(reverse('register'), {
             'username': USERNAME, 'password1': PW, 'password2': PW, 'email': EMAIL,
+            'g-recaptcha-response': 'PASSED',
         }, follow=True)
         self.assertRedirects(response, reverse("fill_details"))
         self.assertEqual(1, len(User.objects.filter(username=USERNAME)))

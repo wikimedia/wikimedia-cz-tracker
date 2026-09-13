@@ -10,8 +10,8 @@ from django_comments.forms import CommentSecurityForm, COMMENT_MAX_LENGTH
 from django.utils.encoding import force_str
 from tracker.utils import get_request
 
-from snowpenguin.django.recaptcha2.fields import ReCaptchaField
-from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
+from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.widgets import ReCaptchaV2Checkbox
 
 
 class CustomCommentForm(CommentSecurityForm):
@@ -24,7 +24,7 @@ class CustomCommentForm(CommentSecurityForm):
     def __init__(self, *args, **kwargs):
         super(CustomCommentForm, self).__init__(*args, **kwargs)
         if not get_request().user.is_authenticated:
-            self.fields['captcha'] = ReCaptchaField(widget=ReCaptchaWidget())
+            self.fields['captcha'] = ReCaptchaField(widget=ReCaptchaV2Checkbox())
 
     def get_comment_object(self, site_id=None):
         """

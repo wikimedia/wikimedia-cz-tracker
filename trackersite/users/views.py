@@ -15,8 +15,8 @@ from django.shortcuts import render, get_object_or_404
 
 from tracker.models import BankAccount, TrackerProfile
 
-from snowpenguin.django.recaptcha2.fields import ReCaptchaField
-from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
+from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.widgets import ReCaptchaV2Checkbox
 
 from .forms import CustomPasswordChangeForm
 
@@ -104,7 +104,7 @@ fill_details = login_required(AddTrackerProfileDetails.as_view())
 
 class UserWithEmailForm(auth.forms.UserCreationForm):
     email = forms.EmailField(required=True, help_text=_("Will be used for password recovery and notifications, if you enable them."))
-    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox())
 
     class Meta:
         model = auth.models.User
