@@ -4,11 +4,10 @@ import decimal
 import json
 import logging
 import re
-from collections import OrderedDict
+from collections import Counter, OrderedDict
 
 import requests
 from background_task import background
-from background_task.models import Task
 from background_task.signals import task_error
 from django import template
 from django.conf import settings
@@ -613,10 +612,15 @@ class Ticket(CachedModel, ModelDiffMixin):
             ticket = Ticket.objects.get(id=ticket_id)
         except Ticket.DoesNotExist:
             return
-        for media in ticket.mediainfo_set.all():
-            media.store_mediawiki_data_internal()
-        # The refresh can delete media, thus the cached media counts can change
-        ticket.flush_cache()
+        medias = ticket.mediainfo_set.prefetch_related('mediainfocategory_set', 'mediainfousage_set')
+        try:
+            errors = MediaInfo.refresh_mediawiki_data(medias)
+        finally:
+            # The refresh can delete media, thus the cached media counts can change
+            ticket.flush_cache()
+        if errors:
+            raise MediaWikiError('%d of the MediaWiki requests failed for ticket %d' % (len(errors), ticket_id)) \
+                from errors[-1]
 
         # Do not use ticket.save(). It writes all the fields from the old copy of the ticket.
         Ticket.objects.filter(pk=ticket.pk).update(media_updated=datetime.datetime.now(tz=datetime.timezone.utc))
@@ -1026,10 +1030,11 @@ class MediaInfoCategory(models.Model):
 
 class MediaInfo(Model):
     """ Media related to particular tickets. """
-    # The MediaWiki API gives page contents for 50 pages in each request
+    # The MediaWiki API gives scaled thumbnails and page contents for 50 pages in each request
     MEDIAWIKI_BATCH_SIZE = 50
     # Number of times to send a failed MediaWiki request again
     MEDIAWIKI_RETRIES = 3
+    THUMBNAIL_WIDTH = 200
 
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'),
                                help_text=_('Ticket this media info belongs to'), on_delete=models.CASCADE)
@@ -1224,91 +1229,238 @@ class MediaInfo(Model):
     def get_maintenance_user_id():
         return settings.TRACKER_MAINTENANCE_USER_ID if hasattr(settings, 'TRACKER_MAINTENANCE_USER_ID') else None
 
-    def get_mediawiki_data(self, width=None, delete_if_not_found=False):
-        if settings.MEDIAINFO_MEDIAWIKI_API:
-            mw = MediaWiki(user=None)
-            data = mw.request({
+    @staticmethod
+    def fetch_mediawiki_data(page_ids, width=None):
+        """
+        Get the MediaWiki data of up to MEDIAWIKI_BATCH_SIZE files.
+
+        Send one request, and more requests when a file has more categories or
+        usages than one response can contain. Return a dict from page ID to
+        data. The dict does not contain the pages that are not files.
+        """
+        mw = MediaWiki(user=None)
+        module_parameters = {
+            "imageinfo": {"iiprop": "dimensions|url|canonicaltitle"},
+            "categories": {"clprop": "hidden", "cllimit": "max"},
+            "globalusage": {"gulimit": "max"},
+        }
+        if width:
+            module_parameters["imageinfo"]["iiurlwidth"] = width
+
+        def make_payload(props, continuation):
+            payload = {
                 "action": "query",
-                "format": "json",
                 "formatversion": 2,
-                "prop": "imageinfo|categories|globalusage",
-                "pageids": [self.media_id],
-                "iiprop": "dimensions|url|canonicaltitle",
-                "iiurlwidth": width,
-                "clprop": "hidden",
-            }).json()
-
-            try:
-                data = data['query']['pages'][0]
-            except KeyError:
-                return
-
-            if 'imageinfo' not in data:
-                # page does not exist
-                if delete_if_not_found:
-                    # we already tried, drop
-                    self.delete()
-                    return
-
-                # to ensure the ID is re-loaded using the name
-                self.page_id = None
-                self.save(no_update=True)
-
-                # try again with page_id dropped; if it fails again, drop this entry
-                self.get_mediawiki_data(width=width, delete_if_not_found=True)
-                return
-
-            imagedata = data['imageinfo'][0]
-
-            if width:
-                url = imagedata['thumburl']
-            else:
-                url = imagedata['url']
-
-            return {
-                "url": url,
-                "page_title": imagedata['canonicaltitle'],
-                'width': imagedata['width'],
-                'height': imagedata['height'],
-                'categories': data.get('categories', []),
-                'globalusage': data.get("globalusage", [])
+                "pageids": "|".join(str(page_id) for page_id in page_ids),
+                "prop": "|".join(props),
             }
+            for prop in props:
+                payload.update(module_parameters[prop])
+            payload.update(continuation)
+            return payload
 
-    def store_mediawiki_data_internal(self):
-        data = self.get_mediawiki_data(width=200)
+        payload = make_payload(["imageinfo", "categories", "globalusage"], {})
 
-        if data is None:
-            return
+        pages = {}
+        while True:
+            resp = mw.request(payload, retries=MediaInfo.MEDIAWIKI_RETRIES).json()
+            if 'error' in resp:
+                raise MediaWikiError(resp['error'])
+            for page in resp.get('query', {}).get('pages', []):
+                if 'pageid' not in page:
+                    continue
+                data = pages.setdefault(page['pageid'], {'categories': [], 'globalusage': []})
+                if page.get('imageinfo') and 'imageinfo' not in data:
+                    data['imageinfo'] = page['imageinfo'][0]
+                data['categories'].extend(page.get('categories', []))
+                data['globalusage'].extend(page.get('globalusage', []))
 
-        self.thumb_url = data['url']
-        self.page_title = data['page_title']
-        self.width = data.get('width')
-        self.height = data.get('height')
+            # Continue only the categories and the usages. For a request with
+            # one file, the API also continues to the old versions of the file.
+            continuation = {}
+            props = []
+            for key, prop in (('clcontinue', 'categories'), ('gucontinue', 'globalusage')):
+                if key in resp.get('continue', {}):
+                    continuation[key] = resp['continue'][key]
+                    props.append(prop)
+            if not props:
+                break
+            payload = make_payload(props, continuation)
 
-        self.mediainfocategory_set.all().delete()
-        for category in data.get("categories", []):
-            if "hidden" not in category:
-                MediaInfoCategory.objects.create(mediainfo=self, title=category['title'])
+        result = {}
+        for page_id, data in pages.items():
+            imageinfo = data.get('imageinfo')
+            if imageinfo is None:
+                continue
+            result[page_id] = {
+                "url": (imageinfo.get('thumburl') if width else None) or imageinfo['url'],
+                "page_title": imageinfo['canonicaltitle'],
+                'width': imageinfo.get('width'),
+                'height': imageinfo.get('height'),
+                'categories': data['categories'],
+                'globalusage': data['globalusage'],
+            }
+        return result
 
-        self.mediainfousage_set.all().delete()
-        for usage in data.get("globalusage", []):
-            MediaInfoUsage.objects.create(
-                mediainfo=self,
-                url=usage["url"],
-                title=usage["title"],
-                project=usage["wiki"]
-            )
+    @staticmethod
+    def fetch_mediawiki_page_ids(titles):
+        """
+        Get the page IDs of up to MEDIAWIKI_BATCH_SIZE titles.
 
-        self.save(no_update=True)
+        Return a dict from title to page ID. The page ID is None when the page
+        does not exist.
+        """
+        mw = MediaWiki(user=None)
+        resp = mw.request({
+            "action": "query",
+            "formatversion": 2,
+            "titles": "|".join(titles),
+        }, retries=MediaInfo.MEDIAWIKI_RETRIES).json()
+        if 'error' in resp:
+            raise MediaWikiError(resp['error'])
+        query = resp.get('query', {})
+        normalized = {item['from']: item['to'] for item in query.get('normalized', [])}
+        pages = {page['title']: page for page in query.get('pages', [])}
+
+        page_ids = {}
+        for title in titles:
+            page = pages.get(normalized.get(title, title), {})
+            if page.get('missing') or page.get('invalid'):
+                page_ids[title] = None
+            else:
+                page_ids[title] = page.get('pageid')
+        return page_ids
+
+    @staticmethod
+    def _fetch_in_batches(keys, fetch, results, failed_keys):
+        """
+        Call fetch for each batch of keys, and add its result to results.
+
+        When a batch fails, add its keys to failed_keys and continue.
+        Return the list of errors.
+        """
+        errors = []
+        for i in range(0, len(keys), MediaInfo.MEDIAWIKI_BATCH_SIZE):
+            batch = keys[i:i + MediaInfo.MEDIAWIKI_BATCH_SIZE]
+            try:
+                results.update(fetch(batch))
+            except MEDIAWIKI_ERRORS as e:
+                logging.getLogger(__name__).exception('MediaWiki request for %d pages failed' % len(batch))
+                failed_keys.update(batch)
+                errors.append(e)
+        return errors
+
+    @staticmethod
+    def refresh_mediawiki_data(medias):
+        """
+        Get the MediaWiki data of the medias, and store the changes.
+
+        Delete the medias whose files do not exist. Send the requests in
+        batches. When a batch fails, do not change its medias and continue with
+        the other batches. Return the list of errors.
+        """
+        medias = list(medias)
+        width = MediaInfo.THUMBNAIL_WIDTH
+
+        def fetch_data(page_ids):
+            return MediaInfo.fetch_mediawiki_data(page_ids, width=width)
+
+        data = {}
+        failed_page_ids = set()
+        page_ids = sorted({media.page_id for media in medias if media.page_id and media.page_id > 0})
+        errors = MediaInfo._fetch_in_batches(page_ids, fetch_data, data, failed_page_ids)
+
+        # A media can have no page ID, or a page ID that is not a file now. For
+        # example, a file that was deleted and uploaded again has a new page ID.
+        # Find the page ID from the title.
+        titles = sorted({
+            media.page_title for media in medias
+            if media.page_title and media.page_id not in data and media.page_id not in failed_page_ids
+        })
+        page_ids_by_title = {}
+        failed_titles = set()
+        errors += MediaInfo._fetch_in_batches(titles, MediaInfo.fetch_mediawiki_page_ids,
+                                              page_ids_by_title, failed_titles)
+        new_page_ids = sorted({
+            page_id for page_id in page_ids_by_title.values()
+            if page_id and page_id not in data and page_id not in failed_page_ids
+        })
+        errors += MediaInfo._fetch_in_batches(new_page_ids, fetch_data, data, failed_page_ids)
+
+        for media in medias:
+            if media.page_id in failed_page_ids:
+                continue
+            if media.page_id in data:
+                media._store_mediawiki_data(data[media.page_id])
+                continue
+            if not media.page_title or media.page_title in failed_titles:
+                continue
+            new_page_id = page_ids_by_title.get(media.page_title)
+            if new_page_id in failed_page_ids:
+                continue
+            if new_page_id not in data:
+                # The file does not exist
+                media.delete()
+                continue
+            media.page_id = new_page_id
+            media._store_mediawiki_data(data[new_page_id], force_save=True)
+        return errors
+
+    @staticmethod
+    def _sync_related_rows(media, rows, model, fields, wanted):
+        """ Delete and create related rows, so that they match the wanted tuples of field values. """
+        missing = Counter(wanted)
+        obsolete = []
+        for row in rows:
+            key = tuple(getattr(row, field) for field in fields)
+            if missing[key] > 0:
+                missing[key] -= 1
+            else:
+                obsolete.append(row.pk)
+        if obsolete:
+            model.objects.filter(pk__in=obsolete).delete()
+        new_rows = [
+            model(mediainfo=media, **dict(zip(fields, key)))
+            for key, count in missing.items() for _ in range(count)
+        ]
+        if new_rows:
+            model.objects.bulk_create(new_rows)
+
+    def _store_mediawiki_data(self, data, force_save=False):
+        """ Store the data from fetch_mediawiki_data(). Write only the values that change. """
+        changed = force_save
+        for field, value in (
+                ('thumb_url', data['url']),
+                ('page_title', data['page_title']),
+                ('width', data.get('width')),
+                ('height', data.get('height')),
+        ):
+            if getattr(self, field) != value:
+                setattr(self, field, value)
+                changed = True
+        if changed:
+            self.save(no_update=True)
+            if self.pk is None:
+                # save() deleted this media, because the ticket has a media with the same title
+                return
+
+        MediaInfo._sync_related_rows(
+            self, self.mediainfocategory_set.all(), MediaInfoCategory, ('title', ),
+            [(category['title'], ) for category in data.get('categories', []) if 'hidden' not in category]
+        )
+        MediaInfo._sync_related_rows(
+            self, self.mediainfousage_set.all(), MediaInfoUsage, ('url', 'title', 'project'),
+            [(usage['url'], usage['title'], usage['wiki']) for usage in data.get('globalusage', [])]
+        )
 
     @staticmethod
     @background(schedule=10)
     def store_mediawiki_data(media_id):
-        try:
-            media = MediaInfo.objects.get(id=media_id)
-        except MediaInfo.DoesNotExist:
-            return
-        media.store_mediawiki_data_internal()
+        # Tracker does not add this task now. The task stays for the tasks that are in the queue.
+        errors = MediaInfo.refresh_mediawiki_data(MediaInfo.objects.filter(id=media_id))
+        if errors:
+            raise MediaWikiError('%d of the MediaWiki requests failed for media %d' % (len(errors), media_id)) \
+                from errors[-1]
 
     def save(self, no_update=False, *args, **kwargs):
         if MediaInfo.objects.filter(ticket_id=self.ticket_id, page_title=self.page_title).exclude(id=self.id).exists():
@@ -1333,10 +1485,10 @@ class MediaInfo(Model):
             MediaInfo.add_to_mediawiki(self.id, get_request().user.id)
 
         if not no_update:
-            MediaInfo.store_mediawiki_data(self.id)
-            if not Task.objects.filter(task_name="tracker.models.update_media",
-                                       task_params="[[%s], {}]" % self.ticket.id).exists():
-                Ticket.update_media(self.ticket.id)
+            # This task gets the data of all the media of the ticket. When the
+            # task is in the queue, it is replaced, thus many new media cause
+            # one refresh.
+            Ticket.update_media(self.ticket_id)
 
     class Meta:
         verbose_name = _('Ticket media')

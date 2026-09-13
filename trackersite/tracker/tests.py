@@ -1638,14 +1638,28 @@ class FakeCommons:
     """
     A fake of the MediaWiki API of Wikimedia Commons, for MediaWiki.request.
 
-    It has the limit of the real API: 50 pages in each request.
+    It has the limits of the real API: 50 pages in each request, and a limit
+    on the categories and the usages in each response.
     """
 
-    def __init__(self):
+    def __init__(self, list_limit=500):
+        self.files = {}
         self.contents = {}
+        self.list_limit = list_limit
         self.calls = []
         self.edits = []
         self.fail_page_ids = set()
+
+    def add_file(self, page_id, title, categories=(), usages=(), content=None, width=4000, height=3000):
+        self.files[page_id] = {
+            'title': title,
+            'width': width,
+            'height': height,
+            'categories': list(categories),
+            'usages': list(usages),
+        }
+        if content is not None:
+            self.contents[page_id] = content
 
     def request(self, payload, method="POST", authorized_only=False, retries=0):
         payload = dict(payload)
@@ -1656,6 +1670,8 @@ class FakeCommons:
             return self._response({'edit': {'result': 'Success'}})
         if payload.get('meta') == 'tokens':
             return self._response({'query': {'tokens': {'csrftoken': '+\\'}}})
+        if 'titles' in payload:
+            return self._response(self._query_titles(payload))
         raw_page_ids = payload['pageids']
         if isinstance(raw_page_ids, list):
             raw_page_ids = '|'.join(str(page_id) for page_id in raw_page_ids)
@@ -1666,13 +1682,28 @@ class FakeCommons:
             raise requests.exceptions.ConnectionError('fake connection error')
         if payload.get('prop') == 'revisions':
             return self._response(self._query_revisions(payload, page_ids))
-        raise AssertionError('FakeCommons does not support this request: %r' % payload)
+        return self._response(self._query_files(payload, page_ids))
 
     @staticmethod
     def _response(data):
         response = Mock()
         response.json.return_value = data
         return response
+
+    def _query_titles(self, payload):
+        titles = payload['titles'].split('|') if isinstance(payload['titles'], str) else [payload['titles']]
+        normalized = []
+        pages = []
+        by_title = {f['title']: page_id for page_id, f in self.files.items()}
+        for title in titles:
+            target = title.replace('_', ' ')
+            if target != title:
+                normalized.append({'from': title, 'to': target})
+            if target in by_title:
+                pages.append({'pageid': by_title[target], 'ns': 6, 'title': target})
+            else:
+                pages.append({'ns': 6, 'title': target, 'missing': True})
+        return {'query': {'normalized': normalized, 'pages': pages}}
 
     def _query_revisions(self, payload, page_ids):
         pages = []
@@ -1689,6 +1720,71 @@ class FakeCommons:
                 for page in pages if 'revisions' in page
             }}}
         return {'query': {'pages': pages}}
+
+    def _query_files(self, payload, page_ids):
+        props = payload['prop'].split('|')
+        pages = {}
+        for page_id in page_ids:
+            if page_id not in self.files:
+                pages[page_id] = {'pageid': page_id, 'missing': True}
+                continue
+            pages[page_id] = {'pageid': page_id, 'ns': 6, 'title': self.files[page_id]['title']}
+            if 'imageinfo' in props:
+                f = self.files[page_id]
+                imageinfo = {
+                    'canonicaltitle': f['title'],
+                    'width': f['width'],
+                    'height': f['height'],
+                    'url': 'https://upload.example/%d.jpg' % page_id,
+                }
+                if payload.get('iiurlwidth'):
+                    imageinfo['thumburl'] = 'https://upload.example/%dpx-%d.jpg' % (payload['iiurlwidth'], page_id)
+                pages[page_id]['imageinfo'] = [imageinfo]
+
+        result = {'query': {'pages': list(pages.values())}}
+        continuation = {}
+        if 'imageinfo' in props and len(page_ids) == 1:
+            # The real API continues to the old versions of a single file
+            continuation['iistart'] = '2006-03-07T15:51:32Z'
+        for prop, key, field, make_item in (
+                ('categories', 'clcontinue', 'categories', self._category),
+                ('globalusage', 'gucontinue', 'usages', self._usage),
+        ):
+            if prop not in props:
+                continue
+            start_page_id, start_index = [int(x) for x in payload[key].split('|')] if key in payload else (0, 0)
+            left = self.list_limit
+            for page_id in sorted(page_ids):
+                if page_id < start_page_id or page_id not in self.files:
+                    continue
+                items = self.files[page_id][field]
+                index = start_index if page_id == start_page_id else 0
+                while index < len(items) and left > 0:
+                    pages[page_id].setdefault(prop, []).append(make_item(items[index]))
+                    index += 1
+                    left -= 1
+                if index < len(items):
+                    continuation[key] = '%d|%d' % (page_id, index)
+                    break
+        if continuation:
+            continuation['continue'] = '||'
+            result['continue'] = continuation
+        return result
+
+    @staticmethod
+    def _category(category):
+        title, hidden = category if isinstance(category, tuple) else (category, False)
+        item = {'ns': 14, 'title': title}
+        if hidden:
+            item['hidden'] = True
+        return item
+
+    @staticmethod
+    def _usage(title):
+        return {'title': title, 'wiki': 'cs.wikipedia.org', 'url': 'https://cs.wikipedia.org/wiki/%s' % title}
+
+    def file_requests(self):
+        return [call for call in self.calls if 'imageinfo' in call.get('prop', '')]
 
 
 def make_response(status_code, headers=None, data=None):
@@ -1803,7 +1899,224 @@ class MediaInfoTestCase(TestCase):
         return Task.objects.filter(task_name='tracker.models.%s' % name)
 
 
+class MediaInfoRefreshTests(MediaInfoTestCase):
+    def test_refresh_sends_batches_of_50(self):
+        for page_id in range(1, 121):
+            self.commons.add_file(page_id, 'File:%d.jpg' % page_id)
+            self.create_media(page_id, 'File:%d.jpg' % page_id)
+
+        Ticket.update_media.task_function(self.ticket.id)
+
+        requests_sent = self.commons.file_requests()
+        self.assertEqual(len(requests_sent), 3)
+        self.assertTrue(all(len(call['pageids'].split('|')) <= 50 for call in requests_sent))
+        media = MediaInfo.objects.get(page_id=77)
+        self.assertEqual(media.page_title, 'File:77.jpg')
+        self.assertEqual(media.thumb_url, 'https://upload.example/200px-77.jpg')
+        self.assertEqual((media.width, media.height), (4000, 3000))
+
+    def test_refresh_stores_all_categories_and_usages(self):
+        self.commons.list_limit = 2
+        categories = ['Category:A', ('Category:Hidden', True), 'Category:B', 'Category:C', 'Category:D']
+        usages = ['U1', 'U2', 'U3', 'U4', 'U5']
+        self.commons.add_file(1, 'File:1.jpg', categories=categories, usages=usages)
+        self.commons.add_file(2, 'File:2.jpg', categories=['Category:E'], usages=['U6'])
+        media = self.create_media(1, 'File:1.jpg')
+        self.create_media(2, 'File:2.jpg')
+
+        Ticket.update_media.task_function(self.ticket.id)
+
+        self.assertEqual(sorted(media.mediainfocategory_set.values_list('title', flat=True)),
+                         ['Category:A', 'Category:B', 'Category:C', 'Category:D'])
+        self.assertEqual(sorted(media.mediainfousage_set.values_list('title', flat=True)), usages)
+        self.assertEqual(list(MediaInfo.objects.get(page_id=2).mediainfousage_set.values_list('title', flat=True)),
+                         ['U6'])
+        self.assertTrue(len(self.commons.calls) > 1)
+
+    def test_refresh_of_one_file_does_not_get_old_versions(self):
+        self.commons.add_file(1, 'File:1.jpg', categories=['Category:A'])
+        self.create_media(1, 'File:1.jpg')
+
+        Ticket.update_media.task_function(self.ticket.id)
+
+        self.assertEqual(len(self.commons.calls), 1)
+        self.assertFalse(any('iistart' in call for call in self.commons.calls))
+
+    def test_refresh_does_not_write_unchanged_data(self):
+        self.commons.add_file(1, 'File:1.jpg', categories=['Category:A', 'Category:B'], usages=['U1'])
+        media = self.create_media(1, 'File:1.jpg')
+        Ticket.update_media.task_function(self.ticket.id)
+        category_ids = set(media.mediainfocategory_set.values_list('id', flat=True))
+        usage_ids = set(media.mediainfousage_set.values_list('id', flat=True))
+
+        with patch.object(MediaInfo, 'save', autospec=True) as save:
+            Ticket.update_media.task_function(self.ticket.id)
+        save.assert_not_called()
+        self.assertEqual(set(media.mediainfocategory_set.values_list('id', flat=True)), category_ids)
+        self.assertEqual(set(media.mediainfousage_set.values_list('id', flat=True)), usage_ids)
+
+    def test_refresh_writes_only_changed_rows(self):
+        self.commons.add_file(1, 'File:1.jpg', categories=['Category:A', 'Category:B'], usages=['U1', 'U2'])
+        media = self.create_media(1, 'File:1.jpg')
+        Ticket.update_media.task_function(self.ticket.id)
+        kept_category = media.mediainfocategory_set.get(title='Category:A')
+        kept_usage = media.mediainfousage_set.get(title='U1')
+
+        self.commons.files[1]['categories'] = ['Category:A', 'Category:C']
+        self.commons.files[1]['usages'] = ['U1', 'U3']
+        Ticket.update_media.task_function(self.ticket.id)
+
+        self.assertEqual(sorted(media.mediainfocategory_set.values_list('title', flat=True)), ['Category:A', 'Category:C'])
+        self.assertEqual(sorted(media.mediainfousage_set.values_list('title', flat=True)), ['U1', 'U3'])
+        self.assertTrue(media.mediainfocategory_set.filter(id=kept_category.id).exists())
+        self.assertTrue(media.mediainfousage_set.filter(id=kept_usage.id).exists())
+
+    def test_refresh_stores_new_title_of_renamed_file(self):
+        self.commons.add_file(1, 'File:New name.jpg')
+        media = self.create_media(1, 'File:Old name.jpg')
+
+        Ticket.update_media.task_function(self.ticket.id)
+
+        media.refresh_from_db()
+        self.assertEqual(media.page_title, 'File:New name.jpg')
+
+    def test_refresh_finds_new_page_id_from_title(self):
+        self.commons.add_file(200, 'File:Uploaded again.jpg', usages=['U1'])
+        media = self.create_media(100, 'File:Uploaded again.jpg')
+
+        Ticket.update_media.task_function(self.ticket.id)
+
+        media.refresh_from_db()
+        self.assertEqual(media.page_id, 200)
+        self.assertEqual(media.thumb_url, 'https://upload.example/200px-200.jpg')
+        self.assertEqual(list(media.mediainfousage_set.values_list('title', flat=True)), ['U1'])
+
+    def test_refresh_finds_page_id_of_media_without_page_id(self):
+        self.commons.add_file(5, 'File:No id.jpg')
+        media = self.create_media(5, 'File:No id.jpg')
+        MediaInfo.objects.filter(id=media.id).update(page_id=None)
+
+        Ticket.update_media.task_function(self.ticket.id)
+
+        media.refresh_from_db()
+        self.assertEqual(media.page_id, 5)
+        self.assertEqual(media.width, 4000)
+
+    def test_refresh_deletes_media_of_missing_file(self):
+        self.commons.add_file(1, 'File:Exists.jpg')
+        self.create_media(1, 'File:Exists.jpg')
+        self.create_media(2, 'File:Deleted.jpg')
+
+        Ticket.update_media.task_function(self.ticket.id)
+
+        self.assertEqual(list(MediaInfo.objects.values_list('page_title', flat=True)), ['File:Exists.jpg'])
+
+    def test_refresh_keeps_media_without_page_id_and_title(self):
+        media = self.create_media(3, 'File:x.jpg')
+        MediaInfo.objects.filter(id=media.id).update(page_id=None, page_title=None)
+
+        Ticket.update_media.task_function(self.ticket.id)
+
+        self.assertTrue(MediaInfo.objects.filter(id=media.id).exists())
+
+    def test_refresh_deletes_duplicate_media(self):
+        self.commons.add_file(1, 'File:Same file.jpg')
+        self.create_media(1, 'File:Same file.jpg')
+        duplicate = self.create_media(9, 'File:Same_file.jpg')
+        MediaInfo.objects.filter(id=duplicate.id).update(page_id=None)
+
+        Ticket.update_media.task_function(self.ticket.id)
+
+        self.assertEqual(list(MediaInfo.objects.values_list('page_title', flat=True)), ['File:Same file.jpg'])
+
+    def test_failed_batch_does_not_stop_other_batches(self):
+        for page_id in range(1, 61):
+            self.commons.add_file(page_id, 'File:%d.jpg' % page_id)
+            self.create_media(page_id, 'File:Old %d.jpg' % page_id)
+        self.commons.fail_page_ids = {10}
+
+        with self.assertRaises(MediaWikiError):
+            Ticket.update_media.task_function(self.ticket.id)
+
+        # The first batch failed. Its media do not change, and they are not deleted.
+        self.assertEqual(MediaInfo.objects.count(), 60)
+        self.assertEqual(MediaInfo.objects.get(page_id=10).page_title, 'File:Old 10.jpg')
+        self.assertEqual(MediaInfo.objects.get(page_id=55).page_title, 'File:55.jpg')
+        self.ticket.refresh_from_db()
+        self.assertIsNone(self.ticket.media_updated)
+
+    def test_update_media_does_not_save_ticket(self):
+        self.commons.add_file(1, 'File:1.jpg')
+        self.create_media(1, 'File:1.jpg')
+        updated = Ticket.objects.get(id=self.ticket.id).updated
+        refresh = MediaInfo.refresh_mediawiki_data
+
+        def refresh_with_concurrent_edit(medias):
+            Ticket.objects.filter(id=self.ticket.id).update(name='edited during refresh')
+            return refresh(medias)
+
+        with patch.object(MediaInfo, 'refresh_mediawiki_data', side_effect=refresh_with_concurrent_edit):
+            Ticket.update_media.task_function(self.ticket.id)
+
+        ticket = Ticket.objects.get(id=self.ticket.id)
+        self.assertIsNotNone(ticket.media_updated)
+        self.assertEqual(ticket.updated, updated)
+        self.assertEqual(ticket.name, 'edited during refresh')
+
+    def test_update_media_flushes_media_count(self):
+        self.commons.add_file(1, 'File:1.jpg')
+        self.create_media(1, 'File:1.jpg')
+        self.create_media(2, 'File:Deleted.jpg')
+        self.assertEqual(Ticket.objects.get(id=self.ticket.id).media_count(), 2)
+
+        Ticket.update_media.task_function(self.ticket.id)
+
+        self.assertEqual(Ticket.objects.get(id=self.ticket.id).media_count(), 1)
+
+    def test_update_media_schedules_template_update(self):
+        self.commons.add_file(1, 'File:1.jpg')
+        self.create_media(1, 'File:1.jpg')
+
+        with override_settings(TRACKER_MAINTENANCE_USER_ID=self.owner.id):
+            Ticket.update_media.task_function(self.ticket.id)
+
+        task = self.tasks('_update_mediainfo').get()
+        self.assertEqual(json.loads(task.task_params), [[self.ticket.id, self.owner.id], {}])
+
+    def test_queued_store_mediawiki_data_task_still_works(self):
+        self.commons.add_file(1, 'File:Example.svg')
+        media = self.create_media(1)
+
+        MediaInfo.store_mediawiki_data.task_function(media.id)
+
+        media.refresh_from_db()
+        self.assertEqual(media.page_title, 'File:Example.svg')
+
+
 class MediaInfoSchedulingTests(MediaInfoTestCase):
+    def test_update_media_is_in_queue_once(self):
+        Ticket.update_media(self.ticket.id)
+        Ticket.update_media(self.ticket.id)
+        Ticket.update_media(self.ticket.id + 1)
+
+        self.assertEqual(self.tasks('update_media').filter(task_params='[[%d], {}]' % self.ticket.id).count(), 1)
+        self.assertEqual(self.tasks('update_media').count(), 2)
+
+    def test_new_media_schedule_one_refresh(self):
+        for page_id in range(1, 4):
+            MediaInfo.objects.create(ticket=self.ticket, page_id=page_id, page_title='File:%d.jpg' % page_id)
+
+        self.assertEqual(self.tasks('update_media').count(), 1)
+        self.assertEqual(self.tasks('store_mediawiki_data').count(), 0)
+
+    def test_media_saved_during_refresh_schedules_new_refresh(self):
+        Ticket.update_media(self.ticket.id)
+        Task.objects.update(locked_by='1234', locked_at=timezone.now())
+
+        MediaInfo.objects.create(ticket=self.ticket, page_id=1, page_title='File:1.jpg')
+
+        self.assertEqual(self.tasks('update_media').count(), 2)
+
     @override_settings(TRACKER_MAINTENANCE_USER_ID=1)
     def test_ticket_save_does_not_update_templates(self):
         self.create_media(1, 'File:1.jpg')
@@ -1907,70 +2220,6 @@ class MediaInfoTemplateTests(MediaInfoTestCase):
         Ticket._update_mediainfo(self.ticket.id, self.owner.id)
 
         self.assertEqual(self.tasks('_update_mediainfo').count(), 1)
-
-
-class MediaInfoCommunicationTests(TestCase):
-
-    def setUp(self):
-        self.owner = User.objects.create(username='ticket_owner')
-        self.topic = Topic.objects.create(name='test_topic', ticket_expenses=True,
-                                          grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
-        self.ticket = Ticket.objects.create(name='ticket', topic=self.topic, requested_user=self.owner)
-        self.mediainfo = MediaInfo.objects.create(ticket=self.ticket, page_id=937952,
-                                                  thumb_url="https://commons.wikimedia.org/wiki/File:Example.svg")
-
-    @patch("tracker.models.MediaInfo.get_mediawiki_data")
-    def test_store_mediawiki_data(self, mock_request):
-        mock_request.return_value = {'url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Example.svg'
-                                            '/200px-Example.svg.png', 'page_title': 'File:Example.svg'}
-
-        self.assertEqual(self.mediainfo.page_title, None)
-        MediaInfo.store_mediawiki_data.task_function(self.mediainfo.id)
-        self.mediainfo.refresh_from_db()
-        self.assertEqual(self.mediainfo.page_title, "File:Example.svg")
-
-
-class MediaUpdateTests(TestCase):
-    def setUp(self):
-        self.owner = User.objects.create(username='ticket_owner')
-        self.topic = Topic.objects.create(name='test_topic', ticket_expenses=True,
-                                          grant=Grant.objects.create(full_name='g', short_name='g', slug='g'))
-        self.ticket = Ticket.objects.create(name='ticket', topic=self.topic, requested_user=self.owner)
-        for page_id in (1, 2):
-            MediaInfo.objects.create(ticket=self.ticket, page_id=page_id, page_title='File:%d.jpg' % page_id)
-        Task.objects.all().delete()
-
-    @patch('tracker.models.MediaInfo.store_mediawiki_data_internal', autospec=True)
-    def test_update_media_does_not_save_ticket(self, store):
-        updated = Ticket.objects.get(id=self.ticket.id).updated
-
-        def store_with_concurrent_edit(media):
-            Ticket.objects.filter(id=self.ticket.id).update(name='edited during refresh')
-        store.side_effect = store_with_concurrent_edit
-
-        Ticket.update_media.task_function(self.ticket.id)
-
-        ticket = Ticket.objects.get(id=self.ticket.id)
-        self.assertIsNotNone(ticket.media_updated)
-        self.assertEqual(ticket.updated, updated)
-        self.assertEqual(ticket.name, 'edited during refresh')
-
-    @patch('tracker.models.MediaInfo.store_mediawiki_data_internal', autospec=True)
-    def test_update_media_flushes_media_count(self, store):
-        store.side_effect = lambda media: media.delete() if media.page_id == 2 else None
-        self.assertEqual(Ticket.objects.get(id=self.ticket.id).media_count(), 2)
-
-        Ticket.update_media.task_function(self.ticket.id)
-
-        self.assertEqual(Ticket.objects.get(id=self.ticket.id).media_count(), 1)
-
-    @patch('tracker.models.MediaInfo.store_mediawiki_data_internal', autospec=True)
-    def test_update_media_schedules_template_update(self, store):
-        with override_settings(TRACKER_MAINTENANCE_USER_ID=self.owner.id):
-            Ticket.update_media.task_function(self.ticket.id)
-
-        task = Task.objects.get(task_name='tracker.models._update_mediainfo')
-        self.assertEqual(json.loads(task.task_params), [[self.ticket.id, self.owner.id], {}])
 
 
 class AutomationPaymentTests(TestCase):
