@@ -1652,6 +1652,8 @@ class FakeCommons:
         self.calls = []
         self.edits = []
         self.fail_page_ids = set()
+        # The response to the next edit requests, instead of a successful edit
+        self.edit_responses = []
 
     def add_file(self, page_id, title, categories=(), usages=(), content=None, width=4000, height=3000):
         self.files[page_id] = {
@@ -1668,7 +1670,10 @@ class FakeCommons:
         payload = dict(payload)
         self.calls.append(payload)
         if payload.get('action') == 'edit':
-            self.edits.append((payload['pageid'], payload['text'], payload['minor']))
+            if self.edit_responses:
+                return self._response(self.edit_responses.pop(0))
+            # MediaWiki marks the edit as minor when the minor parameter is in the request, with any value
+            self.edits.append((payload['pageid'], payload['text'], 'minor' in payload))
             self.contents[payload['pageid']] = payload['text']
             return self._response({'edit': {'result': 'Success'}})
         if payload.get('meta') == 'tokens':
@@ -2183,6 +2188,24 @@ class MediaInfoTemplateTests(MediaInfoTestCase):
         MediaInfo.remove_from_mediawiki.task_function(media.page_id, self.owner.id)
 
         self.assertEqual(self.commons.edits, [(937952, '{{Information}}\n[[Category:Example]]', True)])
+
+    def test_failed_edit_raises_error(self):
+        self.commons.contents[1] = '{{Information}}'
+        self.commons.contents[2] = '{{Information}}'
+        media = self.create_media(1, 'File:1.jpg')
+        self.create_media(2, 'File:2.jpg')
+        self.commons.edit_responses = [
+            {'error': {'code': 'maxlag', 'info': 'Waiting for a database server'}},
+            {'edit': {'result': 'Failure', 'code': 'abusefilter-disallowed'}},
+            {'error': {'code': 'protectedpage', 'info': 'This page has been protected'}},
+        ]
+
+        with self.assertRaises(MediaWikiError):
+            Ticket._update_mediainfo.task_function(self.ticket.id, self.owner.id)
+        with self.assertRaises(MediaWikiError):
+            MediaInfo.add_to_mediawiki.task_function(media.id, self.owner.id)
+
+        self.assertEqual(self.commons.edits, [])
 
     def test_add_templates_reads_pages_in_batches(self):
         for page_id in range(1, 61):

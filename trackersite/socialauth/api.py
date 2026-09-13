@@ -149,6 +149,12 @@ class MediaWiki():
             payload = dict(payload, **resp["continue"])
 
     def put_content(self, page_id, text, summary="Automated update by Tracker", minor=False, retries=0):
+        """
+        Edit the page.
+
+        Raise MediaWikiError when MediaWiki does not save the edit. MediaWiki
+        gives HTTP status 200 for most of these errors.
+        """
         payload = {
             "action": "edit",
             "format": "json",
@@ -156,8 +162,16 @@ class MediaWiki():
             "text": text,
             "summary": summary,
             "token": self.get_token(),
-            "minor": minor,
             "bot": True,
         }
+        # MediaWiki marks the edit as minor when the request has the minor parameter, with any value
+        if minor:
+            payload["minor"] = True
 
-        return self.request(payload, retries=retries)
+        r = self.request(payload, retries=retries)
+        resp = r.json()
+        if "error" in resp:
+            raise MediaWikiError(resp["error"])
+        if resp.get("edit", {}).get("result") != "Success":
+            raise MediaWikiError(resp.get("edit", resp))
+        return r
