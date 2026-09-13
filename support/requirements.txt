@@ -16,6 +16,10 @@ bleach
 djangorestframework
 django-filter
 
+# For B&C with Python3.13
+setuptools
+legacy-cgi
+
 # For makesettings
 questionary
 
