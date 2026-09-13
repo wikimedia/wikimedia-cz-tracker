@@ -33,6 +33,7 @@ from socialauth.api import MediaWiki, MediaWikiError
 
 from tracker.admin import ExpeditureInlineFormSet
 from tracker.fio import FioPaymentManager
+from tracker.mediainfo import MediaInfoSync
 from tracker.services import PaymentService
 from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile, \
     Document, TrackerPreferences, BankAccount, Template, PaymentInfo, PaymentType, ExpenditureState, ImportInfo
@@ -2055,13 +2056,13 @@ class MediaInfoRefreshTests(MediaInfoTestCase):
         self.commons.add_file(1, 'File:1.jpg')
         self.create_media(1, 'File:1.jpg')
         updated = Ticket.objects.get(id=self.ticket.id).updated
-        refresh = MediaInfo.refresh_mediawiki_data
+        refresh = MediaInfoSync.refresh
 
-        def refresh_with_concurrent_edit(medias):
+        def refresh_with_concurrent_edit(sync, medias):
             Ticket.objects.filter(id=self.ticket.id).update(name='edited during refresh')
-            return refresh(medias)
+            return refresh(sync, medias)
 
-        with patch.object(MediaInfo, 'refresh_mediawiki_data', side_effect=refresh_with_concurrent_edit):
+        with patch.object(MediaInfoSync, 'refresh', autospec=True, side_effect=refresh_with_concurrent_edit):
             Ticket.update_media.task_function(self.ticket.id)
 
         ticket = Ticket.objects.get(id=self.ticket.id)
@@ -2226,6 +2227,37 @@ class MediaInfoTemplateTests(MediaInfoTestCase):
         Ticket._update_mediainfo(self.ticket.id, self.owner.id)
 
         self.assertEqual(self.tasks('_update_mediainfo').count(), 1)
+
+    @override_settings(MEDIAINFO_MEDIAWIKI_TEMPLATE=None)
+    def test_disabled_templates_do_not_change_pages(self):
+        self.commons.contents[1] = '{{Information}}'
+        media = self.create_media(1, 'File:1.jpg')
+
+        Ticket._update_mediainfo.task_function(self.ticket.id, self.owner.id)
+        MediaInfo.add_to_mediawiki.task_function(media.id, self.owner.id)
+        MediaInfo.remove_from_mediawiki.task_function(media.page_id, self.owner.id)
+
+        self.assertEqual(self.commons.calls, [])
+
+
+class MediaInfoSyncTemplateTextTests(SimpleTestCase):
+    template = '{{%s|podtéma=|rok=2026|tiket=1}}' % settings.MEDIAINFO_MEDIAWIKI_TEMPLATE
+
+    def test_add_template_after_information_template(self):
+        text = '{{Information|description={{cs|Popis}}}}\n[[Category:A]]'
+        self.assertEqual(MediaInfoSync.add_template(text, self.template), (
+            '{{Information|description={{cs|Popis}}}}\n%s\n[[Category:A]]' % self.template, False))
+
+    def test_add_template_at_end_without_information_template(self):
+        self.assertEqual(MediaInfoSync.add_template('Text', self.template), ('Text\n' + self.template, True))
+
+    def test_add_template_replaces_old_template(self):
+        text = '{{Information}}\n{{%s|podtéma=old|rok=2020|tiket=1}}\n[[Category:A]]' % settings.MEDIAINFO_MEDIAWIKI_TEMPLATE
+        self.assertEqual(MediaInfoSync.add_template(text, self.template), (
+            '{{Information}}\n%s\n[[Category:A]]' % self.template, False))
+
+    def test_add_template_does_not_change_text_with_template(self):
+        self.assertEqual(MediaInfoSync.add_template('{{Information}}\n' + self.template, self.template), (None, None))
 
 
 class MediaImportTests(MediaInfoTestCase):
