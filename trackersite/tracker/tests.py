@@ -1655,6 +1655,10 @@ class FakeCommons:
         # The response to the next edit requests, instead of a successful edit
         self.edit_responses = []
 
+    def add_redirect(self, page_id, title, target_page_id):
+        """ Add a redirect page to a file. """
+        self.files[page_id] = {'title': title, 'redirect': target_page_id, 'categories': [], 'usages': []}
+
     def add_file(self, page_id, title, categories=(), usages=(), content=None, width=4000, height=3000):
         self.files[page_id] = {
             'title': title,
@@ -1742,15 +1746,17 @@ class FakeCommons:
                 continue
             pages[page_id] = {'pageid': page_id, 'ns': 6, 'title': self.files[page_id]['title']}
             if 'imageinfo' in props:
-                f = self.files[page_id]
+                # The image info of a redirect is the image info of the target file
+                f = self.files[self.files[page_id].get('redirect', page_id)]
                 imageinfo = {
                     'canonicaltitle': f['title'],
                     'width': f['width'],
                     'height': f['height'],
-                    'url': 'https://upload.example/%d.jpg' % page_id,
+                    'url': 'https://upload.example/%d.jpg' % self.files[page_id].get('redirect', page_id),
                 }
                 if payload.get('iiurlwidth'):
-                    imageinfo['thumburl'] = 'https://upload.example/%dpx-%d.jpg' % (payload['iiurlwidth'], page_id)
+                    imageinfo['thumburl'] = 'https://upload.example/%dpx-%d.jpg' % (
+                        payload['iiurlwidth'], self.files[page_id].get('redirect', page_id))
                 pages[page_id]['imageinfo'] = [imageinfo]
 
         result = {'query': {'pages': list(pages.values())}}
@@ -1950,6 +1956,21 @@ class MediaInfoRefreshTests(MediaInfoTestCase):
         Ticket.update_media.task_function(self.ticket.id)
 
         self.assertEqual(list(media.mediainfocategory_set.values_list('title', flat=True)), ['Category:Visible'])
+
+    def test_refresh_uses_page_id_of_redirect_target(self):
+        self.commons.add_file(200, 'File:Target.jpg', categories=['Category:A'], usages=['U1'])
+        self.commons.add_redirect(100, 'File:Redirect.jpg', 200)
+        media = self.create_media(100, 'File:Target.jpg')
+        without_title = self.create_media(100, None, ticket=Ticket.objects.create(name='other', topic=self.topic))
+
+        Ticket.update_media.task_function(self.ticket.id)
+        Ticket.update_media.task_function(without_title.ticket_id)
+
+        for media in (MediaInfo.objects.get(id=media.id), MediaInfo.objects.get(id=without_title.id)):
+            self.assertEqual(media.page_id, 200)
+            self.assertEqual(media.page_title, 'File:Target.jpg')
+            self.assertEqual(list(media.mediainfocategory_set.values_list('title', flat=True)), ['Category:A'])
+            self.assertEqual(list(media.mediainfousage_set.values_list('title', flat=True)), ['U1'])
 
     def test_refresh_of_one_file_does_not_get_old_versions(self):
         self.commons.add_file(1, 'File:1.jpg', categories=['Category:A'])

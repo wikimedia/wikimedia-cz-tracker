@@ -213,6 +213,10 @@ class MediaInfoSync:
         Send one request, and more requests when a file has more categories or
         usages than one response can contain. Return a dict from page ID to
         data. The dict does not contain the pages that are not files.
+
+        For a redirect, the image info is the image info of the target file, but
+        the categories and the usages are of the redirect page. The data of a
+        redirect has the redirect flag.
         """
         module_parameters = {
             "imageinfo": {"iiprop": "dimensions|url|canonicaltitle"},
@@ -244,7 +248,7 @@ class MediaInfoSync:
             for page in resp.get('query', {}).get('pages', []):
                 if 'pageid' not in page:
                     continue
-                data = pages.setdefault(page['pageid'], {'categories': [], 'globalusage': []})
+                data = pages.setdefault(page['pageid'], {'title': page.get('title'), 'categories': [], 'globalusage': []})
                 if page.get('imageinfo') and 'imageinfo' not in data:
                     data['imageinfo'] = page['imageinfo'][0]
                 data['categories'].extend(page.get('categories', []))
@@ -274,6 +278,7 @@ class MediaInfoSync:
                 'height': imageinfo.get('height'),
                 'categories': data['categories'],
                 'globalusage': data['globalusage'],
+                'redirect': data['title'] is not None and data['title'] != imageinfo['canonicaltitle'],
             }
         return result
 
@@ -322,12 +327,22 @@ class MediaInfoSync:
         page_ids = sorted({media.page_id for media in medias if media.page_id and media.page_id > 0})
         errors = self._fetch_in_batches(page_ids, fetch_data, data, failed_page_ids)
 
+        # A page ID can be the page ID of a redirect. The data of a redirect
+        # does not contain the categories and the usages of the file. Use the
+        # page ID of the target file.
+        redirect_titles = {page_id: item['page_title'] for page_id, item in data.items() if item['redirect']}
+        for page_id in redirect_titles:
+            del data[page_id]
+
+        def get_title(media):
+            return redirect_titles.get(media.page_id, media.page_title)
+
         # A media can have no page ID, or a page ID that is not a file now. For
         # example, a file that was deleted and uploaded again has a new page ID.
         # Find the page ID from the title.
         titles = sorted({
-            media.page_title for media in medias
-            if media.page_title and media.page_id not in data and media.page_id not in failed_page_ids
+            get_title(media) for media in medias
+            if get_title(media) and media.page_id not in data and media.page_id not in failed_page_ids
         })
         page_ids_by_title = {}
         failed_titles = set()
@@ -344,9 +359,10 @@ class MediaInfoSync:
             if media.page_id in data:
                 self._store_data(media, data[media.page_id])
                 continue
-            if not media.page_title or media.page_title in failed_titles:
+            title = get_title(media)
+            if not title or title in failed_titles:
                 continue
-            new_page_id = page_ids_by_title.get(media.page_title)
+            new_page_id = page_ids_by_title.get(title)
             if new_page_id in failed_page_ids:
                 continue
             if new_page_id not in data:
