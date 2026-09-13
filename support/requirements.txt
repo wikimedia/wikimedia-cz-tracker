@@ -4,7 +4,7 @@ django-sendfile2
 django-recaptcha
 django-contrib-comments
 django-widget-tweaks
-python-memcached
+pymemcache
 social-auth-app-django
 django-crequest
 django-background-tasks
