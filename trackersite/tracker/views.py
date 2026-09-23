@@ -2080,6 +2080,11 @@ def ticket_import(request, ticket_id):
 @permission_required('tracker.import_expenditures', raise_exception=True)
 def global_ticket_import(request):
     expenditures = Expediture.objects.filter(
+        # Closed tickets do not wait for a payment. A ticket is closed if it
+        # has the archive or the close ack (is_completed), or if it comes from
+        # the older Tracker version (imported).
+        ticket__is_completed=False,
+        ticket__imported=False,
         payment_type__in=[PaymentType.BANK_TRANSFER, PaymentType.INTERNAL_TRANSFER],
         paid=False
     ).filter(

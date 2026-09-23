@@ -3183,3 +3183,48 @@ class ExpeditureApiTests(TestCase):
 
         self.assertEqual(response.status_code, 403)
         self.assertTrue(Expediture.objects.filter(id=self.expenditure.id).exists())
+
+
+class GlobalTicketImportViewTests(TestCase):
+    """The import overview must show only the tickets that still wait for a payment."""
+
+    def setUp(self):
+        self.grant = Grant.objects.create(full_name='g', short_name='g', slug='g')
+        self.topic = Topic.objects.create(name='topic', grant=self.grant)
+
+        self.user = User.objects.create_user(username='accountant', password='pass')
+        ticket_type = ContentType.objects.get_for_model(Ticket)
+        self.user.user_permissions.add(
+            Permission.objects.get(content_type=ticket_type, codename='import_expenditures')
+        )
+        self.client.login(username='accountant', password='pass')
+
+    def _ticket_with_expenditure(self, name):
+        ticket = Ticket.objects.create(name=name, topic=self.topic)
+        Expediture.objects.create(ticket=ticket, description='e', amount=100)
+        return ticket
+
+    def _listed_ticket_ids(self):
+        response = self.client.get(reverse('global_expediture_import'))
+        self.assertEqual(response.status_code, 200)
+        return [summary['ticket'].id for summary in response.context['ticket_summaries']]
+
+    def test_open_ticket_is_listed(self):
+        ticket = self._ticket_with_expenditure('open')
+        self.assertEqual(self._listed_ticket_ids(), [ticket.id])
+
+    def test_closed_ticket_is_not_listed(self):
+        ticket = self._ticket_with_expenditure('closed')
+        ticket.add_acks('close')
+        self.assertEqual(self._listed_ticket_ids(), [])
+
+    def test_archived_ticket_is_not_listed(self):
+        ticket = self._ticket_with_expenditure('archived')
+        ticket.add_acks('archive')
+        self.assertEqual(self._listed_ticket_ids(), [])
+
+    def test_historical_ticket_is_not_listed(self):
+        ticket = self._ticket_with_expenditure('historical')
+        ticket.imported = True
+        ticket.save()
+        self.assertEqual(self._listed_ticket_ids(), [])
