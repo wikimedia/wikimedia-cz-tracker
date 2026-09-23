@@ -32,6 +32,10 @@ class FioPaymentManager:
     MATCH_BATCH = 1
     MATCH_NONE = 0
 
+    # The Fio fields that can carry our payment reference: the message for the
+    # recipient, and the comment.
+    REFERENCE_COLUMNS = ('column16', 'column25')
+
     @staticmethod
     def normalize_account(account_str):
         account_str = str(account_str).strip()
@@ -45,6 +49,30 @@ class FioPaymentManager:
     def get_available_accounts():
         raw_tokens = getattr(settings, 'FIO_API_TOKENS', {})
         return [FioPaymentManager.normalize_account(k) for k in raw_tokens.keys()]
+
+    @classmethod
+    def _reference_text(cls, transaction):
+        """
+        Join the transaction fields that can name an expenditure.
+
+        A transfer carries the reference in the message for the recipient, and
+        _generate_xml() copies the same text into the comment. A card
+        transaction has no message for the recipient: the bank fills that field
+        with the merchant and the date. The operator thus writes the reference
+        in the comment. Read both fields, because either one can hold it.
+        """
+        parts = []
+
+        for column in cls.REFERENCE_COLUMNS:
+            column_data = transaction.get(column)
+            if not column_data:
+                continue
+
+            value = str(column_data.get('value', '') or '')
+            if value:
+                parts.append(value)
+
+        return ' | '.join(parts)
 
     @staticmethod
     def _message_matches(expected_msg, message):
@@ -461,7 +489,7 @@ class FioPaymentManager:
                     abs_amount = Decimal(str(abs(amount)))
 
                     id_instruction = str(t.get('column17', {}).get('value', '')) if t.get('column17') else None
-                    message = str(t.get('column16', {}).get('value', '')) if t.get('column16') else ""
+                    message = self._reference_text(t)
                     target_acc = str(t.get('column2', {}).get('value', '')) if t.get('column2') else None
                     bank_code = str(t.get('column3', {}).get('value', '')) if t.get('column3') else None
                     full_target_account = f"{target_acc}/{bank_code}" if target_acc and bank_code else None

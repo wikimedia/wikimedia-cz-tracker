@@ -2743,13 +2743,14 @@ class FioPaymentManagerTests(TestCase):
         )
 
     @staticmethod
-    def _fio_transaction(amount, message, order_number=None, account='123456789', bank='0300'):
+    def _fio_transaction(amount, message, order_number=None, account='123456789', bank='0300', comment=None):
         return {
             "column1": {"value": amount},  # amount
             "column2": {"value": account} if account else None,  # target account
             "column3": {"value": bank} if bank else None,  # bank code
             "column17": {"value": order_number} if order_number else None,  # ID instruction
             "column16": {"value": message} if message else None,  # msg
+            "column25": {"value": comment} if comment else None,  # comment
         }
 
     @staticmethod
@@ -2962,6 +2963,72 @@ class FioPaymentManagerTests(TestCase):
 
         card_exp.refresh_from_db()
         self.assertTrue(card_exp.paid)
+        self.assertEqual(report['marked_paid'], 1)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_matches_card_reference_in_the_comment(self, mock_get):
+        # A card transaction cannot carry a message for the recipient. Fio puts
+        # the merchant and the date there, and the operator writes our
+        # reference in the comment.
+        card_exp = Expediture.objects.create(
+            ticket=self.ticket,
+            description='card payment',
+            amount=Decimal('735.00'),
+            payment_type=PaymentType.CARD,
+            accounting_info='94j'
+        )
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(
+                -735.0,
+                'Nakup: ROESEL, PRAHA, CZ, dne 21.9.2026, castka 735.00 CZK',
+                account=None,
+                bank=None,
+                comment='WMCZ ticket #94j',
+            )
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=14, expiry_days=0)
+
+        card_exp.refresh_from_db()
+        self.assertTrue(card_exp.paid)
+        self.assertEqual(report['marked_paid'], 1)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_matches_transfer_reference_in_the_comment(self, mock_get):
+        # Fio does not always return the message for the recipient. The comment
+        # carries the same text, because _generate_xml() writes both. Leave out
+        # the order number, or the batch alone confirms the transaction and the
+        # comment decides nothing.
+        exp = self._imported_expenditure(accounting_info='95', order_number='321')
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-1000.0, None, comment='WMCZ ticket #95')
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=14, expiry_days=0)
+
+        exp.refresh_from_db()
+        self.assertTrue(exp.paid)
+        self.assertEqual(report['marked_paid'], 1)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_does_not_match_a_comment_that_names_another_expenditure(self, mock_get):
+        # The comment is a second place to read the reference, not a weaker one.
+        # It must keep the same anchor as the message for the recipient.
+        short = self._imported_expenditure(accounting_info='2', order_number='888')
+        long_ref = self._imported_expenditure(accounting_info='21', order_number='888')
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-1000.0, None, order_number='888', comment='WMCZ ticket #21')
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=14, expiry_days=0)
+
+        short.refresh_from_db()
+        long_ref.refresh_from_db()
+        self.assertFalse(short.paid, 'ticket #2 must not be paid by a ticket #21 comment')
+        self.assertTrue(long_ref.paid)
         self.assertEqual(report['marked_paid'], 1)
 
     @patch('tracker.fio.requests.get')
