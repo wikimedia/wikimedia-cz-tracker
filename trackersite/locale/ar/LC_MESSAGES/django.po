@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-09-14 12:09:40+0000\n"
+"PO-Revision-Date: 2026-10-08 12:06:56+0000\n"
 "X-POT-Import-Date: 2026-09-14 06:31:07+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,7 +52,7 @@ msgstr "لا يمكنك تحرير نفقات هذه التذكرة."
 
 #: api/serializers.py:188
 msgid "You can not edit this expiditure."
-msgstr ""
+msgstr "لا يمكنك تعديل هذا الإيصال."
 
 #: api/serializers.py:203
 msgid "You can not add preexpiditures to this ticket."
@@ -64,7 +64,7 @@ msgstr "لا يمكنك تحرير نفقات مسبقة لهذه التذكرة
 
 #: api/viewsets.py:203
 msgid "You can not delete this expiditure."
-msgstr ""
+msgstr "لا يمكنك حذف هذا الإيصال."
 
 #: common_settings.py:146
 #: tracker/templates/tracker/ticket_common_detail.html:18
@@ -203,7 +203,7 @@ msgstr "تغيير تفاصيلي"
 
 #: templates/base.html:71
 msgid "my bank accounts"
-msgstr ""
+msgstr "حساباتي المصرفية"
 
 #: templates/base.html:72 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
@@ -211,7 +211,7 @@ msgstr "تفضيلات"
 
 #: templates/base.html:74 tracker/templates/tracker/ticket_detail.html:24
 msgid "import expenditures"
-msgstr ""
+msgstr "نفقات الاستيراد"
 
 #: templates/base.html:77
 msgid "admin"
@@ -283,35 +283,35 @@ msgstr[5] ""
 #: tracker/admin.py:55 tracker/views.py:421
 #, python-format
 msgid "Cannot delete expenditure #%(id)s: It is locked (paid, imported, or co-financing)."
-msgstr ""
+msgstr "لا يمكن حذف المصروفات رقم %(id)s: إنها مقفلة (مدفوعة، أو مستوردة، أو ممولة بشكل مشترك)."
 
 #: tracker/admin.py:71
 msgid "Load from a template"
-msgstr ""
+msgstr "التحميل من قالب"
 
 #: tracker/admin.py:83
 msgid "Or enter manually:"
-msgstr ""
+msgstr "أو أدخل البيانات يدويًا:"
 
 #: tracker/admin.py:155
 msgid "Payment Details (Bank Transfer)"
-msgstr ""
+msgstr "تفاصيل الدفع (تحويل بنكي)"
 
 #: tracker/admin.py:176
 msgid "Linked Co-financing"
-msgstr ""
+msgstr "التمويل المشترك المرتبط"
 
 #: tracker/admin.py:180
 msgid "Filter by Grant"
-msgstr ""
+msgstr "تصفية حسب المنحة"
 
 #: tracker/admin.py:181
 msgid "Source ticket"
-msgstr ""
+msgstr "تذكرة المصدر"
 
 #: tracker/admin.py:182
 msgid "Source account"
-msgstr ""
+msgstr "المصدر"
 
 #: tracker/admin.py:183 tracker/models.py:1289
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -330,23 +330,23 @@ msgstr "الكمية"
 
 #: tracker/admin.py:230
 msgid "You must enter a positive amount for co-financing."
-msgstr ""
+msgstr "يجب عليك إدخال مبلغ موجب للتمويل المشترك."
 
 #: tracker/admin.py:232
 msgid "You must select either a source ticket or a source account."
-msgstr ""
+msgstr "يجب عليك اختيار إما تذكرة مصدر أو حساب مصدر."
 
 #: tracker/admin.py:234
 msgid "Choose only one co-financing source, not both."
-msgstr ""
+msgstr "اختر مصدراً واحداً فقط للتمويل المشترك، وليس كليهما."
 
 #: tracker/admin.py:258
 msgid "Co-financing"
-msgstr ""
+msgstr "التمويل المشترك"
 
 #: tracker/admin.py:259
 msgid "Co-financings"
-msgstr ""
+msgstr "التمويل المشترك"
 
 #: tracker/admin.py:283 tracker/templates/tracker/expediture_formset.html:40
 #: tracker/templates/tracker/ticket_common_detail.html:70
@@ -354,7 +354,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_expediture_import.html:132
 #: tracker/templates/tracker/ticket_expediture_import.html:175
 msgid "Linked ticket"
-msgstr ""
+msgstr "تذكرة مرتبطة"
 
 #: tracker/admin.py:291 tracker/admin.py:297
 #: tracker/templates/tracker/ticket_expediture_import.html:59
@@ -377,11 +377,11 @@ msgstr "تعليم الموضوعات المحددة كمغلقة للتذاكر
 
 #: tracker/admin.py:479 tracker/models.py:924
 msgid "Source bank account"
-msgstr ""
+msgstr "الحساب المصرفي المصدر"
 
 #: tracker/admin.py:480 tracker/models.py:925
 msgid "Number of the transparent account from which the funds will be disbursed"
-msgstr ""
+msgstr "رقم الحساب الشفاف الذي سيتم صرف الأموال منه"
 
 #: tracker/admin.py:485
 msgid "Modify this value by opening or closing topics in this grant to tickets"
@@ -389,51 +389,51 @@ msgstr "تعديل هذه القيمة عن طريق فتح أو إغلاق ال
 
 #: tracker/admin.py:510
 msgid "Main Template Info"
-msgstr ""
+msgstr "معلومات القالب الرئيسي"
 
 #: tracker/admin.py:511
 msgid "You can use templates to quickly create new expenditures. Payment data will be automatically filled in for you."
-msgstr ""
+msgstr "يمكنك استخدام القوالب لإنشاء نفقات جديدة بسرعة. سيتم ملء بيانات الدفع تلقائيًا نيابةً عنك."
 
 #: tracker/admin.py:514
 msgid "Payment Destination"
-msgstr ""
+msgstr "وجهة الدفع"
 
 #: tracker/admin.py:515
 msgid "Specify the recipient account. You must choose exactly one way to specify the account: either a saved account OR enter it manually."
-msgstr ""
+msgstr "حدد حساب المستلم. يجب عليك اختيار طريقة واحدة فقط لتحديد الحساب: إما حساب محفوظ أو إدخاله يدويًا."
 
 #: tracker/admin.py:518
 msgid "Symbols"
-msgstr ""
+msgstr "الرموز"
 
 #: tracker/admin.py:519
 msgid "Optional payment symbols."
-msgstr ""
+msgstr "رموز الدفع اختيارية."
 
 #: tracker/fio.py:261
 #, python-brace-format
 msgid "Missing source grant account for expenditure ID {}."
-msgstr ""
+msgstr "حساب منحة المصدر مفقود لمعرف الإنفاق {}."
 
 #: tracker/fio.py:267
 #, python-brace-format
 msgid "Missing API token for account {}."
-msgstr ""
+msgstr "رمز API مفقود للحساب {}."
 
 #: tracker/fio.py:282
 #, python-brace-format
 msgid "Cannot prepare the batch for account {}: {}"
-msgstr ""
+msgstr "لا يمكن إعداد الدفعة للحساب {}: {}"
 
 #: tracker/fio.py:288
 #, python-brace-format
 msgid "Expenditures for account {} changed while the import ran. Nothing was sent. Please try again."
-msgstr ""
+msgstr "طرأت تغييرات على مصروفات الحساب {} أثناء عملية الاستيراد. لم يتم إرسال أي شيء. يرجى المحاولة مرة أخرى."
 
 #: tracker/fio.py:308
 msgid "Fio API requires a 30-second delay between requests. Please wait a moment and try again."
-msgstr ""
+msgstr "يتطلب تطبيق Fio API تأخيرًا لمدة 30 ثانية بين الطلبات. يُرجى الانتظار قليلًا ثم المحاولة مرة أخرى."
 
 #: tracker/fio.py:318
 #, python-brace-format
@@ -443,17 +443,17 @@ msgstr ""
 #: tracker/fio.py:335
 #, python-brace-format
 msgid "Batch for account {} was accepted with warning: {}"
-msgstr ""
+msgstr "تم قبول الدفعة الخاصة بالحساب {} مع التحذير التالي: {}"
 
 #: tracker/fio.py:349
 #, python-brace-format
 msgid "API rejected batch for account {}: {}"
-msgstr ""
+msgstr "رفضت واجهة برمجة التطبيقات (API) مجموعة البيانات الخاصة بالحساب {}: {}"
 
 #: tracker/fio.py:356
 #, python-brace-format
 msgid "Communication with Fio failed for account {}: {}. The expenditures stay marked as imported. Check the order in Fio internet banking before you revert the import."
-msgstr ""
+msgstr "فشل الاتصال بـ Fio للحساب {}: {}. لا تزال المصروفات مُعلّمة على أنها مستوردة. يُرجى مراجعة الطلب في الخدمات المصرفية الإلكترونية لـ Fio قبل إلغاء الاستيراد."
 
 #: tracker/models.py:47 tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
@@ -586,35 +586,35 @@ msgstr "تم تغيير المستند"
 
 #: tracker/models.py:90
 msgid "Bank transfer"
-msgstr ""
+msgstr "التحويل المصرفي"
 
 #: tracker/models.py:91
 msgid "International bank transfer"
-msgstr ""
+msgstr "تحويل مصرفي دولي"
 
 #: tracker/models.py:92
 msgid "Card"
-msgstr ""
+msgstr "بطاقة"
 
 #: tracker/models.py:93
 msgid "Cash"
-msgstr ""
+msgstr "نقدي"
 
 #: tracker/models.py:94
 msgid "Internal transfer"
-msgstr ""
+msgstr "نقل داخلي"
 
 #: tracker/models.py:95
 msgid "Income (Co-financing)"
-msgstr ""
+msgstr "الدخل (التمويل المشترك)"
 
 #: tracker/models.py:99
 msgid "Waiting for payment"
-msgstr ""
+msgstr "في انتظار الدفع"
 
 #: tracker/models.py:100
 msgid "Import error"
-msgstr ""
+msgstr "خطأ في الاستيراد"
 
 #: tracker/models.py:101 tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/export.html:207
@@ -623,17 +623,17 @@ msgstr "مدفوع"
 
 #: tracker/models.py:102
 msgid "Ready for import"
-msgstr ""
+msgstr "جاهز للاستيراد"
 
 #: tracker/models.py:103
 #: tracker/templates/tracker/global_expediture_import.html:24
 msgid "Missing data"
-msgstr ""
+msgstr "البيانات المفقودة"
 
 #: tracker/models.py:104
 #: tracker/templates/tracker/ticket_expediture_import.html:122
 msgid "Imported"
-msgstr ""
+msgstr "مستورد"
 
 #: tracker/models.py:158
 msgid "unknown"
@@ -959,11 +959,11 @@ msgstr "هل يتطلب هذا الموضوع إعلانا قانونيا عن �
 
 #: tracker/models.py:834
 msgid "make comments public"
-msgstr ""
+msgstr "اجعل التعليقات عامة"
 
 #: tracker/models.py:835
 msgid "Are comments under tickets public?"
-msgstr ""
+msgstr "هل التعليقات أسفل التذاكر عامة؟"
 
 #: tracker/models.py:838 tracker/models.py:923
 msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
@@ -1102,68 +1102,68 @@ msgstr "الارتفاع"
 
 #: tracker/models.py:1276
 msgid "variable symbol"
-msgstr ""
+msgstr "رمز المتغير"
 
 #: tracker/models.py:1277
 msgid "specific symbol"
-msgstr ""
+msgstr "رموز محددة"
 
 #: tracker/models.py:1278
 msgid "constant symbol"
-msgstr ""
+msgstr "رمز ثابت"
 
 #: tracker/models.py:1280
 msgid "account link"
-msgstr ""
+msgstr "رابط الحساب"
 
 #: tracker/models.py:1280
 msgid "Choose from saved accounts."
-msgstr ""
+msgstr "اختر من بين الحسابات المحفوظة."
 
 #: tracker/models.py:1281
 msgid "bank account"
-msgstr ""
+msgstr "الحساب المصرفي"
 
 #: tracker/models.py:1281
 msgid "Or you can enter your account number manually, but do not use both."
-msgstr ""
+msgstr "أو يمكنك إدخال رقم حسابك يدويًا، ولكن لا تستخدم كليهما."
 
 #: tracker/models.py:1288
 msgid "template name"
-msgstr ""
+msgstr "أسماء القوالب"
 
 #: tracker/models.py:1298
 msgid "You must provide either an Account link or a Bank account."
-msgstr ""
+msgstr "يجب عليك تقديم رابط حساب أو حساب مصرفي."
 
 #: tracker/models.py:1302
 msgid "You cannot provide both. Choose either an Account link or a manually typed Bank account."
-msgstr ""
+msgstr "لا يمكنك تقديم كليهما. اختر إما رابط حساب أو حساب بنكي مكتوب يدويًا."
 
 #: tracker/models.py:1306
 msgid "Template"
-msgstr ""
+msgstr "نموذج"
 
 #: tracker/models.py:1307
 msgid "Templates"
-msgstr ""
+msgstr "القوالب"
 
 #: tracker/models.py:1311
 msgid "Imported at"
-msgstr ""
+msgstr "مستورد في"
 
 #: tracker/models.py:1312
 #: tracker/templates/tracker/ticket_expediture_import.html:97
 msgid "Due date"
-msgstr ""
+msgstr "تاريخ الاستحقاق"
 
 #: tracker/models.py:1313
 msgid "Order number"
-msgstr ""
+msgstr "رقم الطلب"
 
 #: tracker/models.py:1314
 msgid "error"
-msgstr ""
+msgstr "خطأ"
 
 #: tracker/models.py:1320
 msgid "Ticket this expediture belongs to"
@@ -1195,52 +1195,52 @@ msgstr "الأجر"
 
 #: tracker/models.py:1328
 msgid "This is only editable through the admin"
-msgstr ""
+msgstr "لا يمكن تعديل هذا إلا من خلال المسؤول"
 
 #: tracker/models.py:1330
 msgid "payment type"
-msgstr ""
+msgstr "نوع الدفع"
 
 #: tracker/models.py:1331
 msgid "payment info"
-msgstr ""
+msgstr "معلومات الدفع"
 
 #: tracker/models.py:1332
 msgid "import info"
-msgstr ""
+msgstr "معلومات الاستيراد"
 
 #: tracker/models.py:1334
 msgid "linked expenditure"
-msgstr ""
+msgstr "الإنفاق المرتبط"
 
 #: tracker/models.py:1378
 #: tracker/templates/tracker/global_expediture_import.html:23
 msgid "Ready"
-msgstr ""
+msgstr "جاهز"
 
 #: tracker/models.py:1381
 msgid "Already paid."
-msgstr ""
+msgstr "تم الدفع مسبقاً."
 
 #: tracker/models.py:1384
 msgid "Already imported."
-msgstr ""
+msgstr "تم استيرادها بالفعل."
 
 #: tracker/models.py:1387
 msgid "Payment type of this expenditure is not supported for import."
-msgstr ""
+msgstr "نوع الدفع لهذا المصروف غير مدعوم للاستيراد."
 
 #: tracker/models.py:1390
 msgid "Amount is not specified."
-msgstr ""
+msgstr "المبلغ غير محدد."
 
 #: tracker/models.py:1393
 msgid "Receiver's bank account is not specified."
-msgstr ""
+msgstr "لم يتم تحديد الحساب المصرفي للمستلم."
 
 #: tracker/models.py:1396
 msgid "Grant bank account is not specified."
-msgstr ""
+msgstr "لم يتم تحديد الحساب المصرفي للمنحة."
 
 #: tracker/models.py:1398 tracker/templates/tracker/ticket_show_media.html:25
 msgid "Unknown"
@@ -1326,7 +1326,7 @@ msgstr "اسم المستخدم على ميدياويكي"
 
 #: tracker/models.py:1539
 msgid "Chapter-issued username"
-msgstr ""
+msgstr "اسم المستخدم الصادر عن الفصل"
 
 #: tracker/models.py:1542 tracker/models.py:1632
 #: tracker/templates/tracker/admin_user_list.html:30
@@ -1352,7 +1352,7 @@ msgstr "العنوان، أو غيرها من المعلومات التعريف�
 #: tracker/models.py:1588 tracker/models.py:1633
 #: tracker/templates/tracker/admin_user_list.html:31
 msgid "Bank accounts"
-msgstr ""
+msgstr "الحسابات المصرفية"
 
 #: tracker/models.py:1594
 msgid "Tracker profile"
@@ -1364,28 +1364,28 @@ msgstr "الملفات الشخصية للمتعقبين"
 
 #: tracker/models.py:1612
 msgid "Account owner"
-msgstr ""
+msgstr "مالك الحساب"
 
 #: tracker/models.py:1613
 msgid "Account name"
-msgstr ""
+msgstr "اسم الحساب"
 
 #: tracker/models.py:1614
 msgid "Account prefix"
-msgstr ""
+msgstr "بادئة الحساب"
 
 #: tracker/models.py:1615 tracker/templates/tracker/bank_account_list.html:20
 #: tracker/views.py:366
 msgid "Account number"
-msgstr ""
+msgstr "رقم الحساب"
 
 #: tracker/models.py:1616
 msgid "Account bank code"
-msgstr ""
+msgstr "رمز الحساب المصرفي"
 
 #: tracker/models.py:1617
 msgid "Deleted at"
-msgstr ""
+msgstr "تم الحذف في"
 
 #: tracker/models.py:1638
 msgid "date"
@@ -1596,11 +1596,11 @@ msgstr "المستخدم  <tt>%(user)s</tt> أزال المستند <tt>%(docume
 
 #: tracker/services.py:12
 msgid "You cannot modify payment details of an already imported or paid expenditure."
-msgstr ""
+msgstr "لا يمكنك تعديل تفاصيل الدفع لنفقة تم استيرادها أو دفعها بالفعل."
 
 #: tracker/services.py:86
 msgid "Cannot revert import: this expenditure is already paid."
-msgstr ""
+msgstr "لا يمكن التراجع عن عملية الاستيراد: لقد تم دفع هذا المبلغ بالفعل."
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "REMOVE"
@@ -1822,7 +1822,7 @@ msgstr "الاسم الأخير"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:6
 msgid "Remove bank account"
-msgstr ""
+msgstr "حذف الحساب البنكي"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:10
 #, python-format
@@ -1831,7 +1831,7 @@ msgstr ""
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:16
 msgid "The account will be removed from your list of accounts, but it will be archived for our historical data."
-msgstr ""
+msgstr "سيتم حذف الحساب من قائمة حساباتك، ولكن سيتم أرشفته لأغراض البيانات التاريخية لدينا."
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:23
 #: tracker/templates/tracker/bank_account_list.html:30
@@ -1844,27 +1844,27 @@ msgstr "إزالة"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:24
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاء"
 
 #: tracker/templates/tracker/bank_account_form.html:6
 msgid "New bank account"
-msgstr ""
+msgstr "حساب مصرفي جديد"
 
 #: tracker/templates/tracker/bank_account_form.html:23
 msgid "Save account"
-msgstr ""
+msgstr "حفظ الحساب"
 
 #: tracker/templates/tracker/bank_account_form.html:24
 msgid "Back"
-msgstr ""
+msgstr "رجوع"
 
 #: tracker/templates/tracker/bank_account_list.html:6
 msgid "My bank accounts"
-msgstr ""
+msgstr "حساباتي المصرفية"
 
 #: tracker/templates/tracker/bank_account_list.html:10
 msgid "New account"
-msgstr ""
+msgstr "حساب جديد"
 
 #: tracker/templates/tracker/bank_account_list.html:19
 #: tracker/templates/tracker/index.html:16
@@ -1875,11 +1875,11 @@ msgstr "الاسم"
 
 #: tracker/templates/tracker/bank_account_list.html:21
 msgid "Actions"
-msgstr ""
+msgstr "الإجراءات"
 
 #: tracker/templates/tracker/bank_account_list.html:35
 msgid "You have not saved any bank accounts yet"
-msgstr ""
+msgstr "لم تقم بحفظ أي حسابات بنكية حتى الآن"
 
 #: tracker/templates/tracker/cluster_detail.html:4
 #: tracker/templates/tracker/cluster_detail.html:8
@@ -2066,15 +2066,15 @@ msgstr "الأجر"
 
 #: tracker/templates/tracker/expediture_formset.html:18 tracker/views.py:363
 msgid "Payment type"
-msgstr ""
+msgstr "نوع الدفع"
 
 #: tracker/templates/tracker/expediture_formset.html:19
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 #: tracker/templates/tracker/expediture_formset.html:76
 msgid "This item is locked and cannot be deleted."
-msgstr ""
+msgstr "هذا العنصر مقفل ولا يمكن حذفه."
 
 #: tracker/templates/tracker/expediture_formset.html:110
 #: tracker/templates/tracker/tabular_formset.html:91
@@ -2207,7 +2207,7 @@ msgstr "لاستخدام المتعقب للنفقات؛ نحتاج إلى مع�
 
 #: tracker/templates/tracker/fill_details.html:11
 msgid "The bank account is optional. If you give it to us, we can send the money for your expenses to it."
-msgstr ""
+msgstr "الحساب البنكي اختياري. إذا زودتنا به، يمكننا تحويل الأموال اللازمة لنفقاتك إليه."
 
 #: tracker/templates/tracker/fill_details.html:23
 msgid "save & continue"
@@ -2295,31 +2295,31 @@ msgstr "نظرة عامة على إشعار تأكيد الموضوع"
 
 #: tracker/templates/tracker/global_expediture_import.html:4
 msgid "Import overview"
-msgstr ""
+msgstr "نظرة عامة على الاستيراد"
 
 #: tracker/templates/tracker/global_expediture_import.html:9
 msgid "import overview"
-msgstr ""
+msgstr "نظرة عامة على الاستيراد"
 
 #: tracker/templates/tracker/global_expediture_import.html:12
 msgid "Expenditures awaiting import"
-msgstr ""
+msgstr "نفقات بانتظار الاستيراد"
 
 #: tracker/templates/tracker/global_expediture_import.html:15
 msgid "Select a ticket to review and import its expenditures."
-msgstr ""
+msgstr "اختر تذكرة لمراجعة نفقاتها واستيرادها."
 
 #: tracker/templates/tracker/global_expediture_import.html:22
 msgid "Total to process"
-msgstr ""
+msgstr "إجمالي المبلغ المطلوب للمعالجة"
 
 #: tracker/templates/tracker/global_expediture_import.html:25
 msgid "Error"
-msgstr ""
+msgstr "خطأ"
 
 #: tracker/templates/tracker/global_expediture_import.html:71
 msgid "There are no tickets waiting for import. Everything is up to date."
-msgstr ""
+msgstr "لا توجد تذاكر معلقة للاستيراد. كل شيء محدّث."
 
 #: tracker/templates/tracker/grant_detail.html:9
 #: tracker/templates/tracker/index.html:7
@@ -2705,21 +2705,21 @@ msgstr "أضف تعليقا"
 
 #: tracker/templates/tracker/ticket_detail.html:101
 msgid "Comments are only available to the ticket requestor, supervisors and chapter members."
-msgstr ""
+msgstr "التعليقات متاحة فقط لمقدم طلب التذكرة والمشرفين وأعضاء الفرع."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:4
 #: tracker/templates/tracker/ticket_expediture_import.html:12
 #: tracker/templates/tracker/ticket_expediture_import.html:102
 msgid "Import expenditures"
-msgstr ""
+msgstr "نفقات الاستيراد"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:10
 msgid "import"
-msgstr ""
+msgstr "استيراد"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:17
 msgid "This ticket has not been pre-approved or approved yet."
-msgstr ""
+msgstr "لم تتم الموافقة المسبقة على هذه التذكرة أو الموافقة عليها بعد."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:24
 msgid "This ticket has rating percentage: "
@@ -2727,60 +2727,60 @@ msgstr ""
 
 #: tracker/templates/tracker/ticket_expediture_import.html:42
 msgid "There are no uploaded documents."
-msgstr ""
+msgstr "لا توجد مستندات تم تحميلها."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:49
 msgid "Expenditures ready for import"
-msgstr ""
+msgstr "النفقات جاهزة للاستيراد"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:60
 #: tracker/templates/tracker/ticket_expediture_import.html:121
 msgid "Target Account"
-msgstr ""
+msgstr "الحساب المستهدف"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:76
 msgid "Error during import"
-msgstr ""
+msgstr "حدث خطأ أثناء الاستيراد"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:108
 msgid "There are no expenditures ready for import on this ticket. Make sure that all bank accounts are properly filled."
-msgstr ""
+msgstr "لا توجد مصروفات جاهزة للاستيراد في هذه التذكرة. تأكد من ملء جميع الحسابات المصرفية بشكل صحيح."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:113
 msgid "Imported expenditures"
-msgstr ""
+msgstr "النفقات المستوردة"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:114
 msgid "These expenditures are already imported."
-msgstr ""
+msgstr "هذه النفقات مستوردة بالفعل."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:123
 msgid "Action"
-msgstr ""
+msgstr "فعل"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:143
 msgid "Are you sure you want to re-import this expenditure? The system cannot verify if the original Fio bank order was cancelled. This may result in duplicate payments."
-msgstr ""
+msgstr "هل أنت متأكد من رغبتك في إعادة استيراد هذا المصروف؟ لا يمكن للنظام التحقق مما إذا كان أمر الدفع الأصلي من بنك Fio قد أُلغي. قد يؤدي ذلك إلى مدفوعات مكررة."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:147
 msgid "Re-import"
-msgstr ""
+msgstr "إعادة الاستيراد"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:159
 msgid "Expenditures waiting for data"
-msgstr ""
+msgstr "النفقات في انتظار البيانات"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:160
 msgid "These expenditures will be ready for import after adding data."
-msgstr ""
+msgstr "ستكون هذه النفقات جاهزة للاستيراد بعد إضافة البيانات."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:166
 msgid "Reason"
-msgstr ""
+msgstr "سبب"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:188
 msgid "Edit in admin"
-msgstr ""
+msgstr "التعديل في لوحة التحكم"
 
 #: tracker/templates/tracker/ticket_form.html:20
 msgid "preexpediture"
@@ -3114,23 +3114,23 @@ msgstr "الكل"
 
 #: tracker/validators.py:11
 msgid "Account number must be a number."
-msgstr ""
+msgstr "يجب أن يكون رقم الحساب رقمًا."
 
 #: tracker/validators.py:19
 msgid "Incorrect account number."
-msgstr ""
+msgstr "رقم الحساب غير صحيح."
 
 #: tracker/validators.py:26
 msgid "Incorrect bank code."
-msgstr ""
+msgstr "رمز البنك غير صحيح."
 
 #: tracker/validators.py:38
 msgid "Invalid account format."
-msgstr ""
+msgstr "تنسيق الحساب غير صالح."
 
 #: tracker/validators.py:48
 msgid "Incorrect account prefix."
-msgstr ""
+msgstr "بادئة الحساب غير صحيحة."
 
 #: tracker/views.py:59
 #, python-format
@@ -3182,27 +3182,27 @@ msgstr "يجب أن ينتمي الموضوع الفرعي إلى الموضوع
 
 #: tracker/views.py:365
 msgid "Saved account"
-msgstr ""
+msgstr "الحساب المحفوظ"
 
 #: tracker/views.py:365
 msgid "Enter manually"
-msgstr ""
+msgstr "أدخل يدويًا"
 
 #: tracker/views.py:368
 msgid "Variable symbol"
-msgstr ""
+msgstr "رمز متغير"
 
 #: tracker/views.py:369
 msgid "Specific symbol"
-msgstr ""
+msgstr "رمز محدد"
 
 #: tracker/views.py:370
 msgid "Constant symbol"
-msgstr ""
+msgstr "رمز ثابت"
 
 #: tracker/views.py:485
 msgid "You cannot edit this expenditure."
-msgstr ""
+msgstr "لا يمكنك تعديل هذا المصروف."
 
 #: tracker/views.py:549
 msgid "We've updated your preferences"
@@ -3309,11 +3309,11 @@ msgstr "تم حفظ تفاصيلك."
 
 #: tracker/views.py:1263
 msgid "Bank account was succesfully created."
-msgstr ""
+msgstr "تم إنشاء الحساب المصرفي بنجاح."
 
 #: tracker/views.py:1279
 msgid "Bank account was successfully removed."
-msgstr ""
+msgstr "تم حذف الحساب المصرفي بنجاح."
 
 #: tracker/views.py:1725
 msgid "You must be staffer in order to export users"
@@ -3414,19 +3414,19 @@ msgstr "حدث خطأ أثناء معالجة طلبك."
 
 #: tracker/views.py:2051
 msgid "Import status was successfully cleared."
-msgstr ""
+msgstr "تمت إزالة حالة الاستيراد بنجاح."
 
 #: tracker/views.py:2053
 msgid "Cannot revert import: missing import info."
-msgstr ""
+msgstr "لا يمكن التراجع عن عملية الاستيراد: معلومات الاستيراد مفقودة."
 
 #: tracker/views.py:2133
 msgid "Invalid or past execution date selected."
-msgstr ""
+msgstr "تم اختيار تاريخ تنفيذ غير صالح أو منتهٍ."
 
 #: tracker/views.py:2140
 msgid "No valid expenditures selected for import."
-msgstr ""
+msgstr "لم يتم تحديد أي نفقات صالحة للاستيراد."
 
 #: tracker/views.py:2146
 #, python-brace-format
@@ -3640,15 +3640,15 @@ msgstr "لديك حساب بالفعل؟"
 
 #: users/views.py:61
 msgid "Your own name for this account, for example \"Personal account\". It helps you to select the correct account when you ask for a payment."
-msgstr ""
+msgstr "اسمك الخاص لهذا الحساب، على سبيل المثال \"الحساب الشخصي\". يساعدك هذا على اختيار الحساب الصحيح عند طلب الدفع."
 
 #: users/views.py:63
 msgid "The part of the account number before the dash. Many accounts have no prefix; then leave this field empty."
-msgstr ""
+msgstr "الجزء من رقم الحساب الذي يسبق الشرطة. العديد من الحسابات ليس لها بادئة؛ لذا اترك هذا الحقل فارغًا."
 
 #: users/views.py:65
 msgid "The part of the account number before the slash."
-msgstr ""
+msgstr "الجزء من رقم الحساب الذي يسبق الشرطة المائلة."
 
 #: users/views.py:66
 msgid "The four-digit code of your bank, after the slash. For example 0800."
