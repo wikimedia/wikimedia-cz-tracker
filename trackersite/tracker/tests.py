@@ -36,7 +36,8 @@ from tracker.fio import FioPaymentManager
 from tracker.mediainfo import MediaInfoSync
 from tracker.services import PaymentService
 from tracker.models import Ticket, Topic, Subtopic, Grant, MediaInfo, Expediture, Preexpediture, TrackerProfile, \
-    Document, TrackerPreferences, BankAccount, Template, PaymentInfo, PaymentType, ExpenditureState, ImportInfo
+    Document, TrackerPreferences, BankAccount, Template, PaymentInfo, PaymentType, ExpenditureState, ImportInfo, \
+    ReconciledTransaction
 from users.models import UserWrapper
 from tracker.validators import validate_full_bank_account
 
@@ -2722,11 +2723,16 @@ class FioPaymentManagerTests(TestCase):
         self.topic = Topic.objects.create(name='topic', grant=self.grant)
         self.ticket = Ticket.objects.create(name='T1', topic=self.topic)
         self.payment_info = PaymentInfo.objects.create(account_number='123456789/0300')
+        # Pin the accounting info. Every unpaid expenditure is a candidate for
+        # the sync, thus an empty value makes the reference of this expenditure
+        # 'WMCZ ticket #<ticket id>'. The id comes from the auto-increment, and
+        # so it can collide with a reference that a sync test pins.
         self.expenditure = Expediture.objects.create(
             ticket=self.ticket,
             description='Platba faktury',
             amount=1000,
             payment_type=PaymentType.BANK_TRANSFER,
+            accounting_info='base',
             payment_info=self.payment_info
         )
 
@@ -2743,13 +2749,16 @@ class FioPaymentManagerTests(TestCase):
         )
 
     @staticmethod
-    def _fio_transaction(amount, message, order_number=None, account='123456789', bank='0300', comment=None):
+    def _fio_transaction(amount, message, order_number=None, account='123456789', bank='0300', comment=None,
+                         transaction_id=None, date=None):
         return {
+            "column0": {"value": date} if date else None,  # date
             "column1": {"value": amount},  # amount
             "column2": {"value": account} if account else None,  # target account
             "column3": {"value": bank} if bank else None,  # bank code
             "column17": {"value": order_number} if order_number else None,  # ID instruction
             "column16": {"value": message} if message else None,  # msg
+            "column22": {"value": transaction_id} if transaction_id else None,  # ID of the transaction
             "column25": {"value": comment} if comment else None,  # comment
         }
 
@@ -2868,6 +2877,205 @@ class FioPaymentManagerTests(TestCase):
         self.assertEqual(report['marked_paid'], 1)
         card_exp.refresh_from_db()
         self.assertTrue(card_exp.paid)
+
+    def test_transaction_id_reads_a_numeric_value(self):
+        # Fio sends the id as a JSON number, but the record keeps a string.
+        self.assertEqual(FioPaymentManager._transaction_id({'column22': {'value': 1148734530}}), '1148734530')
+        self.assertIsNone(FioPaymentManager._transaction_id({'column22': None}))
+        self.assertIsNone(FioPaymentManager._transaction_id({}))
+
+    def test_transaction_date_reads_both_fio_forms(self):
+        cases = [
+            # the JSON API gives milliseconds at midnight in the zone of the
+            # bank; these three values come from the Fio API documentation
+            (1340661600000, datetime.date(2012, 6, 26)),
+            (1341007200000, datetime.date(2012, 6, 30)),
+            # winter time, because a fixed offset moves the date by one day
+            (1764547200000, datetime.date(2025, 12, 1)),
+            # the XML API gives a date with a time zone
+            ('2012-07-27+02:00', datetime.date(2012, 7, 27)),
+            ('2026-09-04+0200', datetime.date(2026, 9, 4)),
+            ('nonsense', None),
+            ('', None),
+        ]
+
+        for value, expected in cases:
+            with self.subTest(value=value):
+                self.assertEqual(
+                    FioPaymentManager._transaction_date({'column0': {'value': value}}),
+                    expected,
+                )
+
+        self.assertIsNone(FioPaymentManager._transaction_date({'column0': None}))
+        self.assertIsNone(FioPaymentManager._transaction_date({}))
+
+    def _paid_expenditure(self, accounting_info, amount=1000):
+        """An expenditure the bank paid, with no live Fio order left."""
+        return Expediture.objects.create(
+            ticket=self.ticket,
+            description=f'expenditure {accounting_info}',
+            amount=amount,
+            payment_type=PaymentType.BANK_TRANSFER,
+            accounting_info=accounting_info,
+            payment_info=PaymentInfo.objects.create(account_number='123456789/0300'),
+        )
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_matches_expenditure_whose_order_expired(self, mock_get):
+        # Fio refuses an order after the due date, thus the sync deletes the
+        # ImportInfo row. The bank can pay on the due date itself. A missing
+        # order must not hide the payment.
+        exp = self._paid_expenditure(accounting_info='3134f', amount=Decimal('300.00'))
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-300.0, 'WMCZ ticket #3134f', transaction_id='55001')
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=90, expiry_days=0)
+
+        exp.refresh_from_db()
+        self.assertIsNone(exp.import_info)
+        self.assertTrue(exp.paid)
+        self.assertEqual(report['marked_paid'], 1)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_uses_one_transaction_only_once(self, mock_get):
+        # A history run reads transactions that an earlier run already used.
+        # Without the record, the second run pays a different expenditure with
+        # the same money.
+        first = self._paid_expenditure(accounting_info='3134f', amount=Decimal('300.00'))
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-300.0, 'WMCZ ticket #3134f', transaction_id='55001')
+        )
+        FioPaymentManager().sync_transactions(days_back=90, expiry_days=0)
+
+        first.refresh_from_db()
+        self.assertTrue(first.paid)
+        self.assertEqual(ReconciledTransaction.objects.get(transaction_id='55001').expediture_id, first.id)
+
+        second = self._paid_expenditure(accounting_info='3134f', amount=Decimal('300.00'))
+        report = FioPaymentManager().sync_transactions(days_back=90, expiry_days=0)
+
+        second.refresh_from_db()
+        self.assertFalse(second.paid, 'the same transaction must not pay a second expenditure')
+        self.assertEqual(report['marked_paid'], 0)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_records_the_transaction_it_used(self, mock_get):
+        exp = self._paid_expenditure(accounting_info='3134g', amount=Decimal('1200.00'))
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(
+                -1200.0, 'WMCZ ticket #3134g', transaction_id='55002', date='2026-09-04+0200',
+            )
+        )
+
+        FioPaymentManager().sync_transactions(days_back=90, expiry_days=0)
+
+        record = ReconciledTransaction.objects.get(transaction_id='55002')
+        self.assertEqual(record.expediture_id, exp.id)
+        self.assertEqual(record.amount, Decimal('1200.00'))
+        self.assertEqual(record.date, datetime.date(2026, 9, 4))
+        self.assertEqual(record.account, '2000145399/2010')
+        self.assertIn('WMCZ ticket #3134g', record.reference)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_still_needs_the_target_account_without_an_order(self, mock_get):
+        # Dropping the ImportInfo filter must not let the reference alone
+        # decide. The amount and the target account still have to agree.
+        exp = self._paid_expenditure(accounting_info='3134h', amount=Decimal('300.00'))
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(
+                -300.0, 'WMCZ ticket #3134h', account='987654321', bank='0800', transaction_id='55003',
+            )
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=90, expiry_days=0)
+
+        exp.refresh_from_db()
+        self.assertFalse(exp.paid)
+        self.assertEqual(report['marked_paid'], 0)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_ignores_an_expenditure_with_no_payment_data(self, mock_get):
+        # An expenditure that names no target account cannot confirm a
+        # transfer, and so the reference alone must not pay it.
+        exp = Expediture.objects.create(
+            ticket=self.ticket,
+            description='no payment info',
+            amount=Decimal('300.00'),
+            payment_type=PaymentType.BANK_TRANSFER,
+            accounting_info='3134i',
+        )
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-300.0, 'WMCZ ticket #3134i', transaction_id='55004')
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=90, expiry_days=0)
+
+        exp.refresh_from_db()
+        self.assertFalse(exp.paid)
+        self.assertEqual(report['marked_paid'], 0)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_dry_run_writes_nothing(self, mock_get):
+        exp = self._paid_expenditure(accounting_info='3134j', amount=Decimal('300.00'))
+        expiring = self._imported_expenditure(accounting_info='3134k', order_number='999')
+        expiring.import_info.due_date = datetime.date.today() - datetime.timedelta(days=5)
+        expiring.import_info.save(update_fields=['due_date'])
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-300.0, 'WMCZ ticket #3134j', transaction_id='55005')
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=90, expiry_days=0, dry_run=True)
+
+        self.assertEqual(report['marked_paid'], 1)
+        self.assertEqual(report['reverted'], 1)
+        self.assertEqual(len(report['matches']), 1)
+        self.assertIn(str(exp.id), report['matches'][0])
+
+        exp.refresh_from_db()
+        expiring.refresh_from_db()
+        self.assertFalse(exp.paid)
+        self.assertIsNotNone(expiring.import_info)
+        self.assertFalse(ReconciledTransaction.objects.exists())
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_dry_run_does_not_reuse_one_transaction(self, mock_get):
+        # A dry run writes no paid flag, thus the run itself has to remember
+        # which expenditure a transaction already took.
+        self._paid_expenditure(accounting_info='3134l', amount=Decimal('300.00'))
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-300.0, 'WMCZ ticket #3134l', transaction_id='55006'),
+            self._fio_transaction(-300.0, 'WMCZ ticket #3134l', transaction_id='55007'),
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=90, expiry_days=0, dry_run=True)
+
+        self.assertEqual(report['marked_paid'], 1)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_does_not_record_a_transaction_it_did_not_use(self, mock_get):
+        # A transaction that pays nothing stays unrecorded, and so a later run
+        # looks at it again. This is deliberate: the bank can pay before the
+        # operator writes the expenditure in Tracker, thus the sync must not
+        # spend a transaction that it cannot place yet.
+        paid_already = self._paid_expenditure(accounting_info='3134f', amount=Decimal('300.00'))
+        paid_already.paid = True
+        paid_already.save(update_fields=['paid'])
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-300.0, 'WMCZ ticket #3134f', transaction_id='90001')
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=400, expiry_days=0)
+
+        self.assertEqual(report['marked_paid'], 0)
+        self.assertFalse(ReconciledTransaction.objects.exists())
 
     @patch('tracker.fio.requests.get')
     def test_sync_does_not_match_reference_prefix(self, mock_get):
@@ -3075,19 +3283,41 @@ class CommandFiosyncTests(TestCase):
         mock_sync.return_value = {
             'marked_paid': 2,
             'reverted': 1,
-            'errors': ['Fio API error timeout']
+            'errors': ['Fio API error timeout'],
+            'matches': [],
+            'dry_run': False,
         }
 
         out = io.StringIO()
         call_command('fiosync', days=10, expiry=3, stdout=out)
         output = out.getvalue()
 
-        mock_sync.assert_called_once_with(days_back=10, expiry_days=3)
+        mock_sync.assert_called_once_with(days_back=10, expiry_days=3, dry_run=False)
 
         self.assertIn('Starting Fio synchronization (history: 10 days, expiry after: 3 days)...', output)
         self.assertIn('Successfully matched and marked as PAID: 2 expenditures.', output)
         self.assertIn('Expired and reverted to WAITING: 1 expenditures.', output)
         self.assertIn('- Fio API error timeout', output)
+
+    @patch('tracker.fio.FioPaymentManager.sync_transactions')
+    def test_fiosync_command_dry_run(self, mock_sync):
+        mock_sync.return_value = {
+            'marked_paid': 1,
+            'reverted': 0,
+            'errors': [],
+            'matches': ['2026-09-04 300.00 on 2000145399/2010 -> expenditure 7 (ticket 3134, faktura)'],
+            'dry_run': True,
+        }
+
+        out = io.StringIO()
+        call_command('fiosync', days=90, dry_run=True, stdout=out)
+        output = out.getvalue()
+
+        mock_sync.assert_called_once_with(days_back=90, expiry_days=0, dry_run=True)
+
+        self.assertIn('Dry run. Nothing is written.', output)
+        self.assertIn('-> expenditure 7 (ticket 3134, faktura)', output)
+        self.assertIn('Would mark as PAID: 1 expenditures.', output)
 
 
 class ExpeditureApiTests(TestCase):

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 import xml.etree.ElementTree as ET
+import zoneinfo
 from decimal import Decimal
 from django.conf import settings
 from django.db.models import Q
@@ -11,9 +12,25 @@ import re
 import logging
 from django.utils.translation import gettext_lazy as _
 
-from tracker.models import PaymentType, ImportInfo, Expediture
+from tracker.models import PaymentType, ImportInfo, Expediture, ReconciledTransaction
 
 logger = logging.getLogger(__name__)
+
+# The time zone that Fio writes the dates in. The JSON API gives the date as a
+# number of milliseconds at midnight local time, thus a conversion in another
+# zone moves the date by one day. The project does not set TIME_ZONE, and so
+# the Django default is not the zone of the bank.
+BANK_TIMEZONE_NAME = 'Europe/Prague'
+
+try:
+    BANK_TIMEZONE = zoneinfo.ZoneInfo(BANK_TIMEZONE_NAME)
+except zoneinfo.ZoneInfoNotFoundError:  # pragma: no cover
+    # zoneinfo reads the time zone database of the system, which a small
+    # container can leave out. pytz carries its own copy, and Django needs
+    # pytz anyway.
+    import pytz
+
+    BANK_TIMEZONE = pytz.timezone(BANK_TIMEZONE_NAME)
 
 
 class FioPaymentManager:
@@ -35,6 +52,15 @@ class FioPaymentManager:
     # The Fio fields that can carry our payment reference: the message for the
     # recipient, and the comment.
     REFERENCE_COLUMNS = ('column16', 'column25')
+
+    # The Fio field that holds the identity of one transaction. Fio gives a
+    # different field, column17, for the identity of the import order. Many
+    # transactions share one order, thus only column22 names one movement of
+    # money.
+    TRANSACTION_ID_COLUMN = 'column22'
+
+    # The Fio field that holds the date of the transaction.
+    DATE_COLUMN = 'column0'
 
     @staticmethod
     def normalize_account(account_str):
@@ -73,6 +99,61 @@ class FioPaymentManager:
                 parts.append(value)
 
         return ' | '.join(parts)
+
+    @classmethod
+    def _transaction_id(cls, transaction):
+        """
+        Read the identity of one transaction.
+
+        Return None when Fio sends no identity. The sync then cannot tell this
+        transaction from another one, and so it must not record it.
+        """
+        column_data = transaction.get(cls.TRANSACTION_ID_COLUMN)
+        if not column_data:
+            return None
+
+        value = str(column_data.get('value', '') or '').strip()
+        return value or None
+
+    @classmethod
+    def _transaction_date(cls, transaction):
+        """
+        Read the date of one transaction.
+
+        Fio uses two forms. The XML API writes a date with a time zone, for
+        example 2026-09-04+0200. The JSON API writes a number of milliseconds
+        since the epoch at midnight in the zone of the bank. Read both.
+
+        Return None when the field is absent or malformed. The date is only a
+        note for the operator, thus it must not stop the match.
+        """
+        column_data = transaction.get(cls.DATE_COLUMN)
+        if not column_data:
+            return None
+
+        value = column_data.get('value')
+        if value is None:
+            return None
+
+        if isinstance(value, bool):
+            return None
+
+        text = str(value).strip()
+        if not text:
+            return None
+
+        if isinstance(value, (int, float)) or text.lstrip('-').isdigit():
+            try:
+                moment = datetime.datetime.fromtimestamp(int(value) / 1000, tz=BANK_TIMEZONE)
+            except (OverflowError, OSError, ValueError):
+                return None
+
+            return moment.date()
+
+        try:
+            return datetime.date.fromisoformat(text[:10])
+        except ValueError:
+            return None
 
     @staticmethod
     def _message_matches(expected_msg, message):
@@ -451,15 +532,29 @@ class FioPaymentManager:
 
         return matches
 
-    def sync_transactions(self, days_back=14, expiry_days=1):
+    def sync_transactions(self, days_back=14, expiry_days=1, dry_run=False):
+        """
+        Read the bank statements and mark the expenditures that the bank paid.
+
+        Set dry_run to report the result without a write. Use it before a long
+        history run, because a wide days_back reads transactions that an
+        operator can have reconciled by hand already.
+        """
         date_to = datetime.date.today()
         date_from = date_to - datetime.timedelta(days=days_back)
 
         report = {
             'marked_paid': 0,
             'reverted': 0,
-            'errors': []
+            'errors': [],
+            'matches': [],
+            'dry_run': dry_run,
         }
+
+        # A transaction that this run already used. The paid flag keeps the
+        # expenditure out of the next query, but a dry run writes nothing, and
+        # so the run must remember the decision itself.
+        consumed = set()
 
         for account, token in self.tokens.items():
             url = f"https://fioapi.fio.cz/v1/rest/periods/{token}/{date_from.isoformat()}/{date_to.isoformat()}/transactions.json"
@@ -488,19 +583,37 @@ class FioPaymentManager:
                     # behind it.
                     abs_amount = Decimal(str(abs(amount)))
 
+                    transaction_id = self._transaction_id(t)
+                    transaction_date = self._transaction_date(t)
+
+                    # One transaction pays one expenditure. Read the record
+                    # before the match, or a history run marks a second
+                    # expenditure with a transaction that is already used.
+                    if transaction_id and ReconciledTransaction.objects.filter(transaction_id=transaction_id).exists():
+                        continue
+
                     id_instruction = str(t.get('column17', {}).get('value', '')) if t.get('column17') else None
                     message = self._reference_text(t)
                     target_acc = str(t.get('column2', {}).get('value', '')) if t.get('column2') else None
                     bank_code = str(t.get('column3', {}).get('value', '')) if t.get('column3') else None
                     full_target_account = f"{target_acc}/{bank_code}" if target_acc and bank_code else None
 
-                    query = Q(paid=False) & (Q(import_info__isnull=False) | Q(payment_type=PaymentType.CARD))
+                    # Every unpaid expenditure is a candidate. An ImportInfo row
+                    # says that a Fio order is live, not that the bank never
+                    # paid, and it goes away when the order expires. Thus it
+                    # cannot decide who is eligible. _match_strength() refuses
+                    # the payment types that carry no reference of ours, and
+                    # ReconciledTransaction stops a transaction from paying
+                    # twice.
+                    query = Q(paid=False)
 
                     match_q = Q(amount=abs_amount)
                     if id_instruction:
                         match_q |= Q(import_info__order_number=id_instruction or '')
 
-                    candidates = Expediture.objects.filter(query & match_q).select_related('import_info', 'payment_info', 'linked_expenditure')
+                    candidates = Expediture.objects.filter(query & match_q).exclude(
+                        id__in=consumed
+                    ).select_related('import_info', 'payment_info', 'linked_expenditure')
 
                     matches = self._best_matches(candidates, abs_amount, id_instruction, message, full_target_account)
 
@@ -518,9 +631,36 @@ class FioPaymentManager:
                         continue
 
                     if matches:
+                        matched = matches[0]
+                        consumed.add(matched.id)
+
+                        report['marked_paid'] += 1
+                        report['matches'].append(
+                            f"{transaction_date or '?'} {abs_amount} on {account} "
+                            f"-> expenditure {matched.id} (ticket {matched.ticket_id}, {matched.description})"
+                        )
+
+                        if dry_run:
+                            continue
+
                         with transaction.atomic():
-                            matches[0].mark_paid()
-                            report['marked_paid'] += 1
+                            matched.mark_paid()
+
+                            if transaction_id:
+                                ReconciledTransaction.objects.create(
+                                    transaction_id=transaction_id,
+                                    account=account,
+                                    date=transaction_date,
+                                    amount=abs_amount,
+                                    reference=message[:255],
+                                    expediture=matched,
+                                )
+                            else:
+                                logger.warning(
+                                    f"Fio transaction on account {account} (amount {abs_amount}, "
+                                    f"message {message!r}) carries no transaction id. "
+                                    "It can match a second expenditure in a later run."
+                                )
 
             except Exception as e:
                 logger.exception(f"Error when downloading transactions for account {account}: {e}")
@@ -532,9 +672,14 @@ class FioPaymentManager:
             import_info__isnull=False,
             import_info__due_date__lt=expiry_limit,
             paid=False
-        )
+        ).exclude(id__in=consumed)
 
         for exp in expired_exps:
+            report['reverted'] += 1
+
+            if dry_run:
+                continue
+
             with transaction.atomic():
                 info_to_delete = exp.import_info
                 exp.import_info = None
@@ -542,7 +687,5 @@ class FioPaymentManager:
 
                 if info_to_delete:
                     info_to_delete.delete()
-
-                report['reverted'] += 1
 
         return report

@@ -1173,6 +1173,38 @@ class ImportInfo(models.Model):
     error = models.BooleanField(_('error'), default=False)
 
 
+class ReconciledTransaction(Model):
+    """
+    One bank transaction that the payment sync already used.
+
+    ImportInfo says that a Fio order is live. It goes away when the order
+    expires, because Fio refuses an order after the due date. Thus it cannot
+    tell the sync which transactions it read before. This model keeps that
+    record.
+
+    A bank transaction pays at most one expenditure. The record holds that
+    decision after the order expires, and so the sync cannot use the same
+    transaction a second time for a different expenditure.
+    """
+    transaction_id = models.CharField(_('Fio transaction ID'), max_length=64, unique=True)
+    account = models.CharField(_('account'), max_length=50, blank=True)
+    date = models.DateField(_('date'), null=True, blank=True)
+    amount = models.DecimalField(_('amount'), max_digits=10, decimal_places=2)
+    reference = models.CharField(_('payment reference'), max_length=255, blank=True)
+    expediture = models.ForeignKey(
+        'tracker.Expediture', verbose_name=_('expediture'), null=True, blank=True,
+        on_delete=models.SET_NULL, related_name='reconciled_transactions',
+    )
+    reconciled_at = models.DateTimeField(_('reconciled at'), default=timezone.now)
+
+    def __str__(self):
+        return f"{self.transaction_id} ({self.amount})"
+
+    class Meta:
+        verbose_name = _('Reconciled transaction')
+        verbose_name_plural = _('Reconciled transactions')
+
+
 class Expediture(Model):
     """ Expenses related to particular tickets. """
     ticket = models.ForeignKey('tracker.Ticket', verbose_name=_('ticket'),

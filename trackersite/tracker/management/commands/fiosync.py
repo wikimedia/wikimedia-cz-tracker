@@ -19,25 +19,39 @@ class Command(BaseCommand):
             default=0,
             help='Number of days past due date to expire imports (default: 0)',
         )
+        parser.add_argument(
+            '--dry-run',
+            action='store_true',
+            help='Report the result and write nothing. Use it before a run with a wide --days.',
+        )
 
     def handle(self, *args, **options):
         days_back = options['days']
         expiry_days = options['expiry']
+        dry_run = options['dry_run']
 
         self.stdout.write(self.style.NOTICE(
             f'Starting Fio synchronization (history: {days_back} days, expiry after: {expiry_days} days)...'
         ))
 
-        manager = FioPaymentManager()
-        report = manager.sync_transactions(days_back=days_back, expiry_days=expiry_days)
+        if dry_run:
+            self.stdout.write(self.style.WARNING('Dry run. Nothing is written.'))
 
+        manager = FioPaymentManager()
+        report = manager.sync_transactions(days_back=days_back, expiry_days=expiry_days, dry_run=dry_run)
+
+        for line in report['matches']:
+            self.stdout.write(f"  {line}")
+
+        verb = 'Would mark as PAID' if dry_run else 'Successfully matched and marked as PAID'
         if report['marked_paid'] > 0:
-            self.stdout.write(self.style.SUCCESS(f"Successfully matched and marked as PAID: {report['marked_paid']} expenditures."))
+            self.stdout.write(self.style.SUCCESS(f"{verb}: {report['marked_paid']} expenditures."))
         else:
             self.stdout.write("No new payments found for matching.")
 
         if report['reverted'] > 0:
-            self.stdout.write(self.style.WARNING(f"Expired and reverted to WAITING: {report['reverted']} expenditures."))
+            verb = 'Would expire and revert to WAITING' if dry_run else 'Expired and reverted to WAITING'
+            self.stdout.write(self.style.WARNING(f"{verb}: {report['reverted']} expenditures."))
 
         if report['errors']:
             self.stdout.write(self.style.ERROR("Errors occurred during synchronization:"))

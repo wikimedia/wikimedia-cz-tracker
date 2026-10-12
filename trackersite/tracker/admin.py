@@ -524,5 +524,28 @@ class TemplateAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Template, TemplateAdmin)
 
+
+class ReconciledTransactionAdmin(admin.ModelAdmin):
+    """
+    Show which bank transaction paid which expenditure.
+
+    The payment sync writes the rows. An operator reads them, thus every field
+    is read only. A change here cannot move money back.
+    """
+    list_display = ('transaction_id', 'date', 'amount', 'account', 'reference', 'expediture')
+    list_filter = ('account', 'date')
+    search_fields = ('transaction_id', 'reference')
+    date_hierarchy = 'date'
+    readonly_fields = ('transaction_id', 'account', 'date', 'amount', 'reference', 'expediture', 'reconciled_at')
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+
+admin.site.register(models.ReconciledTransaction, ReconciledTransactionAdmin)
+
 # piggypatch admin site to display our own index template with some bonus links
 admin.site.index_template = 'tracker/admin_index_override.html'

@@ -24,6 +24,9 @@ ACCEPTABLE_STATUS_CODES = (200, 302, 405)
 EXPECTED_STATUS_CODES = {
     # Needs an app_label and a model_name in the query string.
     '/admin/autocomplete/': (403,),
+    # The payment sync writes these rows. The admin shows them and nothing
+    # more, thus it refuses to add one.
+    '/admin/tracker/reconciledtransaction/add/': (403,),
 }
 
 # URLs the test must not request, with the reason.
