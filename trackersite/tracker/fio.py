@@ -171,6 +171,34 @@ class FioPaymentManager:
         self.tokens = {self.normalize_account(k): v for k, v in raw_tokens.items()}
         self.currencies = getattr(settings, 'FIO_API_CURRENCIES', {})
 
+    def _select_tokens(self, accounts):
+        """
+        Give the account-to-token map that a sync run must read.
+
+        Pass None for accounts to read every registered account. Pass a list of
+        account numbers to read only those. The bank code is optional, because
+        normalize_account() adds the Fio one.
+
+        Raise ValueError if an account has no token, because a silent empty run
+        looks the same as a run that found no payment.
+        """
+        if accounts is None:
+            return dict(self.tokens)
+
+        selected = {}
+        for account in accounts:
+            full_account = self.normalize_account(account)
+
+            if full_account not in self.tokens:
+                raise ValueError(
+                    f"No Fio API token for account {full_account}. "
+                    f"Registered accounts: {', '.join(sorted(self.tokens)) or '(none)'}."
+                )
+
+            selected[full_account] = self.tokens[full_account]
+
+        return selected
+
     def _split_target_account(self, full_account):
         if '/' not in full_account:
             raise ValueError(f"Wrong account format: {full_account}")
@@ -532,14 +560,20 @@ class FioPaymentManager:
 
         return matches
 
-    def sync_transactions(self, days_back=14, expiry_days=1, dry_run=False):
+    def sync_transactions(self, days_back=14, expiry_days=1, dry_run=False, accounts=None):
         """
         Read the bank statements and mark the expenditures that the bank paid.
 
         Set dry_run to report the result without a write. Use it before a long
         history run, because a wide days_back reads transactions that an
         operator can have reconciled by hand already.
+
+        Set accounts to a list of account numbers to reconcile only the
+        payments from those accounts. The default reads every registered
+        account.
         """
+        tokens = self._select_tokens(accounts)
+
         date_to = datetime.date.today()
         date_from = date_to - datetime.timedelta(days=days_back)
 
@@ -556,7 +590,7 @@ class FioPaymentManager:
         # so the run must remember the decision itself.
         consumed = set()
 
-        for account, token in self.tokens.items():
+        for account, token in tokens.items():
             url = f"https://fioapi.fio.cz/v1/rest/periods/{token}/{date_from.isoformat()}/{date_to.isoformat()}/transactions.json"
 
             try:
@@ -672,9 +706,22 @@ class FioPaymentManager:
             import_info__isnull=False,
             import_info__due_date__lt=expiry_limit,
             paid=False
-        ).exclude(id__in=consumed)
+        ).exclude(id__in=consumed).select_related(
+            'import_info',
+            'ticket__topic__grant',
+            'linked_expenditure__ticket__topic__grant',
+        )
 
         for exp in expired_exps:
+            # Expire only the orders of the accounts that this run read. The
+            # bank can have paid an order on another account, and a run that
+            # did not read that statement must not revert it.
+            if accounts is not None:
+                source_account = exp.get_source_account()
+
+                if not source_account or self.normalize_account(source_account) not in tokens:
+                    continue
+
             report['reverted'] += 1
 
             if dry_run:

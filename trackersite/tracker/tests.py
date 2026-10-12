@@ -19,6 +19,7 @@ from django.core.cache import cache
 from django.core.exceptions import ValidationError
 from django.core.files.base import ContentFile
 from django.core.management import call_command
+from django.core.management.base import CommandError
 from django.forms.formsets import DELETION_FIELD_NAME
 from django.forms.models import inlineformset_factory
 from django.test import SimpleTestCase, TestCase, override_settings
@@ -3248,6 +3249,128 @@ class FioPaymentManagerTests(TestCase):
         self.assertEqual(mock_get.call_args.kwargs['timeout'], FioPaymentManager.HTTP_TIMEOUT)
 
 
+@override_settings(FIO_API_TOKENS={'2000145399/2010': 'token_a', '2000145400/2010': 'token_b'})
+class FioAccountFilterTests(TestCase):
+    """The sync can read one account instead of every registered one."""
+
+    ACCOUNT_A = '2000145399/2010'
+    ACCOUNT_B = '2000145400/2010'
+
+    def setUp(self):
+        self.ticket_a = self._ticket('a', self.ACCOUNT_A)
+        self.ticket_b = self._ticket('b', self.ACCOUNT_B)
+
+    @staticmethod
+    def _ticket(slug, source_bank_account):
+        grant = Grant.objects.create(
+            full_name=slug, short_name=slug, slug=slug, source_bank_account=source_bank_account,
+        )
+        topic = Topic.objects.create(name=f'topic {slug}', grant=grant)
+        return Ticket.objects.create(name=f'T {slug}', topic=topic)
+
+    @staticmethod
+    def _expired_expenditure(ticket, accounting_info):
+        """An expenditure whose Fio order is past its due date."""
+        return Expediture.objects.create(
+            ticket=ticket,
+            description=f'expenditure {accounting_info}',
+            amount=Decimal('1000.00'),
+            payment_type=PaymentType.BANK_TRANSFER,
+            accounting_info=accounting_info,
+            payment_info=PaymentInfo.objects.create(account_number='123456789/0300'),
+            import_info=ImportInfo.objects.create(
+                order_number='999',
+                due_date=datetime.date.today() - datetime.timedelta(days=5),
+            ),
+        )
+
+    @staticmethod
+    def _empty_response():
+        response = Mock()
+        response.status_code = 200
+        response.json.return_value = {"accountStatement": {"transactionList": {"transaction": []}}}
+        return response
+
+    @staticmethod
+    def _requested_tokens(mock_get):
+        return sorted(call.args[0].split('/')[6] for call in mock_get.call_args_list)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_reads_every_account_by_default(self, mock_get):
+        mock_get.return_value = self._empty_response()
+
+        FioPaymentManager().sync_transactions(days_back=14, expiry_days=0)
+
+        self.assertEqual(self._requested_tokens(mock_get), ['token_a', 'token_b'])
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_reads_only_the_selected_account(self, mock_get):
+        mock_get.return_value = self._empty_response()
+
+        FioPaymentManager().sync_transactions(days_back=14, expiry_days=0, accounts=[self.ACCOUNT_A])
+
+        self.assertEqual(self._requested_tokens(mock_get), ['token_a'])
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_reads_the_selected_accounts(self, mock_get):
+        mock_get.return_value = self._empty_response()
+
+        FioPaymentManager().sync_transactions(
+            days_back=14, expiry_days=0, accounts=[self.ACCOUNT_B, self.ACCOUNT_A],
+        )
+
+        self.assertEqual(self._requested_tokens(mock_get), ['token_a', 'token_b'])
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_adds_the_fio_bank_code_to_the_selected_account(self, mock_get):
+        mock_get.return_value = self._empty_response()
+
+        FioPaymentManager().sync_transactions(days_back=14, expiry_days=0, accounts=['2000145399'])
+
+        self.assertEqual(self._requested_tokens(mock_get), ['token_a'])
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_refuses_an_account_with_no_token(self, mock_get):
+        with self.assertRaises(ValueError) as cm:
+            FioPaymentManager().sync_transactions(days_back=14, expiry_days=0, accounts=['1111111111/2010'])
+
+        self.assertIn('1111111111/2010', str(cm.exception))
+        self.assertIn(self.ACCOUNT_A, str(cm.exception))
+        mock_get.assert_not_called()
+
+    @patch('tracker.fio.requests.get')
+    def test_default_expires_the_orders_of_every_account(self, mock_get):
+        mock_get.return_value = self._empty_response()
+        expired_a = self._expired_expenditure(self.ticket_a, 'exp-a')
+        expired_b = self._expired_expenditure(self.ticket_b, 'exp-b')
+
+        report = FioPaymentManager().sync_transactions(days_back=14, expiry_days=0)
+
+        self.assertEqual(report['reverted'], 2)
+        expired_a.refresh_from_db()
+        expired_b.refresh_from_db()
+        self.assertIsNone(expired_a.import_info)
+        self.assertIsNone(expired_b.import_info)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_expires_only_the_orders_of_the_selected_account(self, mock_get):
+        # The bank can have paid the order on account B. A run that did not
+        # read the statement of account B must not revert that order.
+        mock_get.return_value = self._empty_response()
+        expired_a = self._expired_expenditure(self.ticket_a, 'exp-a')
+        expired_b = self._expired_expenditure(self.ticket_b, 'exp-b')
+
+        report = FioPaymentManager().sync_transactions(
+            days_back=14, expiry_days=0, accounts=[self.ACCOUNT_A],
+        )
+
+        self.assertEqual(report['reverted'], 1)
+        expired_a.refresh_from_db()
+        expired_b.refresh_from_db()
+        self.assertIsNone(expired_a.import_info)
+        self.assertIsNotNone(expired_b.import_info)
+
+
 class PaymentServiceTests(TestCase):
     def setUp(self):
         self.grant = Grant.objects.create(full_name='g', short_name='g', slug='g')
@@ -3292,9 +3415,13 @@ class CommandFiosyncTests(TestCase):
         call_command('fiosync', days=10, expiry=3, stdout=out)
         output = out.getvalue()
 
-        mock_sync.assert_called_once_with(days_back=10, expiry_days=3, dry_run=False)
+        mock_sync.assert_called_once_with(days_back=10, expiry_days=3, dry_run=False, accounts=None)
 
-        self.assertIn('Starting Fio synchronization (history: 10 days, expiry after: 3 days)...', output)
+        self.assertIn(
+            'Starting Fio synchronization (accounts: all registered accounts, history: 10 days, '
+            'expiry after: 3 days)...',
+            output,
+        )
         self.assertIn('Successfully matched and marked as PAID: 2 expenditures.', output)
         self.assertIn('Expired and reverted to WAITING: 1 expenditures.', output)
         self.assertIn('- Fio API error timeout', output)
@@ -3313,11 +3440,36 @@ class CommandFiosyncTests(TestCase):
         call_command('fiosync', days=90, dry_run=True, stdout=out)
         output = out.getvalue()
 
-        mock_sync.assert_called_once_with(days_back=90, expiry_days=0, dry_run=True)
+        mock_sync.assert_called_once_with(days_back=90, expiry_days=0, dry_run=True, accounts=None)
 
         self.assertIn('Dry run. Nothing is written.', output)
         self.assertIn('-> expenditure 7 (ticket 3134, faktura)', output)
         self.assertIn('Would mark as PAID: 1 expenditures.', output)
+
+    @patch('tracker.fio.FioPaymentManager.sync_transactions')
+    def test_fiosync_command_account(self, mock_sync):
+        mock_sync.return_value = {
+            'marked_paid': 0,
+            'reverted': 0,
+            'errors': [],
+            'matches': [],
+            'dry_run': False,
+        }
+
+        out = io.StringIO()
+        call_command('fiosync', '--account', '2000145399/2010', '--account', '2000145400', stdout=out)
+
+        mock_sync.assert_called_once_with(
+            days_back=14, expiry_days=0, dry_run=False, accounts=['2000145399/2010', '2000145400'],
+        )
+        self.assertIn('accounts: 2000145399/2010, 2000145400', out.getvalue())
+
+    @override_settings(FIO_API_TOKENS={'2000145399/2010': 'mock_fio_token'})
+    def test_fiosync_command_rejects_an_unknown_account(self):
+        with self.assertRaises(CommandError) as cm:
+            call_command('fiosync', '--account', '1111111111/2010', stdout=io.StringIO())
+
+        self.assertIn('1111111111/2010', str(cm.exception))
 
 
 class ExpeditureApiTests(TestCase):

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandError
 from tracker.fio import FioPaymentManager
 
 
@@ -24,21 +24,41 @@ class Command(BaseCommand):
             action='store_true',
             help='Report the result and write nothing. Use it before a run with a wide --days.',
         )
+        parser.add_argument(
+            '--account',
+            action='append',
+            dest='accounts',
+            metavar='ACCOUNT',
+            help=(
+                'Reconcile only the payments from this account. The bank code is optional. '
+                'Repeat the option for more accounts. The default reads every registered account.'
+            ),
+        )
 
     def handle(self, *args, **options):
         days_back = options['days']
         expiry_days = options['expiry']
         dry_run = options['dry_run']
+        accounts = options['accounts']
+
+        scope = ', '.join(accounts) if accounts else 'all registered accounts'
 
         self.stdout.write(self.style.NOTICE(
-            f'Starting Fio synchronization (history: {days_back} days, expiry after: {expiry_days} days)...'
+            f'Starting Fio synchronization (accounts: {scope}, history: {days_back} days, '
+            f'expiry after: {expiry_days} days)...'
         ))
 
         if dry_run:
             self.stdout.write(self.style.WARNING('Dry run. Nothing is written.'))
 
         manager = FioPaymentManager()
-        report = manager.sync_transactions(days_back=days_back, expiry_days=expiry_days, dry_run=dry_run)
+
+        try:
+            report = manager.sync_transactions(
+                days_back=days_back, expiry_days=expiry_days, dry_run=dry_run, accounts=accounts,
+            )
+        except ValueError as e:
+            raise CommandError(str(e))
 
         for line in report['matches']:
             self.stdout.write(f"  {line}")
