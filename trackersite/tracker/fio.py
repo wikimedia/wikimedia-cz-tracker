@@ -521,7 +521,14 @@ class FioPaymentManager:
             return self.MATCH_MESSAGE if is_msg_match and is_amount_match else self.MATCH_NONE
 
         is_batch_match = bool(id_instruction and getattr(expediture.import_info, 'order_number', None) == id_instruction)
-        is_account_match = expediture.get_target_account() == full_target_account
+
+        # An operator can pay an expenditure by hand in internet banking. The
+        # expenditure then keeps no payment data, and so we have no account to
+        # compare. An unknown account is no evidence, thus it must not refuse
+        # the match. An account that we know and that disagrees with the bank
+        # is evidence against the match, thus it still refuses it.
+        target_account = expediture.get_target_account()
+        is_account_match = not target_account or target_account == full_target_account
 
         if is_batch_match and is_msg_match:
             return self.MATCH_MESSAGE_AND_BATCH

@@ -2999,9 +2999,11 @@ class FioPaymentManagerTests(TestCase):
         self.assertEqual(report['marked_paid'], 0)
 
     @patch('tracker.fio.requests.get')
-    def test_sync_ignores_an_expenditure_with_no_payment_data(self, mock_get):
-        # An expenditure that names no target account cannot confirm a
-        # transfer, and so the reference alone must not pay it.
+    def test_sync_matches_an_expenditure_with_no_payment_data(self, mock_get):
+        # An operator can pay an expenditure by hand in internet banking. The
+        # expenditure then keeps no payment data, and so we have no account to
+        # compare. The reference and the amount must decide alone, or the sync
+        # can never reconcile such a payment.
         exp = Expediture.objects.create(
             ticket=self.ticket,
             description='no payment info',
@@ -3012,6 +3014,51 @@ class FioPaymentManagerTests(TestCase):
 
         mock_get.return_value = self._fio_response(
             self._fio_transaction(-300.0, 'WMCZ ticket #3134i', transaction_id='55004')
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=90, expiry_days=0)
+
+        exp.refresh_from_db()
+        self.assertTrue(exp.paid)
+        self.assertEqual(report['marked_paid'], 1)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_matches_an_expenditure_with_a_blank_account(self, mock_get):
+        # Payment data can exist and still name no account. That is the same
+        # lack of evidence as no payment data at all.
+        exp = Expediture.objects.create(
+            ticket=self.ticket,
+            description='blank account',
+            amount=Decimal('300.00'),
+            payment_type=PaymentType.BANK_TRANSFER,
+            accounting_info='3134m',
+            payment_info=PaymentInfo.objects.create(account_number=''),
+        )
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-300.0, 'WMCZ ticket #3134m', transaction_id='55011')
+        )
+
+        report = FioPaymentManager().sync_transactions(days_back=90, expiry_days=0)
+
+        exp.refresh_from_db()
+        self.assertTrue(exp.paid)
+        self.assertEqual(report['marked_paid'], 1)
+
+    @patch('tracker.fio.requests.get')
+    def test_sync_needs_the_amount_when_no_account_is_known(self, mock_get):
+        # An unknown account removes one piece of evidence. The amount is then
+        # the only field left beside the reference, and so it must still agree.
+        exp = Expediture.objects.create(
+            ticket=self.ticket,
+            description='no payment info, wrong amount',
+            amount=Decimal('300.00'),
+            payment_type=PaymentType.BANK_TRANSFER,
+            accounting_info='3134k',
+        )
+
+        mock_get.return_value = self._fio_response(
+            self._fio_transaction(-900.0, 'WMCZ ticket #3134k', transaction_id='55009')
         )
 
         report = FioPaymentManager().sync_transactions(days_back=90, expiry_days=0)
