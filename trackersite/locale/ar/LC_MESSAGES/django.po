@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-10-08 12:06:56+0000\n"
+"PO-Revision-Date: 2026-10-12 12:06:12+0000\n"
 "X-POT-Import-Date: 2026-09-14 06:31:07+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -438,7 +438,7 @@ msgstr "يتطلب تطبيق Fio API تأخيرًا لمدة 30 ثانية بي
 #: tracker/fio.py:318
 #, python-brace-format
 msgid "Fio API error 500: Invalid or inactive token for account {}."
-msgstr ""
+msgstr "خطأ في واجهة برمجة تطبيقات Fio 500: رمز مميز غير صالح أو غير نشط للحساب {}."
 
 #: tracker/fio.py:335
 #, python-brace-format
@@ -2723,7 +2723,7 @@ msgstr "لم تتم الموافقة المسبقة على هذه التذكرة
 
 #: tracker/templates/tracker/ticket_expediture_import.html:24
 msgid "This ticket has rating percentage: "
-msgstr ""
+msgstr "نسبة تقييم هذه التذكرة:"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:42
 msgid "There are no uploaded documents."
@@ -3148,7 +3148,7 @@ msgstr "لا يمكنك إضافة إشعار تأكيد إلى تذكرة لا 
 #: tracker/views.py:136
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added. However, you have no bank account saved. Without it, we can't reimburse you. Go to <a href=\"%(accounts_url)s\">your bank accounts</a> to add one."
-msgstr ""
+msgstr "تمت إضافة تأكيد التذكرة رقم %(ticket_id)s \"%(confirmation)s\". مع ذلك، لم يتم حفظ حسابك البنكي. بدون هذا التأكيد، لا يمكننا رد المبلغ إليك. يرجى مراجعة <a href=\"%(accounts_url)s\">حساباتك البنكية</a> لإضافة حساب."
 
 #: tracker/views.py:144
 #, python-format
@@ -3431,7 +3431,7 @@ msgstr "لم يتم تحديد أي نفقات صالحة للاستيراد."
 #: tracker/views.py:2146
 #, python-brace-format
 msgid "Successfully sent {} payments to Fio API."
-msgstr ""
+msgstr "تم إرسال {} دفعة بنجاح إلى واجهة برمجة تطبيقات Fio."
 
 #: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
@@ -3652,7 +3652,7 @@ msgstr "الجزء من رقم الحساب الذي يسبق الشرطة ال�
 
 #: users/views.py:66
 msgid "The four-digit code of your bank, after the slash. For example 0800."
-msgstr ""
+msgstr "رمز البنك المكون من أربعة أرقام، بعد الشرطة المائلة. على سبيل المثال 0800."
 
 #: users/views.py:106
 msgid "Will be used for password recovery and notifications, if you enable them."
