@@ -2,10 +2,11 @@
 # Exported from translatewiki.net
 #
 # Author: Saraiki
+# Author: Tauqeerkhansurani
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-10-15 12:07:07+0000\n"
+"PO-Revision-Date: 2026-10-19 13:51:46+0000\n"
 "X-POT-Import-Date: 2026-09-14 06:31:07+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,52 +19,52 @@ msgstr ""
 
 #: api/serializers.py:101
 msgid "Deposit should be zero when creating a ticket"
-msgstr ""
+msgstr "ٹکٹ بݨاوݨ ویلے ڈیپازٹ صفر ہووݨا چاہیدا اے۔"
 
 #: api/serializers.py:104
 msgid "Cannot edit deposit once a ticket has been preaccepted"
-msgstr ""
+msgstr "جڈاں ٹکٹ پہلے توں قبول تھی ون٘ڄے، تاں ڈیپازٹ وچ ترمیم نئیں تھی سڳدی۔"
 
 #: api/serializers.py:109 api/serializers.py:112
 msgid "Deposit should be lower or equal to the sum of preexpeditures"
-msgstr ""
+msgstr "ڈیپازٹ پیشگی اخراجات دے جوڑ توں گھٹ یا برابر ہووݨا چاہیدا اے۔"
 
 #: api/serializers.py:134
 msgid "You can not add media to this ticket."
-msgstr ""
+msgstr "تساں ایں ٹکٹ وچ میڈیا شامل نئیں کر سڳدے۔"
 
 #: api/serializers.py:136
 msgid "You can not edit the media of this ticket."
-msgstr ""
+msgstr "تساں ایں ٹکٹ دے میڈیا وچ ترمیم نئیں کر سڳدے۔"
 
 #: api/serializers.py:173
 msgid "You can not add expiditures to this ticket."
-msgstr ""
+msgstr "تساں ایں ٹکٹ وچ اخراجات شامل نئیں کر سڳدے۔"
 
 #: api/serializers.py:175
 msgid "You can not edit expiditures of this ticket."
-msgstr ""
+msgstr "تساں ایں ٹکٹ دے اخراجات وچ ترمیم نئیں کر سڳدے۔"
 
 #: api/serializers.py:188
 msgid "You can not edit this expiditure."
-msgstr ""
+msgstr "تساں ایں خرچ وچ ترمیم نئیں کر سڳدے۔"
 
 #: api/serializers.py:203
 msgid "You can not add preexpiditures to this ticket."
-msgstr ""
+msgstr "تساں ایں ٹکٹ وچ پیشگی اخراجات شامل نئیں کر سڳدے۔"
 
 #: api/serializers.py:205
 msgid "You can not edit preexpiditures of this ticket."
-msgstr ""
+msgstr "تساں ایں ٹکٹ دے پیشگی اخراجات وچ ترمیم نئیں کر سڳدے۔"
 
 #: api/viewsets.py:203
 msgid "You can not delete this expiditure."
-msgstr ""
+msgstr "تساں ایں خرچ کوں مٹا نئیں سڳدے۔"
 
 #: common_settings.py:146
 #: tracker/templates/tracker/ticket_common_detail.html:18
 msgid "CZK"
-msgstr ""
+msgstr "CZK"
 
 #: common_settings.py:150
 msgid "English"
@@ -120,19 +121,19 @@ msgstr "تبصرہ"
 
 #: socialauth/pipeline.py:18
 msgid "Successfully linked your wikimedia account!"
-msgstr ""
+msgstr "تہاݙا ویکیمیڈیا کھاتہ کامیابی نال جوڑیا ڳیا اے۔"
 
 #: socialauth/pipeline.py:20
 msgid "Successfully linked your chapter account!"
-msgstr ""
+msgstr "تہاݙا چیپٹر کھاتہ کامیابی نال جوڑیا ڳیا اے۔"
 
 #: socialauth/pipeline.py:26
 msgid "Your wikimedia account is no longer linked."
-msgstr ""
+msgstr "تہاݙا ویکیمیڈیا کھاتہ ہݨ جوڑیا ہویا نئیں۔"
 
 #: socialauth/pipeline.py:28
 msgid "Your chapterwiki account is no longer linked."
-msgstr ""
+msgstr "تہاݙا چیپٹروکی کھاتہ ہݨ جوڑیا ہویا نئیں۔"
 
 #: templates/403.html:3
 msgid "403 Forbidden"
@@ -144,7 +145,7 @@ msgstr "ممنوع"
 
 #: templates/403.html:12
 msgid "You don't have permissions to do this!"
-msgstr ""
+msgstr "تساں کول ایں کم کرݨ دی اجازت نئیں۔"
 
 #: templates/404.html:3
 msgid "404 Not Found"
@@ -157,7 +158,7 @@ msgstr "کائنی لبھا"
 #: templates/404.html:10
 #, python-format
 msgid "The requested URL %(request_path)s was not found on this server."
-msgstr ""
+msgstr "درخواست کردہ یو آر ایل %(request_path)s ایں سرور تے نئیں مِلیا۔"
 
 #: templates/500.html:3 templates/500.html:7
 msgid "Internal Error"
@@ -165,7 +166,7 @@ msgstr "اندر دی غلطی"
 
 #: templates/500.html:10
 msgid "There was an error processing you request. Sorry about that."
-msgstr ""
+msgstr "تہاݙی درخواست تے کارروائی کریندے ویلے کوئی خرابی تھی ڳئی اے۔ معذرت۔"
 
 #: templates/admin/base_site.html:4
 msgid "Tracker admin"
@@ -177,7 +178,7 @@ msgstr "ٹریکر سائٹ ایڈمن"
 
 #: templates/base.html:32
 msgid "There is no email address associated with this account. Please update your details now."
-msgstr ""
+msgstr "ایں کھاتے نال کوئی ای میل پتا منسلک نئیں۔ براہ مہربانی ہݨ اپݨے کوائف اپ ڈیٹ کرو۔"
 
 #: templates/base.html:35
 msgid "Update details"
@@ -197,7 +198,7 @@ msgstr "میݙیاں تفصیلاں وٹاؤ"
 
 #: templates/base.html:71
 msgid "my bank accounts"
-msgstr ""
+msgstr "میݙے بینک کھاتے"
 
 #: templates/base.html:72 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
@@ -205,7 +206,7 @@ msgstr "ترجیحاں"
 
 #: templates/base.html:74 tracker/templates/tracker/ticket_detail.html:24
 msgid "import expenditures"
-msgstr ""
+msgstr "اخراجات درآمد کرو"
 
 #: templates/base.html:77
 msgid "admin"
@@ -238,11 +239,11 @@ msgstr "ݙراوا"
 #: templates/base.html:110
 #, python-format
 msgid "You are not in production. If you want to request reimbursement of expenses, go to <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a>."
-msgstr ""
+msgstr "تساں پروڈکشن وچ نئیں۔ جے تساں اخراجات دی ادائیگی دی درخواست کرݨا چاہندے او تاں <a href=\"%(PRODUCTION_URL)s\">%(PRODUCTION_URL)s</a> تے ون٘ڄو۔"
 
 #: templates/base.html:113
 msgid "You are using Internet Explorer. However, Tracker requires modern features Internet Explorer doesn't support. As a result, Tracker might not work properly in Internet Explorer. We recommend you using another browser, such as Chrome or Firefox."
-msgstr ""
+msgstr "تساں انٹرنیٹ ایکسپلورر ورتیندے او۔ لیکن ٹریکر کوں جدید سہولتاں دی لوڑ اے جیہڑیاں انٹرنیٹ ایکسپلورر وچ نئیں۔ ایں وجہ توں ٹریکر انٹرنیٹ ایکسپلورر وچ ٹھیک نئیں چل سڳدا۔ ساݙی سفارش اے جو کوئی بیا براؤزر ورتو، جیویں کروم یا فائر فاکس۔"
 
 #: templates/choose_language.html:5 templates/choose_language.html:8
 msgid "Change language"
@@ -262,46 +263,46 @@ msgstr "پیشگی ݙکھالا"
 
 #: templates/comments/preview.html:4 templates/comments/preview.html:15
 msgid "Preview your comment"
-msgstr ""
+msgstr "اپݨے تبصرے دا جائزہ گھِنو"
 
 #: templates/comments/preview.html:13
 msgid "Please correct the error below"
 msgid_plural "Please correct the errors below"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "براہ مہربانی ہیٹھ ݙتی ڳئی خرابی درست کرو"
+msgstr[1] "براہ مہربانی ہیٹھ ݙتیاں ڳئیاں خرابیاں درست کرو"
 
 #: tracker/admin.py:55 tracker/views.py:421
 #, python-format
 msgid "Cannot delete expenditure #%(id)s: It is locked (paid, imported, or co-financing)."
-msgstr ""
+msgstr "خرچ #%(id)s مٹایا نئیں ون٘ڄ سڳدا: ایہہ لاک اے (ادا شدہ، درآمد شدہ، یا مشترکہ مالی امداد آلا)۔"
 
 #: tracker/admin.py:71
 msgid "Load from a template"
-msgstr ""
+msgstr "ٹیمپلیٹ توں لوڈ کرو"
 
 #: tracker/admin.py:83
 msgid "Or enter manually:"
-msgstr ""
+msgstr "یا دستی طور تے درج کرو:"
 
 #: tracker/admin.py:155
 msgid "Payment Details (Bank Transfer)"
-msgstr ""
+msgstr "ادائیگی دے کوائف (بینک ٹرانسفر)"
 
 #: tracker/admin.py:176
 msgid "Linked Co-financing"
-msgstr ""
+msgstr "مشترکہ مالی امداد آلے لنک"
 
 #: tracker/admin.py:180
 msgid "Filter by Grant"
-msgstr ""
+msgstr "گرانٹ نال فلٹر کرو"
 
 #: tracker/admin.py:181
 msgid "Source ticket"
-msgstr ""
+msgstr "ماخذ ٹکٹ"
 
 #: tracker/admin.py:182
 msgid "Source account"
-msgstr ""
+msgstr "ماخذ کھاتہ"
 
 #: tracker/admin.py:183 tracker/models.py:1289
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -320,23 +321,23 @@ msgstr "رقم"
 
 #: tracker/admin.py:230
 msgid "You must enter a positive amount for co-financing."
-msgstr ""
+msgstr "تساں کول مشترکہ مالی امداد کیتے مثبت رقم درج کرݨی ضروری اے۔"
 
 #: tracker/admin.py:232
 msgid "You must select either a source ticket or a source account."
-msgstr ""
+msgstr "تساں کول یا تاں کوئی ماخذ ٹکٹ یا کوئی ماخذ کھاتہ چݨݨا ضروری اے۔"
 
 #: tracker/admin.py:234
 msgid "Choose only one co-financing source, not both."
-msgstr ""
+msgstr "مشترکہ مالی امداد دا صرف ہک ماخذ چݨو، ݙوہیں نئیں۔"
 
 #: tracker/admin.py:258
 msgid "Co-financing"
-msgstr ""
+msgstr "مشترکہ مالی امداد"
 
 #: tracker/admin.py:259
 msgid "Co-financings"
-msgstr ""
+msgstr "مشترکہ مالی امداداں"
 
 #: tracker/admin.py:283 tracker/templates/tracker/expediture_formset.html:40
 #: tracker/templates/tracker/ticket_common_detail.html:70
@@ -344,7 +345,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_expediture_import.html:132
 #: tracker/templates/tracker/ticket_expediture_import.html:175
 msgid "Linked ticket"
-msgstr ""
+msgstr "لنک شدہ ٹکٹ"
 
 #: tracker/admin.py:291 tracker/admin.py:297
 #: tracker/templates/tracker/ticket_expediture_import.html:59
@@ -355,107 +356,107 @@ msgstr "قسم"
 
 #: tracker/admin.py:305
 msgid "Add ack"
-msgstr ""
+msgstr "ایک شامل کرو"
 
 #: tracker/admin.py:437
 msgid "Mark selected topics as opened for new tickets"
-msgstr ""
+msgstr "چݨے ڳئے موضوعات کوں نویں ٹکٹاں کیتے کھلے دی حیثیت نال نشان لاوݨو"
 
 #: tracker/admin.py:444
 msgid "Mark selected topics as closed for new tickets"
-msgstr ""
+msgstr "چݨے ڳئے موضوعات کوں نویں ٹکٹاں کیتے بند دی حیثیت نال نشان لاوݨو"
 
 #: tracker/admin.py:479 tracker/models.py:924
 msgid "Source bank account"
-msgstr ""
+msgstr "ماخذ بینک کھاتہ"
 
 #: tracker/admin.py:480 tracker/models.py:925
 msgid "Number of the transparent account from which the funds will be disbursed"
-msgstr ""
+msgstr "شفاف کھاتے دا نمبر جیندے توں رقوم جاری کیتیاں ویسن"
 
 #: tracker/admin.py:485
 msgid "Modify this value by opening or closing topics in this grant to tickets"
-msgstr ""
+msgstr "ٹکٹاں کیتے ایں گرانٹ وچ موضوعات کوں کھولݨ یا بند کرݨ نال ایں قدر وچ ترمیم کرو"
 
 #: tracker/admin.py:510
 msgid "Main Template Info"
-msgstr ""
+msgstr "مکھ ٹیمپلیٹ دی معلومات"
 
 #: tracker/admin.py:511
 msgid "You can use templates to quickly create new expenditures. Payment data will be automatically filled in for you."
-msgstr ""
+msgstr "نویں اخراجات جلدی بݨاوݨ کیتے تساں ٹیمپلیٹس ورت سڳدے او۔ ادائیگی دا کوائف خودکار طور تے بھر ݙتا ویسی۔"
 
 #: tracker/admin.py:514
 msgid "Payment Destination"
-msgstr ""
+msgstr "ادائیگی دی منزل"
 
 #: tracker/admin.py:515
 msgid "Specify the recipient account. You must choose exactly one way to specify the account: either a saved account OR enter it manually."
-msgstr ""
+msgstr "وصول کنندہ کھاتہ واضح کرو۔ تساں کول کھاتہ واضح کرݨ دا ٹھیک ہک طریقہ چݨݨا ضروری اے: یا تاں کوئی محفوظ کھاتہ یا اینکوں دستی طور تے درج کرو۔"
 
 #: tracker/admin.py:518
 msgid "Symbols"
-msgstr ""
+msgstr "نشانیاں"
 
 #: tracker/admin.py:519
 msgid "Optional payment symbols."
-msgstr ""
+msgstr "اختیاری ادائیگی دیاں نشانیاں۔"
 
 #: tracker/fio.py:261
 #, python-brace-format
 msgid "Missing source grant account for expenditure ID {}."
-msgstr ""
+msgstr "خرچ دی شناخت {} کیتے ماخذ گرانٹ کھاتہ موجود نئیں۔"
 
 #: tracker/fio.py:267
 #, python-brace-format
 msgid "Missing API token for account {}."
-msgstr ""
+msgstr "کھاتے {} کیتے API ٹوکن موجود نئیں۔"
 
 #: tracker/fio.py:282
 #, python-brace-format
 msgid "Cannot prepare the batch for account {}: {}"
-msgstr ""
+msgstr "کھاتے {} کیتے بیچ تیار نئیں تھی سڳدا: {}"
 
 #: tracker/fio.py:288
 #, python-brace-format
 msgid "Expenditures for account {} changed while the import ran. Nothing was sent. Please try again."
-msgstr ""
+msgstr "درآمد چلݨ ویلے کھاتے {} دے اخراجات بدل ڳئے ہن۔ کجھ وی نئیں پٹھایا ڳیا۔ براہ مہربانی ݙوبارہ کوشش کرو۔"
 
 #: tracker/fio.py:308
 msgid "Fio API requires a 30-second delay between requests. Please wait a moment and try again."
-msgstr ""
+msgstr "Fio API دے گذارشاں دے درمیان 30 سیکنڈ دا وقفہ ضروری اے۔ براہ مہربانی کجھ لمحہ انتظار کرو تے ݙوبارہ کوشش کرو۔"
 
 #: tracker/fio.py:318
 #, python-brace-format
 msgid "Fio API error 500: Invalid or inactive token for account {}."
-msgstr ""
+msgstr "Fio API خرابی 500: کھاتے {} کیتے ٹوکن غلط یا غیر فعال اے۔"
 
 #: tracker/fio.py:335
 #, python-brace-format
 msgid "Batch for account {} was accepted with warning: {}"
-msgstr ""
+msgstr "کھاتے {} دا بیچ تنبیہ نال قبول تھی ڳیا: {}"
 
 #: tracker/fio.py:349
 #, python-brace-format
 msgid "API rejected batch for account {}: {}"
-msgstr ""
+msgstr "API نے کھاتے {} دا بیچ مسترد کر ݙتا: {}"
 
 #: tracker/fio.py:356
 #, python-brace-format
 msgid "Communication with Fio failed for account {}: {}. The expenditures stay marked as imported. Check the order in Fio internet banking before you revert the import."
-msgstr ""
+msgstr "کھاتے {} کیتے Fio نال رابطہ ناکام تھی ڳیا: {}۔ اخراجات درآمد شدہ دی حیثیت نال نشان لڳے راہسن۔ درآمد کوں واپس کرݨ توں پہلے Fio انٹرنیٹ بینکنگ وچ حکم نامہ چیک کرو۔"
 
 #: tracker/models.py:47 tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
 msgid "n/a"
-msgstr ""
+msgstr "نہیں ملا"
 
 #: tracker/models.py:48 tracker/templates/tracker/export.html:246
 #: tracker/templates/tracker/grant_table.html:12
 #: tracker/templates/tracker/topic_finance.html:16
 #: tracker/templates/tracker/topic_table.html:14
 msgid "unpaid"
-msgstr ""
+msgstr "ادا نئیں تھی"
 
 #: tracker/models.py:49 tracker/templates/tracker/export.html:247
 #: tracker/templates/tracker/grant_table.html:13
@@ -480,11 +481,11 @@ msgstr "وادھوں ادا تھیا"
 
 #: tracker/models.py:55
 msgid "presubmitted"
-msgstr ""
+msgstr "پہلے توں جمع کرایا ڳیا"
 
 #: tracker/models.py:56
 msgid "preaccepted"
-msgstr ""
+msgstr "پہلے توں قبول تھی ڳیا"
 
 #: tracker/models.py:57
 msgid "submitted"
@@ -496,11 +497,11 @@ msgstr "منظور تھیا"
 
 #: tracker/models.py:59
 msgid "expense documents submitted"
-msgstr ""
+msgstr "خرچ دے دستاویزات جمع کرائے ڳئے"
 
 #: tracker/models.py:60
 msgid "expense documents filed"
-msgstr ""
+msgstr "خرچ دے دستاویزات فائل کیتیاں ڳئیاں"
 
 #: tracker/models.py:61 tracker/models.py:415 tracker/models.py:1328
 #: tracker/templates/tracker/export.html:52
@@ -524,11 +525,11 @@ msgstr "تبصرہ شامل تھیا"
 
 #: tracker/models.py:68
 msgid "Supervisor notes changed"
-msgstr ""
+msgstr "نگرانی کنندہ دے نوٹس بدل ڳئے"
 
 #: tracker/models.py:69
 msgid "New ticket was created"
-msgstr ""
+msgstr "نواں ٹکٹ بݨایا ڳیا"
 
 #: tracker/models.py:70
 msgid "Ticket was deleted"
@@ -536,11 +537,11 @@ msgstr "ٹکٹ مٹ ڳئی ہائی"
 
 #: tracker/models.py:71
 msgid "Ack added"
-msgstr ""
+msgstr "ایک شامل کیتا ڳیا"
 
 #: tracker/models.py:72
 msgid "Ack removed"
-msgstr ""
+msgstr "ایک ہٹایا ڳیا"
 
 #: tracker/models.py:73
 msgid "Ticket changed"
@@ -548,23 +549,23 @@ msgstr "ٹکٹ وٹیج ڳئی"
 
 #: tracker/models.py:74
 msgid "New preexpediture was created"
-msgstr ""
+msgstr "نواں پیشگی خرچ بݨایا ڳیا"
 
 #: tracker/models.py:75
 msgid "Preexpeditures changed"
-msgstr ""
+msgstr "پیشگی اخراجات بدل ڳئے"
 
 #: tracker/models.py:76
 msgid "New expediture was created"
-msgstr ""
+msgstr "نواں خرچ بݨایا ڳیا"
 
 #: tracker/models.py:77
 msgid "Expeditures changed"
-msgstr ""
+msgstr "اخراجات بدل ڳئے"
 
 #: tracker/models.py:78
 msgid "New media was created"
-msgstr ""
+msgstr "نواں میڈیا بݨایا ڳیا"
 
 #: tracker/models.py:79
 msgid "Media changed"
@@ -576,35 +577,35 @@ msgstr "دستاویز تبدیل تھی ڳئی"
 
 #: tracker/models.py:90
 msgid "Bank transfer"
-msgstr ""
+msgstr "بینک ٹرانسفر"
 
 #: tracker/models.py:91
 msgid "International bank transfer"
-msgstr ""
+msgstr "بین الاقوامی بینک ٹرانسفر"
 
 #: tracker/models.py:92
 msgid "Card"
-msgstr ""
+msgstr "کارڈ"
 
 #: tracker/models.py:93
 msgid "Cash"
-msgstr ""
+msgstr "نقد"
 
 #: tracker/models.py:94
 msgid "Internal transfer"
-msgstr ""
+msgstr "اندرونی ٹرانسفر"
 
 #: tracker/models.py:95
 msgid "Income (Co-financing)"
-msgstr ""
+msgstr "آمدن (مشترکہ مالی امداد)"
 
 #: tracker/models.py:99
 msgid "Waiting for payment"
-msgstr ""
+msgstr "ادائیگی دا انتظار"
 
 #: tracker/models.py:100
 msgid "Import error"
-msgstr ""
+msgstr "درآمد وچ خرابی"
 
 #: tracker/models.py:101 tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/export.html:207
@@ -613,17 +614,17 @@ msgstr "ادا تھیا"
 
 #: tracker/models.py:102
 msgid "Ready for import"
-msgstr ""
+msgstr "درآمد کیتے تیار"
 
 #: tracker/models.py:103
 #: tracker/templates/tracker/global_expediture_import.html:24
 msgid "Missing data"
-msgstr ""
+msgstr "کوائف موجود نئیں"
 
 #: tracker/models.py:104
 #: tracker/templates/tracker/ticket_expediture_import.html:122
 msgid "Imported"
-msgstr ""
+msgstr "درآمد تھی ڳیا"
 
 #: tracker/models.py:158
 msgid "unknown"
@@ -635,7 +636,7 @@ msgstr "بݨ ڳیا"
 
 #: tracker/models.py:264
 msgid "Signed text"
-msgstr ""
+msgstr "دستخط شدہ متن"
 
 #: tracker/models.py:269
 msgid "updated"
@@ -647,7 +648,7 @@ msgstr "میڈیا اپ ڈیٹ تھی ڳیا"
 
 #: tracker/models.py:271
 msgid "Date when cached information about media were last updated. Used in \"show media\" view."
-msgstr ""
+msgstr "جے تاریخ کوں میڈیا بارے ذخیرہ شدہ معلومات آخری واری اپڈیٹ کیتیاں ڳئیاں ہن۔ \"میڈیا ݙکھاو\" وچ ورتی ویندی اے۔"
 
 #: tracker/models.py:272
 msgid "event date"
@@ -655,7 +656,7 @@ msgstr "ایونٹ تریخ"
 
 #: tracker/models.py:273
 msgid "Date of the event this ticket is about"
-msgstr ""
+msgstr "جے تقریب دی تاریخ جیندے بارے ایں ٹکٹ اے"
 
 #: tracker/models.py:274 tracker/models.py:452
 msgid "requested by"
@@ -663,15 +664,15 @@ msgstr "ولوں ارداس تھیا"
 
 #: tracker/models.py:275
 msgid "User who created/requested for this ticket"
-msgstr ""
+msgstr "جے صارف نے ایں ٹکٹ کوں بݨایا/درخواست کیتی اے"
 
 #: tracker/models.py:277
 msgid "requested by (text)"
-msgstr ""
+msgstr "درخواست کنندہ (متن)"
 
 #: tracker/models.py:278
 msgid "Text description of who requested for this ticket, in case user is not filled in"
-msgstr ""
+msgstr "جے ٹکٹ کیتے درخواست کون کیتی اے، ایندا متنی تفصیل، جے صارف نہ بھریا ہووے"
 
 #: tracker/models.py:279 tracker/models.py:749 tracker/models.py:821
 #: tracker/views.py:960
@@ -688,7 +689,7 @@ msgstr "موضوع"
 
 #: tracker/models.py:281
 msgid "Project topic this ticket belongs to"
-msgstr ""
+msgstr "جے پروجیکٹ دا موضوع جیندے نال ایں ٹکٹ تعلق رکھدی اے"
 
 #: tracker/models.py:282
 msgid "subtopic"
@@ -696,25 +697,25 @@ msgstr "نکا موضوع"
 
 #: tracker/models.py:283
 msgid "Subtopic this ticket belongs to (if you don't know, leave this empty)"
-msgstr ""
+msgstr "جے ذیلی موضوع جیندے نال ایں ٹکٹ تعلق رکھدی اے (جے تساں نئیں ڄاݨدے تاں اینکوں خالی چھوڑ ݙیو)"
 
 #: tracker/models.py:285
 msgid "rating percentage"
-msgstr ""
+msgstr "ریٹنگ دی شرح"
 
 #: tracker/models.py:286
 msgid "Rating percentage set by topic administrator"
-msgstr ""
+msgstr "ریٹنگ دی شرح جے موضوع دے منتظم نے مقرر کیتی اے"
 
 #: tracker/models.py:287
 msgid "report mandatory"
-msgstr ""
+msgstr "رپورٹ لازم اے"
 
 #: tracker/models.py:287 tracker/templates/tracker/export.html:73
 #: tracker/templates/tracker/export.html:75
 #: tracker/templates/tracker/ticket_common_detail.html:15
 msgid "Is report mandatory?"
-msgstr ""
+msgstr "کیا رپورٹ لازم اے؟"
 
 #: tracker/models.py:288
 msgid "report url"
@@ -722,7 +723,7 @@ msgstr "رپورٹ یوآرایل"
 
 #: tracker/models.py:289
 msgid "URL to your report, if you want to report something (or if your report is mandatory per topic administrator)."
-msgstr ""
+msgstr "تہاݙی رپورٹ دا یو آر ایل، جے تساں کجھ رپورٹ کرݨا چاہندے او (یا جے تہاݙی رپورٹ موضوع منتظم دی سیٹنگ دے مطابق لازم اے)"
 
 #: tracker/models.py:290
 msgid "event url"
@@ -730,7 +731,7 @@ msgstr "ایونٹ یوآرایل"
 
 #: tracker/models.py:291
 msgid "Link to a public page describing the event, if it exist"
-msgstr ""
+msgstr "جے تقریب دی تفصیل بیان کرݨ آلی عوامی صفحے دا لنک، جے موجود ہووے"
 
 #: tracker/models.py:292 tracker/models.py:750 tracker/models.py:837
 #: tracker/models.py:922 tracker/models.py:981 tracker/models.py:1321
@@ -740,23 +741,23 @@ msgstr "تفصیل"
 
 #: tracker/models.py:293
 msgid "Space for further notes. If you're entering a trip tell us where did you go and what you did there. You can link to another tickets by adding #ticketid in your description. You may use a limited subset of HTML."
-msgstr ""
+msgstr "مزید نوٹس کیتے جاہ۔ جے تساں کوئی سفر درج کریندے او تاں سانوں ݙسیو تساں کتھے ڳئے او تے اتھے تساں کیا کیتا۔ تساں اپݨی تفصیل وچ #ticketid شامل کر کے ݙوجھے ٹکٹاں نال لنک کر سڳدے او۔ تساں HTML دا ہک محدود ذیلی سیٹ ورت سڳدے او۔"
 
 #: tracker/models.py:294
 msgid "supervisor notes"
-msgstr ""
+msgstr "نگرانی کنندہ دے نوٹس"
 
 #: tracker/models.py:295
 msgid "This space is for notes of project supervisors and accounting staff."
-msgstr ""
+msgstr "ایں جاہ پروجیکٹ دے نگرانی کنندگان تے حساب کتاب دے عملے دے نوٹس کیتے اے۔"
 
 #: tracker/models.py:296
 msgid "deposit"
-msgstr ""
+msgstr "ڈیپازٹ"
 
 #: tracker/models.py:299
 msgid "If you are requesting a financial deposit, please fill here its amount. Maximum amount is sum of preexpeditures. If you aren't requesting a deposit, fill here 0."
-msgstr ""
+msgstr "جے تساں کوئی مالی ڈیپازٹ دی درخواست کریندے او تاں براہ مہربانی اتھے ایندی رقم بھرو۔ ودھ توں ودھ رقم پیشگی اخراجات دا مجموعہ اے۔ جے تساں ڈیپازٹ دی درخواست نئیں کریندے تاں اتھے 0 بھرو۔"
 
 #: tracker/models.py:301
 msgid "payment status"
@@ -768,7 +769,7 @@ msgstr "امپورٹ تھئے"
 
 #: tracker/models.py:303
 msgid "Was this ticket imported from older Tracker version?"
-msgstr ""
+msgstr "کیا ایں ٹکٹ کوں پرانے ٹریکر ورژن توں درآمد کیتا ڳیا ہا؟"
 
 #: tracker/models.py:304
 msgid "enable comments"
@@ -776,19 +777,19 @@ msgstr "تبصرے فعال کرو"
 
 #: tracker/models.py:305
 msgid "Can users comment on this ticket?"
-msgstr ""
+msgstr "کیا صارف ایں ٹکٹ تے تبصرہ کر سڳدن؟"
 
 #: tracker/models.py:306
 msgid "Did you travel by car?"
-msgstr ""
+msgstr "کیا تساں گاݙی نال سفر کیتا اے؟"
 
 #: tracker/models.py:307
 msgid "Do you request reimbursement of car-type travel expense?"
-msgstr ""
+msgstr "کیا تساں گاݙی ݙے قسم دے سفری خرچ دی واپسی دی درخواست کریندے او؟"
 
 #: tracker/models.py:308
 msgid "Is this ticket completed?"
-msgstr ""
+msgstr "کیا ایں ٹکٹ مکمل اے؟"
 
 #: tracker/models.py:409
 msgid "historical"
@@ -796,7 +797,7 @@ msgstr "تاریخی"
 
 #: tracker/models.py:418
 msgid "waiting for content rating"
-msgstr ""
+msgstr "مواد دی ریٹنگ دا انتظار"
 
 #: tracker/models.py:421 tracker/templates/tracker/export.html:49
 #: tracker/templates/tracker/export.html:50
@@ -806,12 +807,12 @@ msgstr "مکمل"
 #: tracker/models.py:423 tracker/templates/tracker/export.html:46
 #: tracker/templates/tracker/export.html:47
 msgid "waiting for filing of documents"
-msgstr ""
+msgstr "دستاویزات دی فائلنگ دا انتظار"
 
 #: tracker/models.py:425 tracker/templates/tracker/export.html:43
 #: tracker/templates/tracker/export.html:44
 msgid "waiting for document submission"
-msgstr ""
+msgstr "دستاویز جمع کراوݨ دا انتظار"
 
 #: tracker/models.py:428 tracker/models.py:435
 #: tracker/templates/tracker/export.html:40
@@ -827,7 +828,7 @@ msgstr "جمع کرواوݨ دی تانگھ وچ"
 #: tracker/models.py:433 tracker/templates/tracker/export.html:34
 #: tracker/templates/tracker/export.html:35
 msgid "waiting for preapproval"
-msgstr ""
+msgstr "پیشگی منظوری دا انتظار"
 
 #: tracker/models.py:437 tracker/templates/tracker/export.html:31
 #: tracker/templates/tracker/export.html:32
@@ -851,11 +852,11 @@ msgstr "ٻیا رابطہ"
 
 #: tracker/models.py:469
 msgid "no tracker account listed"
-msgstr ""
+msgstr "کوئی ٹریکر کھاتہ درج نئیں"
 
 #: tracker/models.py:471
 msgid "Requester details"
-msgstr ""
+msgstr "درخواست کنندہ دی تفصیلات"
 
 #: tracker/models.py:671 tracker/templates/tracker/dumpaccounts/index.html:28
 #: tracker/templates/tracker/global_expediture_import.html:20
@@ -878,15 +879,15 @@ msgstr "ٹکٹاں"
 
 #: tracker/models.py:751 tracker/models.py:753
 msgid "Description shown to users who enter tickets for this subtopic"
-msgstr ""
+msgstr "تفصیل جے ایں ذیلی موضوع کیتے ٹکٹاں درج کرݨ آلیاں صارفین کوں ݙکھائی ویندی اے"
 
 #: tracker/models.py:752 tracker/models.py:839
 msgid "form description"
-msgstr ""
+msgstr "فارم دی تفصیل"
 
 #: tracker/models.py:755
 msgid "Topic where this subtopic belongs"
-msgstr ""
+msgstr "ایں موضوع جیندے نال ایں ذیلی موضوع تعلق رکھدا اے"
 
 #: tracker/models.py:814 tracker/templates/tracker/index.html:19
 #: tracker/templates/tracker/ticket_common_detail.html:13
@@ -905,15 +906,15 @@ msgstr "عطیہ"
 
 #: tracker/models.py:823
 msgid "Grant project where this topic belongs"
-msgstr ""
+msgstr "گرانٹ پروجیکٹ جیندے نال ایں موضوع تعلق رکھدا اے"
 
 #: tracker/models.py:824
 msgid "open for tickets"
-msgstr ""
+msgstr "ٹکٹاں کیتے کھلا اے"
 
 #: tracker/models.py:825
 msgid "Is this topic open for ticket submissions from users?"
-msgstr ""
+msgstr "کیا ایں موضوع صارفین توں ٹکٹ جمع کرݨ کیتے کھلا اے؟"
 
 #: tracker/models.py:826
 msgid "ticket media"
@@ -921,7 +922,7 @@ msgstr "ٹکٹ میڈیا"
 
 #: tracker/models.py:827
 msgid "Does this topic track ticket media items?"
-msgstr ""
+msgstr "کیا ایں موضوع ٹکٹاں دے میڈیا آئٹمز کوں ٹریک کریندا اے؟"
 
 #: tracker/models.py:828
 msgid "ticket expenses"
@@ -929,47 +930,47 @@ msgstr "ٹکٹ خرچے"
 
 #: tracker/models.py:829
 msgid "Does this topic track ticket expenses?"
-msgstr ""
+msgstr "کیا ایں موضوع ٹکٹاں دے اخراجات کوں ٹریک کریندا اے؟"
 
 #: tracker/models.py:830
 msgid "ticket preexpenses"
-msgstr ""
+msgstr "ٹکٹ دے پیشگی اخراجات"
 
 #: tracker/models.py:831
 msgid "Does this topic track preexpenses?"
-msgstr ""
+msgstr "کیا ایں موضوع پیشگی اخراجات کوں ٹریک کریندا اے؟"
 
 #: tracker/models.py:832
 msgid "require statutory declaration"
-msgstr ""
+msgstr "قانونی اعلان دی ضرورت"
 
 #: tracker/models.py:833
 msgid "Does this topic require statutory declaration for car travelling?"
-msgstr ""
+msgstr "کیا ایں موضوع گاݙی نال سفر کرݨ کیتے قانونی اعلان دی ضرورت کریندا اے؟"
 
 #: tracker/models.py:834
 msgid "make comments public"
-msgstr ""
+msgstr "تبصراں کوں عوامی کرو"
 
 #: tracker/models.py:835
 msgid "Are comments under tickets public?"
-msgstr ""
+msgstr "کیا ٹکٹاں دے ہیٹھلے تبصرے عوامی ہن؟"
 
 #: tracker/models.py:838 tracker/models.py:923
 msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
-msgstr ""
+msgstr "تفصیلی تفصیل؛ ہݨ HTML دی اجازت اے، لائن بریکاں خود کار طریقے نال پارس کیتیاں ویندن"
 
 #: tracker/models.py:840
 msgid "Description shown to users who enter tickets for this topic"
-msgstr ""
+msgstr "تفصیل جے ایں موضوع کیتے ٹکٹاں درج کرݨ آلیاں صارفین کوں ݙکھائی ویندی اے"
 
 #: tracker/models.py:841
 msgid "topic administrator"
-msgstr ""
+msgstr "موضوع دا منتظم"
 
 #: tracker/models.py:842
 msgid "Selected users will have administration access to this topic."
-msgstr ""
+msgstr "منتخب صارفین کوں ایں موضوع تک انتظامی رسائی حاصل تھیسی۔"
 
 #: tracker/models.py:909 tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/global_expediture_import.html:21
@@ -995,7 +996,7 @@ msgstr "پورا ناں"
 
 #: tracker/models.py:919
 msgid "Full name for headlines and such"
-msgstr ""
+msgstr "سرخیں تے ایں جہیں چیزاں کیتے پورا ناں"
 
 #: tracker/models.py:920
 msgid "short name"
@@ -1003,7 +1004,7 @@ msgstr "مختصر ناں"
 
 #: tracker/models.py:920
 msgid "Shorter name for use in tables"
-msgstr ""
+msgstr "ٹیبلاں وچ ورتݨ کیتے چھوٹا ناں"
 
 #: tracker/models.py:921
 msgid "slug"
@@ -1011,7 +1012,7 @@ msgstr "سلڳ"
 
 #: tracker/models.py:921
 msgid "Shortcut for usage in URLs"
-msgstr ""
+msgstr "یو آر ایلز وچ ورتݨ کیتے شارٹ کٹ"
 
 #: tracker/models.py:965 tracker/templates/tracker/grant_table.html:5
 #: tracker/templates/tracker/index.html:17
@@ -1035,11 +1036,11 @@ msgstr "ٹکٹ"
 
 #: tracker/models.py:980 tracker/models.py:1008
 msgid "Ticket this media info belongs to"
-msgstr ""
+msgstr "ایں میڈیا دی معلومات جیندا تعلق ایں ٹکٹ نال اے"
 
 #: tracker/models.py:981
 msgid "Item description to show"
-msgstr ""
+msgstr "وکھاوݨ آلی آئٹم دی تفصیل"
 
 #: tracker/models.py:982 tracker/models.py:995 tracker/models.py:1013
 msgid "URL"
@@ -1064,7 +1065,7 @@ msgstr "ٹکٹ میڈیا"
 
 #: tracker/models.py:995
 msgid "Link to file usage"
-msgstr ""
+msgstr "فائل دے ورتݨ دا لنک"
 
 #: tracker/models.py:996 tracker/models.py:1002
 msgid "title"
@@ -1076,7 +1077,7 @@ msgstr "منصوبہ"
 
 #: tracker/models.py:1009
 msgid "cannonical title"
-msgstr ""
+msgstr "بنیادی سرخی"
 
 #: tracker/models.py:1010
 msgid "page id"
@@ -1092,76 +1093,76 @@ msgstr "اُچائی"
 
 #: tracker/models.py:1276
 msgid "variable symbol"
-msgstr ""
+msgstr "متغیر علامت"
 
 #: tracker/models.py:1277
 msgid "specific symbol"
-msgstr ""
+msgstr "مخصوص علامت"
 
 #: tracker/models.py:1278
 msgid "constant symbol"
-msgstr ""
+msgstr "مستقل علامت"
 
 #: tracker/models.py:1280
 msgid "account link"
-msgstr ""
+msgstr "کھاتے دا لنک"
 
 #: tracker/models.py:1280
 msgid "Choose from saved accounts."
-msgstr ""
+msgstr "محفوظ کھاتیں وچوں چُݨو۔"
 
 #: tracker/models.py:1281
 msgid "bank account"
-msgstr ""
+msgstr "بینک کھاتہ"
 
 #: tracker/models.py:1281
 msgid "Or you can enter your account number manually, but do not use both."
-msgstr ""
+msgstr "یا تساں اپݨا کھاتہ نمبر ہتھ نال بھر سڳدے او، پر ݙوہیں استعمال نہ کرو۔"
 
 #: tracker/models.py:1288
 msgid "template name"
-msgstr ""
+msgstr "ٹیمپلیٹ دا ناں"
 
 #: tracker/models.py:1298
 msgid "You must provide either an Account link or a Bank account."
-msgstr ""
+msgstr "تساں کوں یا تاں کوئی کھاتے دا لنک یا کوئی بینک کھاتہ ݙیوݨا ہوسی۔"
 
 #: tracker/models.py:1302
 msgid "You cannot provide both. Choose either an Account link or a manually typed Bank account."
-msgstr ""
+msgstr "تساں ݙوہیں نئیں ݙے سڳدے۔ یا تاں کوئی کھاتے دا لنک چݨو یا ہتھ نال لکھا ہويا بینک کھاتہ۔"
 
 #: tracker/models.py:1306
 msgid "Template"
-msgstr ""
+msgstr "ٹیمپلیٹ"
 
 #: tracker/models.py:1307
 msgid "Templates"
-msgstr ""
+msgstr "ٹیمپلیٹس"
 
 #: tracker/models.py:1311
 msgid "Imported at"
-msgstr ""
+msgstr "درآمد کیتا ڳیا"
 
 #: tracker/models.py:1312
 #: tracker/templates/tracker/ticket_expediture_import.html:97
 msgid "Due date"
-msgstr ""
+msgstr "واجب الادا تاریخ"
 
 #: tracker/models.py:1313
 msgid "Order number"
-msgstr ""
+msgstr "آرڈر نمبر"
 
 #: tracker/models.py:1314
 msgid "error"
-msgstr ""
+msgstr "خرابی"
 
 #: tracker/models.py:1320
 msgid "Ticket this expediture belongs to"
-msgstr ""
+msgstr "خرچ جیندا تعلق ایں ٹکٹ نال اے"
 
 #: tracker/models.py:1321
 msgid "Description of this expediture"
-msgstr ""
+msgstr "ایں خرچ دی تفصیل"
 
 #: tracker/models.py:1322 tracker/models.py:1443 tracker/models.py:1643
 msgid "amount"
@@ -1169,15 +1170,15 @@ msgstr "رقم"
 
 #: tracker/models.py:1323
 msgid "Expediture amount in"
-msgstr ""
+msgstr "خرچ دی رقم وچ"
 
 #: tracker/models.py:1324 tracker/models.py:1646
 msgid "accounting info"
-msgstr ""
+msgstr "حساب کتاب دی معلومات"
 
 #: tracker/models.py:1325
 msgid "Accounting info, this is editable only through admin field"
-msgstr ""
+msgstr "حساب کتاب دی معلومات، ایں صرف ایڈمن فیلڈ دے ذریعے تبدیل کیتی ویندی اے"
 
 #: tracker/models.py:1327 tracker/models.py:1445
 msgid "wage"
@@ -1185,52 +1186,52 @@ msgstr "اجرت"
 
 #: tracker/models.py:1328
 msgid "This is only editable through the admin"
-msgstr ""
+msgstr "ایں صرف ایڈمن دے ذریعے تبدیل کیتا ویندا اے"
 
 #: tracker/models.py:1330
 msgid "payment type"
-msgstr ""
+msgstr "ادائیگی دی قسم"
 
 #: tracker/models.py:1331
 msgid "payment info"
-msgstr ""
+msgstr "ادائیگی دی معلومات"
 
 #: tracker/models.py:1332
 msgid "import info"
-msgstr ""
+msgstr "درآمد دی معلومات"
 
 #: tracker/models.py:1334
 msgid "linked expenditure"
-msgstr ""
+msgstr "منسلک خرچ"
 
 #: tracker/models.py:1378
 #: tracker/templates/tracker/global_expediture_import.html:23
 msgid "Ready"
-msgstr ""
+msgstr "تیار"
 
 #: tracker/models.py:1381
 msgid "Already paid."
-msgstr ""
+msgstr "پہلے ہی ادا کیتا ڳیا۔"
 
 #: tracker/models.py:1384
 msgid "Already imported."
-msgstr ""
+msgstr "پہلے ہی درآمد کیتا ڳیا۔"
 
 #: tracker/models.py:1387
 msgid "Payment type of this expenditure is not supported for import."
-msgstr ""
+msgstr "ایں خرچ دی ادائیگی دی قسم درآمد کیتے تعاون شدہ نئیں۔"
 
 #: tracker/models.py:1390
 msgid "Amount is not specified."
-msgstr ""
+msgstr "رقم بیان نئیں کیتی ڳئی۔"
 
 #: tracker/models.py:1393
 msgid "Receiver's bank account is not specified."
-msgstr ""
+msgstr "وصول کنندہ دا بینک کھاتہ بیان نئیں کیتا ڳیا۔"
 
 #: tracker/models.py:1396
 msgid "Grant bank account is not specified."
-msgstr ""
+msgstr "گرانٹ دا بینک کھاتہ بیان نئیں کیتا ڳیا۔"
 
 #: tracker/models.py:1398 tracker/templates/tracker/ticket_show_media.html:25
 msgid "Unknown"
@@ -1251,15 +1252,15 @@ msgstr "ٹکٹ خرچے"
 
 #: tracker/models.py:1441
 msgid "Ticket this preexpediture belongs to"
-msgstr ""
+msgstr "پیشگی خرچ جیندا تعلق ایں ٹکٹ نال اے"
 
 #: tracker/models.py:1442
 msgid "Description of this preexpediture"
-msgstr ""
+msgstr "ایں پیشگی خرچ دی تفصیل"
 
 #: tracker/models.py:1444
 msgid "Preexpediture amount in"
-msgstr ""
+msgstr "پیشگی خرچ دی رقم وچ"
 
 #: tracker/models.py:1448
 #, python-format
@@ -1268,11 +1269,11 @@ msgstr "%(description)s (%(amount)s %(currency)s)"
 
 #: tracker/models.py:1452
 msgid "Ticket preexpediture"
-msgstr ""
+msgstr "ٹکٹ دا پیشگی خرچ"
 
 #: tracker/models.py:1453
 msgid "Ticket preexpeditures"
-msgstr ""
+msgstr "ٹکٹ دے پیشگی اخراجات"
 
 #: tracker/models.py:1457
 msgid "uploader"
@@ -1280,15 +1281,15 @@ msgstr "اپلوڈ کرݨ آلا"
 
 #: tracker/models.py:1467 tracker/views.py:960
 msgid "We need a sane file name, such as my-invoice123.jpg"
-msgstr ""
+msgstr "ساکوں ہک سمجھدار فائل ناں دی ضرورت اے، جیویں my-invoice123.jpg"
 
 #: tracker/models.py:1508
 msgid "Ignored acks"
-msgstr ""
+msgstr "نظرانداز کیتے ڳئے ایک"
 
 #: tracker/models.py:1509
 msgid "Muted notifications"
-msgstr ""
+msgstr "خاموش کیتیاں ہوئیں اطلاعات"
 
 #: tracker/models.py:1510
 msgid "Email language"
@@ -1296,27 +1297,27 @@ msgstr "ای میل زبان"
 
 #: tracker/models.py:1512
 msgid "Display items"
-msgstr ""
+msgstr "آئیٹم ݙکھاو"
 
 #: tracker/models.py:1513
 msgid "How many items should we display in tables at once"
-msgstr ""
+msgstr "آساں کتنے آئیٹم اکٹھے ٹیبلاں وچ ݙکھاوݨے چاہندے آں"
 
 #: tracker/models.py:1532
 msgid "Tracker user preference"
-msgstr ""
+msgstr "Tracker ورتݨ آلا ترجیح"
 
 #: tracker/models.py:1533
 msgid "Tracker user preferences"
-msgstr ""
+msgstr "Tracker ورتݨ آلا ترجیحات"
 
 #: tracker/models.py:1538
 msgid "Username on mediawiki"
-msgstr ""
+msgstr "میڈیاویکی تے ورتݨ آلا ناں"
 
 #: tracker/models.py:1539
 msgid "Chapter-issued username"
-msgstr ""
+msgstr "چیپٹر دا جاری کیتا ہويا ورتݨ آلا ناں"
 
 #: tracker/models.py:1542 tracker/models.py:1632
 #: tracker/templates/tracker/admin_user_list.html:30
@@ -1325,24 +1326,24 @@ msgstr "بینک کھاتہ"
 
 #: tracker/models.py:1543
 msgid "Bank account information for money transfers"
-msgstr ""
+msgstr "رقم دی منتقلی کیتے بینک کھاتے دی معلومات"
 
 #: tracker/models.py:1545
 msgid "Other contact such as wiki account; can be useful in case of topic administrators need to clarify some information"
-msgstr ""
+msgstr "بیا رابطہ جیویں ویکی کھاتہ؛ ایں مفید ہو سڳدے اے جے موضوع دے منتظم کجھ واضح کرݨ چاہندے ہوݨ"
 
 #: tracker/models.py:1546 tracker/templates/tracker/admin_user_list.html:33
 msgid "Other identification"
-msgstr ""
+msgstr "بیا شناخت"
 
 #: tracker/models.py:1547
 msgid "Address, or other identification information, so we know who are we sending money to"
-msgstr ""
+msgstr "پتہ، یا بیا شناختی معلومات، تاں جو آساں کوں پتہ ہوسی آساں پیسے کیندے کوں بھیج رہے آں"
 
 #: tracker/models.py:1588 tracker/models.py:1633
 #: tracker/templates/tracker/admin_user_list.html:31
 msgid "Bank accounts"
-msgstr ""
+msgstr "بینک کھاتے"
 
 #: tracker/models.py:1594
 msgid "Tracker profile"
@@ -1354,7 +1355,7 @@ msgstr "ٹریکر پروفائل"
 
 #: tracker/models.py:1612
 msgid "Account owner"
-msgstr ""
+msgstr "کھاتے دا مالک"
 
 #: tracker/models.py:1613
 msgid "Account name"
@@ -1362,20 +1363,20 @@ msgstr "کھاتے دا ناں"
 
 #: tracker/models.py:1614
 msgid "Account prefix"
-msgstr ""
+msgstr "کھاتے دا اپّسر"
 
 #: tracker/models.py:1615 tracker/templates/tracker/bank_account_list.html:20
 #: tracker/views.py:366
 msgid "Account number"
-msgstr ""
+msgstr "کھاتے دا نمبر"
 
 #: tracker/models.py:1616
 msgid "Account bank code"
-msgstr ""
+msgstr "کھاتے دا بینک کوڈ"
 
 #: tracker/models.py:1617
 msgid "Deleted at"
-msgstr ""
+msgstr "حذف کرݨ دا وقت"
 
 #: tracker/models.py:1638
 msgid "date"
@@ -1387,23 +1388,23 @@ msgstr "ٻئی پارٹی"
 
 #: tracker/models.py:1640
 msgid "The other party; user who sent or received the payment"
-msgstr ""
+msgstr "بیا دھر؛ ورتݨ آلا جیہڑا ادائیگی بھیج یا وصول کیتی"
 
 #: tracker/models.py:1641
 msgid "other party (text)"
-msgstr ""
+msgstr "بیا دھر (لکھت)"
 
 #: tracker/models.py:1642
 msgid "The other party; this text is used when user is not selected"
-msgstr ""
+msgstr "بیا دھر؛ ایں لکھت ایں ویلے ورتی جاندی اے جڈاں ورتݨ آلا منتخب نئیں ہوندا"
 
 #: tracker/models.py:1644
 msgid "Payment amount; Positive value means transaction to the user, negative is a transaction from the user"
-msgstr ""
+msgstr "ادائیگی دی رقم؛ مثبت قیمت دا مطلب ورتݨ آلے کوں ٹرانزیکشن اے، منفی ورتݨ آلے کولوں ٹرانزیکشن اے"
 
 #: tracker/models.py:1645
 msgid "Description of this transaction"
-msgstr ""
+msgstr "ایں ٹرانزیکشن دی تفصیل"
 
 #: tracker/models.py:1646 tracker/templates/tracker/cluster_detail.html:19
 #: tracker/templates/tracker/ticket_common_detail.html:64
@@ -1411,15 +1412,15 @@ msgstr ""
 #: tracker/templates/tracker/ticket_expediture_import.html:58
 #: tracker/templates/tracker/user_detail.html:22 tracker/views.py:1924
 msgid "Accounting info"
-msgstr ""
+msgstr "حساب کتاب دی معلومات"
 
 #: tracker/models.py:1647
 msgid "related tickets"
-msgstr ""
+msgstr "متعلقہ ٹکٹ"
 
 #: tracker/models.py:1648
 msgid "Tickets this trackaction is related to"
-msgstr ""
+msgstr "ٹکٹ جنہاں دا ایں ٹریک ایکشن نال تعلق اے"
 
 #: tracker/models.py:1690
 msgid "Transaction"
@@ -1438,132 +1439,132 @@ msgstr "تبصرہ"
 #: tracker/models.py:1843
 #, python-format
 msgid "Comment <tt>%(comment)s</tt> was added to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> by user <tt>%(user)s</tt>"
-msgstr ""
+msgstr "تبصرہ <tt>%(comment)s</tt> ورتݨ آلے <tt>%(user)s</tt> ولوں ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> وچ شامل کیتا ڳیا۔"
 
 #: tracker/models.py:1874
 #, python-format
 msgid "User <tt>%(user)s</tt> created ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> in topic <tt>%(topic)s</tt>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> موضوع <tt>%(topic)s</tt> وچ ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> بݨایا۔"
 
 #: tracker/models.py:1890
 #, python-format
 msgid "User <tt>%(user)s</tt> changed supervisor notes of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دے نگرانی کنندہ دے نوٹ بدلے۔"
 
 #: tracker/models.py:1910
 #, python-format
 msgid "User <tt>%(user)s</tt> changed description of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دی تفصیل بدلی۔"
 
 #: tracker/models.py:1913
 #, python-format
 msgid "User <tt>%(user)s</tt> changed name of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دا ناں بدلا۔"
 
 #: tracker/models.py:1916
 #, python-format
 msgid "User <tt>%(user)s</tt> changed link to report of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دی رپورٹ دا لنک بدلا۔"
 
 #: tracker/models.py:1920
 #, python-format
 msgid "User <tt>%(user)s</tt> changed requested deposit of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دی درخواست کیتے ڳئے ڈیپازٹ بدلیا۔"
 
 #: tracker/models.py:1930
 #, python-format
 msgid "User <tt>%(user)s</tt> changed \"Is report mandatory?\" field of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دا \"کیا رپورٹ لازمی اے؟\" والا خانہ بدلا۔"
 
 #: tracker/models.py:1942
 #, python-format
 msgid "Ticket \"%(ticket)s\" was deleted by user %(user)s"
-msgstr ""
+msgstr "ٹکٹ \"%(ticket)s\" ورتݨ آلے %(user)s ولوں حذف کیتا ڳیا"
 
 #: tracker/models.py:1959
 #, python-format
 msgid "User <tt>%(user)s</tt> added ack <tt>%(ack_type)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> وچ ایک <tt>%(ack_type)s</tt> شامل کیتا۔"
 
 #: tracker/models.py:1973
 #, python-format
 msgid "User <tt>%(user)s</tt> removed ack <tt>%(ack_type)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> وچوں ایک <tt>%(ack_type)s</tt> ہٹا دتا۔"
 
 #: tracker/models.py:2004
 #, python-format
 msgid "User <tt>%(user)s</tt> added planned expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> وچ منصوبہ بند پیشگی اخراجات <tt>%(expeditures)s</tt> شامل کیتے۔"
 
 #: tracker/models.py:2025
 #, python-format
 msgid "User <tt>%(user)s</tt> changed planned expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دا منصوبہ بند پیشگی خرچ <tt>%(old_expediture)s</tt> توں <tt>%(expeditures)s</tt> بدلا۔"
 
 #: tracker/models.py:2032
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دا منصوبہ بند پیشگی خرچ <tt>%(expeditures)s</tt> <tt>اجرت</tt> طے کیتا۔"
 
 #: tracker/models.py:2035
 #, python-format
 msgid "User <tt>%(user)s</tt> set planned expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دا منصوبہ بند پیشگی خرچ <tt>%(expeditures)s</tt> <tt>اجرت</tt> طے کیتا۔"
 
 #: tracker/models.py:2052
 #, python-format
 msgid "User <tt>%(user)s</tt> removed planned expediture <tt>%(expediture)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> وچوں منصوبہ بند پیشگی خرچ <tt>%(expediture)s</tt> ہٹا دتا۔"
 
 #: tracker/models.py:2073
 #, python-format
 msgid "User <tt>%(user)s</tt> added real expeditures <tt>%(expeditures)s</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> وچ اصل اخراجات <tt>%(expeditures)s</tt> شامل کیتے۔"
 
 #: tracker/models.py:2094
 #, python-format
 msgid "User <tt>%(user)s</tt> changed real expediture from <tt>%(old_expediture)s</tt> to <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دا اصل خرچ <tt>%(old_expediture)s</tt> توں <tt>%(expeditures)s</tt> بدلا۔"
 
 #: tracker/models.py:2100
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as paid."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دا اصل خرچ <tt>%(expeditures)s</tt> <tt>ادا شدہ</tt> طے کیتا۔"
 
 #: tracker/models.py:2103
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not paid."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دا اصل خرچ <tt>%(expeditures)s</tt> <tt>ادا نہ تھیا</tt> طے کیتا۔"
 
 #: tracker/models.py:2108
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as wage."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دا اصل خرچ <tt>%(expeditures)s</tt> <tt>اجرت</tt> طے کیتا۔"
 
 #: tracker/models.py:2111
 #, python-format
 msgid "User <tt>%(user)s</tt> set real expediture <tt>%(expeditures)s</tt> of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a> as not wage."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دا اصل خرچ <tt>%(expeditures)s</tt> <tt>اجرت نئیں</tt> طے کیتا۔"
 
 #: tracker/models.py:2127
 #, python-format
 msgid "User <tt>%(user)s</tt> removed real expeditures <tt>%(expeditures)s</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> وچوں اصل اخراجات <tt>%(expeditures)s</tt> ہٹا دتے۔"
 
 #: tracker/models.py:2141
 #, python-format
 msgid "User <tt>%(user)s</tt> added media to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> وچ میڈیا شامل کیتا۔"
 
 #: tracker/models.py:2144
 #, python-format
 msgid "User <tt>%(user)s</tt> changed media of ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> دا میڈیا بدلا۔"
 
 #: tracker/models.py:2158
 #, python-format
 msgid "User <tt>%(user)s</tt> removed media from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> وچوں میڈیا ہٹا دتا۔"
 
 #: tracker/models.py:2171 tracker/models.py:2191
 msgid "no description"
@@ -1572,25 +1573,25 @@ msgstr "کوئی تفصیل کائنی"
 #: tracker/models.py:2175
 #, python-format
 msgid "User <tt>%(user)s</tt> added document <tt>%(document_filename)s (%(document_description)s)</tt> to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> وچ دستاویز <tt>%(document_filename)s (%(document_description)s)</tt> شامل کیتی۔"
 
 #: tracker/models.py:2177
 #, python-format
 msgid "User <tt>%(user)s</tt> changed document <tt>%(document_filename)s</tt> assigned to ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>."
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> نال منسلک دستاویز <tt>%(document_filename)s</tt> بدلی۔"
 
 #: tracker/models.py:2194
 #, python-format
 msgid "User <tt>%(user)s</tt> removed document <tt>%(document_filename)s (%(document_description)s)</tt> from ticket <a href=\"%(ticket_url)s\">%(ticket)s</a>"
-msgstr ""
+msgstr "ورتݨ آلے <tt>%(user)s</tt> ٹکٹ <a href=\"%(ticket_url)s\">%(ticket)s</a> وچوں دستاویز <tt>%(document_filename)s (%(document_description)s)</tt> ہٹا دتی۔"
 
 #: tracker/services.py:12
 msgid "You cannot modify payment details of an already imported or paid expenditure."
-msgstr ""
+msgstr "تساں پہلے توں درآمد کیتے ڳئے یا ادا کیتے ڳئے خرچ دی ادائیگی دیاں تفصیلات نہیں بدل سڳدے۔"
 
 #: tracker/services.py:86
 msgid "Cannot revert import: this expenditure is already paid."
-msgstr ""
+msgstr "درآمد واپس نہیں کیتا ونڄ سڳدا: ایہ خرچ پہلے توں ادا کیتا ڳیا اے۔"
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "REMOVE"
@@ -1606,15 +1607,15 @@ msgstr "جیا"
 
 #: tracker/templates/admin/tracker/ticket/ack_norating_error.html:2
 msgid "You must fill rating percentage before you will be able to accept the ticket."
-msgstr ""
+msgstr "تساں ٹکٹ قبول کرݨ توں پہلے ریٹنگ دا فیصد ضرور پُرو۔"
 
 #: tracker/templates/admin/tracker/ticket/ack_noreport_error.html:2
 msgid "You cannot accept ticket when a report is mandatory and no report was given"
-msgstr ""
+msgstr "جڈاں رپورٹ لازمی ہووے تے کوئی رپورٹ نہ دتی ڳئی ہووے تاں تساں ٹکٹ قبول نہیں کر سڳدے۔"
 
 #: tracker/templates/admin/tracker/ticket/add_ack.html:3
 msgid "add new ack"
-msgstr ""
+msgstr "نویں ایک شامل کرو"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:14
 #: tracker/templates/tracker/ticket_common_detail.html:7 tracker/views.py:1922
@@ -1628,7 +1629,7 @@ msgstr "منظوریاں"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:22
 msgid "ADD ACK"
-msgstr ""
+msgstr "ایک شامل کرو"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:50
 msgid "Ticket documents"
@@ -1642,15 +1643,15 @@ msgstr "ٹکٹ دستاویز وچ تبدیلی کرو"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:60
 msgid "There are no documents uploaded for this ticket."
-msgstr ""
+msgstr "ایں ٹکٹ کیتے کوئی دستاویزات اپلوڈ نہیں کیتیاں ڳئیاں۔"
 
 #: tracker/templates/admin/tracker/ticket/change_form.html:63
 #: tracker/templates/tracker/ticket_detail.html:64
 #, python-format
 msgid "There is 1 document uploaded."
 msgid_plural "There are %(counter)s documents uploaded."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "۱ دستاویز اپلوڈ کیتی ڳئی اے۔"
+msgstr[1] "%(counter)s دستاویزات اپلوڈ کیتیاں ڳئیاں۔"
 
 #: tracker/templates/admin/tracker/ticket/expediture.html:7
 #: tracker/templates/admin/tracker/ticket/tabular.html:76
@@ -1695,66 +1696,66 @@ msgstr "مٹائیاں ہوئیاں ٹکٹاں دی تندیر"
 
 #: tracker/templates/notification/notification_html.html:22
 msgid "The state of a watched ticket was changed"
-msgstr ""
+msgstr "نگرانی وچ رکھے ڳئے ٹکٹ دی حالت بدل ڳئی اے"
 
 #: tracker/templates/notification/notification_html.html:31
 msgid "Supervisor notes on a watched ticket were changed"
-msgstr ""
+msgstr "نگرانی وچ رکھے ڳئے ٹکٹ دے نگرانی کنندہ دے نوٹ بدل ڳئے ہن"
 
 #: tracker/templates/notification/notification_html.html:40
 msgid "Changes were made to a watched ticket"
-msgstr ""
+msgstr "نگرانی وچ رکھے ڳئے ٹکٹ وچ تبدیلیاں کیتیاں ڳئیاں ہن"
 
 #: tracker/templates/notification/notification_html.html:49
 msgid "The preexpenditures of a watched ticket were changed"
-msgstr ""
+msgstr "نگرانی وچ رکھے ڳئے ٹکٹ دے پیشگی اخراجات بدل ڳئے ہن"
 
 #: tracker/templates/notification/notification_html.html:58
 msgid "The expenditures of a watched ticket were changed"
-msgstr ""
+msgstr "نگرانی وچ رکھے ڳئے ٹکٹ دے اخراجات بدل ڳئے ہن"
 
 #: tracker/templates/notification/notification_html.html:67
 msgid "Medias of a watched ticket"
-msgstr ""
+msgstr "نگرانی وچ رکھے ڳئے ٹکٹ دا میڈیا"
 
 #: tracker/templates/notification/notification_html.html:76
 msgid "Documents of a watched ticket were changed"
-msgstr ""
+msgstr "نگرانی وچ رکھے ڳئے ٹکٹ دیاں دستاویزات بدل ڳئیاں ہن"
 
 #: tracker/templates/notification/notification_html.html:85
 msgid "A comment was added to a watched ticket"
-msgstr ""
+msgstr "نگرانی وچ رکھے ڳئے ٹکٹ وچ ہک تبصرہ شامل کیتا ڳیا اے"
 
 #: tracker/templates/notification/notification_html.html:94
 msgid "List of tickets pending preapproval"
-msgstr ""
+msgstr "پیشگی منظوری دے منتظر ٹکٹاں دی فہرست"
 
 #: tracker/templates/notification/notification_html.html:95
 #, python-format
 msgid "These tickets may be ready for preapproval. Before you preapprove them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
-msgstr ""
+msgstr "ایہ ٹکٹ پیشگی منظوری کیتے تیار ہو سڳدے ہن۔ انہاں دی پیشگی منظوری کرݨ توں پہلے ہمیشہ ݙیکھو کہ او ساݙی <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">مالی پالیسی</a> دی پابندی کریندے ہن یا نئیں۔"
 
 #: tracker/templates/notification/notification_html.html:104
 msgid "List of tickets pending approval"
-msgstr ""
+msgstr "منظوری دے منتظر ٹکٹاں دی فہرست"
 
 #: tracker/templates/notification/notification_html.html:105
 #, python-format
 msgid "These tickets may be ready for approval. Before you approve them, always check that they comply with our <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">financial policy</a>."
-msgstr ""
+msgstr "ایہ ٹکٹ منظوری کیتے تیار ہو سڳدے ہن۔ انہاں دی منظوری کرݨ توں پہلے ہمیشہ ݙیکھو کہ او ساݙی <a href=\"%(TRACKER_FINANCIAL_POLICY)s\">مالی پالیسی</a> دی پابندی کریندے ہن یا نئیں۔"
 
 #: tracker/templates/notification/notification_html.html:114
 msgid "Tracker notifications"
-msgstr ""
+msgstr "Tracker دیاں اطلاعاں"
 
 #: tracker/templates/notification/notification_subject.txt:1
 msgid "List of changes of watched tickets"
-msgstr ""
+msgstr "نگرانی وچ رکھے ڳئے ٹکٹاں وچ تبدیلیاں دی فہرست"
 
 #: tracker/templates/tracker/admin_index_override.html:10
 #, python-format
 msgid "Models available in the %(name)s application."
-msgstr ""
+msgstr "%(name)s ایپلی کیشن وچ دستیاب ماڈل۔"
 
 #: tracker/templates/tracker/admin_index_override.html:11
 #, python-format
@@ -1776,11 +1777,11 @@ msgstr "ورتݨ آلیاں دے ناں"
 #: tracker/templates/tracker/admin_index_override.html:40
 #: tracker/templates/tracker/admin_user_list.html:16
 msgid "Tracker users"
-msgstr ""
+msgstr "Tracker دے ورتݨ آلے"
 
 #: tracker/templates/tracker/admin_index_override.html:45
 msgid "You don't have permission to edit anything."
-msgstr ""
+msgstr "تہاݙے کول کجھ وی ترمیم کرݨ دی اجازت نئیں۔"
 
 #: tracker/templates/tracker/admin_user_list.html:8
 #: tracker/templates/tracker/export.html:67
@@ -1808,16 +1809,16 @@ msgstr "چھیکڑی ناں"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:6
 msgid "Remove bank account"
-msgstr ""
+msgstr "بینک کھاتہ ہٹاو"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:10
 #, python-format
 msgid "\n			Do you really want to remove <strong>%(object)s</strong>?\n			"
-msgstr ""
+msgstr "\nکیا تساں واقعی <strong>%(object)s</strong> ہٹاوݨا چاہندے او؟"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:16
 msgid "The account will be removed from your list of accounts, but it will be archived for our historical data."
-msgstr ""
+msgstr "ایہ کھاتہ تہاݙے کھاتیں دی فہرست توں ہٹا ݙتا ویسی، پر ساݙے تاریخی ڈیٹے کیتے اینکوں محفوظ رکھیا ویسی۔"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:23
 #: tracker/templates/tracker/bank_account_list.html:30
@@ -1834,23 +1835,23 @@ msgstr "منسوخ"
 
 #: tracker/templates/tracker/bank_account_form.html:6
 msgid "New bank account"
-msgstr ""
+msgstr "نواں بینک کھاتہ"
 
 #: tracker/templates/tracker/bank_account_form.html:23
 msgid "Save account"
-msgstr ""
+msgstr "کھاتہ محفوظ کرو"
 
 #: tracker/templates/tracker/bank_account_form.html:24
 msgid "Back"
-msgstr ""
+msgstr "پچھوں"
 
 #: tracker/templates/tracker/bank_account_list.html:6
 msgid "My bank accounts"
-msgstr ""
+msgstr "میرے بینک کھاتے"
 
 #: tracker/templates/tracker/bank_account_list.html:10
 msgid "New account"
-msgstr ""
+msgstr "نواں کھاتہ"
 
 #: tracker/templates/tracker/bank_account_list.html:19
 #: tracker/templates/tracker/index.html:16
@@ -1861,17 +1862,17 @@ msgstr "ناں"
 
 #: tracker/templates/tracker/bank_account_list.html:21
 msgid "Actions"
-msgstr ""
+msgstr "عمل"
 
 #: tracker/templates/tracker/bank_account_list.html:35
 msgid "You have not saved any bank accounts yet"
-msgstr ""
+msgstr "تساں ہݨے تک کوئی بینک کھاتے محفوظ نئیں کیتے"
 
 #: tracker/templates/tracker/cluster_detail.html:4
 #: tracker/templates/tracker/cluster_detail.html:8
 #, python-format
 msgid "Cluster %(cid)s"
-msgstr ""
+msgstr "کلسٹر %(cid)s"
 
 #: tracker/templates/tracker/cluster_detail.html:7
 #: tracker/templates/tracker/edit_ticket.html:17
@@ -1941,7 +1942,7 @@ msgstr "کل ٹرانزکشناں"
 
 #: tracker/templates/tracker/connect_account.html:4
 msgid "Connected account required"
-msgstr ""
+msgstr "جڑیا ہویا کھاتہ ضروری اے"
 
 #: tracker/templates/tracker/connect_account.html:7
 msgid "Permission denied"
@@ -1949,22 +1950,22 @@ msgstr "اجازت دا انکار تھی ڳیا"
 
 #: tracker/templates/tracker/connect_account.html:8
 msgid "You need to connect Tracker account with your Wikimedia account. To do so, click on the button below."
-msgstr ""
+msgstr "تساں کوں اپݨا Tracker کھاتہ اپݨے ویکیمیڈیا کھاتے نال جوڑݨا پوسی۔ اینکوں کرݨ کیتے ہیٹھ ݙتے ڳئے بٹݨ تے کلک کرو۔"
 
 #: tracker/templates/tracker/connect_account.html:9
 #: tracker/templates/tracker/preferences.html:85
 msgid "Link Wikimedia account"
-msgstr ""
+msgstr "ویکیمیڈیا کھاتہ جوڑو"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:4
 #: tracker/templates/tracker/dumpaccounts/index.html:7
 msgid "Overview of"
-msgstr ""
+msgstr "دا جائزہ"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:8
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:9
 msgid "Generated on"
-msgstr ""
+msgstr "تے تیار تھیا"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:11
 msgid "Unpaid"
@@ -1992,7 +1993,7 @@ msgstr "ادائیگی"
 
 #: tracker/templates/tracker/dumpaccounts/index.html:36
 msgid "There are no tickets in this topic."
-msgstr ""
+msgstr "ایندا موضوع وچ کوئی ٹکٹ نئیں۔"
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:13
 #: tracker/templates/tracker/ticket_detail.html:49
@@ -2002,7 +2003,7 @@ msgstr "دستاویزاں"
 
 #: tracker/templates/tracker/dumpaccounts/ticket_detail.html:19
 msgid "There aren't any documents here."
-msgstr ""
+msgstr "ایتھاں کوئی دستاویز نئیں۔"
 
 #: tracker/templates/tracker/edit_ticket.html:4
 #: tracker/templates/tracker/edit_ticket.html:18
@@ -2012,7 +2013,7 @@ msgstr "تبدیلی کرو"
 #: tracker/templates/tracker/edit_ticket.html:20
 #: tracker/templates/tracker/ticket_detail.html:16
 msgid "copy preexpeditures to expeditures"
-msgstr ""
+msgstr "پیشگی اخراجات کوں اخراجات وچ نقل کرو"
 
 #: tracker/templates/tracker/edit_ticket.html:24
 #: tracker/templates/tracker/edit_ticket_docs.html:16
@@ -2022,7 +2023,7 @@ msgstr "بچاؤ"
 #: tracker/templates/tracker/edit_ticket_docs.html:4
 #: tracker/templates/tracker/edit_ticket_docs.html:8
 msgid "Edit documents"
-msgstr ""
+msgstr "دستاویزات وچ ترمیم کرو"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:7
 #: tracker/templates/tracker/upload_ticket_doc.html:24
@@ -2031,7 +2032,7 @@ msgstr "تبدیلی کرو"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:10
 msgid "upload new document"
-msgstr ""
+msgstr "نئی دستاویز اپلوڈ کرو"
 
 #: tracker/templates/tracker/edit_ticket_docs.html:14
 msgid "document"
@@ -2042,7 +2043,7 @@ msgstr "دستاویز"
 #: tracker/templates/tracker/upload_ticket_doc.html:35
 #, python-format
 msgid "Fields marked with %(mark)s are required."
-msgstr ""
+msgstr "جیہڑے خانے %(mark)s نال نشان زد ہن او لازمی ہن۔"
 
 #: tracker/templates/tracker/expediture_formset.html:17
 #: tracker/templates/tracker/export.html:174
@@ -2052,21 +2053,21 @@ msgstr "اُجرت"
 
 #: tracker/templates/tracker/expediture_formset.html:18 tracker/views.py:363
 msgid "Payment type"
-msgstr ""
+msgstr "ادائیگی دی قسم"
 
 #: tracker/templates/tracker/expediture_formset.html:19
 msgid "Delete"
-msgstr ""
+msgstr "مٹاو"
 
 #: tracker/templates/tracker/expediture_formset.html:76
 msgid "This item is locked and cannot be deleted."
-msgstr ""
+msgstr "ایندا آئٹم مقفل اے تے اینکوں مٹایا نئیں ونڄ سڳدا۔"
 
 #: tracker/templates/tracker/expediture_formset.html:110
 #: tracker/templates/tracker/tabular_formset.html:91
 #, python-format
 msgid "Add another %(formset_item_name)s"
-msgstr ""
+msgstr "بیا %(formset_item_name)s شامل کرو"
 
 #: tracker/templates/tracker/export.html:12
 #: tracker/templates/tracker/export.html:15
@@ -2077,11 +2078,11 @@ msgstr "ٻاہر بھیڄو"
 
 #: tracker/templates/tracker/export.html:18
 msgid "Only filters with at least one checked checkbox are applied. You can either check all checkboxes or none of them, it's the same."
-msgstr ""
+msgstr "صرف او فلٹر لاڳو تھیندن جیہناں وچ گھٹ توں گھٹ ہک چیک باکس چیک تھیا ہویا ہووے۔ تساں سارے چیک باکس چیک کر سڳدے او یا انہاں وچوں ہک وی نئیں، ݙوہیں ہک جیہے ہن۔"
 
 #: tracker/templates/tracker/export.html:59
 msgid "custom"
-msgstr ""
+msgstr "مرضی دا"
 
 #: tracker/templates/tracker/export.html:78
 #: tracker/templates/tracker/export.html:149
@@ -2091,7 +2092,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_table.html:22
 #: tracker/templates/tracker/ticket_table.html:37
 msgid "Preexpeditures"
-msgstr ""
+msgstr "پیشگی اخراجات"
 
 #: tracker/templates/tracker/export.html:82
 #: tracker/templates/tracker/export.html:102
@@ -2140,11 +2141,11 @@ msgstr "متوقع خرچے"
 
 #: tracker/templates/tracker/export.html:145
 msgid "You can't filter grants by any fields"
-msgstr ""
+msgstr "تساں گرانٹس کوں کئیں وی خانے نال فلٹر نئیں کر سڳدے۔"
 
 #: tracker/templates/tracker/export.html:216
 msgid "Supervisors"
-msgstr ""
+msgstr "نگرانی کنندے"
 
 #: tracker/templates/tracker/export.html:222
 msgid "Number of tickets"
@@ -2152,7 +2153,7 @@ msgstr "ٹکٹاں دی تعداد"
 
 #: tracker/templates/tracker/export.html:242
 msgid "Number of tickets in certain payment state"
-msgstr ""
+msgstr "کسے خاص ادائیگی دی حالت وچ ٹکٹاں دی تعداد"
 
 #: tracker/templates/tracker/export.html:245
 msgid "N/A"
@@ -2160,15 +2161,15 @@ msgstr "ناقابل اطلاق"
 
 #: tracker/templates/tracker/export.html:278
 msgid "Number of tickets created"
-msgstr ""
+msgstr "بݨائے ڳئے ٹکٹاں دی تعداد"
 
 #: tracker/templates/tracker/export.html:297
 msgid "Amount of accepted expeditures"
-msgstr ""
+msgstr "قبول کیتے ڳئے اخراجات دی رقم"
 
 #: tracker/templates/tracker/export.html:316
 msgid "Amount of paid expeditures"
-msgstr ""
+msgstr "ادا کیتے ڳئے اخراجات دی رقم"
 
 #: tracker/templates/tracker/export.html:338
 msgid "normal"
@@ -2180,7 +2181,7 @@ msgstr "عملہ"
 
 #: tracker/templates/tracker/export.html:348
 msgid "superuser"
-msgstr ""
+msgstr "superuser"
 
 #: tracker/templates/tracker/fill_details.html:4
 #: tracker/templates/tracker/fill_details.html:9
@@ -2189,11 +2190,11 @@ msgstr "میݙی ذاتی معلومات"
 
 #: tracker/templates/tracker/fill_details.html:10
 msgid "To use tracker for expenses, we need a bit more information about you first."
-msgstr ""
+msgstr "اخراجات کیتے Tracker ورتݨ کیتے ساکوں پہلے تہاݙے بارے وچ تھوڑی بیا معلومات دی ضرورت اے۔"
 
 #: tracker/templates/tracker/fill_details.html:11
 msgid "The bank account is optional. If you give it to us, we can send the money for your expenses to it."
-msgstr ""
+msgstr "بینک کھاتہ اختیاری اے۔ جے تساں ایہ ساکوں ݙے ݙیندے او تاں اساں تہاݙے اخراجات دی رقم اینکوں بھیج سڳدے ہن۔"
 
 #: tracker/templates/tracker/fill_details.html:23
 msgid "save & continue"
@@ -2207,7 +2208,7 @@ msgstr "چھوڑو"
 #: tracker/templates/tracker/user_details_change.html:23
 #: users/templates/users/register.html:26
 msgid "By using Tracker you consent to data processing. We use your data to display all payments correctly and for our accounting. You must give us your e-mail address; you may be requested to give us futher details. Data are not given to third parties and only authorized staff members are allowed to access them."
-msgstr ""
+msgstr "Tracker ورتݨ نال تساں ڈیٹا دی کارروائی تے رضامند تھیندے او۔ اساں تہاݙا ڈیٹا ساریاں ادائیگیاں درست طریقے نال ݙکھاوݨ تے ساݙے حساب کتاب کیتے ورتیندے ہن۔ تساں کوں ساکوں اپݨا ای میل پتہ ݙےݨا پوسی؛ تساں توں بیا تفصیلات منگیاں ونڄ سڳدن۔ ڈیٹا تریجے فریق کوں نئیں ݙتا ویندا تے صرف مجاز عملے دے ارکان اینکوں ݙیکھ سڳدے ہن۔"
 
 #: tracker/templates/tracker/generic/create_ticket.html:4
 #: tracker/templates/tracker/generic/create_ticket.html:18
@@ -2216,7 +2217,7 @@ msgstr "ٹکٹ خلقو"
 
 #: tracker/templates/tracker/generic/create_ticket.html:23
 msgid "You'll be able to edit everything you've filled in even after submitting the form."
-msgstr ""
+msgstr "فارم جمع کراوݨ توں بعد وی تساں بھری ہوئی ہر شے وچ ترمیم کر سڳسو۔"
 
 #: tracker/templates/tracker/generic/ticket_list.html:4
 #: tracker/templates/tracker/generic/ticket_list.html:10
@@ -2269,35 +2270,35 @@ msgstr "موضوع تندیر"
 #: tracker/templates/tracker/generic/topic_list.html:13
 #: tracker/templates/tracker/grant_list.html:12
 msgid "Topics closed for new tickets"
-msgstr ""
+msgstr "نویں ٹکٹاں کیتے بند موضوع"
 
 #: tracker/templates/tracker/generic/topic_list.html:18
 msgid "topic finance"
-msgstr ""
+msgstr "موضوع مالیات"
 
 #: tracker/templates/tracker/generic/topic_list.html:19
 msgid "topic ack overview"
-msgstr ""
+msgstr "موضوع دا ایک جائزہ"
 
 #: tracker/templates/tracker/global_expediture_import.html:4
 msgid "Import overview"
-msgstr ""
+msgstr "درآمد دا جائزہ"
 
 #: tracker/templates/tracker/global_expediture_import.html:9
 msgid "import overview"
-msgstr ""
+msgstr "درآمد دا جائزہ"
 
 #: tracker/templates/tracker/global_expediture_import.html:12
 msgid "Expenditures awaiting import"
-msgstr ""
+msgstr "درآمد دے منتظر اخراجات"
 
 #: tracker/templates/tracker/global_expediture_import.html:15
 msgid "Select a ticket to review and import its expenditures."
-msgstr ""
+msgstr "جائزہ گھنݨ تے ایندے اخراجات درآمد کرݨ کیتے ہک ٹکٹ چݨو۔"
 
 #: tracker/templates/tracker/global_expediture_import.html:22
 msgid "Total to process"
-msgstr ""
+msgstr "کارروائی کیتے کل"
 
 #: tracker/templates/tracker/global_expediture_import.html:25
 msgid "Error"
@@ -2305,7 +2306,7 @@ msgstr "نقص"
 
 #: tracker/templates/tracker/global_expediture_import.html:71
 msgid "There are no tickets waiting for import. Everything is up to date."
-msgstr ""
+msgstr "درآمد دی منتظر کوئی ٹکٹ نئیں۔ ہر شے تازہ اے۔"
 
 #: tracker/templates/tracker/grant_detail.html:9
 #: tracker/templates/tracker/index.html:7
@@ -2326,7 +2327,7 @@ msgstr "عطیہ تندیر"
 #: tracker/templates/tracker/grant_table.html:7
 #: tracker/templates/tracker/topic_table.html:8
 msgid "Paid wages"
-msgstr ""
+msgstr "ادا شدہ اجرت"
 
 #: tracker/templates/tracker/grant_table.html:8
 #: tracker/templates/tracker/topic_table.html:9
@@ -2336,7 +2337,7 @@ msgstr "کٹھے ادا تھئے"
 #: tracker/templates/tracker/grant_table.html:9
 #: tracker/templates/tracker/topic_table.html:10
 msgid "Tickets per payment status"
-msgstr ""
+msgstr "ادائیگی دی حالت دے مطابق ٹکٹ"
 
 #: tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
@@ -2351,11 +2352,11 @@ msgstr "کوئی عنوان دستیاب کائنی۔"
 #: tracker/templates/tracker/import.html:10
 #, python-format
 msgid " Be warned that you need permission to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows. If you'll submit a file CSV with more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s rows, only the first %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s will be processed. If you really need to import more than %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s of objects, please contact the systemadmin."
-msgstr ""
+msgstr "خبردار رہوو کہ %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s قطاراں توں ودھ درآمد کرݨ کیتے تساں کوں اجازت دی ضرورت اے۔ جے تساں %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s قطاراں توں ودھ قطاراں آلی CSV فائل جمع کرویسو تاں صرف پہلیاں %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s قطاراں تے کارروائی کیتی ویسی۔ جے تساں کوں واقعی %(MAX_NUMBER_OF_ROWS_ON_IMPORT)s توں ودھ شےئاں درآمد کرݨیاں ہن تاں براہ مہربانی سسٹم ایڈمن نال رابطہ کرو۔"
 
 #: tracker/templates/tracker/import.html:14
 msgid "What kind of objects are you importing?"
-msgstr ""
+msgstr "تساں کیہو جہیاں شےئاں درآمد کریندے پئے او؟"
 
 #: tracker/templates/tracker/import.html:19
 #: tracker/templates/tracker/import.html:26
@@ -2428,11 +2429,11 @@ msgstr "ترجیحاں"
 
 #: tracker/templates/tracker/preferences.html:18
 msgid "Mute notifications"
-msgstr ""
+msgstr "اطلاعاں خاموش کرو"
 
 #: tracker/templates/tracker/preferences.html:38
 msgid "Ignore ack types"
-msgstr ""
+msgstr "ایک قسماں کوں نظرانداز کرو"
 
 #: tracker/templates/tracker/preferences.html:51
 msgid "Other"
@@ -2451,15 +2452,15 @@ msgstr "وکی میڈیا کھاتہ"
 
 #: tracker/templates/tracker/preferences.html:66
 msgid "Your account is connected to Wikimedia account"
-msgstr ""
+msgstr "تہاݙا کھاتہ ویکیمیڈیا کھاتے نال جڑیا ہویا اے۔"
 
 #: tracker/templates/tracker/preferences.html:76
 msgid "Disconnect Wikimedia account"
-msgstr ""
+msgstr "ویکیمیڈیا کھاتہ وکھ کرو"
 
 #: tracker/templates/tracker/preferences.html:80
 msgid "In order to disconnect your Wikimedia account, you first need to"
-msgstr ""
+msgstr "اپݨا ویکیمیڈیا کھاتہ وکھ کرݨ کیتے تساں کوں پہلے"
 
 #: tracker/templates/tracker/preferences.html:80
 #: tracker/templates/tracker/preferences.html:106
@@ -2468,23 +2469,23 @@ msgstr "پاس ورڈ مقرر کرو۔"
 
 #: tracker/templates/tracker/preferences.html:88
 msgid "Chapter account"
-msgstr ""
+msgstr "چیپٹر کھاتہ"
 
 #: tracker/templates/tracker/preferences.html:92
 msgid "Your account is connected to your chapter account"
-msgstr ""
+msgstr "تہاݙا کھاتہ تہاݙے چیپٹر کھاتے نال جڑیا ہویا اے۔"
 
 #: tracker/templates/tracker/preferences.html:102
 msgid "Disconnect chapter account"
-msgstr ""
+msgstr "چیپٹر کھاتہ وکھ کرو"
 
 #: tracker/templates/tracker/preferences.html:106
 msgid "In order to disconnect your chapter account, you first need to"
-msgstr ""
+msgstr "اپݨا چیپٹر کھاتہ وکھ کرݨ کیتے تساں کوں پہلے"
 
 #: tracker/templates/tracker/preferences.html:111
 msgid "Link chapter account"
-msgstr ""
+msgstr "چیپٹر کھاتہ جوڑو"
 
 #: tracker/templates/tracker/preferences.html:114
 msgid "Account actions"
@@ -2499,7 +2500,7 @@ msgstr "کھاتہ غیرفعال کرو"
 #: tracker/templates/tracker/sign_ticket.html:4
 #: tracker/templates/tracker/sign_ticket.html:7
 msgid "Add statutory declaration to"
-msgstr ""
+msgstr "قانونی اعلان شامل کرو"
 
 #: tracker/templates/tracker/sign_ticket.html:13
 #: tracker/templates/tracker/ticketack_add.html:21
@@ -2514,7 +2515,7 @@ msgstr "ٹکٹ شامل کرو"
 
 #: tracker/templates/tracker/subtopic_detail.html:16
 msgid "Total for this subtopic"
-msgstr ""
+msgstr "ایندا ذیلی موضوع کیتے کل"
 
 #: tracker/templates/tracker/tabular_formset.html:12
 msgid "delete"
@@ -2532,7 +2533,7 @@ msgstr "بݨ ڳیا"
 
 #: tracker/templates/tracker/ticket_common_detail.html:10
 msgid "unset"
-msgstr ""
+msgstr "نئیں گیا"
 
 #: tracker/templates/tracker/ticket_common_detail.html:15
 #: tracker/templates/tracker/ticket_common_detail.html:52
@@ -2550,11 +2551,11 @@ msgstr "رپورٹ یوآرایل"
 
 #: tracker/templates/tracker/ticket_common_detail.html:16
 msgid "No report filled"
-msgstr ""
+msgstr "کوئی رپورٹ نئیں بھری ڳئی۔"
 
 #: tracker/templates/tracker/ticket_common_detail.html:18
 msgid "Deposit"
-msgstr ""
+msgstr "ڈیپازٹ"
 
 #: tracker/templates/tracker/ticket_common_detail.html:19
 msgid "Event URL"
@@ -2562,7 +2563,7 @@ msgstr "ایونٹ یوآرایل"
 
 #: tracker/templates/tracker/ticket_common_detail.html:20
 msgid "Rating percentage"
-msgstr ""
+msgstr "ریٹنگ فیصد"
 
 #: tracker/templates/tracker/ticket_common_detail.html:22
 msgid "remove"
@@ -2575,7 +2576,7 @@ msgstr "تصدیق"
 
 #: tracker/templates/tracker/ticket_common_detail.html:33
 msgid "Supervisor notes"
-msgstr ""
+msgstr "نگرانی کنندہ دے نوٹ"
 
 #: tracker/templates/tracker/ticket_common_detail.html:36
 msgid "Media (old)"
@@ -2621,7 +2622,7 @@ msgstr "کل خرچے"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:4
 msgid "Copying preexpeditures"
-msgstr ""
+msgstr "پیشگی اخراجات دی نقل"
 
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:7
 msgid "Are you sure?"
@@ -2630,15 +2631,15 @@ msgstr "بھلا تہاکوں پک ہے؟"
 #: tracker/templates/tracker/ticket_copy_preexpeditures_confirm.html:9
 #, python-format
 msgid "\n	You are going to copy preexpeditures to expeditures for ticket <a href=\"%(ticket.get_absolure_url)s\">%(ticket)s</a>. Are you sure you want to do so?\n	"
-msgstr ""
+msgstr "\nتساں ٹکٹ <a href=\"%(ticket.get_absolure_url)s\">%(ticket)s</a> کیتے پیشگی اخراجات کوں اخراجات وچ نقل کرݨ آلے او۔ کیا تساں واقعی اینکوں کرݨ چاہندے او؟"
 
 #: tracker/templates/tracker/ticket_detail.html:15
 msgid "edit ticket"
-msgstr ""
+msgstr "ٹکٹ وچ ترمیم کرو"
 
 #: tracker/templates/tracker/ticket_detail.html:17
 msgid "edit in admin"
-msgstr ""
+msgstr "منتظم وچ ترمیم کرو"
 
 #: tracker/templates/tracker/ticket_detail.html:19
 msgid "duplicate"
@@ -2646,7 +2647,7 @@ msgstr "ڈپلیکیٹ"
 
 #: tracker/templates/tracker/ticket_detail.html:21
 msgid "add yourself as a driver"
-msgstr ""
+msgstr "اپݨے آپ کوں ڈرائیور طور تے شامل کرو"
 
 #: tracker/templates/tracker/ticket_detail.html:22
 msgid "show media"
@@ -2659,15 +2660,15 @@ msgstr "میڈیا منیج کرو"
 #: tracker/templates/tracker/ticket_detail.html:31
 #, python-format
 msgid "part of <a href=\"%(c_link)s\">cluster %(c_id)s</a>: total tickets %(total_tickets)s&nbsp;%(cr)s, total transactions %(total_transactions)s&nbsp;%(cr)s"
-msgstr ""
+msgstr "کلسٹر <a href=\"%(c_link)s\">%(c_id)s</a> دا حصہ: کل ٹکٹ %(total_tickets)s&nbsp;%(cr)s، کل ٹرانزیکشن %(total_transactions)s&nbsp;%(cr)s"
 
 #: tracker/templates/tracker/ticket_detail.html:41
 msgid "Associated transactions total"
-msgstr ""
+msgstr "منسلک ٹرانزیکشن دا کل"
 
 #: tracker/templates/tracker/ticket_detail.html:65
 msgid "As you are not an administrator, you can see only documents you uploaded below."
-msgstr ""
+msgstr "کیوں جو تساں منتظم نئیں، تساں صرف اوہ دستاویزات ݙیکھ سڳدے او جہڑے تساں ہیٹھاں اپلوڈ کیتے ہن۔"
 
 #: tracker/templates/tracker/ticket_detail.html:79
 #: tracker/templates/tracker/ticket_detail.html:83
@@ -2680,7 +2681,7 @@ msgstr "تبصرے"
 #: tracker/templates/tracker/ticket_detail.html:84
 #: tracker/templates/tracker/topic_detail.html:44
 msgid "There are no comments yet."
-msgstr ""
+msgstr "ایں تک کوئی تبصرہ نئیں۔"
 
 #: tracker/templates/tracker/ticket_detail.html:91
 #: tracker/templates/tracker/ticket_detail.html:93
@@ -2691,74 +2692,74 @@ msgstr "تبصرہ کرو"
 
 #: tracker/templates/tracker/ticket_detail.html:101
 msgid "Comments are only available to the ticket requestor, supervisors and chapter members."
-msgstr ""
+msgstr "تبصرے صرف ٹکٹ دی درخواست کنندہ، نگرانی کنندیاں تے چیپٹر ممبراں کیتے دستیاب ہن۔"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:4
 #: tracker/templates/tracker/ticket_expediture_import.html:12
 #: tracker/templates/tracker/ticket_expediture_import.html:102
 msgid "Import expenditures"
-msgstr ""
+msgstr "اخراجات درآمد کرو"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:10
 msgid "import"
-msgstr ""
+msgstr "درآمد کرو"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:17
 msgid "This ticket has not been pre-approved or approved yet."
-msgstr ""
+msgstr "ایہ ٹکٹ ایں تک نہ پیشگی منظور تھیا اے تے نہ منظور تھیا اے۔"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:24
 msgid "This ticket has rating percentage: "
-msgstr ""
+msgstr "ایں ٹکٹ دی ریٹنگ فیصد: "
 
 #: tracker/templates/tracker/ticket_expediture_import.html:42
 msgid "There are no uploaded documents."
-msgstr ""
+msgstr "کوئی اپلوڈ شدہ دستاویز نئیں۔"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:49
 msgid "Expenditures ready for import"
-msgstr ""
+msgstr "درآمد کیتے تیار اخراجات"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:60
 #: tracker/templates/tracker/ticket_expediture_import.html:121
 msgid "Target Account"
-msgstr ""
+msgstr "ہدف کھاتہ"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:76
 msgid "Error during import"
-msgstr ""
+msgstr "درآمد دے دوران خرابی"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:108
 msgid "There are no expenditures ready for import on this ticket. Make sure that all bank accounts are properly filled."
-msgstr ""
+msgstr "ایں ٹکٹ تے درآمد کیتے تیار کوئی خرچ نئیں۔ یقینی بݨاو کہ سارے بینک کھاتے ٹھیک طرح نال بھرے ہوئے ہن۔"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:113
 msgid "Imported expenditures"
-msgstr ""
+msgstr "درآمد شدہ اخراجات"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:114
 msgid "These expenditures are already imported."
-msgstr ""
+msgstr "ایہ اخراجات پہلے توں درآمد شدہ ہن۔"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:123
 msgid "Action"
-msgstr ""
+msgstr "عمل"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:143
 msgid "Are you sure you want to re-import this expenditure? The system cannot verify if the original Fio bank order was cancelled. This may result in duplicate payments."
-msgstr ""
+msgstr "کیا تساں ایں خرچ کوں ݙوبارہ درآمد کرݨا چاہندے او؟ نظام ایہ تصدیق نئیں کر سڳدا کہ اصل Fio بینک آرڈر منسوخ تھیا اے یا نئیں۔ ایندا نتیجہ ݙوہری ادائیگیاں تھی سڳدن۔"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:147
 msgid "Re-import"
-msgstr ""
+msgstr "ݙوبارہ درآمد کرو"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:159
 msgid "Expenditures waiting for data"
-msgstr ""
+msgstr "ڈیٹا دے منتظر اخراجات"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:160
 msgid "These expenditures will be ready for import after adding data."
-msgstr ""
+msgstr "ڈیٹا شامل کرݨ توں بعد ایہ اخراجات درآمد کیتے تیار تھی ویسن۔"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:166
 msgid "Reason"
@@ -2766,11 +2767,11 @@ msgstr "سبب"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:188
 msgid "Edit in admin"
-msgstr ""
+msgstr "منتظم وچ ترمیم کرو"
 
 #: tracker/templates/tracker/ticket_form.html:20
 msgid "preexpediture"
-msgstr ""
+msgstr "پیشگی خرچ"
 
 #: tracker/templates/tracker/ticket_form.html:25
 msgid "expediture"
@@ -2782,7 +2783,7 @@ msgstr "جمع کرواؤ"
 
 #: tracker/templates/tracker/ticket_media.html:4
 msgid "Manage media for"
-msgstr ""
+msgstr "کیتے میڈیا دا انتظام"
 
 #: tracker/templates/tracker/ticket_media.html:9
 msgid "Add new media"
@@ -2790,7 +2791,7 @@ msgstr "نواں میڈیا شامل کرو"
 
 #: tracker/templates/tracker/ticket_media.html:13
 msgid "Find by"
-msgstr ""
+msgstr "نال ݙھونݙھو"
 
 #: tracker/templates/tracker/ticket_media.html:16
 #: tracker/templates/tracker/ticket_media.html:25
@@ -2803,11 +2804,11 @@ msgstr "فائل ناں سابقہ"
 
 #: tracker/templates/tracker/ticket_media.html:30
 msgid "Number of images to fetch"
-msgstr ""
+msgstr "حاصل کرݨ والیاں تصویراں دی تعداد"
 
 #: tracker/templates/tracker/ticket_media.html:34
 msgid "Category to filter by"
-msgstr ""
+msgstr "فلٹر کرݨ کیتے زمرہ"
 
 #: tracker/templates/tracker/ticket_media.html:41
 msgid "Search"
@@ -2815,7 +2816,7 @@ msgstr "ڳولو"
 
 #: tracker/templates/tracker/ticket_media.html:45
 msgid "To select more images at once, select the first one, press Shift, and select the last one."
-msgstr ""
+msgstr "ہک ویلے وچ ودھ تصویراں منتخب کرݨ کیتے، پہلی منتخب کرو، Shift ݙباؤ، تے آخری منتخب کرو۔"
 
 #: tracker/templates/tracker/ticket_media.html:47
 msgid "Select all"
@@ -2823,11 +2824,11 @@ msgstr "سبھ چݨو"
 
 #: tracker/templates/tracker/ticket_media.html:48
 msgid "Deselect all"
-msgstr ""
+msgstr "ساریاں کوں نامنتخب کرو"
 
 #: tracker/templates/tracker/ticket_media.html:49
 msgid "Invert selection"
-msgstr ""
+msgstr "منتخب کوں الٹاؤ"
 
 #: tracker/templates/tracker/ticket_media.html:62
 msgid "Load more"
@@ -2839,27 +2840,27 @@ msgstr "لوڈ تھیندا پئے۔۔۔"
 
 #: tracker/templates/tracker/ticket_media.html:68
 msgid "Choose selected photos"
-msgstr ""
+msgstr "منتخب تصویراں چݨو"
 
 #: tracker/templates/tracker/ticket_media.html:71
 msgid "Remove existing media"
-msgstr ""
+msgstr "موجودہ میڈیا ہٹاؤ"
 
 #: tracker/templates/tracker/ticket_media.html:72
 msgid "It can take up to five minutes for the images you added to show here."
-msgstr ""
+msgstr "تساں جو تصویراں شامل کیتیاں ہن انہاں کوں اتھاں نظر آوݨ وچ پنج منٹ تک لڳ سڳدن۔"
 
 #: tracker/templates/tracker/ticket_media.html:80
 msgid "Delete selected photos"
-msgstr ""
+msgstr "منتخب تصویراں حذف کرو"
 
 #: tracker/templates/tracker/ticket_show_media.html:3
 msgid "Show media for"
-msgstr ""
+msgstr "کیتے میڈیا ݙکھاؤ"
 
 #: tracker/templates/tracker/ticket_show_media.html:9
 msgid "List of linked media"
-msgstr ""
+msgstr "منسلک میڈیا دی فہرست"
 
 #: tracker/templates/tracker/ticket_show_media.html:10
 msgid "Last updated"
@@ -2871,7 +2872,7 @@ msgstr "اپ ݙیٹ"
 
 #: tracker/templates/tracker/ticket_show_media.html:11
 msgid "Page will be updated within 24 hours."
-msgstr ""
+msgstr "صفحہ 24 گھنٹے دے اندر اپڈیٹ تھی ویسی۔"
 
 #: tracker/templates/tracker/ticket_show_media.html:15
 msgid "File name"
@@ -2887,23 +2888,23 @@ msgstr "ونکیاں"
 
 #: tracker/templates/tracker/ticket_show_media.html:18
 msgid "Used in"
-msgstr ""
+msgstr "ورتیا ڳیا"
 
 #: tracker/templates/tracker/ticket_show_media.html:49
 msgid "Number of usages"
-msgstr ""
+msgstr "ورتݨ دی تعداد"
 
 #: tracker/templates/tracker/ticket_show_media.html:53
 msgid "Number of Wikidata items"
-msgstr ""
+msgstr "ویکی ڈیٹا آئٹماں دی تعداد"
 
 #: tracker/templates/tracker/ticket_show_media.html:57
 msgid "Number of unique Wikidata items"
-msgstr ""
+msgstr "منفرد ویکی ڈیٹا آئٹماں دی تعداد"
 
 #: tracker/templates/tracker/ticket_show_media.html:63
 msgid "Photos per category"
-msgstr ""
+msgstr "فی زمرہ تصویراں"
 
 #: tracker/templates/tracker/ticket_show_media.html:67
 msgid "Category"
@@ -2916,7 +2917,7 @@ msgstr "عدد"
 #: tracker/templates/tracker/ticket_table.html:21
 #: tracker/templates/tracker/user_list.html:13
 msgid "Media count"
-msgstr ""
+msgstr "میڈیا دی تعداد"
 
 #: tracker/templates/tracker/ticketack_add.html:7
 #: tracker/templates/tracker/ticketack_confirm_delete.html:7
@@ -2939,53 +2940,53 @@ msgstr "ولوں شامل تھیا"
 #: tracker/templates/tracker/topic_content_acks_per_user.html:4
 #: tracker/templates/tracker/topic_content_acks_per_user.html:8
 msgid "Topic ack overview"
-msgstr ""
+msgstr "موضوع دا ایک جائزہ"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:12
 msgid "Supervisor"
-msgstr ""
+msgstr "نگرانی کنندہ"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:15
 msgid "Ack count"
-msgstr ""
+msgstr "ایک دی تعداد"
 
 #: tracker/templates/tracker/topic_content_acks_per_user.html:27
 msgid "download csv"
-msgstr ""
+msgstr "csv ڈاؤن لوڈ کرو"
 
 #: tracker/templates/tracker/topic_detail.html:16
 msgid "Topic is open for new tickets"
-msgstr ""
+msgstr "موضوع نویاں ٹکٹاں کیتے کھلا اے"
 
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "Topic administrators"
-msgstr ""
+msgstr "موضوع دے منتظمین"
 
 #: tracker/templates/tracker/topic_detail.html:19
 msgid "Topic administrator"
-msgstr ""
+msgstr "موضوع دا منتظم"
 
 #: tracker/templates/tracker/topic_detail.html:35
 msgid "Total for this topic"
-msgstr ""
+msgstr "ایں موضوع کیتے کل"
 
 #: tracker/templates/tracker/topic_finance.html:4
 #: tracker/templates/tracker/topic_finance.html:8
 msgid "Topic finance"
-msgstr ""
+msgstr "موضوع مالیات"
 
 #: tracker/templates/tracker/topic_finance.html:13
 msgid "Amounts per payment status"
-msgstr ""
+msgstr "ادائیگی دی حالت مطابق رقم"
 
 #: tracker/templates/tracker/topic_finance.html:34
 #, python-format
 msgid "Total %(gname)s"
-msgstr ""
+msgstr "کل %(gname)s"
 
 #: tracker/templates/tracker/topic_finance.html:44
 msgid "Marked topics involve partial payments that have no clear relation to topic, and have been split equally among possible candidates."
-msgstr ""
+msgstr "نشان زدہ موضوعات وچ جزوی ادائیگیاں شامل ہن جن دا موضوع نال کوئی واضح تعلق نئیں تے او ممکنہ امیدواراں وچ برابر ونڈیاں ڳئیاں ہن۔"
 
 #: tracker/templates/tracker/topic_table.html:11
 msgid "Administrators"
@@ -3006,27 +3007,27 @@ msgstr "اپلوڈ"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:34
 msgid "upload and add another"
-msgstr ""
+msgstr "اپلوڈ کرو تے بیا شامل کرو"
 
 #: tracker/templates/tracker/upload_ticket_doc.html:35
 msgid "This document, including its file name and description, will be visible only to the ticket owner and specially privileged users."
-msgstr ""
+msgstr "ایہ دستاویز، اس دے فائل ناں تے تفصیل سمیت، صرف ٹکٹ دے مالک تے خاص اختیاراں آلے ورتݨ آلیاں کوں ݙکھائی ݙیسی۔"
 
 #: tracker/templates/tracker/user_deactivate.html:14
 msgid "Deactivating your account will mean that it is no longer possible to login."
-msgstr ""
+msgstr "تہاݙا کھاتہ غیر فعال کرݨ دا مطلب اے ہوسی کہ ہݨ لاگ اِن کرݨ ممکن نئیں ہوسی۔"
 
 #: tracker/templates/tracker/user_deactivate.html:15
 msgid "Deactivation is irreversible without the intervention of an admin."
-msgstr ""
+msgstr "غیر فعال کرݨ منتظم دی مداخلت بغیر واپس نئیں تھی سڳدی۔"
 
 #: tracker/templates/tracker/user_deactivate.html:16
 msgid "You can contact an admin by replying to the email which confirms the deactivation."
-msgstr ""
+msgstr "تساں غیر فعال کرݨ دی تصدیق کرݨ آلی ای میل دا جواب ݙے تے منتظم نال رابطہ کر سڳدے او۔"
 
 #: tracker/templates/tracker/user_deactivate.html:18
 msgid "The following account will be deactivated:"
-msgstr ""
+msgstr "ہےتھلے ݙتے ڳئے کھاتے کوں غیر فعال کیتا ویسی:"
 
 #: tracker/templates/tracker/user_deactivate.html:20
 msgid "Username:"
@@ -3042,23 +3043,23 @@ msgstr "میݙا کھاتہ غیرفعال کرو"
 
 #: tracker/templates/tracker/user_deactivate_email.html:3
 msgid "Tracker account deactivated"
-msgstr ""
+msgstr "Tracker کھاتہ غیر فعال کر ݙتا ڳیا"
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "Your tracker account with username"
-msgstr ""
+msgstr "تہاݙا Tracker کھاتہ ورتݨ آلے ناں نال"
 
 #: tracker/templates/tracker/user_deactivate_email.html:5
 msgid "has been deactivated."
-msgstr ""
+msgstr "غیر فعال کر ݙتا ڳیا اے۔"
 
 #: tracker/templates/tracker/user_deactivate_email.html:6
 msgid "Deactivation cannot be undone without the intervention of an admin."
-msgstr ""
+msgstr "غیر فعال کرݨ منتظم دی مداخلت بغیر واپس نئیں تھی سڳدی۔"
 
 #: tracker/templates/tracker/user_deactivate_email.html:7
 msgid "You can contact an admin by replying to this email."
-msgstr ""
+msgstr "تساں ایں ای میل دا جواب ݙے تے منتظم نال رابطہ کر سڳدے او۔"
 
 #: tracker/templates/tracker/user_deactivate_email.html:10
 msgid "Tracker"
@@ -3066,15 +3067,15 @@ msgstr "ٹریکر"
 
 #: tracker/templates/tracker/user_detail.html:13
 msgid "Total for this user"
-msgstr ""
+msgstr "ایں ورتݨ آلے کیتے کل"
 
 #: tracker/templates/tracker/user_detail.html:31
 msgid "Transactions total"
-msgstr ""
+msgstr "ٹرانزیکشن کل"
 
 #: tracker/templates/tracker/user_detail.html:32
 msgid "Accepted expeditures total"
-msgstr ""
+msgstr "منظور شدہ اخراجات کل"
 
 #: tracker/templates/tracker/user_details_change.html:4
 #: tracker/templates/tracker/user_details_change.html:9
@@ -3083,7 +3084,7 @@ msgstr "میݙیاں تفصیلاں"
 
 #: tracker/templates/tracker/user_list.html:22
 msgid "Tickets not assigned to any tracker user"
-msgstr ""
+msgstr "ٹکٹ جیڑھے Tracker دے کسے ورتݨ آلے کوں تفویض نئیں تھئے"
 
 #: tracker/templates/tracker/user_list.html:22
 msgid "unassigned"
@@ -3100,46 +3101,46 @@ msgstr "یکے"
 
 #: tracker/validators.py:11
 msgid "Account number must be a number."
-msgstr ""
+msgstr "کھاتے دا نمبر ضرور ہک عدد ہووے۔"
 
 #: tracker/validators.py:19
 msgid "Incorrect account number."
-msgstr ""
+msgstr "کھاتے دا نمبر غلط اے۔"
 
 #: tracker/validators.py:26
 msgid "Incorrect bank code."
-msgstr ""
+msgstr "بینک دا کوڈ غلط اے۔"
 
 #: tracker/validators.py:38
 msgid "Invalid account format."
-msgstr ""
+msgstr "کھاتے دا فارمیٹ غلط اے۔"
 
 #: tracker/validators.py:48
 msgid "Incorrect account prefix."
-msgstr ""
+msgstr "کھاتے دا سابقہ غلط اے۔"
 
 #: tracker/views.py:59
 #, python-format
 msgid "User %s created."
-msgstr ""
+msgstr "ورتݨ آلا %s بݨایا ڳیا۔"
 
 #: tracker/views.py:80
 msgid "Comment posted, thank you."
-msgstr ""
+msgstr "تبصرہ پوسٹ کیتا ڳیا، شکریہ۔"
 
 #: tracker/views.py:122
 msgid "You cannot add ack to a ticket you do not own."
-msgstr ""
+msgstr "تساں اوں ٹکٹ تے ایک نئیں لا سڳدے جیڑھا تہاݙے کول نئیں۔"
 
 #: tracker/views.py:136
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added. However, you have no bank account saved. Without it, we can't reimburse you. Go to <a href=\"%(accounts_url)s\">your bank accounts</a> to add one."
-msgstr ""
+msgstr "ٹکٹ %(ticket_id)s دی تصدیق \"%(confirmation)s\" شامل کیتی ڳئی اے۔ پر تہاݙے کول کوئی بینک کھاتہ محفوظ نئیں۔ ایندے بغیر اساں تہاکوں ادائیگی نئیں کر سڳدے۔ <a href=\"%(accounts_url)s\">ایتھے</a> ونڄ تے اپݨا بینک کھاتہ شامل کرو۔"
 
 #: tracker/views.py:144
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added."
-msgstr ""
+msgstr "ٹکٹ %(ticket_id)s دی تصدیق \"%(confirmation)s\" شامل کیتی ڳئی اے۔"
 
 #: tracker/views.py:177 tracker/views.py:1953
 msgid "You cannot edit this"
@@ -3148,55 +3149,55 @@ msgstr "تساں ایندے وچ تبدیلی نہوے کر سڳدے"
 #: tracker/views.py:182
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been deleted."
-msgstr ""
+msgstr "ٹکٹ %(ticket_id)s دی تصدیق \"%(confirmation)s\" حذف کیتی ڳئی اے۔"
 
 #: tracker/views.py:232
 msgid "Statutory declaration"
-msgstr ""
+msgstr "قانونی اعلان"
 
 #: tracker/views.py:279
 msgid "Your deposit is bigger than your preexpeditures"
-msgstr ""
+msgstr "تہاݙی جمع تہاݙے پیشگی اخراجات توں وݙی اے۔"
 
 #: tracker/views.py:296
 msgid "You are required to do statutory declaration"
-msgstr ""
+msgstr "تساں کوں قانونی اعلان کرݨا ضروری اے۔"
 
 #: tracker/views.py:312
 msgid "Subtopic must belong to the topic you used. You probably have JavaScript turned off."
-msgstr ""
+msgstr "ذیلی موضوع اوں موضوع نال ہونا چاہیدا جیڑھا تساں ورتیا اے۔ شاید تہاݙے کول JavaScript بند اے۔"
 
 #: tracker/views.py:365
 msgid "Saved account"
-msgstr ""
+msgstr "محفوظ شدہ کھاتہ"
 
 #: tracker/views.py:365
 msgid "Enter manually"
-msgstr ""
+msgstr "ہتھ نال درج کرو"
 
 #: tracker/views.py:368
 msgid "Variable symbol"
-msgstr ""
+msgstr "متغیر علامت"
 
 #: tracker/views.py:369
 msgid "Specific symbol"
-msgstr ""
+msgstr "مخصوص علامت"
 
 #: tracker/views.py:370
 msgid "Constant symbol"
-msgstr ""
+msgstr "مستقل علامت"
 
 #: tracker/views.py:485
 msgid "You cannot edit this expenditure."
-msgstr ""
+msgstr "تساں ایں خرچے وچ ترمیم نئیں کر سڳدے۔"
 
 #: tracker/views.py:549
 msgid "We've updated your preferences"
-msgstr ""
+msgstr "اساں تہاݙیاں ترجیحات اپڈیٹ کیتیاں ہن۔"
 
 #: tracker/views.py:591
 msgid "Please enter your password to confirm the deactivation of your account."
-msgstr ""
+msgstr "اپݨے کھاتے دے غیر فعال کرݨ دی تصدیق کیتے اپݨا پاس ورڈ لکھو۔"
 
 #: tracker/views.py:606
 msgid "Account deactivation"
@@ -3213,17 +3214,17 @@ msgstr "پاس ورڈ غلط ہے۔"
 #: tracker/views.py:648
 #, python-format
 msgid "Ticket's %s watching settings are changed."
-msgstr ""
+msgstr "ٹکٹ دیاں %s نگرانی دیاں ترتیبات بدل ݙتیاں ڳئیاں ہن۔"
 
 #: tracker/views.py:697
 #, python-format
 msgid "Topic's %s watching settings are changed."
-msgstr ""
+msgstr "موضوع دیاں %s نگرانی دیاں ترتیبات بدل ݙتیاں ڳئیاں ہن۔"
 
 #: tracker/views.py:727
 #, python-format
 msgid "%s's watching settings are changed."
-msgstr ""
+msgstr "%s دیاں نگرانی دیاں ترتیبات بدل ݙتیاں ڳئیاں ہن۔"
 
 #: tracker/views.py:773
 #, python-format
@@ -3232,27 +3233,27 @@ msgstr "ٹکٹ %s تخلیق تھئی"
 
 #: tracker/views.py:821 tracker/views.py:945
 msgid "One or more fields are invalid. Check them to get more information."
-msgstr ""
+msgstr "ہک یا زیادہ کھیتے غلط ہن۔ انہاں کوں ݙیکھو تے ݙوبارہ کوشش کرو۔"
 
 #: tracker/views.py:832
 msgid "I confirm the above"
-msgstr ""
+msgstr "میں اُتے لکھی گل دی تصدیق کریندا ہاں۔"
 
 #: tracker/views.py:839
 msgid "You cannot add statutory declaration to a ticket that does not support it."
-msgstr ""
+msgstr "تساں اینجھے ٹکٹ وچ قانونی اعلان شامل نئیں کر سڳدے جیڑھا اینڈا سپورٹ نئیں کریندا۔"
 
 #: tracker/views.py:841
 msgid "You cannot use this view to add a statutory declaration to a ticket you created. Use edit ticket button for this."
-msgstr ""
+msgstr "تساں ایں ویلے نال اپݨے بݨائے ٹکٹ وچ قانونی اعلان شامل نئیں کر سڳدے۔ اینڈے دی تھاں ٹکٹ وچ ترمیم آلا بٹݨ ورتو۔"
 
 #: tracker/views.py:848
 msgid "You successfully added a statutory declaration to this ticket."
-msgstr ""
+msgstr "تساں ایں ٹکٹ وچ قانونی اعلان کامیابی نال شامل کیتا اے۔"
 
 #: tracker/views.py:851
 msgid "You successfully removed a statutory declaration from this ticket."
-msgstr ""
+msgstr "تساں ایں ٹکٹ توں قانونی اعلان کامیابی نال ہٹا ݙتا اے۔"
 
 #: tracker/views.py:877 tracker/views.py:888
 msgid "You cannot edit this ticket"
@@ -3269,78 +3270,78 @@ msgstr "فائل"
 
 #: tracker/views.py:989
 msgid "You cannot edit this ticket documents, as it's no longer editable"
-msgstr ""
+msgstr "تساں ایں ٹکٹ دیاں دستاویزات وچ ترمیم نئیں کر سڳدے، کیوں جو او ہݨ قابلِ ترمیم نئیں۔"
 
 #: tracker/views.py:998
 msgid "You cannot see this ticket's documents."
-msgstr ""
+msgstr "تساں ایں ٹکٹ دیاں دستاویزات نئیں ݙیکھ سڳدے۔"
 
 #: tracker/views.py:1025
 #, python-format
 msgid "Document changes for ticket %s saved."
-msgstr ""
+msgstr "ٹکٹ %s دیاں دستاویزات دیاں تبدیلیاں محفوظ کر ݙتیاں ڳئیاں۔"
 
 #: tracker/views.py:1048
 msgid "There is already a document with that name. Please try to reupload with a different name."
-msgstr ""
+msgstr "ہک دستاویز پہلے ہی اینھے ناں نال موجود اے۔ براہ مہربانی بیا ناں دے نال ݙوبارہ اپلوڈ کرݨ دی کوشش کرو۔"
 
 #: tracker/views.py:1060
 #, python-format
 msgid "File %(filename)s has been saved."
-msgstr ""
+msgstr "فائل %(filename)s محفوظ کر ݙتی ڳئی اے۔"
 
 #: tracker/views.py:1224
 msgid "Your details have been saved."
-msgstr ""
+msgstr "تہاݙیاں تفصیلات محفوظ کر ݙتیاں ڳئیاں ہن۔"
 
 #: tracker/views.py:1263
 msgid "Bank account was succesfully created."
-msgstr ""
+msgstr "بینک کھاتہ کامیابی نال بݨایا ڳیا اے۔"
 
 #: tracker/views.py:1279
 msgid "Bank account was successfully removed."
-msgstr ""
+msgstr "بینک کھاتہ کامیابی نال ہٹا ݙتا ڳیا اے۔"
 
 #: tracker/views.py:1725
 msgid "You must be staffer in order to export users"
-msgstr ""
+msgstr "ورتݨ آلے ایکسپورٹ کرݨ کیتے تساں عملے دے رکن ہوݨے چاہیدے او۔"
 
 #: tracker/views.py:1727
 msgid "You must fill the form validly"
-msgstr ""
+msgstr "تساں فارم درست طریقے نال بھرݨا اے۔"
 
 #: tracker/views.py:1746
 #, python-format
 msgid "You do not have permission to import more than %(input_row_limit)s rows. First %(input_row_limit)s rows have already been imported."
-msgstr ""
+msgstr "تساں کوں %(input_row_limit)s توں زیادہ قطاراں امپورٹ کرݨ دی اجازت نئیں۔ پہلیاں %(input_row_limit)s قطاراں امپورٹ کر ݙتیاں ڳئیاں ہن۔"
 
 #: tracker/views.py:1773
 msgid "You must be a staffer in order to be able to import topics."
-msgstr ""
+msgstr "موضوعات امپورٹ کرݨ دے قابل ہوݨ کیتے تساں عملے دے رکن ہوݨے چاہیدے او۔"
 
 #: tracker/views.py:1806
 msgid "You must be a staffer in order to be able to import grants."
-msgstr ""
+msgstr "گرانٹس امپورٹ کرݨ دے قابل ہوݨ کیتے تساں عملے دے رکن ہوݨے چاہیدے او۔"
 
 #: tracker/views.py:1836 tracker/views.py:1850
 msgid "You can't add preexpenses to a ticket that you did not create."
-msgstr ""
+msgstr "تساں اینجھے ٹکٹ وچ پیشگی اخراجات شامل نئیں کر سڳدے جیڑھا تساں نئیں بݨایا۔"
 
 #: tracker/views.py:1872
 msgid "You can't add media items to a ticket that you did not create."
-msgstr ""
+msgstr "تساں اینجھے ٹکٹ وچ میڈیا آئٹماں شامل نئیں کر سڳدے جیڑھا تساں نئیں بݨایا۔"
 
 #: tracker/views.py:1875
 msgid "You must be a superuser in order to be able to import users."
-msgstr ""
+msgstr "ورتݨ آلے امپورٹ کرݨ دے قابل ہوݨ کیتے تساں superuser ہوݨے چاہیدے او۔"
 
 #: tracker/views.py:1893
 msgid "The form has returned strange values. Please contact the systemadmin and tell him what you tried to do."
-msgstr ""
+msgstr "فارم نے عجیب قدریں واپس کیتیاں ہن۔ براہ مہربانی systemadmin نال رابطہ کرو تے اینکوں دسو کہ تساں کیا کرݨ دی کوشش کیتی ہئی۔"
 
 #: tracker/views.py:1895
 msgid "Your CSV file was imported."
-msgstr ""
+msgstr "تہاݙی CSV فائل امپورٹ کر ݙتی ڳئی اے۔"
 
 #: tracker/views.py:1903
 msgid "Name of a ticket"
@@ -3356,7 +3357,7 @@ msgstr "گرانٹ دا ناں"
 
 #: tracker/views.py:1908
 msgid "Form description"
-msgstr ""
+msgstr "فارم دی تفصیل"
 
 #: tracker/views.py:1913
 msgid "Full name"
@@ -3376,48 +3377,48 @@ msgstr "پاس ورڈ"
 
 #: tracker/views.py:1960
 msgid "Preexpeditures were succesfully copied to expeditures."
-msgstr ""
+msgstr "پیشگی اخراجات کامیابی نال اخراجات وچ نقل کر ݙتے ڳئے ہن۔"
 
 #: tracker/views.py:1976
 msgid "Executing API call with any action than whitelisted is prohibited."
-msgstr ""
+msgstr "وائٹ لسٹ وچ شامل نہ ہووݨ آلی کوئی وی API کال ممنوع اے۔"
 
 #: tracker/views.py:1987
 msgid "No media to show are available"
-msgstr ""
+msgstr "ݙکھاوݨ کیتے کوئی میڈیا دستیاب نئیں۔"
 
 #: tracker/views.py:2007
 msgid "Updating of medias for this ticket was successfully scheduled."
-msgstr ""
+msgstr "ایندا ٹکٹ کیتے میڈیا دی تازہ کاری کامیابی نال طے کر ݙتی ڳئی اے۔"
 
 #: tracker/views.py:2012
 msgid "List of media was successfully updated"
-msgstr ""
+msgstr "میڈیا دی فہرست کامیابی نال تازہ کر ݙتی ڳئی اے۔"
 
 #: tracker/views.py:2017
 msgid "There was an error while processing your request"
-msgstr ""
+msgstr "تہاݙی گذارش تے کارروائی کریندے ہوئیں خرابی تھی ڳئی۔"
 
 #: tracker/views.py:2051
 msgid "Import status was successfully cleared."
-msgstr ""
+msgstr "امپورٹ دی حیثیت کامیابی نال صاف کر ݙتی ڳئی اے۔"
 
 #: tracker/views.py:2053
 msgid "Cannot revert import: missing import info."
-msgstr ""
+msgstr "امپورٹ واپس نئیں کر سڳدا: امپورٹ دی معلومات غائب اے۔"
 
 #: tracker/views.py:2133
 msgid "Invalid or past execution date selected."
-msgstr ""
+msgstr "غلط یا ماضی دی عملدرآمد دی تاریخ چݨی ڳئی اے۔"
 
 #: tracker/views.py:2140
 msgid "No valid expenditures selected for import."
-msgstr ""
+msgstr "امپورٹ کیتے کوئی درست اخراجات نئیں چݨے ڳئے۔"
 
 #: tracker/views.py:2146
 #, python-brace-format
 msgid "Successfully sent {} payments to Fio API."
-msgstr ""
+msgstr "کامیابی نال {} ادائیگیاں Fio API کوں بھیج ݙتیاں ڳئیاں۔"
 
 #: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
@@ -3430,11 +3431,11 @@ msgstr "لاگ ان"
 
 #: users/templates/users/login.html:7
 msgid "You need to log in to access the following page."
-msgstr ""
+msgstr "ایندا صفحے تک رسائی کیتے تساں کوں لاگ ان کرݨا پوسی۔"
 
 #: users/templates/users/login.html:10
 msgid "Your username and password didn't match. Please try again."
-msgstr ""
+msgstr "تہاݙا ورتݨ ناں تے پاسورڈ میچ نئیں کیتا۔ براہ مہربانی ݙوبارہ کوشش کرو۔"
 
 #: users/templates/users/login.html:28 users/templates/users/register.html:20
 msgid "Or..."
@@ -3477,16 +3478,16 @@ msgstr "اشاریہ تے ون٘ڄو۔"
 #: users/templates/users/oauth_invalid.html:8
 #, python-format
 msgid "Connection to %(provider)s account is no longer valid"
-msgstr ""
+msgstr "%(provider)s کھاتے نال کنکشن ہݨ درست نئیں رہیا۔"
 
 #: users/templates/users/oauth_invalid.html:9
 msgid "To keep Tracker fully working, you should refresh the connection, by clicking the button below"
-msgstr ""
+msgstr "Tracker کوں پوری طرحاں کم کرݨ کیتے، تساں کوں ہیٹھلا بٹن دبا کے کنکشن تازہ کرݨا چاہیدا اے۔"
 
 #: users/templates/users/oauth_invalid.html:10
 #, python-format
 msgid "Refresh connection with %(provider)s"
-msgstr ""
+msgstr "%(provider)s نال کنکشن تازہ کرو۔"
 
 #: users/templates/users/password_change.html:5
 #: users/templates/users/password_change.html:16 users/views.py:150
@@ -3496,17 +3497,17 @@ msgstr "پاس ورڈ تبدیلی"
 #: users/templates/users/password_change.html:12
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "براہ مہربانی ہیٹھلی خرابی درست کرو۔"
+msgstr[1] "براہ مہربانی ہیٹھلیاں خرابیاں درست کرو۔"
 
 #: users/templates/users/password_change.html:19
 msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
-msgstr ""
+msgstr "براہ مہربانی حفاظتی خاطر پہلے اپݨا پرانا پاسورڈ لکھو، تے پھر اپݨا نواں پاسورڈ ݙو واری لکھو تاکہ اساں تصدیق کر سڳوں کہ تساں اینکوں ٹھیک لکھا اے۔"
 
 #: users/templates/users/password_change.html:21
 #: users/templates/users/password_reset_confirm.html:12
 msgid "Please enter your new password twice so we can verify you typed it in correctly."
-msgstr ""
+msgstr "براہ مہربانی اپݨا نواں پاسورڈ ݙو واری لکھو تاکہ اساں تصدیق کر سڳوں کہ تساں اینکوں ٹھیک لکھا اے۔"
 
 #: users/templates/users/password_change.html:33
 msgid "New password"
@@ -3538,7 +3539,7 @@ msgstr "پاسورڈ ولدا ٹھیک کرو"
 
 #: users/templates/users/password_reset.html:10
 msgid "Forgotten your password? Enter your e-mail address below, and we'll e-mail instructions for setting a new one."
-msgstr ""
+msgstr "کیا تساں اپݨا پاسورڈ بھل ڳئے او؟ اپݨا ای میل پتہ ہیٹھاں لکھو، تے اساں نواں پاسورڈ مقرر کرݨ دیاں ہدایات ای میل کروں سوں۔"
 
 #: users/templates/users/password_reset.html:14
 msgid "E-mail address:"
@@ -3555,7 +3556,7 @@ msgstr "پاس ورڈ ٹھیک کرݨ مکمل"
 
 #: users/templates/users/password_reset_complete.html:10
 msgid "Your password has been set. You may go ahead and log in now."
-msgstr ""
+msgstr "تہاݙا پاسورڈ مقرر تھی ڳیا اے۔ تساں ہݨ اڳوں ودھ کے لاگ ان کر سڳدے او۔"
 
 #: users/templates/users/password_reset_complete.html:12
 msgid "Log in"
@@ -3575,11 +3576,11 @@ msgstr "پاس ورڈ دی تصدیق کرو:"
 
 #: users/templates/users/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
-msgstr ""
+msgstr "پاسورڈ ری سیٹ ناکام"
 
 #: users/templates/users/password_reset_confirm.html:26
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
-msgstr ""
+msgstr "پاسورڈ ری سیٹ آلا لنک غلط ہئی، شاید اوندے پہلے ہی استعمال تھیوݨ پاروں۔ براہ مہربانی نویں پاسورڈ ری سیٹ دی درخواست کرو۔"
 
 #: users/templates/users/password_reset_done.html:4
 #: users/templates/users/password_reset_done.html:8
@@ -3588,20 +3589,20 @@ msgstr "پاس ورڈ کامیابی نال ٹھیک تھی ڳیا"
 
 #: users/templates/users/password_reset_done.html:10
 msgid "We've e-mailed you instructions for setting your password to the e-mail address you submitted. You should be receiving it shortly."
-msgstr ""
+msgstr "اساں تساں دے درج کیتے ہوئے ای میل پتے تے تہاݙا پاسورڈ مقرر کرݨ دیاں ہدایات ای میل کیتیاں ہن۔ تہاکوں او جلدی ملݨیاں چاہیدیاں ہن۔"
 
 #: users/templates/users/password_reset_email.html:2
 #, python-format
 msgid "You're receiving this e-mail because you requested a password reset for your user account at %(site_name)s."
-msgstr ""
+msgstr "تہاکوں ایہ ای میل اوں پاروں موصول تھیندی پئی اے کہ تساں %(site_name)s تے اپݨے ورتݨ کھاتے کیتے پاسورڈ ری سیٹ دی درخواست کیتی ہئی۔"
 
 #: users/templates/users/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr ""
+msgstr "براہ مہربانی ہیٹھلے صفحے تے ونڄو تے نواں پاسورڈ چݨو:"
 
 #: users/templates/users/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
-msgstr ""
+msgstr "تہاݙا ورتݨ ناں، جے تساں بھل ڳئے او:"
 
 #: users/templates/users/password_reset_email.html:10
 msgid "Thanks for using our site!"
@@ -3622,21 +3623,21 @@ msgstr "پہلے کھاتہ ہے پیا؟"
 
 #: users/views.py:61
 msgid "Your own name for this account, for example \"Personal account\". It helps you to select the correct account when you ask for a payment."
-msgstr ""
+msgstr "ایندا کھاتے کیتے تہاݙا اپݨا ناں، مثال دے طور تے \"ذاتی کھاتہ\"۔ جڈاں تساں ادائیگی دی درخواست کرو تاں اینڈے نال تساں کوں ٹھیک کھاتہ چݨݨ وچ مدد ملدی اے۔"
 
 #: users/views.py:63
 msgid "The part of the account number before the dash. Many accounts have no prefix; then leave this field empty."
-msgstr ""
+msgstr "ڈیش توں پہلے آلا کھاتہ نمبر دا حصہ۔ بہوں سارے کھاتیاں وچ کوئی سابقہ نئیں ہوندا؛ اوں ویلے ایندا فیلڈ خالی چھوڑ ݙیو۔"
 
 #: users/views.py:65
 msgid "The part of the account number before the slash."
-msgstr ""
+msgstr "سلیش توں پہلے آلا کھاتہ نمبر دا حصہ۔"
 
 #: users/views.py:66
 msgid "The four-digit code of your bank, after the slash. For example 0800."
-msgstr ""
+msgstr "تہاݙے بینک دا چار ہندساں آلا کوڈ، سلیش دے بعد۔ مثال دے طور تے 0800۔"
 
 #: users/views.py:106
 msgid "Will be used for password recovery and notifications, if you enable them."
-msgstr ""
+msgstr "جے تساں انہاں کوں فعال کرو تاں ایندا پاسورڈ بحالی تے نوٹیفیکیشناں کیتے استعمال تھیسی۔"
 

@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-10-15 12:07:06+0000\n"
+"PO-Revision-Date: 2026-10-19 13:51:45+0000\n"
 "X-POT-Import-Date: 2026-09-14 06:31:07+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -649,7 +649,7 @@ msgstr "نص موقّع"
 
 #: tracker/models.py:269
 msgid "updated"
-msgstr "تم التحديث"
+msgstr "مُحدث"
 
 #: tracker/models.py:270
 msgid "media updated"

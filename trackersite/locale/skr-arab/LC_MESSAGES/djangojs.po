@@ -2,10 +2,11 @@
 # Exported from translatewiki.net
 #
 # Author: Saraiki
+# Author: Tauqeerkhansurani
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-10-15 12:07:06+0000\n"
+"PO-Revision-Date: 2026-10-19 13:51:45+0000\n"
 "X-POT-Import-Date: 2022-07-04 06:14:51+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,17 +27,17 @@ msgstr "فائل ناں سابقہ"
 
 #: static/commons-selection.js:184
 msgid "Unknown error happened while fetching images you uploaded. Please contact the server admin."
-msgstr ""
+msgstr "تہاݙے اپلوڈ کیتیاں تصویراں حاصل کرݨ ویلے کوئی نامعلوم خرابی تھی ڳئی اے۔ براہ مہربانی سرور ایڈمن نال رابطہ کرو۔"
 
 #: static/commons-selection.js:373
 msgid "Wikimedia Commons returned the following error"
-msgstr ""
+msgstr "ویکیمیڈیا کامنز ہیٹھلی خرابی واپس کیتی۔"
 
 #: static/commons-selection.js:388
 msgid "Specified account does not have any uploads at Wikimedia Commons. Upload some files first!"
-msgstr ""
+msgstr "مخصوص کھاتے وچ ویکیمیڈیا کامنز تے کوئی اپلوڈ نئیں۔ پہلے کجھ فائلاں اپلوڈ کرو!"
 
 #: static/commons-selection.js:393
 msgid "Your search does not match any files."
-msgstr ""
+msgstr "تہاݙی تلاش کہیں فائل نال میچ نئیں کریندی۔"
 
