@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-10-15 12:07:07+0000\n"
+"PO-Revision-Date: 2026-10-26 12:06:15+0000\n"
 "X-POT-Import-Date: 2026-09-14 06:31:07+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,7 +46,7 @@ msgstr "Nemôžete upraviť výdavky tohoto tiketu."
 
 #: api/serializers.py:188
 msgid "You can not edit this expiditure."
-msgstr ""
+msgstr "Tento výdavok nemôžete upraviť."
 
 #: api/serializers.py:203
 msgid "You can not add preexpiditures to this ticket."
@@ -58,7 +58,7 @@ msgstr "Nemôžete upraviť predvýdavok tohoto tiketu."
 
 #: api/viewsets.py:203
 msgid "You can not delete this expiditure."
-msgstr ""
+msgstr "Tento výdavok nemôžete odstrániť."
 
 #: common_settings.py:146
 #: tracker/templates/tracker/ticket_common_detail.html:18
@@ -197,7 +197,7 @@ msgstr "zmeniť moje údaje"
 
 #: templates/base.html:71
 msgid "my bank accounts"
-msgstr ""
+msgstr "moje bankové účty"
 
 #: templates/base.html:72 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
@@ -205,7 +205,7 @@ msgstr "predvolby"
 
 #: templates/base.html:74 tracker/templates/tracker/ticket_detail.html:24
 msgid "import expenditures"
-msgstr ""
+msgstr "importovať výdavky"
 
 #: templates/base.html:77
 msgid "admin"
@@ -274,35 +274,35 @@ msgstr[2] "Opravte chyb níže"
 #: tracker/admin.py:55 tracker/views.py:421
 #, python-format
 msgid "Cannot delete expenditure #%(id)s: It is locked (paid, imported, or co-financing)."
-msgstr ""
+msgstr "Výdavok č. %(id)s nemožno odstrániť: je uzamknutý (zaplatený, importovaný alebo spolufinancovaný)."
 
 #: tracker/admin.py:71
 msgid "Load from a template"
-msgstr ""
+msgstr "Načítať zo šablóny"
 
 #: tracker/admin.py:83
 msgid "Or enter manually:"
-msgstr ""
+msgstr "Alebo zadať ručne:"
 
 #: tracker/admin.py:155
 msgid "Payment Details (Bank Transfer)"
-msgstr ""
+msgstr "Platobné údaje (bankový prevod)"
 
 #: tracker/admin.py:176
 msgid "Linked Co-financing"
-msgstr ""
+msgstr "Prepojené spolufinancovanie"
 
 #: tracker/admin.py:180
 msgid "Filter by Grant"
-msgstr ""
+msgstr "Filtrovať podľa grantu"
 
 #: tracker/admin.py:181
 msgid "Source ticket"
-msgstr ""
+msgstr "Zdrojový tiket"
 
 #: tracker/admin.py:182
 msgid "Source account"
-msgstr ""
+msgstr "Zdrojový účet"
 
 #: tracker/admin.py:183 tracker/models.py:1289
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -321,23 +321,23 @@ msgstr "Suma"
 
 #: tracker/admin.py:230
 msgid "You must enter a positive amount for co-financing."
-msgstr ""
+msgstr "Pri spolufinancovaní musíte zadať kladnú sumu."
 
 #: tracker/admin.py:232
 msgid "You must select either a source ticket or a source account."
-msgstr ""
+msgstr "Musíte vybrať buď zdrojový tiket, alebo zdrojový účet."
 
 #: tracker/admin.py:234
 msgid "Choose only one co-financing source, not both."
-msgstr ""
+msgstr "Vyberte iba jeden zdroj spolufinancovania, nie oba."
 
 #: tracker/admin.py:258
 msgid "Co-financing"
-msgstr ""
+msgstr "Spolufinancovanie"
 
 #: tracker/admin.py:259
 msgid "Co-financings"
-msgstr ""
+msgstr "Spolufinancovania"
 
 #: tracker/admin.py:283 tracker/templates/tracker/expediture_formset.html:40
 #: tracker/templates/tracker/ticket_common_detail.html:70
@@ -345,7 +345,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_expediture_import.html:132
 #: tracker/templates/tracker/ticket_expediture_import.html:175
 msgid "Linked ticket"
-msgstr ""
+msgstr "Prepojený tiket"
 
 #: tracker/admin.py:291 tracker/admin.py:297
 #: tracker/templates/tracker/ticket_expediture_import.html:59
@@ -368,11 +368,11 @@ msgstr "Označiť vybrané témy ako uzavreté pre nové lístky"
 
 #: tracker/admin.py:479 tracker/models.py:924
 msgid "Source bank account"
-msgstr ""
+msgstr "Zdrojový bankový účet"
 
 #: tracker/admin.py:480 tracker/models.py:925
 msgid "Number of the transparent account from which the funds will be disbursed"
-msgstr ""
+msgstr "Číslo transparentného účtu, z ktorého budú finančné prostriedky vyplatené"
 
 #: tracker/admin.py:485
 msgid "Modify this value by opening or closing topics in this grant to tickets"
@@ -380,71 +380,71 @@ msgstr "Upraviť túto hodnotu otváraním alebo zatváraním tém v tomto grant
 
 #: tracker/admin.py:510
 msgid "Main Template Info"
-msgstr ""
+msgstr "Hlavné informácie o šablóne"
 
 #: tracker/admin.py:511
 msgid "You can use templates to quickly create new expenditures. Payment data will be automatically filled in for you."
-msgstr ""
+msgstr "Šablóny môžete použiť na rýchle vytváranie nových výdavkov. Platobné údaje sa vyplnia automaticky."
 
 #: tracker/admin.py:514
 msgid "Payment Destination"
-msgstr ""
+msgstr "Cieľ platby"
 
 #: tracker/admin.py:515
 msgid "Specify the recipient account. You must choose exactly one way to specify the account: either a saved account OR enter it manually."
-msgstr ""
+msgstr "Zadajte účet príjemcu. Musíte zvoliť práve jeden spôsob zadania účtu: buď uložený účet, ALEBO ho zadať ručne."
 
 #: tracker/admin.py:518
 msgid "Symbols"
-msgstr ""
+msgstr "Symboly"
 
 #: tracker/admin.py:519
 msgid "Optional payment symbols."
-msgstr ""
+msgstr "Nepovinné platobné symboly."
 
 #: tracker/fio.py:261
 #, python-brace-format
 msgid "Missing source grant account for expenditure ID {}."
-msgstr ""
+msgstr "Chýba zdrojový účet grantu pre výdavok s ID {}."
 
 #: tracker/fio.py:267
 #, python-brace-format
 msgid "Missing API token for account {}."
-msgstr ""
+msgstr "Chýba token API pre účet {}."
 
 #: tracker/fio.py:282
 #, python-brace-format
 msgid "Cannot prepare the batch for account {}: {}"
-msgstr ""
+msgstr "Nemožno pripraviť dávku pre účet {}: {}"
 
 #: tracker/fio.py:288
 #, python-brace-format
 msgid "Expenditures for account {} changed while the import ran. Nothing was sent. Please try again."
-msgstr ""
+msgstr "Výdavky pre účet {} sa počas importu zmenili. Nič sa neodoslalo. Skúste to znova."
 
 #: tracker/fio.py:308
 msgid "Fio API requires a 30-second delay between requests. Please wait a moment and try again."
-msgstr ""
+msgstr "Fio API vyžaduje medzi požiadavkami 30-sekundový odstup. Chvíľu počkajte a skúste to znova."
 
 #: tracker/fio.py:318
 #, python-brace-format
 msgid "Fio API error 500: Invalid or inactive token for account {}."
-msgstr ""
+msgstr "Chyba Fio API 500: Neplatný alebo neaktívny token pre účet {}."
 
 #: tracker/fio.py:335
 #, python-brace-format
 msgid "Batch for account {} was accepted with warning: {}"
-msgstr ""
+msgstr "Dávka pre účet {} bola prijatá s upozornením: {}"
 
 #: tracker/fio.py:349
 #, python-brace-format
 msgid "API rejected batch for account {}: {}"
-msgstr ""
+msgstr "API odmietlo dávku pre účet {}: {}"
 
 #: tracker/fio.py:356
 #, python-brace-format
 msgid "Communication with Fio failed for account {}: {}. The expenditures stay marked as imported. Check the order in Fio internet banking before you revert the import."
-msgstr ""
+msgstr "Komunikácia s Fio zlyhala pre účet {}: {}. Výdavky zostávajú označené ako importované. Pred vrátením importu skontrolujte príkaz v internetovom bankovníctve Fio."
 
 #: tracker/models.py:47 tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
@@ -577,35 +577,35 @@ msgstr "Bol zmenený dokument"
 
 #: tracker/models.py:90
 msgid "Bank transfer"
-msgstr ""
+msgstr "Bankový prevod"
 
 #: tracker/models.py:91
 msgid "International bank transfer"
-msgstr ""
+msgstr "Medzinárodný bankový prevod"
 
 #: tracker/models.py:92
 msgid "Card"
-msgstr ""
+msgstr "Karta"
 
 #: tracker/models.py:93
 msgid "Cash"
-msgstr ""
+msgstr "Hotovosť"
 
 #: tracker/models.py:94
 msgid "Internal transfer"
-msgstr ""
+msgstr "Interný prevod"
 
 #: tracker/models.py:95
 msgid "Income (Co-financing)"
-msgstr ""
+msgstr "Príjem (spolufinancovanie)"
 
 #: tracker/models.py:99
 msgid "Waiting for payment"
-msgstr ""
+msgstr "Čaká na platbu"
 
 #: tracker/models.py:100
 msgid "Import error"
-msgstr ""
+msgstr "Chyba importu"
 
 #: tracker/models.py:101 tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/export.html:207
@@ -614,17 +614,17 @@ msgstr "Zaplatené"
 
 #: tracker/models.py:102
 msgid "Ready for import"
-msgstr ""
+msgstr "Pripravené na import"
 
 #: tracker/models.py:103
 #: tracker/templates/tracker/global_expediture_import.html:24
 msgid "Missing data"
-msgstr ""
+msgstr "Chýbajúce údaje"
 
 #: tracker/models.py:104
 #: tracker/templates/tracker/ticket_expediture_import.html:122
 msgid "Imported"
-msgstr ""
+msgstr "Importované"
 
 #: tracker/models.py:158
 msgid "unknown"
@@ -950,11 +950,11 @@ msgstr "Vyžaduje táto téma čestné vyhlásenie pre cestovanie autom?"
 
 #: tracker/models.py:834
 msgid "make comments public"
-msgstr ""
+msgstr "zverejniť komentáre"
 
 #: tracker/models.py:835
 msgid "Are comments under tickets public?"
-msgstr ""
+msgstr "Sú komentáre pod tiketmi verejné?"
 
 #: tracker/models.py:838 tracker/models.py:923
 msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
@@ -1093,68 +1093,68 @@ msgstr "výška"
 
 #: tracker/models.py:1276
 msgid "variable symbol"
-msgstr ""
+msgstr "variabilný symbol"
 
 #: tracker/models.py:1277
 msgid "specific symbol"
-msgstr ""
+msgstr "špecifický symbol"
 
 #: tracker/models.py:1278
 msgid "constant symbol"
-msgstr ""
+msgstr "konštantný symbol"
 
 #: tracker/models.py:1280
 msgid "account link"
-msgstr ""
+msgstr "prepojenie účtu"
 
 #: tracker/models.py:1280
 msgid "Choose from saved accounts."
-msgstr ""
+msgstr "Vyberte z uložených účtov."
 
 #: tracker/models.py:1281
 msgid "bank account"
-msgstr ""
+msgstr "bankový účet"
 
 #: tracker/models.py:1281
 msgid "Or you can enter your account number manually, but do not use both."
-msgstr ""
+msgstr "Alebo môžete zadať číslo účtu ručne, ale nepoužívajte obe možnosti."
 
 #: tracker/models.py:1288
 msgid "template name"
-msgstr ""
+msgstr "názov šablóny"
 
 #: tracker/models.py:1298
 msgid "You must provide either an Account link or a Bank account."
-msgstr ""
+msgstr "Musíte zadať buď prepojenie účtu, alebo bankový účet."
 
 #: tracker/models.py:1302
 msgid "You cannot provide both. Choose either an Account link or a manually typed Bank account."
-msgstr ""
+msgstr "Nemôžete zadať oboje. Vyberte buď prepojenie účtu, alebo ručne zadaný bankový účet."
 
 #: tracker/models.py:1306
 msgid "Template"
-msgstr ""
+msgstr "Šablóna"
 
 #: tracker/models.py:1307
 msgid "Templates"
-msgstr ""
+msgstr "Šablóny"
 
 #: tracker/models.py:1311
 msgid "Imported at"
-msgstr ""
+msgstr "Importované dňa"
 
 #: tracker/models.py:1312
 #: tracker/templates/tracker/ticket_expediture_import.html:97
 msgid "Due date"
-msgstr ""
+msgstr "Dátum splatnosti"
 
 #: tracker/models.py:1313
 msgid "Order number"
-msgstr ""
+msgstr "Číslo príkazu"
 
 #: tracker/models.py:1314
 msgid "error"
-msgstr ""
+msgstr "chyba"
 
 #: tracker/models.py:1320
 msgid "Ticket this expediture belongs to"
@@ -1186,52 +1186,52 @@ msgstr "mzda"
 
 #: tracker/models.py:1328
 msgid "This is only editable through the admin"
-msgstr ""
+msgstr "Toto možno upravovať iba cez administráciu"
 
 #: tracker/models.py:1330
 msgid "payment type"
-msgstr ""
+msgstr "typ platby"
 
 #: tracker/models.py:1331
 msgid "payment info"
-msgstr ""
+msgstr "platobné údaje"
 
 #: tracker/models.py:1332
 msgid "import info"
-msgstr ""
+msgstr "informácie o importe"
 
 #: tracker/models.py:1334
 msgid "linked expenditure"
-msgstr ""
+msgstr "prepojený výdavok"
 
 #: tracker/models.py:1378
 #: tracker/templates/tracker/global_expediture_import.html:23
 msgid "Ready"
-msgstr ""
+msgstr "Pripravené"
 
 #: tracker/models.py:1381
 msgid "Already paid."
-msgstr ""
+msgstr "Už zaplatené."
 
 #: tracker/models.py:1384
 msgid "Already imported."
-msgstr ""
+msgstr "Už importované."
 
 #: tracker/models.py:1387
 msgid "Payment type of this expenditure is not supported for import."
-msgstr ""
+msgstr "Typ platby tohto výdavku nie je pre import podporovaný."
 
 #: tracker/models.py:1390
 msgid "Amount is not specified."
-msgstr ""
+msgstr "Suma nie je zadaná."
 
 #: tracker/models.py:1393
 msgid "Receiver's bank account is not specified."
-msgstr ""
+msgstr "Bankový účet príjemcu nie je zadaný."
 
 #: tracker/models.py:1396
 msgid "Grant bank account is not specified."
-msgstr ""
+msgstr "Bankový účet grantu nie je zadaný."
 
 #: tracker/models.py:1398 tracker/templates/tracker/ticket_show_media.html:25
 msgid "Unknown"
@@ -1240,7 +1240,7 @@ msgstr "Neznáme"
 #: tracker/models.py:1425
 #, python-format
 msgid "%(description)s (%(amount)s %(currency)s, %(state)s)"
-msgstr ""
+msgstr "%(description)s (%(amount)s %(currency)s, %(state)s)"
 
 #: tracker/models.py:1434
 msgid "Ticket expediture"
@@ -1317,7 +1317,7 @@ msgstr "Používateľské meno na mediawiki"
 
 #: tracker/models.py:1539
 msgid "Chapter-issued username"
-msgstr ""
+msgstr "Používateľské meno pridelené pobočkou"
 
 #: tracker/models.py:1542 tracker/models.py:1632
 #: tracker/templates/tracker/admin_user_list.html:30
@@ -1343,7 +1343,7 @@ msgstr "Adresa alebo iné identifikačné údaje, aby sme vedeli, komu posielame
 #: tracker/models.py:1588 tracker/models.py:1633
 #: tracker/templates/tracker/admin_user_list.html:31
 msgid "Bank accounts"
-msgstr ""
+msgstr "Bankové účty"
 
 #: tracker/models.py:1594
 msgid "Tracker profile"
@@ -1355,28 +1355,28 @@ msgstr "Profily Trackeru"
 
 #: tracker/models.py:1612
 msgid "Account owner"
-msgstr ""
+msgstr "Majiteľ účtu"
 
 #: tracker/models.py:1613
 msgid "Account name"
-msgstr ""
+msgstr "Názov účtu"
 
 #: tracker/models.py:1614
 msgid "Account prefix"
-msgstr ""
+msgstr "Predčíslie účtu"
 
 #: tracker/models.py:1615 tracker/templates/tracker/bank_account_list.html:20
 #: tracker/views.py:366
 msgid "Account number"
-msgstr ""
+msgstr "Číslo účtu"
 
 #: tracker/models.py:1616
 msgid "Account bank code"
-msgstr ""
+msgstr "Kód banky účtu"
 
 #: tracker/models.py:1617
 msgid "Deleted at"
-msgstr ""
+msgstr "Odstránené dňa"
 
 #: tracker/models.py:1638
 msgid "date"
@@ -1587,11 +1587,11 @@ msgstr "Používateľ <tt>%(user)s</tt> odstránil dokument <tt>%(document_filen
 
 #: tracker/services.py:12
 msgid "You cannot modify payment details of an already imported or paid expenditure."
-msgstr ""
+msgstr "Platobné údaje už importovaného alebo zaplateného výdavku nemôžete meniť."
 
 #: tracker/services.py:86
 msgid "Cannot revert import: this expenditure is already paid."
-msgstr ""
+msgstr "Import nemožno vrátiť: tento výdavok je už zaplatený."
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "REMOVE"
@@ -1810,7 +1810,7 @@ msgstr "Priezvisko"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:6
 msgid "Remove bank account"
-msgstr ""
+msgstr "Odstrániť bankový účet"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:10
 #, python-format
@@ -1819,7 +1819,7 @@ msgstr ""
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:16
 msgid "The account will be removed from your list of accounts, but it will be archived for our historical data."
-msgstr ""
+msgstr "Účet bude odstránený z vášho zoznamu účtov, ale zostane archivovaný v našich historických údajoch."
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:23
 #: tracker/templates/tracker/bank_account_list.html:30
@@ -1832,27 +1832,27 @@ msgstr "Odstrániť"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:24
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #: tracker/templates/tracker/bank_account_form.html:6
 msgid "New bank account"
-msgstr ""
+msgstr "Nový bankový účet"
 
 #: tracker/templates/tracker/bank_account_form.html:23
 msgid "Save account"
-msgstr ""
+msgstr "Uložiť účet"
 
 #: tracker/templates/tracker/bank_account_form.html:24
 msgid "Back"
-msgstr ""
+msgstr "Späť"
 
 #: tracker/templates/tracker/bank_account_list.html:6
 msgid "My bank accounts"
-msgstr ""
+msgstr "Moje bankové účty"
 
 #: tracker/templates/tracker/bank_account_list.html:10
 msgid "New account"
-msgstr ""
+msgstr "Nový účet"
 
 #: tracker/templates/tracker/bank_account_list.html:19
 #: tracker/templates/tracker/index.html:16
@@ -1863,11 +1863,11 @@ msgstr "Názov"
 
 #: tracker/templates/tracker/bank_account_list.html:21
 msgid "Actions"
-msgstr ""
+msgstr "Akcie"
 
 #: tracker/templates/tracker/bank_account_list.html:35
 msgid "You have not saved any bank accounts yet"
-msgstr ""
+msgstr "Zatiaľ ste neuložili žiadny bankový účet"
 
 #: tracker/templates/tracker/cluster_detail.html:4
 #: tracker/templates/tracker/cluster_detail.html:8
@@ -2054,15 +2054,15 @@ msgstr "Mzda"
 
 #: tracker/templates/tracker/expediture_formset.html:18 tracker/views.py:363
 msgid "Payment type"
-msgstr ""
+msgstr "Typ platby"
 
 #: tracker/templates/tracker/expediture_formset.html:19
 msgid "Delete"
-msgstr ""
+msgstr "Odstrániť"
 
 #: tracker/templates/tracker/expediture_formset.html:76
 msgid "This item is locked and cannot be deleted."
-msgstr ""
+msgstr "Táto položka je uzamknutá a nemožno ju odstrániť."
 
 #: tracker/templates/tracker/expediture_formset.html:110
 #: tracker/templates/tracker/tabular_formset.html:91
@@ -2195,7 +2195,7 @@ msgstr "Na používanie Trackeru na výdavky o vás najprv potrebujeme trochu vi
 
 #: tracker/templates/tracker/fill_details.html:11
 msgid "The bank account is optional. If you give it to us, we can send the money for your expenses to it."
-msgstr ""
+msgstr "Bankový účet je nepovinný. Ak nám ho poskytnete, môžeme vám naň poslať peniaze za vaše výdavky."
 
 #: tracker/templates/tracker/fill_details.html:23
 msgid "save & continue"
@@ -2283,31 +2283,31 @@ msgstr "prehľad potvrdení témy"
 
 #: tracker/templates/tracker/global_expediture_import.html:4
 msgid "Import overview"
-msgstr ""
+msgstr "Prehľad importov"
 
 #: tracker/templates/tracker/global_expediture_import.html:9
 msgid "import overview"
-msgstr ""
+msgstr "prehľad importov"
 
 #: tracker/templates/tracker/global_expediture_import.html:12
 msgid "Expenditures awaiting import"
-msgstr ""
+msgstr "Výdavky čakajúce na import"
 
 #: tracker/templates/tracker/global_expediture_import.html:15
 msgid "Select a ticket to review and import its expenditures."
-msgstr ""
+msgstr "Vyberte tiket, ktorého výdavky chcete skontrolovať a importovať."
 
 #: tracker/templates/tracker/global_expediture_import.html:22
 msgid "Total to process"
-msgstr ""
+msgstr "Celkom na spracovanie"
 
 #: tracker/templates/tracker/global_expediture_import.html:25
 msgid "Error"
-msgstr ""
+msgstr "Chyba"
 
 #: tracker/templates/tracker/global_expediture_import.html:71
 msgid "There are no tickets waiting for import. Everything is up to date."
-msgstr ""
+msgstr "Žiadne tikety nečakajú na import. Všetko je aktuálne."
 
 #: tracker/templates/tracker/grant_detail.html:9
 #: tracker/templates/tracker/index.html:7
@@ -2693,82 +2693,82 @@ msgstr "Pridať komentár"
 
 #: tracker/templates/tracker/ticket_detail.html:101
 msgid "Comments are only available to the ticket requestor, supervisors and chapter members."
-msgstr ""
+msgstr "Komentáre sú dostupné iba žiadateľovi tiketu, dozorcom a členom pobočky."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:4
 #: tracker/templates/tracker/ticket_expediture_import.html:12
 #: tracker/templates/tracker/ticket_expediture_import.html:102
 msgid "Import expenditures"
-msgstr ""
+msgstr "Importovať výdavky"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:10
 msgid "import"
-msgstr ""
+msgstr "importovať"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:17
 msgid "This ticket has not been pre-approved or approved yet."
-msgstr ""
+msgstr "Tento tiket ešte nebol predbežne schválený ani schválený."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:24
 msgid "This ticket has rating percentage: "
-msgstr ""
+msgstr "Tento tiket má percentuálne hodnotenie: "
 
 #: tracker/templates/tracker/ticket_expediture_import.html:42
 msgid "There are no uploaded documents."
-msgstr ""
+msgstr "Nie sú nahrané žiadne dokumenty."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:49
 msgid "Expenditures ready for import"
-msgstr ""
+msgstr "Výdavky pripravené na import"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:60
 #: tracker/templates/tracker/ticket_expediture_import.html:121
 msgid "Target Account"
-msgstr ""
+msgstr "Cieľový účet"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:76
 msgid "Error during import"
-msgstr ""
+msgstr "Chyba počas importu"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:108
 msgid "There are no expenditures ready for import on this ticket. Make sure that all bank accounts are properly filled."
-msgstr ""
+msgstr "V tomto tikete nie sú žiadne výdavky pripravené na import. Skontrolujte, či sú všetky bankové účty správne vyplnené."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:113
 msgid "Imported expenditures"
-msgstr ""
+msgstr "Importované výdavky"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:114
 msgid "These expenditures are already imported."
-msgstr ""
+msgstr "Tieto výdavky sú už importované."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:123
 msgid "Action"
-msgstr ""
+msgstr "Akcia"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:143
 msgid "Are you sure you want to re-import this expenditure? The system cannot verify if the original Fio bank order was cancelled. This may result in duplicate payments."
-msgstr ""
+msgstr "Naozaj chcete tento výdavok importovať znova? Systém nedokáže overiť, či bol pôvodný príkaz v banke Fio zrušený. Môže to viesť k duplicitným platbám."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:147
 msgid "Re-import"
-msgstr ""
+msgstr "Importovať znova"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:159
 msgid "Expenditures waiting for data"
-msgstr ""
+msgstr "Výdavky čakajúce na údaje"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:160
 msgid "These expenditures will be ready for import after adding data."
-msgstr ""
+msgstr "Tieto výdavky budú po doplnení údajov pripravené na import."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:166
 msgid "Reason"
-msgstr ""
+msgstr "Dôvod"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:188
 msgid "Edit in admin"
-msgstr ""
+msgstr "Upraviť v administrácii"
 
 #: tracker/templates/tracker/ticket_form.html:20
 msgid "preexpediture"
@@ -3102,23 +3102,23 @@ msgstr "Všetky"
 
 #: tracker/validators.py:11
 msgid "Account number must be a number."
-msgstr ""
+msgstr "Číslo účtu musí byť číslo."
 
 #: tracker/validators.py:19
 msgid "Incorrect account number."
-msgstr ""
+msgstr "Nesprávne číslo účtu."
 
 #: tracker/validators.py:26
 msgid "Incorrect bank code."
-msgstr ""
+msgstr "Nesprávny kód banky."
 
 #: tracker/validators.py:38
 msgid "Invalid account format."
-msgstr ""
+msgstr "Neplatný formát účtu."
 
 #: tracker/validators.py:48
 msgid "Incorrect account prefix."
-msgstr ""
+msgstr "Nesprávne predčíslie účtu."
 
 #: tracker/views.py:59
 #, python-format
@@ -3136,7 +3136,7 @@ msgstr "K tiketu, ktorý nevlastníte, nemôžete pridať potvrdenie."
 #: tracker/views.py:136
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added. However, you have no bank account saved. Without it, we can't reimburse you. Go to <a href=\"%(accounts_url)s\">your bank accounts</a> to add one."
-msgstr ""
+msgstr "Potvrdenie \"%(confirmation)s\" tiketu %(ticket_id)s bolo pridané. Nemáte však uložený žiadny bankový účet a bez neho vám výdavky nemôžeme preplatiť. Pridajte ho v <a href=\"%(accounts_url)s\">svojich bankových účtoch</a>."
 
 #: tracker/views.py:144
 #, python-format
@@ -3170,27 +3170,27 @@ msgstr "Podtéma musí patriť do témy, ktorú ste použili. Pravdepodobne mát
 
 #: tracker/views.py:365
 msgid "Saved account"
-msgstr ""
+msgstr "Uložený účet"
 
 #: tracker/views.py:365
 msgid "Enter manually"
-msgstr ""
+msgstr "Zadať ručne"
 
 #: tracker/views.py:368
 msgid "Variable symbol"
-msgstr ""
+msgstr "Variabilný symbol"
 
 #: tracker/views.py:369
 msgid "Specific symbol"
-msgstr ""
+msgstr "Špecifický symbol"
 
 #: tracker/views.py:370
 msgid "Constant symbol"
-msgstr ""
+msgstr "Konštantný symbol"
 
 #: tracker/views.py:485
 msgid "You cannot edit this expenditure."
-msgstr ""
+msgstr "Tento výdavok nemôžete upraviť."
 
 #: tracker/views.py:549
 msgid "We've updated your preferences"
@@ -3297,11 +3297,11 @@ msgstr "Vaše údaje boli uložené."
 
 #: tracker/views.py:1263
 msgid "Bank account was succesfully created."
-msgstr ""
+msgstr "Bankový účet bol úspešne vytvorený."
 
 #: tracker/views.py:1279
 msgid "Bank account was successfully removed."
-msgstr ""
+msgstr "Bankový účet bol úspešne odstránený."
 
 #: tracker/views.py:1725
 msgid "You must be staffer in order to export users"
@@ -3402,24 +3402,24 @@ msgstr "Pri spracovaní vašej požiadavky došlo k chybe"
 
 #: tracker/views.py:2051
 msgid "Import status was successfully cleared."
-msgstr ""
+msgstr "Stav importu bol úspešne vymazaný."
 
 #: tracker/views.py:2053
 msgid "Cannot revert import: missing import info."
-msgstr ""
+msgstr "Import nemožno vrátiť: chýbajú informácie o importe."
 
 #: tracker/views.py:2133
 msgid "Invalid or past execution date selected."
-msgstr ""
+msgstr "Vybraný dátum vykonania je neplatný alebo v minulosti."
 
 #: tracker/views.py:2140
 msgid "No valid expenditures selected for import."
-msgstr ""
+msgstr "Na import nie sú vybrané žiadne platné výdavky."
 
 #: tracker/views.py:2146
 #, python-brace-format
 msgid "Successfully sent {} payments to Fio API."
-msgstr ""
+msgstr "Do Fio API bolo úspešne odoslaných {} platieb."
 
 #: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
@@ -3625,19 +3625,19 @@ msgstr "Už máte účet?"
 
 #: users/views.py:61
 msgid "Your own name for this account, for example \"Personal account\". It helps you to select the correct account when you ask for a payment."
-msgstr ""
+msgstr "Váš vlastný názov tohto účtu, napríklad „Osobný účet“. Pomôže vám vybrať správny účet, keď žiadate o platbu."
 
 #: users/views.py:63
 msgid "The part of the account number before the dash. Many accounts have no prefix; then leave this field empty."
-msgstr ""
+msgstr "Časť čísla účtu pred pomlčkou. Mnohé účty predčíslie nemajú; v tom prípade nechajte toto pole prázdne."
 
 #: users/views.py:65
 msgid "The part of the account number before the slash."
-msgstr ""
+msgstr "Časť čísla účtu pred lomkou."
 
 #: users/views.py:66
 msgid "The four-digit code of your bank, after the slash. For example 0800."
-msgstr ""
+msgstr "Štvormiestny kód vašej banky, za lomkou. Napríklad 0800."
 
 #: users/views.py:106
 msgid "Will be used for password recovery and notifications, if you enable them."

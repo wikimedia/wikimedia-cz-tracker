@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-10-15 12:07:07+0000\n"
+"PO-Revision-Date: 2026-10-26 12:06:15+0000\n"
 "X-POT-Import-Date: 2026-09-14 06:31:07+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,7 +46,7 @@ msgstr "Ní féidir leat dáta éaga an ticéid seo a chur in eagar."
 
 #: api/serializers.py:188
 msgid "You can not edit this expiditure."
-msgstr ""
+msgstr "Ní féidir leat an caiteachas seo a chur in eagar."
 
 #: api/serializers.py:203
 msgid "You can not add preexpiditures to this ticket."
@@ -58,7 +58,7 @@ msgstr "Ní féidir leat réamhdhátaí éaga an ticéid seo a chur in eagar."
 
 #: api/viewsets.py:203
 msgid "You can not delete this expiditure."
-msgstr ""
+msgstr "Ní féidir leat an caiteachas seo a scriosadh."
 
 #: common_settings.py:146
 #: tracker/templates/tracker/ticket_common_detail.html:18
@@ -197,7 +197,7 @@ msgstr "mo shonraí a athrú"
 
 #: templates/base.html:71
 msgid "my bank accounts"
-msgstr ""
+msgstr "mo chuntais bhainc"
 
 #: templates/base.html:72 tracker/templates/tracker/user_deactivate.html:8
 msgid "preferences"
@@ -205,7 +205,7 @@ msgstr "roghanna"
 
 #: templates/base.html:74 tracker/templates/tracker/ticket_detail.html:24
 msgid "import expenditures"
-msgstr ""
+msgstr "caiteachas ar allmhairí"
 
 #: templates/base.html:77
 msgid "admin"
@@ -276,35 +276,35 @@ msgstr[4] "other=Ceartaigh na hearráidí thíos le do thoil"
 #: tracker/admin.py:55 tracker/views.py:421
 #, python-format
 msgid "Cannot delete expenditure #%(id)s: It is locked (paid, imported, or co-financing)."
-msgstr ""
+msgstr "Ní féidir caiteachas #%(id)s a scriosadh: Tá sé faoi ghlas (íoctha, allmhairithe, nó comhmhaoinithe)."
 
 #: tracker/admin.py:71
 msgid "Load from a template"
-msgstr ""
+msgstr "Luchtaigh ó theimpléad"
 
 #: tracker/admin.py:83
 msgid "Or enter manually:"
-msgstr ""
+msgstr "Nó cuir isteach de láimh:"
 
 #: tracker/admin.py:155
 msgid "Payment Details (Bank Transfer)"
-msgstr ""
+msgstr "Sonraí Íocaíochta (Aistriú Bainc)"
 
 #: tracker/admin.py:176
 msgid "Linked Co-financing"
-msgstr ""
+msgstr "Comhmhaoiniú Nasctha"
 
 #: tracker/admin.py:180
 msgid "Filter by Grant"
-msgstr ""
+msgstr "Scag de réir Deontais"
 
 #: tracker/admin.py:181
 msgid "Source ticket"
-msgstr ""
+msgstr "Ticéad foinse"
 
 #: tracker/admin.py:182
 msgid "Source account"
-msgstr ""
+msgstr "Cuntas foinse"
 
 #: tracker/admin.py:183 tracker/models.py:1289
 #: tracker/templates/tracker/cluster_detail.html:19
@@ -323,23 +323,23 @@ msgstr "Méid"
 
 #: tracker/admin.py:230
 msgid "You must enter a positive amount for co-financing."
-msgstr ""
+msgstr "Caithfidh tú méid dearfach a chur isteach le haghaidh comhmhaoinithe."
 
 #: tracker/admin.py:232
 msgid "You must select either a source ticket or a source account."
-msgstr ""
+msgstr "Caithfidh tú ticéad foinse nó cuntas foinse a roghnú."
 
 #: tracker/admin.py:234
 msgid "Choose only one co-financing source, not both."
-msgstr ""
+msgstr "Roghnaigh foinse chómhaoinithe amháin amháin, ní an dá cheann."
 
 #: tracker/admin.py:258
 msgid "Co-financing"
-msgstr ""
+msgstr "Comhmhaoiniú"
 
 #: tracker/admin.py:259
 msgid "Co-financings"
-msgstr ""
+msgstr "Comhmhaoinithe"
 
 #: tracker/admin.py:283 tracker/templates/tracker/expediture_formset.html:40
 #: tracker/templates/tracker/ticket_common_detail.html:70
@@ -347,7 +347,7 @@ msgstr ""
 #: tracker/templates/tracker/ticket_expediture_import.html:132
 #: tracker/templates/tracker/ticket_expediture_import.html:175
 msgid "Linked ticket"
-msgstr ""
+msgstr "Ticéad nasctha"
 
 #: tracker/admin.py:291 tracker/admin.py:297
 #: tracker/templates/tracker/ticket_expediture_import.html:59
@@ -370,11 +370,11 @@ msgstr "Marcáil na topaicí roghnaithe mar dhúnta le haghaidh ticéid nua"
 
 #: tracker/admin.py:479 tracker/models.py:924
 msgid "Source bank account"
-msgstr ""
+msgstr "Cuntas bainc foinse"
 
 #: tracker/admin.py:480 tracker/models.py:925
 msgid "Number of the transparent account from which the funds will be disbursed"
-msgstr ""
+msgstr "Uimhir an chuntais thrédhearcaigh óna ndéanfar na cistí a íoc amach"
 
 #: tracker/admin.py:485
 msgid "Modify this value by opening or closing topics in this grant to tickets"
@@ -382,71 +382,71 @@ msgstr "Athraigh an luach seo trí thopaicí sa deontas seo do thicéid a oscail
 
 #: tracker/admin.py:510
 msgid "Main Template Info"
-msgstr ""
+msgstr "Príomhfhaisnéis faoin Teimpléad"
 
 #: tracker/admin.py:511
 msgid "You can use templates to quickly create new expenditures. Payment data will be automatically filled in for you."
-msgstr ""
+msgstr "Is féidir leat teimpléid a úsáid chun caiteachais nua a chruthú go tapa. Líonfar sonraí íocaíochta isteach go huathoibríoch duit."
 
 #: tracker/admin.py:514
 msgid "Payment Destination"
-msgstr ""
+msgstr "Ceann Scríbe na hÍocaíochta"
 
 #: tracker/admin.py:515
 msgid "Specify the recipient account. You must choose exactly one way to specify the account: either a saved account OR enter it manually."
-msgstr ""
+msgstr "Sonraigh an cuntas faighteora. Ní mór duit bealach amháin go díreach a roghnú chun an cuntas a shonrú: cuntas atá sábháilte cheana féin a roghnú, NÓ é a chur isteach de láimh."
 
 #: tracker/admin.py:518
 msgid "Symbols"
-msgstr ""
+msgstr "Siombailí"
 
 #: tracker/admin.py:519
 msgid "Optional payment symbols."
-msgstr ""
+msgstr "Siombailí íocaíochta roghnacha."
 
 #: tracker/fio.py:261
 #, python-brace-format
 msgid "Missing source grant account for expenditure ID {}."
-msgstr ""
+msgstr "Cuntas deontais foinse ar iarraidh le haghaidh ID caiteachais {}."
 
 #: tracker/fio.py:267
 #, python-brace-format
 msgid "Missing API token for account {}."
-msgstr ""
+msgstr "Comhartha API ar iarraidh don chuntas {}."
 
 #: tracker/fio.py:282
 #, python-brace-format
 msgid "Cannot prepare the batch for account {}: {}"
-msgstr ""
+msgstr "Ní féidir an baisc a ullmhú don chuntas {}: {}"
 
 #: tracker/fio.py:288
 #, python-brace-format
 msgid "Expenditures for account {} changed while the import ran. Nothing was sent. Please try again."
-msgstr ""
+msgstr "Athraíodh caiteachais don chuntas {} le linn an allmhairithe. Níor seoladh aon rud. Bain triail as arís, le do thoil."
 
 #: tracker/fio.py:308
 msgid "Fio API requires a 30-second delay between requests. Please wait a moment and try again."
-msgstr ""
+msgstr "Éilíonn Fio API moill 30 soicind idir iarratais. Fan nóiméad, le do thoil, agus bain triail as arís."
 
 #: tracker/fio.py:318
 #, python-brace-format
 msgid "Fio API error 500: Invalid or inactive token for account {}."
-msgstr ""
+msgstr "Earráid API Fio 500: Comhartha neamhbhailí nó neamhghníomhach don chuntas {}."
 
 #: tracker/fio.py:335
 #, python-brace-format
 msgid "Batch for account {} was accepted with warning: {}"
-msgstr ""
+msgstr "Glacadh leis an mbaisc don chuntas {} le rabhadh: {}"
 
 #: tracker/fio.py:349
 #, python-brace-format
 msgid "API rejected batch for account {}: {}"
-msgstr ""
+msgstr "Dhiúltaigh an API don bhaisc don chuntas {}: {}"
 
 #: tracker/fio.py:356
 #, python-brace-format
 msgid "Communication with Fio failed for account {}: {}. The expenditures stay marked as imported. Check the order in Fio internet banking before you revert the import."
-msgstr ""
+msgstr "Theip ar an gcumarsáid le Fio don chuntas {}: {}. Fanann na caiteachais marcáilte mar iompórtáilte. Seiceáil an t-ordú i mbaincéireacht idirlín Fio sula gcealaíonn tú an t-iompórtáil."
 
 #: tracker/models.py:47 tracker/templates/tracker/grant_table.html:11
 #: tracker/templates/tracker/topic_table.html:13
@@ -579,35 +579,35 @@ msgstr "Athraíodh an doiciméad"
 
 #: tracker/models.py:90
 msgid "Bank transfer"
-msgstr ""
+msgstr "Aistriú bainc"
 
 #: tracker/models.py:91
 msgid "International bank transfer"
-msgstr ""
+msgstr "Aistriú bainc idirnáisiúnta"
 
 #: tracker/models.py:92
 msgid "Card"
-msgstr ""
+msgstr "Cárta"
 
 #: tracker/models.py:93
 msgid "Cash"
-msgstr ""
+msgstr "Airgead tirim"
 
 #: tracker/models.py:94
 msgid "Internal transfer"
-msgstr ""
+msgstr "Aistriúchán inmheánach"
 
 #: tracker/models.py:95
 msgid "Income (Co-financing)"
-msgstr ""
+msgstr "Ioncam (Comhmhaoiniú)"
 
 #: tracker/models.py:99
 msgid "Waiting for payment"
-msgstr ""
+msgstr "Ag fanacht le híocaíocht"
 
 #: tracker/models.py:100
 msgid "Import error"
-msgstr ""
+msgstr "Earráid allmhairithe"
 
 #: tracker/models.py:101 tracker/templates/tracker/dumpaccounts/index.html:11
 #: tracker/templates/tracker/export.html:207
@@ -616,17 +616,17 @@ msgstr "Íoctha"
 
 #: tracker/models.py:102
 msgid "Ready for import"
-msgstr ""
+msgstr "Réidh le hiompórtáil"
 
 #: tracker/models.py:103
 #: tracker/templates/tracker/global_expediture_import.html:24
 msgid "Missing data"
-msgstr ""
+msgstr "Sonraí ar iarraidh"
 
 #: tracker/models.py:104
 #: tracker/templates/tracker/ticket_expediture_import.html:122
 msgid "Imported"
-msgstr ""
+msgstr "Iompórtáilte"
 
 #: tracker/models.py:158
 msgid "unknown"
@@ -952,11 +952,11 @@ msgstr "An bhfuil dearbhú reachtúil ag teastáil don ábhar seo le haghaidh ta
 
 #: tracker/models.py:834
 msgid "make comments public"
-msgstr ""
+msgstr "déan tuairimí poiblí"
 
 #: tracker/models.py:835
 msgid "Are comments under tickets public?"
-msgstr ""
+msgstr "An bhfuil tuairimí faoi thicéid poiblí?"
 
 #: tracker/models.py:838 tracker/models.py:923
 msgid "Detailed description; HTML is allowed for now, line breaks are auto-parsed"
@@ -1095,68 +1095,68 @@ msgstr "airde"
 
 #: tracker/models.py:1276
 msgid "variable symbol"
-msgstr ""
+msgstr "siombail athraitheach"
 
 #: tracker/models.py:1277
 msgid "specific symbol"
-msgstr ""
+msgstr "siombail shonrach"
 
 #: tracker/models.py:1278
 msgid "constant symbol"
-msgstr ""
+msgstr "siombail thairiseach"
 
 #: tracker/models.py:1280
 msgid "account link"
-msgstr ""
+msgstr "nasc cuntais"
 
 #: tracker/models.py:1280
 msgid "Choose from saved accounts."
-msgstr ""
+msgstr "Roghnaigh ó chuntais shábháilte."
 
 #: tracker/models.py:1281
 msgid "bank account"
-msgstr ""
+msgstr "cuntas bainc"
 
 #: tracker/models.py:1281
 msgid "Or you can enter your account number manually, but do not use both."
-msgstr ""
+msgstr "Nó is féidir leat uimhir do chuntais a chur isteach de láimh, ach ná húsáid an dá cheann."
 
 #: tracker/models.py:1288
 msgid "template name"
-msgstr ""
+msgstr "ainm an teimpléid"
 
 #: tracker/models.py:1298
 msgid "You must provide either an Account link or a Bank account."
-msgstr ""
+msgstr "Caithfidh tú nasc cuntais nó cuntas bainc a sholáthar."
 
 #: tracker/models.py:1302
 msgid "You cannot provide both. Choose either an Account link or a manually typed Bank account."
-msgstr ""
+msgstr "Ní féidir leat an dá rud a sholáthar. Roghnaigh nasc cuntais nó cuntas bainc a chuireann tú isteach de láimh."
 
 #: tracker/models.py:1306
 msgid "Template"
-msgstr ""
+msgstr "Teimpléad"
 
 #: tracker/models.py:1307
 msgid "Templates"
-msgstr ""
+msgstr "Teimpléid"
 
 #: tracker/models.py:1311
 msgid "Imported at"
-msgstr ""
+msgstr "Iompórtáilte ag"
 
 #: tracker/models.py:1312
 #: tracker/templates/tracker/ticket_expediture_import.html:97
 msgid "Due date"
-msgstr ""
+msgstr "Dáta dlite"
 
 #: tracker/models.py:1313
 msgid "Order number"
-msgstr ""
+msgstr "Uimhir ordaithe"
 
 #: tracker/models.py:1314
 msgid "error"
-msgstr ""
+msgstr "earráid"
 
 #: tracker/models.py:1320
 msgid "Ticket this expediture belongs to"
@@ -1188,52 +1188,52 @@ msgstr "pá"
 
 #: tracker/models.py:1328
 msgid "This is only editable through the admin"
-msgstr ""
+msgstr "Ní féidir é seo a chur in eagar ach tríd an riarthóir"
 
 #: tracker/models.py:1330
 msgid "payment type"
-msgstr ""
+msgstr "cineál íocaíochta"
 
 #: tracker/models.py:1331
 msgid "payment info"
-msgstr ""
+msgstr "sonraí íocaíochta"
 
 #: tracker/models.py:1332
 msgid "import info"
-msgstr ""
+msgstr "iompórtáil eolas"
 
 #: tracker/models.py:1334
 msgid "linked expenditure"
-msgstr ""
+msgstr "caiteachas nasctha"
 
 #: tracker/models.py:1378
 #: tracker/templates/tracker/global_expediture_import.html:23
 msgid "Ready"
-msgstr ""
+msgstr "Réidh"
 
 #: tracker/models.py:1381
 msgid "Already paid."
-msgstr ""
+msgstr "Íoctha cheana féin."
 
 #: tracker/models.py:1384
 msgid "Already imported."
-msgstr ""
+msgstr "Iompórtáilte cheana féin."
 
 #: tracker/models.py:1387
 msgid "Payment type of this expenditure is not supported for import."
-msgstr ""
+msgstr "Ní thacaítear leis an gcineál íocaíochta don chaiteachas seo i gcomhthéacs allmhairithe."
 
 #: tracker/models.py:1390
 msgid "Amount is not specified."
-msgstr ""
+msgstr "Níl an méid sonraithe."
 
 #: tracker/models.py:1393
 msgid "Receiver's bank account is not specified."
-msgstr ""
+msgstr "Níl cuntas bainc an fhaighteora sonraithe."
 
 #: tracker/models.py:1396
 msgid "Grant bank account is not specified."
-msgstr ""
+msgstr "Níl cuntas bainc an deontais sonraithe."
 
 #: tracker/models.py:1398 tracker/templates/tracker/ticket_show_media.html:25
 msgid "Unknown"
@@ -1242,7 +1242,7 @@ msgstr "Anaithnid"
 #: tracker/models.py:1425
 #, python-format
 msgid "%(description)s (%(amount)s %(currency)s, %(state)s)"
-msgstr ""
+msgstr "%(description)s (%(amount)s %(currency)s, %(state)s)"
 
 #: tracker/models.py:1434
 msgid "Ticket expediture"
@@ -1319,7 +1319,7 @@ msgstr "Ainm úsáideora ar mediawiki"
 
 #: tracker/models.py:1539
 msgid "Chapter-issued username"
-msgstr ""
+msgstr "Ainm úsáideora arna eisiúint ag an gcaibidil"
 
 #: tracker/models.py:1542 tracker/models.py:1632
 #: tracker/templates/tracker/admin_user_list.html:30
@@ -1345,7 +1345,7 @@ msgstr "Seoladh, nó faisnéis aitheantais eile, ionas go mbeidh a fhios againn 
 #: tracker/models.py:1588 tracker/models.py:1633
 #: tracker/templates/tracker/admin_user_list.html:31
 msgid "Bank accounts"
-msgstr ""
+msgstr "Cuntais bhainc"
 
 #: tracker/models.py:1594
 msgid "Tracker profile"
@@ -1357,28 +1357,28 @@ msgstr "Próifílí rianaithe"
 
 #: tracker/models.py:1612
 msgid "Account owner"
-msgstr ""
+msgstr "Úinéir an chuntais"
 
 #: tracker/models.py:1613
 msgid "Account name"
-msgstr ""
+msgstr "Ainm an chuntais"
 
 #: tracker/models.py:1614
 msgid "Account prefix"
-msgstr ""
+msgstr "Réimír chuntais"
 
 #: tracker/models.py:1615 tracker/templates/tracker/bank_account_list.html:20
 #: tracker/views.py:366
 msgid "Account number"
-msgstr ""
+msgstr "Uimhir chuntais"
 
 #: tracker/models.py:1616
 msgid "Account bank code"
-msgstr ""
+msgstr "Cód bainc an chuntais"
 
 #: tracker/models.py:1617
 msgid "Deleted at"
-msgstr ""
+msgstr "Scriosta ag"
 
 #: tracker/models.py:1638
 msgid "date"
@@ -1589,11 +1589,11 @@ msgstr "Bain an t-úsáideoir <tt>%(user)s</tt> an doiciméad <tt>%(document_fil
 
 #: tracker/services.py:12
 msgid "You cannot modify payment details of an already imported or paid expenditure."
-msgstr ""
+msgstr "Ní féidir sonraí íocaíochta a bhaineann le caiteachas atá allmhairithe nó íoctha cheana féin a mhodhnú."
 
 #: tracker/services.py:86
 msgid "Cannot revert import: this expenditure is already paid."
-msgstr ""
+msgstr "Ní féidir an t-iompórtáil a chealú: tá an caiteachas seo íoctha cheana féin."
 
 #: tracker/templates/admin/tracker/ticket/ack_line.html:1
 msgid "REMOVE"
@@ -1814,16 +1814,16 @@ msgstr "Sloinne"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:6
 msgid "Remove bank account"
-msgstr ""
+msgstr "Bain cuntas bainc"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:10
 #, python-format
 msgid "\n			Do you really want to remove <strong>%(object)s</strong>?\n			"
-msgstr ""
+msgstr "\n			An bhfuil tú cinnte gur mhaith leat <strong>%(object)s</strong>?\n			"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:16
 msgid "The account will be removed from your list of accounts, but it will be archived for our historical data."
-msgstr ""
+msgstr "Bainfear an cuntas de do liosta cuntas, ach déanfar é a chartlannú ar mhaithe lenár sonraí staire."
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:23
 #: tracker/templates/tracker/bank_account_list.html:30
@@ -1836,27 +1836,27 @@ msgstr "Bain"
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:24
 msgid "Cancel"
-msgstr ""
+msgstr "Cealaigh"
 
 #: tracker/templates/tracker/bank_account_form.html:6
 msgid "New bank account"
-msgstr ""
+msgstr "Cuntas bainc nua"
 
 #: tracker/templates/tracker/bank_account_form.html:23
 msgid "Save account"
-msgstr ""
+msgstr "Sábháil cuntas"
 
 #: tracker/templates/tracker/bank_account_form.html:24
 msgid "Back"
-msgstr ""
+msgstr "Ar ais"
 
 #: tracker/templates/tracker/bank_account_list.html:6
 msgid "My bank accounts"
-msgstr ""
+msgstr "Mo chuntais bhainc"
 
 #: tracker/templates/tracker/bank_account_list.html:10
 msgid "New account"
-msgstr ""
+msgstr "Cuntas nua"
 
 #: tracker/templates/tracker/bank_account_list.html:19
 #: tracker/templates/tracker/index.html:16
@@ -1867,11 +1867,11 @@ msgstr "Ainm"
 
 #: tracker/templates/tracker/bank_account_list.html:21
 msgid "Actions"
-msgstr ""
+msgstr "Gníomhartha"
 
 #: tracker/templates/tracker/bank_account_list.html:35
 msgid "You have not saved any bank accounts yet"
-msgstr ""
+msgstr "Níl aon chuntais bhainc sábháilte agat go fóill"
 
 #: tracker/templates/tracker/cluster_detail.html:4
 #: tracker/templates/tracker/cluster_detail.html:8
@@ -2058,15 +2058,15 @@ msgstr "Pá"
 
 #: tracker/templates/tracker/expediture_formset.html:18 tracker/views.py:363
 msgid "Payment type"
-msgstr ""
+msgstr "Cineál íocaíochta"
 
 #: tracker/templates/tracker/expediture_formset.html:19
 msgid "Delete"
-msgstr ""
+msgstr "Scrios"
 
 #: tracker/templates/tracker/expediture_formset.html:76
 msgid "This item is locked and cannot be deleted."
-msgstr ""
+msgstr "Tá an mhír seo faoi ghlas agus ní féidir í a scriosadh."
 
 #: tracker/templates/tracker/expediture_formset.html:110
 #: tracker/templates/tracker/tabular_formset.html:91
@@ -2199,7 +2199,7 @@ msgstr "Chun rianaitheoir costais a úsáid, teastaíonn beagán níos mó eolai
 
 #: tracker/templates/tracker/fill_details.html:11
 msgid "The bank account is optional. If you give it to us, we can send the money for your expenses to it."
-msgstr ""
+msgstr "Tá an cuntas bainc roghnach. Má thugann tú dúinn é, is féidir linn an t-airgead le haghaidh do chostas a sheoladh chuige."
 
 #: tracker/templates/tracker/fill_details.html:23
 msgid "save & continue"
@@ -2287,31 +2287,31 @@ msgstr "forbhreathnú ar ábhar aitheantais"
 
 #: tracker/templates/tracker/global_expediture_import.html:4
 msgid "Import overview"
-msgstr ""
+msgstr "Forléargas ar allmhairí"
 
 #: tracker/templates/tracker/global_expediture_import.html:9
 msgid "import overview"
-msgstr ""
+msgstr "forléargas ar allmhairiú"
 
 #: tracker/templates/tracker/global_expediture_import.html:12
 msgid "Expenditures awaiting import"
-msgstr ""
+msgstr "Caiteachais ag fanacht ar allmhairiú"
 
 #: tracker/templates/tracker/global_expediture_import.html:15
 msgid "Select a ticket to review and import its expenditures."
-msgstr ""
+msgstr "Roghnaigh ticéad chun athbhreithniú a dhéanamh air agus chun a chuid caiteachas a allmhairiú."
 
 #: tracker/templates/tracker/global_expediture_import.html:22
 msgid "Total to process"
-msgstr ""
+msgstr "Iomlán le próiseáil"
 
 #: tracker/templates/tracker/global_expediture_import.html:25
 msgid "Error"
-msgstr ""
+msgstr "Earráid"
 
 #: tracker/templates/tracker/global_expediture_import.html:71
 msgid "There are no tickets waiting for import. Everything is up to date."
-msgstr ""
+msgstr "Níl aon ticéad ag fanacht le hiompórtáil. Tá gach rud cothrom le dáta."
 
 #: tracker/templates/tracker/grant_detail.html:9
 #: tracker/templates/tracker/index.html:7
@@ -2697,82 +2697,82 @@ msgstr "Cuir trácht leis"
 
 #: tracker/templates/tracker/ticket_detail.html:101
 msgid "Comments are only available to the ticket requestor, supervisors and chapter members."
-msgstr ""
+msgstr "Níl tráchtanna ar fáil ach don té a rinne an t-iarratas, do mhaoirseoirí agus do bhaill an chaibidil."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:4
 #: tracker/templates/tracker/ticket_expediture_import.html:12
 #: tracker/templates/tracker/ticket_expediture_import.html:102
 msgid "Import expenditures"
-msgstr ""
+msgstr "Caiteachas ar allmhairí"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:10
 msgid "import"
-msgstr ""
+msgstr "iompórtáil"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:17
 msgid "This ticket has not been pre-approved or approved yet."
-msgstr ""
+msgstr "Níl an ticéad seo ceadaithe ná réamhcheadaithe go fóill."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:24
 msgid "This ticket has rating percentage: "
-msgstr ""
+msgstr "Tá céatadán rátála ag an ticéad seo: "
 
 #: tracker/templates/tracker/ticket_expediture_import.html:42
 msgid "There are no uploaded documents."
-msgstr ""
+msgstr "Níl aon doiciméad uaslódáilte ann."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:49
 msgid "Expenditures ready for import"
-msgstr ""
+msgstr "Caiteachais réidh le hiompórtáil"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:60
 #: tracker/templates/tracker/ticket_expediture_import.html:121
 msgid "Target Account"
-msgstr ""
+msgstr "Cuntas Sprioc"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:76
 msgid "Error during import"
-msgstr ""
+msgstr "Earráid le linn allmhairithe"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:108
 msgid "There are no expenditures ready for import on this ticket. Make sure that all bank accounts are properly filled."
-msgstr ""
+msgstr "Níl aon chaiteachais réidh le hiompórtáil ar an ticéad seo. Cinntigh go bhfuil gach cuntas bainc líonta i gceart."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:113
 msgid "Imported expenditures"
-msgstr ""
+msgstr "Caiteachais allmhairithe"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:114
 msgid "These expenditures are already imported."
-msgstr ""
+msgstr "Tá na caiteachais seo allmhairithe cheana féin."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:123
 msgid "Action"
-msgstr ""
+msgstr "Gníomh"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:143
 msgid "Are you sure you want to re-import this expenditure? The system cannot verify if the original Fio bank order was cancelled. This may result in duplicate payments."
-msgstr ""
+msgstr "An bhfuil tú cinnte gur mian leat an caiteachas seo a ath-iompórtáil? Ní féidir leis an gcóras a fhíorú an ndearnadh an t-ordú bainc bunaidh ó Fio a chealú. D’fhéadfadh íocaíochtaí dúblacha a bheith mar thoradh air seo."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:147
 msgid "Re-import"
-msgstr ""
+msgstr "Ath-iompórtáil"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:159
 msgid "Expenditures waiting for data"
-msgstr ""
+msgstr "Caiteachais ag fanacht le sonraí"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:160
 msgid "These expenditures will be ready for import after adding data."
-msgstr ""
+msgstr "Beidh na caiteachais seo réidh le hiompórtáil tar éis sonraí a chur leis."
 
 #: tracker/templates/tracker/ticket_expediture_import.html:166
 msgid "Reason"
-msgstr ""
+msgstr "Cúis"
 
 #: tracker/templates/tracker/ticket_expediture_import.html:188
 msgid "Edit in admin"
-msgstr ""
+msgstr "Cuir in eagar sa rannóg riaracháin"
 
 #: tracker/templates/tracker/ticket_form.html:20
 msgid "preexpediture"
@@ -3106,23 +3106,23 @@ msgstr "Gach"
 
 #: tracker/validators.py:11
 msgid "Account number must be a number."
-msgstr ""
+msgstr "Caithfidh uimhir chuntais a bheith ina huimhir."
 
 #: tracker/validators.py:19
 msgid "Incorrect account number."
-msgstr ""
+msgstr "Uimhir chuntais mhícheart."
 
 #: tracker/validators.py:26
 msgid "Incorrect bank code."
-msgstr ""
+msgstr "Cód bainc mícheart."
 
 #: tracker/validators.py:38
 msgid "Invalid account format."
-msgstr ""
+msgstr "Formáid chuntais neamhbhailí."
 
 #: tracker/validators.py:48
 msgid "Incorrect account prefix."
-msgstr ""
+msgstr "Réimír chuntais mhícheart."
 
 #: tracker/views.py:59
 #, python-format
@@ -3140,7 +3140,7 @@ msgstr "Ní féidir leat ack a chur le ticéad nach leatsa."
 #: tracker/views.py:136
 #, python-format
 msgid "Ticket %(ticket_id)s confirmation \"%(confirmation)s\" has been added. However, you have no bank account saved. Without it, we can't reimburse you. Go to <a href=\"%(accounts_url)s\">your bank accounts</a> to add one."
-msgstr ""
+msgstr "Tá deimhniú \"%(confirmation)s\" don ticéad %(ticket_id)s curtha leis. Áfach, níl aon chuntas bainc sábháilte agat. Gan é, ní féidir linn aisíocaíocht a thabhairt duit. Téigh chuig <a href=\"%(accounts_url)s\">do chuntais bhainc</a> chun ceann a chur leis."
 
 #: tracker/views.py:144
 #, python-format
@@ -3174,27 +3174,27 @@ msgstr "Caithfidh fo-ábhar a bheith mar chuid den ábhar a d'úsáid tú. Is d�
 
 #: tracker/views.py:365
 msgid "Saved account"
-msgstr ""
+msgstr "Cuntas sábháilte"
 
 #: tracker/views.py:365
 msgid "Enter manually"
-msgstr ""
+msgstr "Cuir isteach de láimh"
 
 #: tracker/views.py:368
 msgid "Variable symbol"
-msgstr ""
+msgstr "Siombail athróige"
 
 #: tracker/views.py:369
 msgid "Specific symbol"
-msgstr ""
+msgstr "Siombail shonrach"
 
 #: tracker/views.py:370
 msgid "Constant symbol"
-msgstr ""
+msgstr "Siombail thairiseach"
 
 #: tracker/views.py:485
 msgid "You cannot edit this expenditure."
-msgstr ""
+msgstr "Ní féidir leat an caiteachas seo a chur in eagar."
 
 #: tracker/views.py:549
 msgid "We've updated your preferences"
@@ -3301,11 +3301,11 @@ msgstr "Tá do shonraí sábháilte."
 
 #: tracker/views.py:1263
 msgid "Bank account was succesfully created."
-msgstr ""
+msgstr "Cruthaíodh an cuntas bainc go rathúil."
 
 #: tracker/views.py:1279
 msgid "Bank account was successfully removed."
-msgstr ""
+msgstr "Baineadh an cuntas bainc go rathúil."
 
 #: tracker/views.py:1725
 msgid "You must be staffer in order to export users"
@@ -3406,24 +3406,24 @@ msgstr "Tharla earráid agus d’iarratas á phróiseáil"
 
 #: tracker/views.py:2051
 msgid "Import status was successfully cleared."
-msgstr ""
+msgstr "Glanadh stádas an allmhairithe go rathúil."
 
 #: tracker/views.py:2053
 msgid "Cannot revert import: missing import info."
-msgstr ""
+msgstr "Ní féidir an t-iompórtáil a chealú: faisnéis iompórtála ar iarraidh."
 
 #: tracker/views.py:2133
 msgid "Invalid or past execution date selected."
-msgstr ""
+msgstr "Roghnaíodh dáta forghníomhaithe atá neamhbhailí nó atá thart cheana."
 
 #: tracker/views.py:2140
 msgid "No valid expenditures selected for import."
-msgstr ""
+msgstr "Níor roghnaíodh aon chaiteachais bhailí lena n-allmhairiú."
 
 #: tracker/views.py:2146
 #, python-brace-format
 msgid "Successfully sent {} payments to Fio API."
-msgstr ""
+msgstr "Seoladh {} íocaíocht go rathúil chuig API Fio."
 
 #: users/forms.py:13 users/templates/users/password_change.html:27
 msgid "Old password"
@@ -3631,19 +3631,19 @@ msgstr "An bhfuil cuntas agat cheana féin?"
 
 #: users/views.py:61
 msgid "Your own name for this account, for example \"Personal account\". It helps you to select the correct account when you ask for a payment."
-msgstr ""
+msgstr "Ainm a roghnaíonn tú féin don chuntas seo, mar shampla \"Cuntas pearsanta\". Cabhraíonn sé leat an cuntas ceart a roghnú nuair a iarrann tú íocaíocht."
 
 #: users/views.py:63
 msgid "The part of the account number before the dash. Many accounts have no prefix; then leave this field empty."
-msgstr ""
+msgstr "An chuid den uimhir chuntais roimh an fleiscín. Níl réimír ag go leor cuntas; sa chás sin, fág an réimse seo folamh."
 
 #: users/views.py:65
 msgid "The part of the account number before the slash."
-msgstr ""
+msgstr "An chuid den uimhir chuntais roimh an stríoc chlaon."
 
 #: users/views.py:66
 msgid "The four-digit code of your bank, after the slash. For example 0800."
-msgstr ""
+msgstr "Cód ceithre dhigit do bhainc, i ndiaidh na stríce. Mar shampla, 0800."
 
 #: users/views.py:106
 msgid "Will be used for password recovery and notifications, if you enable them."
