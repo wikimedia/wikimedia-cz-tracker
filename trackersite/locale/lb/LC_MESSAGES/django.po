@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-10-15 12:07:07+0000\n"
+"PO-Revision-Date: 2026-11-02 12:06:53+0000\n"
 "X-POT-Import-Date: 2026-09-14 06:31:07+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2682,7 +2682,7 @@ msgstr "Bemierkungen"
 #: tracker/templates/tracker/ticket_detail.html:84
 #: tracker/templates/tracker/topic_detail.html:44
 msgid "There are no comments yet."
-msgstr ""
+msgstr "Et gëtt nach keng Kommentaren."
 
 #: tracker/templates/tracker/ticket_detail.html:91
 #: tracker/templates/tracker/ticket_detail.html:93
@@ -3632,7 +3632,7 @@ msgstr ""
 
 #: users/views.py:65
 msgid "The part of the account number before the slash."
-msgstr ""
+msgstr "Den Deel vun der Kontnummer virum schife Stréch."
 
 #: users/views.py:66
 msgid "The four-digit code of your bank, after the slash. For example 0800."
