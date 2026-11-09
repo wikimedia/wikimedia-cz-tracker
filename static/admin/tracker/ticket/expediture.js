@@ -67,6 +67,13 @@ document.addEventListener( 'DOMContentLoaded', async () => {
 		}
 
 		const accountFieldBox = inlineRow.querySelector( '.fieldBox.field-cofinance_source_account' );
+		const sourceAccountingFieldBox = inlineRow.querySelector( '.fieldBox.field-cofinance_source_accounting_info' );
+
+		// Only a source ticket has an internal transfer, thus only a source
+		// ticket has a source accounting info.
+		if ( sourceAccountingFieldBox ) {
+			sourceAccountingFieldBox.style.display = ticketSelect.value !== '' ? '' : 'none';
+		}
 
 		if ( accountFieldBox ) {
 			if ( ticketSelect.value !== '' ) {

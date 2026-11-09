@@ -12,6 +12,7 @@ from unittest.mock import patch, Mock
 import requests
 
 from django.conf import settings
+from django.contrib import admin
 from django.contrib.auth.models import User, Permission
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.staticfiles import finders
@@ -22,7 +23,7 @@ from django.core.management import call_command
 from django.core.management.base import CommandError
 from django.forms.formsets import DELETION_FIELD_NAME
 from django.forms.models import inlineformset_factory
-from django.test import SimpleTestCase, TestCase, override_settings
+from django.test import RequestFactory, SimpleTestCase, TestCase, override_settings
 from django.test.client import Client
 from django.urls import reverse
 from django.utils import timezone
@@ -32,7 +33,7 @@ from social_django.models import UserSocialAuth
 
 from socialauth.api import MediaWiki, MediaWikiError
 
-from tracker.admin import CofinancingAdminForm, ExpeditureInlineFormSet
+from tracker.admin import CofinancingAdmin, CofinancingAdminForm, ExpeditureAdmin, ExpeditureInlineFormSet
 from tracker.fio import FioPaymentManager
 from tracker.mediainfo import MediaInfoSync
 from tracker.services import PaymentService
@@ -2728,6 +2729,190 @@ class AdminExpeditureDeleteGuardTests(TestCase):
         self._try_to_delete(self.ticket1, expenditure)
 
         self.assertFalse(Expediture.objects.filter(pk=expenditure.pk).exists())
+
+
+class AdminCofinancingAccountingInfoTests(TestCase):
+    """
+    A co-financing pair is two rows. The income row is on the target ticket.
+    The internal transfer is on the source ticket. Each row has its own
+    accounting info. The co-financing inline on the target ticket edits both
+    values. The expenditure inline on the source ticket also edits the value
+    of the transfer.
+    """
+
+    def setUp(self):
+        self.grant = Grant.objects.create(full_name='g', short_name='g', slug='g')
+        self.topic = Topic.objects.create(name='topic', grant=self.grant)
+        self.target = Ticket.objects.create(name='T1', topic=self.topic)
+        self.source = Ticket.objects.create(name='T2', topic=self.topic)
+
+        self.income = Expediture.objects.create(
+            ticket=self.target, description='Co-financing', amount=-500,
+            payment_type=PaymentType.INCOME,
+        )
+        PaymentService.process_cofinancing_link(self.income, self.source, None, 500)
+        self.income.refresh_from_db()
+        self.transfer = self.income.linked_expenditure
+
+        self.request = RequestFactory().post('/')
+        self.request.user = User.objects.create_superuser(username='admin', password='bar', email='test@test')
+
+    def _formset(self, inline_class, ticket, rows=None):
+        """
+        Build the formset of one admin inline, as the ticket change page does.
+        Give rows to bind the formset to POST data. Put the rows that have an
+        id before the new rows.
+        """
+        inline = inline_class(Ticket, admin.site)
+        formset_class = inline.get_formset(self.request, ticket)
+        prefix = formset_class.get_default_prefix()
+
+        data = None
+        if rows is not None:
+            data = {
+                '%s-TOTAL_FORMS' % prefix: str(len(rows)),
+                '%s-INITIAL_FORMS' % prefix: str(sum(1 for row in rows if row.get('id'))),
+                '%s-MIN_NUM_FORMS' % prefix: '0',
+                '%s-MAX_NUM_FORMS' % prefix: '1000',
+            }
+            for index, row in enumerate(rows):
+                for name, value in row.items():
+                    data['%s-%d-%s' % (prefix, index, name)] = value
+
+        return formset_class(data, instance=ticket, prefix=prefix, queryset=inline.get_queryset(self.request))
+
+    def _income_row(self, accounting_info, source_accounting_info=''):
+        return {
+            'id': str(self.income.pk),
+            'cofinance_filter_grant': '',
+            'cofinance_source_ticket': str(self.source.pk),
+            'cofinance_source_account': '',
+            'cofinance_amount': '500.00',
+            'accounting_info': accounting_info,
+            'cofinance_source_accounting_info': source_accounting_info,
+        }
+
+    def test_cofinancing_inline_offers_both_accounting_infos(self):
+        self.transfer.accounting_info = '3134e'
+        self.transfer.save()
+
+        formset = self._formset(CofinancingAdmin, self.target)
+
+        self.assertEqual([self.income], [form.instance for form in formset.forms])
+        form = formset.forms[0]
+        self.assertFalse(form.fields['accounting_info'].disabled)
+        self.assertFalse(form.fields['cofinance_source_accounting_info'].disabled)
+        self.assertEqual('3134e', form.fields['cofinance_source_accounting_info'].initial)
+
+    def test_ticket_change_page_shows_both_accounting_infos(self):
+        c = Client()
+        c.force_login(self.request.user)
+        response = c.get(reverse('admin:tracker_ticket_change', args=[self.target.id]))
+        self.assertEqual(200, response.status_code)
+
+        # The expenditure inline and the co-financing inline both use the
+        # Expediture model. Django gives the second inline the "-2" prefix.
+        html = response.content.decode('utf-8')
+        for name in ('accounting_info', 'cofinance_source_accounting_info'):
+            self.assertRegex(html, r'<input type="text" name="expediture_set-2-0-%s"(?![^>]*disabled)[^>]*>' % name)
+
+    def test_cofinancing_inline_saves_both_accounting_infos(self):
+        formset = self._formset(CofinancingAdmin, self.target, [self._income_row('3134f', '3134g')])
+        self.assertTrue(formset.is_valid(), formset.errors)
+        formset.save()
+
+        self.income.refresh_from_db()
+        self.transfer.refresh_from_db()
+        self.assertEqual('3134f', self.income.accounting_info)
+        self.assertEqual('3134g', self.transfer.accounting_info)
+        self.assertEqual(Decimal('-500.00'), self.income.amount)
+        self.assertEqual(self.transfer, self.income.linked_expenditure)
+        self.assertEqual(Decimal('500.00'), self.transfer.amount)
+        self.assertEqual(self.source, self.transfer.ticket)
+
+        # The payment reference of the transfer uses the accounting info of
+        # the income row.
+        self.assertEqual('Kofinancování ticketu #3134f_ko', FioPaymentManager()._get_payment_message(self.transfer))
+
+    def test_new_cofinancing_gets_both_accounting_infos(self):
+        target = Ticket.objects.create(name='T3', topic=self.topic)
+
+        formset = self._formset(CofinancingAdmin, target, [{
+            'cofinance_filter_grant': '',
+            'cofinance_source_ticket': str(self.source.pk),
+            'cofinance_source_account': '',
+            'cofinance_amount': '200.00',
+            'accounting_info': '3134h',
+            'cofinance_source_accounting_info': '3134i',
+        }])
+        self.assertTrue(formset.is_valid(), formset.errors)
+        formset.save()
+
+        income = Expediture.objects.get(ticket=target)
+        self.assertEqual(PaymentType.INCOME, income.payment_type)
+        self.assertEqual('3134h', income.accounting_info)
+        self.assertEqual(self.source, income.linked_expenditure.ticket)
+        self.assertEqual(PaymentType.INTERNAL_TRANSFER, income.linked_expenditure.payment_type)
+        self.assertEqual('3134i', income.linked_expenditure.accounting_info)
+
+    def test_expenditure_inline_saves_accounting_info_of_transfer_row(self):
+        formset = self._formset(ExpeditureAdmin, self.source, [{
+            'id': str(self.transfer.pk),
+            'accounting_info': '3134j',
+        }])
+
+        field = formset.forms[0].fields['accounting_info']
+        self.assertFalse(field.disabled)
+        self.assertTrue(formset.forms[0].fields['amount'].disabled)
+
+        self.assertTrue(formset.is_valid(), formset.errors)
+        formset.save()
+
+        self.income.refresh_from_db()
+        self.transfer.refresh_from_db()
+        self.assertEqual('3134j', self.transfer.accounting_info)
+        self.assertEqual(Decimal('500.00'), self.transfer.amount)
+        self.assertEqual(PaymentType.INTERNAL_TRANSFER, self.transfer.payment_type)
+        self.assertEqual('', self.income.accounting_info)
+
+        # The co-financing inline on the target ticket shows the new value.
+        cofinancing_formset = self._formset(CofinancingAdmin, self.target)
+        self.assertEqual('3134j', cofinancing_formset.forms[0].fields['cofinance_source_accounting_info'].initial)
+
+    def test_accounting_info_is_locked_when_pair_is_paid(self):
+        self.transfer.mark_paid()
+
+        income_formset = self._formset(CofinancingAdmin, self.target, [self._income_row('3134k', '3134l')])
+        self.assertTrue(income_formset.forms[0].fields['accounting_info'].disabled)
+        self.assertTrue(income_formset.forms[0].fields['cofinance_source_accounting_info'].disabled)
+        self.assertTrue(income_formset.is_valid(), income_formset.errors)
+        income_formset.save()
+
+        transfer_formset = self._formset(ExpeditureAdmin, self.source, [{
+            'id': str(self.transfer.pk),
+            'accounting_info': '3134m',
+        }])
+        self.assertTrue(transfer_formset.forms[0].fields['accounting_info'].disabled)
+        self.assertTrue(transfer_formset.is_valid(), transfer_formset.errors)
+        transfer_formset.save()
+
+        self.income.refresh_from_db()
+        self.transfer.refresh_from_db()
+        self.assertEqual('', self.income.accounting_info)
+        self.assertEqual('', self.transfer.accounting_info)
+
+    def test_source_accounting_info_is_locked_when_transfer_is_imported(self):
+        self.transfer.accounting_info = '3134n'
+        self.transfer.import_info = ImportInfo.objects.create(order_number='123')
+        self.transfer.save()
+
+        formset = self._formset(CofinancingAdmin, self.target, [self._income_row('3134o', '3134p')])
+        self.assertTrue(formset.forms[0].fields['cofinance_source_accounting_info'].disabled)
+        self.assertTrue(formset.is_valid(), formset.errors)
+        formset.save()
+
+        self.transfer.refresh_from_db()
+        self.assertEqual('3134n', self.transfer.accounting_info)
 
 
 class FioMessageMatchingTests(SimpleTestCase):

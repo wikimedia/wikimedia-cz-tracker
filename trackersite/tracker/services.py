@@ -38,7 +38,14 @@ class PaymentService:
         return expenditure
 
     @staticmethod
-    def process_cofinancing_link(expenditure, source_ticket, source_account, cof_amount, commit=True):
+    def process_cofinancing_link(expenditure, source_ticket, source_account, cof_amount, commit=True, source_accounting_info=None):
+        """
+        Link an income row to its co-financing source.
+
+        source_accounting_info is the accounting info of the internal transfer
+        on the source ticket. None keeps the current value. A source account
+        has no transfer, thus this function ignores the value for it.
+        """
         if not cof_amount:
             return expenditure
 
@@ -57,6 +64,8 @@ class PaymentService:
                         linked.ticket = source_ticket
                         linked.amount = abs(cof_amount)
                         linked.description = f"Co-financing for ticket #{expenditure.ticket_id}"
+                        if source_accounting_info is not None:
+                            linked.accounting_info = source_accounting_info
                         linked.save()
                     else:
                         transfer = Expediture.objects.create(
@@ -64,6 +73,7 @@ class PaymentService:
                             description=f"Co-financing for ticket #{expenditure.ticket_id}",
                             amount=abs(cof_amount),
                             payment_type=PaymentType.INTERNAL_TRANSFER,
+                            accounting_info=source_accounting_info or '',
                             linked_expenditure=expenditure
                         )
                         expenditure.linked_expenditure = transfer

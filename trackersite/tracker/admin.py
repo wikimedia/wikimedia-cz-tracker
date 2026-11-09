@@ -182,10 +182,12 @@ class CofinancingAdminForm(forms.ModelForm):
     cofinance_source_ticket = forms.ModelChoiceField(queryset=models.Ticket.objects.all(), required=False, label=_('Source ticket'))
     cofinance_source_account = forms.ChoiceField(choices=[], required=False, label=_('Source account'))
     cofinance_amount = forms.DecimalField(max_digits=10, decimal_places=2, required=False, label=_('Amount'))
+    # This field edits the accounting info of the internal transfer on the source ticket.
+    cofinance_source_accounting_info = forms.CharField(max_length=255, required=False, label=_('Source accounting info'))
 
     class Meta:
         model = models.Expediture
-        fields = ('cofinance_filter_grant', 'cofinance_source_ticket', 'cofinance_source_account', 'cofinance_amount')
+        fields = ('cofinance_filter_grant', 'cofinance_source_ticket', 'cofinance_source_account', 'cofinance_amount', 'accounting_info', 'cofinance_source_accounting_info')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -204,8 +206,10 @@ class CofinancingAdminForm(forms.ModelForm):
             self.fields['cofinance_amount'].initial = abs(self.instance.amount) if self.instance.amount else None
 
             if self.instance.linked_expenditure:
-                source_ticket_id = self.instance.linked_expenditure.ticket_id
+                linked = self.instance.linked_expenditure
+                source_ticket_id = linked.ticket_id
                 self.fields['cofinance_source_ticket'].initial = source_ticket_id
+                self.fields['cofinance_source_accounting_info'].initial = linked.accounting_info
 
                 source_ticket = models.Ticket.objects.filter(id=source_ticket_id).select_related('topic__grant').first()
                 if source_ticket and source_ticket.topic and source_ticket.topic.grant_id:
@@ -214,6 +218,12 @@ class CofinancingAdminForm(forms.ModelForm):
                     # Django validates the initial value of a disabled field. If the
                     # value is not a choice, a paid co-financing cannot be saved.
                     grant_filter |= Q(pk=source_ticket.topic.grant_id)
+
+                # Use the same lock as the expenditure inline on the source ticket.
+                # Only the transfer goes to the bank, thus only the transfer is imported.
+                linked_is_imported = linked.import_info and linked.import_info.imported_at and not linked.import_info.error
+                if linked.paid or linked_is_imported:
+                    self.fields['cofinance_source_accounting_info'].disabled = True
 
             elif self.instance.description and "account " in self.instance.description:
                 parts = self.instance.description.split("account ")
@@ -252,9 +262,11 @@ class CofinancingAdminForm(forms.ModelForm):
         source_ticket = self.cleaned_data.get('cofinance_source_ticket')
         source_account = self.cleaned_data.get('cofinance_source_account')
         cof_amount = self.cleaned_data.get('cofinance_amount')
+        source_accounting_info = self.cleaned_data.get('cofinance_source_accounting_info')
 
         expenditure = PaymentService.process_cofinancing_link(
-            expenditure, source_ticket, source_account, cof_amount, commit=commit
+            expenditure, source_ticket, source_account, cof_amount, commit=commit,
+            source_accounting_info=source_accounting_info
         )
 
         return expenditure
@@ -273,7 +285,7 @@ class CofinancingAdmin(admin.StackedInline):
     fieldsets = (
         (None, {
             'fields': (
-                ('cofinance_filter_grant', 'cofinance_source_ticket', 'cofinance_source_account', 'cofinance_amount', 'get_linked_ticket'),
+                ('cofinance_filter_grant', 'cofinance_source_ticket', 'cofinance_source_account', 'cofinance_amount', 'accounting_info', 'cofinance_source_accounting_info', 'get_linked_ticket'),
             )
         }),
     )
