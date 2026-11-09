@@ -163,6 +163,11 @@ table.expenditures-table {
 	background-color: #f0f0f0;
 }
 
+/* A locked row can have an editable field, for example the wage checkbox of a co-financing row. */
+.is-locked-row table.expenditures-table input:enabled {
+	cursor: auto;
+}
+
 table.expenditures-table tr:hover td {
 	background-color: transparent;
 }

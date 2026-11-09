@@ -2731,13 +2731,11 @@ class AdminExpeditureDeleteGuardTests(TestCase):
         self.assertFalse(Expediture.objects.filter(pk=expenditure.pk).exists())
 
 
-class AdminCofinancingAccountingInfoTests(TestCase):
+class CofinancingPairTestCase(TestCase):
     """
     A co-financing pair is two rows. The income row is on the target ticket.
-    The internal transfer is on the source ticket. Each row has its own
-    accounting info. The co-financing inline on the target ticket edits both
-    values. The expenditure inline on the source ticket also edits the value
-    of the transfer.
+    The internal transfer is on the source ticket. This class makes one pair
+    and builds the admin inlines that edit it.
     """
 
     def setUp(self):
@@ -2781,8 +2779,12 @@ class AdminCofinancingAccountingInfoTests(TestCase):
 
         return formset_class(data, instance=ticket, prefix=prefix, queryset=inline.get_queryset(self.request))
 
-    def _income_row(self, accounting_info, source_accounting_info=''):
-        return {
+    def _income_row(self, accounting_info, source_accounting_info='', **extra):
+        """
+        Give the POST data of the income row in the co-financing inline.
+        Give extra to add more fields, for example wage='on'.
+        """
+        row = {
             'id': str(self.income.pk),
             'cofinance_filter_grant': '',
             'cofinance_source_ticket': str(self.source.pk),
@@ -2791,6 +2793,17 @@ class AdminCofinancingAccountingInfoTests(TestCase):
             'accounting_info': accounting_info,
             'cofinance_source_accounting_info': source_accounting_info,
         }
+        row.update(extra)
+        return row
+
+
+class AdminCofinancingAccountingInfoTests(CofinancingPairTestCase):
+    """
+    Each row of a co-financing pair has its own accounting info. The
+    co-financing inline on the target ticket edits both values. The
+    expenditure inline on the source ticket also edits the value of the
+    transfer.
+    """
 
     def test_cofinancing_inline_offers_both_accounting_infos(self):
         self.transfer.accounting_info = '3134e'
@@ -2913,6 +2926,148 @@ class AdminCofinancingAccountingInfoTests(TestCase):
 
         self.transfer.refresh_from_db()
         self.assertEqual('3134n', self.transfer.accounting_info)
+
+
+class CofinancingWageTests(CofinancingPairTestCase):
+    """
+    Each row of a co-financing pair has its own wage flag. The user and the
+    admin can set it on both rows, until the pair is paid or imported. The
+    other fields of the rows stay locked.
+    """
+
+    def setUp(self):
+        super().setUp()
+        self.owner = User.objects.create_user(username='owner', password='bar')
+        for ticket in (self.target, self.source):
+            ticket.requested_user = self.owner
+            ticket.save()
+
+        # The ticket edit form of each ticket shows one co-financing row.
+        self.rows = ((self.target, self.income), (self.source, self.transfer))
+
+    def _post_ticket_form(self, ticket, row):
+        """Submit the ticket edit form with one existing expenditure row."""
+        data = {
+            'name': ticket.name,
+            'topic': ticket.topic.id,
+            'description': 'desc',
+            'deposit': '0',
+            'expediture-INITIAL_FORMS': '1',
+            'expediture-TOTAL_FORMS': '1',
+            'preexpediture-INITIAL_FORMS': '0',
+            'preexpediture-TOTAL_FORMS': '0',
+        }
+        for name, value in row.items():
+            data['expediture-0-%s' % name] = value
+
+        return self.client.post(reverse('edit_ticket', kwargs={'pk': ticket.id}), data)
+
+    def test_cofinancing_inline_saves_wage_of_income_row(self):
+        formset = self._formset(CofinancingAdmin, self.target, [self._income_row('', wage='on')])
+        self.assertFalse(formset.forms[0].fields['wage'].disabled)
+        self.assertTrue(formset.is_valid(), formset.errors)
+        formset.save()
+
+        self.income.refresh_from_db()
+        self.transfer.refresh_from_db()
+        self.assertTrue(self.income.wage)
+        self.assertEqual(Decimal('-500.00'), self.income.amount)
+        self.assertFalse(self.transfer.wage)
+
+    def test_expenditure_inline_saves_wage_of_transfer_row(self):
+        formset = self._formset(ExpeditureAdmin, self.source, [{
+            'id': str(self.transfer.pk),
+            'wage': 'on',
+        }])
+        self.assertFalse(formset.forms[0].fields['wage'].disabled)
+        self.assertTrue(formset.forms[0].fields['amount'].disabled)
+        self.assertTrue(formset.is_valid(), formset.errors)
+        formset.save()
+
+        self.income.refresh_from_db()
+        self.transfer.refresh_from_db()
+        self.assertTrue(self.transfer.wage)
+        self.assertEqual(Decimal('500.00'), self.transfer.amount)
+        self.assertEqual(PaymentType.INTERNAL_TRANSFER, self.transfer.payment_type)
+        self.assertFalse(self.income.wage)
+
+    def test_admin_locks_wage_when_pair_is_paid(self):
+        self.transfer.mark_paid()
+
+        income_formset = self._formset(CofinancingAdmin, self.target, [self._income_row('', wage='on')])
+        self.assertTrue(income_formset.forms[0].fields['wage'].disabled)
+        self.assertTrue(income_formset.is_valid(), income_formset.errors)
+        income_formset.save()
+
+        transfer_formset = self._formset(ExpeditureAdmin, self.source, [{
+            'id': str(self.transfer.pk),
+            'wage': 'on',
+        }])
+        self.assertTrue(transfer_formset.forms[0].fields['wage'].disabled)
+        self.assertTrue(transfer_formset.is_valid(), transfer_formset.errors)
+        transfer_formset.save()
+
+        self.income.refresh_from_db()
+        self.transfer.refresh_from_db()
+        self.assertFalse(self.income.wage)
+        self.assertFalse(self.transfer.wage)
+
+    def test_ticket_form_offers_wage_of_cofinancing_rows(self):
+        self.client.force_login(self.owner)
+
+        for ticket, row in self.rows:
+            with self.subTest(payment_type=row.payment_type):
+                response = self.client.get(reverse('edit_ticket', kwargs={'pk': ticket.id}))
+                self.assertEqual(200, response.status_code)
+
+                form = response.context['expeditures'].forms[0]
+                self.assertEqual(row, form.instance)
+                self.assertFalse(form.fields['wage'].disabled)
+                for name in ('description', 'amount', 'payment_type'):
+                    self.assertTrue(form.fields[name].disabled, name)
+
+                html = response.content.decode('utf-8')
+                self.assertRegex(html, r'<input type="checkbox" name="expediture-0-wage"(?![^>]*disabled)[^>]*>')
+
+    def test_ticket_form_saves_wage_of_cofinancing_rows(self):
+        self.client.force_login(self.owner)
+
+        for ticket, row in self.rows:
+            with self.subTest(payment_type=row.payment_type):
+                description, amount = row.description, row.amount
+
+                # The form ignores a change to a locked field.
+                response = self._post_ticket_form(ticket, {
+                    'id': str(row.pk),
+                    'description': 'changed',
+                    'amount': '1.00',
+                    'wage': 'on',
+                })
+                self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
+
+                row.refresh_from_db()
+                self.assertTrue(row.wage)
+                self.assertEqual(description, row.description)
+                self.assertEqual(amount, row.amount)
+
+                # The user can also remove the wage flag.
+                response = self._post_ticket_form(ticket, {'id': str(row.pk)})
+                self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
+
+                row.refresh_from_db()
+                self.assertFalse(row.wage)
+
+    def test_ticket_form_locks_wage_of_paid_cofinancing_rows(self):
+        self.transfer.mark_paid()
+        self.client.force_login(self.owner)
+
+        for ticket, row in self.rows:
+            with self.subTest(payment_type=row.payment_type):
+                response = self._post_ticket_form(ticket, {'id': str(row.pk), 'wage': 'on'})
+                self.assertRedirects(response, reverse('ticket_detail', kwargs={'pk': ticket.id}))
+
+                row.refresh_from_db()
+                self.assertFalse(row.wage)
 
 
 class FioMessageMatchingTests(SimpleTestCase):

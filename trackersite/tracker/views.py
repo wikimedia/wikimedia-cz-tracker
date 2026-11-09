@@ -424,6 +424,10 @@ class FrontendExpeditureFormSet(ExtraItemFormSet):
 
 
 class ExpeditureForm(ExpediturePaymentMixin):
+    # The payment automation owns a co-financing row. The user can only mark it as a wage.
+    # A paid or imported row stays fully locked.
+    COFINANCING_EDITABLE_FIELDS = ('wage',)
+
     class Meta:
         model = Expediture
         fields = ('description', 'amount', 'wage', 'payment_type')
@@ -454,9 +458,13 @@ class ExpeditureForm(ExpediturePaymentMixin):
             is_income = self.instance.payment_type == PaymentType.INCOME
             is_internal = self.instance.payment_type == PaymentType.INTERNAL_TRANSFER
 
-            if self.instance.paid or is_imported or is_income or is_internal:
+            if self.instance.paid or is_imported:
                 for field_name, field in self.fields.items():
                     field.disabled = True
+            elif is_income or is_internal:
+                for field_name, field in self.fields.items():
+                    if field_name not in self.COFINANCING_EDITABLE_FIELDS:
+                        field.disabled = True
 
         self.fields['saved_account'].queryset = qs.distinct()
 
@@ -480,8 +488,11 @@ class ExpeditureForm(ExpediturePaymentMixin):
             is_income = self.instance.payment_type == PaymentType.INCOME
             is_internal = self.instance.payment_type == PaymentType.INTERNAL_TRANSFER
 
-            if self.instance.paid or is_imported or is_income or is_internal:
+            if self.instance.paid or is_imported:
                 if self.has_changed():
+                    raise ValidationError(_('You cannot edit this expenditure.'))
+            elif is_income or is_internal:
+                if set(self.changed_data) - set(self.COFINANCING_EDITABLE_FIELDS):
                     raise ValidationError(_('You cannot edit this expenditure.'))
 
         return cleaned_data

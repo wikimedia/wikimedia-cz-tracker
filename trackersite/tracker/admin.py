@@ -113,7 +113,7 @@ class ExpeditureAdminForm(ExpediturePaymentMixin):
 
         elif is_internal:
             for field_name, field in self.fields.items():
-                if field_name != 'accounting_info':
+                if field_name not in ('accounting_info', 'wage'):
                     field.disabled = True
 
     def clean_account_number(self):
@@ -187,7 +187,7 @@ class CofinancingAdminForm(forms.ModelForm):
 
     class Meta:
         model = models.Expediture
-        fields = ('cofinance_filter_grant', 'cofinance_source_ticket', 'cofinance_source_account', 'cofinance_amount', 'accounting_info', 'cofinance_source_accounting_info')
+        fields = ('cofinance_filter_grant', 'cofinance_source_ticket', 'cofinance_source_account', 'cofinance_amount', 'wage', 'accounting_info', 'cofinance_source_accounting_info')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -285,7 +285,7 @@ class CofinancingAdmin(admin.StackedInline):
     fieldsets = (
         (None, {
             'fields': (
-                ('cofinance_filter_grant', 'cofinance_source_ticket', 'cofinance_source_account', 'cofinance_amount', 'accounting_info', 'cofinance_source_accounting_info', 'get_linked_ticket'),
+                ('cofinance_filter_grant', 'cofinance_source_ticket', 'cofinance_source_account', 'cofinance_amount', 'wage', 'accounting_info', 'cofinance_source_accounting_info', 'get_linked_ticket'),
             )
         }),
     )

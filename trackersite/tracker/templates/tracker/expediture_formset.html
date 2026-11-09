@@ -55,12 +55,8 @@
 							{% endif %}
 						</td>
 						<td class="field_wage{% if form.wage.errors %} invalid{% endif %} center-middle">
-							{% if form.instance.is_cofinancing %}
-								{{ form.wage|attr:"disabled:disabled" }}
-							{% else %}
-								{{ form.wage }}
-								{{ form.wage.errors.as_ul }}
-							{% endif %}
+							{{ form.wage }}
+							{{ form.wage.errors.as_ul }}
 						</td>
 						<td class="field_payment_type{% if form.payment_type.errors %} invalid{% endif %}">
 							{% if form.instance.is_cofinancing %}
