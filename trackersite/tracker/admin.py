@@ -4,6 +4,7 @@ import json
 from django.urls import re_path
 from django.contrib import admin
 from django import forms
+from django.db.models import Q
 from django.forms.formsets import DELETION_FIELD_NAME
 from django.forms.models import BaseInlineFormSet
 from django.utils.html import format_html
@@ -177,7 +178,7 @@ class ExpeditureAdmin(admin.StackedInline):
 
 
 class CofinancingAdminForm(forms.ModelForm):
-    cofinance_filter_grant = forms.ModelChoiceField(queryset=models.Grant.objects.all(), required=False, label=_('Filter by Grant'))
+    cofinance_filter_grant = forms.ModelChoiceField(queryset=models.Grant.objects.none(), required=False, label=_('Filter by Grant'))
     cofinance_source_ticket = forms.ModelChoiceField(queryset=models.Ticket.objects.all(), required=False, label=_('Source ticket'))
     cofinance_source_account = forms.ChoiceField(choices=[], required=False, label=_('Source account'))
     cofinance_amount = forms.DecimalField(max_digits=10, decimal_places=2, required=False, label=_('Amount'))
@@ -196,6 +197,9 @@ class CofinancingAdminForm(forms.ModelForm):
         mapping = {t.id: t.topic.grant_id for t in tickets if t.topic and t.topic.grant_id}
         self.fields['cofinance_source_ticket'].widget.attrs['data-ticket-grants'] = json.dumps(mapping)
 
+        # Show only the active grants, that is, the grants with a topic that is open for tickets.
+        grant_filter = Q(topic__open_for_tickets=True)
+
         if self.instance and self.instance.pk:
             self.fields['cofinance_amount'].initial = abs(self.instance.amount) if self.instance.amount else None
 
@@ -206,6 +210,10 @@ class CofinancingAdminForm(forms.ModelForm):
                 source_ticket = models.Ticket.objects.filter(id=source_ticket_id).select_related('topic__grant').first()
                 if source_ticket and source_ticket.topic and source_ticket.topic.grant_id:
                     self.fields['cofinance_filter_grant'].initial = source_ticket.topic.grant_id
+                    # Keep the grant of the source ticket, also when the grant is closed.
+                    # Django validates the initial value of a disabled field. If the
+                    # value is not a choice, a paid co-financing cannot be saved.
+                    grant_filter |= Q(pk=source_ticket.topic.grant_id)
 
             elif self.instance.description and "account " in self.instance.description:
                 parts = self.instance.description.split("account ")
@@ -217,6 +225,8 @@ class CofinancingAdminForm(forms.ModelForm):
             if self.instance.paid or is_imported:
                 for field_name, field in self.fields.items():
                     field.disabled = True
+
+        self.fields['cofinance_filter_grant'].queryset = models.Grant.objects.filter(grant_filter).distinct()
 
     def clean(self):
         cleaned_data = super().clean()

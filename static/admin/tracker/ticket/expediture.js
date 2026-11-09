@@ -93,6 +93,12 @@ document.addEventListener( 'DOMContentLoaded', async () => {
 		const mappingData = ticketSelect.getAttribute( 'data-ticket-grants' );
 		const mapping = mappingData ? JSON.parse( mappingData ) : {};
 
+		// The mapping holds the grant IDs as numbers, but the value of the
+		// grant select is a string. Compare the two as strings.
+		function ticketGrant( ticketId ) {
+			return ticketId in mapping ? String( mapping[ ticketId ] ) : '';
+		}
+
 		Array.from( ticketSelect.options ).forEach( ( opt ) => {
 			if ( opt.value === '' ) {
 				opt.hidden = false;
@@ -100,7 +106,7 @@ document.addEventListener( 'DOMContentLoaded', async () => {
 				return;
 			}
 
-			if ( !selectedGrant || mapping[ opt.value ] === selectedGrant ) {
+			if ( !selectedGrant || ticketGrant( opt.value ) === selectedGrant ) {
 				opt.hidden = false;
 				opt.disabled = false;
 			} else {
@@ -109,7 +115,7 @@ document.addEventListener( 'DOMContentLoaded', async () => {
 			}
 		} );
 
-		if ( ticketSelect.value && mapping[ ticketSelect.value ] !== selectedGrant && selectedGrant !== '' ) {
+		if ( ticketSelect.value && ticketGrant( ticketSelect.value ) !== selectedGrant && selectedGrant !== '' ) {
 			ticketSelect.value = '';
 			ticketSelect.dispatchEvent( new Event( 'change', { bubbles: true } ) );
 		}

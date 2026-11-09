@@ -32,7 +32,7 @@ from social_django.models import UserSocialAuth
 
 from socialauth.api import MediaWiki, MediaWikiError
 
-from tracker.admin import ExpeditureInlineFormSet
+from tracker.admin import CofinancingAdminForm, ExpeditureInlineFormSet
 from tracker.fio import FioPaymentManager
 from tracker.mediainfo import MediaInfoSync
 from tracker.services import PaymentService
@@ -2594,6 +2594,56 @@ class CofinancingServiceTests(TestCase):
         self.expenditure.refresh_from_db()
         self.assertFalse(transfer.paid)
         self.assertFalse(self.expenditure.paid)
+
+
+class CofinancingAdminFormTests(TestCase):
+    def setUp(self):
+        self.open_grant = Grant.objects.create(full_name='open', short_name='open', slug='open')
+        # Two open topics make sure that the grant shows only one time.
+        Topic.objects.create(name='open 1', grant=self.open_grant, open_for_tickets=True)
+        Topic.objects.create(name='open 2', grant=self.open_grant, open_for_tickets=True)
+        self.target_topic = Topic.objects.create(name='closed in open grant', grant=self.open_grant, open_for_tickets=False)
+
+        self.closed_grant = Grant.objects.create(full_name='closed', short_name='closed', slug='closed')
+        self.closed_topic = Topic.objects.create(name='closed', grant=self.closed_grant, open_for_tickets=False)
+
+        self.empty_grant = Grant.objects.create(full_name='empty', short_name='empty', slug='empty')
+
+    def grant_choices(self, form):
+        return list(form.fields['cofinance_filter_grant'].queryset)
+
+    def test_grant_filter_shows_only_active_grants(self):
+        form = CofinancingAdminForm()
+        self.assertEqual([self.open_grant], self.grant_choices(form))
+
+    def test_grant_filter_keeps_closed_grant_of_existing_source(self):
+        target = Ticket.objects.create(name='target', topic=self.target_topic)
+        source = Ticket.objects.create(name='source', topic=self.closed_topic)
+        income = Expediture.objects.create(ticket=target, description='income', amount=0, payment_type=PaymentType.INCOME)
+        PaymentService.process_cofinancing_link(income, source, None, 500)
+        income.refresh_from_db()
+
+        form = CofinancingAdminForm(instance=income)
+        self.assertEqual([self.closed_grant, self.open_grant], self.grant_choices(form))
+        self.assertEqual(self.closed_grant.id, form.fields['cofinance_filter_grant'].initial)
+
+    def test_paid_cofinancing_from_closed_grant_is_valid(self):
+        """
+        A paid co-financing has disabled fields. Django then validates the
+        initial values. The grant of the source ticket must thus stay a valid
+        choice, also when the grant is closed.
+        """
+        target = Ticket.objects.create(name='target', topic=self.target_topic)
+        source = Ticket.objects.create(name='source', topic=self.closed_topic)
+        income = Expediture.objects.create(ticket=target, description='income', amount=0, payment_type=PaymentType.INCOME)
+        PaymentService.process_cofinancing_link(income, source, None, 500)
+        income.refresh_from_db()
+        income.mark_paid()
+        income.refresh_from_db()
+
+        form = CofinancingAdminForm(data={}, instance=income)
+        self.assertTrue(form.fields['cofinance_filter_grant'].disabled)
+        self.assertTrue(form.is_valid(), form.errors)
 
 
 class AdminExpeditureDeleteGuardTests(TestCase):
