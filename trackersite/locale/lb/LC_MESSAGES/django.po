@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-11-12 12:07:29+0000\n"
+"PO-Revision-Date: 2026-11-16 12:08:29+0000\n"
 "X-POT-Import-Date: 2026-11-09 14:30:27+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1167,7 +1167,7 @@ msgstr ""
 
 #: tracker/models.py:1190
 msgid "account"
-msgstr ""
+msgstr "Kont"
 
 #: tracker/models.py:1191 tracker/models.py:1529
 msgid "date"

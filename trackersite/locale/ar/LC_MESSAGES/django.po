@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2026-11-12 12:07:28+0000\n"
+"PO-Revision-Date: 2026-11-16 12:08:29+0000\n"
 "X-POT-Import-Date: 2026-11-09 14:30:27+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -330,7 +330,7 @@ msgstr "الكمية"
 
 #: tracker/admin.py:186
 msgid "Source accounting info"
-msgstr ""
+msgstr "معلومات محاسبية مصدر"
 
 #: tracker/admin.py:250
 msgid "You must enter a positive amount for co-financing."
@@ -1171,11 +1171,11 @@ msgstr "خطأ"
 
 #: tracker/models.py:1189
 msgid "Fio transaction ID"
-msgstr ""
+msgstr "رقم تعريف المعاملة فيو"
 
 #: tracker/models.py:1190
 msgid "account"
-msgstr ""
+msgstr "الحساب"
 
 #: tracker/models.py:1191 tracker/models.py:1529
 msgid "date"
@@ -1188,7 +1188,7 @@ msgstr "المبلغ"
 
 #: tracker/models.py:1193
 msgid "payment reference"
-msgstr ""
+msgstr "إشارة الدفع"
 
 #: tracker/models.py:1195 tracker/templates/tracker/ticket_form.html:25
 msgid "expediture"
@@ -1196,15 +1196,15 @@ msgstr "النفقات"
 
 #: tracker/models.py:1198
 msgid "reconciled at"
-msgstr ""
+msgstr "تم التوفيق بين"
 
 #: tracker/models.py:1204
 msgid "Reconciled transaction"
-msgstr ""
+msgstr "المعاملة المُصالحة"
 
 #: tracker/models.py:1205
 msgid "Reconciled transactions"
-msgstr ""
+msgstr "المعاملات المُصالحة"
 
 #: tracker/models.py:1211
 msgid "Ticket this expediture belongs to"
@@ -1860,7 +1860,7 @@ msgstr "حذف الحساب البنكي"
 #: tracker/templates/tracker/bank_account_confirm_delete.html:10
 #, python-format
 msgid "\n			Do you really want to remove <strong>%(object)s</strong>?\n			"
-msgstr ""
+msgstr "\nهل تريد حقًا إزالة <strong>%(object)s</strong> ?\n "
 
 #: tracker/templates/tracker/bank_account_confirm_delete.html:16
 msgid "The account will be removed from your list of accounts, but it will be archived for our historical data."
